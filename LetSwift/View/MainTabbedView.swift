@@ -17,7 +17,6 @@ struct MainTabbedView: View {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
-                    
             }
             .tag(0)
             
@@ -27,7 +26,6 @@ struct MainTabbedView: View {
                         Image(systemName: "calendar")
                         Text("Schedule")
                     }
-                    
             }
             .tag(1)
             
@@ -37,7 +35,6 @@ struct MainTabbedView: View {
                         Image(systemName: "film")
                         Text("Video")
                     }
-                    
             }
             .tag(2)
             
@@ -47,7 +44,6 @@ struct MainTabbedView: View {
                         Image(systemName: "person.fill")
                         Text("People")
                     }
-                    
             }
             .tag(3)
             
@@ -57,7 +53,6 @@ struct MainTabbedView: View {
                         Image(systemName: "map.fill")
                         Text("Venue")
                     }
-                    
             }
             .tag(4)
             
@@ -67,7 +62,6 @@ struct MainTabbedView: View {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
-                    
             }
             .tag(5)
         }
