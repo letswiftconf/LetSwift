@@ -16,7 +16,7 @@ extension OSLog {
     }
 
     static var network: OSLog {
-            return log(category: "default")
+            return log(category: "network")
         }
     
     // MARK: - Helper
