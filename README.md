@@ -14,7 +14,7 @@ Original version created by
 Version 2 created by members of [Cleanios](https://github.com/cleanios)
 * [BumMo Koo](https://github.com/gbmksquare)
 * [HyungJung Kim](https://github.com/clsoft)
-* [NaYong](https://github.com/yoee)
+* [NaYong Kim](https://github.com/yoee)
 * [HyunAh Jeong](https://github.com/hyunable)
 * [ChangWoo Son](https://github.com/kor45cw)
 
