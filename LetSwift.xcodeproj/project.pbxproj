@@ -15,6 +15,8 @@
 		168AE13B22EBF1DA00DFBB6F /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE13A22EBF1DA00DFBB6F /* PeopleView.swift */; };
 		168AE13D22EBF20E00DFBB6F /* VenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE13C22EBF20E00DFBB6F /* VenueView.swift */; };
 		168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE13E22EBF22200DFBB6F /* SettingsView.swift */; };
+		16DDCF2922EC25900075561F /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2822EC25900075561F /* SafariView.swift */; };
+		16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */; };
 		218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28522EAEF9900A6BEAB /* AppDelegate.swift */; };
 		218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */; };
 		218FD28A22EAEF9900A6BEAB /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28922EAEF9900A6BEAB /* MainTabbedView.swift */; };
@@ -32,6 +34,8 @@
 		168AE13A22EBF1DA00DFBB6F /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		168AE13C22EBF20E00DFBB6F /* VenueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueView.swift; sourceTree = "<group>"; };
 		168AE13E22EBF22200DFBB6F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		16DDCF2822EC25900075561F /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SafariView.swift; path = ../../../../../../../../../System/Volumes/Data/Users/gbm/Developer/Projects/Cleanios/LetSwift/LetSwift/View/Settings/SafariView.swift; sourceTree = "<group>"; };
+		16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SafariNavigationLink.swift; path = ../../../../../../../../../System/Volumes/Data/Users/gbm/Developer/Projects/Cleanios/LetSwift/LetSwift/View/Settings/SafariNavigationLink.swift; sourceTree = "<group>"; };
 		218FD28222EAEF9900A6BEAB /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FD28522EAEF9900A6BEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				168AE13E22EBF22200DFBB6F /* SettingsView.swift */,
+				16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */,
+				16DDCF2822EC25900075561F /* SafariView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */,
+				16DDCF2922EC25900075561F /* SafariView.swift in Sources */,
 				168AE13922EBF1C000DFBB6F /* VideoView.swift in Sources */,
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
 				168AE13B22EBF1DA00DFBB6F /* PeopleView.swift in Sources */,
@@ -259,6 +266,7 @@
 				168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */,
 				168AE13D22EBF20E00DFBB6F /* VenueView.swift in Sources */,
 				168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */,
+				16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */,
 				168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */,
 				168AE13722EBF18D00DFBB6F /* ScheduleView.swift in Sources */,
 			);
