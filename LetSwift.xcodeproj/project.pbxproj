@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		168AE12B22EBEB6300DFBB6F /* OSLog .swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12A22EBEB6300DFBB6F /* OSLog .swift */; };
+		168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12A22EBEB6300DFBB6F /* OSLog.swift */; };
 		168AE12D22EBEEDE00DFBB6F /* api.json in Resources */ = {isa = PBXBuildFile; fileRef = 168AE12C22EBEEDE00DFBB6F /* api.json */; };
 		168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12F22EBF11600DFBB6F /* HomeView.swift */; };
 		168AE13722EBF18D00DFBB6F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE13622EBF18D00DFBB6F /* ScheduleView.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		168AE12A22EBEB6300DFBB6F /* OSLog .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog .swift"; sourceTree = "<group>"; };
+		168AE12A22EBEB6300DFBB6F /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		168AE12C22EBEEDE00DFBB6F /* api.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = api.json; sourceTree = "<group>"; };
 		168AE12F22EBF11600DFBB6F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		168AE13622EBF18D00DFBB6F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		168AE12922EBEB5900DFBB6F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				168AE12A22EBEB6300DFBB6F /* OSLog .swift */,
+				168AE12A22EBEB6300DFBB6F /* OSLog.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 				168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */,
 				168AE13D22EBF20E00DFBB6F /* VenueView.swift in Sources */,
 				168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */,
-				168AE12B22EBEB6300DFBB6F /* OSLog .swift in Sources */,
+				168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */,
 				168AE13722EBF18D00DFBB6F /* ScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
