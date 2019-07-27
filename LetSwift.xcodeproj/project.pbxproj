@@ -34,8 +34,8 @@
 		168AE13A22EBF1DA00DFBB6F /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		168AE13C22EBF20E00DFBB6F /* VenueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueView.swift; sourceTree = "<group>"; };
 		168AE13E22EBF22200DFBB6F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		16DDCF2822EC25900075561F /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SafariView.swift; path = ../../../../../../../../../System/Volumes/Data/Users/gbm/Developer/Projects/Cleanios/LetSwift/LetSwift/View/Settings/SafariView.swift; sourceTree = "<group>"; };
-		16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SafariNavigationLink.swift; path = ../../../../../../../../../System/Volumes/Data/Users/gbm/Developer/Projects/Cleanios/LetSwift/LetSwift/View/Settings/SafariNavigationLink.swift; sourceTree = "<group>"; };
+		16DDCF2822EC25900075561F /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariNavigationLink.swift; sourceTree = "<group>"; };
 		218FD28222EAEF9900A6BEAB /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FD28522EAEF9900A6BEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
