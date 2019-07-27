@@ -14,10 +14,10 @@ extension OSLog {
     static var `default`: OSLog {
         return log(category: "default")
     }
-
+    
     static var network: OSLog {
-            return log(category: "network")
-        }
+        return log(category: "network")
+    }
     
     // MARK: - Helper
     private static func log(category: String) -> OSLog {
