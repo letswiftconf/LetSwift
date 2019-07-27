@@ -1,0 +1,433 @@
+{ 
+	"videos":[
+		{
+		"year": "2017",
+		"table": [
+			{
+				"time": "10:00 - 10:20",
+				"name": "김정",
+				"title": "키노트",
+				"link": "https://youtu.be/pPcijkdS6TY",
+				"description": ""
+			},
+			{
+				"time": "10:25 - 10:55",
+				"name": "김영후",
+				"title": "What\'s New Swift 4",
+				"link": "https://youtu.be/uIqP4SmSFww",
+				"description": ""
+			},
+			{
+				"time": "11:00 - 11:30",
+				"name": "유용하",
+				"title": "Swift vs. Kotlin",
+				"link": "https://youtu.be/1wmn97Csi9g",
+				"description": ""
+			},
+			{
+				"time": "11:35 - 12:05",
+				"name": "허혁",
+				"title": "Concurrency in Swift",
+				"link": "https://youtu.be/0yj6ftn1Nzw",
+				"description": ""
+			},
+			{
+				"time": "13:00 - 13:30",
+				"name": "이선협",
+				"title": "Metal기반 특별한 UI/UX 제공하기",
+				"link": "https://youtu.be/mB9d5RDNryw",
+				"description": ""
+			},
+			{
+				"time": "13:35 - 14:05",
+				"name": "이봉원",
+				"title": "iOS 11 ARKit 시작하기",
+				"link": "https://youtu.be/ODQE1u8S8_8",
+				"description": ""
+			},
+			{
+				"time": "14:10 - 14:40",
+				"name": "손민탁",
+				"title": "토스의 개발/배포 환경",
+				"link": "https://youtu.be/338FdLzGhhY",
+				"description": ""
+			},
+			{
+				"time": "14:45 - 15:15",
+				"name": "Bob Lee",
+				"title": "Serverless vs. Server-side Swift",
+				"link": "https://youtu.be/3eneYtXdmR4",
+				"description": ""
+			},
+			{
+				"time": "16:00 - 16:30",
+				"name": "최완복",
+				"title": "RxSwift 활용하기",
+				"link": "https://youtu.be/WN6s3xWZ3tw",
+				"description": ""
+			},
+			{
+				"time": "16:35 - 17:05",
+				"name": "전수열",
+				"title": "ReactorKit으로 단방향 반응형 앱 만들기",
+				"link": "https://youtu.be/ASwBnMJNUK4",
+				"description": ""
+			}		
+			]
+		},
+		{
+		"year": "2016",
+		"table": [
+			{
+				"time": "10:00 - 10:25",
+				"name": "박세현",
+				"title": "스위프트 3 소개",
+				"link": "https://www.youtube.com/watch?v=7MfHsBuQQSs",
+				"description": ""
+			},
+			{
+				"time": "10:30 - 11:10",
+				"name": "허혁",
+				"title": "스위프트 개발환경의 변화",
+				"link": "https://www.youtube.com/watch?v=feGlHLMgCs4",
+				"description": ""
+			},
+			{
+				"time": "11:15 - 11:40",
+				"name": "김윤봉",
+				"title": "Do Swift: 스위프트 프로젝트 도전기",
+				"link": "https://www.youtube.com/watch?v=z8TVNbf-qnM",
+				"description": ""
+			},
+			{
+				"time": "11:45 - 12:30",
+				"name": "김정",
+				"title": "스위프트 Internals",
+				"link": "https://www.youtube.com/watch?v=vg3SaKZukMs",
+				"description": ""
+			},
+			{
+				"time": "13:30 - 13:55",
+				"name": "유병한",
+				"title": "안드xxx 개발자를 위한 스위프트",
+				"link": "",
+				"description": ""
+			},
+			{
+				"time": "14:00 - 14:40",
+				"name": "최완복",
+				"title": "RxSwift 시작하기",
+				"link": "https://www.youtube.com/watch?v=twoCv0vf4F0",
+				"description": ""
+			},
+			{
+				"time": "14:45 - 15:10",
+				"name": "윤성관",
+				"title": "스위프트 패키지 매니저",
+				"link": "https://www.youtube.com/watch?v=xH8G-WBVYi0",
+				"description": ""
+			},
+			{
+				"time": "15:15 - 15:55",
+				"name": "조성규",
+				"title": "프로토콜 오리엔티드 프로그래밍",
+				"link": "https://www.youtube.com/watch?v=9gkzHUsQiUc",
+				"description": ""
+			},
+			{
+				"time": "16:20 - 17:00",
+				"name": "유용하",
+				"title": "스위프트 퍼포먼스 이해하기",
+				"link": "https://www.youtube.com/watch?v=z1Gf6EosaUQ",
+				"description": ""
+			},
+			{
+				"time": "17:05 - 17:30",
+				"name": "안병욱",
+				"title": "Docker + 스위프트 서버 사이드",
+				"link": "https://academy.realm.io/kr/posts/letswift-swift-server-side/",
+				"description": ""
+			},
+			{
+				"time": "17:35 - 17:50",
+				"name": "박민우",
+				"title": "Swift 모바일데이터베이스 : Realm",
+				"link": "https://academy.realm.io/kr/posts/realm-swift-mobile-database/",
+				"description": ""
+			}
+			]
+		}
+	], 
+		
+	"schedule":
+		[
+		    {
+				"time": "09:00 - 10:00",
+				"name": "(대회의실)",
+				"title": "🗳 참가 등록 확인 ",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "10:00 - 10:20",
+				"name": "김정",
+				"title": "키노트",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/jung.jpeg",
+				"description": ""
+			},
+			{
+				"time": "10:25 - 10:55",
+				"name": "노수진",
+				"title": "사이드 프로젝트로 앱스토어1위 공략하기",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/soojin.jpeg",
+				"description": ""
+			},
+			{
+				"time": "11:00 - 11:30",
+				"name": "김은영",
+				"title": "iOS 💖Ruby",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/eunyoung.jpeg",
+				"description": ""
+			},
+			{
+				"time": "11:35 - 12:05",
+				"name": "이택규",
+				"title": "TDS (Toss Design System) v2 소개",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/taekgyu.jpeg",
+				"description": ""
+			},
+			{
+				"time": "12:05 - 13:00",
+				"name": "",
+				"title": "😋 점심 시간",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "13:00 - 13:30",
+				"name": "김남현",
+				"title": "RxRIBs, 멀티플랫폼 아키텍처 with Rx",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/namhyun.jpeg",
+				"description": ""
+			},
+			{
+				"time": "13:35 - 14:05",
+				"name": "김태준",
+				"title": "ReactorKit으로 RxSwift 시작하기",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/taejoon.jpeg",
+				"description": ""
+			},
+			{
+				"time": "14:10 - 14:40",
+				"name": "황재욱",
+				"title": "ReSwift와 함께 단방향 아키텍처",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/jaewook.jpeg",
+				"description": ""
+			},
+			{
+				"time": "14:45 - 15:15",
+				"name": "오진성",
+				"title": "RxSwift Internal",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/jinseung.jpeg",
+				"description": ""
+			},
+			{
+				"time": "15:15 - 16:00",
+				"name": "",
+				"title": "☕️ 쉬는시간",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "16:00 - 16:30",
+				"name": "이봉원",
+				"title": "GraphQL over Rest API",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/bongwon.jpeg",
+				"description": ""
+			},
+			{
+				"time": "16:35 - 17:05",
+				"name": "양승헌",
+				"title": "SIMD & MPS in Swift",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/seunghun.jpeg",
+				"description": ""
+			},
+			{
+				"time": "17:10 - 17:40",
+				"name": "홍길동",
+				"title": "☀️ 미스터션샤인",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/hacker.jpeg",
+				"description": ""
+			},
+			{
+				"time": "17:40 - 18:00",
+				"name": "",
+				"title": "🎁 경품 추첨",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			}
+		],
+	"workshop":
+		[
+		    {
+				"time": "09:00 - 10:00",
+				"name": "(소회의실1)",
+				"title": "🗳 참가 등록 확인",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "11:00 - 12:05",
+				"name": "김정",
+				"title": "클린코드와 코드리뷰",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/jung.jpeg",
+				"description": ""
+			},
+			{
+				"time": "12:05 - 13:00",
+				"name": "",
+				"title": "😋 점심 시간",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "13:00 - 14:05",
+				"name": "안정민",
+				"title": "디버깅 with Xcode, LLDB and Chisel",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/jeongmin.jpeg",
+				"description": ""
+			},
+			{
+				"time": "14:10 - 15:15",
+				"name": "이승윤",
+				"title": "AI in iOS",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/seungyoon.jpeg",
+				"description": ""
+			},
+			{
+				"time": "15:15 - 16:00",
+				"name": "",
+				"title": "☕️ 쉬는시간",
+				"link": "",
+				"profile" : "",
+				"description": ""
+			},
+			{
+				"time": "16:00 - 17:05",
+				"name": "전수열",
+				"title": "Let\'s TDD",
+				"link": "",
+				"profile" : "http://letswift.kr/2018/images/speakers/sooyeoul.jpeg",
+				"description": ""
+			}
+		],
+	"news": [
+			{ 
+				"title" : "티켓 판매 예정",
+				"datetime" : "2018년 10월 9일",
+				"description" : "📣 곧 티켓 판매가 시작됩니다! 🚦 주위에 많이 소개해주세요."
+			},
+			{ 
+				"title" : "2017년 행사 사진 및 동영상 링크 업데이트",
+				"datetime" : "2018년 1월 31일",
+				"description" : "드디어 행사 사진과 발표 동영상이 업데이트 되었습니다!"
+			}
+		],
+	"photos": [ 
+		{ 	"title" : "2017년 행사 사진", 
+			"datetime" : "2017년 9월 23일",
+		  	"list" : [
+			  	"/letswift/photos2017/Image_01.JPG",
+			  	"/letswift/photos2017/Image_02.JPG",
+			  	"/letswift/photos2017/Image_03.JPG",
+			  	"/letswift/photos2017/Image_04.JPG",
+			  	"/letswift/photos2017/Image_05.JPG",
+			  	"/letswift/photos2017/Image_06.JPG",
+			  	"/letswift/photos2017/Image_07.JPG",
+			  	"/letswift/photos2017/Image_08.JPG",
+			  	"/letswift/photos2017/Image_09.JPG",
+			  	"/letswift/photos2017/Image_10.JPG",
+			  	"/letswift/photos2017/Image_11.JPG",
+			  	"/letswift/photos2017/Image_12.JPG",
+			  	"/letswift/photos2017/Image_13.JPG",
+			  	"/letswift/photos2017/Image_14.JPG",
+			  	"/letswift/photos2017/Image_15.JPG",
+			  	"/letswift/photos2017/Image_16.JPG",
+			  	"/letswift/photos2017/Image_17.JPG",
+			  	"/letswift/photos2017/Image_18.JPG",
+			  	"/letswift/photos2017/Image_19.JPG",
+			  	"/letswift/photos2017/Image_20.JPG",
+			  	"/letswift/photos2017/Image_21.JPG",
+			  	"/letswift/photos2017/Image_22.JPG",
+			  	"/letswift/photos2017/Image_23.JPG",
+			  	"/letswift/photos2017/Image_24.JPG",
+			  	"/letswift/photos2017/Image_25.JPG",
+			  	"/letswift/photos2017/Image_26.JPG",
+			  	"/letswift/photos2017/Image_27.JPG",
+			  	"/letswift/photos2017/Image_28.JPG",
+			  	"/letswift/photos2017/Image_29.JPG",
+			  	"/letswift/photos2017/Image_30.JPG",
+			  	"/letswift/photos2017/Image_31.JPG",
+			  	"/letswift/photos2017/Image_32.JPG",
+			  	"/letswift/photos2017/Image_33.JPG",
+			  	"/letswift/photos2017/Image_34.JPG",
+			  	"/letswift/photos2017/Image_35.JPG",
+			  	"/letswift/photos2017/Image_36.JPG",
+			  	"/letswift/photos2017/Image_37.JPG"
+		  	]
+		},
+		{ 	"title" : "2016년 행사 사진", 
+			"datetime" : "2016년 7월 9일",
+		  	"list" : [
+			  	"/letswift/photos2016/Image_10.jpg",
+			  	"/letswift/photos2016/Image_12.jpg",
+			  	"/letswift/photos2016/Image_14.jpg",
+			  	"/letswift/photos2016/Image_01.jpg",
+			  	"/letswift/photos2016/Image_02.jpg",
+			  	"/letswift/photos2016/Image_03.jpg",
+			  	"/letswift/photos2016/Image_04.jpg",
+			  	"/letswift/photos2016/Image_05.jpg",
+			  	"/letswift/photos2016/Image_06.jpg",
+			  	"/letswift/photos2016/Image_07.jpg",
+			  	"/letswift/photos2016/Image_08.jpg",
+			  	"/letswift/photos2016/Image_09.jpg",
+			  	"/letswift/photos2016/Image_11.jpg",
+			  	"/letswift/photos2016/Image_13.jpg",
+			  	"/letswift/photos2016/Image_15.jpg",
+			  	"/letswift/photos2016/Image_16.jpg",
+			  	"/letswift/photos2016/Image_17.jpg",
+			  	"/letswift/photos2016/Image_18.jpg",
+			  	"/letswift/photos2016/Image_19.jpg",
+			  	"/letswift/photos2016/Image_20.jpg",
+			  	"/letswift/photos2016/Image_21.jpg",
+			  	"/letswift/photos2016/Image_22.jpg",
+			  	"/letswift/photos2016/Image_23.jpg",
+			  	"/letswift/photos2016/Image_24.jpg",
+			  	"/letswift/photos2016/Image_25.jpg",
+			  	"/letswift/photos2016/Image_26.jpg",
+			  	"/letswift/photos2016/Image_27.jpg",
+			  	"/letswift/photos2016/Image_28.jpg"
+		  	]
+		}
+	]
+}
