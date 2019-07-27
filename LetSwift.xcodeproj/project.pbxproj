@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168AE12B22EBEB6300DFBB6F /* OSLog .swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12A22EBEB6300DFBB6F /* OSLog .swift */; };
 		218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28522EAEF9900A6BEAB /* AppDelegate.swift */; };
 		218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */; };
 		218FD28A22EAEF9900A6BEAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28922EAEF9900A6BEAB /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168AE12A22EBEB6300DFBB6F /* OSLog .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog .swift"; sourceTree = "<group>"; };
 		218FD28222EAEF9900A6BEAB /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FD28522EAEF9900A6BEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		168AE12922EBEB5900DFBB6F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				168AE12A22EBEB6300DFBB6F /* OSLog .swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		218FD27922EAEF9900A6BEAB = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 			children = (
 				218FD29922EAEFA000A6BEAB /* Application */,
 				218FD29A22EAEFA300A6BEAB /* View */,
+				168AE12922EBEB5900DFBB6F /* Extension */,
 				218FD29B22EAEFB100A6BEAB /* Resource */,
 				218FD29D22EAF0D400A6BEAB /* Preview Content */,
 			);
@@ -173,6 +184,7 @@
 				218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */,
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
 				218FD28A22EAEF9900A6BEAB /* ContentView.swift in Sources */,
+				168AE12B22EBEB6300DFBB6F /* OSLog .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
