@@ -1,5 +1,5 @@
 //
-//  Session.swift
+//  Event.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 28/07/2019.
@@ -8,12 +8,9 @@
 
 import Foundation
 
-struct Session: Schedulable {
+struct Event: Schedulable {
     let title: String
     let description: String
-    let speaker: Person
     let location: String
     let timespan: DateInterval
-    let track: Track
-    let video: Video?
 }
