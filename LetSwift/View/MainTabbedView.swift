@@ -1,5 +1,5 @@
 //
-//  MainTabbedView.swift
+//  MainTabView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 26/07/2019.

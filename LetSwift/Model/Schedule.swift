@@ -9,5 +9,5 @@
 import Foundation
 
 struct Schedule {
-    let sessions: [Session]
+    let sessions: [Schedulable]
 }

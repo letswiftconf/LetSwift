@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Profile {
-    let name: (family: String, given: String)?
+/// Represents a person's information.
+
+struct Profile: Codable, Identifiable {
+    let id = UUID()
+    let familyName: String
+    let givenName: String
     let nickname: String?
     let description: String
     let imageUrl: URL?
@@ -17,8 +22,8 @@ struct Profile {
     
     var preferredName: String {
         var components = PersonNameComponents()
-        components.givenName = name?.given
-        components.familyName = name?.family
+        components.givenName = givenName
+        components.familyName = familyName
         components.nickname = nickname
         
         let formatter = PersonNameComponentsFormatter()

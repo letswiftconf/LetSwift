@@ -1,5 +1,5 @@
 //
-//  Session.swift
+//  NonSession.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 28/07/2019.
@@ -9,13 +9,10 @@
 import Foundation
 import SwiftUI
 
-struct Session: Schedulable, Identifiable {
+struct NonSession: Schedulable, Identifiable {
     let id = UUID()
     let title: String
     let description: String
-    let speaker: Participant
     let location: String
     let timespan: DateInterval
-    let track: Track
-    let video: Video?
 }

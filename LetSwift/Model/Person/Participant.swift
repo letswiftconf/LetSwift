@@ -1,5 +1,5 @@
 //
-//  Person.swift
+//  Participant.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 28/07/2019.
@@ -7,15 +7,19 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Person {
-    enum Category {
+/// Represents a person's role in an event.
+
+struct Participant: Codable, Identifiable {
+    enum Role: String, Codable {
         case organizer
         case speaker
         case staff
         case unspecified
     }
     
-    let category: Person.Category
+    let id = UUID()
+    let category: Participant.Role
     let profile: Profile
 }

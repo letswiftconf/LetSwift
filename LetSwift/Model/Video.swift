@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Video {
+struct Video: Identifiable {
+    let id = UUID()
     let length: TimeInterval
     let url: URL
 }

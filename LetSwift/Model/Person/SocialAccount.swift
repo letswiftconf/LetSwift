@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct SocialAccount {
-    enum Category {
+/// Represents a social account.
+
+struct SocialAccount: Codable, Identifiable {
+    enum Category: String, Codable, CaseIterable {
         case email
         case website
         case github
@@ -20,6 +22,7 @@ struct SocialAccount {
         case unspecified
     }
     
+    let id = UUID()
     let category: SocialAccount.Category
     let url: URL
 }

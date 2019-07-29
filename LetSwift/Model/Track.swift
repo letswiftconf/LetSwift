@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Track {
-    enum Category {
+struct Track: Identifiable {
+    enum Category: String {
         case session
         case workshop
     }
     
+    let id = UUID()
     let category: Track.Category
 }
