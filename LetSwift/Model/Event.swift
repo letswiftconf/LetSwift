@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Event: Identifiable {
+struct Event: Codable, Identifiable {
     let id = UUID()
     let title: String
     let description: String

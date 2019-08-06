@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Video: Identifiable {
+struct Video: Codable, Identifiable {
     let id = UUID()
     let length: TimeInterval
     let url: URL

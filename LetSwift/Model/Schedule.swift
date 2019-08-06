@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct Schedule {
-    let sessions: [Schedulable]
+struct Schedule: Codable {
+    let sessions: [Session]
+    let nonsessions: [NonSession]
 }

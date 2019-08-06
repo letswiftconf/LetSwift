@@ -9,10 +9,21 @@
 import Foundation
 import SwiftUI
 
-struct Track: Identifiable {
-    enum Category: String {
+struct Track: Codable, Identifiable {
+    enum Category: String, Codable, CaseIterable, Identifiable {
         case session
         case workshop
+        
+        var id: String {
+            return rawValue
+        }
+        
+        var name: String {
+            switch self {
+            case .session: return "Session"
+            case .workshop: return "Workshop"
+            }
+        }
     }
     
     let id = UUID()

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct NonSession: Schedulable, Identifiable {
+struct NonSession: Schedulable, Codable, Identifiable {
     let id = UUID()
     let title: String
     let description: String
