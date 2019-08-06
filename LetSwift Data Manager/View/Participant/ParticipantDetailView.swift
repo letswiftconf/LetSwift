@@ -17,12 +17,14 @@ struct ParticipantDetailView: View {
             Section(header: Text("Role")) {
                 Picker("Role", selection: $role) {
                     List {
-                        Text("Organizer")
+                        ForEach(Participant.Role.allCases) { role in
+                            Text(role.name)
+                        }
                     }
                 }
             }
             Section(header: Text("Profile")) {
-                Picker("Role", selection: $profile) {
+                Picker("Profile", selection: $profile) {
                     List {
                         Text("User")
                     }

@@ -9,17 +9,23 @@
 import SwiftUI
 
 struct NewSocialAccountView: View {
-    @State private var selection = ""
+    @State private var socialAccount = ""
     @State private var url = ""
     
     @Binding var presentNew: Bool
+    private var isFormValid: Bool {
+        if socialAccount != "" && url != "" { return true }
+        else { return false }
+    }
     
     var body: some View {
         NavigationView {
             Form {
-                Picker("Service", selection: $selection) {
+                Picker("Service", selection: $socialAccount) {
                     List {
-                        Text("Email")
+                        ForEach(SocialAccount.Service.allCases) { service in
+                            Text(service.name)
+                        }
                     }
                 }
                 TextField("URL", text: $url)
@@ -33,6 +39,7 @@ struct NewSocialAccountView: View {
                 Button(action: cancel, label: {
                     Text("Save")
                 })
+                .disabled(!isFormValid)
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
