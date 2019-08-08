@@ -7,18 +7,16 @@
 //
 
 import Foundation
-import SwiftUI
+import Combine
 
-/// Represents a person's information.
-
-struct Profile: Codable, Identifiable {
+// MARK: - Profile
+/// A person's information. This class should only contain unchanging information about a person.
+/// e.g. A person's profile image and description may change in different `Conference`. These properties should be in `Participant`.
+class Profile: Identifiable, Codable, ObservableObject {
     let id = UUID()
-    let familyName: String
-    let givenName: String
-    let nickname: String?
-    let description: String
-    let imageUrl: URL?
-    let socialAccounts: [SocialAccount]
+    var familyName: String { willSet { objectWillChange.send() } }
+    var givenName: String { willSet { objectWillChange.send() } }
+    var nickname: String? { willSet { objectWillChange.send() } }
     
     var preferredName: String {
         var components = PersonNameComponents()
@@ -31,4 +29,21 @@ struct Profile: Codable, Identifiable {
         let name = formatter.string(from: components)
         return name.count != 0 ? name : "Unnamed Man"
     }
+    
+    // MARK: - Initialization
+    init(familyName: String,
+         givenName: String,
+         nickname: String? = nil) {
+        self.familyName = familyName
+        self.givenName = givenName
+        self.nickname = nickname
+    }
+    
+    // MARK: - Codable
+    private enum CodingKeys: String, CodingKey {
+        case id, familyName, givenName, nickname
+    }
+    
+    // MARK: - Observable Object
+    let objectWillChange = ObservableObjectPublisher()
 }

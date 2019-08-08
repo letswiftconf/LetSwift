@@ -7,32 +7,62 @@
 //
 
 import Foundation
-import SwiftUI
+import Combine
 
-/// Represents a person's role in an event.
+// MARK: - Participant
+/// A person participating in an `Conference` with a specific `Role`.
+/// A `Profile` may be referenced in multiple `Participant` when a person attends multiple `Conference`.
+class Participant: Identifiable, Codable, ObservableObject {
+    let id = UUID()
+    var profile: Profile { willSet { objectWillChange.send() } }
+    var role: Participant.Role { willSet { objectWillChange.send() } }
+    var description: String { willSet { objectWillChange.send() } }
+    var imageUrl: URL? { willSet { objectWillChange.send() } }
+    var socialAccounts: [SocialAccount] { willSet { objectWillChange.send() } }
+    
+    // MARK: - Initialization
+    init(profile: Profile,
+         role: Participant.Role,
+         description: String,
+         imageUrl: URL?,
+         socialAccounts: [SocialAccount]) {
+        self.profile = profile
+        self.role = role
+        self.description = description
+        self.imageUrl = imageUrl
+        self.socialAccounts = socialAccounts
+    }
+    
+    // MARK: - Codable
+    private enum CodingKeys: String, CodingKey {
+        case id, profile, role, description, imageUrl, socialAccounts
+    }
+    
+    // MARK: - Observable Object
+    let objectWillChange = ObservableObjectPublisher()
+}
 
-struct Participant: Codable, Identifiable {
-    enum Role: String, Codable, CaseIterable, Identifiable {
+// MARK: - Role
+extension Participant {
+    enum Role: String, Identifiable, Codable, CaseIterable {
+        case unspecified
         case organizer
         case speaker
         case staff
-        case unspecified
+        case sponsor
         
         var id: String {
             return rawValue
         }
         
-        var name: String {
+        var localizedName: String {
             switch self {
+            case .unspecified: return "Unspecified"
             case .organizer: return "Organizer"
             case .speaker: return "Speaker"
             case .staff: return "Staff"
-            case .unspecified: return "Unspecified"
+            case .sponsor: return "Sponsor"
             }
         }
     }
-    
-    let id = UUID()
-    let category: Participant.Role
-    let profile: Profile
 }

@@ -7,12 +7,35 @@
 //
 
 import Foundation
-import SwiftUI
+import Combine
 
-/// Represents a social account.
+// MARK: - Social Account
+/// Social account information.
+class SocialAccount: Identifiable, Codable, ObservableObject {
+    let id = UUID()
+    var category: SocialAccount.Service { willSet { objectWillChange.send() } }
+    var url: URL { willSet { objectWillChange.send() } }
+    
+    // MARK: - Initialization
+    init(category: SocialAccount.Service,
+         url: URL) {
+        self.category = category
+        self.url = url
+    }
+    
+    // MARK: - Codable
+    private enum CodingKeys: String, CodingKey {
+        case id, category, url
+    }
+    
+    // MARK: - Observable Object
+    let objectWillChange = ObservableObjectPublisher()
+}
 
-struct SocialAccount: Codable, Identifiable {
-    enum Service: String, Codable, CaseIterable, Identifiable {
+// MARK: - Social Service
+extension SocialAccount {
+    enum Service: String, Identifiable, Codable, CaseIterable {
+        case unspecified
         case email
         case website
         case github
@@ -20,14 +43,14 @@ struct SocialAccount: Codable, Identifiable {
         case facebook
         case instagram
         case twitter
-        case unspecified
         
         var id: String {
             return rawValue
         }
         
-        var name: String {
+        var localizedName: String {
             switch self {
+            case .unspecified: return "Unspecified"
             case .email: return "Email"
             case .website: return "Website"
             case .github: return "GitHub"
@@ -35,12 +58,7 @@ struct SocialAccount: Codable, Identifiable {
             case .facebook: return "Facebook"
             case .instagram: return "Instagram"
             case .twitter: return "Twitter"
-            case .unspecified: return "Unspecified"
             }
         }
     }
-    
-    let id = UUID()
-    let category: SocialAccount.Service
-    let url: URL
 }
