@@ -16,7 +16,7 @@ class Profile: Identifiable, Codable, ObservableObject {
     let id = UUID()
     var familyName: String { willSet { objectWillChange.send() } }
     var givenName: String { willSet { objectWillChange.send() } }
-    var nickname: String? { willSet { objectWillChange.send() } }
+    var nickname: String { willSet { objectWillChange.send() } }
     
     var preferredName: String {
         var components = PersonNameComponents()
@@ -25,7 +25,7 @@ class Profile: Identifiable, Codable, ObservableObject {
         components.nickname = nickname
         
         let formatter = PersonNameComponentsFormatter()
-        formatter.style = nickname == nil ? .default : .short
+        formatter.style = nickname.count == 0 ? .default : .short
         let name = formatter.string(from: components)
         return name.count != 0 ? name : "Unnamed Man"
     }
@@ -33,7 +33,7 @@ class Profile: Identifiable, Codable, ObservableObject {
     // MARK: - Initialization
     init(familyName: String,
          givenName: String,
-         nickname: String? = nil) {
+         nickname: String = "") {
         self.familyName = familyName
         self.givenName = givenName
         self.nickname = nickname

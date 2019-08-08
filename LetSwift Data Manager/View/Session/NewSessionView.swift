@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NewSessionView: View {
-    @Binding var presentNew: Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
@@ -30,18 +30,18 @@ struct NewSessionView: View {
     
     // MARK: - Action
     private func save() {
-        presentNew.toggle()
+        presentationMode.value.dismiss()
     }
     
     private func cancel() {
-        presentNew.toggle()
+        presentationMode.value.dismiss()
     }
 }
 
 #if DEBUG
 struct NewSessionView_Previews: PreviewProvider {
     static var previews: some View {
-        NewSessionView(presentNew: .constant(true))
+        NewSessionView()
     }
 }
 #endif

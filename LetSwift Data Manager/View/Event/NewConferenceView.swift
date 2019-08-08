@@ -1,5 +1,5 @@
 //
-//  NewParticipantView.swift
+//  NewConferenceView.swift
 //  LetSwift Data Manager
 //
 //  Created by BumMo Koo on 04/08/2019.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct NewParticipantView: View {
+struct NewConferenceView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     private var doneButton: some View {
@@ -19,8 +19,8 @@ struct NewParticipantView: View {
     
     var body: some View {
         NavigationView {
-            ParticipantDetailView()
-                .navigationBarTitle("New Participant")
+            ConferenceDetailView()
+                .navigationBarTitle("New Conference")
                 .navigationBarItems(trailing: doneButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -33,9 +33,9 @@ struct NewParticipantView: View {
 }
 
 #if DEBUG
-struct NewParticipantView_Previews: PreviewProvider {
+struct NewEventView_Previews: PreviewProvider {
     static var previews: some View {
-        NewParticipantView()
+        NewConferenceView()
     }
 }
 #endif

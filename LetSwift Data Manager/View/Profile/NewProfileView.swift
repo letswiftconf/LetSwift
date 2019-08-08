@@ -9,39 +9,33 @@
 import SwiftUI
 
 struct NewProfileView: View {
-    @Binding var presentNew: Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    private var doneButton: some View {
+        Button(action: done, label: {
+            Text("Done")
+        })
+    }
     
     var body: some View {
         NavigationView {
             ProfileDetailView()
                 .navigationBarTitle("New Profile")
-                .navigationBarItems(leading:
-                    Button(action: save, label: {
-                        Text("Cancel")
-                    })
-                    , trailing:
-                    Button(action: cancel, label: {
-                        Text("Save")
-                    })
-            )
+                .navigationBarItems(trailing: doneButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action
-    private func save() {
-        presentNew.toggle()
-    }
-    
-    private func cancel() {
-        presentNew.toggle()
+    private func done() {
+        presentationMode.value.dismiss()
     }
 }
 
 #if DEBUG
 struct NewProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        NewProfileView(presentNew: .constant(true))
+        NewProfileView()
     }
 }
 #endif

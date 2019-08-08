@@ -30,7 +30,7 @@ struct SessionListView: View {
             )
         }
         .sheet(isPresented: $presentNew) {
-            NewSessionView(presentNew: self.$presentNew)
+            NewSessionView()
         }
     }
     

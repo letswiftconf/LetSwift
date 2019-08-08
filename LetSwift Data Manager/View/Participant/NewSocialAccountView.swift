@@ -9,13 +9,20 @@
 import SwiftUI
 
 struct NewSocialAccountView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State private var socialAccount = ""
     @State private var url = ""
     
-    @Binding var presentNew: Bool
     private var isFormValid: Bool {
         if socialAccount != "" && url != "" { return true }
         else { return false }
+    }
+    
+    private var doneButton: some View {
+        Button(action: done, label: {
+            Text("Done")
+        })
     }
     
     var body: some View {
@@ -24,23 +31,14 @@ struct NewSocialAccountView: View {
                 Picker("Service", selection: $socialAccount) {
                     List {
                         ForEach(SocialAccount.Service.allCases) { service in
-                            Text(service.name)
+                            Text(service.localizedName)
                         }
                     }
                 }
                 TextField("URL", text: $url)
             }
             .navigationBarTitle("New Social Account")
-            .navigationBarItems(leading:
-                Button(action: save, label: {
-                    Text("Cancel")
-                })
-                , trailing:
-                Button(action: cancel, label: {
-                    Text("Save")
-                })
-                .disabled(!isFormValid)
-            )
+            .navigationBarItems(trailing: doneButton.disabled(!isFormValid))
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -50,19 +48,15 @@ struct NewSocialAccountView: View {
         
     }
     
-    private func save() {
-        presentNew.toggle()
-    }
-    
-    private func cancel() {
-        presentNew.toggle()
+    private func done() {
+        presentationMode.value.dismiss()
     }
 }
 
 #if DEBUG
 struct NewSocialAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        NewSocialAccountView(presentNew: .constant(true))
+        NewSocialAccountView()
     }
 }
 #endif

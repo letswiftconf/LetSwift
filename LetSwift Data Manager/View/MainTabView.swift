@@ -11,9 +11,9 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            EventListView()
+            ConferenceListView()
             .tabItem {
-                Text("Events")
+                Text("Conferences")
                 Image(systemName: "calendar")
             }.tag(0)
             

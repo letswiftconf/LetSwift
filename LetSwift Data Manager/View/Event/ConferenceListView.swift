@@ -1,5 +1,5 @@
 //
-//  ProfileListView.swift
+//  ConferenceListView.swift
 //  LetSwift Data Manager
 //
 //  Created by BumMo Koo on 04/08/2019.
@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct ProfileListView: View {
+struct ConferenceListView: View {
     @State private var presentNew = false
     
     @EnvironmentObject var store: DataStore
     
     private var addButton: some View {
-        Button(action: addNewProfile) {
+        Button(action: addNewEvent) {
             Image(systemName: "plus")
         }
     }
@@ -22,33 +22,33 @@ struct ProfileListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(store.profiles) { profile in
-                    NavigationLink(destination: ProfileDetailView()
-                        .environmentObject(profile)) {
-                        ProfileRow(profile: profile)
+                ForEach(store.conferences) { conference in
+                    NavigationLink(destination: ConferenceDetailView().environmentObject(conference)) {
+                        ConferenceRow(conference: conference)
                     }
                 }
             }
-            .navigationBarTitle("Profiles")
+            .navigationBarTitle("Conferences")
             .navigationBarItems(trailing: addButton)
         }
+            
         .sheet(isPresented: $presentNew) {
-            NewProfileView()
-            .environmentObject(self.store.profiles.last!)
+            NewConferenceView()
+                .environmentObject(self.store.conferences.last!)
         }
     }
     
     // MARK: - Action
-    private func addNewProfile() {
-        store.createNewProfile()
+    private func addNewEvent() {
+        store.createNewConference()
         presentNew.toggle()
     }
 }
 
 #if DEBUG
-struct ProfileListView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileListView()
+        ConferenceListView()
     }
 }
 #endif

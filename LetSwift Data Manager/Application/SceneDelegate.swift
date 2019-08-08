@@ -18,9 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Use a UIHostingController as window root view controller
+        
+        let store = DataStore.shared
+        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: MainTabView())
+            window.rootViewController = UIHostingController(rootView: MainTabView().environmentObject(store))
             self.window = window
             window.makeKeyAndVisible()
         }

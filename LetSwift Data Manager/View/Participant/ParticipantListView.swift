@@ -9,33 +9,37 @@
 import SwiftUI
 
 struct ParticipantListView: View {
-    @State private var participants = [Profile]()
-    
     @State private var presentNew = false
+    
+    @EnvironmentObject var store: DataStore
+    
+    private var addButton: some View {
+        Button(action: addNewParticipants) {
+            Image(systemName: "plus")
+        }
+    }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(participants) { item in
-                    NavigationLink(destination: ParticipantDetailView()) {
-                        Text("Participant")
+                ForEach(store.participants) { participant in
+                    NavigationLink(destination: ParticipantDetailView().environmentObject(participant)) {
+                        ParticipantRow(participant: participant)
                     }
                 }
             }
             .navigationBarTitle("Participants")
-            .navigationBarItems(trailing:
-                Button(action: addNewParticipants) {
-                    Image(systemName: "plus")
-                }
-            )
+            .navigationBarItems(trailing: addButton)
         }
         .sheet(isPresented: $presentNew) {
-            NewParticipantView(presentNew: self.$presentNew)
+            NewParticipantView()
+                .environmentObject(self.store.participants.last!)
         }
     }
     
     // MARK: - Action
     private func addNewParticipants() {
+        store.createNewParticipant()
         presentNew.toggle()
     }
 }

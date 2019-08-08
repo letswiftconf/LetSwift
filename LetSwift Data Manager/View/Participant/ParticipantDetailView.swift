@@ -9,29 +9,55 @@
 import SwiftUI
 
 struct ParticipantDetailView: View {
+    @State private var presentNew = false
+    
+    @EnvironmentObject var participant: Participant
+    
     @State private var role = ""
     @State private var profile = ""
+    @State private var description = ""
+    @State private var imageUrl = ""
+    
+    private var newSocialAccountButton: some View {
+        Button(action: newSocialAccount) {
+            Text("New Social Account...")
+        }
+    }
     
     var body: some View {
         Form {
-            Section(header: Text("Role")) {
-                Picker("Role", selection: $role) {
-                    List {
-                        ForEach(Participant.Role.allCases) { role in
-                            Text(role.name)
-                        }
-                    }
-                }
-            }
-            Section(header: Text("Profile")) {
+            Section {
                 Picker("Profile", selection: $profile) {
                     List {
                         Text("User")
                     }
                 }
+                Picker("Role", selection: $role) {
+                    List {
+                        ForEach(Participant.Role.allCases) { role in
+                            Text(role.localizedName)
+                        }
+                    }
+                }
+                TextField("Description", text: $participant.description)
+            }
+            Section(header: Text("Image")) {
+                TextField("Image URL", text: $imageUrl)
+            }
+            Section(header: Text("Social Account")) {
+                newSocialAccountButton
             }
         }
         .listStyle(GroupedListStyle())
+        .navigationBarTitle(participant.profile.preferredName)
+        .sheet(isPresented: $presentNew) {
+            NewSocialAccountView()
+        }
+    }
+    
+    // MARK: - Action
+    private func newSocialAccount() {
+        presentNew.toggle()
     }
 }
 
