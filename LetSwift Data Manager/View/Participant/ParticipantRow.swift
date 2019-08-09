@@ -36,7 +36,7 @@ struct ParticipantRow_Previews: PreviewProvider {
         let participant = Participant(profile: placeholderProfile,
                                       role: .unspecified,
                                       description: "",
-                                      imageUrl: nil,
+                                      imageUrlString: "",
                                       socialAccounts: [])
         return ParticipantRow(participant: participant)
     }

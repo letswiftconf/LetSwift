@@ -47,3 +47,14 @@ class Profile: Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
 }
+
+// MARK: - Equatable & Hashable
+extension Profile: Hashable {
+    static func == (lhs: Profile, rhs: Profile) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}

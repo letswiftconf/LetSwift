@@ -11,12 +11,8 @@ import SwiftUI
 struct ParticipantDetailView: View {
     @State private var presentNew = false
     
+    @EnvironmentObject var store: DataStore
     @EnvironmentObject var participant: Participant
-    
-    @State private var role = ""
-    @State private var profile = ""
-    @State private var description = ""
-    @State private var imageUrl = ""
     
     private var newSocialAccountButton: some View {
         Button(action: newSocialAccount) {
@@ -27,22 +23,26 @@ struct ParticipantDetailView: View {
     var body: some View {
         Form {
             Section {
-                Picker("Profile", selection: $profile) {
+                Picker("Profile", selection: $participant.profile) {
                     List {
-                        Text("User")
+                        ForEach(store.profiles) { profile in
+                            Text(profile.preferredName)
+                                .tag(profile)
+                        }
                     }
                 }
-                Picker("Role", selection: $role) {
+                Picker("Role", selection: $participant.role) {
                     List {
                         ForEach(Participant.Role.allCases) { role in
                             Text(role.localizedName)
+                            .tag(role)
                         }
                     }
                 }
                 TextField("Description", text: $participant.description)
             }
             Section(header: Text("Image")) {
-                TextField("Image URL", text: $imageUrl)
+                TextField("Image URL", text: $participant.imageUrlString)
             }
             Section(header: Text("Social Account")) {
                 newSocialAccountButton

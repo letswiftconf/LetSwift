@@ -33,6 +33,7 @@ struct ParticipantListView: View {
         }
         .sheet(isPresented: $presentNew) {
             NewParticipantView()
+                .environmentObject(self.store)
                 .environmentObject(self.store.participants.last!)
         }
     }

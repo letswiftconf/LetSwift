@@ -17,29 +17,44 @@ class Participant: Identifiable, Codable, ObservableObject {
     var profile: Profile { willSet { objectWillChange.send() } }
     var role: Participant.Role { willSet { objectWillChange.send() } }
     var description: String { willSet { objectWillChange.send() } }
-    var imageUrl: URL? { willSet { objectWillChange.send() } }
+    var imageUrlString: String { willSet { objectWillChange.send() } }
     var socialAccounts: [SocialAccount] { willSet { objectWillChange.send() } }
+    
+    var imageUrl: URL? {
+        URL(string: imageUrlString)
+    }
     
     // MARK: - Initialization
     init(profile: Profile,
          role: Participant.Role,
          description: String,
-         imageUrl: URL?,
+         imageUrlString: String,
          socialAccounts: [SocialAccount]) {
         self.profile = profile
         self.role = role
         self.description = description
-        self.imageUrl = imageUrl
+        self.imageUrlString = imageUrlString
         self.socialAccounts = socialAccounts
     }
     
     // MARK: - Codable
     private enum CodingKeys: String, CodingKey {
-        case id, profile, role, description, imageUrl, socialAccounts
+        case id, profile, role, description, imageUrlString, socialAccounts
     }
     
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
+}
+
+// MARK: - Equatable & Hashable
+extension Participant: Hashable {
+    static func == (lhs: Participant, rhs: Participant) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 // MARK: - Role
