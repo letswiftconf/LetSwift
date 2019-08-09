@@ -41,7 +41,7 @@ struct ParticipantListView: View {
     // MARK: - Action
     private func addNewParticipants() {
         store.createNewParticipant()
-        presentNew.toggle()
+//        presentNew.toggle()
     }
 }
 

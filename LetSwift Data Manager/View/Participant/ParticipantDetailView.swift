@@ -35,7 +35,7 @@ struct ParticipantDetailView: View {
                     List {
                         ForEach(Participant.Role.allCases) { role in
                             Text(role.localizedName)
-                            .tag(role)
+                                .tag(role)
                         }
                     }
                 }
@@ -45,13 +45,22 @@ struct ParticipantDetailView: View {
                 TextField("Image URL", text: $participant.imageUrlString)
             }
             Section(header: Text("Social Account")) {
+                ForEach(participant.socialAccounts) { account in
+                    NavigationLink(destination: NewSocialAccountView().environmentObject(account)) {
+                        SocialAccountRow(account: account)
+                    }
+                }
                 newSocialAccountButton
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(participant.profile.preferredName)
         .sheet(isPresented: $presentNew) {
-            NewSocialAccountView()
+            NavigationView {
+                NewSocialAccountView()
+                .environmentObject(self.participant)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
     

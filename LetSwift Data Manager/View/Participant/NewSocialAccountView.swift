@@ -11,44 +11,59 @@ import SwiftUI
 struct NewSocialAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State private var socialAccount = ""
-    @State private var url = ""
+    @EnvironmentObject var participant: Participant
+    @State private var service = SocialAccount.Service.unspecified
+    @State private var urlString = ""
     
     private var isFormValid: Bool {
-        if socialAccount != "" && url != "" { return true }
+        if service != .unspecified &&
+            URL(string: urlString) != nil { return true }
         else { return false }
     }
     
-    private var doneButton: some View {
-        Button(action: done, label: {
+    // MARK: - Button
+    private var saveButton: some View {
+        Button(action: save, label: {
             Text("Done")
         })
     }
     
+    private var cancelButton: some View {
+        Button(action: cancel, label: {
+            Text("Cancel")
+        })
+    }
+    
+    // MARK: - Body
     var body: some View {
-        NavigationView {
-            Form {
-                Picker("Service", selection: $socialAccount) {
-                    List {
-                        ForEach(SocialAccount.Service.allCases) { service in
-                            Text(service.localizedName)
-                        }
+        Form {
+            Picker("Service", selection: $service) {
+                List {
+                    ForEach(SocialAccount.Service.allCases) { service in
+                        Text(service.localizedName)
+                            .tag(service)
                     }
                 }
-                TextField("URL", text: $url)
             }
-            .navigationBarTitle("New Social Account")
-            .navigationBarItems(trailing: doneButton.disabled(!isFormValid))
+            TextField("URL", text: $urlString)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarTitle("New Social Account")
+        .navigationBarItems(leading: cancelButton,
+                            trailing: saveButton.disabled(!isFormValid))
     }
     
     // MARK: - Action
-    private func newSocialAccount() {
-        
+    private func save() {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let account = SocialAccount(category: service,
+                                    url: url)
+        participant.socialAccounts.append(account)
+        presentationMode.value.dismiss()
     }
     
-    private func done() {
+    private func cancel() {
         presentationMode.value.dismiss()
     }
 }

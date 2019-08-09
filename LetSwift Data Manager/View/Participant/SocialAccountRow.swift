@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct SocialAccountRow: View {
-    @ObservedObject var socialAccount: SocialAccount
+    @ObservedObject var account: SocialAccount
     
     var body: some View {
         HStack {
-            Text("Facebook")
+            Text(account.category.localizedName)
                 .foregroundColor(.secondary)
-            Text("facebook.com/user")
+            Text(account.url.absoluteString)
         }
     }
 }
@@ -23,7 +23,7 @@ struct SocialAccountRow: View {
 #if DEBUG
 struct SocialAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        SocialAccountRow(socialAccount: SocialAccount(category: .email,
+        SocialAccountRow(account: SocialAccount(category: .email,
                                                       url: URL(string: "mailto://ksquareatm@gmail.com")!))
     }
 }

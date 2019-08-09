@@ -41,7 +41,7 @@ struct ProfileListView: View {
     // MARK: - Action
     private func addNewProfile() {
         store.createNewProfile()
-        presentNew.toggle()
+//        presentNew.toggle()
     }
 }
 
