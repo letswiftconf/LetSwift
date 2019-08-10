@@ -58,3 +58,11 @@ extension Profile: Hashable {
         hasher.combine(id)
     }
 }
+
+// MARK: - Dummy
+extension Profile {
+    static var dummy: Profile {
+        return Profile(familyName: "Appleseed",
+                       givenName: "John")
+    }
+}

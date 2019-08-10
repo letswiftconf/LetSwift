@@ -11,7 +11,7 @@ import Combine
 
 // MARK: - Session
 /// A session represents a presentation by a `Speaker`.
-class Session: Schedulable, Identifiable, Codable {
+class Session: Schedulable, Identifiable, Codable, ObservableObject {
     let id = UUID()
     var title: String { willSet { objectWillChange.send() } }
     var description: String { willSet { objectWillChange.send() } }
@@ -48,8 +48,8 @@ class Session: Schedulable, Identifiable, Codable {
 }
 
 // MARK: - Track
-/// Track type of a `Session`. e.g. A session can be either `.sesssion` track or `.workshop` track.
 extension Session {
+    /// Track type of a `Session`. e.g. A session can be either `.sesssion` track or `.workshop` track.
     enum Track: String, Identifiable, Codable, CaseIterable {
         case unspecified
         case session
@@ -66,5 +66,18 @@ extension Session {
             case .workshop: return "Workshop"
             }
         }
+    }
+}
+
+// MARK - Dummy
+extension Session {
+    static var dummy: Session {
+        return Session(title: "Untitled",
+                       description: "",
+                       speaker: Participant.dummy,
+                       location: "Unknown Location",
+                       timespan: DateInterval(),
+                       track: .unspecified,
+                       video: nil)
     }
 }

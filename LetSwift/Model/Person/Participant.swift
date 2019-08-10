@@ -81,3 +81,14 @@ extension Participant {
         }
     }
 }
+
+// MARK: - Dummy
+extension Participant {
+    static var dummy: Participant {
+        return Participant(profile: Profile.dummy,
+                           role: .unspecified,
+                           description: "",
+                           imageUrlString: "",
+                           socialAccounts: [])
+    }
+}
