@@ -11,29 +11,43 @@ import SwiftUI
 struct NewSessionView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @ObservedObject private var session = Session.dummy
+    
+    // MARK: - Button
+    private var saveButton: some View {
+        Button(action: save) {
+            Text("Save")
+        }
+    }
+    
+    private  var cancelButton: some View {
+        Button(action: cancel) {
+            Text("Cancel")
+        }
+    }
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
-            SessionDetailView()
+            SessionDetailView(session: session)
                 .navigationBarTitle("New Session")
-                .navigationBarItems(leading:
-                    Button(action: save, label: {
-                        Text("Cancel")
-                    })
-                    , trailing:
-                    Button(action: cancel, label: {
-                        Text("Save")
-                    })
-            )
+                .navigationBarItems(leading: cancelButton,
+                                    trailing: saveButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action
     private func save() {
-        presentationMode.value.dismiss()
+        DataStore.shared.addNew(session: session)
+        dismiss()
     }
     
     private func cancel() {
+        dismiss()
+    }
+    
+    private func dismiss() {
         presentationMode.value.dismiss()
     }
 }

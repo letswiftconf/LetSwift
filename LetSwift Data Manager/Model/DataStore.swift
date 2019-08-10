@@ -13,9 +13,10 @@ class DataStore: ObservableObject {
     static let shared = DataStore()
     
     // MARK: - Property
-    @Published var conferences = [Conference]()
-    @Published var profiles = [Profile]()
-    @Published var participants = [Participant]()
+    @Published private(set) var conferences = [Conference]()
+    @Published private(set) var sessions = [Session]()
+    @Published private(set) var profiles = [Profile]()
+    @Published private(set) var participants = [Participant]()
     
     // MARK: - Initialization
     private init() {
@@ -25,7 +26,7 @@ class DataStore: ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
     
-    // MARK: - Action
+    // MARK: - Action: New
     @discardableResult
     func createNewConference() -> Conference {
         let conference = Conference(title: "Let\'Swift",
@@ -55,10 +56,14 @@ class DataStore: ObservableObject {
         let participant = Participant(profile: placeholderProfile,
                                       role: .unspecified,
                                       description: "",
-                                      imageUrl: nil,
+                                      imageUrlString: "",
                                       socialAccounts: [])
         participants.append(participant)
         objectWillChange.send()
         return participant
+    }
+    
+    func addNew(session: Session) {
+        sessions.append(session)
     }
 }

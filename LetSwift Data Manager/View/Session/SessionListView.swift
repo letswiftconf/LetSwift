@@ -9,25 +9,29 @@
 import SwiftUI
 
 struct SessionListView: View {
-    @State private var sessions = [Session]()
-    
     @State private var presentNew = false
     
+    @EnvironmentObject var store: DataStore
+    
+    // MARK: - Button
+    var newButton: some View {
+        Button(action: presentNewSession) {
+            Image(systemName: "plus")
+        }
+    }
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             List {
-                ForEach(sessions) { item in
-                    NavigationLink(destination: SessionDetailView()) {
-                        Text("Session")
+                ForEach(store.sessions) { session in
+                    NavigationLink(destination: SessionDetailView(session: session)) {
+                        SessionRow(session: session)
                     }
                 }
             }
             .navigationBarTitle("Sessions")
-            .navigationBarItems(trailing:
-                Button(action: addNewSession) {
-                    Image(systemName: "plus")
-                }
-            )
+            .navigationBarItems(trailing: newButton)
         }
         .sheet(isPresented: $presentNew) {
             NewSessionView()
@@ -35,7 +39,7 @@ struct SessionListView: View {
     }
     
     // MARK: - Action
-    private func addNewSession() {
+    private func presentNewSession() {
         presentNew.toggle()
     }
 }
@@ -44,6 +48,7 @@ struct SessionListView: View {
 struct SessionListView_Previews: PreviewProvider {
     static var previews: some View {
         SessionListView()
+            .environmentObject(DataStore.shared)
     }
 }
 #endif

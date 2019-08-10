@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D10C22FEBE6200186351 /* SessionRow.swift */; };
 		161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */; };
 		163DB95722FC32C200D89754 /* ConferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95622FC32C200D89754 /* ConferenceRow.swift */; };
 		163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95922FC36B200D89754 /* ProfileRow.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1607D10C22FEBE6200186351 /* SessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRow.swift; sourceTree = "<group>"; };
 		161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialAccountView.swift; sourceTree = "<group>"; };
 		163DB95622FC32C200D89754 /* ConferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceRow.swift; sourceTree = "<group>"; };
 		163DB95922FC36B200D89754 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -137,6 +139,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1607D10922FEB4E100186351 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		164D87AE22F695E0008AA30D /* Person */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				16977DCA22F81D9200373677 /* SessionListView.swift */,
+				1607D10C22FEBE6200186351 /* SessionRow.swift */,
 				16977DD022F81DB700373677 /* NewSessionView.swift */,
 				16977DD222F81DC100373677 /* SessionDetailView.swift */,
 			);
@@ -261,6 +271,7 @@
 				16C0BCFF22EDB5B700BD2479 /* Application */,
 				16F9B22322FC1AFF00185B00 /* Model */,
 				16C0BD0022EDB64F00BD2479 /* View */,
+				1607D10922FEB4E100186351 /* Extension */,
 				16C0BD0122EDB65300BD2479 /* Resource */,
 				16C0BCF522EDB5B200BD2479 /* Preview Content */,
 			);
@@ -520,6 +531,7 @@
 				164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */,
 				2184282E22F6DF6B008C88F4 /* ConferenceDetailView.swift in Sources */,
 				16657D8622F69DEB001D6DE6 /* NewProfileView.swift in Sources */,
+				1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */,
 				16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */,
 				163DB95C22FC3BFE00D89754 /* ParticipantRow.swift in Sources */,
 				16C0BD0422EDB66800BD2479 /* Session.swift in Sources */,
