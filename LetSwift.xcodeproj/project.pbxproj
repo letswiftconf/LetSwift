@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D10C22FEBE6200186351 /* SessionRow.swift */; };
+		1607D10F22FECE7C00186351 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D10E22FECE7C00186351 /* OSLog.swift */; };
 		161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */; };
 		163DB95722FC32C200D89754 /* ConferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95622FC32C200D89754 /* ConferenceRow.swift */; };
 		163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95922FC36B200D89754 /* ProfileRow.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		1607D10C22FEBE6200186351 /* SessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRow.swift; sourceTree = "<group>"; };
+		1607D10E22FECE7C00186351 /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialAccountView.swift; sourceTree = "<group>"; };
 		163DB95622FC32C200D89754 /* ConferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceRow.swift; sourceTree = "<group>"; };
 		163DB95922FC36B200D89754 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		1607D10922FEB4E100186351 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1607D10E22FECE7C00186351 /* OSLog.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */,
 				16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */,
 				163DB95C22FC3BFE00D89754 /* ParticipantRow.swift in Sources */,
+				1607D10F22FECE7C00186351 /* OSLog.swift in Sources */,
 				16C0BD0422EDB66800BD2479 /* Session.swift in Sources */,
 				2184282722F6DE30008C88F4 /* Conference.swift in Sources */,
 				164D87D922F69A20008AA30D /* ProfileDetailView.swift in Sources */,
