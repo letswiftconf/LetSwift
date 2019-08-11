@@ -41,3 +41,14 @@ class Conference: Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
 }
+
+// MARK: - Dummy
+extension Conference {
+    static var dummy: Conference {
+        return Conference(title: "Let'Swift",
+                          description: "",
+                          date: Date(),
+                          schedule: Schedule.dummy,
+                          participants: [])
+    }
+}

@@ -31,3 +31,11 @@ class Schedule: Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
 }
+
+// MARK: - Dummy
+extension Schedule {
+    static var dummy: Schedule {
+        return Schedule(sessions: [],
+                        nonsessions: [])
+    }
+}

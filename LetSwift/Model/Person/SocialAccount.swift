@@ -62,3 +62,11 @@ extension SocialAccount {
         }
     }
 }
+
+// MARK: - Dummy
+extension SocialAccount {
+    static var dummy: SocialAccount {
+        return SocialAccount(category: .email,
+                             url: URL(string: "mailto://ksquareatm@gmail.com")!)
+    }
+}
