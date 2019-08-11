@@ -10,6 +10,9 @@
 		1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D10C22FEBE6200186351 /* SessionRow.swift */; };
 		1607D10F22FECE7C00186351 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D10E22FECE7C00186351 /* OSLog.swift */; };
 		1607D11122FFBCE600186351 /* SocialAccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D11022FFBCE600186351 /* SocialAccountDetailView.swift */; };
+		1607D1172300155A00186351 /* NonSessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1162300155A00186351 /* NonSessionRow.swift */; };
+		1607D1192300162E00186351 /* NewNonSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1182300162E00186351 /* NewNonSessionView.swift */; };
+		1607D11B2300163500186351 /* NonSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D11A2300163500186351 /* NonSessionDetailView.swift */; };
 		161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */; };
 		163DB95722FC32C200D89754 /* ConferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95622FC32C200D89754 /* ConferenceRow.swift */; };
 		163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95922FC36B200D89754 /* ProfileRow.swift */; };
@@ -72,6 +75,9 @@
 		1607D10C22FEBE6200186351 /* SessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRow.swift; sourceTree = "<group>"; };
 		1607D10E22FECE7C00186351 /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		1607D11022FFBCE600186351 /* SocialAccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccountDetailView.swift; sourceTree = "<group>"; };
+		1607D1162300155A00186351 /* NonSessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonSessionRow.swift; sourceTree = "<group>"; };
+		1607D1182300162E00186351 /* NewNonSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNonSessionView.swift; sourceTree = "<group>"; };
+		1607D11A2300163500186351 /* NonSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonSessionDetailView.swift; sourceTree = "<group>"; };
 		161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialAccountView.swift; sourceTree = "<group>"; };
 		163DB95622FC32C200D89754 /* ConferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceRow.swift; sourceTree = "<group>"; };
 		163DB95922FC36B200D89754 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -249,6 +255,9 @@
 				1607D10C22FEBE6200186351 /* SessionRow.swift */,
 				16977DD022F81DB700373677 /* NewSessionView.swift */,
 				16977DD222F81DC100373677 /* SessionDetailView.swift */,
+				1607D1162300155A00186351 /* NonSessionRow.swift */,
+				1607D1182300162E00186351 /* NewNonSessionView.swift */,
+				1607D11A2300163500186351 /* NonSessionDetailView.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -532,6 +541,7 @@
 			files = (
 				2184282422F6DACE008C88F4 /* NewParticipantView.swift in Sources */,
 				16C0BD0822EDB66800BD2479 /* Participant.swift in Sources */,
+				1607D1192300162E00186351 /* NewNonSessionView.swift in Sources */,
 				16C0BD0222EDB66800BD2479 /* Schedulable.swift in Sources */,
 				16C0BCEE22EDB5B000BD2479 /* AppDelegate.swift in Sources */,
 				164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */,
@@ -542,6 +552,8 @@
 				163DB95C22FC3BFE00D89754 /* ParticipantRow.swift in Sources */,
 				1607D10F22FECE7C00186351 /* OSLog.swift in Sources */,
 				16C0BD0422EDB66800BD2479 /* Session.swift in Sources */,
+				1607D11B2300163500186351 /* NonSessionDetailView.swift in Sources */,
+				1607D1172300155A00186351 /* NonSessionRow.swift in Sources */,
 				2184282722F6DE30008C88F4 /* Conference.swift in Sources */,
 				164D87D922F69A20008AA30D /* ProfileDetailView.swift in Sources */,
 				16977DD122F81DB700373677 /* NewSessionView.swift in Sources */,

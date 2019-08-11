@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SessionListView: View {
     @State private var presentNew = false
+    @State private var selectedIndex = 0
     
     @EnvironmentObject var store: DataStore
     
@@ -23,10 +24,30 @@ struct SessionListView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            List {
-                ForEach(store.sessions) { session in
-                    NavigationLink(destination: SessionDetailView(session: session)) {
-                        SessionRow(session: session)
+            VStack {
+                Picker("", selection: $selectedIndex) {
+                    Text("Session")
+                        .tag(0)
+                    Text("Non-Session")
+                        .tag(1)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding([.leading, .trailing])
+                if selectedIndex == 0 {
+                    List {
+                        ForEach(store.sessions) { session in
+                            NavigationLink(destination: SessionDetailView(session: session)) {
+                                SessionRow(session: session)
+                            }
+                        }
+                    }
+                } else {
+                    List {
+                        ForEach(store.nonsessions) { nonsession in
+                            NavigationLink(destination: NonSessionDetailView(nonsession: nonsession)) {
+                                NonSessionRow(nonsession: nonsession)
+                            }
+                        }
                     }
                 }
             }
@@ -34,7 +55,11 @@ struct SessionListView: View {
             .navigationBarItems(trailing: newButton)
         }
         .sheet(isPresented: $presentNew) {
-            NewSessionView()
+            if self.selectedIndex == 0 {
+                NewSessionView()
+            } else {
+                NewNonSessionView()
+            }
         }
     }
     

@@ -37,3 +37,13 @@ class NonSession: Schedulable, Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
 }
+
+// MARK: - Dummy
+extension NonSession {
+    static var dummy: NonSession {
+        return NonSession(title: "Untitled",
+                          description: "",
+                          location: "Unknown Location",
+                          timespan: DateInterval())
+    }
+}

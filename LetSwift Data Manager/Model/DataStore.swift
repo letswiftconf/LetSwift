@@ -15,6 +15,7 @@ class DataStore: ObservableObject {
     // MARK: - Property
     @Published private(set) var conferences = [Conference]()
     @Published private(set) var sessions = [Session]()
+    @Published private(set) var nonsessions = [NonSession]()
     @Published private(set) var profiles = [Profile]()
     @Published private(set) var participants = [Participant]()
     
@@ -33,6 +34,10 @@ class DataStore: ObservableObject {
     
     func addNew(session: Session) {
         sessions.append(session)
+    }
+    
+    func addNew(nonsession: NonSession) {
+        nonsessions.append(nonsession)
     }
     
     func addNew(profile: Profile) {
