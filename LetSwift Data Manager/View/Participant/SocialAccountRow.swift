@@ -11,6 +11,7 @@ import SwiftUI
 struct SocialAccountRow: View {
     @ObservedObject var account: SocialAccount
     
+    // MARK: - Body
     var body: some View {
         HStack {
             Text(account.category.localizedName)
@@ -23,8 +24,7 @@ struct SocialAccountRow: View {
 #if DEBUG
 struct SocialAccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        SocialAccountRow(account: SocialAccount(category: .email,
-                                                      url: URL(string: "mailto://ksquareatm@gmail.com")!))
+        SocialAccountRow(account: SocialAccount.dummy)
     }
 }
 #endif

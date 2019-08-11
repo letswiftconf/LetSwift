@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct ConferenceDetailView: View {
-    @EnvironmentObject var conference: Conference
+    @ObservedObject var conference: Conference
     
-    @State private var date = Date()
-    
+    // MARK: - Body
     var body: some View {
         Form {
             TextField("Title", text: $conference.title)
             TextField("Description", text: $conference.description)
-            DatePicker(selection: $date, displayedComponents: [.date]) {
+            DatePicker(selection: $conference.date, displayedComponents: [.date]) {
                 Text("Date")
             }
         }
@@ -29,7 +28,7 @@ struct ConferenceDetailView: View {
 #if DEBUG
 struct EventDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ConferenceDetailView()
+        ConferenceDetailView(conference: Conference.dummy)
     }
 }
 #endif

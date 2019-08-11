@@ -9,38 +9,68 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State private var selected: Tab = .conference
+    
+    // MARK: - Body
     var body: some View {
-        TabView {
-            ConferenceListView()
-            .tabItem {
-                Text("Conferences")
-                Image(systemName: "calendar")
-            }.tag(0)
-            
-            SessionListView()
-            .tabItem {
-                Text("Sessions")
-                Image(systemName: "bubble.left.fill")
-            }.tag(1)
-            
-            ProfileListView()
-            .tabItem {
-                Image(systemName: "person.crop.circle.fill")
-                Text("Profiles")
-            }.tag(2)
-            
-            ParticipantListView()
-            .tabItem {
-                Image(systemName: "smiley")
-                Text("Participants")
-            }.tag(3)
+        TabView(selection: $selected) {
+            ForEach(Tab.allCases) { tab in
+                tab.presentingView
+                    .tabItem { tab.tabItem }
+                    .tag(tab)
+            }
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
-struct TabItem: View {
-    var body: some View {
-        Text("Test")
+// MARK: - Tab
+extension MainTabView {
+    enum Tab: Int, Identifiable, CaseIterable {
+        case conference
+        case session
+        case profile
+        case participant
+        
+        // MARK: - Identifiable
+        var id: Int {
+            return rawValue
+        }
+        
+        // MARK: -
+        var presentingView: some View {
+            switch self {
+            case .conference: return AnyView(ConferenceListView())
+            case .session: return AnyView(SessionListView())
+            case .profile: return AnyView(ProfileListView())
+            case .participant: return AnyView(ParticipantListView())
+            }
+        }
+        
+        var tabItem: some View {
+            Group {
+                Text(name)
+                Image(systemName: imageName)
+            }
+        }
+        
+        private var name: String {
+            switch self {
+            case .conference: return "Conferences"
+            case .session: return "Sessions"
+            case .profile: return "Profiles"
+            case .participant: return "Participants"
+            }
+        }
+        
+        private var imageName: String {
+            switch self {
+            case .conference: return "chevron.left.slash.chevron.right"
+            case .session: return "music.mic"
+            case .profile: return "person.fill"
+            case .participant: return "person.2.square.stack.fill"
+            }
+        }
     }
 }
 

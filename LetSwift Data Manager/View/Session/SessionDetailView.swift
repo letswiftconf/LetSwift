@@ -58,6 +58,7 @@ struct SessionDetailView: View {
         .navigationBarTitle(session.title)
     }
     
+    // MARK: - Action
     private func newVideo() {
         presentNewVideo.toggle()
     }
@@ -66,21 +67,7 @@ struct SessionDetailView: View {
 #if DEBUG
 struct SessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let placeholderProfile = Profile(familyName: "Appleseed",
-                                         givenName: "John")
-        let placeholderParticipant = Participant(profile: placeholderProfile,
-                                      role: .unspecified,
-                                      description: "",
-                                      imageUrlString: "",
-                                      socialAccounts: [])
-        let session = Session(title: "",
-                               description: "",
-                               speaker: placeholderParticipant,
-                               location: "",
-                               timespan: DateInterval(),
-                               track: .unspecified,
-                               video: nil)
-        return SessionDetailView(session: session)
+        return SessionDetailView(session: Session.dummy)
     }
 }
 #endif

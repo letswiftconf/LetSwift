@@ -11,23 +11,43 @@ import SwiftUI
 struct NewProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    private var doneButton: some View {
-        Button(action: done, label: {
-            Text("Done")
-        })
+    @ObservedObject private var profile = Profile.dummy
+    
+    // MARK: - Button
+    private var saveButton: some View {
+        Button(action: save) {
+            Text("Save")
+        }
     }
     
+    private  var cancelButton: some View {
+        Button(action: cancel) {
+            Text("Cancel")
+        }
+    }
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
-            ProfileDetailView()
+            ProfileDetailView(profile: profile)
                 .navigationBarTitle("New Profile")
-                .navigationBarItems(trailing: doneButton)
+                .navigationBarItems(leading: cancelButton,
+                                    trailing: saveButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action
-    private func done() {
+    private func save() {
+        DataStore.shared.addNew(profile: profile)
+        dismiss()
+    }
+    
+    private func cancel() {
+        dismiss()
+    }
+    
+    private func dismiss() {
         presentationMode.value.dismiss()
     }
 }

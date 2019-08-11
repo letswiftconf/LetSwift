@@ -13,34 +13,33 @@ struct ConferenceListView: View {
     
     @EnvironmentObject var store: DataStore
     
-    private var addButton: some View {
-        Button(action: addNewEvent) {
+    // MARK: - Button
+    private var newButton: some View {
+        Button(action: presentNewConference) {
             Image(systemName: "plus")
         }
     }
     
+    // MARK: - Body
     var body: some View {
         NavigationView {
             List {
                 ForEach(store.conferences) { conference in
-                    NavigationLink(destination: ConferenceDetailView().environmentObject(conference)) {
+                    NavigationLink(destination: ConferenceDetailView(conference: conference)) {
                         ConferenceRow(conference: conference)
                     }
                 }
             }
             .navigationBarTitle("Conferences")
-            .navigationBarItems(trailing: addButton)
+            .navigationBarItems(trailing: newButton)
         }
-            
         .sheet(isPresented: $presentNew) {
             NewConferenceView()
-                .environmentObject(self.store.conferences.last!)
         }
     }
     
     // MARK: - Action
-    private func addNewEvent() {
-        store.createNewConference()
+    private func presentNewConference() {
         presentNew.toggle()
     }
 }
@@ -49,6 +48,7 @@ struct ConferenceListView: View {
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         ConferenceListView()
+            .environmentObject(DataStore.shared)
     }
 }
 #endif

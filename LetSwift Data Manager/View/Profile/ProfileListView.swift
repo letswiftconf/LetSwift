@@ -13,35 +13,34 @@ struct ProfileListView: View {
     
     @EnvironmentObject var store: DataStore
     
-    private var addButton: some View {
-        Button(action: addNewProfile) {
+    // MARK: - Button
+    private var newButton: some View {
+        Button(action: presentNewProfile) {
             Image(systemName: "plus")
         }
     }
     
+    // MARK: - Body
     var body: some View {
         NavigationView {
             List {
                 ForEach(store.profiles) { profile in
-                    NavigationLink(destination: ProfileDetailView()
-                        .environmentObject(profile)) {
+                    NavigationLink(destination: ProfileDetailView(profile: profile)) {
                         ProfileRow(profile: profile)
                     }
                 }
             }
             .navigationBarTitle("Profiles")
-            .navigationBarItems(trailing: addButton)
+            .navigationBarItems(trailing: newButton)
         }
         .sheet(isPresented: $presentNew) {
             NewProfileView()
-            .environmentObject(self.store.profiles.last!)
         }
     }
     
     // MARK: - Action
-    private func addNewProfile() {
-        store.createNewProfile()
-//        presentNew.toggle()
+    private func presentNewProfile() {
+        presentNew.toggle()
     }
 }
 
@@ -49,6 +48,7 @@ struct ProfileListView: View {
 struct ProfileListView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileListView()
+            .environmentObject(DataStore.shared)
     }
 }
 #endif

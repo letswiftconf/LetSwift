@@ -11,21 +11,22 @@ import SwiftUI
 struct ParticipantDetailView: View {
     @State private var presentNew = false
     
-    @EnvironmentObject var store: DataStore
-    @EnvironmentObject var participant: Participant
+    @ObservedObject var participant: Participant
     
+    // MARK: - Button
     private var newSocialAccountButton: some View {
         Button(action: newSocialAccount) {
             Text("New Social Account...")
         }
     }
     
+    // MARK: - Body
     var body: some View {
         Form {
             Section {
                 Picker("Profile", selection: $participant.profile) {
                     List {
-                        ForEach(store.profiles) { profile in
+                        ForEach(DataStore.shared.profiles) { profile in
                             Text(profile.preferredName)
                                 .tag(profile)
                         }
@@ -46,7 +47,7 @@ struct ParticipantDetailView: View {
             }
             Section(header: Text("Social Account")) {
                 ForEach(participant.socialAccounts) { account in
-                    NavigationLink(destination: NewSocialAccountView().environmentObject(account)) {
+                    NavigationLink(destination: NewSocialAccountView(participant: self.participant)) {
                         SocialAccountRow(account: account)
                     }
                 }
@@ -56,11 +57,7 @@ struct ParticipantDetailView: View {
         .listStyle(GroupedListStyle())
         .navigationBarTitle(participant.profile.preferredName)
         .sheet(isPresented: $presentNew) {
-            NavigationView {
-                NewSocialAccountView()
-                .environmentObject(self.participant)
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
+            NewSocialAccountView(participant: self.participant)
         }
     }
     
@@ -73,7 +70,7 @@ struct ParticipantDetailView: View {
 #if DEBUG
 struct ParticipantDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ParticipantDetailView()
+        ParticipantDetailView(participant: Participant.dummy)
     }
 }
 #endif

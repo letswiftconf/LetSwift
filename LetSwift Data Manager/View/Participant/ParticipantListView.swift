@@ -13,35 +13,34 @@ struct ParticipantListView: View {
     
     @EnvironmentObject var store: DataStore
     
-    private var addButton: some View {
-        Button(action: addNewParticipants) {
+    // MARK: - Body
+    private var newButton: some View {
+        Button(action: presentNewParticipant) {
             Image(systemName: "plus")
         }
     }
     
+    // MARK: - Body
     var body: some View {
         NavigationView {
             List {
                 ForEach(store.participants) { participant in
-                    NavigationLink(destination: ParticipantDetailView().environmentObject(participant)) {
+                    NavigationLink(destination: ParticipantDetailView(participant: participant)) {
                         ParticipantRow(participant: participant)
                     }
                 }
             }
             .navigationBarTitle("Participants")
-            .navigationBarItems(trailing: addButton)
+            .navigationBarItems(trailing: newButton)
         }
         .sheet(isPresented: $presentNew) {
             NewParticipantView()
-                .environmentObject(self.store)
-                .environmentObject(self.store.participants.last!)
         }
     }
     
     // MARK: - Action
-    private func addNewParticipants() {
-        store.createNewParticipant()
-//        presentNew.toggle()
+    private func presentNewParticipant() {
+        presentNew.toggle()
     }
 }
 
@@ -49,6 +48,7 @@ struct ParticipantListView: View {
 struct ParticipantListView_Previews: PreviewProvider {
     static var previews: some View {
         ParticipantListView()
+            .environmentObject(DataStore.shared)
     }
 }
 #endif

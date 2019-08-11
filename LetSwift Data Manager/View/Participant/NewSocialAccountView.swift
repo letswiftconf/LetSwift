@@ -11,59 +11,50 @@ import SwiftUI
 struct NewSocialAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @EnvironmentObject var participant: Participant
-    @State private var service = SocialAccount.Service.unspecified
-    @State private var urlString = ""
+    @ObservedObject var participant: Participant
+    @ObservedObject private var account = SocialAccount.dummy
     
-    private var isFormValid: Bool {
-        if service != .unspecified &&
-            URL(string: urlString) != nil { return true }
-        else { return false }
-    }
+    //    private var isFormValid: Bool {
+    //        if service != .unspecified &&
+    //            URL(string: urlString) != nil { return true }
+    //        else { return false }
+    //    }
     
     // MARK: - Button
     private var saveButton: some View {
-        Button(action: save, label: {
-            Text("Done")
-        })
+        Button(action: save) {
+            Text("Save")
+        }
     }
     
-    private var cancelButton: some View {
-        Button(action: cancel, label: {
+    private  var cancelButton: some View {
+        Button(action: cancel) {
             Text("Cancel")
-        })
+        }
     }
     
     // MARK: - Body
     var body: some View {
-        Form {
-            Picker("Service", selection: $service) {
-                List {
-                    ForEach(SocialAccount.Service.allCases) { service in
-                        Text(service.localizedName)
-                            .tag(service)
-                    }
-                }
-            }
-            TextField("URL", text: $urlString)
+        NavigationView {
+            SocialAccountDetailView(account: account)
+                .navigationBarTitle("New Social Account")
+                .navigationBarItems(leading: cancelButton,
+                                    trailing: saveButton)//.disabled(!isFormValid))
         }
-        .navigationBarTitle("New Social Account")
-        .navigationBarItems(leading: cancelButton,
-                            trailing: saveButton.disabled(!isFormValid))
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action
     private func save() {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        let account = SocialAccount(category: service,
-                                    url: url)
         participant.socialAccounts.append(account)
-        presentationMode.value.dismiss()
+        dismiss()
     }
     
     private func cancel() {
+        dismiss()
+    }
+    
+    private func dismiss() {
         presentationMode.value.dismiss()
     }
 }
@@ -71,7 +62,7 @@ struct NewSocialAccountView: View {
 #if DEBUG
 struct NewSocialAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        NewSocialAccountView()
+        NewSocialAccountView(participant: Participant.dummy)
     }
 }
 #endif

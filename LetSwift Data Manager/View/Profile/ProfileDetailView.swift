@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ProfileDetailView: View {
-    @EnvironmentObject var profile: Profile
+    @ObservedObject var profile: Profile
     
+    // MARK: - Body
     var body: some View {
         Form {
             Section() {
@@ -27,7 +28,7 @@ struct ProfileDetailView: View {
 #if DEBUG
 struct ProfileDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileDetailView()
+        ProfileDetailView(profile: Profile.dummy)
     }
 }
 #endif

@@ -27,43 +27,19 @@ class DataStore: ObservableObject {
     let objectWillChange = ObservableObjectPublisher()
     
     // MARK: - Action: New
-    @discardableResult
-    func createNewConference() -> Conference {
-        let conference = Conference(title: "Let\'Swift",
-                                    description: "",
-                                    date: Date(),
-                                    schedule: Schedule(sessions: [],
-                                                       nonsessions: []),
-                                    participants: [])
+    func addNew(conference: Conference) {
         conferences.append(conference)
-        objectWillChange.send()
-        return conference
-    }
-    
-    @discardableResult
-    func createNewProfile() -> Profile {
-        let profile = Profile(familyName: "Appleseed",
-                              givenName: "John")
-        profiles.append(profile)
-        objectWillChange.send()
-        return profile
-    }
-    
-    @discardableResult
-    func createNewParticipant() -> Participant {
-        let placeholderProfile = Profile(familyName: "Appleseed",
-                                         givenName: "John")
-        let participant = Participant(profile: placeholderProfile,
-                                      role: .unspecified,
-                                      description: "",
-                                      imageUrlString: "",
-                                      socialAccounts: [])
-        participants.append(participant)
-        objectWillChange.send()
-        return participant
     }
     
     func addNew(session: Session) {
         sessions.append(session)
+    }
+    
+    func addNew(profile: Profile) {
+        profiles.append(profile)
+    }
+    
+    func addNew(participant: Participant) {
+        participants.append(participant)
     }
 }

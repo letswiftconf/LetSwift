@@ -11,6 +11,7 @@ import SwiftUI
 struct ProfileRow: View {
     @ObservedObject var profile: Profile
     
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
             Text(profile.preferredName)
@@ -31,8 +32,7 @@ struct ProfileRow: View {
 #if DEBUG
 struct ProfileRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileRow(profile: Profile(familyName: "Appleseed",
-                                    givenName: "John"))
+        ProfileRow(profile: Profile.dummy)
     }
 }
 #endif

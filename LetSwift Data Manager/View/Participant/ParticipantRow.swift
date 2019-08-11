@@ -11,6 +11,7 @@ import SwiftUI
 struct ParticipantRow: View {
     @ObservedObject var participant: Participant
     
+    // MARK: - Body
     var body: some View {
         HStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 13, style: .continuous)
@@ -31,14 +32,7 @@ struct ParticipantRow: View {
 #if DEBUG
 struct ParticipantRow_Previews: PreviewProvider {
     static var previews: some View {
-        let placeholderProfile = Profile(familyName: "Appleseed",
-                                         givenName: "John")
-        let participant = Participant(profile: placeholderProfile,
-                                      role: .unspecified,
-                                      description: "",
-                                      imageUrlString: "",
-                                      socialAccounts: [])
-        return ParticipantRow(participant: participant)
+        return ParticipantRow(participant: Participant.dummy)
     }
 }
 #endif
