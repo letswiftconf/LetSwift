@@ -68,7 +68,7 @@
 		2184283022F6DF71008C88F4 /* NewConferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282F22F6DF71008C88F4 /* NewConferenceView.swift */; };
 		218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28522EAEF9900A6BEAB /* AppDelegate.swift */; };
 		218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */; };
-		218FD28A22EAEF9900A6BEAB /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28922EAEF9900A6BEAB /* MainTabbedView.swift */; };
+		218FD28A22EAEF9900A6BEAB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FD28922EAEF9900A6BEAB /* MainTabView.swift */; };
 		218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28B22EAEF9900A6BEAB /* Assets.xcassets */; };
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
@@ -130,7 +130,7 @@
 		218FD28222EAEF9900A6BEAB /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FD28522EAEF9900A6BEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218FD28722EAEF9900A6BEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		218FD28922EAEF9900A6BEAB /* MainTabbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbedView.swift; sourceTree = "<group>"; };
+		218FD28922EAEF9900A6BEAB /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		218FD28B22EAEF9900A6BEAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -417,7 +417,7 @@
 		218FD29A22EAEFA300A6BEAB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				218FD28922EAEF9900A6BEAB /* MainTabbedView.swift */,
+				218FD28922EAEF9900A6BEAB /* MainTabView.swift */,
 				168AE12E22EBF10E00DFBB6F /* Home */,
 				168AE13422EBF16F00DFBB6F /* Schedule */,
 				168AE13322EBF16A00DFBB6F /* Video */,
@@ -603,7 +603,7 @@
 				16C0BCDB22ED7D9700BD2479 /* Participant.swift in Sources */,
 				16C0BCE622ED864D00BD2479 /* Schedulable.swift in Sources */,
 				16C0BCDF22ED7DB100BD2479 /* SocialAccount.swift in Sources */,
-				218FD28A22EAEF9900A6BEAB /* MainTabbedView.swift in Sources */,
+                218FD28A22EAEF9900A6BEAB /* MainTabView.swift in Sources */,
 				168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */,
 				16C0BCD722ED7D7100BD2479 /* Schedule.swift in Sources */,
 				16C0BCE322ED84FA00BD2479 /* NonSession.swift in Sources */,
