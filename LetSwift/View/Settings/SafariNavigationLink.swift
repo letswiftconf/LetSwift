@@ -15,6 +15,9 @@ struct SafariNavigationLink: View {
     var body: some View {
         NavigationLink(destination:
             SafariView(url: url!, entersReaderIfAvailable: false)
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.top)
         ) {
             Text(self.title)
         }

@@ -39,9 +39,9 @@ struct SettingsView: View {
                     SafariNavigationLink(title: "App Source Code", url: URL(string: "https://github.com/cleanios/LetSwift"))
                     Text("Open Source Licenses")
                 }
-                .navigationBarTitle("Settings")
             }
-            .listStyle(.grouped)
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle("Settings")
         }
     }
 }
