@@ -58,6 +58,7 @@
 		16C0BD0822EDB66800BD2479 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCDA22ED7D9600BD2479 /* Participant.swift */; };
 		16C0BD0922EDB66800BD2479 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCDC22ED7DA400BD2479 /* Profile.swift */; };
 		16C0BD0A22EDB66800BD2479 /* SocialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCDE22ED7DB100BD2479 /* SocialAccount.swift */; };
+		16CAD458230108A3000F4E5C /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CAD457230108A3000F4E5C /* DataFile.swift */; };
 		16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9B22422FC1B0D00185B00 /* DataStore.swift */; };
 		2184282422F6DACE008C88F4 /* NewParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282322F6DACE008C88F4 /* NewParticipantView.swift */; };
 		2184282622F6DE2F008C88F4 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282522F6DE2F008C88F4 /* Conference.swift */; };
@@ -119,6 +120,7 @@
 		16C0BCF622EDB5B200BD2479 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16C0BCF922EDB5B200BD2479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16C0BCFB22EDB5B200BD2479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CAD457230108A3000F4E5C /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
 		16F9B22422FC1B0D00185B00 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		2184282322F6DACE008C88F4 /* NewParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewParticipantView.swift; sourceTree = "<group>"; };
 		2184282522F6DE2F008C88F4 /* Conference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				16F9B22422FC1B0D00185B00 /* DataStore.swift */,
+				16CAD457230108A3000F4E5C /* DataFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				163DB95E22FC3D7B00D89754 /* SocialAccountRow.swift in Sources */,
 				16C0BD0922EDB66800BD2479 /* Profile.swift in Sources */,
 				16C0BD0522EDB66800BD2479 /* NonSession.swift in Sources */,
+				16CAD458230108A3000F4E5C /* DataFile.swift in Sources */,
 				16977DD322F81DC100373677 /* SessionDetailView.swift in Sources */,
 				16C0BCF222EDB5B000BD2479 /* MainTabView.swift in Sources */,
 			);
