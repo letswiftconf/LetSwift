@@ -19,7 +19,7 @@ struct ProfileRow: View {
             HStack {
                 Text(profile.familyName)
                 Text(profile.givenName)
-                if profile.nickname.count > 0 {
+                if !profile.nickname.isEmpty {
                     Text("\"\(profile.nickname)\"")
                 }
             }

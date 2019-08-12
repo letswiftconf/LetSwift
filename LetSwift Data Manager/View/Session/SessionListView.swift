@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SessionListView: View {
-    @State private var presentNew = false
+    @State private var presentsNew = false
     @State private var selectedIndex = 0
     
     @EnvironmentObject var store: DataStore
@@ -54,7 +54,7 @@ struct SessionListView: View {
             .navigationBarTitle("Sessions")
             .navigationBarItems(trailing: newButton)
         }
-        .sheet(isPresented: $presentNew) {
+        .sheet(isPresented: $presentsNew) {
             if self.selectedIndex == 0 {
                 NewSessionView()
             } else {
@@ -65,7 +65,7 @@ struct SessionListView: View {
     
     // MARK: - Action
     private func presentNewSession() {
-        presentNew.toggle()
+        presentsNew.toggle()
     }
 }
 

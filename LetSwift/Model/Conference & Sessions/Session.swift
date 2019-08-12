@@ -60,7 +60,7 @@ extension Session: Hashable {
 
 // MARK: - Track
 extension Session {
-    /// Track type of a `Session`. e.g. A session can be either `.sesssion` track or `.workshop` track.
+    /// Track type of a `Session`. e.g. A session can be either `.session` track or `.workshop` track.
     enum Track: String, Identifiable, Codable, CaseIterable {
         case unspecified
         case session

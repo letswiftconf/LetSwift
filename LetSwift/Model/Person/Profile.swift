@@ -25,9 +25,9 @@ class Profile: Identifiable, Codable, ObservableObject {
         components.nickname = nickname
         
         let formatter = PersonNameComponentsFormatter()
-        formatter.style = nickname.count == 0 ? .default : .short
+        formatter.style = nickname.isEmpty ? .default : .short
         let name = formatter.string(from: components)
-        return name.count != 0 ? name : "Unnamed Man"
+        return !name.isEmpty ? name : "Unnamed Man"
     }
     
     // MARK: - Initialization

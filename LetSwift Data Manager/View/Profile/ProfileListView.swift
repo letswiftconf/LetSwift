@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProfileListView: View {
-    @State private var presentNew = false
+    @State private var presentsNew = false
     
     @EnvironmentObject var store: DataStore
     
@@ -33,14 +33,14 @@ struct ProfileListView: View {
             .navigationBarTitle("Profiles")
             .navigationBarItems(trailing: newButton)
         }
-        .sheet(isPresented: $presentNew) {
+        .sheet(isPresented: $presentsNew) {
             NewProfileView()
         }
     }
     
     // MARK: - Action
     private func presentNewProfile() {
-        presentNew.toggle()
+        presentsNew.toggle()
     }
 }
 

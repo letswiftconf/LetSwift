@@ -17,29 +17,29 @@ class Participant: Identifiable, Codable, ObservableObject {
     var profile: Profile { willSet { objectWillChange.send() } }
     var role: Participant.Role { willSet { objectWillChange.send() } }
     var description: String { willSet { objectWillChange.send() } }
-    var imageUrlString: String { willSet { objectWillChange.send() } }
+    var imageURLString: String { willSet { objectWillChange.send() } }
     var socialAccounts: [SocialAccount] { willSet { objectWillChange.send() } }
     
-    var imageUrl: URL? {
-        URL(string: imageUrlString)
+    var imageURL: URL? {
+        URL(string: imageURLString)
     }
     
     // MARK: - Initialization
     init(profile: Profile,
          role: Participant.Role,
          description: String,
-         imageUrlString: String,
+         imageURLString: String,
          socialAccounts: [SocialAccount]) {
         self.profile = profile
         self.role = role
         self.description = description
-        self.imageUrlString = imageUrlString
+        self.imageURLString = imageURLString
         self.socialAccounts = socialAccounts
     }
     
     // MARK: - Codable
     private enum CodingKeys: String, CodingKey {
-        case id, profile, role, description, imageUrlString, socialAccounts
+        case id, profile, role, description, imageURLString, socialAccounts
     }
     
     // MARK: - Observable Object
@@ -88,7 +88,7 @@ extension Participant {
         return Participant(profile: Profile.dummy,
                            role: .unspecified,
                            description: "",
-                           imageUrlString: "",
+                           imageURLString: "",
                            socialAccounts: [])
     }
 }

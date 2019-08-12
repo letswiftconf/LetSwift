@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ParticipantDetailView: View {
-    @State private var presentNew = false
+    @State private var presentsNew = false
     
     @ObservedObject var participant: Participant
     
@@ -43,7 +43,7 @@ struct ParticipantDetailView: View {
                 TextField("Description", text: $participant.description)
             }
             Section(header: Text("Image")) {
-                TextField("Image URL", text: $participant.imageUrlString)
+                TextField("Image URL", text: $participant.imageURLString)
             }
             Section(header: Text("Social Account")) {
                 ForEach(participant.socialAccounts) { account in
@@ -56,14 +56,14 @@ struct ParticipantDetailView: View {
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(participant.profile.preferredName)
-        .sheet(isPresented: $presentNew) {
+        .sheet(isPresented: $presentsNew) {
             NewSocialAccountView(participant: self.participant)
         }
     }
     
     // MARK: - Action
     private func newSocialAccount() {
-        presentNew.toggle()
+        presentsNew.toggle()
     }
 }
 

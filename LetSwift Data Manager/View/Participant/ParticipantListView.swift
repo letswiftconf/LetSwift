@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ParticipantListView: View {
-    @State private var presentNew = false
+    @State private var presentsNew = false
     
     @EnvironmentObject var store: DataStore
     
@@ -33,14 +33,14 @@ struct ParticipantListView: View {
             .navigationBarTitle("Participants")
             .navigationBarItems(trailing: newButton)
         }
-        .sheet(isPresented: $presentNew) {
+        .sheet(isPresented: $presentsNew) {
             NewParticipantView()
         }
     }
     
     // MARK: - Action
     private func presentNewParticipant() {
-        presentNew.toggle()
+        presentsNew.toggle()
     }
 }
 
