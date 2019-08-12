@@ -38,6 +38,17 @@ class NonSession: Schedulable, Identifiable, Codable, ObservableObject {
     let objectWillChange = ObservableObjectPublisher()
 }
 
+// MARK: - Equatable & Hashable
+extension NonSession: Hashable {
+    static func == (lhs: NonSession, rhs: NonSession) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 // MARK: - Dummy
 extension NonSession {
     static var dummy: NonSession {

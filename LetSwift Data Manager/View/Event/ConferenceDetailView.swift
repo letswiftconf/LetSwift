@@ -9,19 +9,58 @@
 import SwiftUI
 
 struct ConferenceDetailView: View {
+    @State private var presentSelect = false
+    @State private var isSession = true
+    
     @ObservedObject var conference: Conference
     
     // MARK: - Body
     var body: some View {
         Form {
-            TextField("Title", text: $conference.title)
-            TextField("Description", text: $conference.description)
-            DatePicker(selection: $conference.date, displayedComponents: [.date]) {
-                Text("Date")
+            Section {
+                TextField("Title", text: $conference.title)
+                TextField("Description", text: $conference.description)
+                DatePicker(selection: $conference.date, displayedComponents: [.date]) {
+                    Text("Date")
+                }
+            }
+            Section(header: Text("Sessions")) {
+                ForEach(conference.schedule.sessions) { session in
+                    Text(session.title)
+                }
+                Button(action: selectSession) {
+                    Text("Add a New Session...")
+                }
+            }
+            Section(header: Text("Non-Sessions")) {
+                ForEach(conference.schedule.nonsessions) { nonsession in
+                    Text(nonsession.title)
+                }
+                Button(action: selectNonSession) {
+                    Text("Add a New Non-Session...")
+                }
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(conference.title)
+        .sheet(isPresented: $presentSelect) {
+            if self.isSession == true {
+                SelectSessionView(conference: self.conference)
+            } else {
+                SelectNonSessionView(conference: self.conference)
+            }
+        }
+    }
+    
+    // MARK: - Action
+    private func selectSession() {
+        isSession = true
+        presentSelect.toggle()
+    }
+    
+    private func selectNonSession() {
+        isSession = false
+        presentSelect.toggle()
     }
 }
 

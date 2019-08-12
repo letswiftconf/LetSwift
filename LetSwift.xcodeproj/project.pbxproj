@@ -13,6 +13,8 @@
 		1607D1172300155A00186351 /* NonSessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1162300155A00186351 /* NonSessionRow.swift */; };
 		1607D1192300162E00186351 /* NewNonSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1182300162E00186351 /* NewNonSessionView.swift */; };
 		1607D11B2300163500186351 /* NonSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D11A2300163500186351 /* NonSessionDetailView.swift */; };
+		1607D1442300E22300186351 /* SelectSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1432300E22300186351 /* SelectSessionView.swift */; };
+		1607D1462300E25800186351 /* SelectNonSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D1452300E25800186351 /* SelectNonSessionView.swift */; };
 		161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */; };
 		163DB95722FC32C200D89754 /* ConferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95622FC32C200D89754 /* ConferenceRow.swift */; };
 		163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95922FC36B200D89754 /* ProfileRow.swift */; };
@@ -78,6 +80,8 @@
 		1607D1162300155A00186351 /* NonSessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonSessionRow.swift; sourceTree = "<group>"; };
 		1607D1182300162E00186351 /* NewNonSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNonSessionView.swift; sourceTree = "<group>"; };
 		1607D11A2300163500186351 /* NonSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonSessionDetailView.swift; sourceTree = "<group>"; };
+		1607D1432300E22300186351 /* SelectSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSessionView.swift; sourceTree = "<group>"; };
+		1607D1452300E25800186351 /* SelectNonSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNonSessionView.swift; sourceTree = "<group>"; };
 		161AABF922F6A5A40054A2E8 /* NewSocialAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialAccountView.swift; sourceTree = "<group>"; };
 		163DB95622FC32C200D89754 /* ConferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceRow.swift; sourceTree = "<group>"; };
 		163DB95922FC36B200D89754 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -345,8 +349,8 @@
 			children = (
 				2184282522F6DE2F008C88F4 /* Conference.swift */,
 				16C0BCD622ED7D7100BD2479 /* Schedule.swift */,
-				16C0BCE222ED84FA00BD2479 /* NonSession.swift */,
 				16C0BCD422ED763F00BD2479 /* Session.swift */,
+				16C0BCE222ED84FA00BD2479 /* NonSession.swift */,
 				16C0BCD822ED7D8C00BD2479 /* Video.swift */,
 			);
 			path = "Conference & Sessions";
@@ -359,6 +363,8 @@
 				163DB95622FC32C200D89754 /* ConferenceRow.swift */,
 				2184282F22F6DF71008C88F4 /* NewConferenceView.swift */,
 				2184282D22F6DF6B008C88F4 /* ConferenceDetailView.swift */,
+				1607D1432300E22300186351 /* SelectSessionView.swift */,
+				1607D1452300E25800186351 /* SelectNonSessionView.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 				16C0BD0422EDB66800BD2479 /* Session.swift in Sources */,
 				1607D11B2300163500186351 /* NonSessionDetailView.swift in Sources */,
 				1607D1172300155A00186351 /* NonSessionRow.swift in Sources */,
+				1607D1462300E25800186351 /* SelectNonSessionView.swift in Sources */,
 				2184282722F6DE30008C88F4 /* Conference.swift in Sources */,
 				164D87D922F69A20008AA30D /* ProfileDetailView.swift in Sources */,
 				16977DD122F81DB700373677 /* NewSessionView.swift in Sources */,
@@ -563,6 +570,7 @@
 				16977DCB22F81D9200373677 /* SessionListView.swift in Sources */,
 				2184282C22F6DEE3008C88F4 /* ConferenceListView.swift in Sources */,
 				161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */,
+				1607D1442300E22300186351 /* SelectSessionView.swift in Sources */,
 				16C0BD0A22EDB66800BD2479 /* SocialAccount.swift in Sources */,
 				16C0BCF022EDB5B000BD2479 /* SceneDelegate.swift in Sources */,
 				163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */,

@@ -47,6 +47,17 @@ class Session: Schedulable, Identifiable, Codable, ObservableObject {
     let objectWillChange = ObservableObjectPublisher()
 }
 
+// MARK: - Equatable & Hashable
+extension Session: Hashable {
+    static func == (lhs: Session, rhs: Session) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 // MARK: - Track
 extension Session {
     /// Track type of a `Session`. e.g. A session can be either `.sesssion` track or `.workshop` track.
