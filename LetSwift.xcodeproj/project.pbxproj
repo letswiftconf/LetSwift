@@ -59,7 +59,7 @@
 		16C0BD0922EDB66800BD2479 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCDC22ED7DA400BD2479 /* Profile.swift */; };
 		16C0BD0A22EDB66800BD2479 /* SocialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCDE22ED7DB100BD2479 /* SocialAccount.swift */; };
 		16CAD458230108A3000F4E5C /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CAD457230108A3000F4E5C /* DataFile.swift */; };
-        16DDCF2922EC25900075561F /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2822EC25900075561F /* SafariView.swift */; };
+		16DDCF2922EC25900075561F /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2822EC25900075561F /* SafariView.swift */; };
 		16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */; };
 		16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9B22422FC1B0D00185B00 /* DataStore.swift */; };
 		2184282422F6DACE008C88F4 /* NewParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282322F6DACE008C88F4 /* NewParticipantView.swift */; };
@@ -123,7 +123,7 @@
 		16C0BCF922EDB5B200BD2479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16C0BCFB22EDB5B200BD2479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CAD457230108A3000F4E5C /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
-        16DDCF2822EC25900075561F /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		16DDCF2822EC25900075561F /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariNavigationLink.swift; sourceTree = "<group>"; };
 		16F9B22422FC1B0D00185B00 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		2184282322F6DACE008C88F4 /* NewParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewParticipantView.swift; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 			files = (
 				218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */,
 				16C0BCDD22ED7DA400BD2479 /* Profile.swift in Sources */,
-                16DDCF2922EC25900075561F /* SafariView.swift in Sources */,
+				16DDCF2922EC25900075561F /* SafariView.swift in Sources */,
 				168AE13922EBF1C000DFBB6F /* VideoView.swift in Sources */,
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
 				2184282622F6DE2F008C88F4 /* Conference.swift in Sources */,
@@ -610,7 +610,7 @@
 				16C0BCDB22ED7D9700BD2479 /* Participant.swift in Sources */,
 				16C0BCE622ED864D00BD2479 /* Schedulable.swift in Sources */,
 				16C0BCDF22ED7DB100BD2479 /* SocialAccount.swift in Sources */,
-                218FD28A22EAEF9900A6BEAB /* MainTabView.swift in Sources */,
+				218FD28A22EAEF9900A6BEAB /* MainTabView.swift in Sources */,
 				168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */,
 				16C0BCD722ED7D7100BD2479 /* Schedule.swift in Sources */,
 				16C0BCE322ED84FA00BD2479 /* NonSession.swift in Sources */,
