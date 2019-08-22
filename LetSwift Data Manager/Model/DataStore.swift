@@ -14,7 +14,7 @@ class DataStore: ObservableObject {
     static let shared = DataStore()
     
     // MARK: - Property
-    @Published private(set) var conferences = [Conference]() { willSet { objectWillChange.send() }}
+    @Published private(set) var conferences = [Conference]()
     @Published private(set) var sessions = [Session]()
     @Published private(set) var nonsessions = [NonSession]()
     @Published private(set) var profiles = [Profile]()
@@ -43,7 +43,7 @@ class DataStore: ObservableObject {
     }
     
     // MARK: - Observable Object
-    let objectWillChange = ObservableObjectPublisher()
+//    let objectWillChange = ObservableObjectPublisher()
     
     // MARK: - Action: Save
     func save() {

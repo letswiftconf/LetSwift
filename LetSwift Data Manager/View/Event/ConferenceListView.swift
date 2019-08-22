@@ -41,8 +41,8 @@ struct ConferenceListView: View {
                         ConferenceRow(conference: conference)
                     }
                 }
-                .onMove(perform: DataStore.shared.move)
-                .onDelete(perform: DataStore.shared.delete)
+                .onMove(perform: store.move)
+                .onDelete(perform: store.delete)
             }
             .navigationBarTitle("Conferences")
                 
