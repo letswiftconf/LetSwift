@@ -41,8 +41,8 @@ struct ConferenceListView: View {
                         ConferenceRow(conference: conference)
                     }
                 }
-                .onMove(perform: store.move)
-                .onDelete(perform: store.delete)
+                .onMove(perform: store.moveConference)
+                .onDelete(perform: store.deleteConference)
             }
             .navigationBarTitle("Conferences")
                 

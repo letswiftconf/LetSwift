@@ -29,9 +29,14 @@ struct ParticipantListView: View {
                         ParticipantRow(participant: participant)
                     }
                 }
+                .onMove(perform: store.moveParticipants)
+                .onDelete(perform: store.deleteParticipants)
             }
             .navigationBarTitle("Participants")
-            .navigationBarItems(trailing: newButton)
+            .navigationBarItems(trailing: HStack {
+                newButton
+                EditButton()
+            })
         }
         .sheet(isPresented: $presentsNew) {
             NewParticipantView()

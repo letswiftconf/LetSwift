@@ -29,9 +29,14 @@ struct ProfileListView: View {
                         ProfileRow(profile: profile)
                     }
                 }
+                .onMove(perform: store.moveProfiles)
+                .onDelete(perform: store.deleteProfiles)
             }
             .navigationBarTitle("Profiles")
-            .navigationBarItems(trailing: newButton)
+            .navigationBarItems(trailing: HStack {
+                newButton
+                EditButton()
+            })
         }
         .sheet(isPresented: $presentsNew) {
             NewProfileView()
