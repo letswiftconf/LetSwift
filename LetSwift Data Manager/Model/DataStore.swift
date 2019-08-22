@@ -14,7 +14,7 @@ class DataStore: ObservableObject {
     static let shared = DataStore()
     
     // MARK: - Property
-    @Published private(set) var conferences = [Conference]()
+    @Published private(set) var conferences = [Conference]() { willSet { objectWillChange.send() }}
     @Published private(set) var sessions = [Session]()
     @Published private(set) var nonsessions = [NonSession]()
     @Published private(set) var profiles = [Profile]()
@@ -80,5 +80,13 @@ class DataStore: ObservableObject {
     
     func addNew(participant: Participant) {
         participants.append(participant)
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        conferences.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        conferences.remove(atOffsets: offsets)
     }
 }

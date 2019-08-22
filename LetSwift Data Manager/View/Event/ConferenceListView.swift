@@ -41,14 +41,21 @@ struct ConferenceListView: View {
                         ConferenceRow(conference: conference)
                     }
                 }
+                .onMove(perform: DataStore.shared.move)
+                .onDelete(perform: DataStore.shared.delete)
             }
             .navigationBarTitle("Conferences")
+                
             .navigationBarItems(leading:
                 HStack {
                     saveButton
                     exportButton
                 },
-                                trailing: newButton)
+                                trailing:
+                HStack {
+                    newButton
+                    EditButton()
+                })
         }
         .sheet(isPresented: $presentsNew) {
             NewConferenceView()
