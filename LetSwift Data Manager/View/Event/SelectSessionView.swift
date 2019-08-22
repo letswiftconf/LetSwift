@@ -44,7 +44,7 @@ struct SelectSessionView: View {
     }
     
     private func dismiss() {
-        presentationMode.value.dismiss()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

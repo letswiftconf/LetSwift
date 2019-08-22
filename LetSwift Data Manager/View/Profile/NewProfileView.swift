@@ -48,7 +48,7 @@ struct NewProfileView: View {
     }
     
     private func dismiss() {
-        presentationMode.value.dismiss()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
