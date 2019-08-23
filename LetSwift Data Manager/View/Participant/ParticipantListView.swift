@@ -33,10 +33,9 @@ struct ParticipantListView: View {
                 .onDelete(perform: store.deleteParticipants)
             }
             .navigationBarTitle("Participants")
-            .navigationBarItems(trailing: HStack {
-                newButton
-                EditButton()
-            })
+            .navigationBarItems(leading: EditButton(),
+                                trailing: newButton)
+
         }
         .sheet(isPresented: $presentsNew) {
             NewParticipantView()

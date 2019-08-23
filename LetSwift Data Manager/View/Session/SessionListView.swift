@@ -56,10 +56,8 @@ struct SessionListView: View {
                 }
             }
             .navigationBarTitle("Sessions")
-            .navigationBarItems(trailing: HStack {
-                newButton
-                EditButton()
-            })
+            .navigationBarItems(leading: EditButton(),
+                                trailing: newButton)
         }
         .sheet(isPresented: $presentsNew) {
             if self.selectedIndex == 0 {

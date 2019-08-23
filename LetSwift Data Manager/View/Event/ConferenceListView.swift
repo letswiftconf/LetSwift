@@ -48,14 +48,11 @@ struct ConferenceListView: View {
                 
             .navigationBarItems(leading:
                 HStack {
+                    EditButton()
                     saveButton
                     exportButton
                 },
-                                trailing:
-                HStack {
-                    newButton
-                    EditButton()
-                })
+                                trailing: newButton)
         }
         .sheet(isPresented: $presentsNew) {
             NewConferenceView()
