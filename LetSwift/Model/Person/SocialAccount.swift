@@ -60,6 +60,17 @@ extension SocialAccount {
             case .twitter: return "Twitter"
             }
         }
+        
+        var domain: String {
+            switch self {
+            case .github: return "github.com"
+            case .linkedin: return "linkedin.com"
+            case .facebook: return "facebook.com"
+            case .instagram: return "instagram.com"
+            case .twitter: return "twitter.com"
+            default: return ""
+            }
+        }
     }
 }
 
