@@ -45,6 +45,11 @@ class DataStore: ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
     
+    // MARK: - Filtered
+    var speakers: [Participant] {
+        return self.participants.filter { $0.role == .speaker }
+    }
+    
     // MARK: - Action: Save
     func save() {
         let content = DataFile(conferences: conferences,
