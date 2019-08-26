@@ -43,7 +43,7 @@ class DataStore: ObservableObject {
     }
     
     // MARK: - Observable Object
-    let objectWillChange = ObservableObjectPublisher()
+//    let objectWillChange = ObservableObjectPublisher()
     
     // MARK: - Filtered
     var speakers: [Participant] {
@@ -85,5 +85,47 @@ class DataStore: ObservableObject {
     
     func addNew(participant: Participant) {
         participants.append(participant)
+    }
+    
+    // MARK: - Action: Move
+    func moveConference(from source: IndexSet, to destination: Int) {
+        conferences.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func moveSessions(from source: IndexSet, to destination: Int) {
+        sessions.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func moveNonsessions(from source: IndexSet, to destination: Int) {
+        nonsessions.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func moveProfiles(from source: IndexSet, to destination: Int) {
+        profiles.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func moveParticipants(from source: IndexSet, to destination: Int) {
+        participants.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    // MARK: - Action: Delete
+    func deleteConference(at offsets: IndexSet) {
+        conferences.remove(atOffsets: offsets)
+    }
+    
+    func deleteSessions(at offsets: IndexSet) {
+        sessions.remove(atOffsets: offsets)
+    }
+    
+    func deleteNonsessions(at offsets: IndexSet) {
+        nonsessions.remove(atOffsets: offsets)
+    }
+    
+    func deleteProfiles(at offsets: IndexSet) {
+        profiles.remove(atOffsets: offsets)
+    }
+    
+    func deleteParticipants(at offsets: IndexSet) {
+        participants.remove(atOffsets: offsets)
     }
 }

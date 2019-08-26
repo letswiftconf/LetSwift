@@ -40,6 +40,8 @@ struct SessionListView: View {
                                 SessionRow(session: session)
                             }
                         }
+                        .onMove(perform: store.moveSessions)
+                        .onDelete(perform: store.deleteSessions)
                     }
                 } else {
                     List {
@@ -48,11 +50,14 @@ struct SessionListView: View {
                                 NonSessionRow(nonsession: nonsession)
                             }
                         }
+                        .onMove(perform: store.moveNonsessions)
+                        .onDelete(perform: store.deleteNonsessions)
                     }
                 }
             }
             .navigationBarTitle("Sessions")
-            .navigationBarItems(trailing: newButton)
+            .navigationBarItems(leading: EditButton(),
+                                trailing: newButton)
         }
         .sheet(isPresented: $presentsNew) {
             if self.selectedIndex == 0 {

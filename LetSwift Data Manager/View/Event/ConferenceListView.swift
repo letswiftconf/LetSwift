@@ -41,10 +41,14 @@ struct ConferenceListView: View {
                         ConferenceRow(conference: conference)
                     }
                 }
+                .onMove(perform: store.moveConference)
+                .onDelete(perform: store.deleteConference)
             }
             .navigationBarTitle("Conferences")
+                
             .navigationBarItems(leading:
                 HStack {
+                    EditButton()
                     saveButton
                     exportButton
                 },
