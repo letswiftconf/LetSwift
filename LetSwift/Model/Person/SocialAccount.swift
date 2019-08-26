@@ -37,10 +37,14 @@ class SocialAccount: Identifiable, Codable, ObservableObject {
     
     func urlString(path: String) -> String {
         switch category {
-        case .unspecified, .email, .website:
-            return path // TODO
-        default:
-            return "https://\(category.domain)/\(path)" // TODO
+        case .email:
+            return "mailto://\(path)"
+        case .github, .linkedin, .facebook, .instagram, .twitter:
+            return "https://\(category.domain)/\(path)"
+        case .website:
+            return path
+        case .unspecified:
+            return ""
         }
     }
 }
