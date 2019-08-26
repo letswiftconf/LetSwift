@@ -23,7 +23,7 @@ class DataStore: ObservableObject {
     private var fileURL: URL {
         let manager = FileManager.default
         let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first ?? manager.temporaryDirectory
-        return directory.appendingPathComponent("content.json")
+        return directory.appendingPathComponent("content").appendingPathExtension("json")
     }
     
     // MARK: - Initialization
@@ -42,9 +42,6 @@ class DataStore: ObservableObject {
         }
     }
     
-    // MARK: - Observable Object
-//    let objectWillChange = ObservableObjectPublisher()
-    
     // MARK: - Filtered
     var speakers: [Participant] {
         return self.participants.filter { $0.role == .speaker }
@@ -52,18 +49,25 @@ class DataStore: ObservableObject {
     
     // MARK: - Action: Save
     func save() {
+        guard let encodedData = encodeData() else {
+            return
+        }
+        
+        do {
+            try encodedData.write(to: fileURL)
+        } catch {
+            os_log(.error, log: .default, "%{PUBLIC}@", error.localizedDescription)
+        }
+    }
+    
+    func encodeData() -> Data? {
         let content = DataFile(conferences: conferences,
                                sessions: sessions,
                                nonsessions: nonsessions,
                                profiles: profiles,
                                participants: participants)
         let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(content)
-            try data.write(to: fileURL)
-        } catch {
-            os_log(.error, log: .default, "%{PUBLIC}@", error.localizedDescription)
-        }
+        return try? encoder.encode(content)
     }
     
     // MARK: - Action: New

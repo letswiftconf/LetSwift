@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ConferenceListView: View {
     @State private var presentsNew = false
+    @State private var presentsExport = false
     
     @EnvironmentObject var store: DataStore
     
@@ -57,6 +58,9 @@ struct ConferenceListView: View {
         .sheet(isPresented: $presentsNew) {
             NewConferenceView()
         }
+        .sheet(isPresented: $presentsExport) {
+            ActivityView()
+        }
     }
     
     // MARK: - Action
@@ -69,7 +73,7 @@ struct ConferenceListView: View {
     }
     
     private func export() {
-        
+        presentsExport.toggle()
     }
 }
 
