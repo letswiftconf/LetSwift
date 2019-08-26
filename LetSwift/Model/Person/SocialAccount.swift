@@ -30,6 +30,19 @@ class SocialAccount: Identifiable, Codable, ObservableObject {
     
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
+    
+    func url(path: String) -> URL? {
+        return URL(string: urlString(path: path)) // TODO
+    }
+    
+    func urlString(path: String) -> String {
+        switch category {
+        case .unspecified, .email, .website:
+            return path // TODO
+        default:
+            return "https://\(category.domain)/\(path)" // TODO
+        }
+    }
 }
 
 // MARK: - Social Service

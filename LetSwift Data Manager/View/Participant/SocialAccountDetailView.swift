@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct SocialAccountDetailView: View {
+    
     @ObservedObject var account: SocialAccount
-    @State var urlID: String = ""
+    @Binding var urlPath: String
     
     // MARK: - Body
     var body: some View {
@@ -22,33 +23,23 @@ struct SocialAccountDetailView: View {
                 }
             }
             NavigationLink(
-                destination: NewSocialAccountURLView(urlID: $urlID, service: account.category)
+                destination: NewSocialAccountURLView(urlPath: $urlPath, service: account.category)
             ) {
                 Text("URL")
                 Spacer()
-                Text(url)
+                Text("\(account.urlString(path: urlPath))")
                     .foregroundColor(.secondary)
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(account.category.localizedName)
     }
-    
-    // MARK: - Computed Variables
-    var url: String {
-        switch account.category {
-        case .unspecified, .email, .website:
-            return urlID
-        default:
-            return "\(account.category.domain)/\(urlID)"
-        }
-    }
 }
 
 // MARK: - NewSocialAccountURLView
 private struct NewSocialAccountURLView: View {
     
-    @Binding var urlID: String
+    @Binding var urlPath: String
     let service: SocialAccount.Service
     
     // MARK: - Body
@@ -64,15 +55,15 @@ private struct NewSocialAccountURLView: View {
     var textField: AnyView {
         switch service {
         case .unspecified:
-            return AnyView(TextField("", text: $urlID))
+            return AnyView(TextField("", text: $urlPath))
         case .email:
-            return AnyView(TextField("example@example.com", text: $urlID))
+            return AnyView(TextField("example@example.com", text: $urlPath))
         case .website:
-            return AnyView(TextField("www.example.com", text: $urlID))
+            return AnyView(TextField("www.example.com", text: $urlPath))
         default:
             return AnyView(HStack(alignment: .bottom, spacing: 1) {
                 Text(service.domain + "/")
-                TextField("id", text: $urlID)
+                TextField("id", text: $urlPath)
             })
         }
     }
@@ -82,7 +73,7 @@ private struct NewSocialAccountURLView: View {
 #if DEBUG
 struct SocialAccountDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialAccountDetailView(account: SocialAccount.dummy)
+        SocialAccountDetailView(account: SocialAccount.dummy, urlPath: .constant(""))
     }
 }
 #endif

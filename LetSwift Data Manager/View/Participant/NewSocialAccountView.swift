@@ -13,6 +13,7 @@ struct NewSocialAccountView: View {
     
     @ObservedObject var participant: Participant
     @ObservedObject private var account = SocialAccount.dummy
+    @State private var urlPath: String = ""
     
     //    private var isFormValid: Bool {
     //        if service != .unspecified &&
@@ -36,7 +37,7 @@ struct NewSocialAccountView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            SocialAccountDetailView(account: account)
+            SocialAccountDetailView(account: account, urlPath: $urlPath)
                 .navigationBarTitle("New Social Account")
                 .navigationBarItems(leading: cancelButton,
                                     trailing: saveButton)//.disabled(!isFormValid))
@@ -46,6 +47,7 @@ struct NewSocialAccountView: View {
     
     // MARK: - Action
     private func save() {
+        account.url = account.url(path: urlPath) ?? SocialAccount.dummy.url
         participant.socialAccounts.append(account)
         dismiss()
     }
