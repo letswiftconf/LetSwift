@@ -57,6 +57,7 @@ struct NewSocialAccountView: View {
     }
     
     private func dismiss() {
+        urlPath = ""
         presentationMode.wrappedValue.dismiss()
     }
 }
