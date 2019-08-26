@@ -54,17 +54,17 @@ private struct NewSocialAccountURLView: View {
     // MARK: - Computed Variables
     var textField: AnyView {
         switch service {
-        case .unspecified:
-            return AnyView(TextField("", text: $urlPath))
         case .email:
             return AnyView(TextField("example@example.com", text: $urlPath))
         case .website:
-            return AnyView(TextField("www.example.com", text: $urlPath))
-        default:
+            return AnyView(TextField("https://www.example.com", text: $urlPath))
+        case .github, .linkedin, .facebook, .instagram, .twitter:
             return AnyView(HStack(alignment: .bottom, spacing: 1) {
-                Text(service.domain + "/")
+                Text("https://\(service.domain)/")
                 TextField("id", text: $urlPath)
             })
+        case .unspecified:
+            return AnyView(TextField("", text: $urlPath))
         }
     }
 }
