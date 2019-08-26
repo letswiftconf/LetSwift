@@ -56,15 +56,17 @@ struct ConferenceListView: View {
                                 trailing: newButton)
         }
         .sheet(isPresented: $presentsNew) {
-            NewConferenceView()
-        }
-        .sheet(isPresented: $presentsExport) {
-            ActivityView()
+            if self.presentsExport {
+                ActivityView()
+            } else {
+                NewConferenceView()
+            }
         }
     }
     
     // MARK: - Action
     private func presentNewConference() {
+        self.presentsExport = false
         presentsNew.toggle()
     }
     
@@ -73,7 +75,8 @@ struct ConferenceListView: View {
     }
     
     private func export() {
-        presentsExport.toggle()
+        self.presentsExport = true
+        presentsNew.toggle()
     }
 }
 
