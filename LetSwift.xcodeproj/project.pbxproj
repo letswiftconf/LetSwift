@@ -74,6 +74,7 @@
 		218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28B22EAEF9900A6BEAB /* Assets.xcassets */; };
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
+		AC886C482314252E00DEB213 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC886C472314252E00DEB213 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC886C472314252E00DEB213 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				1607D10E22FECE7C00186351 /* OSLog.swift */,
+				AC886C472314252E00DEB213 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				16C0BD0722EDB66800BD2479 /* Video.swift in Sources */,
 				164D87D522F69A0B008AA30D /* ProfileListView.swift in Sources */,
 				164D87DD22F69A56008AA30D /* ParticipantListView.swift in Sources */,
+				AC886C482314252E00DEB213 /* String.swift in Sources */,
 				16977DCB22F81D9200373677 /* SessionListView.swift in Sources */,
 				2184282C22F6DEE3008C88F4 /* ConferenceListView.swift in Sources */,
 				161AABFA22F6A5A40054A2E8 /* NewSocialAccountView.swift in Sources */,

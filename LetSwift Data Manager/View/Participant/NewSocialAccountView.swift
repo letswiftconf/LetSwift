@@ -15,20 +15,19 @@ struct NewSocialAccountView: View {
     @ObservedObject private var account = SocialAccount.dummy
     @State private var urlPath: String = ""
     
-    //    private var isFormValid: Bool {
-    //        if service != .unspecified &&
-    //            URL(string: urlString) != nil { return true }
-    //        else { return false }
-    //    }
+    private var isFormValid: Bool {
+        return self.account.urlString(path: self.urlPath).isValidURL
+    }
     
     // MARK: - Button
     private var saveButton: some View {
         Button(action: save) {
             Text("Save")
         }
+        .disabled(!isFormValid)
     }
     
-    private  var cancelButton: some View {
+    private var cancelButton: some View {
         Button(action: cancel) {
             Text("Cancel")
         }
@@ -40,16 +39,18 @@ struct NewSocialAccountView: View {
             SocialAccountDetailView(account: account, urlPath: $urlPath)
                 .navigationBarTitle("New Social Account")
                 .navigationBarItems(leading: cancelButton,
-                                    trailing: saveButton)//.disabled(!isFormValid))
+                                    trailing: saveButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action
     private func save() {
-        account.url = account.url(path: urlPath) ?? SocialAccount.dummy.url
-        participant.socialAccounts.append(account)
-        dismiss()
+        if let url = URL(string: self.account.urlString(path: self.urlPath)) {
+            self.account.url = url
+            self.participant.socialAccounts.append(self.account)
+            self.dismiss()
+        }
     }
     
     private func cancel() {
