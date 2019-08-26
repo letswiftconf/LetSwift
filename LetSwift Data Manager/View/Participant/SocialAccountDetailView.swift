@@ -46,22 +46,25 @@ private struct NewSocialAccountURLView: View {
     var body: some View {
         Form {
             Section(header: Text("Social Account URL")) {
-                textField
+                urlTextField
             }
         }
     }
     
     // MARK: - Computed Variables
-    var textField: AnyView {
+    var urlTextField: AnyView {
         switch service {
         case .email:
-            return AnyView(TextField("example@example.com", text: $urlPath))
+            return AnyView(HStack(alignment: .bottom, spacing: 1) {
+                Text("\(service.urlScheme)")
+                TextField("example@example.com", text: $urlPath)
+            })
         case .website:
-            return AnyView(TextField("https://www.example.com", text: $urlPath))
+            return AnyView(TextField("http://letswift.kr", text: $urlPath))
         case .github, .linkedin, .facebook, .instagram, .twitter:
             return AnyView(HStack(alignment: .bottom, spacing: 1) {
-                Text("https://\(service.domain)/")
-                TextField("id", text: $urlPath)
+                Text("\(service.urlScheme)\(service.domain ?? "")/")
+                TextField("path", text: $urlPath)
             })
         case .unspecified:
             return AnyView(TextField("", text: $urlPath))

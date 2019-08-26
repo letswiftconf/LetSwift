@@ -31,20 +31,12 @@ class SocialAccount: Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
     
-    func url(path: String) -> URL? {
-        return URL(string: urlString(path: path)) // TODO
-    }
-    
+    // MARK: - Functions
     func urlString(path: String) -> String {
-        switch category {
-        case .email:
-            return "mailto://\(path)"
-        case .github, .linkedin, .facebook, .instagram, .twitter:
-            return "https://\(category.domain)/\(path)"
-        case .website:
-            return path
-        case .unspecified:
-            return ""
+        if let domain = category.domain {
+            return "\(category.urlScheme)\(domain)/\(path)"
+        } else {
+            return "\(category.urlScheme)\(path)"
         }
     }
 }
@@ -78,14 +70,25 @@ extension SocialAccount {
             }
         }
         
-        var domain: String {
+        var domain: String? {
             switch self {
-            case .github: return "github.com"
-            case .linkedin: return "linkedin.com"
-            case .facebook: return "facebook.com"
-            case .instagram: return "instagram.com"
-            case .twitter: return "twitter.com"
-            default: return ""
+            case .github: return "www.github.com"
+            case .linkedin: return "www.linkedin.com"
+            case .facebook: return "www.facebook.com"
+            case .instagram: return "www.instagram.com"
+            case .twitter: return "www.twitter.com"
+            default: return nil
+            }
+        }
+        
+        var urlScheme: String {
+            switch self {
+            case .email:
+                return "mailto://"
+            case .github, .linkedin, .facebook, .instagram, .twitter:
+                return "https://"
+            case .website, .unspecified:
+                return ""
             }
         }
     }
