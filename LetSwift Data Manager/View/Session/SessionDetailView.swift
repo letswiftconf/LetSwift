@@ -20,9 +20,9 @@ struct SessionDetailView: View {
                 TextField("Title", text: $session.title)
                 Picker("Speaker", selection: $session.speaker) {
                     List {
-                        ForEach(DataStore.shared.participants) { participant in
-                            Text(participant.profile.preferredName)
-                            .tag(participant)
+                        ForEach(DataStore.shared.speakers) { speaker in
+                            Text(speaker.profile.preferredName)
+                            .tag(speaker)
                         }
                     }
                 }
