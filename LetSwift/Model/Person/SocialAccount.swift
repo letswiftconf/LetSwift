@@ -84,7 +84,7 @@ extension SocialAccount {
         var urlScheme: String {
             switch self {
             case .email:
-                return "mailto://"
+                return "mailto:"
             case .github, .linkedin, .facebook, .instagram, .twitter:
                 return "https://"
             case .website, .unspecified:
@@ -98,6 +98,6 @@ extension SocialAccount {
 extension SocialAccount {
     static var dummy: SocialAccount {
         return SocialAccount(category: .email,
-                             url: URL(string: "mailto://ksquareatm@gmail.com")!)
+                             url: URL(string: "mailto:ksquareatm@gmail.com")!)
     }
 }
