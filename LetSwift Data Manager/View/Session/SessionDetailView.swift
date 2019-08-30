@@ -49,13 +49,26 @@ struct SessionDetailView: View {
                         Text("Add Video...")
                     }
                 } else {
-                    Text(session.video!.url.absoluteString)
-                    Text("\(session.video!.length)")
+                    HStack {
+                        Text("URL")
+                        Spacer()
+                        Text(session.video!.url.absoluteString)
+                            .foregroundColor(.secondary)
+                    }
+                    HStack {
+                        Text("Length")
+                        Spacer()
+                        Text(session.video!.length.hhmmss.string)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(session.title)
+        .sheet(isPresented: $presentNewVideo) {
+            NewVideoView(session: self.session)
+        }
     }
     
     // MARK: - Action

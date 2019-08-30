@@ -74,6 +74,8 @@
 		218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28B22EAEF9900A6BEAB /* Assets.xcassets */; };
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
+		B651BA6423142BF0007042FD /* NewVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BA6323142BF0007042FD /* NewVideoView.swift */; };
+		B651BA6623190DE8007042FD /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BA6523190DE8007042FD /* TimeInterval.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +141,8 @@
 		218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B651BA6323142BF0007042FD /* NewVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVideoView.swift; sourceTree = "<group>"; };
+		B651BA6523190DE8007042FD /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1607D10E22FECE7C00186351 /* OSLog.swift */,
+				B651BA6523190DE8007042FD /* TimeInterval.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				1607D1162300155A00186351 /* NonSessionRow.swift */,
 				1607D1182300162E00186351 /* NewNonSessionView.swift */,
 				1607D11A2300163500186351 /* NonSessionDetailView.swift */,
+				B651BA6323142BF0007042FD /* NewVideoView.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -559,10 +565,12 @@
 				1607D1192300162E00186351 /* NewNonSessionView.swift in Sources */,
 				16C0BD0222EDB66800BD2479 /* Schedulable.swift in Sources */,
 				16C0BCEE22EDB5B000BD2479 /* AppDelegate.swift in Sources */,
+				B651BA6623190DE8007042FD /* TimeInterval.swift in Sources */,
 				164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */,
 				2184282E22F6DF6B008C88F4 /* ConferenceDetailView.swift in Sources */,
 				16657D8622F69DEB001D6DE6 /* NewProfileView.swift in Sources */,
 				1607D10D22FEBE6200186351 /* SessionRow.swift in Sources */,
+				B651BA6423142BF0007042FD /* NewVideoView.swift in Sources */,
 				16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */,
 				163DB95C22FC3BFE00D89754 /* ParticipantRow.swift in Sources */,
 				1607D10F22FECE7C00186351 /* OSLog.swift in Sources */,

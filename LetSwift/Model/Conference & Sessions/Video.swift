@@ -31,3 +31,11 @@ class Video: Identifiable, Codable, ObservableObject {
     // MARK: - Observable Object
     let objectWillChange = ObservableObjectPublisher()
 }
+
+// MARK: - Dummy
+extension Video {
+    static var dummy: Video {
+        return Video(url: URL(string: "https://www.youtube.com/watch?v=xZ5IywL9Zkg&list=PLAHa1zfLtLiNPl0RVd6WX6W_aa678RAmS")!,
+                     length: 0)
+    }
+}
