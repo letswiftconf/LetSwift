@@ -15,10 +15,7 @@ struct NewVideoView: View {
     @ObservedObject var session: Session
     
     // MARK: - @State
-    @State private var urlString: String = ""
-    @State private var hours: String = ""
-    @State private var minutes: String = ""
-    @State private var seconds: String = ""
+    @ObservedObject var viewModel: NewVideoViewModel
     
     // MARK: - Button
     private var saveButton: some View {
@@ -38,16 +35,16 @@ struct NewVideoView: View {
         NavigationView {
             Form {
                 Section() {
-                    TextField("URL", text: $urlString)
+                    TextField("URL", text: $viewModel.urlString)
                     HStack {
                         Text("Length")
                         Spacer()
                         HStack() {
-                            TextField("HH", text: $hours)
+                            TextField("HH", text: $viewModel.hours)
                             Text(":")
-                            TextField("mm", text: $minutes)
+                            TextField("mm", text: $viewModel.minutes)
                             Text(":")
-                            TextField("ss", text: $seconds)
+                            TextField("ss", text: $viewModel.seconds)
                         }
                     }
                 }
@@ -60,7 +57,7 @@ struct NewVideoView: View {
     
     // MARK: - Action
     private func save() {
-        session.video = Video(url: URL(string: urlString)!, length: videoLength)
+        session.video = viewModel.video
         dismiss()
     }
     
@@ -71,20 +68,12 @@ struct NewVideoView: View {
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }
-    
-    // MARK: - Computed Variables
-    private var videoLength: TimeInterval {
-        let hhmmss = HHMMSS(hours: Double(hours) ?? 0,
-                            minutes: Double(minutes) ?? 0,
-                            seconds: Double(seconds) ?? 0)
-        return hhmmss.timeInterval
-    }
 }
 
 #if DEBUG
 struct NewVideoView_Previews: PreviewProvider {
     static var previews: some View {
-        NewVideoView(session: .dummy)
+        NewVideoView(session: .dummy, viewModel: .dummy)
     }
 }
 #endif

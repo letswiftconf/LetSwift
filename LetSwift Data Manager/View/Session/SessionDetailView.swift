@@ -58,7 +58,7 @@ struct SessionDetailView: View {
                     HStack {
                         Text("Length")
                         Spacer()
-                        Text(session.video!.length.hhmmss.string)
+                        Text(session.video!.length.hhmmss)
                             .foregroundColor(.secondary)
                     }
                 }
@@ -67,7 +67,7 @@ struct SessionDetailView: View {
         .listStyle(GroupedListStyle())
         .navigationBarTitle(session.title)
         .sheet(isPresented: $presentNewVideo) {
-            NewVideoView(session: self.session)
+            NewVideoView(session: self.session, viewModel: .dummy)
         }
     }
     

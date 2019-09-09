@@ -10,7 +10,7 @@ import Foundation
 
 extension TimeInterval {
     
-    // MARK: - Static
+    // MARK: - Static functions
     static let secondsPerHour: TimeInterval = 60 * 60
     static let secondsPerMinute: TimeInterval = 60
     
@@ -26,49 +26,10 @@ extension TimeInterval {
         return value
     }
     
-    // MARK: - Initialization
-    init(_ hhmmss: HHMMSS) {
-        self.init(hhmmss.timeInterval)
-    }
-    
     // MARK: - Computed variables
-    var hhmmss: HHMMSS {
-        return HHMMSS(hours: Double(hours),
-                      minutes: Double(minutes % 60),
-                      seconds: Double(seconds % 60))
-    }
-    
-    var hours: Int {
-        return Int(self / TimeInterval.secondsPerHour)
-    }
-    
-    var minutes: Int {
-        return Int(self / TimeInterval.secondsPerMinute)
-    }
-    
-    var seconds: Int {
-        return Int(self)
-    }
-}
-
-// MARK: - HHMMSS
-struct HHMMSS {
-    
-    // MARK: - Properties
-    var hours: Double
-    var minutes: Double
-    var seconds: Double
-
-    // MARK: - Computed Variables
-    var timeInterval: TimeInterval {
-        return TimeInterval.hours(hours)
-            + TimeInterval.minutes(minutes)
-            + TimeInterval.seconds(seconds)
-    }
-    
-    var string: String {
+    var hhmmss: String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
-        return formatter.string(from: timeInterval) ?? ""
+        return formatter.string(from: self) ?? ""
     }
 }
