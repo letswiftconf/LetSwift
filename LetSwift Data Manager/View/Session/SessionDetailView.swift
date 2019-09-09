@@ -61,6 +61,9 @@ struct SessionDetailView: View {
                         Text(session.video!.length.hhmmssString)
                             .foregroundColor(.secondary)
                     }
+                    Button(action: newVideo) {
+                        Text("Edit Video...")
+                    }
                 }
             }
         }
