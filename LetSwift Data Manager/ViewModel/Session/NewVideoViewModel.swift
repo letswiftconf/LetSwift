@@ -12,11 +12,22 @@ import Combine
 class NewVideoViewModel: ObservableObject {
     
     // MARK: - Properties
-    var urlString: String = ""
-    var hours: String = ""
-    var minutes: String = ""
-    var seconds: String = ""
+    var urlString: String
+    
+    var hours: String
+    var minutes: String
+    var seconds: String
+    
+    // MARK: - Initialization
+    init(video: Video? = nil) {
+        self.urlString = video?.url.absoluteString ?? ""
         
+        let hhmmss = video?.length.hhmmss
+        self.hours = hhmmss?.hours ?? ""
+        self.minutes = hhmmss?.minutes ?? ""
+        self.seconds = hhmmss?.seconds ?? ""
+    }
+    
     // MARK: - Computed Variables
     var video: Video? {
         guard let url = URL(string: urlString) else {

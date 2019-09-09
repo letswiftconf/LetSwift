@@ -27,9 +27,15 @@ extension TimeInterval {
     }
     
     // MARK: - Computed variables
-    var hhmmss: String {
+    var hhmmssString: String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
         return formatter.string(from: self) ?? ""
+    }
+    
+    var hhmmss: (hours: String, minutes: String, seconds: String) {
+        let arr = hhmmssString.split(separator: ":").map { String($0) }
+        return (hours: arr[0], minutes: arr[1], seconds: arr[2])
     }
 }

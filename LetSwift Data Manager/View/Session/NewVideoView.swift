@@ -17,6 +17,12 @@ struct NewVideoView: View {
     // MARK: - @State
     @ObservedObject var viewModel: NewVideoViewModel
     
+    // MARK: - Initialization
+    init(session: Session) {
+        self.session = session
+        self.viewModel = .init(video: session.video)
+    }
+    
     // MARK: - Button
     private var saveButton: some View {
         Button(action: save) {
@@ -73,7 +79,7 @@ struct NewVideoView: View {
 #if DEBUG
 struct NewVideoView_Previews: PreviewProvider {
     static var previews: some View {
-        NewVideoView(session: .dummy, viewModel: .dummy)
+        NewVideoView(session: .dummy)
     }
 }
 #endif
