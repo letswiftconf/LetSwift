@@ -20,6 +20,7 @@ struct MainTabView: View {
                     .tag(tab)
             }
         }
+        .accentColor(Color(.themePrimary))
         .edgesIgnoringSafeArea(.top)
     }
 }
@@ -31,7 +32,6 @@ extension MainTabView {
         case schedule
         case video
         case people
-        case settings
         
         // MARK: - Identifiable
         var id: Int {
@@ -45,7 +45,6 @@ extension MainTabView {
             case .schedule: return AnyView(ScheduleView())
             case .video: return AnyView(VideoView())
             case .people: return AnyView(PeopleView())
-            case .settings: return AnyView(SettingsView())
             }
         }
         
@@ -62,7 +61,6 @@ extension MainTabView {
             case .schedule: return "Schedule"
             case .video: return "Video"
             case .people: return "People"
-            case .settings: return "Settings"
             }
         }
         
@@ -72,7 +70,6 @@ extension MainTabView {
             case .schedule: return "calendar"
             case .video: return "film"
             case .people: return "person.fill"
-            case .settings: return "gear"
             }
         }
     }
