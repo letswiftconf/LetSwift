@@ -32,6 +32,7 @@ extension MainTabView {
         case schedule
         case video
         case people
+        case venue
         
         // MARK: - Identifiable
         var id: Int {
@@ -45,6 +46,7 @@ extension MainTabView {
             case .schedule: return AnyView(ScheduleView())
             case .video: return AnyView(VideoView())
             case .people: return AnyView(PeopleView())
+            case .venue: return AnyView(VenueView())
             }
         }
         
@@ -61,6 +63,7 @@ extension MainTabView {
             case .schedule: return "Schedule"
             case .video: return "Video"
             case .people: return "People"
+            case .venue: return "Venue"
             }
         }
         
@@ -70,6 +73,7 @@ extension MainTabView {
             case .schedule: return "calendar"
             case .video: return "film"
             case .people: return "person.fill"
+            case .venue: return "map.fill"
             }
         }
     }
