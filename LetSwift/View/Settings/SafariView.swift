@@ -17,6 +17,7 @@ struct SafariView: UIViewControllerRepresentable {
         let configuration = SFSafariViewController.Configuration()
         configuration.entersReaderIfAvailable = entersReaderIfAvailable
         let safari = SFSafariViewController(url: url, configuration: configuration)
+        safari.preferredControlTintColor =  UIColor.themePrimary
         return safari
     }
     
