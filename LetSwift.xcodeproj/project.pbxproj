@@ -25,6 +25,7 @@
 		164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */; };
 		164D87DD22F69A56008AA30D /* ParticipantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87DC22F69A56008AA30D /* ParticipantListView.swift */; };
 		16657D8622F69DEB001D6DE6 /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16657D8522F69DEB001D6DE6 /* NewProfileView.swift */; };
+		168777EC2338F43300C589BC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168777EB2338F43300C589BC /* UIColor.swift */; };
 		168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12A22EBEB6300DFBB6F /* OSLog.swift */; };
 		168AE12D22EBEEDE00DFBB6F /* old_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 168AE12C22EBEEDE00DFBB6F /* old_data.json */; };
 		168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12F22EBF11600DFBB6F /* HomeView.swift */; };
@@ -96,6 +97,7 @@
 		164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantDetailView.swift; sourceTree = "<group>"; };
 		164D87DC22F69A56008AA30D /* ParticipantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantListView.swift; sourceTree = "<group>"; };
 		16657D8522F69DEB001D6DE6 /* NewProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileView.swift; sourceTree = "<group>"; };
+		168777EB2338F43300C589BC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		168AE12A22EBEB6300DFBB6F /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		168AE12C22EBEEDE00DFBB6F /* old_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = old_data.json; sourceTree = "<group>"; };
 		168AE12F22EBF11600DFBB6F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				168AE12A22EBEB6300DFBB6F /* OSLog.swift */,
+				168777EB2338F43300C589BC /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
 				2184282622F6DE2F008C88F4 /* Conference.swift in Sources */,
 				168AE13B22EBF1DA00DFBB6F /* PeopleView.swift in Sources */,
+				168777EC2338F43300C589BC /* UIColor.swift in Sources */,
 				16C0BCDB22ED7D9700BD2479 /* Participant.swift in Sources */,
 				16C0BCE622ED864D00BD2479 /* Schedulable.swift in Sources */,
 				16C0BCDF22ED7DB100BD2479 /* SocialAccount.swift in Sources */,
