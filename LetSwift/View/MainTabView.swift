@@ -31,6 +31,7 @@ extension MainTabView {
         case schedule
         case video
         case people
+        case venue
         case settings
         
         // MARK: - Identifiable
@@ -45,6 +46,7 @@ extension MainTabView {
             case .schedule: return AnyView(ScheduleView())
             case .video: return AnyView(VideoView())
             case .people: return AnyView(PeopleView())
+            case .venue: return AnyView(VenueView())
             case .settings: return AnyView(SettingsView())
             }
         }
@@ -62,6 +64,7 @@ extension MainTabView {
             case .schedule: return "Schedule"
             case .video: return "Video"
             case .people: return "People"
+            case .venue: return "Venue"
             case .settings: return "Settings"
             }
         }
@@ -72,6 +75,7 @@ extension MainTabView {
             case .schedule: return "calendar"
             case .video: return "film"
             case .people: return "person.fill"
+            case .venue: return "map.fill"
             case .settings: return "gear"
             }
         }
