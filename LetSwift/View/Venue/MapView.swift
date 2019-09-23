@@ -13,14 +13,10 @@ struct MapView: UIViewRepresentable {
     
     let location: CLLocationCoordinate2D
     
-    init(location: CLLocationCoordinate2D) {
-        self.location = location
-    }
-    
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        let span: MKCoordinateSpan = .init(latitudeDelta: 0.005, longitudeDelta: 0.005)
-        let region = MKCoordinateRegion.init(center: location, span: span)
+        let span: MKCoordinateSpan = .init(latitudeDelta: 0.002, longitudeDelta: 0.002)
+        let region: MKCoordinateRegion = .init(center: location, span: span)
         mapView.setRegion(region, animated: true)
         return mapView
     }

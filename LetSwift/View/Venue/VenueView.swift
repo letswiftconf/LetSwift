@@ -12,28 +12,25 @@ import MapKit
 struct VenueView: View {
     
     let location: CLLocationCoordinate2D = .init(latitude: 37.468437, longitude: 127.039055)
-
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     MapView(location: location)
                         .frame(height: 300)
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("양재 aT 센터")
                             .font(.headline)
-                        Text("일시")
-                            .font(.headline)
-                        Text("11월 12일 (화) 오전 9시부터 오후 6시까지")
-                        Text("주소")
-                            .font(.headline)
-                        Text("서울특별시 강남구 테헤란로7길 22")
-                        Text("지하철")
-                            .font(.headline)
-                        Text("신분당선 “양재시민의 숲”역에서 하차 후 4번 출구")
-                        Text("버스")
-                            .font(.headline)
-                        Text("at 센터 주변 버스정류장 하차")
+                        Divider()
+                        VenueInfoCell(info: .init(title: "일시",
+                                                  body: "11월 12일 (화) 오전 9시부터 오후 6시까지"))
+                        VenueInfoCell(info: .init(title: "주소",
+                                                  body: "서울특별시 강남구 테헤란로7길 22"))
+                        VenueInfoCell(info: .init(title: "지하철",
+                                                  body: "신분당선 '양재시민의 숲'역에서 하차 후 4번 출구"))
+                        VenueInfoCell(info: .init(title: "버스",
+                                                  body: "aT 센터 주변 버스정류장 하차"))
                     }
                     .padding()
                 }
@@ -41,6 +38,24 @@ struct VenueView: View {
             .navigationBarTitle("Venue")
         }
     }
+}
+
+struct VenueInfoCell: View {
+    
+    let info: VenueInfo
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(info.title)
+                .font(.headline)
+            Text(info.body)
+        }
+    }
+}
+
+struct VenueInfo {
+    let title: String
+    let body: String
 }
 
 #if DEBUG
