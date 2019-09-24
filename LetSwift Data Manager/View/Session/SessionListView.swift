@@ -32,7 +32,7 @@ struct SessionListView: View {
                         .tag(1)
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                .padding([.leading, .trailing])
+                .padding(.horizontal)
                 if selectedIndex == 0 {
                     List {
                         ForEach(store.sessions) { session in
