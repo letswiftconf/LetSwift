@@ -9,20 +9,38 @@
 import SwiftUI
 
 struct PeopleView: View {
+    // MARK: - Body
     var body: some View {
         NavigationView {
-            List {
-                Text("List")
+            ScrollView {
+                VStack {
+                    Rectangle()
+                        .fill(Color(UIColor.secondarySystemBackground))
+                        .frame(height: 240)
+                    VStack(alignment: .leading, spacing: 24) {
+                        PeopleList(title: "Organizers")
+                        PeopleList(title: "Speakers")
+                        PeopleList(title: "Staffs")
+                        PeopleList(title: "Sponsors")
+                    }
+                    .frame(alignment: .leading)
+                }
+                Spacer()
             }
             .navigationBarTitle("People")
         }
     }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct PeopleView_Previews: PreviewProvider {
     static var previews: some View {
-        PeopleView()
+        Group {
+            PeopleView()
+            PeopleView()
+                .environment(\.colorScheme, .dark)
+            PeopleView()
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
-#endif
