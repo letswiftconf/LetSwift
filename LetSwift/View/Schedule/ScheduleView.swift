@@ -27,7 +27,7 @@ struct ScheduleView: View {
                 .padding(.horizontal)
                 List {
                     ForEach(1...20, id: \.self) { _ in
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: SessionView()) {
                             HStack(alignment: .top) {
                                 Circle()
                                     .fill(Color(.secondarySystemBackground))
@@ -57,6 +57,12 @@ struct ScheduleView: View {
 // MARK: - Preview
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        Group {
+            ScheduleView()
+            ScheduleView()
+                .environment(\.colorScheme, .dark)
+            ScheduleView()
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
