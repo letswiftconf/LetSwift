@@ -39,6 +39,7 @@
 		16977DD322F81DC100373677 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16977DD222F81DC100373677 /* SessionDetailView.swift */; };
 		16BCA9872339ADD8006B4716 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCA9862339ADD8006B4716 /* PersonCell.swift */; };
 		16BCA9892339B279006B4716 /* PeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCA9882339B279006B4716 /* PeopleList.swift */; };
+		16BCA98B2339B5FA006B4716 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCA98A2339B5FA006B4716 /* PersonView.swift */; };
 		16C0BCD522ED763F00BD2479 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCD422ED763F00BD2479 /* Session.swift */; };
 		16C0BCD722ED7D7100BD2479 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCD622ED7D7100BD2479 /* Schedule.swift */; };
 		16C0BCD922ED7D8C00BD2479 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C0BCD822ED7D8C00BD2479 /* Video.swift */; };
@@ -113,6 +114,7 @@
 		16977DD222F81DC100373677 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		16BCA9862339ADD8006B4716 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		16BCA9882339B279006B4716 /* PeopleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleList.swift; sourceTree = "<group>"; };
+		16BCA98A2339B5FA006B4716 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		16C0BCD422ED763F00BD2479 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		16C0BCD622ED7D7100BD2479 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		16C0BCD822ED7D8C00BD2479 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				168AE13A22EBF1DA00DFBB6F /* PeopleView.swift */,
 				16BCA9882339B279006B4716 /* PeopleList.swift */,
 				16BCA9862339ADD8006B4716 /* PersonCell.swift */,
+				16BCA98A2339B5FA006B4716 /* PersonView.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				2184282622F6DE2F008C88F4 /* Conference.swift in Sources */,
 				168AE13B22EBF1DA00DFBB6F /* PeopleView.swift in Sources */,
 				168777EC2338F43300C589BC /* UIColor.swift in Sources */,
+				16BCA98B2339B5FA006B4716 /* PersonView.swift in Sources */,
 				16C0BCDB22ED7D9700BD2479 /* Participant.swift in Sources */,
 				16C0BCE622ED864D00BD2479 /* Schedulable.swift in Sources */,
 				16C0BCDF22ED7DB100BD2479 /* SocialAccount.swift in Sources */,

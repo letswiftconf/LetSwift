@@ -19,12 +19,11 @@ struct PeopleList: View {
                 .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
-                    PersonCell(name: "BumMo", userID: "@gbmksquare")
+                    ForEach(1...5, id: \.self) { _ in 
+                        NavigationLink(destination: PersonView()) {
+                            PersonCell(name: "BumMo", userID: "@gbmksquare")
+                        }
+                    }
                 }
                 .padding(.horizontal)
             }
