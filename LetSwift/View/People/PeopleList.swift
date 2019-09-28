@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PeopleList: View {
-    @State var title: String
+    var title: String
     
     // MARK: - Body
     var body: some View {
