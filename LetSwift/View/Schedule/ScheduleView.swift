@@ -21,7 +21,7 @@ struct ScheduleView: View {
                     Text("Track B")
                         .tag(1)
                     Text("Track C")
-                    .tag(2)
+                        .tag(2)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
