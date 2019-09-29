@@ -8,21 +8,49 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct MapView: UIViewRepresentable {
-    
     let location: CLLocationCoordinate2D
     
+    // MARK: - Representable
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        let span: MKCoordinateSpan = .init(latitudeDelta: 0.002, longitudeDelta: 0.002)
-        let region: MKCoordinateRegion = .init(center: location, span: span)
-        mapView.setRegion(region, animated: true)
+        mapView.showsCompass = true
+        mapView.showsScale = true
+        mapView.showsBuildings = true
+        mapView.isZoomEnabled = true
+        mapView.isPitchEnabled = true
+        mapView.isRotateEnabled = true
+        mapView.isScrollEnabled = false
+        let span = MKCoordinateSpan(latitudeDelta: 0.004,
+                                    longitudeDelta: 0.004)
+        let region = MKCoordinateRegion(center: location,
+                                        span: span)
+        mapView.setRegion(region, animated: false)
         return mapView
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         
     }
-    
+}
+
+// MARK: - Preview
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        let layout = PreviewLayout.fixed(width: 300, height: 300)
+        let location = CLLocationCoordinate2D(latitude: 37.468437,
+                                              longitude: 127.039055)
+        return Group {
+            MapView(location: location)
+                .previewLayout(layout)
+            MapView(location: location)
+                .previewLayout(layout)
+                .environment(\.colorScheme, .dark)
+            MapView(location: location)
+                .previewLayout(layout)
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
+    }
 }
