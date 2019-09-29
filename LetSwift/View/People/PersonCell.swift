@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct PersonCell: View {
-    @State var name: String
-    @State var userID: String
+    var name: String
+    var userID: String
     
     // MARK: - Body
     var body: some View {
