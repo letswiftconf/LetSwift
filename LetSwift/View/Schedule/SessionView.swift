@@ -42,6 +42,7 @@ struct SessionView: View {
                         .lineLimit(nil)
                         .multilineTextAlignment(.leading)
                 }
+                    Divider()
                 VStack(alignment: .leading) {
                     Text("Description")
                         .font(.headline)

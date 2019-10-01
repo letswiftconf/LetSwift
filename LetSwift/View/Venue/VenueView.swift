@@ -12,50 +12,96 @@ import MapKit
 struct VenueView: View {
     let location: CLLocationCoordinate2D = .init(latitude: 37.468437, longitude: 127.039055)
     
+    @State private var showEvent = false
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     MapView(location: location)
-                        .mask(
-                            RoundedRectangle(cornerRadius: 9, style: .continuous)
-                                .frame(height: 300)
-                    )
+                        .modifier(RoundedMask())
                         .frame(height: 300)
                         .padding(.horizontal)
-                    
-                    
                     VStack(alignment: .leading, spacing: 24) {
+                        // Time
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("양재 aT 센터")
-                                .font(.headline)
-                            Text("서울특별시 강남구 테헤란로7길 22")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                        Divider()
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("일시")
-                                .font(.headline)
+                            HeadlineText("일시")
                             VenueInfoCell(info: .init(title: "11월 12일 화요일",
                                                       body: "오전 9시부터 오후 6시까지"))
+                            Button(action: addToCalendar) {
+                                Text("Add to Calendar")
+                            }
+                            .font(.subheadline)
                         }
                         Divider()
+                        
+                        // Location
+                        VStack(alignment: .leading, spacing: 6) {
+                            HeadlineText("일시")
+                            SubheadlineText("서울특별시 강남구 테헤란로7길 22")
+                            Button(action: addToCalendar) {
+                                Text("Show in...")
+                            }
+                            .font(.subheadline)
+                        }
+                        Divider()
+                        
+                        // Route
                         VStack(alignment: .leading, spacing: 16) {
-                            Text("찾아오는 법")
-                                .font(.headline)
+                            HeadlineText("찾아오는 법")
                             VenueInfoCell(info: .init(title: "지하철",
                                                       body: "신분당선 '양재시민의 숲'역에서 하차 후 4번 출구"))
                             VenueInfoCell(info: .init(title: "버스",
                                                       body: "양재 aT 센터 주변 버스정류장 하차"))
+                            Button(action: addToCalendar) {
+                                Text("Find Route on Apple Map")
+                            }
+                            .font(.subheadline)
+                            Button(action: addToCalendar) {
+                                Text("Find Route on Google Maps")
+                            }
+                            .font(.subheadline)
+                            Button(action: addToCalendar) {
+                                Text("Find Route on Naver Map")
+                            }
+                            .font(.subheadline)
+                            Button(action: addToCalendar) {
+                                Text("Find Route on Kakao Map")
+                            }
+                            .font(.subheadline)
                         }
                     }
                     .padding()
                 }
+//                .padding(.horizontal)
             }
             .navigationBarTitle("Venue")
+            .sheet(isPresented: $showEvent) {
+                EventEditViewController()
+            }
         }
+    }
+    
+    // MARK: - Action
+    private func addToCalendar() {
+        showEvent.toggle()
+//        let manager = CalendarManager()
+//        switch manager.authorizationStatus {
+//        case .authorized:
+//            manager.addConference2019()
+//        case .denied, .restricted:
+//            // TODO: Show error
+//            break
+//        case .notDetermined:
+//            manager.requestAccess { (granted, error) in
+//                self.addToCalendar()
+//            }
+//        @unknown default:
+//            #if DEBUG
+//            fatalError()
+//            #endif
+//        }
     }
 }
 
@@ -65,11 +111,9 @@ struct VenueInfoCell: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
-            Text(info.title)
-            Text(info.body)
+            SubheadlineText(info.title)
+            SubheadlineText(info.body)
         }
-        .font(.subheadline)
-        .foregroundColor(.secondary)
     }
 }
 

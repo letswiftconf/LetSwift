@@ -18,7 +18,7 @@ struct PersonCell: View {
             Spacer()
             Circle()
                 .fill(Color(.tertiarySystemFill))
-                .frame(width: 100, height: 100)
+                .frame(width: 80, height: 80)
             VStack(alignment: .center) {
                 Text(name)
                     .font(.body)

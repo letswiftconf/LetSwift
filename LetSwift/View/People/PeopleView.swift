@@ -17,11 +17,13 @@ struct PeopleView: View {
                     Rectangle()
                         .fill(Color(UIColor.secondarySystemBackground))
                         .frame(height: 240)
+                        .modifier(RoundedMask())
+                        .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
-                        PeopleList(title: "Organizers")
                         PeopleList(title: "Speakers")
-                        PeopleList(title: "Staffs")
                         PeopleList(title: "Sponsors")
+                        PeopleList(title: "Organizers")
+                        PeopleList(title: "Staffs")
                     }
                     .frame(alignment: .leading)
                 }

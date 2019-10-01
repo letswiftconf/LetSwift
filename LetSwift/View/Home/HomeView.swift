@@ -27,12 +27,22 @@ struct HomeView: View {
                     Rectangle()
                         .fill(Color(UIColor.secondarySystemBackground))
                         .frame(height: 240)
+                        .modifier(RoundedMask())
+                        .padding(.horizontal)
                         .onTapGesture(perform: presentHomepage)
+                    HStack(alignment: .center) {
+                        Button(action: doNothing) {
+                            Text("Buy Tickets Now")
+                        }
+                        Button(action: doNothing) {
+                            Text("How to Get to the Conference")
+                        }
+                    }
+                    .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
-                        ExampleHorizontalList(title: "How To Get To The Conference")
-                        ExampleHorizontalList(title: "Sessions That Might Interest You")
-                        ExampleHorizontalList(title: "People who brought you this conference")
-                        ExampleHorizontalList(title: "Our Sponsors")
+                        ExampleHorizontalList(title: "If you like tech related topics")
+                        ExampleHorizontalList(title: "If you wannt to improve code")
+                        ExampleHorizontalList(title: "If you like discussing")
                         ExampleHorizontalList(title: "Past Video")
                     }
                     .frame(alignment: .leading)
@@ -50,7 +60,7 @@ struct HomeView: View {
             .background(
                 EmptyView()
                     .sheet(isPresented: $presentsHomepage) {
-                        SafariView(url:
+                        SafariViewController(url:
                             URL(string: "https://letswift.kr/2019")!,
                                    entersReaderIfAvailable: false)
                 }
@@ -65,6 +75,10 @@ struct HomeView: View {
     
     private func presentHomepage() {
         presentsHomepage.toggle()
+    }
+    
+    private func doNothing() {
+        
     }
 }
 
@@ -86,24 +100,12 @@ struct ExampleHorizontalList: View {
                 .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    Rectangle()
+                    ForEach(1...6, id: \.self) { _ in
+                        Rectangle()
                         .fill(Color(.tertiarySystemFill))
+                        .cornerRadius(9)
                         .frame(width: 160)
-                    Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(width: 160)
-                    Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(width: 160)
-                    Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(width: 160)
-                    Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(width: 160)
-                    Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(width: 160)
+                    }
                 }
                 .frame(height: 100)
                 .padding(.horizontal)

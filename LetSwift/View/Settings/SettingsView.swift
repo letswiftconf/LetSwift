@@ -9,6 +9,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    // MARK: - Button
+    var doneButton: some View {
+        Button(action: dismiss) {
+            Text("Done")
+        }
+    }
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             List {
@@ -42,14 +52,26 @@ struct SettingsView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Settings")
+            .navigationBarItems(trailing: doneButton)
         }
+    }
+    
+    // MARK: - Action
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        Group {
+            SettingsView()
+            SettingsView()
+                .environment(\.colorScheme, .dark)
+            SettingsView()
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
-#endif
+ 
