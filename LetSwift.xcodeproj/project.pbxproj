@@ -20,6 +20,7 @@
 		163DB95A22FC36B200D89754 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95922FC36B200D89754 /* ProfileRow.swift */; };
 		163DB95C22FC3BFE00D89754 /* ParticipantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95B22FC3BFE00D89754 /* ParticipantRow.swift */; };
 		163DB95E22FC3D7B00D89754 /* SocialAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DB95D22FC3D7B00D89754 /* SocialAccountRow.swift */; };
+		163F009423430B300094776F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 163F009323430B300094776F /* InfoPlist.strings */; };
 		164D87D522F69A0B008AA30D /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87D422F69A0B008AA30D /* ProfileListView.swift */; };
 		164D87D922F69A20008AA30D /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87D822F69A20008AA30D /* ProfileDetailView.swift */; };
 		164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */; };
@@ -96,6 +97,7 @@
 		163DB95922FC36B200D89754 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
 		163DB95B22FC3BFE00D89754 /* ParticipantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantRow.swift; sourceTree = "<group>"; };
 		163DB95D22FC3D7B00D89754 /* SocialAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccountRow.swift; sourceTree = "<group>"; };
+		163F009323430B300094776F /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		164D87D422F69A0B008AA30D /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
 		164D87D822F69A20008AA30D /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 		164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantDetailView.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				218FD28B22EAEF9900A6BEAB /* Assets.xcassets */,
+				163F009323430B300094776F /* InfoPlist.strings */,
 				168AE12C22EBEEDE00DFBB6F /* old_data.json */,
 			);
 			path = Resource;
@@ -562,6 +565,7 @@
 				218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */,
 				168AE12D22EBEEDE00DFBB6F /* old_data.json in Resources */,
 				218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */,
+				163F009423430B300094776F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,7 +831,7 @@
 		218FD29722EAEF9900A6BEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Let_Dark;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "LetSwift/Preview\\ Content";
@@ -849,7 +853,7 @@
 		218FD29822EAEF9900A6BEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Let_Dark;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "LetSwift/Preview\\ Content";

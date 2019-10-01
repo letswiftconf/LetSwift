@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  LetSwift
+
+  Created by BumMo Koo on 2019/10/01.
+  Copyright © 2019 Cleanios. All rights reserved.
+*/
+
+"CFBundleName" = "Let's";
+"CFBundleDisplayName" = "Let's";
