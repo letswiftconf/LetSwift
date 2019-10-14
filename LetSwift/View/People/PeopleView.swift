@@ -14,8 +14,9 @@ struct PeopleView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Rectangle()
-                        .fill(Color(UIColor.secondarySystemBackground))
+                    Image("Sample")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(height: 240)
                         .modifier(RoundedMask())
                         .padding(.horizontal)

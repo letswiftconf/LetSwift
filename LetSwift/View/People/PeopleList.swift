@@ -14,9 +14,21 @@ struct PeopleList: View {
     // MARK: - Body
     var body: some View {
         return VStack(alignment: .leading) {
-            Text(title)
-                .font(.headline)
-                .padding(.horizontal)
+            HStack(alignment: .firstTextBaseline) {
+                Text(title)
+                    .font(.headline)
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    Group {
+                        Text("See All")
+                        Image(systemName: "chevron.right")
+                    }
+                    .font(.subheadline)
+                })
+            }
+            .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(1...5, id: \.self) { _ in 

@@ -23,22 +23,30 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    Rectangle()
-                        .fill(Color(UIColor.secondarySystemBackground))
+                VStack(alignment: .leading) {
+                    Image("Sample")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(height: 240)
                         .modifier(RoundedMask())
                         .padding(.horizontal)
                         .onTapGesture(perform: presentHomepage)
-                    HStack(alignment: .center) {
-                        Button(action: doNothing) {
-                            Text("Buy Tickets Now")
-                        }
-                        Button(action: doNothing) {
-                            Text("How to Get to the Conference")
-                        }
+                    Divider()
+                        .padding(.horizontal)
+                    VStack(alignment: .leading) {
+                        Text("A Change of Season")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Text("스위프트 개발자에게 혹독한 변화의 계절을 함께 준비해요")
+                            .font(.subheadline)
+                        Text("\n오픈소스 기반 스위프트 커뮤니티에는 학생부터 10년 넘은 베테랑 개발자까지 다양합니다.\nSwiftUI 와 Combine은 새로운 iOS 개발 경험을 만들어 줄 겁니다.\n")
+                            .font(.subheadline)
+                        Text("🎤 난이도 있는 기술 토픽에 대한 발표\n💻 직접 코드 품질을 개선하는 워크숍\n🍵 작은 주제별로 자유롭게 토론하는 소규모 티타임\n\n여러분은 어떤 주제에 관심이 있으신가요?")
+                            .font(.subheadline)
                     }
-                    .padding(.horizontal)
+                    .padding()
+                    Divider()
+                        .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
                         ExampleHorizontalList(title: "If you like tech related topics")
                         ExampleHorizontalList(title: "If you wannt to improve code")
@@ -62,7 +70,7 @@ struct HomeView: View {
                     .sheet(isPresented: $presentsHomepage) {
                         SafariViewController(url:
                             URL(string: "https://letswift.kr/2019")!,
-                                   entersReaderIfAvailable: false)
+                                             entersReaderIfAvailable: false)
                 }
             )
         )
@@ -85,7 +93,13 @@ struct HomeView: View {
 #if DEBUG
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        Group {
+            HomeView()
+            HomeView()
+                .environment(\.colorScheme, .dark)
+            HomeView()
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
 #endif
@@ -102,9 +116,9 @@ struct ExampleHorizontalList: View {
                 HStack {
                     ForEach(1...6, id: \.self) { _ in
                         Rectangle()
-                        .fill(Color(.tertiarySystemFill))
-                        .cornerRadius(9)
-                        .frame(width: 160)
+                            .fill(Color(.tertiarySystemFill))
+                            .cornerRadius(9)
+                            .frame(width: 160)
                     }
                 }
                 .frame(height: 100)

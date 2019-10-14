@@ -38,12 +38,30 @@ struct VenueView: View {
                         
                         // Location
                         VStack(alignment: .leading, spacing: 6) {
-                            HeadlineText("일시")
+                            HeadlineText("장소")
                             SubheadlineText("서울특별시 강남구 테헤란로7길 22")
-                            Button(action: addToCalendar) {
-                                Text("Show in...")
+                            VStack(alignment: .leading, spacing: 16) {
+                                HStack(spacing: 16) {
+                                    Button(action: addToCalendar) {
+                                        Text("Apple Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                    Button(action: addToCalendar) {
+                                        Text("Google Maps ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                }
+                                HStack(spacing: 16) {
+                                    Button(action: addToCalendar) {
+                                        Text("Naver Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                    Button(action: addToCalendar) {
+                                        Text("Kakao Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                }
                             }
-                            .font(.subheadline)
                         }
                         Divider()
                         
@@ -54,27 +72,33 @@ struct VenueView: View {
                                                       body: "신분당선 '양재시민의 숲'역에서 하차 후 4번 출구"))
                             VenueInfoCell(info: .init(title: "버스",
                                                       body: "양재 aT 센터 주변 버스정류장 하차"))
-                            Button(action: addToCalendar) {
-                                Text("Find Route on Apple Map")
+                            VStack(alignment: .leading, spacing: 16) {
+                                HStack(spacing: 16) {
+                                    Button(action: addToCalendar) {
+                                        Text("Apple Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                    Button(action: addToCalendar) {
+                                        Text("Google Maps ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                }
+                                HStack(spacing: 16) {
+                                    Button(action: addToCalendar) {
+                                        Text("Naver Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                    Button(action: addToCalendar) {
+                                        Text("Kakao Map ↗︎")
+                                    }
+                                    .font(.subheadline)
+                                }
                             }
-                            .font(.subheadline)
-                            Button(action: addToCalendar) {
-                                Text("Find Route on Google Maps")
-                            }
-                            .font(.subheadline)
-                            Button(action: addToCalendar) {
-                                Text("Find Route on Naver Map")
-                            }
-                            .font(.subheadline)
-                            Button(action: addToCalendar) {
-                                Text("Find Route on Kakao Map")
-                            }
-                            .font(.subheadline)
                         }
                     }
                     .padding()
                 }
-//                .padding(.horizontal)
+                //                .padding(.horizontal)
             }
             .navigationBarTitle("Venue")
             .sheet(isPresented: $showEvent) {

@@ -27,7 +27,7 @@ struct PersonView: View {
                             .font(.headline)
                         Text("Description")
                             .font(.subheadline)
-                            .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                            .multilineTextAlignment(.leading)
                             .lineLimit(0)
                     }
                     VStack(alignment: .leading, spacing: 8) {
