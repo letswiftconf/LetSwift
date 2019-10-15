@@ -9,39 +9,28 @@
 import SwiftUI
 
 struct StaffCell: View {
-    var name: String
-    var userID: String = ""
-    var organization: String = ""
-    var tags: [String] = []
-    var description: String = ""
+    var staff: ProtoStaff
     
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            Image("Sample")
+            Image(staff.name)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
                 .mask(Circle())
             VStack(alignment: .center) {
-                Text(name)
+                Text(staff.name)
                     .font(.body)
                     .fontWeight(.bold)
-                Text(organization)
+                Text(staff.organization)
                     .font(.footnote)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
-                Text(userID)
+                Text(staff.description)
                     .font(.footnote)
-                    .foregroundColor(Color(.secondaryLabel))
-//                tags.reduce("") { tag in
-//                    Text(tag + " ")
-//                        .font(.footnote)
-//                        .foregroundColor(Color(.secondaryLabel))
-//                }
-                Text(description)
-                    .font(.footnote)
+                    .multilineTextAlignment(.center)
                     .foregroundColor(Color(.secondaryLabel))
             }
             Spacer()
@@ -53,28 +42,14 @@ struct StaffCell: View {
 struct StaffCell_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 200)
+        let staff = ProtoStaff.makeProtoData()
         return Group {
-            StaffCell(name: "BumMo")
+            StaffCell(staff: staff[5])
                 .previewLayout(layout)
-            StaffCell(name: "BumMo",
-                      userID: "@gbmksquare")
-                .previewLayout(layout)
-            StaffCell(name: "BumMo",
-                      userID: "@gbmksquare",
-                      organization: "Korea Univ")
-                .previewLayout(layout)
-            StaffCell(name: "BumMo",
-                  organization: "Korea Univ")
-            .previewLayout(layout)
-            StaffCell(name: "BumMo",
-                      userID: "@gbmksquare",
-                      organization: "Korea Univ",
-                      description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
-                .previewLayout(layout)
-            StaffCell(name: "BumMo", userID: "@gbmksquare", organization: "Korea Univ")
+            StaffCell(staff: staff[3])
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            StaffCell(name: "BumMo", userID: "@gbmksquare", organization: "Korea Univ")
+            StaffCell(staff: staff.last!)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

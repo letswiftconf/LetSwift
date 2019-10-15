@@ -10,10 +10,11 @@ import SwiftUI
 
 struct PeopleList: View {
     var title: String
+    var people: [SuperPerson]
     
     // MARK: - Body
     var body: some View {
-        return VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
                 Text(title)
                     .font(.headline)
@@ -31,10 +32,10 @@ struct PeopleList: View {
             .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    ForEach(1...5, id: \.self) { _ in 
-                        NavigationLink(destination: PersonView()) {
-                            PersonCell(name: "BumMo", userID: "@gbmksquare")
-                        }
+                    ForEach(people, id: \.self) { person in
+                        NavigationLink(destination: PersonView(person: person)) {
+                            PersonCell(person: person)
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.horizontal)
@@ -47,13 +48,14 @@ struct PeopleList: View {
 struct PeopleList_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 240)
+        let people = ProtoStaff.makeProtoData()
         return Group {
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", people: people)
                 .previewLayout(layout)
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", people: people)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", people: people)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
