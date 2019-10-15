@@ -42,21 +42,21 @@ struct VenueView: View {
                             SubheadlineText("서울특별시 강남구 테헤란로7길 22")
                             VStack(alignment: .leading, spacing: 16) {
                                 HStack(spacing: 16) {
-                                    Button(action: addToCalendar) {
+                                    Button(action: openAppleMap) {
                                         Text("Apple Map ↗︎")
                                     }
                                     .font(.subheadline)
-                                    Button(action: addToCalendar) {
+                                    Button(action: openGoogle) {
                                         Text("Google Maps ↗︎")
                                     }
                                     .font(.subheadline)
                                 }
                                 HStack(spacing: 16) {
-                                    Button(action: addToCalendar) {
+                                    Button(action: openNaver) {
                                         Text("Naver Map ↗︎")
                                     }
                                     .font(.subheadline)
-                                    Button(action: addToCalendar) {
+                                    Button(action: openKakao) {
                                         Text("Kakao Map ↗︎")
                                     }
                                     .font(.subheadline)
@@ -74,21 +74,21 @@ struct VenueView: View {
                                                       body: "양재 aT 센터 주변 버스정류장 하차"))
                             VStack(alignment: .leading, spacing: 16) {
                                 HStack(spacing: 16) {
-                                    Button(action: addToCalendar) {
+                                    Button(action: openAppleMapRoute) {
                                         Text("Apple Map ↗︎")
                                     }
                                     .font(.subheadline)
-                                    Button(action: addToCalendar) {
+                                    Button(action: openGoogleRoute) {
                                         Text("Google Maps ↗︎")
                                     }
                                     .font(.subheadline)
                                 }
                                 HStack(spacing: 16) {
-                                    Button(action: addToCalendar) {
+                                    Button(action: openNaverRoute) {
                                         Text("Naver Map ↗︎")
                                     }
                                     .font(.subheadline)
-                                    Button(action: addToCalendar) {
+                                    Button(action: openKakaoRoute) {
                                         Text("Kakao Map ↗︎")
                                     }
                                     .font(.subheadline)
@@ -98,7 +98,6 @@ struct VenueView: View {
                     }
                     .padding()
                 }
-                //                .padding(.horizontal)
             }
             .navigationBarTitle("Venue")
             .sheet(isPresented: $showEvent) {
@@ -127,6 +126,67 @@ struct VenueView: View {
 //            #endif
 //        }
     }
+    
+    private func openAppleMap() {
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.02))
+        let placemark = MKPlacemark(coordinate: location)
+        let mapItem = MKMapItem(placemark: placemark)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: region.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: region.span)]
+        mapItem.name = "서울특별시 강남구 테헤란로7길 22"
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+    private func openAppleMapRoute() {
+        let placemark = MKPlacemark(coordinate: location)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "서울특별시 강남구 테헤란로7길 22"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+    }
+    
+    private func openKakao() {
+        guard let url = URL(string: "kakaomap://look?p=\(location.latitude),\(location.longitude)") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    private func openKakaoRoute() {
+        guard let url = URL(string: "kakaomap://route?ep=\(location.latitude),\(location.longitude)&by=PUBLICTRANSIT") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    private func openNaverRoute() {
+        let dname = "서울특별시 강남구 테헤란로7길 22".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard let url = URL(string: "nmap://route/public?dlat=\(location.latitude)&dlng=\(location.longitude)&dname=\(dname)&appname=kr.codesquad.jk.letswift") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            let appStoreURL = URL(string: "http://itunes.apple.com/app/id311867728?mt=8")!
+            UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    private func openNaver() {
+        let dname = "서울특별시 강남구 테헤란로7길 22".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard let url = URL(string: "nmap://place?lat=\(location.latitude)&lng=\(location.longitude)&name=\(dname)&appname=kr.codesquad.jk.letswift") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            let appStoreURL = URL(string: "http://itunes.apple.com/app/id311867728?mt=8")!
+            UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    private func openGoogle() {
+        guard let url = URL(string:"comgooglemaps://?center=\(location.latitude),\(location.longitude)&zoom=14&views=traffic&q=\(location.latitude),\(location.longitude)") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    private func openGoogleRoute() {
+        guard let url = URL(string: "comgooglemaps://?saddr=&daddr=\(location.latitude),\(location.longitude)&directionsmode=transit") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
 }
 
 struct VenueInfoCell: View {
