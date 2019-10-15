@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct PeopleList: View {
-    var title: String
+    let title: String
+    let speakers: [ProtoSpeaker]
     
     // MARK: - Body
     var body: some View {
@@ -31,9 +32,10 @@ struct PeopleList: View {
             .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    ForEach(1...5, id: \.self) { _ in 
+                    ForEach(speakers, id: \.self) { speaker in
                         NavigationLink(destination: PersonView()) {
-                            PersonCell(name: "BumMo", userID: "@gbmksquare")
+                            SpeakerCell(speaker: speaker)
+                                .frame(width: 100, alignment: .top)
                         }
                     }
                 }
@@ -48,12 +50,12 @@ struct PeopleList_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 240)
         return Group {
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
                 .previewLayout(layout)
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            PeopleList(title: "Section")
+            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

@@ -88,6 +88,7 @@
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
 		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
+		B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,7 @@
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSpeaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +350,7 @@
 			children = (
 				16C0BCE422ED863C00BD2479 /* Protocol */,
 				16F9B22622FC20DA00185B00 /* Conference & Sessions */,
+				B6C36C2B23549C9000E0D964 /* ProtoPerson */,
 				164D87AE22F695E0008AA30D /* Person */,
 			);
 			path = Model;
@@ -523,6 +526,14 @@
 				218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6C36C2B23549C9000E0D964 /* ProtoPerson */ = {
+			isa = PBXGroup;
+			children = (
+				B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */,
+			);
+			path = ProtoPerson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,6 +720,7 @@
 				168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */,
 				168AE13722EBF18D00DFBB6F /* ScheduleView.swift in Sources */,
 				16BCA9892339B279006B4716 /* PeopleList.swift in Sources */,
+				B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

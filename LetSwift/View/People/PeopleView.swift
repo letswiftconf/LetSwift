@@ -21,10 +21,10 @@ struct PeopleView: View {
                         .modifier(RoundedMask())
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
-                        PeopleList(title: "Speakers")
-                        PeopleList(title: "Sponsors")
-                        PeopleList(title: "Organizers")
-                        PeopleList(title: "Staffs")
+                        PeopleList(title: "Speakers", speakers: ProtoSpeaker.speakers)
+                        PeopleList(title: "Sponsors", speakers: ProtoSpeaker.speakers)
+                        PeopleList(title: "Organizers", speakers: ProtoSpeaker.speakers)
+                        PeopleList(title: "Staffs", speakers: ProtoSpeaker.speakers)
                     }
                     .frame(alignment: .leading)
                 }
