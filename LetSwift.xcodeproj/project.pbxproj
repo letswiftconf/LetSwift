@@ -87,6 +87,7 @@
 		218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28B22EAEF9900A6BEAB /* Assets.xcassets */; };
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
+		A0AE4F702354A7A200A8BB50 /* ProtoStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */; };
 		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoStaff.swift; sourceTree = "<group>"; };
 		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 				16C0BCDA22ED7D9600BD2479 /* Participant.swift */,
 				16C0BCDC22ED7DA400BD2479 /* Profile.swift */,
 				16C0BCDE22ED7DB100BD2479 /* SocialAccount.swift */,
+				A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				168AE13922EBF1C000DFBB6F /* VideoView.swift in Sources */,
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
 				2184282622F6DE2F008C88F4 /* Conference.swift in Sources */,
+				A0AE4F702354A7A200A8BB50 /* ProtoStaff.swift in Sources */,
 				168AE13B22EBF1DA00DFBB6F /* PeopleView.swift in Sources */,
 				168777EC2338F43300C589BC /* UIColor.swift in Sources */,
 				16BCA98B2339B5FA006B4716 /* PersonView.swift in Sources */,

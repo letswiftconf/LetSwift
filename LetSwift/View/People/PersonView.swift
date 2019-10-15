@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct PersonView: View {
+    @State var person: SuperPerson
+    
     // MARK: - Body
     var body: some View {
         ScrollView {
@@ -17,67 +19,69 @@ struct PersonView: View {
                     Rectangle()
                         .fill(Color(.secondarySystemBackground))
                         .frame(height: 180)
-                    Circle()
-                        .fill(Color(.tertiarySystemFill))
-                        .frame(height: 120)
+                    Image(person.name)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120, height: 120)
+                    .mask(Circle())
+                    
                 }
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Name")
+                        Text(person.name)
                             .font(.headline)
-                        Text("Description")
+                        Text(person.description)
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
-                            .lineLimit(0)
                     }
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Role")
                             .font(.headline)
                         HStack {
-                            Text("Organizer")
+                            if person.name == "김정" {
+                                Text("Organizer")
+                                    .padding(6)
+                                    .background(Color.orange)
+                                    .cornerRadius(9)
+                            } else {
+                                Text("Staff")
+                                    .padding(6)
+                                    .background(Color.orange)
+                                    .cornerRadius(9)
+                            }
+                            ForEach(person.tags, id: \.self) { tag in
+                                Text(tag)
                                 .padding(6)
                                 .background(Color.orange)
                                 .cornerRadius(9)
-                            Text("Staff")
-                                .padding(6)
-                                .background(Color.orange)
-                                .cornerRadius(9)
+                            }
                         }
                         .font(.footnote)
                     }
-                    VStack(alignment: .leading, spacing: 8) {
-                    Text("Social Media")
-                        .font(.headline)
-                    VStack {
-                        ForEach(1...3, id: \.self) { _ in
-                            Rectangle()
-                                .fill(Color.blue)
-                                .frame(height: 44)
-                                .cornerRadius(9, antialiased: true)
-                        }
-                    }
-                    }
+                    
                 }
                 .padding()
             }
         }
-        .navigationBarTitle("Name", displayMode: .inline)
+        .navigationBarTitle(Text(person.name), displayMode: .inline)
     }
 }
 
 // MARK: - Preview
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        
+        let people = ProtoStaff.makeProtoData()
+        return Group {
             NavigationView {
-                PersonView()
+                PersonView(person: people[1])
             }
             NavigationView {
-                PersonView()
+                PersonView(person: people[0])
             }
             .environment(\.colorScheme, .dark)
             NavigationView {
-                PersonView()
+                PersonView(person: people[0])
             }
             .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
