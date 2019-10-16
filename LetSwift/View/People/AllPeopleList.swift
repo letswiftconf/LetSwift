@@ -48,9 +48,8 @@ struct AllPeopleList: View {
         
         return HStack(spacing: hSpacing) {
             ForEach(0..<itemCount) { columnIndex in
-                Spacer()
-//                SpeakerCell(speaker: self.people[(rowIndex * self.columnCount) + columnIndex])
-//                    .frame(width: self.cellWidth(geometry))
+                self.cell(at: (rowIndex * self.columnCount) + columnIndex)?
+                    .frame(width: self.cellWidth(geometry))
             }
             if isLast {
                 Spacer()
@@ -58,6 +57,23 @@ struct AllPeopleList: View {
         }
         .padding([.horizontal], hPadding)
         .frame(minWidth: 0, maxWidth: .infinity)
+    }
+    
+    func cell(at index: Int) -> AnyView? {
+        switch type {
+        case .speakers:
+            guard let speaker = people[index] as? ProtoSpeaker else {
+                return nil
+            }
+            return AnyView(SpeakerCell(speaker: speaker))
+        case .staffs:
+            guard let staff = people[index] as? ProtoStaff else {
+                return nil
+            }
+            return AnyView(StaffCell(staff: staff))
+        default:
+            return AnyView(PersonCell(person: people[index]))
+        }
     }
     
     // MARK: - Helper Functions
