@@ -32,14 +32,44 @@ struct PeopleList: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    ForEach(people, id: \.self) { person in
-                        NavigationLink(destination: PersonView(person: person)) {
-                            PersonCell(person: person)
-                        }.buttonStyle(PlainButtonStyle())
-                    }
+                    self.cells
                 }
                 .padding(.horizontal)
             }
+        }
+    }
+    
+    // MARK: - Body Builder
+    
+    var cells: AnyView {
+        switch type {
+        case .speakers:
+            return AnyView(
+                ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        SpeakerCell(speaker: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
+        case .staffs:
+            return AnyView(
+                ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        StaffCell(staff: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
+        default:
+            return AnyView(
+                ForEach(people, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        PersonCell(person: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
         }
     }
 }

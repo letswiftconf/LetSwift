@@ -14,7 +14,6 @@ struct StaffCell: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
-            Spacer()
             Image(staff.name)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -28,10 +27,12 @@ struct StaffCell: View {
                     .font(.footnote)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
+                    .lineLimit(1)
                 Text(staff.description)
                     .font(.footnote)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(.secondaryLabel))
+                    .lineLimit(2)
             }
             Spacer()
         }
