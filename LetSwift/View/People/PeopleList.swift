@@ -19,17 +19,16 @@ struct PeopleList: View {
                 Text(title)
                     .font(.headline)
                 Spacer()
-                Button(action: {
-                    
-                }, label: {
+                NavigationLink(destination: AllPeopleList(title: title, speakers: speakers)) {
                     Group {
                         Text("See All")
                         Image(systemName: "chevron.right")
                     }
                     .font(.subheadline)
-                })
+                }
             }
             .padding(.horizontal)
+            .navigationBarTitle(title)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
                     ForEach(speakers, id: \.self) { speaker in

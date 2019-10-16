@@ -37,6 +37,7 @@ struct SpeakerCell: View {
                 Text(speaker.subDescription)
                     .font(.footnote)
                     .foregroundColor(Color(.secondaryLabel))
+                    .lineLimit(2)
             }
             Spacer()
         }

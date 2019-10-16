@@ -87,6 +87,7 @@
 		218FD28C22EAEF9900A6BEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28B22EAEF9900A6BEAB /* Assets.xcassets */; };
 		218FD28F22EAEF9900A6BEAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */; };
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
+		B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6486D962355BFB700076551 /* AllPeopleList.swift */; };
 		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
 		B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */; };
 /* End PBXBuildFile section */
@@ -167,6 +168,7 @@
 		218FD28E22EAEF9900A6BEAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		218FD29122EAEF9900A6BEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6486D962355BFB700076551 /* AllPeopleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPeopleList.swift; sourceTree = "<group>"; };
 		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSpeaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +291,7 @@
 			children = (
 				168AE13A22EBF1DA00DFBB6F /* PeopleView.swift */,
 				16BCA9882339B279006B4716 /* PeopleList.swift */,
+				B6486D962355BFB700076551 /* AllPeopleList.swift */,
 				16BCA9862339ADD8006B4716 /* PersonCell.swift */,
 				161035F6235461FE005441D9 /* SpeakerCell.swift */,
 				161035D423544633005441D9 /* StaffCell.swift */,
@@ -690,6 +693,7 @@
 				161035D523544633005441D9 /* StaffCell.swift in Sources */,
 				B66D28262338EB3E00D835D8 /* MapView.swift in Sources */,
 				16C0BCDD22ED7DA400BD2479 /* Profile.swift in Sources */,
+				B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */,
 				16DDCF2922EC25900075561F /* SafariViewController.swift in Sources */,
 				168AE13922EBF1C000DFBB6F /* VideoView.swift in Sources */,
 				218FD28822EAEF9900A6BEAB /* SceneDelegate.swift in Sources */,
