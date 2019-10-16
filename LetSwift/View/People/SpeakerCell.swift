@@ -22,6 +22,7 @@ struct SpeakerCell: View {
     var body: some View {
         VStack(alignment: .center) {
             Image(speaker.imageName)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
