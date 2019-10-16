@@ -31,6 +31,7 @@ struct SpeakerCell: View {
                 Text(speaker.name)
                     .font(.body)
                     .fontWeight(.bold)
+                    .foregroundColor(Color(.label))
                 Text(speaker.organization)
                     .font(.footnote)
                     .fontWeight(.semibold)

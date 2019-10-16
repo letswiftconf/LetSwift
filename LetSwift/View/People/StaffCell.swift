@@ -15,6 +15,7 @@ struct StaffCell: View {
     var body: some View {
         VStack(alignment: .center) {
             Image(staff.name)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
@@ -23,6 +24,7 @@ struct StaffCell: View {
                 Text(staff.name)
                     .font(.body)
                     .fontWeight(.bold)
+                    .foregroundColor(Color(.label))
                 Text(staff.organization)
                     .font(.footnote)
                     .fontWeight(.semibold)

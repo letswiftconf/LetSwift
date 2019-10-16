@@ -65,14 +65,24 @@ struct AllPeopleList: View {
             guard let speaker = people[index] as? ProtoSpeaker else {
                 return nil
             }
-            return AnyView(SpeakerCell(speaker: speaker))
+            return AnyView(
+                NavigationLink(destination: PersonView(person: speaker)) {
+                    SpeakerCell(speaker: speaker)
+            })
         case .staffs:
             guard let staff = people[index] as? ProtoStaff else {
                 return nil
             }
-            return AnyView(StaffCell(staff: staff))
+            return AnyView(
+                NavigationLink(destination: PersonView(person: staff)) {
+                    StaffCell(staff: staff)
+            })
         default:
-            return AnyView(PersonCell(person: people[index]))
+            let person = people[index]
+            return AnyView(
+                NavigationLink(destination: PersonView(person: person)) {
+                    PersonCell(person: person)
+            })
         }
     }
     
