@@ -21,7 +21,7 @@ struct SpeakerCell: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
-            Image("Sample")
+            Image(speaker.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
