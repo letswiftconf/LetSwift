@@ -11,8 +11,8 @@ import SwiftUI
 
 struct AllPeopleList: View {
     
-    let title: String
-    let speakers: [ProtoSpeaker]
+    let type: PeopleList.PeopleType
+    let people: [SuperPerson]
     var columnCount: Int = 3
     var hPadding: CGFloat = 16
     var hSpacing: CGFloat = 16
@@ -25,31 +25,32 @@ struct AllPeopleList: View {
                     .padding(.vertical)
             }
         }
-        .navigationBarTitle(title)
+        .navigationBarTitle(type.title)
     }
     
     // MARK: - Body Builder
     
     func grid(geometry: GeometryProxy) -> some View {
-        let filledRowCount = speakers.count / columnCount
+        let filledRowCount = people.count / columnCount
         
         return VStack(alignment: .center) {
             ForEach(0..<filledRowCount) { index in
                 self.row(at: index, geometry: geometry)
             }
-            if self.speakers.count % self.columnCount > 0 {
+            if self.people.count % self.columnCount > 0 {
                 self.row(at: filledRowCount, isLast: true, geometry: geometry)
             }
         }
     }
     
     func row(at rowIndex: Int, isLast: Bool = false, geometry: GeometryProxy) -> some View {
-        let itemCount = isLast ? speakers.count % columnCount : columnCount
+        let itemCount = isLast ? people.count % columnCount : columnCount
         
         return HStack(spacing: hSpacing) {
             ForEach(0..<itemCount) { columnIndex in
-                SpeakerCell(speaker: self.speakers[(rowIndex * self.columnCount) + columnIndex])
-                    .frame(width: self.cellWidth(geometry))
+                Spacer()
+//                SpeakerCell(speaker: self.people[(rowIndex * self.columnCount) + columnIndex])
+//                    .frame(width: self.cellWidth(geometry))
             }
             if isLast {
                 Spacer()
@@ -72,12 +73,12 @@ struct AllPeopleList_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 240)
         return Group {
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
                 .previewLayout(layout)
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

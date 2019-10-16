@@ -7,25 +7,16 @@
 //
 
 import Foundation
-import UIKit
 
-struct ProtoSpeaker {
-    let id = UUID()
-    let imageName: String
-    let name: String
-    let organization: String
+class ProtoSpeaker: SuperPerson {
     let sessions: [String] // TODO: [Session]
-    let description: String
     let subDescription: String
-}
-
-extension ProtoSpeaker: Hashable {
-    static func == (lhs: ProtoSpeaker, rhs: ProtoSpeaker) -> Bool {
-        return lhs.id == rhs.id
-    }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+    init(imageName: String, name: String, organization: String, sessions: [String], description: String = "", subDescription: String = ""){
+        self.subDescription = subDescription
+        self.sessions = sessions
+        
+        super.init(name: name, organization: organization, description: description)
     }
 }
 

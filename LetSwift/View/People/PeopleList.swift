@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct PeopleList: View {
-    let title: String
-    let speakers: [ProtoSpeaker]
+    let type: PeopleType
+    var people: [SuperPerson]
     
     // MARK: - Body
     var body: some View {
-        return VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
-                Text(title)
+                Text(type.title)
                     .font(.headline)
                 Spacer()
-                NavigationLink(destination: AllPeopleList(title: title, speakers: speakers)) {
+                NavigationLink(destination: AllPeopleList(type: type, people: people)) {
                     Group {
                         Text("See All")
                         Image(systemName: "chevron.right")
@@ -28,17 +28,35 @@ struct PeopleList: View {
                 }
             }
             .padding(.horizontal)
-            .navigationBarTitle(title)
+            .navigationBarTitle(type.title)
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    ForEach(speakers, id: \.self) { speaker in
-                        NavigationLink(destination: PersonView()) {
-                            SpeakerCell(speaker: speaker)
-                                .frame(width: 100, alignment: .top)
-                        }
+                    ForEach(people, id: \.self) { person in
+                        NavigationLink(destination: PersonView(person: person)) {
+                            PersonCell(person: person)
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.horizontal)
+            }
+        }
+    }
+}
+
+extension PeopleList {
+    enum PeopleType {
+        case speakers
+        case sponsors
+        case organizers
+        case staffs
+        
+        var title: String {
+            switch self {
+            case .speakers: return "Speakers"
+            case .sponsors: return "Sponsors"
+            case .organizers: return "Organizers"
+            case .staffs: return "Staffs"
             }
         }
     }
@@ -48,13 +66,14 @@ struct PeopleList: View {
 struct PeopleList_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 240)
+        let people = ProtoStaff.makeProtoData()
         return Group {
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            PeopleList(title: "Section", speakers: ProtoSpeaker.speakers)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
