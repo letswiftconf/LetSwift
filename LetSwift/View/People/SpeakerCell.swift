@@ -9,44 +9,37 @@
 import SwiftUI
 
 struct SpeakerCell: View {
-    var name: String
+    var name: String = ""
     var userID: String = ""
     var organization: String = ""
     var sessionTitle  = ""
     var tags: [String] = []
     var description: String = ""
     
+    let speaker: ProtoSpeaker
+    
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
-            Spacer()
-            Image("Sample")
+            Image(speaker.imageName)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
-                .mask(Circle())
+                .clipShape(Circle())
             VStack(alignment: .center) {
-                Text(name)
+                Text(speaker.name)
                     .font(.body)
                     .fontWeight(.bold)
-                Text(organization)
+                    .foregroundColor(Color(.label))
+                Text(speaker.organization)
                     .font(.footnote)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
-                Text(userID)
+                Text(speaker.subDescription)
                     .font(.footnote)
                     .foregroundColor(Color(.secondaryLabel))
-                Text(sessionTitle)
-                    .font(.footnote)
-                    .foregroundColor(Color(.secondaryLabel))
-                //                tags.reduce("") { tag in
-                //                    Text(tag + " ")
-                //                        .font(.footnote)
-                //                        .foregroundColor(Color(.secondaryLabel))
-                //                }
-                Text(description)
-                    .font(.footnote)
-                    .foregroundColor(Color(.secondaryLabel))
+                    .lineLimit(2)
             }
             Spacer()
         }
@@ -58,40 +51,12 @@ struct SpeakerCell_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 320, height: 200)
         return Group {
-            SpeakerCell(name: "BumMo",
-                        sessionTitle: "How to Kill a Mockingbird")
+            SpeakerCell(speaker: ProtoSpeaker.speakers.first ?? .dummy)
                 .previewLayout(layout)
-            SpeakerCell(name: "BumMo",
-                        userID: "@gbmksquare",
-                        sessionTitle: "How to Kill a Mockingbird")
-                .previewLayout(layout)
-            SpeakerCell(name: "BumMo",
-                        userID: "@gbmksquare",
-                        organization: "Korea Univ",
-                        sessionTitle: "How to Kill a Mockingbird")
-                .previewLayout(layout)
-            SpeakerCell(name: "BumMo",
-                        organization: "Korea Univ",
-                        sessionTitle: "How to Kill a Mockingbird")
-                .previewLayout(layout)
-            SpeakerCell(name: "BumMo",
-                        userID: "@gbmksquare",
-                        organization: "Korea Univ",
-                        sessionTitle: "How to Kill a Mockingbird",
-                        description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
-                .previewLayout(layout)
-            SpeakerCell(name: "BumMo",
-                        userID: "@gbmksquare",
-                        organization: "Korea Univ",
-                        sessionTitle: "How to Kill a Mockingbird",
-                        description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
+            SpeakerCell(speaker: ProtoSpeaker.speakers.last ?? .dummy)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            SpeakerCell(name: "BumMo",
-                        userID: "@gbmksquare",
-                        organization: "Korea Univ",
-                        sessionTitle: "How to Kill a Mockingbird",
-                        description: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
+            SpeakerCell(speaker: ProtoSpeaker.speakers.first ?? .dummy)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

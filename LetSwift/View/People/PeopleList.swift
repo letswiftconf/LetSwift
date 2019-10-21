@@ -9,36 +9,84 @@
 import SwiftUI
 
 struct PeopleList: View {
-    var title: String
+    let type: PeopleType
     var people: [SuperPerson]
     
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
-                Text(title)
+                Text(type.title)
                     .font(.headline)
                 Spacer()
-                Button(action: {
-                    
-                }, label: {
+                NavigationLink(destination: AllPeopleList(type: type, people: people)) {
                     Group {
                         Text("See All")
                         Image(systemName: "chevron.right")
                     }
                     .font(.subheadline)
-                })
+                }
             }
             .padding(.horizontal)
+            .navigationBarTitle(type.title)
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
-                    ForEach(people, id: \.self) { person in
-                        NavigationLink(destination: PersonView(person: person)) {
-                            PersonCell(person: person)
-                        }.buttonStyle(PlainButtonStyle())
-                    }
+                    self.cells
                 }
                 .padding(.horizontal)
+            }
+        }
+    }
+    
+    // MARK: - Body Builder
+    
+    var cells: AnyView {
+        switch type {
+        case .speakers:
+            return AnyView(
+                ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        SpeakerCell(speaker: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
+        case .staffs:
+            return AnyView(
+                ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        StaffCell(staff: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
+        default:
+            return AnyView(
+                ForEach(people, id: \.self) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        PersonCell(person: person)
+                            .frame(width: 100)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle()))
+        }
+    }
+}
+
+extension PeopleList {
+    enum PeopleType {
+        case speakers
+        case sponsors
+        case organizers
+        case staffs
+        
+        var title: String {
+            switch self {
+            case .speakers: return "Speakers"
+            case .sponsors: return "Sponsors"
+            case .organizers: return "Organizers"
+            case .staffs: return "Staffs"
             }
         }
     }
@@ -50,12 +98,12 @@ struct PeopleList_Previews: PreviewProvider {
         let layout = PreviewLayout.fixed(width: 320, height: 240)
         let people = ProtoStaff.makeProtoData()
         return Group {
-            PeopleList(title: "Section", people: people)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
-            PeopleList(title: "Section", people: people)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            PeopleList(title: "Section", people: people)
+            PeopleList(type: .staffs, people: people)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

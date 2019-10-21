@@ -16,6 +16,7 @@ struct PersonCell: View {
         VStack(alignment: .center) {
             Spacer()
             Image(person.imageName)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
@@ -23,6 +24,7 @@ struct PersonCell: View {
             VStack(alignment: .center) {
                 Text(person.name)
                     .font(.body)
+                    .foregroundColor(Color(.label))
                 Text(person.organization)
                     .font(.footnote)
                     .foregroundColor(Color(.secondaryLabel))

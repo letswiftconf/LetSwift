@@ -8,50 +8,11 @@
 
 import Foundation
 
-protocol Person: class, Hashable, Identifiable {
-    var name: String { get set }
-    var userID: String { get set }
-    var organization: String { get set }
-    var tags: [String] { get set }
-    var description: String { get set }
-    var imageName: String { get set }
-}
-
-class SuperPerson: Person {
-    let id = UUID()
-    var name: String
-    var userID: String = ""
-    var imageName: String = ""
-    var organization: String
-    var description: String
-    var tags: [String] = []
-    
-    init(name: String, organization: String, description: String, tags: [String]) {
-        self.name = name
-        self.userID = name
-        self.imageName = name
-        self.organization = organization
-        self.description = description
-        self.tags = tags
-    }
-    
-    static func == (lhs: SuperPerson, rhs: SuperPerson) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
 class ProtoStaff: SuperPerson {
-    
-    
     init(name: String, organization: String = "", tags: [String] = [], description: String) {
         super.init(name: name, organization: organization, description: description, tags: tags)
     }
 }
-
 
 extension ProtoStaff {
     static func makeProtoData() -> [ProtoStaff] {
