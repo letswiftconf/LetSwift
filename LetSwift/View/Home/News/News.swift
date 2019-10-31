@@ -45,9 +45,10 @@ extension News {
     // MARK: - dummy
     
     static var dummy: [News] {
-        return [News(title: "모임 종료 안내",
-                     date: Date(),
-                     description: "모임이 모두 종료되었습니다. 본 웹사이트의 소스코드는 GitHub에 공개되어있습니다. 모임 사진은 구글 드라이브에서 확인하실 수 있습니다. 발표 자료와 영상은 각 세션 설명에 첨부된 링크를 확인해주세요.")
+        return [
+            News(title: "모임 종료 안내",
+                 date: Date(),
+                 description: "모임이 모두 종료되었습니다. 본 웹사이트의 소스코드는 GitHub에 공개되어있습니다. 모임 사진은 구글 드라이브에서 확인하실 수 있습니다. 발표 자료와 영상은 각 세션 설명에 첨부된 링크를 확인해주세요.")
         ]
     }
     
