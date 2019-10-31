@@ -47,13 +47,13 @@ struct HomeView: View {
                     .padding()
                     Divider()
                         .padding(.horizontal)
-                    VStack(alignment: .leading, spacing: 24) {
-                        ExampleHorizontalList(title: "If you like tech related topics")
-                        ExampleHorizontalList(title: "If you wannt to improve code")
-                        ExampleHorizontalList(title: "If you like discussing")
-                        ExampleHorizontalList(title: "Past Video")
+                    
+                    ForEach(News.dummy) { news in
+                        NewsView(news: news)
+                            .padding()
+                        Divider()
+                            .padding(.horizontal)
                     }
-                    .frame(alignment: .leading)
                 }
                 Spacer()
             }

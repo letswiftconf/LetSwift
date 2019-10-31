@@ -92,6 +92,8 @@
 		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
 		B6B66042235714660078FB11 /* ProtoPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B66041235714660078FB11 /* ProtoPerson.swift */; };
 		B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */; };
+		CE9EECDF236AC0F10098D542 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EECDE236AC0F10098D542 /* News.swift */; };
+		CE9EECE1236AC1310098D542 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EECE0236AC1310098D542 /* NewsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +177,8 @@
 		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B6B66041235714660078FB11 /* ProtoPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPerson.swift; sourceTree = "<group>"; };
 		B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSpeaker.swift; sourceTree = "<group>"; };
+		CE9EECDE236AC0F10098D542 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		CE9EECE0236AC1310098D542 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				168AE12F22EBF11600DFBB6F /* HomeView.swift */,
+				CE9EECDD236AC0D50098D542 /* News */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -537,6 +542,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CE9EECDD236AC0D50098D542 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				CE9EECDE236AC0F10098D542 /* News.swift */,
+				CE9EECE0236AC1310098D542 /* NewsView.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -711,6 +725,7 @@
 				16C0BCD722ED7D7100BD2479 /* Schedule.swift in Sources */,
 				16C0BCE322ED84FA00BD2479 /* NonSession.swift in Sources */,
 				168AE13D22EBF20E00DFBB6F /* VenueView.swift in Sources */,
+				CE9EECDF236AC0F10098D542 /* News.swift in Sources */,
 				16C0BCD522ED763F00BD2479 /* Session.swift in Sources */,
 				161035F7235461FE005441D9 /* SpeakerCell.swift in Sources */,
 				16BCA9872339ADD8006B4716 /* PersonCell.swift in Sources */,
@@ -719,6 +734,7 @@
 				16BA82862343383A00D4CB17 /* SubheadlineText.swift in Sources */,
 				16C2F0982339EBCF00ECAE54 /* SessionView.swift in Sources */,
 				B6B66042235714660078FB11 /* ProtoPerson.swift in Sources */,
+				CE9EECE1236AC1310098D542 /* NewsView.swift in Sources */,
 				168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */,
 				16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */,
 				168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */,
