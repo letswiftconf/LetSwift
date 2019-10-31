@@ -46,7 +46,7 @@ struct PeopleList: View {
         case .speakers:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
+                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         SpeakerCell(speaker: person)
                             .frame(width: 100)
                     }
@@ -55,7 +55,7 @@ struct PeopleList: View {
         case .staffs:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
+                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         StaffCell(staff: person)
                             .frame(width: 100)
                     }
@@ -64,7 +64,7 @@ struct PeopleList: View {
         default:
             return AnyView(
                 ForEach(people, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
+                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         PersonCell(person: person)
                             .frame(width: 100)
                     }

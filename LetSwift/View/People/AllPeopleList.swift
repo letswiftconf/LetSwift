@@ -66,7 +66,7 @@ struct AllPeopleList: View {
                 return nil
             }
             return AnyView(
-                NavigationLink(destination: PersonView(person: speaker)) {
+                NavigationLink(destination: PersonView(type: self.type, person: speaker)) {
                     SpeakerCell(speaker: speaker)
             })
         case .staffs:
@@ -74,13 +74,13 @@ struct AllPeopleList: View {
                 return nil
             }
             return AnyView(
-                NavigationLink(destination: PersonView(person: staff)) {
+                NavigationLink(destination: PersonView(type: self.type, person: staff)) {
                     StaffCell(staff: staff)
             })
         default:
             let person = people[index]
             return AnyView(
-                NavigationLink(destination: PersonView(person: person)) {
+                NavigationLink(destination: PersonView(type: self.type, person: person)) {
                     PersonCell(person: person)
             })
         }
