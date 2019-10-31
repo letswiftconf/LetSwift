@@ -23,12 +23,10 @@ struct PersonView: View {
                         Text(person.description)
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
-                        HStack {
-                            ForEach(person.tags, id: \.description) {
-                                Text("#" + $0)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
+                        if !tags(of: person).isEmpty {
+                            Text(tags(of: person))
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
                     }
                     if type == .speakers {
@@ -107,9 +105,11 @@ struct PersonView: View {
             return ["Staff"]
         case .speakers:
             return ["Speaker"]
-        default:
-            return []
         }
+    }
+    
+    func tags(of person: SuperPerson) -> String {
+        return person.tags.map {"#" + $0 }.joined(separator: " ")
     }
 }
 
