@@ -28,7 +28,6 @@ struct PeopleList: View {
                 }
             }
             .padding(.horizontal)
-            .navigationBarTitle(type.title)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 16) {
