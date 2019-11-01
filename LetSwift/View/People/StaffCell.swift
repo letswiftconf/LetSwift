@@ -30,11 +30,6 @@ struct StaffCell: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
                     .lineLimit(1)
-                Text(staff.description)
-                    .font(.footnote)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(.secondaryLabel))
-                    .lineLimit(2)
             }
             Spacer()
         }

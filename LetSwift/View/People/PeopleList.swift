@@ -46,7 +46,7 @@ struct PeopleList: View {
         case .speakers:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
+                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         SpeakerCell(speaker: person)
                             .frame(width: 100)
                     }
@@ -55,21 +55,21 @@ struct PeopleList: View {
         case .staffs:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
+                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         StaffCell(staff: person)
                             .frame(width: 100)
                     }
                 }
                 .buttonStyle(PlainButtonStyle()))
-        default:
-            return AnyView(
-                ForEach(people, id: \.self) { person in
-                    NavigationLink(destination: PersonView(person: person)) {
-                        PersonCell(person: person)
-                            .frame(width: 100)
-                    }
-                }
-                .buttonStyle(PlainButtonStyle()))
+            //        default:
+            //            return AnyView(
+            //                ForEach(people, id: \.self) { person in
+            //                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
+            //                        PersonCell(person: person)
+            //                            .frame(width: 100)
+            //                    }
+            //                }
+            //                .buttonStyle(PlainButtonStyle()))
         }
     }
 }
@@ -77,15 +77,15 @@ struct PeopleList: View {
 extension PeopleList {
     enum PeopleType {
         case speakers
-        case sponsors
-        case organizers
+        //        case sponsors
+        //        case organizers
         case staffs
         
         var title: String {
             switch self {
             case .speakers: return "Speakers"
-            case .sponsors: return "Sponsors"
-            case .organizers: return "Organizers"
+                //            case .sponsors: return "Sponsors"
+            //            case .organizers: return "Organizers"
             case .staffs: return "Staffs"
             }
         }
