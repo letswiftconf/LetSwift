@@ -74,6 +74,7 @@
 		16CAD458230108A3000F4E5C /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CAD457230108A3000F4E5C /* DataFile.swift */; };
 		16DDCF2922EC25900075561F /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2822EC25900075561F /* SafariViewController.swift */; };
 		16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */; };
+		16F81D09236D479700CC682B /* ProtoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F81D08236D479700CC682B /* ProtoSession.swift */; };
 		16F9B22522FC1B0D00185B00 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9B22422FC1B0D00185B00 /* DataStore.swift */; };
 		2184282422F6DACE008C88F4 /* NewParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282322F6DACE008C88F4 /* NewParticipantView.swift */; };
 		2184282622F6DE2F008C88F4 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184282522F6DE2F008C88F4 /* Conference.swift */; };
@@ -157,6 +158,7 @@
 		16CAD457230108A3000F4E5C /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
 		16DDCF2822EC25900075561F /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		16DDCF2A22EC29540075561F /* SafariNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariNavigationLink.swift; sourceTree = "<group>"; };
+		16F81D08236D479700CC682B /* ProtoSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSession.swift; sourceTree = "<group>"; };
 		16F9B22422FC1B0D00185B00 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		2184282322F6DACE008C88F4 /* NewParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewParticipantView.swift; sourceTree = "<group>"; };
 		2184282522F6DE2F008C88F4 /* Conference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				B6B66041235714660078FB11 /* ProtoPerson.swift */,
 				A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */,
 				B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */,
+				16F81D08236D479700CC682B /* ProtoSession.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				16C0BCE622ED864D00BD2479 /* Schedulable.swift in Sources */,
 				16C0BCDF22ED7DB100BD2479 /* SocialAccount.swift in Sources */,
 				218FD28A22EAEF9900A6BEAB /* MainTabView.swift in Sources */,
+				16F81D09236D479700CC682B /* ProtoSession.swift in Sources */,
 				168AE13F22EBF22200DFBB6F /* SettingsView.swift in Sources */,
 				16C0BCD722ED7D7100BD2479 /* Schedule.swift in Sources */,
 				16C0BCE322ED84FA00BD2479 /* NonSession.swift in Sources */,

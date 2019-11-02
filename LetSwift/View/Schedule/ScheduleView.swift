@@ -16,40 +16,126 @@ struct ScheduleView: View {
         NavigationView {
             VStack {
                 Picker("", selection: $selectedIndex) {
-                    Text("Track A")
+                    Text("세션")
                         .tag(0)
-                    Text("Track B")
+                    Text("티타임")
                         .tag(1)
-                    Text("Track C")
+                    Text("워크샵")
                         .tag(2)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
-                List {
-                    ForEach(1...20, id: \.self) { _ in
-                        NavigationLink(destination: SessionView()) {
-                            HStack(alignment: .top) {
-                                Circle()
-                                    .fill(Color(.secondarySystemBackground))
-                                    .frame(width: 60, height: 60)
-                                VStack(alignment: .leading) {
-                                    Text("Title")
-                                        .font(.headline)
-                                        .multilineTextAlignment(.leading)
-                                    Text("Speaker")
-                                        .font(.subheadline)
-                                        .foregroundColor(Color(.secondaryLabel))
-                                    Text("Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.")
-                                        .font(.caption)
-                                        .foregroundColor(Color(.tertiaryLabel))
-                                        .multilineTextAlignment(.leading)
-                                }
-                            }
-                        }
+                HStack {
+                    List {
+                        containerView
                     }
                 }
             }
             .navigationBarTitle("Schedule")
+        }
+    }
+    
+    var containerView: AnyView {
+        switch selectedIndex {
+        case 0:
+            return
+                AnyView(
+                    
+                    ForEach(ProtoSession.sessions) { session in
+                        NavigationLink(destination: SessionView()) {
+                            HStack(alignment: .top) {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color(.themePrimary))
+                                        .frame(width: 30, height: 30)
+                                    Text(session.level)
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                }
+                                VStack(alignment: .leading) {
+                                    Text(session.title)
+                                        .font(.headline)
+                                        .multilineTextAlignment(.leading)
+                                    Text(session.speaker)
+                                        .font(.subheadline)
+                                        .foregroundColor(Color(.secondaryLabel))
+                                    Text(session.time)
+                                        .font(.caption)
+                                        .foregroundColor(Color(.tertiaryLabel))
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                            }
+                        }
+                    }
+            )
+        case 1:
+            return AnyView(
+                
+                ForEach(ProtoSession.teatime) { session in
+                    NavigationLink(destination: SessionView()) {
+                        HStack(alignment: .top) {
+                            ZStack {
+                                Circle()
+                                    .fill(Color(.themePrimary))
+                                    .frame(width: 30, height: 30)
+                                Text(session.level)
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                            }
+                            VStack(alignment: .leading) {
+                                Text(session.title)
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                Text(session.speaker)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(.secondaryLabel))
+                                Text(session.time)
+                                    .font(.caption)
+                                    .foregroundColor(Color(.tertiaryLabel))
+                                    .multilineTextAlignment(.leading)
+                            }
+                            
+                        }
+                    }
+                }
+            )
+        case 2:
+            return AnyView(
+                
+                ForEach(ProtoSession.workshop) { session in
+                    NavigationLink(destination: SessionView()) {
+                        HStack(alignment: .top) {
+                            ZStack {
+                                Circle()
+                                    .fill(Color(.themePrimary))
+                                    .frame(width: 30, height: 30)
+                                Text(session.level)
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                            }
+                            VStack(alignment: .leading) {
+                                Text(session.title)
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                Text(session.speaker)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(.secondaryLabel))
+                                Text(session.time)
+                                    .font(.caption)
+                                    .foregroundColor(Color(.tertiaryLabel))
+                                    .multilineTextAlignment(.leading)
+                            }
+                            
+                        }
+                    }
+                }
+            )
+        default:
+            return AnyView(EmptyView())
         }
     }
 }
