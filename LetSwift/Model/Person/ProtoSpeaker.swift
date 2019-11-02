@@ -17,13 +17,13 @@ class ProtoSpeaker: SuperPerson {
             .trimmingCharacters(in: .whitespaces)
             .split(separator: "#").map { String($0) }
         
-        super.init(name: name, organization: organization, description: description, tags: tags)
+        super.init(name: name, imageName: imageName, organization: organization, description: description, tags: tags)
     }
 }
 
 extension ProtoSpeaker {
     static let speakers: [ProtoSpeaker] = [
-        ProtoSpeaker(imageName: "김정",
+        ProtoSpeaker(imageName: "김정_S",
                      name: "김정",
                      organization: "코드스쿼드",
                      sessions: [
@@ -166,7 +166,7 @@ extension ProtoSpeaker {
                       subDescription: "#팀문화 #협업")
     ]
     
-    static let dummy: ProtoSpeaker =  ProtoSpeaker(imageName: "JungKim",
+    static let dummy: ProtoSpeaker =  ProtoSpeaker(imageName: "김정_S",
                                                    name: "김정",
                                                    organization: "코드스쿼드",
                                                    sessions: [

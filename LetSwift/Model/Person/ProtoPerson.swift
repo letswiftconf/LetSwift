@@ -26,10 +26,10 @@ class SuperPerson: Person {
     var description: String
     var tags: [String] = []
     
-    init(name: String, organization: String, description: String, tags: [String] = []) {
+    init(name: String, imageName: String? = nil, organization: String, description: String, tags: [String] = []) {
         self.name = name
         self.userID = name
-        self.imageName = name
+        self.imageName = imageName ?? name
         self.organization = organization
         self.description = description
         self.tags = tags
