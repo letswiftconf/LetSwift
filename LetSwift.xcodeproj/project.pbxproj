@@ -92,6 +92,7 @@
 		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
 		B6B66042235714660078FB11 /* ProtoPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B66041235714660078FB11 /* ProtoPerson.swift */; };
 		B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */; };
+		CE042377236B41BC00F54B46 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE042376236B41BC00F54B46 /* VideoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +176,7 @@
 		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B6B66041235714660078FB11 /* ProtoPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPerson.swift; sourceTree = "<group>"; };
 		B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSpeaker.swift; sourceTree = "<group>"; };
+		CE042376236B41BC00F54B46 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				168AE13822EBF1C000DFBB6F /* VideoView.swift */,
+				CE042376236B41BC00F54B46 /* VideoCell.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */,
 				161035D523544633005441D9 /* StaffCell.swift in Sources */,
 				B66D28262338EB3E00D835D8 /* MapView.swift in Sources */,
+				CE042377236B41BC00F54B46 /* VideoCell.swift in Sources */,
 				16C0BCDD22ED7DA400BD2479 /* Profile.swift in Sources */,
 				B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */,
 				16DDCF2922EC25900075561F /* SafariViewController.swift in Sources */,
