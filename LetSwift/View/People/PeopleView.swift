@@ -32,6 +32,7 @@ struct PeopleView: View {
             }
             .navigationBarTitle("People")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

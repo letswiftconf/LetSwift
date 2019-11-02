@@ -33,6 +33,7 @@ struct ScheduleView: View {
             }
             .navigationBarTitle("Schedule")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     var containerView: AnyView {

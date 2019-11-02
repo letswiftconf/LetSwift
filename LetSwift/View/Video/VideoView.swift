@@ -36,6 +36,7 @@ struct VideoView: View {
             }
             .navigationBarTitle("Video")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
 }
