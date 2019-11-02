@@ -104,6 +104,7 @@ struct VenueView: View {
                 EventEditViewController()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - Action

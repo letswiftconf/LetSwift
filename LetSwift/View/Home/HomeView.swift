@@ -60,6 +60,7 @@ struct HomeView: View {
             .navigationBarTitle("Home")
             .navigationBarItems(trailing: settingsButton)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .background(
             EmptyView()
                 .sheet(isPresented: $presentsSettings) {
