@@ -31,7 +31,7 @@ struct ScheduleView: View {
                     }
                 }
             }
-            .navigationBarTitle("Schedule")
+            .navigationBarTitle("일정")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

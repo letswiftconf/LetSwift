@@ -21,7 +21,7 @@ struct PeopleList: View {
                 Spacer()
                 NavigationLink(destination: AllPeopleList(type: type, people: people)) {
                     Group {
-                        Text("See All")
+                        Text("모두 보기")
                         Image(systemName: "chevron.right")
                     }
                     .font(.subheadline)
@@ -45,19 +45,19 @@ struct PeopleList: View {
         case .speakers:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
+//                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         SpeakerCell(speaker: person)
                             .frame(width: 100)
-                    }
+//                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
         case .staffs:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
-                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
+//                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         StaffCell(staff: person)
                             .frame(width: 100)
-                    }
+//                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
             //        default:
@@ -82,10 +82,10 @@ extension PeopleList {
         
         var title: String {
             switch self {
-            case .speakers: return "Speakers"
+            case .speakers: return "발표자"
                 //            case .sponsors: return "Sponsors"
             //            case .organizers: return "Organizers"
-            case .staffs: return "Staffs"
+            case .staffs: return "스태프"
             }
         }
     }

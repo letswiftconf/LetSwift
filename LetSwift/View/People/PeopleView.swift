@@ -14,10 +14,10 @@ struct PeopleView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Image("Sample")
+                    Image("People")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(height: 240)
+                        .frame(height: 300)
                         .modifier(RoundedMask())
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
@@ -30,7 +30,7 @@ struct PeopleView: View {
                 }
                 Spacer()
             }
-            .navigationBarTitle("People")
+            .navigationBarTitle("사람들")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

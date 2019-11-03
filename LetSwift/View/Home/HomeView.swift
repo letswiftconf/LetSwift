@@ -24,13 +24,19 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    Image("Sample")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 240)
-                        .modifier(RoundedMask())
-                        .padding(.horizontal)
-                        .onTapGesture(perform: presentHomepage)
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color("Logo_Background"))
+                        //                            .onTapGesture(perform: presentHomepage)
+                        Image("Logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 240)
+//                            .padding(.horizontal)
+                    }
+                    .frame(height: 300)
+                    .modifier(RoundedMask())
+                    .padding(.horizontal)
                     Divider()
                         .padding(.horizontal)
                     VStack(alignment: .leading) {
@@ -45,20 +51,20 @@ struct HomeView: View {
                             .font(.subheadline)
                     }
                     .padding()
-                    Divider()
-                        .padding(.horizontal)
-                    VStack(alignment: .leading, spacing: 24) {
-                        ExampleHorizontalList(title: "If you like tech related topics")
-                        ExampleHorizontalList(title: "If you wannt to improve code")
-                        ExampleHorizontalList(title: "If you like discussing")
-                        ExampleHorizontalList(title: "Past Video")
-                    }
-                    .frame(alignment: .leading)
+//                    Divider()
+//                        .padding(.horizontal)
+//                    VStack(alignment: .leading, spacing: 24) {
+//                        ExampleHorizontalList(title: "If you like tech related topics")
+//                        ExampleHorizontalList(title: "If you wannt to improve code")
+//                        ExampleHorizontalList(title: "If you like discussing")
+//                        ExampleHorizontalList(title: "Past Video")
+//                    }
+//                    .frame(alignment: .leading)
                 }
                 Spacer()
             }
-            .navigationBarTitle("Home")
-            .navigationBarItems(trailing: settingsButton)
+            .navigationBarTitle("홈")
+//            .navigationBarItems(trailing: settingsButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(
