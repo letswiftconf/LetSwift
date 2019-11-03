@@ -17,7 +17,8 @@ struct PeopleView: View {
                     Image("People")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(height: 300)
+//                        .frame(width: .infinity, height: 300)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 300, maxHeight: 300, alignment: .center)
                         .modifier(RoundedMask())
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {

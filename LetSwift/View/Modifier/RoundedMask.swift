@@ -12,6 +12,7 @@ struct  RoundedMask: ViewModifier {
     func body(content: Content) -> some View {
         let mask = RoundedRectangle(cornerRadius: 9, style: .continuous)
         return content
-        .mask(mask)
+//        .mask(mask)
+        .clipShape(mask)
     }
 }
