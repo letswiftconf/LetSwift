@@ -79,7 +79,7 @@ extension ProtoSession {
                      speaker: "이규원",
                      level: "초",
                      time: "14:00 - 14:50"),
-        ProtoSession(title: "여러 회사 개발 무화와 커뮤네케이션",
+        ProtoSession(title: "여러 회사 개발 문화와 커뮤네케이션",
                      speaker: "권문범, 김윤봉",
                      level: "초",
                      time: "15:00 - 15:50"),
@@ -107,4 +107,9 @@ extension ProtoSession {
                      level: "중",
                      time: "15:00 - 16:50")
     ]
+    
+    static let dummy = ProtoSession(title: "실용적인 Swift 함수용 프로그래밍",
+                                    speaker: "최완복",
+                                    level: "중",
+                                    time: "13:00 - 14:50")
 }
