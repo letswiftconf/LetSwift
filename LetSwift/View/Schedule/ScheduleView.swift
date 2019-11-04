@@ -43,7 +43,7 @@ struct ScheduleView: View {
                 AnyView(
                     
                     ForEach(ProtoSession.sessions) { session in
-                        NavigationLink(destination: SessionView()) {
+//                        NavigationLink(destination: SessionView(session: session)) {
                             HStack(alignment: .top) {
                                 ZStack {
                                     Circle()
@@ -68,14 +68,14 @@ struct ScheduleView: View {
                                 }
                                 
                             }
-                        }
+//                        }
                     }
             )
         case 1:
             return AnyView(
                 
                 ForEach(ProtoSession.teatime) { session in
-                    NavigationLink(destination: SessionView()) {
+//                    NavigationLink(destination: SessionView(session: session)) {
                         HStack(alignment: .top) {
                             ZStack {
                                 Circle()
@@ -101,13 +101,13 @@ struct ScheduleView: View {
                             
                         }
                     }
-                }
+//                }
             )
         case 2:
             return AnyView(
                 
                 ForEach(ProtoSession.workshop) { session in
-                    NavigationLink(destination: SessionView()) {
+//                    NavigationLink(destination: SessionView(session: session)) {
                         HStack(alignment: .top) {
                             ZStack {
                                 Circle()
@@ -131,7 +131,7 @@ struct ScheduleView: View {
                                     .multilineTextAlignment(.leading)
                             }
                             
-                        }
+//                        }
                     }
                 }
             )

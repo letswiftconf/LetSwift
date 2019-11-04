@@ -28,6 +28,15 @@ struct MapView: UIViewRepresentable {
         let region = MKCoordinateRegion(center: location,
                                         span: span)
         mapView.setRegion(region, animated: false)
+        
+        
+        let annotation = MKPointAnnotation()
+        
+        let centerCoordinate = location
+        annotation.coordinate = centerCoordinate
+        annotation.title = "양재 aT센터"
+        mapView.addAnnotation(annotation)
+        
         return mapView
     }
     

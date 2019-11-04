@@ -9,48 +9,50 @@
 import SwiftUI
 
 struct SessionView: View {
+    var session: ProtoSession
+    
     // MARK: - Body
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 NavigationLink(destination: EmptyView()) {
                     HStack(alignment: .center) {
-                        Circle()
-                            .fill(Color(.secondarySystemBackground))
-                            .frame(width: 60, height: 60)
+//                        Circle()
+//                            .fill(Color(.secondarySystemBackground))
+//                            .frame(width: 60, height: 60)
                         VStack(alignment: .leading) {
-                            Text("Speaker")
+                            Text(session.speaker)
                                 .font(.headline)
                                 .multilineTextAlignment(.leading)
-                            Text("@userID")
-                                .font(.subheadline)
-                                .foregroundColor(Color(.secondaryLabel))
+//                            Text("@userID")
+//                                .font(.subheadline)
+//                                .foregroundColor(Color(.secondaryLabel))
                         }
                     }
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 16) {
-                Text("Session Title")
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(nil)
-                VStack(alignment: .leading) {
-                    Text("Location")
+                    Text(session.title)
                         .font(.headline)
-                    Text("Integer posuere erat a ante venenatis dapibus posuere velit aliquet.")
-                        .font(.body)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.leading)
-                }
-                    Divider()
-                VStack(alignment: .leading) {
-                    Text("Description")
-                        .font(.headline)
-                    Text("Integer posuere erat a ante venenatis dapibus posuere velit aliquet.")
-                        .font(.body)
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
-                }
+//                    VStack(alignment: .leading) {
+//                        Text("Location")
+//                            .font(.headline)
+//                        Text("Integer posuere erat a ante venenatis dapibus posuere velit aliquet.")
+//                            .font(.body)
+//                            .lineLimit(nil)
+//                            .multilineTextAlignment(.leading)
+//                    }
+//                    Divider()
+//                    VStack(alignment: .leading) {
+//                        Text("Description")
+//                            .font(.headline)
+//                        Text("Integer posuere erat a ante venenatis dapibus posuere velit aliquet.")
+//                            .font(.body)
+//                            .multilineTextAlignment(.leading)
+//                            .lineLimit(nil)
+//                    }
                 }
             }
             .padding()
@@ -64,14 +66,14 @@ struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                SessionView()
+                SessionView(session: ProtoSession.sessions.first!)
             }
             NavigationView {
-                SessionView()
+                SessionView(session: ProtoSession.sessions.first!)
             }
             .environment(\.colorScheme, .dark)
             NavigationView {
-                SessionView()
+                SessionView(session: ProtoSession.sessions.first!)
             }
             .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
