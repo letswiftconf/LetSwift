@@ -28,6 +28,7 @@ struct WelcomeItemView<Content>: View where Content: View {
                 .modifier(RoundedMask())
             VStack(alignment: .leading) {
                 content()
+                .shadow(radius: 13)
             }
             .padding()
         }

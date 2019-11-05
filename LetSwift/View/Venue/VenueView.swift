@@ -58,7 +58,7 @@ struct VenueView: View {
                         VStack(alignment: .leading, spacing: 6) {
                             HeadlineText("일시")
                             VenueInfoCell(info: .init(title: "11월 12일 화요일",
-                                                      body: "오전 9시부터 오후 6시까지"))
+                                                      body: "오전 9시부터 오후 5시까지"))
 //                            Button(action: addToCalendar) {
 //                                Text("Add to Calendar")
 //                            }

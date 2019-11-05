@@ -139,7 +139,6 @@ struct HomeView: View {
                         }
                         .font(.headline)
                         .padding(.horizontal)
-                        Divider()
                     }
                     
                     //                    VStack(alignment: .leading, spacing: 24) {
@@ -151,7 +150,20 @@ struct HomeView: View {
                     //                    .frame(alignment: .leading)
                 }
                 .padding(.horizontal)
-                Spacer()
+                Spacer(minLength: 24)
+                
+                // MARK: - App Info
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer(minLength: 24)
+                        AppInfoView()
+                        Spacer(minLength: 24)
+                    }
+                    Spacer()
+                }
+                .padding(.vertical)
+                .background(Color(.secondarySystemBackground))
             }
             .navigationBarTitle("홈")
             //            .navigationBarItems(trailing: settingsButton)

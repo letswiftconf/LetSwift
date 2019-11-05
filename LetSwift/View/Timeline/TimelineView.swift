@@ -21,6 +21,10 @@ struct TimelineView: View {
         
         return NavigationView {
             ScrollView {
+                // MARK: - Legion
+                TimelineLegionSection()
+                
+                // MARK: - Timeline
                 Timetable {
                     TimeAxis(hours: 9...16, hourHeight: hourHeight, hourSpacing: spacing)
                     TimetableContainer {
@@ -61,7 +65,7 @@ struct TimelineView: View {
                                     TimeBlock(session: ProtoSession.sessions[8], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[9], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                 }
                             }
@@ -147,6 +151,10 @@ struct TimelineView: View {
                     }
                 }
                 .padding()
+                
+                // MARK: - Legion
+                TimelineLegionSection()
+                Spacer()
             }
             .navigationBarTitle("일정")
         }
