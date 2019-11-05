@@ -19,11 +19,41 @@ struct VenueView: View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    MapView(location: location)
+                    VenueMapView(location: location)
                         .modifier(RoundedMask())
                         .frame(height: 300)
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
+                        // Location
+                        VStack(alignment: .leading, spacing: 6) {
+                            HeadlineText("장소")
+                            SubheadlineText("양재 aT 센터")
+                            SubheadlineText("서울특별시 강남구 테헤란로7길 22")
+                            //                            VStack(alignment: .leading, spacing: 16) {
+                            //                                HStack(spacing: 16) {
+                            //                                    Button(action: openAppleMap) {
+                            //                                        Text("Apple Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                    Button(action: openGoogle) {
+                            //                                        Text("Google Maps ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                }
+                            //                                HStack(spacing: 16) {
+                            //                                    Button(action: openNaver) {
+                            //                                        Text("Naver Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                    Button(action: openKakao) {
+                            //                                        Text("Kakao Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                }
+                            //                            }
+                        }
+                        Divider()
+                        
                         // Time
                         VStack(alignment: .leading, spacing: 6) {
                             HeadlineText("일시")
@@ -36,35 +66,6 @@ struct VenueView: View {
                         }
                         Divider()
                         
-                        // Location
-                        VStack(alignment: .leading, spacing: 6) {
-                            HeadlineText("장소")
-                            SubheadlineText("서울특별시 강남구 테헤란로7길 22")
-//                            VStack(alignment: .leading, spacing: 16) {
-//                                HStack(spacing: 16) {
-//                                    Button(action: openAppleMap) {
-//                                        Text("Apple Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                    Button(action: openGoogle) {
-//                                        Text("Google Maps ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                }
-//                                HStack(spacing: 16) {
-//                                    Button(action: openNaver) {
-//                                        Text("Naver Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                    Button(action: openKakao) {
-//                                        Text("Kakao Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                }
-//                            }
-                        }
-                        Divider()
-                        
                         // Route
                         VStack(alignment: .leading, spacing: 16) {
                             HeadlineText("찾아오는 법")
@@ -72,28 +73,28 @@ struct VenueView: View {
                                                       body: "신분당선 '양재시민의 숲'역에서 하차 후 4번 출구"))
                             VenueInfoCell(info: .init(title: "버스",
                                                       body: "양재 aT 센터 주변 버스정류장 하차"))
-//                            VStack(alignment: .leading, spacing: 16) {
-//                                HStack(spacing: 16) {
-//                                    Button(action: openAppleMapRoute) {
-//                                        Text("Apple Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                    Button(action: openGoogleRoute) {
-//                                        Text("Google Maps ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                }
-//                                HStack(spacing: 16) {
-//                                    Button(action: openNaverRoute) {
-//                                        Text("Naver Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                    Button(action: openKakaoRoute) {
-//                                        Text("Kakao Map ↗︎")
-//                                    }
-//                                    .font(.subheadline)
-//                                }
-//                            }
+                            //                            VStack(alignment: .leading, spacing: 16) {
+                            //                                HStack(spacing: 16) {
+                            //                                    Button(action: openAppleMapRoute) {
+                            //                                        Text("Apple Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                    Button(action: openGoogleRoute) {
+                            //                                        Text("Google Maps ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                }
+                            //                                HStack(spacing: 16) {
+                            //                                    Button(action: openNaverRoute) {
+                            //                                        Text("Naver Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                    Button(action: openKakaoRoute) {
+                            //                                        Text("Kakao Map ↗︎")
+                            //                                    }
+                            //                                    .font(.subheadline)
+                            //                                }
+                            //                            }
                         }
                     }
                     .padding()
@@ -110,22 +111,22 @@ struct VenueView: View {
     // MARK: - Action
     private func addToCalendar() {
         showEvent.toggle()
-//        let manager = CalendarManager()
-//        switch manager.authorizationStatus {
-//        case .authorized:
-//            manager.addConference2019()
-//        case .denied, .restricted:
-//            // TODO: Show error
-//            break
-//        case .notDetermined:
-//            manager.requestAccess { (granted, error) in
-//                self.addToCalendar()
-//            }
-//        @unknown default:
-//            #if DEBUG
-//            fatalError()
-//            #endif
-//        }
+        //        let manager = CalendarManager()
+        //        switch manager.authorizationStatus {
+        //        case .authorized:
+        //            manager.addConference2019()
+        //        case .denied, .restricted:
+        //            // TODO: Show error
+        //            break
+        //        case .notDetermined:
+        //            manager.requestAccess { (granted, error) in
+        //                self.addToCalendar()
+        //            }
+        //        @unknown default:
+        //            #if DEBUG
+        //            fatalError()
+        //            #endif
+        //        }
     }
     
     private func openAppleMap() {
@@ -155,7 +156,7 @@ struct VenueView: View {
         guard let url = URL(string: "kakaomap://route?ep=\(location.latitude),\(location.longitude)&by=PUBLICTRANSIT") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-
+    
     private func openNaverRoute() {
         let dname = "서울특별시 강남구 테헤란로7길 22".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         guard let url = URL(string: "nmap://route/public?dlat=\(location.latitude)&dlng=\(location.longitude)&dname=\(dname)&appname=kr.codesquad.jk.letswift") else { return }
@@ -182,12 +183,12 @@ struct VenueView: View {
         guard let url = URL(string:"comgooglemaps://?center=\(location.latitude),\(location.longitude)&zoom=14&views=traffic&q=\(location.latitude),\(location.longitude)") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-
+    
     private func openGoogleRoute() {
         guard let url = URL(string: "comgooglemaps://?saddr=&daddr=\(location.latitude),\(location.longitude)&directionsmode=transit") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-
+    
 }
 
 struct VenueInfoCell: View {

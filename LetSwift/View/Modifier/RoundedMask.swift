@@ -10,9 +10,8 @@ import SwiftUI
 
 struct  RoundedMask: ViewModifier {
     func body(content: Content) -> some View {
-        let mask = RoundedRectangle(cornerRadius: 9, style: .continuous)
+        let mask = RoundedRectangle(cornerRadius: 26, style: .continuous)
         return content
-//        .mask(mask)
         .clipShape(mask)
     }
 }

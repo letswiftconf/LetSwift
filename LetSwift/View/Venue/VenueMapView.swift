@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct MapView: UIViewRepresentable {
+struct VenueMapView: UIViewRepresentable {
     let location: CLLocationCoordinate2D
     
     // MARK: - Representable
@@ -46,18 +46,18 @@ struct MapView: UIViewRepresentable {
 }
 
 // MARK: - Preview
-struct MapView_Previews: PreviewProvider {
+struct VenueMapView_Previews: PreviewProvider {
     static var previews: some View {
         let layout = PreviewLayout.fixed(width: 300, height: 300)
         let location = CLLocationCoordinate2D(latitude: 37.468437,
                                               longitude: 127.039055)
         return Group {
-            MapView(location: location)
+            VenueMapView(location: location)
                 .previewLayout(layout)
-            MapView(location: location)
+            VenueMapView(location: location)
                 .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
-            MapView(location: location)
+            VenueMapView(location: location)
                 .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }

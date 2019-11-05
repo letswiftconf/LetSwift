@@ -50,6 +50,8 @@
 		16977DCB22F81D9200373677 /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16977DCA22F81D9200373677 /* SessionListView.swift */; };
 		16977DD122F81DB700373677 /* NewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16977DD022F81DB700373677 /* NewSessionView.swift */; };
 		16977DD322F81DC100373677 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16977DD222F81DC100373677 /* SessionDetailView.swift */; };
+		16B605B023713FCD00E153E6 /* HomeHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B605AF23713FCD00E153E6 /* HomeHeroView.swift */; };
+		16B605B2237143D500E153E6 /* WelcomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B605B1237143D500E153E6 /* WelcomeItemView.swift */; };
 		16BA8284234337AD00D4CB17 /* HeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BA8283234337AD00D4CB17 /* HeadlineText.swift */; };
 		16BA82862343383A00D4CB17 /* SubheadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BA82852343383A00D4CB17 /* SubheadlineText.swift */; };
 		16BCA9872339ADD8006B4716 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCA9862339ADD8006B4716 /* PersonCell.swift */; };
@@ -97,7 +99,7 @@
 		218FD29222EAEF9900A6BEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218FD29022EAEF9900A6BEAB /* LaunchScreen.storyboard */; };
 		A0AE4F702354A7A200A8BB50 /* ProtoStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */; };
 		B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6486D962355BFB700076551 /* AllPeopleList.swift */; };
-		B66D28262338EB3E00D835D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* MapView.swift */; };
+		B66D28262338EB3E00D835D8 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D28252338EB3E00D835D8 /* VenueMapView.swift */; };
 		B6B66042235714660078FB11 /* ProtoPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B66041235714660078FB11 /* ProtoPerson.swift */; };
 		B6C36C2D23549CBF00E0D964 /* ProtoSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */; };
 		CE042377236B41BC00F54B46 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE042376236B41BC00F54B46 /* VideoCell.swift */; };
@@ -147,6 +149,8 @@
 		16977DCA22F81D9200373677 /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
 		16977DD022F81DB700373677 /* NewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionView.swift; sourceTree = "<group>"; };
 		16977DD222F81DC100373677 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		16B605AF23713FCD00E153E6 /* HomeHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeroView.swift; sourceTree = "<group>"; };
+		16B605B1237143D500E153E6 /* WelcomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeItemView.swift; sourceTree = "<group>"; };
 		16BA8283234337AD00D4CB17 /* HeadlineText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineText.swift; sourceTree = "<group>"; };
 		16BA82852343383A00D4CB17 /* SubheadlineText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubheadlineText.swift; sourceTree = "<group>"; };
 		16BCA9862339ADD8006B4716 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
@@ -189,7 +193,7 @@
 		218FD29322EAEF9900A6BEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0AE4F6F2354A7A200A8BB50 /* ProtoStaff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoStaff.swift; sourceTree = "<group>"; };
 		B6486D962355BFB700076551 /* AllPeopleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPeopleList.swift; sourceTree = "<group>"; };
-		B66D28252338EB3E00D835D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B66D28252338EB3E00D835D8 /* VenueMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView.swift; sourceTree = "<group>"; };
 		B6B66041235714660078FB11 /* ProtoPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPerson.swift; sourceTree = "<group>"; };
 		B6C36C2C23549CBF00E0D964 /* ProtoSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoSpeaker.swift; sourceTree = "<group>"; };
 		CE042376236B41BC00F54B46 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -270,8 +274,6 @@
 		163F009D2343232F0094776F /* Representtable */ = {
 			isa = PBXGroup;
 			children = (
-				B66D28252338EB3E00D835D8 /* MapView.swift */,
-				163F009B234321D70094776F /* EventEditViewController.swift */,
 				16DDCF2822EC25900075561F /* SafariViewController.swift */,
 			);
 			path = Representtable;
@@ -338,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				168AE12F22EBF11600DFBB6F /* HomeView.swift */,
+				16B605AF23713FCD00E153E6 /* HomeHeroView.swift */,
+				16B605B1237143D500E153E6 /* WelcomeItemView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -387,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				168AE13C22EBF20E00DFBB6F /* VenueView.swift */,
+				B66D28252338EB3E00D835D8 /* VenueMapView.swift */,
+				163F009B234321D70094776F /* EventEditViewController.swift */,
 			);
 			path = Venue;
 			sourceTree = "<group>";
@@ -740,7 +746,7 @@
 			files = (
 				218FD28622EAEF9900A6BEAB /* AppDelegate.swift in Sources */,
 				161035D523544633005441D9 /* StaffCell.swift in Sources */,
-				B66D28262338EB3E00D835D8 /* MapView.swift in Sources */,
+				B66D28262338EB3E00D835D8 /* VenueMapView.swift in Sources */,
 				CE042377236B41BC00F54B46 /* VideoCell.swift in Sources */,
 				16C0BCDD22ED7DA400BD2479 /* Profile.swift in Sources */,
 				B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */,
@@ -769,6 +775,7 @@
 				16C0BCE322ED84FA00BD2479 /* NonSession.swift in Sources */,
 				168AE13D22EBF20E00DFBB6F /* VenueView.swift in Sources */,
 				16C0BCD522ED763F00BD2479 /* Session.swift in Sources */,
+				16B605B023713FCD00E153E6 /* HomeHeroView.swift in Sources */,
 				161035F7235461FE005441D9 /* SpeakerCell.swift in Sources */,
 				1626A27423701480009442FE /* TimeAxis.swift in Sources */,
 				16BCA9872339ADD8006B4716 /* PersonCell.swift in Sources */,
@@ -779,6 +786,7 @@
 				16C2F0982339EBCF00ECAE54 /* SessionView.swift in Sources */,
 				B6B66042235714660078FB11 /* ProtoPerson.swift in Sources */,
 				168AE13022EBF11600DFBB6F /* HomeView.swift in Sources */,
+				16B605B2237143D500E153E6 /* WelcomeItemView.swift in Sources */,
 				16DDCF2B22EC29540075561F /* SafariNavigationLink.swift in Sources */,
 				168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */,
 				168AE13722EBF18D00DFBB6F /* ScheduleView.swift in Sources */,

@@ -23,48 +23,138 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading) {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color("Logo_Background"))
-                        //                            .onTapGesture(perform: presentHomepage)
-                        Image("Logo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 240)
-//                            .padding(.horizontal)
+                VStack(spacing: 16) {
+                    HomeHeroView()
+                    
+                    // MARK: - Title
+                    Group {
+                        Divider()
+                        VStack(spacing: 6) {
+                            Text("A Change of Season")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                            Text("Swift 개발자에게 혹독한 변화의 계절을 함께 준비해요")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                        }
+                        Divider()
                     }
-                    .frame(height: 300)
-                    .modifier(RoundedMask())
-                    .padding(.horizontal)
-                    Divider()
+                    
+                    // MARK: - Welcome
+                    WelcomeItemView("Welcome_iPhone") {
+                        Group {
+                            Text("🤗")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("2019년 11월 12일")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("양재 at 센터")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("행사에서 만나요!")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    // MARK: - Entrance
+                    WelcomeItemView("Welcome_Laptop") {
+                        Group {
+                            Text("🎟")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("티켓과 기념품을 수령하세요")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("행사 입장")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    // MARK: - Session
+                    WelcomeItemView("Welcome_Session") {
+                        Group {
+                            Text("🎤")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("난이도 있는")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("기술 주제에 대한")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("발표")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    // MARK: - Workshop
+                    WelcomeItemView("Welcome_Workshop") {
+                        Group {
+                            Text("💻")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("직접 코드 품질을 개선하는")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("워크샵")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    // MARK: - Teatime
+                    WelcomeItemView("Welcome_Teatime") {
+                        Group {
+                            Text("🍵")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("작은 주제별로")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("자유롭게 토론하는")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("티타임")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    // MARK: - Footer
+                    Group {
+                        Divider()
+                        VStack {
+                            Text("2019년 11월 12일 화요일")
+                            Text("서울 양재 aT 센터에서 만나요!")
+                        }
+                        .font(.headline)
                         .padding(.horizontal)
-                    VStack(alignment: .leading) {
-                        Text("A Change of Season")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                        Text("스위프트 개발자에게 혹독한 변화의 계절을 함께 준비해요")
-                            .font(.subheadline)
-                        Text("\n오픈소스 기반 스위프트 커뮤니티에는 학생부터 10년 넘은 베테랑 개발자까지 다양합니다.\nSwiftUI 와 Combine은 새로운 iOS 개발 경험을 만들어 줄 겁니다.\n")
-                            .font(.subheadline)
-                        Text("🎤 난이도 있는 기술 토픽에 대한 발표\n💻 직접 코드 품질을 개선하는 워크숍\n🍵 작은 주제별로 자유롭게 토론하는 소규모 티타임\n\n여러분은 어떤 주제에 관심이 있으신가요?")
-                            .font(.subheadline)
+                        Divider()
                     }
-                    .padding()
-//                    Divider()
-//                        .padding(.horizontal)
-//                    VStack(alignment: .leading, spacing: 24) {
-//                        ExampleHorizontalList(title: "If you like tech related topics")
-//                        ExampleHorizontalList(title: "If you wannt to improve code")
-//                        ExampleHorizontalList(title: "If you like discussing")
-//                        ExampleHorizontalList(title: "Past Video")
-//                    }
-//                    .frame(alignment: .leading)
+                    
+                    //                    VStack(alignment: .leading, spacing: 24) {
+                    //                        ExampleHorizontalList(title: "If you like tech related topics")
+                    //                        ExampleHorizontalList(title: "If you wannt to improve code")
+                    //                        ExampleHorizontalList(title: "If you like discussing")
+                    //                        ExampleHorizontalList(title: "Past Video")
+                    //                    }
+                    //                    .frame(alignment: .leading)
                 }
+                .padding(.horizontal)
                 Spacer()
             }
             .navigationBarTitle("홈")
-//            .navigationBarItems(trailing: settingsButton)
+            //            .navigationBarItems(trailing: settingsButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(
@@ -91,13 +181,9 @@ struct HomeView: View {
     private func presentHomepage() {
         presentsHomepage.toggle()
     }
-    
-    private func doNothing() {
-        
-    }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -109,8 +195,8 @@ struct HomeView_Previews: PreviewProvider {
         }
     }
 }
-#endif
 
+// MARK: - Test
 struct ExampleHorizontalList: View {
     @State var title: String
     

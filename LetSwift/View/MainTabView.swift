@@ -29,7 +29,7 @@ struct MainTabView: View {
 extension MainTabView {
     enum Tab: Int, Identifiable, CaseIterable {
         case home
-        case schedule
+//        case schedule
         case timeline
 //        case video
         case people
@@ -44,7 +44,7 @@ extension MainTabView {
         var presentingView: some View {
             switch self {
             case .home: return AnyView(HomeView())
-            case .schedule: return AnyView(ScheduleView())
+//            case .schedule: return AnyView(ScheduleView())
             case .timeline: return AnyView(TimelineView())
 //            case .video: return AnyView(VideoView())
             case .people: return AnyView(PeopleView())
@@ -62,7 +62,7 @@ extension MainTabView {
         private var name: String {
             switch self {
             case .home: return "홈"
-            case .schedule: return "일정"
+//            case .schedule: return "일정"
             case .timeline: return "일정"
 //            case .video: return "Video"
             case .people: return "사람들"
@@ -73,7 +73,7 @@ extension MainTabView {
         private var imageName: String {
             switch self {
             case .home: return "house.fill"
-            case .schedule: return "calendar"
+//            case .schedule: return "calendar"
             case .timeline: return "calendar"
 //            case .video: return "film"
             case .people: return "person.fill"

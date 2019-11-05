@@ -29,39 +29,39 @@ struct TimelineView: View {
                                 Group {
                                     Spacer()
                                         .frame(height: hourHeight * 0.5)
-                                    TimeBlock(session: ProtoSession.sessions[0], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[0], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[1], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[1], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[2], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[2], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight)
                                 }
                                 // Afternoon
                                 Group {
-                                    TimeBlock(session: ProtoSession.sessions[4], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[4], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[5], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[5], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[6], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[6], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
                                 }
                                 Group {
-                                    TimeBlock(session: ProtoSession.sessions[7], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[7], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[8], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[8], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: .pink, height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                 }
                             }
@@ -74,16 +74,16 @@ struct TimelineView: View {
                             Timeline(isCollapsed: self.$isCollapsed2.animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.teatime[0], showContents: !self.isCollapsed2, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[0], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[2], showContents: !self.isCollapsed2, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[2], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[4], showContents: !self.isCollapsed2, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[4], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[6], showContents: !self.isCollapsed2, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[6], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                             }
                             .onTapGesture {
@@ -95,16 +95,16 @@ struct TimelineView: View {
                             Timeline(isCollapsed: self.$isCollapsed3.animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.teatime[1], showContents: !self.isCollapsed3, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[1], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[3], showContents: !self.isCollapsed3, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[3], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[5], showContents: !self.isCollapsed3, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[5], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[7], showContents: !self.isCollapsed3, color: Color(UIColor.systemIndigo), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[7], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                             }
                             .onTapGesture {
@@ -116,10 +116,10 @@ struct TimelineView: View {
                             Timeline(isCollapsed: self.$isCollapsed4.animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.workshop[0], showContents: !self.isCollapsed4, color: .blue, height: hourHeight * 11 / 6 + spacing)
+                                TimeBlock(session: ProtoSession.workshop[0], showContents: !self.isCollapsed4, color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
                                 Spacer()
                                     .frame(height: (hourHeight + spacing) * 1 / 6)
-                                TimeBlock(session: ProtoSession.workshop[1], showContents: !self.isCollapsed4, color: .blue, height: hourHeight * 11 / 6 + spacing)
+                                TimeBlock(session: ProtoSession.workshop[1], showContents: !self.isCollapsed4, color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
                                 Spacer()
                             }
                             .onTapGesture {
@@ -134,14 +134,14 @@ struct TimelineView: View {
                                                         level: "",
                                                         time: ""),
                                   showContents: true,
-                                  color: Color(UIColor.systemTeal),
+                                  color: Color(.timelineEvent),
                                   height: hourHeight * 0.5)
                         TimeBlock(session: ProtoSession(title: "점심 시간",
                                                         speaker: "",
                                                         level: "",
                                                         time: ""),
                                   showContents: true,
-                                  color: Color(UIColor.systemTeal),
+                                  color: Color(.timelineEvent),
                                   height: hourHeight)
                             .offset(y: (hourHeight + spacing) * 3)
                     }

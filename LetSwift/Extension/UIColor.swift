@@ -19,3 +19,10 @@ extension UIColor {
     static let themeBackground2019 = UIColor(named: "2019_background")!
     static let themePrimary2018 = UIColor(named: "2018_primary")!
 }
+
+extension UIColor {
+    static let timelineEvent = UIColor(named: "Timeline_Event")!
+    static let timelineSession = UIColor(named: "Timeline_Session")!
+    static let timelineWorkshop = UIColor(named: "Timeline_Workshop")!
+    static let timelineTeatime = UIColor(named: "Timeline_Teatime")!
+}
