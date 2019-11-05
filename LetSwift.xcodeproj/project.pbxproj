@@ -975,7 +975,7 @@
 		218FD29722EAEF9900A6BEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Let_Dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Swift_Dark;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "LetSwift/Preview\\ Content";
@@ -997,7 +997,7 @@
 		218FD29822EAEF9900A6BEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Let_Dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2019_Swift_Dark;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "LetSwift/Preview\\ Content";
