@@ -32,37 +32,38 @@ struct TimeBlock: View {
                 .frame(height: height)
             // Contents
             if showContents == true {
-                HStack {
-                    VStack(alignment: .leading) {
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    if session.level != "" {
+                        LevelIndicator(level: session.level, color: self.color)
+                    }
+                    VStack(alignment: .leading, spacing: 2) {
                         Text(session.title)
-                            .font(.subheadline)
+                            .font(.system(size: 14))
                             .fontWeight(.bold)
-                        Text(session.speaker)
-                            .fontWeight(.bold)
-                        Text(session.time)
-                            .fontWeight(.bold)
-                        if session.level != "" {
-                            ZStack {
-                                Circle()
-                                Text(session.level)
-                                    .foregroundColor(color)
-                                    .font(.system(size: 10))
-                                    .fontWeight(.bold)
-                            }
-                            .frame(width: 13, height: 13)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                        Group {
+                            Text(session.speaker)
+                                .font(.system(size: 12))
+                                .fontWeight(.semibold)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.leading)
+                            Text(session.time)
+                                .font(.system(size: 11, weight: .bold, design: .monospaced))
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.leading)
                         }
+                        .foregroundColor(Color(#colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)))
                         Spacer()
                     }
-                    Spacer()
-                    VStack {
-                        //                        Text("🍵")
-                        Spacer()
-                    }
+//                    Spacer()
+//                    VStack {
+//                        Text("🍵")
+//                        Spacer()
+//                    }
                 }
                 .foregroundColor(.white)
-                .font(.caption)
-                .lineLimit(nil)
-                .multilineTextAlignment(.leading)
                 .padding(6)
                 .frame(maxHeight: height)
             }

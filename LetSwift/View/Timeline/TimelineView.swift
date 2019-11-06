@@ -133,14 +133,14 @@ struct TimelineView: View {
                                 self.isCollapsed4 = false
                             }
                         }
-                        TimeBlock(session: ProtoSession(title: "입장 및 등록",
+                        TimeBlock(session: ProtoSession(title: "🎟 등록 및 입장",
                                                         speaker: "",
                                                         level: "",
                                                         time: ""),
                                   showContents: true,
                                   color: Color(.timelineEvent),
                                   height: hourHeight * 0.5)
-                        TimeBlock(session: ProtoSession(title: "점심 시간",
+                        TimeBlock(session: ProtoSession(title: "🍽 점심",
                                                         speaker: "",
                                                         level: "",
                                                         time: ""),
