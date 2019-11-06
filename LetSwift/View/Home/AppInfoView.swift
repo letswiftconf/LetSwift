@@ -13,7 +13,7 @@ struct AppInfoView: View {
     // MARK: - Body
     var body: some View {
         VStack(spacing: 8) {
-            Image(uiImage: UIImage(named: "AppIcon_2019_Swift_Dark60x60")!)
+            Image(uiImage: UIImage(named: "AppIcon_2019_Let_Dark60x60")!)
                 .resizable()
                 .frame(width: 32, height: 32)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
