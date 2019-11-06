@@ -21,6 +21,7 @@ struct PeopleView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 240, maxHeight: 240, alignment: .center)
                         .modifier(RoundedMask())
                         .padding(.horizontal)
+                    Spacer(minLength: 24)
                     VStack(alignment: .leading, spacing: 24) {
                         PeopleList(type: .speakers, people: ProtoSpeaker.speakers)
                         //                        PeopleList(type: .sponsors, people: [])

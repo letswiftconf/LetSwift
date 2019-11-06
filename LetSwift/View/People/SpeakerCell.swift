@@ -22,7 +22,6 @@ struct SpeakerCell: View {
     var body: some View {
         VStack(alignment: .center) {
             Image(speaker.imageName)
-                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
@@ -33,11 +32,13 @@ struct SpeakerCell: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color(.label))
                 Text(speaker.organization)
-                    .font(.footnote)
+                    .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
             }
-            Spacer()
+            .lineLimit(nil)
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -45,17 +46,15 @@ struct SpeakerCell: View {
 // MARK: - Preview
 struct SpeakerCell_Previews: PreviewProvider {
     static var previews: some View {
-        let layout = PreviewLayout.fixed(width: 320, height: 200)
-        return Group {
+        Group {
             SpeakerCell(speaker: ProtoSpeaker.speakers.first ?? .dummy)
-                .previewLayout(layout)
             SpeakerCell(speaker: ProtoSpeaker.speakers.last ?? .dummy)
-                .previewLayout(layout)
                 .environment(\.colorScheme, .dark)
             SpeakerCell(speaker: ProtoSpeaker.speakers.first ?? .dummy)
-                .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
-        .background(Color(.systemBackground))
+        .padding()
+        //        .previewLayout(.sizeThatFits)
+        .previewLayout(.fixed(width: 100, height: 150))
     }
 }

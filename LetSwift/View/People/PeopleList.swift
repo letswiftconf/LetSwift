@@ -14,23 +14,24 @@ struct PeopleList: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .firstTextBaseline) {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(alignment: .center) {
                 Text(type.title)
                     .font(.headline)
+                    .fontWeight(.bold)
                 Spacer()
                 NavigationLink(destination: AllPeopleList(type: type, people: people)) {
-                    Group {
+                    HStack(alignment: .center, spacing: 4) {
                         Text("모두 보기")
                         Image(systemName: "chevron.right")
                     }
-                    .font(.subheadline)
+                    .font(.system(size: 14, weight: .bold, design: .default))
                 }
             }
             .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 16) {
+                HStack(alignment: .top, spacing: 8) {
                     self.cells
                 }
                 .padding(.horizontal)
@@ -48,6 +49,7 @@ struct PeopleList: View {
 //                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         SpeakerCell(speaker: person)
                             .frame(width: 100)
+                            .fixedSize(horizontal: true, vertical: false)
 //                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
@@ -57,6 +59,7 @@ struct PeopleList: View {
 //                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
                         StaffCell(staff: person)
                             .frame(width: 100)
+                            .fixedSize(horizontal: true, vertical: false)
 //                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
@@ -94,18 +97,16 @@ extension PeopleList {
 // MARK: - Preview
 struct PeopleList_Previews: PreviewProvider {
     static var previews: some View {
-        let layout = PreviewLayout.fixed(width: 320, height: 240)
         let people = ProtoStaff.makeProtoData()
         return Group {
             PeopleList(type: .staffs, people: people)
-                .previewLayout(layout)
             PeopleList(type: .staffs, people: people)
-                .previewLayout(layout)
+                .background(Color(.systemBackground))
                 .environment(\.colorScheme, .dark)
             PeopleList(type: .staffs, people: people)
-                .previewLayout(layout)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
+        .previewLayout(.sizeThatFits)
         .background(Color(.systemBackground))
     }
 }

@@ -17,7 +17,7 @@ struct AllPeopleList: View {
     // MARK: - Body
     var body: some View {
         List(people) { person in
-            HStack(alignment: .top, spacing: 8) {
+            HStack(alignment: .top, spacing: 16) {
                 self.profileView(person)
                 self.detailView(person)
             }
@@ -31,7 +31,7 @@ struct AllPeopleList: View {
         return Image(person.name)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 80, height: 80)
+            .frame(width: 100, height: 100)
             .mask(Circle())
     }
     
@@ -41,21 +41,26 @@ struct AllPeopleList: View {
                 VStack(alignment: .leading) {
                     Text(person.name)
                         .font(.headline)
+                        .fontWeight(.bold)
                     if !person.organization.isEmpty {
                         Text(person.organization)
-                            .font(.footnote)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                             .foregroundColor(.secondary)
-                            .bold()
                     }
                 }
                 VStack(alignment: .leading) {
                     Text(person.description)
-                        .font(.subheadline)
+                        .font(.footnote)
                         .multilineTextAlignment(.leading)
                     if !tags(of: person).isEmpty {
                         Text(tags(of: person))
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .font(.footnote)
+                            .foregroundColor(Color(.tertiaryLabel))
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical)
                     }
                 }
                 if type == .speakers {
@@ -69,13 +74,14 @@ struct AllPeopleList: View {
         guard let sessions = (person as? ProtoSpeaker)?.sessions else {
             return nil
         }
-        return AnyView(VStack(alignment: .leading, spacing: 8) {
+        return AnyView(VStack(alignment: .leading, spacing: 4) {
             Text("Sessions")
                 .font(.subheadline)
                 .bold()
             ForEach(sessions, id: \.description) {
                 Text($0)
-                    .font(.subheadline)
+                    .font(.caption)
+                    .fontWeight(.semibold)
             }
         })
     }
