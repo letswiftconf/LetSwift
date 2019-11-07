@@ -87,7 +87,7 @@ extension ProtoSession {
                      speaker: "우경재",
                      level: "초",
                      time: "15:00 - 15:50"),
-        ProtoSession(title: "공짜(스칼라쉽)으로 WWDC 가는법",
+        ProtoSession(title: "공짜로 WWDC 가는법(스칼라십)",
                      speaker: "조성현, 이재성, 김민혁",
                      level: "초",
                      time: "16:00 - 16:50"),
