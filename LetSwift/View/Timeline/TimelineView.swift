@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct TimelineView: View {
     @State var isCollapsed1 = false
@@ -167,6 +168,11 @@ struct TimelineView: View {
             .navigationBarTitle("일정")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            #if !DEBUG
+            SKStoreReviewController.requestReview()
+            #endif
+        }
     }
 }
 

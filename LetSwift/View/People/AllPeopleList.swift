@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import StoreKit
 
 struct AllPeopleList: View {
     
@@ -24,6 +25,11 @@ struct AllPeopleList: View {
             .padding(.vertical)
         }
         .navigationBarTitle(type.title)
+        .onAppear {
+            #if !DEBUG
+            SKStoreReviewController.requestReview()
+            #endif
+        }
     }
     
     // MARK: - Body Builders

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import MapKit
+import StoreKit
 
 struct VenueView: View {
     let location: CLLocationCoordinate2D = .init(latitude: 37.468437, longitude: 127.039055)
@@ -106,6 +107,11 @@ struct VenueView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            #if !DEBUG
+            SKStoreReviewController.requestReview()
+            #endif
+        }
     }
     
     // MARK: - Action
