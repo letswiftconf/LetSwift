@@ -10,15 +10,16 @@ import SwiftUI
 
 struct LevelIndicator: View {
     let level: String
-    let color: Color
+    var color: Color = Color(#colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1))
+    let textColor: Color
     
     // MARK: - Body
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(Color(#colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)))
-            Text(level)
                 .foregroundColor(color)
+            Text(level)
+                .foregroundColor(textColor)
                 .font(.system(size: 11))
                 .fontWeight(.bold)
         }
@@ -31,8 +32,8 @@ struct LevelIndicator_Previews: PreviewProvider {
     static var previews: some View {
         let color = Color.blue
         return Group {
-            LevelIndicator(level: "초", color: color)
-            LevelIndicator(level: "초", color: color)
+            LevelIndicator(level: "초", textColor: color)
+            LevelIndicator(level: "초", textColor: color)
                 .environment(\.colorScheme, .dark)
         }
         .padding()

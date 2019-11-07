@@ -1,5 +1,5 @@
 //
-//  TimelineLegionView.swift
+//  LegionView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 2019/11/05.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct TimelineLegionView: View {
+struct LegionView: View {
     // MARK: - Body
     var body: some View {
         HStack(spacing: 16) {
@@ -16,16 +16,19 @@ struct TimelineLegionView: View {
             TimelineLegionItem(title: "티타임", color: Color(.timelineTeatime))
             TimelineLegionItem(title: "워크샵", color: Color(.timelineWorkshop))
             TimelineLegionItem(title: "기타", color: Color(.timelineEvent))
+            LevelLegionItem(title: "초", description: "초급")
+            LevelLegionItem(title: "중", description: "중급")
+            LevelLegionItem(title: "고", description: "고급")
         }
     }
 }
 
 // MARK: - Preview
-struct TimelineLegionView_Previews: PreviewProvider {
+struct LegionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TimelineLegionView()
-            TimelineLegionView()
+            LegionView()
+            LegionView()
                 .background(Color(.systemBackground))
                 .environment(\.colorScheme, .dark)
         }

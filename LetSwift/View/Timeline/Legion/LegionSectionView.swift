@@ -1,5 +1,5 @@
 //
-//  TimelineLegionSection.swift
+//  LegionSectionView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 2019/11/05.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct TimelineLegionSection: View {
+struct LegionSectionView: View {
     // MARK: - Body
     var body: some View {
         Group {
             Divider()
                 .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
-                TimelineLegionView()
+                LegionView()
                     .padding(.horizontal)
             }
             Divider()
@@ -25,11 +25,11 @@ struct TimelineLegionSection: View {
 }
 
 // MARK: - Preview
-struct TimelineLegionSection_Previews: PreviewProvider {
+struct LegionSectionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TimelineLegionSection()
-            TimelineLegionSection()
+            LegionSectionView()
+            LegionSectionView()
                 .background(Color(.systemBackground))
                 .environment(\.colorScheme, .dark)
         }

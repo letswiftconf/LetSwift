@@ -37,12 +37,13 @@
 		164D87D922F69A20008AA30D /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87D822F69A20008AA30D /* ProfileDetailView.swift */; };
 		164D87DB22F69A2A008AA30D /* ParticipantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */; };
 		164D87DD22F69A56008AA30D /* ParticipantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D87DC22F69A56008AA30D /* ParticipantListView.swift */; };
-		165F53C62371919D006A65D8 /* TimelineLegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53C52371919D006A65D8 /* TimelineLegionView.swift */; };
+		165F53C62371919D006A65D8 /* LegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53C52371919D006A65D8 /* LegionView.swift */; };
 		165F53C9237191C1006A65D8 /* TimelineLegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53C8237191C1006A65D8 /* TimelineLegionItem.swift */; };
-		165F53CB23719573006A65D8 /* TimelineLegionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53CA23719573006A65D8 /* TimelineLegionSection.swift */; };
+		165F53CB23719573006A65D8 /* LegionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53CA23719573006A65D8 /* LegionSectionView.swift */; };
 		165F53CD237197D5006A65D8 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53CC237197D5006A65D8 /* AppInfoView.swift */; };
 		165F53CF237198CE006A65D8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53CE237198CE006A65D8 /* UIApplication.swift */; };
 		165F53D1237251A0006A65D8 /* LevelIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53D0237251A0006A65D8 /* LevelIndicator.swift */; };
+		165F53D32374345C006A65D8 /* LevelLegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F53D22374345C006A65D8 /* LevelLegionItem.swift */; };
 		16657D8622F69DEB001D6DE6 /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16657D8522F69DEB001D6DE6 /* NewProfileView.swift */; };
 		168777EC2338F43300C589BC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168777EB2338F43300C589BC /* UIColor.swift */; };
 		168AE12B22EBEB6300DFBB6F /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE12A22EBEB6300DFBB6F /* OSLog.swift */; };
@@ -142,12 +143,13 @@
 		164D87D822F69A20008AA30D /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 		164D87DA22F69A2A008AA30D /* ParticipantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantDetailView.swift; sourceTree = "<group>"; };
 		164D87DC22F69A56008AA30D /* ParticipantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantListView.swift; sourceTree = "<group>"; };
-		165F53C52371919D006A65D8 /* TimelineLegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineLegionView.swift; sourceTree = "<group>"; };
+		165F53C52371919D006A65D8 /* LegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegionView.swift; sourceTree = "<group>"; };
 		165F53C8237191C1006A65D8 /* TimelineLegionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineLegionItem.swift; sourceTree = "<group>"; };
-		165F53CA23719573006A65D8 /* TimelineLegionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineLegionSection.swift; sourceTree = "<group>"; };
+		165F53CA23719573006A65D8 /* LegionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegionSectionView.swift; sourceTree = "<group>"; };
 		165F53CC237197D5006A65D8 /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 		165F53CE237198CE006A65D8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		165F53D0237251A0006A65D8 /* LevelIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelIndicator.swift; sourceTree = "<group>"; };
+		165F53D22374345C006A65D8 /* LevelLegionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLegionItem.swift; sourceTree = "<group>"; };
 		16657D8522F69DEB001D6DE6 /* NewProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileView.swift; sourceTree = "<group>"; };
 		168777EB2338F43300C589BC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		168AE12A22EBEB6300DFBB6F /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
@@ -319,9 +321,10 @@
 		165F53C7237191B3006A65D8 /* Legion */ = {
 			isa = PBXGroup;
 			children = (
-				165F53CA23719573006A65D8 /* TimelineLegionSection.swift */,
-				165F53C52371919D006A65D8 /* TimelineLegionView.swift */,
+				165F53CA23719573006A65D8 /* LegionSectionView.swift */,
+				165F53C52371919D006A65D8 /* LegionView.swift */,
 				165F53C8237191C1006A65D8 /* TimelineLegionItem.swift */,
+				165F53D22374345C006A65D8 /* LevelLegionItem.swift */,
 			);
 			path = Legion;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				161035D523544633005441D9 /* StaffCell.swift in Sources */,
 				B66D28262338EB3E00D835D8 /* VenueMapView.swift in Sources */,
 				CE042377236B41BC00F54B46 /* VideoCell.swift in Sources */,
+				165F53D32374345C006A65D8 /* LevelLegionItem.swift in Sources */,
 				16C0BCDD22ED7DA400BD2479 /* Profile.swift in Sources */,
 				B6486D972355BFB700076551 /* AllPeopleList.swift in Sources */,
 				16DDCF2922EC25900075561F /* SafariViewController.swift in Sources */,
@@ -788,7 +792,7 @@
 				165F53C9237191C1006A65D8 /* TimelineLegionItem.swift in Sources */,
 				16BCA98B2339B5FA006B4716 /* PersonView.swift in Sources */,
 				163F009A234319FD0094776F /* CalendarManager.swift in Sources */,
-				165F53CB23719573006A65D8 /* TimelineLegionSection.swift in Sources */,
+				165F53CB23719573006A65D8 /* LegionSectionView.swift in Sources */,
 				1626A27123701480009442FE /* TimetableContainer.swift in Sources */,
 				1626A27223701480009442FE /* Timeline.swift in Sources */,
 				16BA8284234337AD00D4CB17 /* HeadlineText.swift in Sources */,
@@ -812,7 +816,7 @@
 				16C0BCD922ED7D8C00BD2479 /* Video.swift in Sources */,
 				163F0097234317090094776F /* RoundedMask.swift in Sources */,
 				165F53D1237251A0006A65D8 /* LevelIndicator.swift in Sources */,
-				165F53C62371919D006A65D8 /* TimelineLegionView.swift in Sources */,
+				165F53C62371919D006A65D8 /* LegionView.swift in Sources */,
 				1626A27523701480009442FE /* Timetable.swift in Sources */,
 				16BA82862343383A00D4CB17 /* SubheadlineText.swift in Sources */,
 				16C2F0982339EBCF00ECAE54 /* SessionView.swift in Sources */,

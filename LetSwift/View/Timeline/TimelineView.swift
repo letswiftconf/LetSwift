@@ -28,7 +28,16 @@ struct TimelineView: View {
         return NavigationView {
             ScrollView {
                 // MARK: - Legion
-                TimelineLegionSection()
+                LegionSectionView()
+                
+                // MARK: - Help
+                Group {
+                    Text("탭 또는 스와이프를 사용해 타임라인을 변경하세요.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Divider()
+                    .padding(.horizontal)
                 
                 // MARK: - Timeline
                 Timetable {
@@ -152,7 +161,7 @@ struct TimelineView: View {
                 })
                 
                 // MARK: - Legion
-                TimelineLegionSection()
+                LegionSectionView()
                 Spacer()
             }
             .navigationBarTitle("일정")

@@ -34,7 +34,7 @@ struct TimeBlock: View {
             if showContents == true {
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     if session.level != "" {
-                        LevelIndicator(level: session.level, color: self.color)
+                        LevelIndicator(level: session.level, textColor: self.color)
                     }
                     VStack(alignment: .leading, spacing: 2) {
                         Text(session.title)
