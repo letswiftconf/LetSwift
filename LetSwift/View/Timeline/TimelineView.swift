@@ -168,8 +168,8 @@ struct TimelineView: View {
     // MARK: - Body Builder
     var animation: Animation {
         Animation
-            .spring()
-            .speed(2)
+            .spring(response: 1, blendDuration: 1)
+            .speed(1.5)
     }
     
     // MARK: - Helper
