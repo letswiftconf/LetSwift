@@ -165,13 +165,14 @@ struct TimelineView: View {
         }
     }
     
-    // MARK: - Body Builders
+    // MARK: - Body Builder
     var animation: Animation {
         Animation
             .spring()
             .speed(2)
     }
     
+    // MARK: - Helper
     func dragEndAction(_ value: DragGesture.Value) {
         if value.translation.width < -50 {
             presentingIndex = min(presentingIndex + 1, isCollapsedList.count - 1)
