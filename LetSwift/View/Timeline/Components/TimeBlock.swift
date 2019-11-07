@@ -44,15 +44,19 @@ struct TimeBlock: View {
                             .lineLimit(nil)
                             .multilineTextAlignment(.leading)
                         Group {
-                            Text(session.speaker)
+                            if session.speaker != "" {
+                                Text(session.speaker)
                                 .font(.system(size: 12))
                                 .fontWeight(.semibold)
                                 .lineLimit(nil)
                                 .multilineTextAlignment(.leading)
-                            Text(session.time)
-                                .font(.system(size: 11, weight: .bold, design: .monospaced))
-                                .lineLimit(nil)
-                                .multilineTextAlignment(.leading)
+                            }
+                            if session.time != "" {
+                                Text(session.time)
+                                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                                    .lineLimit(nil)
+                                    .multilineTextAlignment(.leading)
+                            }
                         }
                         .foregroundColor(Color(#colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)))
                         Spacer()

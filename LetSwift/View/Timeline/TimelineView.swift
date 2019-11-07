@@ -144,14 +144,14 @@ struct TimelineView: View {
                         TimeBlock(session: ProtoSession(title: "🎟 등록 및 입장",
                                                         speaker: "",
                                                         level: "",
-                                                        time: ""),
+                                                        time: "09:00 - 09:30"),
                                   showContents: true,
                                   color: Color(.timelineEvent),
                                   height: hourHeight * 0.5)
                         TimeBlock(session: ProtoSession(title: "🍽 점심",
                                                         speaker: "",
                                                         level: "",
-                                                        time: ""),
+                                                        time: "12:00 - 13:00"),
                                   showContents: true,
                                   color: Color(.timelineEvent),
                                   height: hourHeight)
