@@ -30,15 +30,6 @@ struct TimelineView: View {
                 // MARK: - Legion
                 LegionSectionView()
                 
-                // MARK: - Help
-                Group {
-                    Text("탭 또는 스와이프를 사용해 타임라인을 변경하세요.")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                Divider()
-                    .padding(.horizontal)
-                
                 // MARK: - Timeline
                 Timetable {
                     TimeAxis(hours: 9...16, hourHeight: hourHeight, hourSpacing: spacing)
@@ -153,7 +144,7 @@ struct TimelineView: View {
                             .offset(y: (hourHeight + spacing) * 3)
                     }
                 }
-                .padding()
+                .padding([.horizontal, .bottom])
                 .animation(animation)
                 .gesture(DragGesture()
                 .onEnded {

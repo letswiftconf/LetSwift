@@ -16,8 +16,14 @@ struct Timetable<Content>: View where Content: View {
     }
     
     var body: some View {
-        HStack {
-            content()
+        VStack(alignment: .center) {
+            Text("탭 또는 스와이프로 타임라인을 변경하세요.")
+                .font(.system(size: 10))
+                .foregroundColor(.secondary)
+//                .padding(.leading)
+            HStack {
+                content()
+            }
         }
     }
 }
