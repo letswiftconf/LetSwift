@@ -28,6 +28,20 @@ struct StaffCell: View {
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
+                if staff.tags.count > 0 {
+//                    HStack {
+//                        ForEach(staff.tags, id: \.self) { tag in
+//                            Text("#" + tag)
+//                                .font(.system(size: 8))
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(Color(.secondaryLabel))
+//                        }
+//                    }
+                    Text("#" + staff.tags[0])
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.themeSecondary))
+                }
             }
             .lineLimit(nil)
             .multilineTextAlignment(.center)
@@ -41,7 +55,7 @@ struct StaffCell_Previews: PreviewProvider {
     static var previews: some View {
         let staff = ProtoStaff.makeProtoData()
         return Group {
-            StaffCell(staff: staff[5])
+            StaffCell(staff: staff[2])
             StaffCell(staff: staff[3])
                 .background(Color(.systemBackground))
                 .environment(\.colorScheme, .dark)
