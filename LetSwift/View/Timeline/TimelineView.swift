@@ -10,16 +10,14 @@ import SwiftUI
 import StoreKit
 
 struct TimelineView: View {
-    @State var isCollapsed1 = false
-    @State var isCollapsed2 = true
-    @State var isCollapsed3 = true
-    @State var isCollapsed4 = true
     
-    
-    var animation: Animation {
-        Animation
-            .spring()
-            .speed(2)
+    @State var isCollapsedList = [false, true, true, true]
+    @State var presentingIndex = 0 {
+        didSet {
+            isCollapsedList = isCollapsedList.enumerated().map {
+                $0.0 != presentingIndex
+            }
+        }
     }
     
     // MARK: - Body
@@ -37,108 +35,96 @@ struct TimelineView: View {
                     TimeAxis(hours: 9...16, hourHeight: hourHeight, hourSpacing: spacing)
                     TimetableContainer {
                         TimelineGroup {
-                            Timeline(isCollapsed: self.$isCollapsed1.animation()) {
+                            Timeline(isCollapsed: self.$isCollapsedList[0].animation()) {
                                 Group {
                                     Spacer()
                                         .frame(height: hourHeight * 0.5)
-                                    TimeBlock(session: ProtoSession.sessions[0], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[0], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[1], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[1], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[2], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[2], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[3], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight)
                                 }
                                 // Afternoon
                                 Group {
-                                    TimeBlock(session: ProtoSession.sessions[4], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[4], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[5], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[5], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[6], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[6], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
                                 }
                                 Group {
-                                    TimeBlock(session: ProtoSession.sessions[7], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[7], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[8], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 4 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[8], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 4 / 6)
                                     Spacer()
                                         .frame(height: hourHeight * 1 / 6)
-                                    TimeBlock(session: ProtoSession.sessions[9], showContents: !self.isCollapsed1, color: Color(.timelineSession), height: hourHeight * 2 / 6)
+                                    TimeBlock(session: ProtoSession.sessions[9], showContents: !self.isCollapsedList[0], color: Color(.timelineSession), height: hourHeight * 2 / 6)
                                     Spacer()
                                 }
                             }
                             .onTapGesture {
-                                self.isCollapsed1 = false
-                                self.isCollapsed2 = true
-                                self.isCollapsed3 = true
-                                self.isCollapsed4 = true
+                                self.presentingIndex = 0
                             }
-                            Timeline(isCollapsed: self.$isCollapsed2.animation()) {
+                            Timeline(isCollapsed: self.$isCollapsedList[1].animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.teatime[0], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[0], showContents: !self.isCollapsedList[1], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[2], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[2], showContents: !self.isCollapsedList[1], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[4], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[4], showContents: !self.isCollapsedList[1], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[6], showContents: !self.isCollapsed2, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[6], showContents: !self.isCollapsedList[1], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                             }
                             .onTapGesture {
-                                self.isCollapsed1 = true
-                                self.isCollapsed2 = false
-                                self.isCollapsed3 = true
-                                self.isCollapsed4 = true
+                                self.presentingIndex = 1
                             }
-                            Timeline(isCollapsed: self.$isCollapsed3.animation()) {
+                            Timeline(isCollapsed: self.$isCollapsedList[2].animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.teatime[1], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[1], showContents: !self.isCollapsedList[2], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[3], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[3], showContents: !self.isCollapsedList[2], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[5], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[5], showContents: !self.isCollapsedList[2], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                                     .frame(height: hourHeight * 1 / 6)
-                                TimeBlock(session: ProtoSession.teatime[7], showContents: !self.isCollapsed3, color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
+                                TimeBlock(session: ProtoSession.teatime[7], showContents: !self.isCollapsedList[2], color: Color(.timelineTeatime), height: hourHeight * 5 / 6)
                                 Spacer()
                             }
                             .onTapGesture {
-                                self.isCollapsed1 = true
-                                self.isCollapsed2 = true
-                                self.isCollapsed3 = false
-                                self.isCollapsed4 = true
+                                self.presentingIndex = 2
                             }
-                            Timeline(isCollapsed: self.$isCollapsed4.animation()) {
+                            Timeline(isCollapsed: self.$isCollapsedList[3].animation()) {
                                 Spacer()
                                     .frame(height: hourHeight * 4 + spacing * 3)
-                                TimeBlock(session: ProtoSession.workshop[0], showContents: !self.isCollapsed4, color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
+                                TimeBlock(session: ProtoSession.workshop[0], showContents: !self.isCollapsedList[3], color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
                                 Spacer()
                                     .frame(height: (hourHeight + spacing) * 1 / 6)
-                                TimeBlock(session: ProtoSession.workshop[1], showContents: !self.isCollapsed4, color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
+                                TimeBlock(session: ProtoSession.workshop[1], showContents: !self.isCollapsedList[3], color: Color(.timelineWorkshop), height: hourHeight * 11 / 6 + spacing)
                                 Spacer()
                             }
                             .onTapGesture {
-                                self.isCollapsed1 = true
-                                self.isCollapsed2 = true
-                                self.isCollapsed3 = true
-                                self.isCollapsed4 = false
+                                self.presentingIndex = 3
                             }
                         }
                         TimeBlock(session: ProtoSession(title: "🎟 등록 및 입장",
@@ -160,6 +146,10 @@ struct TimelineView: View {
                 }
                 .padding()
                 .animation(animation)
+                .gesture(DragGesture()
+                .onEnded {
+                    self.dragEndAction($0)
+                })
                 
                 // MARK: - Legion
                 TimelineLegionSection()
@@ -172,6 +162,22 @@ struct TimelineView: View {
             #if !DEBUG
             SKStoreReviewController.requestReview()
             #endif
+        }
+    }
+    
+    // MARK: - Body Builder
+    var animation: Animation {
+        Animation
+            .spring()
+            .speed(2)
+    }
+    
+    // MARK: - Helper
+    func dragEndAction(_ value: DragGesture.Value) {
+        if value.translation.width < -50 {
+            presentingIndex = min(presentingIndex + 1, isCollapsedList.count - 1)
+        } else if value.translation.width > 50 {
+            presentingIndex = max(presentingIndex - 1, 0)
         }
     }
 }
