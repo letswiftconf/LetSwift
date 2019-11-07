@@ -14,6 +14,13 @@ struct TimelineView: View {
     @State var isCollapsed3 = true
     @State var isCollapsed4 = true
     
+    
+    var animation: Animation {
+        Animation
+            .spring()
+            .speed(2)
+    }
+    
     // MARK: - Body
     var body: some View {
         let hourHeight: CGFloat = 240
@@ -151,6 +158,7 @@ struct TimelineView: View {
                     }
                 }
                 .padding()
+                .animation(animation)
                 
                 // MARK: - Legion
                 TimelineLegionSection()
