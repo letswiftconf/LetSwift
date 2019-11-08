@@ -20,6 +20,7 @@ struct HeadlineText: View {
     var body: some View {
         Text(content)
             .font(.headline)
+            .fontWeight(.bold)
     }
 }
 
