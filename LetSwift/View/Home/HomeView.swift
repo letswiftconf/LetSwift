@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var presentsSettings = false
     @State private var presentsHomepage = false
+    @State private var presentsTicket = false
     
     // MARK: - Button
     private var settingsButton: some View {
@@ -29,14 +30,53 @@ struct HomeView: View {
                     // MARK: - Title
                     Group {
                         Divider()
-                        VStack(spacing: 6) {
-                            Text("A Change of Season")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                            Text("Swift 개발자에게 혹독한 변화의 계절을 함께 준비해요")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.secondary)
+                        VStack(spacing: 16) {
+                            VStack(spacing: 6) {
+                                Text("A Change of Season")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                Text("Swift 개발자에게 혹독한 변화의 계절을 함께 준비해요")
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.secondary)
+                            }
+                            HStack(alignment: .center, spacing: 16) {
+                                Button(action: {
+                                    self.presentHomepage()
+                                }, label: {
+                                    Text("공식 홈페이지")
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                })
+                                    .padding(.horizontal)
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44)
+                                    .background(Color(.systemGray6))
+                                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .circular))
+                                    .sheet(isPresented: $presentsHomepage) {
+                                        SafariView(url: URL(string: "http://letswift.kr/")!)
+                                            .edgesIgnoringSafeArea(.bottom)
+                                }
+                                
+                                Button(action: {
+                                    self.presentsTicket.toggle()
+                                    //                                    https://festa.io/my/tickets/event/111
+                                    //                                    https://festa.io/events/602
+                                }, label: {
+                                    Text("티켓 보기")
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                })
+                                    .padding(.horizontal)
+//                                    .frame(height: 44)
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44)
+                                    .background(Color(.systemGray6))
+                                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .circular))
+                                    .sheet(isPresented: $presentsTicket) {
+                                        SafariView(url: URL(string: "https://festa.io/my/tickets/event/602")!)
+                                            .edgesIgnoringSafeArea(.bottom)
+                                }
+                            }
+                            .padding(.horizontal)
                         }
                         Divider()
                     }
@@ -174,14 +214,6 @@ struct HomeView: View {
                 .sheet(isPresented: $presentsSettings) {
                     SettingsView()
             }
-            .background(
-                EmptyView()
-                    .sheet(isPresented: $presentsHomepage) {
-                        SafariView(url:
-                            URL(string: "https://letswift.kr/2019")!,
-                                             entersReaderIfAvailable: false)
-                }
-            )
         )
     }
     
