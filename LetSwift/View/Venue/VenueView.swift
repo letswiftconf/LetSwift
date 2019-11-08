@@ -20,7 +20,7 @@ struct VenueView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                VStack(alignment: .leading) {
+                VStack {
                     VenueMapView(location: location)
                         .modifier(RoundedMask())
                         .frame(height: 300)
@@ -92,8 +92,25 @@ struct VenueView: View {
                                 }
                             }
                         }
+                        .padding(.bottom, 8)
                     }
                     .padding()
+                    
+                    // Notice
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("주의사항")
+                            .font(.system(size: 11))
+                            .bold()
+                            .foregroundColor(Color(.secondaryLabel))
+                        ForEach(self.notices, id: \.description) {
+                            Text($0)
+                                .font(.system(size: 11))
+                                .foregroundColor(Color(.secondaryLabel))
+                        }
+                    }
+                    .padding()
+                    .padding(.vertical, 8)
+                    .background(Color(.secondarySystemBackground))
                 }
             }
             .navigationBarTitle("장소")
@@ -119,7 +136,17 @@ struct VenueView: View {
         }
     }
     
-    // MARK: - Action
+    let notices = [
+        "개발자 커뮤니티에 자발적으로 참여해서 함께 만들어 가는 행사입니다. 타인에게 최소한의 예의를 지켜주세요.",
+        "본 행사는 점심을 제공하지 않습니다.",
+        "주차는 가능하지만 주차비 지원은 안됩니다.",
+        "오전에는 200명이 들어갈 수 있는 공간에서 세션만 진행합니다.",
+        "오후에는 3개 트랙으로 나눠서, 70명씩 세션, 티타임, 워크숍이 동시에 진행합니다."
+    ]
+}
+
+// MARK: - Action
+extension VenueView {
     private func addToCalendar() {
         //        presentModal.toggle()
         //        let manager = CalendarManager()
