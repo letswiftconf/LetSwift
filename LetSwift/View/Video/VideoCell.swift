@@ -15,7 +15,7 @@ struct VideoCell: View {
     
     var body: some View {
         NavigationLink(
-            destination: SafariView(url: (self.session.video?.url)!, entersReaderIfAvailable: false)
+            destination: Safari(url: (self.session.video?.url)!, entersReaderIfAvailable: false)
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.top)

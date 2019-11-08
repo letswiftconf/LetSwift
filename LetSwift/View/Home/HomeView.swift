@@ -53,8 +53,7 @@ struct HomeView: View {
                                     .background(Color(.systemGray6))
                                     .clipShape(RoundedRectangle(cornerRadius: 13, style: .circular))
                                     .sheet(isPresented: $presentsHomepage) {
-                                        SafariView(url: URL(string: "http://letswift.kr/")!)
-                                            .edgesIgnoringSafeArea(.bottom)
+                                        Safari(url: URL(string: "http://letswift.kr/")!)
                                 }
                                 
                                 Button(action: {
@@ -72,8 +71,7 @@ struct HomeView: View {
                                     .background(Color(.systemGray6))
                                     .clipShape(RoundedRectangle(cornerRadius: 13, style: .circular))
                                     .sheet(isPresented: $presentsTicket) {
-                                        SafariView(url: URL(string: "https://festa.io/my/tickets/event/602")!)
-                                            .edgesIgnoringSafeArea(.bottom)
+                                        Safari(url: URL(string: "https://festa.io/my/tickets/event/602")!)
                                 }
                             }
                             .padding(.horizontal)

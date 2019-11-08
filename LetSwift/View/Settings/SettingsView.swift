@@ -27,14 +27,14 @@ struct SettingsView: View {
                         self.presentModal.toggle()
                     }
                     .sheet(isPresented: $presentModal) {
-                        SafariView(url: URL(string: "http://letswift.kr/")!)
+                        Safari(url: URL(string: "http://letswift.kr/")!)
                             .edgesIgnoringSafeArea(.bottom)
                     }
                     ActionCell(title: "웹사이트 소스코드") {
                         self.presentModal.toggle()
                     }
                     .sheet(isPresented: $presentModal) {
-                        SafariView(url: URL(string: "https://github.com/letswiftconf/letswift.kr")!)
+                        Safari(url: URL(string: "https://github.com/letswiftconf/letswift.kr")!)
                             .edgesIgnoringSafeArea(.bottom)
                     }
                 }
@@ -45,14 +45,14 @@ struct SettingsView: View {
                         self.presentModal.toggle()
                     }
                     .sheet(isPresented: $presentModal) {
-                        SafariView(url: URL(string: "https://github.com/cleanios/LetSwift/issues")!)
+                        Safari(url: URL(string: "https://github.com/cleanios/LetSwift/issues")!)
                             .edgesIgnoringSafeArea(.bottom)
                     }
                     ActionCell(title: "앱 소스코드") {
                         self.presentModal.toggle()
                     }
                     .sheet(isPresented: $presentModal) {
-                        SafariView(url: URL(string: "https://github.com/cleanios/LetSwift")!)
+                        Safari(url: URL(string: "https://github.com/cleanios/LetSwift")!)
                             .edgesIgnoringSafeArea(.bottom)
                     }
                 }

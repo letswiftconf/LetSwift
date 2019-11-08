@@ -33,12 +33,9 @@ struct SafariView_Previews: PreviewProvider {
         let url = URL(string: "http://letswift.kr/")!
         return Group {
             SafariView(url: url, entersReaderIfAvailable: false)
-                .edgesIgnoringSafeArea(.bottom)
             SafariView(url: url, entersReaderIfAvailable: false)
-                .edgesIgnoringSafeArea(.bottom)
                 .environment(\.colorScheme, .dark)
             SafariView(url: url, entersReaderIfAvailable: false)
-                .edgesIgnoringSafeArea(.bottom)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
     }
