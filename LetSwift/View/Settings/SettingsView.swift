@@ -23,7 +23,7 @@ struct SettingsView: View {
                     permissionCell
                 }
                 Section(header: Text("행사")) {
-                    ActionCell(title: "공식 웹사이트") {
+                    ActionCell(title: "공식 홈페이지") {
                         self.presentModal.toggle()
                     }
                     .sheet(isPresented: $presentModal) {
@@ -61,6 +61,7 @@ struct SettingsView: View {
             .navigationBarTitle("Settings")
             .navigationBarItems(trailing: doneButton)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // MARK: - View components
