@@ -11,6 +11,7 @@ import StoreKit
 
 struct TimelineView: View {
     
+    @State var shouldAnimate = false
     @State var isCollapsedList = [false, true, true, true]
     @State var presentingIndex = 0 {
         didSet {
@@ -146,6 +147,12 @@ struct TimelineView: View {
                 }
                 .padding([.horizontal, .bottom])
                 .animation(animation)
+                .onAppear {
+                    self.updateState(appeared: true)
+                }
+                .onDisappear() {
+                    self.updateState(appeared: false)
+                }
                 
                 // MARK: - Legion
                 LegionSectionView()
@@ -166,10 +173,14 @@ struct TimelineView: View {
     }
     
     // MARK: - Body Builder
-    var animation: Animation {
-        Animation
-            .spring(response: 1, blendDuration: 1)
-            .speed(1.5)
+    var animation: Animation? {
+        if shouldAnimate {
+            return Animation
+                .spring(response: 1, blendDuration: 1)
+                .speed(1.5)
+        } else {
+            return nil
+        }
     }
     
     // MARK: - Helper
@@ -179,6 +190,10 @@ struct TimelineView: View {
         } else if value.translation.width > 50 {
             presentingIndex = max(presentingIndex - 1, 0)
         }
+    }
+    
+    func updateState(appeared: Bool) {
+        shouldAnimate = appeared
     }
 }
 
