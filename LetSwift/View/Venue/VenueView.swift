@@ -66,14 +66,14 @@ struct VenueView: View {
                 Text("서울특별시 강남구 테헤란로7길 22")
                     .font(.subheadline)
             }
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 HStack(spacing: 16) {
-                    mapButton("Apple Map ↗︎", action: openAppleMap)
-                    mapButton("Google Maps ↗︎", action: openGoogle)
+                    mapButton("Apple 지도 ↗︎", action: openAppleMap)
+                    mapButton("Google 지도 ↗︎", action: openGoogle)
                 }
                 HStack(spacing: 16) {
-                    mapButton("Naver Map ↗︎", action: openNaver)
-                    mapButton("Kakao Map ↗︎", action: openKakao)
+                    mapButton("네이버 지도 ↗︎", action: openNaver)
+                    mapButton("카카오맵 ↗︎", action: openKakao)
                 }
             }
         }
@@ -112,14 +112,14 @@ struct VenueView: View {
                 Text("양재 aT 센터 주변 버스정류장 하차")
                     .font(.subheadline)
             }
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 HStack(spacing: 16) {
-                    mapButton("Apple Map ↗︎", action: openAppleMapRoute)
-                    mapButton("Google Maps ↗︎", action: openGoogleRoute)
+                    mapButton("Apple 지도 ↗︎", action: openAppleMapRoute)
+                    mapButton("Google 지도 ↗︎", action: openGoogleRoute)
                 }
                 HStack(spacing: 16) {
-                    mapButton("Naver Map ↗︎", action: openNaverRoute)
-                    mapButton("Kakao Map ↗︎", action: openKakaoRoute)
+                    mapButton("네이버 지도 ↗︎", action: openNaverRoute)
+                    mapButton("카카오맵 ↗︎", action: openKakaoRoute)
                 }
             }
         }
@@ -128,15 +128,15 @@ struct VenueView: View {
     private func noticeView() -> some View {
         return VStack(alignment: .leading, spacing: 6) {
             Text("주의사항")
-                .font(.system(size: 11))
+                .font(.caption)
                 .bold()
                 .foregroundColor(Color(.secondaryLabel))
             ForEach([
-                "개발자 커뮤니티에 자발적으로 참여해서 함께 만들어 가는 행사입니다. 타인에게 최소한의 예의를 지켜주세요.",
-                "본 행사는 점심을 제공하지 않습니다.",
-                "주차는 가능하지만 주차비 지원은 안됩니다.",
-                "오전에는 200명이 들어갈 수 있는 공간에서 세션만 진행합니다.",
-                "오후에는 3개 트랙으로 나눠서, 70명씩 세션, 티타임, 워크숍이 동시에 진행합니다."
+                "• 개발자 커뮤니티에 자발적으로 참여해서 함께 만들어 가는 행사입니다. 타인에게 최소한의 예의를 지켜주세요.",
+                "• 본 행사는 점심을 제공하지 않습니다.",
+                "• 주차는 가능하지만 주차비 지원은 안됩니다.",
+                "• 오전에는 200명이 들어갈 수 있는 공간에서 세션만 진행합니다.",
+                "• 오후에는 3개 트랙으로 나눠서, 70명씩 세션, 티타임, 워크숍이 동시에 진행합니다."
             ], id: \.description) {
                 Text($0)
                     .font(.system(size: 11))
