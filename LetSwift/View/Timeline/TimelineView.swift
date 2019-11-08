@@ -146,15 +146,15 @@ struct TimelineView: View {
                 }
                 .padding([.horizontal, .bottom])
                 .animation(animation)
-                .gesture(DragGesture()
-                .onEnded {
-                    self.dragEndAction($0)
-                })
                 
                 // MARK: - Legion
                 LegionSectionView()
                 Spacer()
             }
+            .gesture(DragGesture()
+            .onEnded {
+                self.dragEndAction($0)
+            })
             .navigationBarTitle("일정")
         }
         .navigationViewStyle(StackNavigationViewStyle())
