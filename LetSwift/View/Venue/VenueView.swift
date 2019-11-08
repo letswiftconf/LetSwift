@@ -37,24 +37,12 @@ struct VenueView: View {
                             }
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack(spacing: 16) {
-                                    Button(action: openAppleMap) {
-                                        Text("Apple Map ↗︎")
-                                    }
-                                    .font(.subheadline)
-                                    Button(action: openGoogle) {
-                                        Text("Google Maps ↗︎")
-                                    }
-                                    .font(.subheadline)
+                                    mapButton("Apple Map ↗︎", action: openAppleMap)
+                                    mapButton("Google Maps ↗︎", action: openGoogle)
                                 }
                                 HStack(spacing: 16) {
-                                    Button(action: openNaver) {
-                                        Text("Naver Map ↗︎")
-                                    }
-                                    .font(.subheadline)
-                                    Button(action: openKakao) {
-                                        Text("Kakao Map ↗︎")
-                                    }
-                                    .font(.subheadline)
+                                    mapButton("Naver Map ↗︎", action: openNaver)
+                                    mapButton("Kakao Map ↗︎", action: openKakao)
                                 }
                             }
                         }
@@ -95,24 +83,12 @@ struct VenueView: View {
                             }
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack(spacing: 16) {
-                                    Button(action: openAppleMapRoute) {
-                                        Text("Apple Map ↗︎")
-                                    }
-                                    .font(.subheadline)
-                                    Button(action: openGoogleRoute) {
-                                        Text("Google Maps ↗︎")
-                                    }
-                                    .font(.subheadline)
+                                    mapButton("Apple Map ↗︎", action: openAppleMapRoute)
+                                    mapButton("Google Maps ↗︎", action: openGoogleRoute)
                                 }
                                 HStack(spacing: 16) {
-                                    Button(action: openNaverRoute) {
-                                        Text("Naver Map ↗︎")
-                                    }
-                                    .font(.subheadline)
-                                    Button(action: openKakaoRoute) {
-                                        Text("Kakao Map ↗︎")
-                                    }
-                                    .font(.subheadline)
+                                    mapButton("Naver Map ↗︎", action: openNaverRoute)
+                                    mapButton("Kakao Map ↗︎", action: openKakaoRoute)
                                 }
                             }
                         }
@@ -131,6 +107,15 @@ struct VenueView: View {
             #if !DEBUG
             SKStoreReviewController.requestReview()
             #endif
+        }
+    }
+    
+    // MARK: - Body Builder
+    private func mapButton(_ title: String, action: @escaping () -> Void) -> some View {
+        return Button(action: action) {
+            Text(title)
+                .font(.footnote)
+                .fontWeight(.semibold)
         }
     }
     
