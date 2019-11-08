@@ -166,7 +166,7 @@ struct HomeView: View {
                 .background(Color(.secondarySystemBackground))
             }
             .navigationBarTitle("홈")
-            //            .navigationBarItems(trailing: settingsButton)
+            .navigationBarItems(trailing: settingsButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(
@@ -177,7 +177,7 @@ struct HomeView: View {
             .background(
                 EmptyView()
                     .sheet(isPresented: $presentsHomepage) {
-                        SafariViewController(url:
+                        SafariView(url:
                             URL(string: "https://letswift.kr/2019")!,
                                              entersReaderIfAvailable: false)
                 }

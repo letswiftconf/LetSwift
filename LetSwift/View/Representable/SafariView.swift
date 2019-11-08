@@ -1,5 +1,5 @@
 //
-//  SafariViewController.swift
+//  SafariView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 2019/07/27.
@@ -9,12 +9,12 @@
 import SwiftUI
 import SafariServices
 
-struct SafariViewController: UIViewControllerRepresentable {
+struct SafariView: UIViewControllerRepresentable {
     let url: URL
-    let entersReaderIfAvailable: Bool
+    var entersReaderIfAvailable = false
     
     // MARK: - Representable
-    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariViewController>) -> SFSafariViewController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
         let configuration = SFSafariViewController.Configuration()
         configuration.entersReaderIfAvailable = entersReaderIfAvailable
         let safari = SFSafariViewController(url: url, configuration: configuration)
@@ -22,7 +22,7 @@ struct SafariViewController: UIViewControllerRepresentable {
         return safari
     }
     
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariViewController>) {
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
         
     }
 }
@@ -32,10 +32,13 @@ struct SafariView_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "http://letswift.kr/")!
         return Group {
-            SafariViewController(url: url, entersReaderIfAvailable: false)
-            SafariViewController(url: url, entersReaderIfAvailable: false)
+            SafariView(url: url, entersReaderIfAvailable: false)
+                .edgesIgnoringSafeArea(.bottom)
+            SafariView(url: url, entersReaderIfAvailable: false)
+                .edgesIgnoringSafeArea(.bottom)
                 .environment(\.colorScheme, .dark)
-            SafariViewController(url: url, entersReaderIfAvailable: false)
+            SafariView(url: url, entersReaderIfAvailable: false)
+                .edgesIgnoringSafeArea(.bottom)
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
     }

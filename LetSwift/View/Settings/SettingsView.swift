@@ -7,47 +7,54 @@
 //
 
 import SwiftUI
+import UIKit
+import os.log
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    // MARK: - Button
-    var doneButton: some View {
-        Button(action: dismiss) {
-            Text("Done")
-        }
-    }
+    @State private var presentModal = false
     
     // MARK: - Body
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("General")) {
-                    Text("App Icon")
-                    Text("Permissions")
+                Section(header: Text("일반")) {
+                    permissionCell
                 }
-                Section(header: Text("Conference")) {
-                    Text("About the Conference")
-                    Text("Code of Conduct")
-                    Text("Conference Feedback")
+                Section(header: Text("행사")) {
+                    ActionCell(title: "공식 웹사이트") {
+                        self.presentModal.toggle()
+                    }
+                    .sheet(isPresented: $presentModal) {
+                        SafariView(url: URL(string: "http://letswift.kr/")!)
+                            .edgesIgnoringSafeArea(.bottom)
+                    }
+                    ActionCell(title: "웹사이트 소스코드") {
+                        self.presentModal.toggle()
+                    }
+                    .sheet(isPresented: $presentModal) {
+                        SafariView(url: URL(string: "https://github.com/letswiftconf/letswift.kr")!)
+                            .edgesIgnoringSafeArea(.bottom)
+                    }
                 }
-                Section(header: Text("Links")) {
-                    SafariNavigationLink(title: "Let'Swift 2018", url: URL(string: "http://letswift.kr/2018"))
-                    SafariNavigationLink(title: "Let'Swift 2017", url: URL(string: "http://letswift.kr/2017"))
-                    SafariNavigationLink(title: "Let'Swift 2016", url: URL(string: "http://letswift.kr/2016"))
-                }
-                Section(header: Text("Developer Community")) {
-                    SafariNavigationLink(title: "OSXDev.org", url: URL(string: "http://www.osxdev.org/forum/index.php"))
-                    SafariNavigationLink(title: "Swift Korea Facebook", url: URL(string: "https://www.facebook.com/groups/swiftkor/"))
-                    SafariNavigationLink(title: "Swift Korea Slack", url: URL(string: "http://slack.swiftkorea.org"))
-                    SafariNavigationLink(title: "iOS Developers KR Open Chat", url: URL(string: "https://open.kakao.com/o/gyLape"))
-                }
-                Section(header: Text("About")) {
-                    Text("Version")
-                    Text("Creators")
-                    SafariNavigationLink(title: "App Feedback", url: URL(string: "https://github.com/cleanios/LetSwift/issues"))
-                    SafariNavigationLink(title: "App Source Code", url: URL(string: "https://github.com/cleanios/LetSwift"))
-                    Text("Open Source Licenses")
+                Section(header: Text("이 앱에 관하여"), footer: footer) {
+                    versionCell
+                    writeReviewCell
+                    ActionCell(title: "앱 피드백") {
+                        self.presentModal.toggle()
+                    }
+                    .sheet(isPresented: $presentModal) {
+                        SafariView(url: URL(string: "https://github.com/cleanios/LetSwift/issues")!)
+                            .edgesIgnoringSafeArea(.bottom)
+                    }
+                    ActionCell(title: "앱 소스코드") {
+                        self.presentModal.toggle()
+                    }
+                    .sheet(isPresented: $presentModal) {
+                        SafariView(url: URL(string: "https://github.com/cleanios/LetSwift")!)
+                            .edgesIgnoringSafeArea(.bottom)
+                    }
                 }
             }
             .listStyle(GroupedListStyle())
@@ -56,9 +63,69 @@ struct SettingsView: View {
         }
     }
     
+    // MARK: - View components
+    private var doneButton: some View {
+        Button(action: dismiss) {
+            Text("Done")
+        }
+        .accentColor(Color(.themePrimary))
+    }
+    
+    private var permissionCell: some View {
+        ActionCell(title: "권한 설정") {
+            self.openAppSettings()
+        }
+    }
+    
+    private var writeReviewCell: some View {
+        ActionCell(title: "리뷰 쓰기") {
+            self.openWriteReivew()
+        }
+    }
+    
+    private var versionCell: some View {
+        TitleDetailCell(title: "버전",
+                        description: UIApplication.shared.versionString)
+    }
+    
+    private var footer: some View {
+        HStack {
+            Spacer()
+            AppInfoView()
+            Spacer()
+        }
+        .padding()
+    }
+    
     // MARK: - Action
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func openAppSettings() {
+        let urlString = UIApplication.openSettingsURLString
+        let app = UIApplication.shared
+        guard let settingsURL = URL(string: urlString),
+            app.canOpenURL(settingsURL) else {
+                os_log(.error, log: .default, "Failed to open application settings")
+                return
+        }
+        app.open(settingsURL, options: [:]) { (didOpen) in
+            os_log(.info, log: .default, "Opened application settings")
+        }
+    }
+    
+    private func openWriteReivew() {
+        let urlString = "itms-apps://apps.apple.com/app/id1282995254?action=write-review"
+        let app = UIApplication.shared
+        guard let settingsURL = URL(string: urlString),
+            app.canOpenURL(settingsURL) else {
+                os_log(.error, log: .default, "Failed to open App Store for review")
+                return
+        }
+        app.open(settingsURL, options: [:]) { (didOpen) in
+            os_log(.info, log: .default, "Opened App Store for review")
+        }
     }
 }
 
@@ -74,4 +141,4 @@ struct SettingsView_Previews: PreviewProvider {
         }
     }
 }
- 
+
