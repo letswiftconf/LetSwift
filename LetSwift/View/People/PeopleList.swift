@@ -46,21 +46,21 @@ struct PeopleList: View {
         case .speakers:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoSpeaker }, id: \.self) { person in
-//                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
+                    NavigationLink(destination: ProfileDetailView(type: self.type, person: person)) {
                         SpeakerCell(speaker: person)
                             .frame(width: 100)
                             .fixedSize(horizontal: true, vertical: false)
-//                    }
+                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
         case .staffs:
             return AnyView(
                 ForEach(people.compactMap { $0 as? ProtoStaff }, id: \.self) { person in
-//                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
+                    NavigationLink(destination: ProfileDetailView(type: self.type, person: person)) {
                         StaffCell(staff: person)
                             .frame(width: 100)
                             .fixedSize(horizontal: true, vertical: false)
-//                    }
+                    }
                 }
                 .buttonStyle(PlainButtonStyle()))
             //        default:

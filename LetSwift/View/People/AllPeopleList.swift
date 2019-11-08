@@ -18,11 +18,14 @@ struct AllPeopleList: View {
     // MARK: - Body
     var body: some View {
         List(people) { person in
-            HStack(alignment: .top, spacing: 16) {
-                self.profileView(person)
-                self.detailView(person)
+            NavigationLink(destination: ProfileDetailView(type: self.type, person: person)) {
+                HStack(alignment: .top, spacing: 16) {
+                    ProfileImageView(imageName: person.name)
+                        .frame(width: 80, height: 80)
+                    self.detailView(person)
+                }
+                .padding(.vertical)
             }
-            .padding(.vertical)
         }
         .navigationBarTitle(type.title)
         .onAppear {
@@ -32,47 +35,36 @@ struct AllPeopleList: View {
         }
     }
     
-    // MARK: - Body Builders
-    func profileView(_ person: SuperPerson) -> some View {
-        return Image(person.name)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 100, height: 100)
-            .mask(Circle())
-    }
-    
+    // MARK: - View components
     func detailView(_ person: SuperPerson) -> some View {
-        return VStack(alignment: .leading) {
-            VStack(alignment: .leading, spacing: 8) {
-                VStack(alignment: .leading) {
-                    Text(person.name)
-                        .font(.headline)
+        VStack(alignment: .leading, spacing: 8) {
+            // Name & Organization
+            VStack(alignment: .leading) {
+                Text(person.name)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                if !person.organization.isEmpty {
+                    Text(person.organization)
+                        .font(.subheadline)
                         .fontWeight(.bold)
-                    if !person.organization.isEmpty {
-                        Text(person.organization)
-                            .font(.subheadline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                VStack(alignment: .leading) {
-                    Text(person.description)
-                        .font(.footnote)
-                        .multilineTextAlignment(.leading)
-                    if !tags(of: person).isEmpty {
-                        Text(tags(of: person))
-                            .font(.footnote)
-                            .foregroundColor(Color(.tertiaryLabel))
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.vertical)
-                    }
-                }
-                if type == .speakers {
-                    sessionView(person)
+                        .foregroundColor(.secondary)
                 }
             }
+            // Description
+            Text(person.description)
+                .font(.footnote)
+            // Tag
+            if !person.tags.isEmpty {
+                HStack {
+                    Text(person.tags.map {"#" + $0 }.joined(separator: " "))
+                        .font(.caption)
+                        .foregroundColor(Color(.tertiaryLabel))
+                }
+            }
+            // Session
+//            if type == .speakers {
+//                sessionView(person)
+//            }
         }
     }
     
@@ -91,26 +83,23 @@ struct AllPeopleList: View {
             }
         })
     }
-    
-    // MARK: - Helper
-    func tags(of person: SuperPerson) -> String {
-        return person.tags.map {"#" + $0 }.joined(separator: " ")
-    }
 }
 
 // MARK: - Preview
 struct AllPeopleList_Previews: PreviewProvider {
     static var previews: some View {
-        let layout = PreviewLayout.fixed(width: 320, height: 240)
         return Group {
-            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
-                .previewLayout(layout)
-            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
-                .previewLayout(layout)
-                .environment(\.colorScheme, .dark)
-            AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
-                .previewLayout(layout)
-                .environment(\.sizeCategory, .extraExtraExtraLarge)
+            NavigationView {
+                AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
+            }
+            NavigationView {
+                AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
+            }
+            .environment(\.colorScheme, .dark)
+            NavigationView {
+                AllPeopleList(type: .speakers, people: ProtoSpeaker.speakers)
+            }
+            .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
         .background(Color(.systemBackground))
     }

@@ -14,11 +14,8 @@ struct StaffCell: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
-            Image(staff.name)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            ProfileImageView(imageName: staff.name)
                 .frame(width: 80, height: 80)
-                .mask(Circle())
             VStack(alignment: .center) {
                 Text(staff.name)
                     .font(.body)
@@ -64,7 +61,6 @@ struct StaffCell_Previews: PreviewProvider {
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
         .padding()
-            //        .previewLayout(.sizeThatFits)
-            .previewLayout(.fixed(width: 100, height: 150))
+                    .previewLayout(.sizeThatFits)
     }
 }

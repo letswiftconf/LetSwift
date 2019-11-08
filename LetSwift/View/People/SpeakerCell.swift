@@ -21,11 +21,8 @@ struct SpeakerCell: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .center) {
-            Image(speaker.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            ProfileImageView(imageName: speaker.name)
                 .frame(width: 80, height: 80)
-                .clipShape(Circle())
             VStack(alignment: .center) {
                 Text(speaker.name)
                     .font(.body)
@@ -54,6 +51,7 @@ struct SpeakerCell_Previews: PreviewProvider {
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
         }
         .padding()
+        .background(Color(.systemBackground))
         //        .previewLayout(.sizeThatFits)
         .previewLayout(.fixed(width: 100, height: 150))
     }
