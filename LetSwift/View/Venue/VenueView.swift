@@ -27,11 +27,15 @@ struct VenueView: View {
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 24) {
                         // Location
-                        VStack(alignment: .leading, spacing: 6) {
+                        VStack(alignment: .leading, spacing: 16) {
                             HeadlineText("장소")
-                            SubheadlineText("양재 aT 센터")
-                            SubheadlineText("서울특별시 강남구 테헤란로7길 22")
-                            VStack(alignment: .leading, spacing: 16) {
+                            VStack(alignment: .leading) {
+                                Text("양재 aT 센터 3층")
+                                    .font(.subheadline)
+                                Text("서울특별시 강남구 테헤란로7길 22")
+                                    .font(.subheadline)
+                            }
+                            VStack(alignment: .leading, spacing: 8) {
                                 HStack(spacing: 16) {
                                     Button(action: openAppleMap) {
                                         Text("Apple Map ↗︎")
@@ -57,25 +61,39 @@ struct VenueView: View {
                         Divider()
                         
                         // Time
-                        VStack(alignment: .leading, spacing: 6) {
+                        VStack(alignment: .leading, spacing: 16) {
                             HeadlineText("일시")
-                            VenueInfoCell(info: .init(title: "11월 12일 화요일",
-                                                      body: "오전 9시부터 오후 5시까지"))
-//                            Button(action: addToCalendar) {
-//                                Text("Add to Calendar")
-//                            }
-//                            .font(.subheadline)
+                            VStack(alignment: .leading) {
+                                Text("11월 12일 화요일")
+                                    .font(.subheadline)
+                                Text("오전 9시부터 오후 5시까지")
+                                    .font(.subheadline)
+                            }
+                            //                            Button(action: addToCalendar) {
+                            //                                Text("Add to Calendar")
+                            //                            }
+                            //                            .font(.subheadline)
                         }
                         Divider()
                         
                         // Route
                         VStack(alignment: .leading, spacing: 16) {
                             HeadlineText("찾아오는 법")
-                            VenueInfoCell(info: .init(title: "지하철",
-                                                      body: "신분당선 '양재시민의 숲'역에서 하차 후 4번 출구"))
-                            VenueInfoCell(info: .init(title: "버스",
-                                                      body: "양재 aT 센터 주변 버스정류장 하차"))
-                            VStack(alignment: .leading, spacing: 16) {
+                            VStack(alignment: .leading) {
+                                Text("지하철")
+                                    .font(.subheadline)
+                                    .bold()
+                                Text("신분당선 '양재시민의 숲'역에서 하차 후 4번 출구")
+                                    .font(.subheadline)
+                            }
+                            VStack(alignment: .leading) {
+                                Text("버스")
+                                    .font(.subheadline)
+                                    .bold()
+                                Text("양재 aT 센터 주변 버스정류장 하차")
+                                    .font(.subheadline)
+                            }
+                            VStack(alignment: .leading, spacing: 8) {
                                 HStack(spacing: 16) {
                                     Button(action: openAppleMapRoute) {
                                         Text("Apple Map ↗︎")
@@ -214,18 +232,6 @@ struct VenueView: View {
                 self.sheetView = AnyView(SafariView(url: URL(string: "https://www.google.co.kr/maps/dir//%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EC%96%91%EC%9E%AC2%EB%8F%99+AT%EC%84%BC%ED%84%B0.%EC%96%91%EC%9E%AC%EA%BD%83%EC%8B%9C%EC%9E%A5/@37.468699,127.0372103,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x357ca12d3098759f:0x977e9d473d0172a0!2m2!1d127.039399!2d37.468699?hl=ko")!))
                 self.presentModal.toggle()
             }
-        }
-    }
-}
-
-struct VenueInfoCell: View {
-    let info: VenueInfo
-    
-    // MARK: - Body
-    var body: some View {
-        VStack(alignment: .leading) {
-            SubheadlineText(info.title)
-            SubheadlineText(info.body)
         }
     }
 }
