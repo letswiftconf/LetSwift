@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     @State private var presentsSettings = false
     @State private var presentsHomepage = false
     @State private var presentsTicket = false
@@ -79,93 +81,37 @@ struct HomeView: View {
                         Divider()
                     }
                     
-                    // MARK: - Welcome
-                    WelcomeItemView("Welcome_iPhone") {
-                        Group {
-                            Text("🤗")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("2019년 11월 12일")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("양재 at 센터")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("행사에서 만나요!")
-                                .font(.title)
-                                .fontWeight(.bold)
+                    // MARK: - First row
+                    if horizontalSizeClass == .regular {
+                        HStack {
+                            firstRowItems
                         }
-                        .foregroundColor(.white)
+                    } else {
+                        VStack {
+                            firstRowItems
+                        }
                     }
                     
-                    // MARK: - Entrance
-                    WelcomeItemView("Welcome_Laptop") {
-                        Group {
-                            Text("🎟")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("티켓과 기념품을 수령하세요")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("행사 입장")
-                                .font(.title)
-                                .fontWeight(.bold)
+                    // MARK: - Second row
+                    if horizontalSizeClass == .regular {
+                        HStack {
+                            secondRowItems
                         }
-                        .foregroundColor(.white)
+                    } else {
+                        VStack {
+                            secondRowItems
+                        }
                     }
                     
-                    // MARK: - Session
-                    WelcomeItemView("Welcome_Session") {
-                        Group {
-                            Text("🎤")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("난이도 있는")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("기술 주제에 대한")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("발표")
-                                .font(.title)
-                                .fontWeight(.bold)
+                    // MARK: - Third row
+                    if horizontalSizeClass == .regular {
+                        HStack {
+                            thirdRowItems
                         }
-                        .foregroundColor(.white)
-                    }
-                    
-                    // MARK: - Workshop
-                    WelcomeItemView("Welcome_Workshop") {
-                        Group {
-                            Text("💻")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("직접 코드 품질을 개선하는")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("워크샵")
-                                .font(.title)
-                                .fontWeight(.bold)
+                    } else {
+                        VStack {
+                            thirdRowItems
                         }
-                        .foregroundColor(.white)
-                    }
-                    
-                    // MARK: - Teatime
-                    WelcomeItemView("Welcome_Teatime") {
-                        Group {
-                            Text("🍵")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("작은 주제별로")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("자유롭게 토론하는")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("티타임")
-                                .font(.title)
-                                .fontWeight(.bold)
-                        }
-                        .foregroundColor(.white)
                     }
                     
                     // MARK: - Footer
@@ -213,6 +159,67 @@ struct HomeView: View {
                     SettingsView()
             }
         )
+    }
+    
+    // MARK: - View Component
+    private var firstRowItems: some View {
+        Group {
+            // MARK: - Welcome
+            WelcomeItemView("Welcome_iPhone") {
+                WelcomeItemContentView(emoji: "🤗",
+                                       description1: "2019년 11월 12일",
+                                       description2: "양재 at 센터",
+                                       title: "행사에서 만나요!")
+            }
+            
+            // MARK: - Entrance
+            WelcomeItemView("Welcome_Laptop") {
+                WelcomeItemContentView(emoji: "🎟",
+                                       description1: "환영합니다!",
+                                       description2: "티켓과 기념품을 수령하세요",
+                                       title: "행사 입장")
+            }
+        }
+    }
+    
+    private var secondRowItems: some View {
+        Group {
+            // MARK: - Session
+            WelcomeItemView("Welcome_Session") {
+                WelcomeItemContentView(emoji: "🎤",
+                                       description1: "난이도 있는",
+                                       description2: "기술 주제에 대한",
+                                       title: "발표")
+            }
+            
+            // MARK: - Workshop
+            WelcomeItemView("Welcome_Workshop") {
+                WelcomeItemContentView(emoji: "💻",
+                                       description1: "경험 풍부한 개발자와",
+                                       description2: "직접 코드 품질을 개선하는",
+                                       title: "워크샵")
+            }
+        }
+    }
+    
+    private var thirdRowItems: some View {
+        Group {
+            // MARK: - Teatime
+            WelcomeItemView("Welcome_Teatime") {
+                WelcomeItemContentView(emoji: "🍵",
+                                       description1: "작은 주제별로",
+                                       description2: "자유롭게 토론하는",
+                                       title: "티타임")
+            }
+            
+            // MARK: - People
+            WelcomeItemView("People") {
+                WelcomeItemContentView(emoji: "👨🏻‍💻🧑🏻‍💻👩🏻‍💻",
+                                       description1: "Let'Swift 2019",
+                                       description2: "우리 모두 함께해요",
+                                       title: "사람들")
+            }
+        }
     }
     
     // MARK: - Action

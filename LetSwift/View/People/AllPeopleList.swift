@@ -8,7 +8,6 @@
 
 import Foundation
 import SwiftUI
-import StoreKit
 
 struct AllPeopleList: View {
     
@@ -29,9 +28,7 @@ struct AllPeopleList: View {
         }
         .navigationBarTitle(type.title)
         .onAppear {
-            #if !DEBUG
-            SKStoreReviewController.requestReview()
-            #endif
+            GlobalAction.requestAppStoreReview()
         }
     }
     

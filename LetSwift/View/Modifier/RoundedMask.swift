@@ -13,5 +13,6 @@ struct  RoundedMask: ViewModifier {
         let mask = RoundedRectangle(cornerRadius: 19, style: .continuous)
         return content
         .clipShape(mask)
+        .contentShape(mask)
     }
 }

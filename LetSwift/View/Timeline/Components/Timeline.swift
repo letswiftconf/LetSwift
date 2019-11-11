@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Timeline<Content>: View where Content: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     @Binding var isCollapsed: Bool
 
     var cornerRadius: CGFloat = 6
@@ -30,7 +32,7 @@ struct Timeline<Content>: View where Content: View {
         VStack(spacing: 0) {
             content()
         }
-        .frame(width: isCollapsed ? collapsedWidth : nil)
+        .frame(width: horizontalSizeClass == .regular ? nil : (isCollapsed ? collapsedWidth : nil))
         .background(trackColor)
         .mask(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
     }

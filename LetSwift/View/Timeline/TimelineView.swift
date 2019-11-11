@@ -7,9 +7,9 @@
 //
 
 import SwiftUI
-import StoreKit
 
 struct TimelineView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     @State var shouldAnimate = false
     @State var isCollapsedList = [false, true, true, true]
@@ -166,13 +166,11 @@ struct TimelineView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            #if !DEBUG
-            SKStoreReviewController.requestReview()
-            #endif
+            GlobalAction.requestAppStoreReview()
         }
     }
     
-    // MARK: - Body Builder
+    // MARK: - View components
     var animation: Animation? {
         if shouldAnimate {
             return Animation
@@ -181,6 +179,16 @@ struct TimelineView: View {
         } else {
             return nil
         }
+    }
+    
+    // MARK: - Action
+    private func expandAllTimeline() {
+        isCollapsedList = [false, false, false, false]
+    }
+    
+    private func collapseTimeline() {
+        isCollapsedList = [true, true, true, true]
+        isCollapsedList[presentingIndex] = false
     }
     
     // MARK: - Helper

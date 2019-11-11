@@ -25,7 +25,7 @@ struct MainTabView: View {
     }
 }
 
-// MARK: - Tab
+// MARK: - Tab model
 extension MainTabView {
     enum Tab: Int, Identifiable, CaseIterable {
         case home
@@ -35,12 +35,12 @@ extension MainTabView {
         case people
         case venue
         
-        // MARK: - Identifiable
+        // MARK: Identifiable
         var id: Int {
             return rawValue
         }
         
-        // MARK: -
+        // MARK:
         var presentingView: some View {
             switch self {
             case .home: return AnyView(HomeView())
@@ -83,10 +83,9 @@ extension MainTabView {
     }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct MainTabbedView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
     }
 }
-#endif

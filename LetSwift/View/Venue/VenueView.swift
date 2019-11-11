@@ -8,7 +8,6 @@
 
 import SwiftUI
 import MapKit
-import StoreKit
 
 struct VenueView: View {
     let location: CLLocationCoordinate2D = .init(latitude: 37.468437, longitude: 127.039055)
@@ -50,16 +49,16 @@ struct VenueView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            #if !DEBUG
-            SKStoreReviewController.requestReview()
-            #endif
+            GlobalAction.requestAppStoreReview()
         }
     }
     
-    // MARK: - Body Builder
+    // MARK: - View components
     private func locationView() -> some View {
         return VStack(alignment: .leading, spacing: 16) {
-            HeadlineText("장소")
+            Text("장소")
+                .font(.headline)
+                .fontWeight(.bold)
             VStack(alignment: .leading) {
                 Text("양재 aT 센터 3층")
                     .font(.subheadline)
@@ -81,7 +80,9 @@ struct VenueView: View {
     
     private func timeView() -> some View {
         return VStack(alignment: .leading, spacing: 16) {
-            HeadlineText("일시")
+            Text("일시")
+                .font(.headline)
+                .fontWeight(.bold)
             VStack(alignment: .leading) {
                 Text("11월 12일 화요일")
                     .font(.subheadline)
@@ -97,7 +98,9 @@ struct VenueView: View {
     
     private func routeView() -> some View {
         return VStack(alignment: .leading, spacing: 16) {
-            HeadlineText("찾아오는 법")
+            Text("찾아오는 법")
+                .font(.headline)
+                .fontWeight(.bold)
             VStack(alignment: .leading) {
                 Text("지하철")
                     .font(.subheadline)
@@ -257,11 +260,6 @@ extension VenueView {
             }
         }
     }
-}
-
-struct VenueInfo {
-    let title: String
-    let body: String
 }
 
 // MARK: - Preview

@@ -15,6 +15,8 @@ struct TimeBlockSettings {
 }
 
 struct TimeBlock: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     var session: ProtoSession
     
     var showContents = false
@@ -31,7 +33,7 @@ struct TimeBlock: View {
                 .foregroundColor(color)
                 .frame(height: height)
             // Contents
-            if showContents == true {
+            if horizontalSizeClass == .regular || showContents == true {
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     if session.level != "" {
                         LevelIndicator(level: session.level, textColor: self.color)
