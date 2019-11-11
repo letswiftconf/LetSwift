@@ -12,25 +12,17 @@ struct PeopleView: View {
     // MARK: - Body
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
+            ScrollView(.vertical) {
+                VStack(spacing: 24) {
                     Image("People")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-//                        .frame(width: .infinity, height: 300)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 240, maxHeight: 240, alignment: .center)
                         .modifier(RoundedMask())
                         .padding(.horizontal)
-                    Spacer(minLength: 24)
-                    VStack(alignment: .leading, spacing: 24) {
-                        PeopleList(type: .speakers, people: ProtoSpeaker.speakers)
-                        //                        PeopleList(type: .sponsors, people: [])
-                        //                        PeopleList(type: .organizers, people: [])
-                        PeopleList(type: .staffs, people: ProtoStaff.makeProtoData())
-                    }
-                    .frame(alignment: .leading)
+                    PeopleList(type: .speakers, people: ProtoSpeaker.speakers)
+                    PeopleList(type: .staffs, people: ProtoStaff.makeProtoData())
                 }
-                Spacer()
             }
             .navigationBarTitle("사람들")
         }

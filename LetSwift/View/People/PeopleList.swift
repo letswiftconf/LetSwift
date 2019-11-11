@@ -15,21 +15,7 @@ struct PeopleList: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack(alignment: .center) {
-                Text(type.title)
-                    .font(.headline)
-                    .fontWeight(.bold)
-                Spacer()
-                NavigationLink(destination: AllPeopleList(type: type, people: people)) {
-                    HStack(alignment: .center, spacing: 4) {
-                        Text("모두 보기")
-                        Image(systemName: "chevron.right")
-                    }
-                    .font(.system(size: 14, weight: .bold, design: .default))
-                }
-            }
-            .padding(.horizontal)
-            
+            titleView
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 8) {
                     self.cells
@@ -40,6 +26,23 @@ struct PeopleList: View {
     }
     
     // MARK: - Body Builder
+    
+    var titleView: some View {
+        HStack(alignment: .center) {
+            Text(type.title)
+                .font(.headline)
+                .fontWeight(.bold)
+            Spacer()
+            NavigationLink(destination: AllPeopleList(type: type, people: people)) {
+                HStack(alignment: .center, spacing: 4) {
+                    Text("모두 보기")
+                        .font(.system(size: 14, weight: .bold, design: .default))
+                    Image(systemName: "chevron.right")
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
     
     var cells: AnyView {
         switch type {
@@ -63,15 +66,6 @@ struct PeopleList: View {
                     }
                 }
                 .buttonStyle(PlainButtonStyle()))
-            //        default:
-            //            return AnyView(
-            //                ForEach(people, id: \.self) { person in
-            //                    NavigationLink(destination: PersonView(type: self.type, person: person)) {
-            //                        PersonCell(person: person)
-            //                            .frame(width: 100)
-            //                    }
-            //                }
-            //                .buttonStyle(PlainButtonStyle()))
         }
     }
 }
