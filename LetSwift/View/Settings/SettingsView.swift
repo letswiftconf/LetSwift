@@ -8,7 +8,6 @@
 
 import SwiftUI
 import UIKit
-import os.log
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -23,38 +22,14 @@ struct SettingsView: View {
                     permissionCell
                 }
                 Section(header: Text("행사")) {
-                    ActionCell(title: "공식 홈페이지") {
-                        self.presentModal.toggle()
-                    }
-                    .sheet(isPresented: $presentModal) {
-                        Safari(url: URL(string: "http://letswift.kr/")!)
-                            .edgesIgnoringSafeArea(.bottom)
-                    }
-                    ActionCell(title: "웹사이트 소스코드") {
-                        self.presentModal.toggle()
-                    }
-                    .sheet(isPresented: $presentModal) {
-                        Safari(url: URL(string: "https://github.com/letswiftconf/letswift.kr")!)
-                            .edgesIgnoringSafeArea(.bottom)
-                    }
+                    openHomepageCell
+                    openWebSourceCodeCell
                 }
                 Section(header: Text("이 앱에 관하여"), footer: footer) {
                     versionCell
                     writeReviewCell
-                    ActionCell(title: "앱 피드백") {
-                        self.presentModal.toggle()
-                    }
-                    .sheet(isPresented: $presentModal) {
-                        Safari(url: URL(string: "https://github.com/cleanios/LetSwift/issues")!)
-                            .edgesIgnoringSafeArea(.bottom)
-                    }
-                    ActionCell(title: "앱 소스코드") {
-                        self.presentModal.toggle()
-                    }
-                    .sheet(isPresented: $presentModal) {
-                        Safari(url: URL(string: "https://github.com/cleanios/LetSwift")!)
-                            .edgesIgnoringSafeArea(.bottom)
-                    }
+                    openAppFeedbackCell
+                    openAppSourceCodeCell
                 }
             }
             .listStyle(GroupedListStyle())
@@ -72,15 +47,55 @@ struct SettingsView: View {
         .accentColor(Color(.themePrimary))
     }
     
+    private var openHomepageCell: some View {
+        ActionCell(title: "공식 홈페이지") {
+            self.presentModal.toggle()
+        }
+        .sheet(isPresented: $presentModal) {
+            Safari(url: URL(string: "http://letswift.kr/")!)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+    
+    private var openWebSourceCodeCell: some View {
+        ActionCell(title: "웹사이트 소스코드") {
+            self.presentModal.toggle()
+        }
+        .sheet(isPresented: $presentModal) {
+            Safari(url: URL(string: "https://github.com/letswiftconf/letswift.kr")!)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+    
+    private var openAppFeedbackCell: some View {
+        ActionCell(title: "앱 피드백") {
+            self.presentModal.toggle()
+        }
+        .sheet(isPresented: $presentModal) {
+            Safari(url: URL(string: "https://github.com/cleanios/LetSwift/issues")!)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+    
+    private var openAppSourceCodeCell: some View {
+        ActionCell(title: "앱 소스코드") {
+            self.presentModal.toggle()
+        }
+        .sheet(isPresented: $presentModal) {
+            Safari(url: URL(string: "https://github.com/cleanios/LetSwift")!)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+    
     private var permissionCell: some View {
         ActionCell(title: "권한 설정") {
-            self.openAppSettings()
+            GlobalAction.openAppSettings()
         }
     }
     
     private var writeReviewCell: some View {
         ActionCell(title: "리뷰 쓰기") {
-            self.openWriteReivew()
+            GlobalAction.openWriteReivew()
         }
     }
     
@@ -101,32 +116,6 @@ struct SettingsView: View {
     // MARK: - Action
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
-    }
-    
-    private func openAppSettings() {
-        let urlString = UIApplication.openSettingsURLString
-        let app = UIApplication.shared
-        guard let settingsURL = URL(string: urlString),
-            app.canOpenURL(settingsURL) else {
-                os_log(.error, log: .default, "Failed to open application settings")
-                return
-        }
-        app.open(settingsURL, options: [:]) { (didOpen) in
-            os_log(.info, log: .default, "Opened application settings")
-        }
-    }
-    
-    private func openWriteReivew() {
-        let urlString = "itms-apps://apps.apple.com/app/id1282995254?action=write-review"
-        let app = UIApplication.shared
-        guard let settingsURL = URL(string: urlString),
-            app.canOpenURL(settingsURL) else {
-                os_log(.error, log: .default, "Failed to open App Store for review")
-                return
-        }
-        app.open(settingsURL, options: [:]) { (didOpen) in
-            os_log(.info, log: .default, "Opened App Store for review")
-        }
     }
 }
 

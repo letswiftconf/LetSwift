@@ -29,10 +29,8 @@ struct VenueMapView: UIViewRepresentable {
                                         span: span)
         mapView.setRegion(region, animated: false)
         
-        
-        let annotation = MKPointAnnotation()
-        
         let centerCoordinate = location
+        let annotation = MKPointAnnotation()
         annotation.coordinate = centerCoordinate
         annotation.title = "양재 aT센터"
         mapView.addAnnotation(annotation)

@@ -26,9 +26,9 @@ struct WelcomeItemView<Content>: View where Content: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 300, maxHeight: 300)
                 .modifier(RoundedMask())
-            VStack(alignment: .leading) {
+            Group() {
                 content()
-                .shadow(radius: 13)
+                    .shadow(radius: 13)
             }
             .padding()
         }
@@ -46,10 +46,10 @@ struct WelcomeItemView_Previews: PreviewProvider {
                     .foregroundColor(.white)
             }
             WelcomeItemView("Sample") {
-                Text("Title")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Text("Description")
+                WelcomeItemContentView(emoji: "🤪",
+                                       description1: "졸업 전시 준비하면서",
+                                       description2: "Let'Swift 앱 만드는",
+                                       title: "개발자")
             }
             .environment(\.colorScheme, .dark)
         }

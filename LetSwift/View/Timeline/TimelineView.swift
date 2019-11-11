@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import StoreKit
 
 struct TimelineView: View {
     
@@ -166,9 +165,7 @@ struct TimelineView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            #if !DEBUG
-            SKStoreReviewController.requestReview()
-            #endif
+            GlobalAction.requestAppStoreReview()
         }
     }
     
