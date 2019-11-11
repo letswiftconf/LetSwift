@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     @State private var presentsSettings = false
     @State private var presentsHomepage = false
     @State private var presentsTicket = false
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     // MARK: - Button
     private var settingsButton: some View {
