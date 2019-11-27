@@ -9,20 +9,36 @@
 import SwiftUI
 
 struct PeopleView: View {
+    // MARK: - Body
     var body: some View {
         NavigationView {
-            List {
-                Text("List")
+            ScrollView(.vertical) {
+                VStack(spacing: 24) {
+                    Image("People")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 240, maxHeight: 240, alignment: .center)
+                        .modifier(RoundedMask())
+                        .padding(.horizontal)
+                    PeopleList(type: .speakers, people: ProtoSpeaker.speakers)
+                    PeopleList(type: .staffs, people: ProtoStaff.makeProtoData())
+                }
             }
-            .navigationBarTitle("People")
+            .navigationBarTitle("사람들")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct PeopleView_Previews: PreviewProvider {
     static var previews: some View {
-        PeopleView()
+        Group {
+            PeopleView()
+            PeopleView()
+                .environment(\.colorScheme, .dark)
+            PeopleView()
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
-#endif

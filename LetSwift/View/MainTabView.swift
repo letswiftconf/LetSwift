@@ -20,32 +20,35 @@ struct MainTabView: View {
                     .tag(tab)
             }
         }
+        .accentColor(Color(.themePrimary))
         .edgesIgnoringSafeArea(.top)
     }
 }
 
-// MARK: - Tab
+// MARK: - Tab model
 extension MainTabView {
     enum Tab: Int, Identifiable, CaseIterable {
         case home
-        case schedule
-        case video
+//        case schedule
+        case timeline
+//        case video
         case people
-        case settings
+        case venue
         
-        // MARK: - Identifiable
+        // MARK: Identifiable
         var id: Int {
             return rawValue
         }
         
-        // MARK: -
+        // MARK:
         var presentingView: some View {
             switch self {
             case .home: return AnyView(HomeView())
-            case .schedule: return AnyView(ScheduleView())
-            case .video: return AnyView(VideoView())
+//            case .schedule: return AnyView(ScheduleView())
+            case .timeline: return AnyView(TimelineView())
+//            case .video: return AnyView(VideoView())
             case .people: return AnyView(PeopleView())
-            case .settings: return AnyView(SettingsView())
+            case .venue: return AnyView(VenueView())
             }
         }
         
@@ -58,30 +61,31 @@ extension MainTabView {
         
         private var name: String {
             switch self {
-            case .home: return "Home"
-            case .schedule: return "Schedule"
-            case .video: return "Video"
-            case .people: return "People"
-            case .settings: return "Settings"
+            case .home: return "홈"
+//            case .schedule: return "일정"
+            case .timeline: return "일정"
+//            case .video: return "Video"
+            case .people: return "사람들"
+            case .venue: return "장소"
             }
         }
         
         private var imageName: String {
             switch self {
             case .home: return "house.fill"
-            case .schedule: return "calendar"
-            case .video: return "film"
+//            case .schedule: return "calendar"
+            case .timeline: return "calendar"
+//            case .video: return "film"
             case .people: return "person.fill"
-            case .settings: return "gear"
+            case .venue: return "map.fill"
             }
         }
     }
 }
 
-#if DEBUG
+// MARK: - Preview
 struct MainTabbedView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
     }
 }
-#endif
