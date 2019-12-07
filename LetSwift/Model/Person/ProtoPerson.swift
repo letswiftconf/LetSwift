@@ -43,3 +43,9 @@ class SuperPerson: Person {
         hasher.combine(id)
     }
 }
+
+extension SuperPerson {
+    var joinedTags: String {
+        return tags.map {"#" + $0 }.joined(separator: " ")
+    }
+}

@@ -26,14 +26,6 @@ struct StaffCell: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.secondaryLabel))
                 if staff.tags.count > 0 {
-//                    HStack {
-//                        ForEach(staff.tags, id: \.self) { tag in
-//                            Text("#" + tag)
-//                                .font(.system(size: 8))
-//                                .fontWeight(.semibold)
-//                                .foregroundColor(Color(.secondaryLabel))
-//                        }
-//                    }
                     Text("#" + staff.tags[0])
                         .font(.caption)
                         .fontWeight(.semibold)

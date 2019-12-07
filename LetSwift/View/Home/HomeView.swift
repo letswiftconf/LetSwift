@@ -27,8 +27,8 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 16) {
-                    HomeHeroView()
-                    
+                    LogoView()
+                        .frame(height: 220)
                     // MARK: - Title
                     Group {
                         Divider()
