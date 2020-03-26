@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var presentsSettings = false
     @State private var presentsHomepage = false
     @State private var presentsTicket = false
+    @State private var presentsPhotos = false
     
     // MARK: - Button
     private var settingsButton: some View {
@@ -77,6 +78,19 @@ struct HomeView: View {
                                 }
                             }
                             .padding(.horizontal)
+                        }
+                        Divider()
+                        WelcomeItemView("Welcome_Photos") {
+                            WelcomeItemContentView(emoji: "📸",
+                                                   description1: "다시보는 행사 스케치",
+                                                   description2: "by 구범모",
+                                                   title: "사진")
+                        }
+                        .onTapGesture {
+                            self.presentsPhotos.toggle()
+                        }
+                        .sheet(isPresented: $presentsPhotos) {
+                            Safari(url: URL(string: "https://bit.ly/3bq39Cj")!)
                         }
                         Divider()
                     }

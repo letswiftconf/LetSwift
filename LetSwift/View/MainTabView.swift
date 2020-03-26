@@ -21,7 +21,7 @@ struct MainTabView: View {
             }
         }
         .accentColor(Color(.themePrimary))
-        .edgesIgnoringSafeArea(.top)
+//        .edgesIgnoringSafeArea(.top)
     }
 }
 
