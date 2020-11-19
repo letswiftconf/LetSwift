@@ -14,7 +14,7 @@ struct HomeHeroView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(Color("Logo_Background"))
-            Image("Logo")
+            Image("LogoLetter")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.vertical, 30)
