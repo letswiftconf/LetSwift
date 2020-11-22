@@ -52,6 +52,7 @@
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
 		6054DA75256A53D500A49BD4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventView.swift */; };
+		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
 		6054DA74256A53D500A49BD4 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			children = (
 				16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */,
 				16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */,
+				6054DA7C256A9DBF00A49BD4 /* DateManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
+				6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */,
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
