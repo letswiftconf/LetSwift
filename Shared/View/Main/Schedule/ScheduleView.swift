@@ -11,12 +11,13 @@ struct ScheduleView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Event()
-                Event()
-                Event()
-                Event()
-                Event()
-                Text("Add Event To calendar")
+                EventView(
+                    titleImageName: "dummy",
+                    title: "SwiftUI vs UIKit",
+                    description: "description",
+                    date: "2020-11-30"
+                )
+                    .padding([.leading, .trailing], /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 Text("Schedule")
                     .navigationTitle("Schedule")
             }
@@ -25,25 +26,12 @@ struct ScheduleView: View {
 }
 
 // MARK: - Preview
+
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ScheduleView()
         }
         .previewAsScreen()
-    }
-}
-
-struct Event: View {
-    var body: some View {
-        ZStack {
-            Placeholder()
-            VStack {
-                Text("Date")
-                Text("Title")
-                Text("Description")
-            }
-        }
-        .foregroundColor(.blue)
     }
 }
