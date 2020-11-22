@@ -8,30 +8,38 @@
 import SwiftUI
 
 struct EventView: View {
-    let titleImageName: String
-    let title: String
-    let description: String
-    let date: String
+    let event: Event
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6.0) {
-            Image(titleImageName)
+            Image(event.titleImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 150, maxHeight: 150)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
-            Text(title)
+            if event.isOnAir {
+                HStack {
+                    Image(systemName: "dot.radiowaves.left.and.right")
+                        .foregroundColor(.red)
+                    Text("LIVE")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.red)
+                }
+                .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            }
+            
+            Text(event.title)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
                 .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            Text(description)
+            Text(event.description)
                 .font(.subheadline)
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding([.leading, .trailing], 10)
-            HStack(alignment: .center, spacing: 50) {
-                Text(date)
+            HStack(alignment: .center) {
+                Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
                 Spacer()
                 Button("Add to Calendar", action: addToCalendar)
                     .frame(alignment: .trailing)
@@ -50,10 +58,12 @@ struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             EventView(
-                titleImageName: "LogoLetter",
-                title: "타이틀",
-                description: "설명",
-                date: "날짜"
+                event: Event(titleImage: "LogoLetter",
+                             title: "SwiftUI vs UIKit",
+                             description: "설명",
+                             date: "11월 22일",
+                             dayOfTheWeek: "수",
+                             time: "19:00 - 21:00")
             )
         }.previewLayout(.sizeThatFits)
     }
