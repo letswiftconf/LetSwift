@@ -52,6 +52,7 @@
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
 		6054DA75256A53D500A49BD4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventView.swift */; };
+		6054DA79256A61E400A49BD4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA78256A61E400A49BD4 /* Event.swift */; };
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
 		6054DA74256A53D500A49BD4 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		6054DA78256A61E400A49BD4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 				16DBE6212569EAD100B334A3 /* LetSwiftApp.swift */,
 				16DBE6B9256A2D4C00B334A3 /* AppDelegate.swift */,
 				16DBE6BD256A2D7600B334A3 /* SceneDelegate.swift */,
+				6054DA77256A61D300A49BD4 /* Model */,
 				16DBE6CE256A2ED800B334A3 /* Controller */,
 				16DBE69D256A241100B334A3 /* View */,
 				16984E72256A33820011C872 /* UIKit View */,
@@ -331,6 +334,10 @@
 			children = (
 				A5346BB1256BB8BB007C41CE /* Person.swift */,
 				A5EC7767256BD23D0072E959 /* People.swift */,
+		6054DA77256A61D300A49BD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6054DA78256A61E400A49BD4 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +426,7 @@
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
 				16984E6D256A33580011C872 /* ActionCell.swift in Sources */,
+				6054DA79256A61E400A49BD4 /* Event.swift in Sources */,
 				16DBE6BA256A2D4C00B334A3 /* AppDelegate.swift in Sources */,
 				1624BF8D256C4A3D00634E29 /* WebSourceCodeItemView.swift in Sources */,
 				16984E6E256A33580011C872 /* SettingsView.swift in Sources */,
