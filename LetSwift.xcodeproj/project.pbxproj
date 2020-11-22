@@ -34,6 +34,7 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* UIApplication.swift */; };
 		16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* UIColor.swift */; };
+		6054DA75256A53D500A49BD4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6054DA74256A53D500A49BD4 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				16DBE6A7256A279B00B334A3 /* ScheduleView.swift */,
+				6054DA74256A53D500A49BD4 /* EventView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				16DBE6BE256A2D7600B334A3 /* SceneDelegate.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
+				6054DA75256A53D500A49BD4 /* EventView.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				16984E8A256A36000011C872 /* Placeholder.swift in Sources */,
 				16DBE6AE256A280800B334A3 /* LocationView.swift in Sources */,
