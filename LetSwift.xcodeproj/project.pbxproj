@@ -34,6 +34,7 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* UIApplication.swift */; };
 		16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* UIColor.swift */; };
+		A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511FC41256BA88D0085CC13 /* PersonCell.swift */; };
 		A5346BB2256BB8BB007C41CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5346BB1256BB8BB007C41CE /* Person.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A511FC41256BA88D0085CC13 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A5346BB1256BB8BB007C41CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				16DBE6B0256A283E00B334A3 /* PeopleView.swift */,
+				A511FC41256BA88D0085CC13 /* PersonCell.swift */,
 				A5346BB1256BB8BB007C41CE /* Person.swift */,
 			);
 			path = People;
@@ -349,6 +352,7 @@
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				16984E8A256A36000011C872 /* Placeholder.swift in Sources */,
+				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
 				16DBE6AE256A280800B334A3 /* LocationView.swift in Sources */,
 				16DBE69F256A242600B334A3 /* Sidebar.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
