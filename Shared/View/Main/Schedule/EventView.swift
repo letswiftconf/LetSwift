@@ -17,7 +17,7 @@ struct EventView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 150, maxHeight: 150)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             if event.isOnAir {
                 HStack {
                     Image(systemName: "dot.radiowaves.left.and.right")
@@ -34,6 +34,7 @@ struct EventView: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
                     .padding(.leading, 10)
+                    .padding([.top, .bottom], 5)
                 Text(event.description)
                     .font(.subheadline)
                     .multilineTextAlignment(.leading)
@@ -49,11 +50,12 @@ struct EventView: View {
                         })
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 30, alignment: .center)
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
+                .padding(EdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 10))
             }
             .background(Color.white)
         }
         .modifier(RoundedMask())
+        .shadow(radius: 5)
     }
     
     func addToCalendar() {
@@ -75,18 +77,17 @@ struct EventView: View {
             #endif
         }
     }
+    
+    func toggleAddingState() {
+        addScheduleSuccess = !addScheduleSuccess
+    }
 }
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             EventView(
-                event: Event(titleImage: "LogoLetter",
-                             title: "SwiftUI vs UIKit",
-                             description: "설명",
-                             date: "11월 22일",
-                             dayOfTheWeek: "수",
-                             time: "19:00 - 21:00")
+                event: events[0]
             )
         }.previewLayout(.sizeThatFits)
     }
