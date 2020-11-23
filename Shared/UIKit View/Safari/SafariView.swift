@@ -31,12 +31,7 @@ struct SafariView: UIViewControllerRepresentable {
 struct SafariView_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "http://letswift.kr/")!
-        return Group {
-            SafariView(url: url, entersReaderIfAvailable: false)
-            SafariView(url: url, entersReaderIfAvailable: false)
-                .environment(\.colorScheme, .dark)
-            SafariView(url: url, entersReaderIfAvailable: false)
-                .environment(\.sizeCategory, .extraExtraExtraLarge)
-        }
+        return SafariView(url: url, entersReaderIfAvailable: false)
+            .previewAsScreen()
     }
 }

@@ -24,5 +24,6 @@ struct Safari_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "http://letswift.kr/")!
         return Safari(url: url, entersReaderIfAvailable: false)
+            .previewAsScreen()
     }
 }
