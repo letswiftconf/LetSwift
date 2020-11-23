@@ -51,6 +51,22 @@ struct EventView: View {
     }
     
     func addToCalendar() {
+        let manager = CalendarManager()
+        switch manager.authorizationStatus {
+        case .authorized:
+            manager.addSession(title: event.title, date: event.date, time: event.time)
+        case .denied, .restricted:
+            // TODO: Show error
+            break
+        case .notDetermined:
+            manager.requestAccess { (granted, error) in
+                self.addToCalendar()
+            }
+        @unknown default:
+            #if DEBUG
+            fatalError()
+            #endif
+        }
     }
 }
 
