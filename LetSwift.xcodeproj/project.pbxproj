@@ -34,6 +34,7 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* UIApplication.swift */; };
 		16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* UIColor.swift */; };
+		A5346BB2256BB8BB007C41CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5346BB1256BB8BB007C41CE /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A5346BB1256BB8BB007C41CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				16DBE6B0256A283E00B334A3 /* PeopleView.swift */,
+				A5346BB1256BB8BB007C41CE /* Person.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
+				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				16DBE6BE256A2D7600B334A3 /* SceneDelegate.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
