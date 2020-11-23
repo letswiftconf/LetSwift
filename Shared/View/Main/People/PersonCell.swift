@@ -7,23 +7,55 @@
 
 import SwiftUI
 
+enum ProfileType {
+    case small
+    case large
+}
+
 struct PersonCell: View {
     var person: Person
+    var type: ProfileType = .small
+    private var width: CGFloat {
+        switch type {
+        case .small:
+            return 80
+        case .large:
+            return 160
+        }
+    }
+    private var titleFont: Font {
+        switch type {
+        case .small:
+            return .body
+        case .large:
+            return .title
+        }
+    }
+    private var organizationFont: Font {
+        switch type {
+        case .small:
+            return .footnote
+        case .large:
+            return .title3
+        }
+    }
     
     var body: some View {
         VStack {
             Spacer()
             Image(person.imageName)
                 .resizable()
-                .frame(width: 80, height: 80)
+                .frame(width: width, height: width)
                 .clipShape(Circle())
             VStack {
                 Text(person.name)
-                    .font(.body)
+                    .font(titleFont)
+                    .foregroundColor(Color(UIColor.label))
                     .bold()
                 if let organization = person.organization {
                     Text(organization)
-                        .font(.footnote)
+                        .font(organizationFont)
+                        .foregroundColor(Color(UIColor.label))
                         .italic()
                 }
             }
