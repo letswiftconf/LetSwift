@@ -11,6 +11,8 @@ struct AppSourceCodeItemView: View {
     let width: CGFloat
     let height: CGFloat
     
+    @State private var presentAppSourceCode = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -25,6 +27,12 @@ struct AppSourceCodeItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .sheet(isPresented: $presentAppSourceCode) {
+            Safari(url: .appSourceCode)
+        }
+        .onTapGesture {
+            presentAppSourceCode.toggle()
+        }
     }
 }
 

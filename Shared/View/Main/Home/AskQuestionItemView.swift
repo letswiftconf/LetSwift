@@ -11,6 +11,8 @@ struct AskQuestionItemView: View {
     let width: CGFloat
     let height: CGFloat
     
+    @State private var presentAskQuestion = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -25,6 +27,12 @@ struct AskQuestionItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .sheet(isPresented: $presentAskQuestion) {
+            Safari(url: .askQuestion)
+        }
+        .onTapGesture {
+            presentAskQuestion.toggle()
+        }
     }
 }
 

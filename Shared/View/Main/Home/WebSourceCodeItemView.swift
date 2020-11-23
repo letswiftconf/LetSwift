@@ -11,6 +11,8 @@ struct WebSourceCodeItemView: View {
     let width: CGFloat
     let height: CGFloat
     
+    @State private var presentWebSourceCode = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -25,6 +27,12 @@ struct WebSourceCodeItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .sheet(isPresented: $presentWebSourceCode) {
+            Safari(url: .webSourceCode)
+        }
+        .onTapGesture {
+            presentWebSourceCode.toggle()
+        }
     }
 }
 
