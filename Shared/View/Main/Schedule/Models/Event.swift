@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Event {
+struct Event: Decodable, Identifiable {
+    let id: Int
     let titleImage: String
     let title: String
     let description: String
@@ -15,15 +16,15 @@ struct Event {
     let dayOfTheWeek: String
     let time: String
     let isOnAir: Bool
-    let dateManager = DateManager()
     
-    init(titleImage: String, title: String, description: String, date: String, dayOfTheWeek: String, time: String) {
+    init(id: Int, titleImage: String, title: String, description: String, date: String, dayOfTheWeek: String, time: String) {
+        self.id = id
         self.titleImage = titleImage
         self.title = title
         self.description = description
         self.date = date
         self.dayOfTheWeek = dayOfTheWeek
         self.time = time
-        self.isOnAir = dateManager.judgeSessionNowLive(date: date, time: time)
+        self.isOnAir = DateManager().judgeSessionNowLive(date: date, time: time)
     }
 }
