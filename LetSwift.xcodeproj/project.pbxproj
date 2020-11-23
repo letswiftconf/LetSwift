@@ -44,6 +44,12 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* UIApplication.swift */; };
 		16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* UIColor.swift */; };
+		A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511FC41256BA88D0085CC13 /* PersonCell.swift */; };
+		A5346BB2256BB8BB007C41CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5346BB1256BB8BB007C41CE /* Person.swift */; };
+		A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */; };
+		A5EC7768256BD23D0072E959 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7767256BD23D0072E959 /* People.swift */; };
+		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
+		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +94,12 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A511FC41256BA88D0085CC13 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		A5346BB1256BB8BB007C41CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
+		A5EC7767256BD23D0072E959 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +227,12 @@
 		16DBE6B5256A2D1E00B334A3 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				A5EC7775256BE5D80072E959 /* Model */,
+				A5EC776D256BE2D60072E959 /* Supporting Views */,
 				16DBE6B0256A283E00B334A3 /* PeopleView.swift */,
+				A511FC41256BA88D0085CC13 /* PersonCell.swift */,
+				A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */,
+				A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -292,6 +309,23 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		A5EC776D256BE2D60072E959 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5EC776E256BE2FB0072E959 /* GridView.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		A5EC7775256BE5D80072E959 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5346BB1256BB8BB007C41CE /* Person.swift */,
+				A5EC7767256BD23D0072E959 /* People.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,10 +399,12 @@
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */,
 				16984E7E256A33C70011C872 /* AppInfoView.swift in Sources */,
+				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16DBE6AB256A280100B334A3 /* TicketView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
+				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
@@ -381,6 +417,7 @@
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
+				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
 				16DBE6BE256A2D7600B334A3 /* SceneDelegate.swift in Sources */,
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
@@ -391,11 +428,14 @@
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				16984E8A256A36000011C872 /* Placeholder.swift in Sources */,
+				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
 				1624BF09256B73A200634E29 /* Shadow.swift in Sources */,
 				16DBE6AE256A280800B334A3 /* LocationView.swift in Sources */,
 				1624BF84256C487900634E29 /* GetTicketItemView.swift in Sources */,
 				16DBE69F256A242600B334A3 /* Sidebar.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
+				A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */,
+				A5EC7768256BD23D0072E959 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
