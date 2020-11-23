@@ -13,20 +13,32 @@ struct HomeView: View {
     // MARK: - Body
     var body: some View {
         ScrollView {
-            VStack {
-                Placeholder()
-                Text("Header")
-                Text("Catch phrase")
-                Text("Others")
-                Text("Ticket")
-                Text("Newsletter")
-                Text("Past Events")
-                Text("Brought to you by")
-                Text("Open Source App")
-                Text("Open Source Web")
+            VStack(spacing: .homeItemVSpacing) {
+                HeroItemView(height: .homeItemHeight)
+                GeometryReader { geometry in
+                    let width = (geometry.size.width - CGFloat.homeItemHSpacing) / 2
+                    let height = geometry.size.height
+                    HStack(spacing: .homeItemHSpacing) {
+                        GetTicketItemView(width: width, height: height)
+                        AskQuestionItemView(width: width, height: height)
+                    }
+                }
+                .frame(height: .homeItemHeight)
+                NewsletterItemView(height: .homeItemHeight)
+                GeometryReader { geometry in
+                    let width = (geometry.size.width - CGFloat.homeItemHSpacing) / 2
+                    let height = geometry.size.height
+                    HStack(spacing: .homeItemHSpacing) {
+                        AppSourceCodeItemView(width: width, height: height)
+                        WebSourceCodeItemView(width: width, height: height)
+                    }
+                }
+                .frame(height: .homeItemHeight)
+                PastEventItemView(height: .homeItemHeight)
             }
+            .padding(.horizontal)
         }
-        .navigationTitle("Home")
+        .navigationTitle("홈")
     }
 }
 
@@ -36,6 +48,6 @@ struct HomeView_Previews: PreviewProvider {
         NavigationView{
             HomeView()
         }
-        .previewAsScreen()
+        .previewAsComponent()
     }
 }
