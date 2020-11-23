@@ -10,11 +10,20 @@ import SwiftUI
 struct PeopleView: View {
     var body: some View {
         ScrollView {
-            VStack {
-                Text("Organizer")
-                Text("Sponsor")
-                Text("Staff")
+            VStack(spacing: 20) {
+                Image("sample")
+                    .resizable()
+                    .frame(maxWidth: 400)
+                    .frame(height: 200)
+                    .cornerRadius(10)
+                PeopleGroupedByRoleView()
+                    .environmentObject(People(type: .organizer))
+                PeopleGroupedByRoleView()
+                    .environmentObject(People(type: .panels))
+                PeopleGroupedByRoleView()
+                    .environmentObject(People(type: .staff))
             }
+            .padding()
         }
         .navigationTitle("People")
     }
