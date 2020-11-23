@@ -16,6 +16,12 @@ struct Person: Hashable, Identifiable {
     let description: String
 }
 
+enum PersonType {
+    case organizer
+    case panels
+    case staff
+}
+
 extension Person {
     static func makeOrganizer() -> [Person] {
         return [Person(imageName: "sample", name: "organizer", organization: nil, role: ["organizer"], description: "I'm organizer")]
