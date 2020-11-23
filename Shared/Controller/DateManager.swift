@@ -9,27 +9,33 @@ import Foundation
 
 struct DateManager {
     func judgeSessionNowLive(date: String, time: String) -> Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        guard let sessionTime = stringDateConvert(date: date, time: time) else { return false }
         
-        guard let formattedDate = dateFormatter.date(from: "2020년 \(date)")?.addingTimeInterval(32400) else { return false }
         let today = Calendar.current.dateComponents([.month, .day, .hour], from: Date())
-        let sessionDay = Calendar.current.dateComponents([.month, .day], from: formattedDate)
-        guard today.month == sessionDay.month && today.day == sessionDay.day else { return false }
+        let sessionStart = Calendar.current.dateComponents([.month, .day, .hour], from: sessionTime.start)
+        let sessionEnd = Calendar.current.dateComponents([.month, .day, .hour], from: sessionTime.end)
         
-        
-        let startTime = time[time.startIndex...time.index(time.startIndex, offsetBy: 4)]
-        let endTime = time[time.index(time.endIndex, offsetBy: -5)...time.index(before: time.endIndex)]
-        dateFormatter.dateFormat = "HH:mm"
-        let start = dateFormatter.date(from: String(startTime))!
-        let end = dateFormatter.date(from: String(endTime))!
-        
-        let s = Calendar.current.dateComponents([.hour], from: start)
-        let e = Calendar.current.dateComponents([.hour], from: end)
-        
-        guard let startHour = s.hour, let endHour = e.hour, let nowHour = today.hour else { return false }
+        guard today.month == sessionStart.month && today.day == sessionStart.day else { return false }
+        guard let startHour = sessionStart.hour,
+              let endHour = sessionEnd.hour,
+              let nowHour = today.hour
+        else { return false }
         guard startHour <= nowHour, nowHour <= endHour else { return false }
         
         return true
+    }
+    
+    func stringDateConvert(date: String, time: String) -> (start: Date, end: Date)? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        
+        let startTime = time[time.startIndex...time.index(time.startIndex, offsetBy: 4)]
+        let endTime = time[time.index(time.endIndex, offsetBy: -5)...time.index(before: time.endIndex)]
+        
+        guard let startDate = dateFormatter.date(from: "2020년 \(date) \(startTime)"),
+              let endDate = dateFormatter.date(from: "2020년 \(date) \(endTime)")
+        else { return nil }
+        
+        return (startDate, endDate)
     }
 }
