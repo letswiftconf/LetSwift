@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventView: View {
     let event: Event
+    @State var addScheduleSuccess: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6.0) {
@@ -25,27 +26,32 @@ struct EventView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.red)
                 }
-                .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                .padding(.leading, 10)
             }
-            
-            Text(event.title)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            Text(event.description)
-                .font(.subheadline)
-                .multilineTextAlignment(.leading)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding([.leading, .trailing], 10)
-            HStack(alignment: .center) {
-                Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
-                Spacer()
-                Button("Add to Calendar", action: addToCalendar)
-                    .frame(alignment: .trailing)
+            VStack(alignment: .leading) {
+                Text(event.title)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.leading)
+                    .padding(.leading, 10)
+                Text(event.description)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding([.leading, .trailing], 10)
+                HStack(alignment: .center) {
+                    Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
+                    Spacer()
+                    Button("Add to Calendar", action: addToCalendar)
+                        .frame(alignment: .trailing)
+                        .alert(isPresented: $addScheduleSuccess, content: {
+                            Alert(title: Text("알림"), message: Text("일정 등록이 완료되었습니다"), dismissButton: .default(Text("확인")))
+                        })
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 30, alignment: .center)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
             }
-            .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 0, maxHeight: 30, alignment: .center)
-            .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
+            .background(Color.white)
         }
         .modifier(RoundedMask())
     }
@@ -55,6 +61,7 @@ struct EventView: View {
         switch manager.authorizationStatus {
         case .authorized:
             manager.addSession(title: event.title, date: event.date, time: event.time)
+            addScheduleSuccess = true
         case .denied, .restricted:
             // TODO: Show error
             break
