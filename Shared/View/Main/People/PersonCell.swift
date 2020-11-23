@@ -20,13 +20,15 @@ struct PersonCell: View {
             VStack {
                 Text(person.name)
                     .font(.body)
+                    .bold()
                 if let organization = person.organization {
                     Text(organization)
                         .font(.footnote)
                         .italic()
-                        .lineLimit(2)
                 }
             }
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
             Spacer()
         }
     }
