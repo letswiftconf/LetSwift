@@ -11,7 +11,7 @@ struct PeopleView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Image("sample")
+                Image("Placeholder")
                     .resizable()
                     .frame(maxWidth: 400)
                     .frame(height: 200)
