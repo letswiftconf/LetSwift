@@ -28,7 +28,7 @@ extension Person {
     }
     
     static func makePanels() -> [Person] {
-        return (1...4).map { return Person(imageName: "sample", name: "panel\($0)", organization: "organization\($0)", role: ["panel"], description: "I'm panel\($0)") }
+        return (1...6).map { return Person(imageName: "sample", name: "panel\($0)", organization: "organization\($0)", role: ["panel"], description: "I'm panel\($0)") }
     }
     
     static func makeStaff() -> [Person] {

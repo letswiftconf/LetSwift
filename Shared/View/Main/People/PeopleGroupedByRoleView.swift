@@ -27,15 +27,23 @@ struct PeopleGroupedByRoleView: View {
     func containedView() -> AnyView {
         switch people.type {
         case .organizer:
-            return AnyView(PersonCell(person: people.list[0]))
+            return AnyView(
+                NavigationLink(
+                    destination: PersonDetailView(person: people.list[0])) {
+                    PersonCell(person: people.list[0])
+                }
+            )
             
         default:
             return AnyView(
                 GridView(rows: people.list.count / 3 + 1, columns: 3, content: { (index) in
                     if people.list.count > index {
-                        PersonCell(person: people.list[index])
-                            .frame(width: 80)
-                            .fixedSize(horizontal: true, vertical: false)
+                        NavigationLink(
+                            destination: PersonDetailView(person: people.list[index])) {
+                            PersonCell(person: people.list[index])
+                                .frame(width: 80)
+                                .fixedSize(horizontal: true, vertical: false)
+                        }
                     }
                 })
                 .padding()
