@@ -63,7 +63,7 @@ struct Sidebar: View {
 //        .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: settingsButton)
         .listStyle(SidebarListStyle())
-        .navigationTitle("Let'Swift")
+        .navigationTitle("Let'Swift") 
     }
     
     // MARK: - Action
