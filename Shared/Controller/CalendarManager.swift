@@ -73,4 +73,23 @@ class CalendarManager {
             #endif
         }
     }
+    
+    func addSession(title: String, date: String, time: String) {
+        let dateManager = DateManager()
+        guard let sessionTime = dateManager.stringDateConvert(date: date, time: time) else { return }
+        let event = EKEvent(eventStore: store)
+        event.title = title
+        event.startDate = sessionTime.start
+        event.endDate = sessionTime.end
+        event.calendar = store.calendars(for: .event).first
+       
+        
+        do {
+            try store.save(event, span: .thisEvent)
+        } catch {
+            #if DEBUG
+            fatalError(error.localizedDescription)
+            #endif
+        }
+    }
 }
