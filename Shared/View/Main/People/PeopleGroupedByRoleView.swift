@@ -10,6 +10,15 @@ import SwiftUI
 struct PeopleGroupedByRoleView: View {
     @EnvironmentObject private var people: People
     
+    var numOfItemsInRow: Int {
+        switch UIDevice.current.model {
+        case "iPhone":
+            return 3
+        default:
+            return 5
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
@@ -35,8 +44,9 @@ struct PeopleGroupedByRoleView: View {
             )
             
         default:
+            let row = Int(ceil(Double(people.list.count) / Double(numOfItemsInRow)))
             return AnyView(
-                GridView(rows: people.list.count / 3 + 1, columns: 3, content: { (index) in
+                GridView(rows: row, columns: numOfItemsInRow, content: { (index) in
                     if people.list.count > index {
                         NavigationLink(
                             destination: PersonDetailView(person: people.list[index])) {
@@ -44,6 +54,10 @@ struct PeopleGroupedByRoleView: View {
                                 .frame(width: 80)
                                 .fixedSize(horizontal: true, vertical: false)
                         }
+                    } else {
+                        PersonCell(person: Person.makeDummy())
+                            .frame(width: 80)
+                            .hidden()
                     }
                 })
                 .padding()

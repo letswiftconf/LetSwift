@@ -33,5 +33,8 @@ extension Person {
     
     static func makeStaff() -> [Person] {
         return (1...4).map { Person(imageName: "Placeholder", name: "staff\($0)", organization: "organization\($0)", role: ["staff"], description: "I'm staff\($0)") }
+    
+    static func makeDummy() -> Person {
+        return Person(imageName: "Placeholder", name: "", organization: "", role: [], description: "")
     }
 }
