@@ -10,6 +10,8 @@ import SwiftUI
 struct NewsletterItemView: View {
     let height: CGFloat
     
+    @State private var presentNewsletter = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -30,6 +32,12 @@ struct NewsletterItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .sheet(isPresented: $presentNewsletter) {
+            Safari(url: .newsletter)
+        }
+        .onTapGesture {
+            presentNewsletter.toggle()
+        }
     }
 }
 

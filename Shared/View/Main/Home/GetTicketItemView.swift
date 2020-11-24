@@ -11,6 +11,8 @@ struct GetTicketItemView: View {
     let width: CGFloat
     let height: CGFloat
     
+    @State private var presentGetTicket = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -25,6 +27,12 @@ struct GetTicketItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .sheet(isPresented: $presentGetTicket) {
+            Safari(url: .getTicket)
+        }
+        .onTapGesture {
+            presentGetTicket.toggle()
+        }
     }
 }
 
