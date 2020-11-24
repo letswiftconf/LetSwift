@@ -52,15 +52,16 @@ struct PersonCell: View {
                     .font(titleFont)
                     .foregroundColor(Color(UIColor.label))
                     .bold()
+                    .minimumScaleFactor(0.5)
                 if let organization = person.organization {
                     Text(organization)
                         .font(organizationFont)
-                        .foregroundColor(Color(UIColor.label))
-                        .italic()
+                        .foregroundColor(.gray)
+                        .bold()
+                        .minimumScaleFactor(0.5)
                 }
             }
-            .multilineTextAlignment(.center)
-            .fixedSize(horizontal: false, vertical: true)
+            .lineLimit(1)
             Spacer()
         }
     }
