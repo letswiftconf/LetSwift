@@ -45,6 +45,11 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* UIApplication.swift */; };
 		16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* UIColor.swift */; };
+		6054DA75256A53D500A49BD4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventView.swift */; };
+		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
+		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
+		60E1766F256D507A0068B3F4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1766E256D507A0068B3F4 /* Data.swift */; };
+		60E17672256D509B0068B3F4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
 		A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511FC41256BA88D0085CC13 /* PersonCell.swift */; };
 		A5346BB2256BB8BB007C41CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5346BB1256BB8BB007C41CE /* Person.swift */; };
 		A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */; };
@@ -96,6 +101,11 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6054DA74256A53D500A49BD4 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		60E1766E256D507A0068B3F4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		60E17671256D509B0068B3F4 /* Event.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
 		A511FC41256BA88D0085CC13 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A5346BB1256BB8BB007C41CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
@@ -250,7 +260,9 @@
 		16DBE6B7256A2D2600B334A3 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				60E17668256D4FAF0068B3F4 /* Models */,
 				16DBE6A7256A279B00B334A3 /* ScheduleView.swift */,
+				6054DA74256A53D500A49BD4 /* EventView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -275,6 +287,7 @@
 			children = (
 				16DBE6232569EAD200B334A3 /* Assets.xcassets */,
 				16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */,
+				60E17671256D509B0068B3F4 /* Event.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -297,6 +310,7 @@
 			children = (
 				16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */,
 				16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */,
+				6054DA7C256A9DBF00A49BD4 /* DateManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +324,15 @@
 				16984E7D256A33C60011C872 /* AppInfoView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		60E17668256D4FAF0068B3F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60E17669256D4FBE0068B3F4 /* Event.swift */,
+				60E1766E256D507A0068B3F4 /* Data.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A5EC776D256BE2D60072E959 /* Supporting Views */ = {
@@ -386,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E17672256D509B0068B3F4 /* Event.json in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,9 +429,11 @@
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16DBE6AB256A280100B334A3 /* TicketView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
+				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
+				6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */,
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
@@ -429,6 +455,8 @@
 				16984E9A256A505A0011C872 /* ARView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
+				6054DA75256A53D500A49BD4 /* EventView.swift in Sources */,
+				60E1766F256D507A0068B3F4 /* Data.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				16984E8A256A36000011C872 /* Placeholder.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
