@@ -13,8 +13,8 @@ struct PeopleView: View {
             VStack(spacing: 20) {
                 Image("Placeholder")
                     .resizable()
-                    .frame(maxWidth: 400)
-                    .frame(height: 200)
+                    .aspectRatio(4 / 3, contentMode: .fill)
+                    .frame(maxWidth: .infinity)
                     .cornerRadius(10)
                 PeopleGroupedByRoleView()
                     .environmentObject(People(type: .organizer))
