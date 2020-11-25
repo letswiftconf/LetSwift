@@ -48,10 +48,12 @@ struct EventView: View {
                         .alert(isPresented: $addScheduleSuccess, content: {
                             Alert(title: Text("알림"), message: Text("일정 등록이 완료되었습니다"), dismissButton: .default(Text("확인")))
                         })
+                        .foregroundColor(Color(UIColor.link))
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 30, alignment: .center)
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 10))
             }
+            .foregroundColor(.black)
             .background(Color.white)
         }
         .modifier(RoundedMask())
