@@ -38,3 +38,17 @@ struct DateManager {
         return (startDate, endDate)
     }
 }
+
+extension DateManager {
+    static func makeUserNotification() -> [UserNotificationInfo] {
+        return [
+            UserNotificationInfo("Welcome!", "오늘부터 금요일까지 진행될 레츠스위프트, 준비되셨나요?", 11, 30, 0, 0),
+            UserNotificationInfo("준비하세요!", "\"스위프트, 오픈소스, CoreML\" 세션이 곧 시작됩니다.", 11, 30, 18, 50),
+            UserNotificationInfo("준비하세요!", "\"SwiftUI vs UIKit 끝장토론\" 세션이 곧 시작됩니다.", 12, 1, 18, 50),
+            UserNotificationInfo("준비하세요!", "\"XCode, 패키지 관리, 빌드환경\" 세션이 곧 시작됩니다.", 12, 2, 18, 50),
+            UserNotificationInfo("준비하세요!", "\"아키텍처, 테스트, 배포\" 세션이 곧 시작됩니다.", 12, 3, 18, 50),
+            UserNotificationInfo("준비하세요!", "\"개발문화, 코드리뷰, 기술블로그\" 세션이 곧 시작됩니다.", 12, 4, 18, 50),
+            UserNotificationInfo("GoodBye!", "오늘이 2020 레츠스위프트의 마지막 날입니다. 함께해 주실 거죠?", 12, 4, 0, 0)
+        ]
+    }
+}
