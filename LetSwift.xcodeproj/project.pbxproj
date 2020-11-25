@@ -53,6 +53,7 @@
 		A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511FC41256BA88D0085CC13 /* PersonCell.swift */; };
 		A5346BB2256BB8BB007C41CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5346BB1256BB8BB007C41CE /* Person.swift */; };
 		A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */; };
+		A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */; };
 		A5EC7768256BD23D0072E959 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7767256BD23D0072E959 /* People.swift */; };
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
@@ -109,6 +110,7 @@
 		A511FC41256BA88D0085CC13 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		A5346BB1256BB8BB007C41CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A56D7F2D256BF1D3003F8336 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
+		A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A5EC7767256BD23D0072E959 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				1624BF97256C7D8500634E29 /* URL.swift */,
 				16DBE6C8256A2EC800B334A3 /* UIApplication.swift */,
 				16DBE6C9256A2EC800B334A3 /* UIColor.swift */,
+				A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
+				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
