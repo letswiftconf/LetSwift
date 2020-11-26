@@ -26,6 +26,12 @@ struct LetSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+            letSwiftNotification()
         }
+    }
+    
+    func letSwiftNotification() -> EmptyView {
+        UNUserNotificationCenter.requestLetSwiftNotification()
+        return EmptyView()
     }
 }

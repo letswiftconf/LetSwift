@@ -9,22 +9,19 @@ import SwiftUI
 
 struct ScheduleView: View {
     var body: some View {
-                ScrollView {
-                    VStack {
-                        EventView(event: events[0])
-                            .padding([.all], 8)
-                        EventView(event: events[1])
-                            .padding([.all], 8)
-                        EventView(event: events[2])
-                            .padding([.all], 8)
-                        EventView(event: events[3])
-                            .padding([.all], 8)
-                        EventView(event: events[4])
-                            .padding([.all], 8)
-                        Text("Schedule")
-                            .navigationTitle("Schedule")
-                    }
-                }
+        ScrollView {
+            VStack {
+                Group {
+                    EventView(event: events[0])
+                    EventView(event: events[1])
+                    EventView(event: events[2])
+                    EventView(event: events[3])
+                    EventView(event: events[4])
+                }.padding([.all], 8)
+                Text("Schedule")
+                    .navigationTitle("Schedule")
+            }
+        }
     }
 }
 
