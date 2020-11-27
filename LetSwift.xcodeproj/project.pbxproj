@@ -31,6 +31,12 @@
 		16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16984E8E256A378C0011C872 /* SidebarNavigationView.swift */; };
 		16984E92256A37950011C872 /* TabNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16984E91256A37950011C872 /* TabNavigationView.swift */; };
 		16984E9A256A505A0011C872 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16984E99256A505A0011C872 /* ARView.swift */; };
+		16B3076025707B4C009789EC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */; };
+		16B3076525707B4D009789EC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */; };
+		16B3076625707B4D009789EC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B1A256E8E2500EB6C8F /* DateFormatter.swift */; };
+		16B3076B25707B5D009789EC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B17256E510C00EB6C8F /* UNUserNotificationCenter.swift */; };
+		16B3077025707B5D009789EC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B17256E510C00EB6C8F /* UNUserNotificationCenter.swift */; };
+		16B3077125707B5E009789EC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5704B17256E510C00EB6C8F /* UNUserNotificationCenter.swift */; };
 		16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6212569EAD100B334A3 /* LetSwiftApp.swift */; };
 		16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DBE6232569EAD200B334A3 /* Assets.xcassets */; };
 		16DBE69F256A242600B334A3 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE69E256A242600B334A3 /* Sidebar.swift */; };
@@ -745,6 +751,8 @@
 				9A77C746256EC0CC00B30BC6 /* DateManager.swift in Sources */,
 				9A77C743256EC0BC00B30BC6 /* Data.swift in Sources */,
 				9A77C734256EC0B300B30BC6 /* ScheduleWidget.swift in Sources */,
+				16B3076025707B4C009789EC /* DateFormatter.swift in Sources */,
+				16B3076B25707B5D009789EC /* UNUserNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +764,8 @@
 				9A77C78C256EC59300B30BC6 /* DateManager.swift in Sources */,
 				9A77C78A256EC59300B30BC6 /* Event.swift in Sources */,
 				9A77C789256EC59300B30BC6 /* Data.swift in Sources */,
+				16B3076525707B4D009789EC /* DateFormatter.swift in Sources */,
+				16B3077025707B5D009789EC /* UNUserNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +777,8 @@
 				9AD49463256EE10800C9E5C4 /* DateManager.swift in Sources */,
 				9AD4945E256EE10300C9E5C4 /* Event.swift in Sources */,
 				9AD49459256EE10100C9E5C4 /* Data.swift in Sources */,
+				16B3076625707B4D009789EC /* DateFormatter.swift in Sources */,
+				16B3077125707B5E009789EC /* UNUserNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
