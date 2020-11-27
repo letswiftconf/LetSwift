@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "gradienta-LeG68PrXA6Y-unsplash.jpg",
+      "filename" : "placeholder.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "placeholder_dark.png",
       "idiom" : "universal"
     }
   ],

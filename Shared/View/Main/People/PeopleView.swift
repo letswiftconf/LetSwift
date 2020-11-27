@@ -11,12 +11,12 @@ struct PeopleView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Image("Placeholder")
-                    .resizable()
-                    .aspectRatio(4 / 3, contentMode: .fill)
-                    .frame(maxWidth: .infinity)
-                    .modifier(RoundedMask())
-                    .modifier(Shadow())
+//                Image("Placeholder")
+//                    .resizable()
+//                    .aspectRatio(4 / 3, contentMode: .fill)
+//                    .frame(maxWidth: .infinity)
+//                    .modifier(RoundedMask())
+//                    .modifier(Shadow())
                 PeopleGroupedByRoleView()
                     .environmentObject(People(type: .organizer))
 //                PeopleGroupedByRoleView()

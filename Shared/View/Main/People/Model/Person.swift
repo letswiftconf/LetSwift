@@ -71,7 +71,7 @@ enum SNS: Hashable {
         case .instagram(_):
             return "Instagram"
         case .faceBook(_):
-            return "FaceBook"
+            return "Facebook"
         case .twitter(_):
             return "Twitter"
         case .blog(_):

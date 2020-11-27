@@ -41,12 +41,13 @@ struct HomeView: View {
                     }
                 }
                 .frame(height: .homeItemHeight)
-                PastEventItemView(height: .homeItemHeight)
+//                PastEventItemView(height: .homeItemHeight)
+                EmptyView()
+                    .sheet(isPresented: $presentsSettings) {
+                        SettingsView()
+                    }
             }
             .padding(.horizontal)
-        }
-        .sheet(isPresented: $presentsSettings) {
-            SettingsView()
         }
         .navigationTitle("홈")
         #if os(iOS)
