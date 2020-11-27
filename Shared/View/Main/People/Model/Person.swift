@@ -99,7 +99,19 @@ enum PersonType {
 
 extension Person {
     static func makeOrganizer() -> [Person] {
-        return [Person.makeDummy()]
+        return [
+            Person(name: "김정",
+                   organization: "코드스쿼드",
+                   role: [.planner, .staff],
+                   description: "나의 작은 발자국이 누군가에게 표식으로 남기를",
+                   sns: [
+                    .email("godrm77@gmail.com"),
+                    .gitHub("https://github.com/godrm"),
+                    .instagram("https://www.instagram.com/godrm"),
+                    .faceBook("https://web.facebook.com/godrm"),
+                    .twitter("https://twitter.com/godrm")
+                   ])
+        ]
     }
     
     static func makePanels() -> [Person] {

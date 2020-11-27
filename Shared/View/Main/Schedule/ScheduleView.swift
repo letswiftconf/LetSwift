@@ -10,23 +10,18 @@ import SwiftUI
 struct ScheduleView: View {
     var body: some View {
         ScrollView {
-            VStack {
-                Group {
-                    EventView(event: events[0])
-                    EventView(event: events[1])
-                    EventView(event: events[2])
-                    EventView(event: events[3])
-                    EventView(event: events[4])
-                }.padding([.all], 8)
-                Text("Schedule")
-                    .navigationTitle("Schedule")
+            VStack(spacing: 24) {
+                ForEach(events, id: \.id) { event in
+                    EventItemView(event: event)
+                        .padding(.horizontal)
+                }
             }
         }
+        .navigationTitle("스케줄")
     }
 }
 
 // MARK: - Preview
-
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

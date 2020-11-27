@@ -35,23 +35,24 @@ struct ScheduleWidgetEntryView : View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Let's Swift Conference 2020")
                 .font(.headline)
-                .padding([.leading, .trailing], 10)
+                .fontWeight(.bold)
+                .foregroundColor(.orange)
             ForEach(events) { event in
                 VStack(alignment: .leading, spacing: 2) {
                     Text(event.title)
-                        .font(.footnote)
-                        .fontWeight(.medium)
-                        .padding([.leading, .trailing], 10)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
                     Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
-                        .font(.caption2)
+                        .font(.footnote)
                         .foregroundColor(.secondary)
-                        .padding([.leading, .trailing], 10)
                 }
+                .padding(.vertical, 4)
                 if events.last?.id != event.id {
                     Divider()
                 }
             }
         }
+        .padding()
     }
 }
 
@@ -69,6 +70,7 @@ struct ScheduleWidget: Widget {
     }
 }
 
+// MARK: - Preview
 struct ScheduleWidget_Previews: PreviewProvider {
     static var previews: some View {
         ScheduleWidgetEntryView(events: events)

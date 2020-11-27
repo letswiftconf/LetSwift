@@ -67,20 +67,24 @@ struct UpComing1SmallView: View {
         ZStack(alignment: .bottomLeading) {
             Image("Placeholder")
                 .resizable()
-            VStack(alignment: .leading) {
+            Color.black.opacity(0.5)
+            VStack(alignment: .leading, spacing: 4) {
                 Text(event?.title ?? "다음 이벤트가 없습니다")
-                    .font(.footnote)
-                    .fontWeight(.medium)
+                    .font(.caption)
+                    .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
                 Text([event?.date, event?.dayOfTheWeek].compactMap { $0 }.joined(separator: " "))
-                    .font(.caption)
+                    .font(.caption2)
+                    .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
+                    .foregroundColor(Color.white.opacity(0.75))
                 Text(event?.time ?? "")
-                    .font(.caption)
-                    .padding([.leading, .trailing, .bottom], 10)
+                    .font(.caption2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.white.opacity(0.75))
             }
+            .padding()
+            .foregroundColor(.white)
         }
     }
 }
@@ -91,28 +95,24 @@ struct UpComing1MediumView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .bottom) {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text(event?.title ?? "다음 이벤트가 없습니다")
                         .font(.subheadline)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                        .padding([.top, .leading, .trailing], 10)
-                    Text([event?.date, event?.dayOfTheWeek].compactMap { $0 }.joined(separator: " "))
-                        .font(.footnote)
-                        .multilineTextAlignment(.leading)
-                        .padding([.leading, .trailing], 10)
-                    Text(event?.time ?? "")
-                        .font(.footnote)
-                        .padding([.leading, .trailing], 10)
-                    Text(event?.description ?? "")
+                        .fontWeight(.bold)
+                    Text([event?.date, event?.dayOfTheWeek, event?.time].compactMap { $0 }.joined(separator: " "))
                         .font(.caption)
-                        .padding([.leading, .trailing, .bottom], 10)
-                        .padding([.top], 5)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
+                    Text(event?.description ?? "")
+                        .font(.footnote)
+                        .multilineTextAlignment(.leading)
                 }
+                .padding()
                 Spacer()
                 Image("Placeholder")
-                    .resizable().aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width * 0.25)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.height)
                     .clipped()
             }
         }
@@ -124,27 +124,26 @@ struct UpComing1LargeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack(spacing: 16) {
                 Image("Placeholder")
-                    .resizable().aspectRatio(contentMode: .fill)
-                    .frame(height: geometry.size.height * 0.5)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: geometry.size.height * 0.6)
                     .clipped()
-                VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(event?.title ?? "다음 이벤트가 없습니다")
                         .font(.headline)
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                        .padding([.leading, .trailing], 10)
                     Text([event?.date, event?.dayOfTheWeek, event?.time].compactMap { $0 }.joined(separator: " "))
                         .font(.subheadline)
-                        .padding([.leading, .trailing], 10)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
                     Text(event?.description ?? "")
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
-                        .padding([.leading, .trailing, .bottom], 10)
-                        .padding([.top], 5)
-                        .truncationMode(.tail)
                 }
+                .padding(.horizontal)
             }
         }
     }
@@ -178,8 +177,16 @@ struct UpComing1Widget: Widget {
     }
 }
 
+// MARK: - Preview
 struct UpComing1Widget_Previews: PreviewProvider {
     static var previews: some View {
-        UpComing1WidgetEntryView(event: events[0])
+        Group {
+            UpComing1WidgetEntryView(event: events[0])
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            UpComing1WidgetEntryView(event: events[0])
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+            UpComing1WidgetEntryView(event: events[0])
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+        }
     }
 }

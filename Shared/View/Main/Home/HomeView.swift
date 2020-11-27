@@ -9,10 +9,17 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var presentsSettings = false
+    
+    private var settingsButton: some View {
+        Button(action: presentSettings) {
+            Image(systemName: "gearshape.2")
+        }
+    }
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
+        let home = ScrollView {
             VStack(spacing: .homeItemVSpacing) {
                 HeroItemView(height: .homeItemHeight)
                 GeometryReader { geometry in
@@ -38,7 +45,24 @@ struct HomeView: View {
             }
             .padding(.horizontal)
         }
+        .sheet(isPresented: $presentsSettings) {
+            SettingsView()
+        }
         .navigationTitle("홈")
+        #if os(iOS)
+        if horizontalSizeClass == .compact {
+            return AnyView(home.navigationBarItems(trailing: settingsButton))
+        } else {
+            return AnyView(home)
+        }
+        #else
+        return AnyView(home)
+        #endif
+    }
+    
+    // MARK: - Action
+    private func presentSettings() {
+        presentsSettings.toggle()
     }
 }
 

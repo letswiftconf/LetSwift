@@ -26,36 +26,36 @@ struct Sidebar: View {
                 NavigationLink(destination: ScheduleView()) {
                     Label("Schedule", systemImage: "calendar")
                 }
-                NavigationLink(destination: TicketView()) {
-                    Label("Ticket", systemImage: "ticket.fill")
-                }
+//                NavigationLink(destination: TicketView()) {
+//                    Label("Ticket", systemImage: "ticket.fill")
+//                }
                 NavigationLink(destination: PeopleView()) {
                     Label("People", systemImage: "person.fill")
                 }
-                NavigationLink(destination: LocationView()) {
-                    Label("Location", systemImage: "map.fill")
-                }
+//                NavigationLink(destination: LocationView()) {
+//                    Label("Location", systemImage: "map.fill")
+//                }
 //                NavigationLink(destination: SettingsView()) {
 //                    Label("Settings", systemImage: "gearshape.2.fill")
 //                }
             }
-            Section(header: Text("Past Events")) {
-                NavigationLink(
-                    destination: Text("Destination"),
-                    label: {
-                        Label("Let'Swift 2019", systemImage: "hammer.fill")
-                    })
-                NavigationLink(
-                    destination: Text("Destination"),
-                    label: {
-                        Label("Let'Swift 2018", systemImage: "hammer.fill")
-                    })
-                NavigationLink(
-                    destination: Text("Destination"),
-                    label: {
-                        Label("Let'Swift 2017", systemImage: "hammer.fill")
-                    })
-            }
+//            Section(header: Text("Past Events")) {
+//                NavigationLink(
+//                    destination: Text("Destination"),
+//                    label: {
+//                        Label("Let'Swift 2019", systemImage: "hammer.fill")
+//                    })
+//                NavigationLink(
+//                    destination: Text("Destination"),
+//                    label: {
+//                        Label("Let'Swift 2018", systemImage: "hammer.fill")
+//                    })
+//                NavigationLink(
+//                    destination: Text("Destination"),
+//                    label: {
+//                        Label("Let'Swift 2017", systemImage: "hammer.fill")
+//                    })
+//            }
         }
         .sheet(isPresented: $presentsSettings) {
             SettingsView()

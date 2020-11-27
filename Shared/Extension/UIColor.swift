@@ -9,11 +9,11 @@
 import UIKit
 
 extension UIColor {
-    static let themePrimary: UIColor = .themePrimary2019
-    static let themeSecondary: UIColor = .themeSecondary2019
+    static let themePrimary: UIColor = .themePrimary2020
 }
 
 extension UIColor {
+    static let themePrimary2020 = UIColor(named: "2020_primary")!
     static let themePrimary2019 = UIColor(named: "2019_primary")!
     static let themeSecondary2019 = UIColor(named: "2019_secondary")!
     static let themeBackground2019 = UIColor(named: "2019_background")!

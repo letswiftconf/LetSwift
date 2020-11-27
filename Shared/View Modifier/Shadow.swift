@@ -10,7 +10,7 @@ import SwiftUI
 struct Shadow: ViewModifier {
     func body(content: Content) -> some View {
         return content
-//            .shadow(color: Color.black.opacity(0.25), radius: 33)
-            .shadow(radius: 4)
+            .shadow(color: Color.black.opacity(0.25), radius: 33)
+//            .shadow(radius: 4)
     }
 }

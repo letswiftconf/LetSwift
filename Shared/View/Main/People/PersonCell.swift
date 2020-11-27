@@ -40,33 +40,32 @@ struct PersonCell: View {
         }
     }
     
+    // MARK: - Body
     var body: some View {
         VStack {
-            Spacer()
             Image(person.imageName)
                 .resizable()
                 .frame(width: width, height: width)
                 .clipShape(Circle())
-            VStack {
+                .modifier(Shadow())
+            VStack(spacing: 4) {
                 Text(person.name)
-                    .font(titleFont)
-                    .foregroundColor(Color(UIColor.label))
-                    .bold()
-                    .minimumScaleFactor(0.5)
+                    .font(.headline)
+                    .fontWeight(.bold)
                 if let organization = person.organization {
                     Text(organization)
-                        .font(organizationFont)
-                        .foregroundColor(.gray)
-                        .bold()
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .fontWeight(.semibold)
                         .minimumScaleFactor(0.5)
                 }
             }
             .lineLimit(1)
-            Spacer()
         }
     }
 }
 
+// MARK: - Preview
 struct PeopleCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -74,6 +73,6 @@ struct PeopleCell_Previews: PreviewProvider {
             PersonCell(person: Person.makePanels()[0])
             PersonCell(person: Person.makeStaff()[0])
         }
-        .previewLayout(.fixed(width: 300, height: 300))
+        .previewAsComponent()
     }
 }

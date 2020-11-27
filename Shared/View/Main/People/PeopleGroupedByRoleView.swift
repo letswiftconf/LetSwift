@@ -19,17 +19,18 @@ struct PeopleGroupedByRoleView: View {
         }
     }
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 10) {
-            Spacer()
+//            Spacer()
             HStack {
                 Text(people.title)
-                    .font(.title)
+                    .font(.title3)
                     .bold()
                 Spacer()
             }
             containedView()
-            Spacer()
+//            Spacer()
         }
     }
     
@@ -66,11 +67,13 @@ struct PeopleGroupedByRoleView: View {
     }
 }
 
+// MARK: - Preview
 struct PeopleGroupedByRoleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PeopleGroupedByRoleView()
-                .environmentObject(People(type: .organizer))
-        }.previewLayout(.fixed(width: 400, height: 300))
+                .environmentObject(People(type: .staff))
+        }
+        .previewAsComponent()
     }
 }

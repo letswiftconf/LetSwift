@@ -29,9 +29,9 @@ extension TabNavigationView {
     enum Tab: Int, Identifiable, CaseIterable {
         case home
         case schedule
-        case ticket
+//        case ticket
         case people
-        case location
+//        case location
         
         // MARK: Identifiable
         var id: Int {
@@ -43,9 +43,9 @@ extension TabNavigationView {
             switch self {
             case .home: return AnyView(HomeView())
             case .schedule: return AnyView(ScheduleView())
-            case .ticket: return AnyView(TicketView())
+//            case .ticket: return AnyView(TicketView())
             case .people: return AnyView(PeopleView())
-            case .location: return AnyView(LocationView())
+//            case .location: return AnyView(LocationView())
             }
         }
         
@@ -60,9 +60,9 @@ extension TabNavigationView {
             switch self {
             case .home: return "홈"
             case .schedule: return "일정"
-            case .ticket: return "티켓"
+//            case .ticket: return "티켓"
             case .people: return "사람들"
-            case .location: return "장소"
+//            case .location: return "장소"
             }
         }
         
@@ -70,9 +70,9 @@ extension TabNavigationView {
             switch self {
             case .home: return "house.fill"
             case .schedule: return "calendar"
-            case .ticket: return "ticket.fill"
+//            case .ticket: return "ticket.fill"
             case .people: return "person.fill"
-            case .location: return "map.fill"
+//            case .location: return "map.fill"
             }
         }
     }

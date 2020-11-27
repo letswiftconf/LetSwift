@@ -60,8 +60,9 @@ struct ScreenPreview<Screen: View>: View {
     
     private var deviceNames: [String] {
         [
-            "iPhone 12 Pro",
-            "iPad Pro (11-inch) (2nd generation)"
+            "iPhone 12 mini",
+            "iPhone 12 Pro Max",
+//            "iPad Pro (11-inch) (2nd generation)"
         ]
     }
 }

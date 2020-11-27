@@ -71,34 +71,28 @@ struct UpComing2SmallView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(events.0?.title ?? "다음 이벤트가 없습니다")
-                    .font(.footnote)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
-                    .padding([.top], 5)
+                    .font(.caption)
+                    .fontWeight(.bold)
                 Text([events.0?.date, events.0?.dayOfTheWeek, events.0?.time].compactMap { $0 }.joined(separator: " "))
                     .font(.caption)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
-                    .padding([.bottom], 5)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
             }
+            .padding(.horizontal)
             .frame(maxHeight: .infinity)
             Divider()
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(events.1?.title ?? "다음 이벤트가 없습니다")
-                    .font(.footnote)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
-                    .padding([.top], 5)
+                    .font(.caption)
+                    .fontWeight(.bold)
                 Text([events.1?.date, events.1?.dayOfTheWeek, events.1?.time].compactMap { $0 }.joined(separator: " "))
                     .font(.caption)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing, .bottom], 10)
-                    .padding([.bottom], 5)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
             }
+            .padding(.horizontal)
             .frame(maxHeight: .infinity)
         }
     }
@@ -111,34 +105,34 @@ struct UpComing2MediumView: View {
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
                 Text(events.0?.title ?? "다음 이벤트가 없습니다")
-                    .font(.footnote)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
+                    .font(.caption)
+                    .fontWeight(.bold)
                 Text([events.0?.date, events.0?.dayOfTheWeek].compactMap { $0 }.joined(separator: " "))
                     .font(.caption)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
                 Text(events.0?.time ?? "")
                     .font(.caption)
-                    .padding([.leading, .trailing, .bottom], 10)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
             }
+            .padding(.horizontal)
             .frame(maxWidth: .infinity)
             Divider()
             VStack(alignment: .leading) {
                 Text(events.1?.title ?? "다음 이벤트가 없습니다")
-                    .font(.footnote)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
+                    .font(.caption)
+                    .fontWeight(.bold)
                 Text([events.1?.date, events.1?.dayOfTheWeek].compactMap { $0 }.joined(separator: " "))
                     .font(.caption)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 10)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
                 Text(events.1?.time ?? "")
                     .font(.caption)
-                    .padding([.leading, .trailing, .bottom], 10)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
             }
+            .padding(.horizontal)
             .frame(maxWidth: .infinity)
         }
     }
@@ -171,9 +165,14 @@ struct UpComing2Widget: Widget {
     }
 }
 
+// MARK: - Preview
 struct UpComing2Widget_Previews: PreviewProvider {
     static var previews: some View {
-        UpComing2WidgetEntryView(events: (events[0], events[1]))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        Group {
+            UpComing2WidgetEntryView(events: (events[0], events[1]))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            UpComing2WidgetEntryView(events: (events[0], events[1]))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+        }
     }
 }

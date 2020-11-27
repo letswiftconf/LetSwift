@@ -13,7 +13,7 @@ struct GridView<Content: View>: View {
     let content: (Int) -> Content
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 24) {
             ForEach(0 ..< rows, id: \.self) { row in
                 HStack(alignment: .top) {
                     ForEach(0 ..< self.columns, id: \.self) { column in
