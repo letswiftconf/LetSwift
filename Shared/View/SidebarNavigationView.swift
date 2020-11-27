@@ -11,7 +11,7 @@ struct SidebarNavigationView: View {
     var body: some View {
         NavigationView {
             Sidebar()
-            Text("Detail View")
+            HomeView()
         }
     }
 }

@@ -8,7 +8,42 @@
 import SwiftUI
 
 struct Sidebar: View {
+    @State private var selected: SidebarItem = .home
     @State private var presentsSettings = false
+    
+    enum SidebarItem: Int, Identifiable, CaseIterable {
+        case home
+        case schedule
+        case people
+        
+        var id: Int {
+            return rawValue
+        }
+        
+        var presentingView: some View {
+            switch self {
+            case .home: return AnyView(HomeView())
+            case .schedule: return AnyView(ScheduleView())
+            case .people: return AnyView(PeopleView())
+            }
+        }
+        
+        var name: String {
+            switch self {
+            case .home: return "홈"
+            case .schedule: return "스케줄"
+            case .people: return "사람들"
+            }
+        }
+        
+        var imageName: String {
+            switch self {
+            case .home: return "house.fill"
+            case .schedule: return "calendar"
+            case .people: return "person.fill"
+            }
+        }
+    }
     
     private var settingsButton: some View {
         Button(action: presentSettings) {
@@ -18,7 +53,14 @@ struct Sidebar: View {
     
     // MARK: - Body
     var body: some View {
-        List {
+        List{
+//            ForEach(SidebarItem.allCases, id: \.self) { item in
+//                NavigationLink(destination: item.presentingView) {
+//                    Label(item.name, systemImage: item.imageName)
+//                }
+//                    .tag(item)
+//            }
+            
             Section(header: Text("Let'Swift 2020")) {
                 NavigationLink(destination: HomeView()) {
                     Label("Home", systemImage: "house.fill")
