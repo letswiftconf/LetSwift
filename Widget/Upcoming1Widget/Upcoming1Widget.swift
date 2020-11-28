@@ -12,11 +12,11 @@ struct Provider: TimelineProvider {
     @Environment(\.widgetFamily) var family
     
     func placeholder(in context: Context) -> UpComing1WidgetEntry {
-        UpComing1WidgetEntry(date: Date(), event: events[0])
+        UpComing1WidgetEntry(date: Date(), event: Event.events[0])
     }
 
     func getSnapshot(in context: Context, completion: @escaping (UpComing1WidgetEntry) -> ()) {
-        let entry = UpComing1WidgetEntry(date: Date(), event: events[0])
+        let entry = UpComing1WidgetEntry(date: Date(), event: Event.events[0])
         completion(entry)
     }
 
@@ -37,11 +37,8 @@ struct Provider: TimelineProvider {
     }
     
     func getUpcomingEvent() -> Event? {
-        let dateManager = DateManager()
-        
-        for event in events {
-            guard let sessionTime = dateManager.stringDateConvert(date: event.date, time: event.time) else { continue }
-            if Date().timeIntervalSince1970 < sessionTime.end.timeIntervalSince1970 {
+        for event in Event.events {
+            if Date().timeIntervalSince1970 < event.endsAt.timeIntervalSince1970 {
                 return event
             }
         }
@@ -50,8 +47,7 @@ struct Provider: TimelineProvider {
 
     func getReloadDate(upcomingEvent: Event?) -> Date? {
         guard let event = upcomingEvent else { return nil }
-        let dateManager = DateManager()
-        return dateManager.stringDateConvert(date: event.date, time: event.time)?.end
+        return event.endsAt
     }
 }
 
@@ -135,7 +131,7 @@ struct UpComing1LargeView: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                    Text([event?.date, event?.dayOfTheWeek, event?.time].compactMap { $0 }.joined(separator: " "))
+                    Text([event?.startsAt.readableDate, event?.startsAt.readableDayOfWeek, event?.startsAt.readableTime, event?.endsAt.readableTime].compactMap { $0 }.joined(separator: " "))
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.secondary)
@@ -181,11 +177,11 @@ struct UpComing1Widget: Widget {
 struct UpComing1Widget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UpComing1WidgetEntryView(event: events[0])
+            UpComing1WidgetEntryView(event: Event.events[0])
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            UpComing1WidgetEntryView(event: events[0])
+            UpComing1WidgetEntryView(event: Event.events[0])
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            UpComing1WidgetEntryView(event: events[0])
+            UpComing1WidgetEntryView(event: Event.events[0])
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
     }

@@ -11,7 +11,7 @@ struct ScheduleView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                ForEach(events, id: \.id) { event in
+                ForEach(Event.events, id: \.id) { event in
                     EventItemView(event: event)
                         .padding(.horizontal)
                 }

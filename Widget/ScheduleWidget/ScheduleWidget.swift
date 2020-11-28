@@ -42,7 +42,10 @@ struct ScheduleWidgetEntryView : View {
                     Text(event.title)
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                    Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
+                    Text("\(event.startsAt.readableDate) (\(event.startsAt.readableDayOfWeek))")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                    Text("\(event.startsAt.readableTime) - \(event.endsAt.readableTime)")
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
@@ -62,7 +65,7 @@ struct ScheduleWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            ScheduleWidgetEntryView(events: events)
+            ScheduleWidgetEntryView(events: Event.events)
         }
         .configurationDisplayName("Let's Swift 2020")
         .description("일정을 확인하시고 절대 놓치지 마세요!")
@@ -73,7 +76,7 @@ struct ScheduleWidget: Widget {
 // MARK: - Preview
 struct ScheduleWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleWidgetEntryView(events: events)
+        ScheduleWidgetEntryView(events: Event.events)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

@@ -74,16 +74,13 @@ class CalendarManager {
         }
     }
     
-    func addSession(title: String, date: String, time: String) {
-        let dateManager = DateManager()
-        guard let sessionTime = dateManager.stringDateConvert(date: date, time: time) else { return }
+    func addSession(title: String, startsAt: Date, endsAt: Date) {
         let event = EKEvent(eventStore: store)
-        event.title = title
-        event.startDate = sessionTime.start
-        event.endDate = sessionTime.end
+        event.title = "Let'Swift: \(title)"
+        event.startDate = startsAt
+        event.endDate = endsAt
         event.calendar = store.calendars(for: .event).first
        
-        
         do {
             try store.save(event, span: .thisEvent)
         } catch {

@@ -12,11 +12,11 @@ struct Provider: TimelineProvider {
     @Environment(\.widgetFamily) var family
     
     func placeholder(in context: Context) -> UpComing2WidgetEntry {
-        UpComing2WidgetEntry(date: Date(), events: (events[0], events[1]))
+        UpComing2WidgetEntry(date: Date(), events: (Event.events[0], Event.events[1]))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (UpComing2WidgetEntry) -> ()) {
-        let entry = UpComing2WidgetEntry(date: Date(), events: (events[0], events[1]))
+        let entry = UpComing2WidgetEntry(date: Date(), events: (Event.events[0], Event.events[1]))
         completion(entry)
     }
 
@@ -40,13 +40,13 @@ struct Provider: TimelineProvider {
         let dateManager = DateManager()
         var upcomingEvents: (Event?, Event?) = (nil, nil)
         
-        for event in events.enumerated() {
+        for event in Event.events.enumerated() {
             guard let sessionTime = dateManager.stringDateConvert(date: event.element.date, time: event.element.time) else { continue }
             if Date().timeIntervalSince1970 < sessionTime.end.timeIntervalSince1970 {
-                if event.offset > events.count - 2 {
-                    upcomingEvents = (events[event.offset], nil)
+                if event.offset > Event.events.count - 2 {
+                    upcomingEvents = (Event.events[event.offset], nil)
                 } else {
-                    upcomingEvents = (events[event.offset], events[event.offset + 1])
+                    upcomingEvents = (Event.events[event.offset], Event.events[event.offset + 1])
                 }
                 break
             }
@@ -169,9 +169,9 @@ struct UpComing2Widget: Widget {
 struct UpComing2Widget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UpComing2WidgetEntryView(events: (events[0], events[1]))
+            UpComing2WidgetEntryView(events: (Event.events[0], Event.events[1]))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            UpComing2WidgetEntryView(events: (events[0], events[1]))
+            UpComing2WidgetEntryView(events: (Event.events[0], Event.events[1]))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
         }
     }

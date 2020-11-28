@@ -27,7 +27,7 @@ struct EventItemView: View {
                     Text(event.title)
                         .font(.headline)
                         .fontWeight(.semibold)
-                    Text("\(event.date) \(event.dayOfTheWeek) \(event.time)")
+                    Text("\(event.startsAt.readableDate) (\(event.startsAt.readableDayOfWeek)) \(event.startsAt.readableTime) - \(event.endsAt.readableTime)")
                         .font(.subheadline)
                         .fontWeight(.bold)
                     Text(event.description)
@@ -55,7 +55,7 @@ struct EventItemView: View {
         let manager = CalendarManager()
         switch manager.authorizationStatus {
         case .authorized:
-            manager.addSession(title: event.title, date: event.date, time: event.time)
+            manager.addSession(title: event.title, startsAt: event.startsAt, endsAt: event.endsAt)
             addScheduleSuccess = true
         case .denied, .restricted:
             // TODO: Show error
@@ -83,6 +83,8 @@ struct EventView_Previews: PreviewProvider {
                                    titleImage: "Placeholder",
                                    title: "Title",
                                    description: "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+                                   startsAt: Date(),
+                                   endsAt: Date(),
                                    date: "Dec 1",
                                    dayOfTheWeek: "Fri",
                                    time: "19:00"))

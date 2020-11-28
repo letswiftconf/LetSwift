@@ -8,12 +8,10 @@
 import Foundation
 
 struct DateManager {
-    func judgeSessionNowLive(date: String, time: String) -> Bool {
-        guard let sessionTime = stringDateConvert(date: date, time: time) else { return false }
-        
+    func judgeSessionNowLive(startsAt: Date, endsAt: Date) -> Bool {
         let today = Calendar.current.dateComponents([.month, .day, .hour], from: Date())
-        let sessionStart = Calendar.current.dateComponents([.month, .day, .hour], from: sessionTime.start)
-        let sessionEnd = Calendar.current.dateComponents([.month, .day, .hour], from: sessionTime.end)
+        let sessionStart = Calendar.current.dateComponents([.month, .day, .hour], from: startsAt)
+        let sessionEnd = Calendar.current.dateComponents([.month, .day, .hour], from: endsAt)
         
         guard today.month == sessionStart.month && today.day == sessionStart.day else { return false }
         guard let startHour = sessionStart.hour,
@@ -25,6 +23,7 @@ struct DateManager {
         return true
     }
     
+    @available(*, deprecated)
     func stringDateConvert(date: String, time: String) -> (start: Date, end: Date)? {
         let dateFormatter = DateFormatter.KSTDateFormatter(by: "yyyy년 MM월 dd일 HH:mm")
         
