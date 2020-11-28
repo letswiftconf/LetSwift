@@ -18,7 +18,8 @@ extension DateFormatter {
     
     static func dateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+//        formatter.dateStyle = .long
+        formatter.dateFormat = "MM월 dd일 (E)"
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter
     }

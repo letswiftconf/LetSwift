@@ -8,57 +8,12 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> ScheduleWidgetEntry {
-        ScheduleWidgetEntry(date: Date())
-    }
-
-    func getSnapshot(in context: Context, completion: @escaping (ScheduleWidgetEntry) -> ()) {
-        let entry = ScheduleWidgetEntry(date: Date())
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let timeline = Timeline(entries: [ScheduleWidgetEntry(date: Date())], policy: .never)
-        completion(timeline)
-    }
-}
-
+// MARK: - Entry
 struct ScheduleWidgetEntry: TimelineEntry {
     var date: Date
 }
 
-struct ScheduleWidgetEntryView : View {
-    let events: [Event]
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Let's Swift Conference 2020")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(.orange)
-            ForEach(events) { event in
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(event.title)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                    Text("\(event.startsAt.readableDate) (\(event.startsAt.readableDayOfWeek))")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                    Text("\(event.startsAt.readableTime) - \(event.endsAt.readableTime)")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
-                .padding(.vertical, 4)
-                if events.last?.id != event.id {
-                    Divider()
-                }
-            }
-        }
-        .padding()
-    }
-}
-
+// MARK: - Widget
 @main
 struct ScheduleWidget: Widget {
     let kind: String = "ScheduleWidget"
@@ -73,10 +28,48 @@ struct ScheduleWidget: Widget {
     }
 }
 
+struct ScheduleWidgetEntryView: View {
+    let events: [Event]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Let's Swift 2020")
+                .font(.headline)
+                .fontWeight(.black)
+                .foregroundColor(.orange)
+            VStack(alignment: .leading, spacing: 12) {
+                ForEach(events) { event in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(event.title)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        HStack {
+                            Text("\(event.startsAt.readableDate)")
+                                .fontWeight(.semibold)
+                            Text("\(event.startsAt.readableTime) ~ \(event.endsAt.readableTime)")
+                        }
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                    }
+                    if events.last?.id != event.id {
+                        Divider()
+                    }
+                }
+            }
+        }
+        .padding()
+    }
+}
+
 // MARK: - Preview
 struct ScheduleWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleWidgetEntryView(events: Event.events)
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
+        Group {
+            ScheduleWidgetEntryView(events: Event.events)
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+            ScheduleWidgetEntryView(events: Event.events)
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+                .environment(\.sizeCategory, .extraLarge)
+        }
     }
 }

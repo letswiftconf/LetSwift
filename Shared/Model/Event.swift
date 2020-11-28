@@ -14,9 +14,6 @@ struct Event: Decodable, Identifiable {
     let description: String
     let startsAt: Date
     let endsAt: Date
-    @available(*, deprecated) let date: String
-    @available(*, deprecated) let dayOfTheWeek: String
-    @available(*, deprecated) let time: String
     let isOnAir: Bool
     
     init(id: Int, titleImage: String, title: String, description: String, startsAt: Date, endsAt: Date, date: String, dayOfTheWeek: String, time: String) {
@@ -26,9 +23,6 @@ struct Event: Decodable, Identifiable {
         self.description = description
         self.startsAt = startsAt
         self.endsAt = endsAt
-        self.date = date
-        self.dayOfTheWeek = dayOfTheWeek
-        self.time = time
         self.isOnAir = DateManager().judgeSessionNowLive(startsAt: startsAt, endsAt: endsAt)
     }
 }
