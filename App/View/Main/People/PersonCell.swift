@@ -47,7 +47,7 @@ struct PersonCell: View {
                 .resizable()
                 .frame(width: width, height: width)
                 .clipShape(Circle())
-                .modifier(Shadow())
+                .shadow(radius: 9)
             VStack(spacing: 4) {
                 Text(person.name)
                     .font(.headline)
