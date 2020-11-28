@@ -32,12 +32,14 @@ struct EventItemView: View {
                         .fontWeight(.bold)
                     Text(event.description)
                         .font(.footnote)
-                    Button("Add to Calendar", action: addToCalendar)
-                        .alert(isPresented: $addScheduleSuccess) {
-                            Alert(title: Text("캘린더"),
-                                  message: Text("캘린더에 일정이 추가되었습니다. 잊지말고 보러오세요!"),
-                                  dismissButton: .default(Text("확인")))
-                        }
+                    if !ProcessInfo.processInfo.isMacCatalystApp {
+                        Button("Add to Calendar", action: addToCalendar)
+                            .alert(isPresented: $addScheduleSuccess) {
+                                Alert(title: Text("캘린더"),
+                                      message: Text("캘린더에 일정이 추가되었습니다. 잊지말고 보러오세요!"),
+                                      dismissButton: .default(Text("확인")))
+                            }
+                    }
                 }
                 Spacer()
             }
