@@ -33,7 +33,7 @@ extension UNUserNotificationCenter {
                     content.body = info.message
                     content.sound = UNNotificationSound.default
                     
-                    let formatter = DateFormatter.dateFormatter()
+                    let formatter = ISO8601DateFormatter()
                     let date = formatter.date(from: info.date)!
                     let localizedDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: localizedDate, repeats: false)
