@@ -15,18 +15,14 @@ struct NewsletterItemView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Placeholder")
+            Image("newsletter")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: height)
             VStack(alignment: .leading) {
-                Text("뉴스레터")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                Text("구독")
+                Text("뉴스레터 구독")
                     .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(.themePrimary))
+                    .fontWeight(.semibold)
             }
             .padding()
         }

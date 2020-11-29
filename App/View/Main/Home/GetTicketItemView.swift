@@ -16,7 +16,7 @@ struct GetTicketItemView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Placeholder")
+            Image("ticket")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: width, height: height)

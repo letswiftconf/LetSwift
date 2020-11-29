@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "let_light.png",
+      "filename" : "question_light.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "let_dark.png",
+      "filename" : "question.png",
       "idiom" : "universal"
     }
   ],

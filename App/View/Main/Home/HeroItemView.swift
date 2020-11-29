@@ -10,6 +10,8 @@ import SwiftUI
 struct HeroItemView: View {
     let height: CGFloat
     
+    @State private var presentAR = false
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -31,6 +33,13 @@ struct HeroItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
+        .fullScreenCover(isPresented: $presentAR) {
+            ARView(assetName: "let")
+                .ignoresSafeArea(.all, edges: .all)
+        }
+        .onTapGesture {
+            presentAR.toggle()
+        }
     }
 }
 

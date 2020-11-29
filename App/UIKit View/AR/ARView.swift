@@ -12,14 +12,18 @@ struct ARView: UIViewControllerRepresentable {
     let assetName: String
     
     // MARK: - Representable
-    func makeUIViewController(context: Context) -> QLPreviewController {
+    func makeUIViewController(context: Context) -> UINavigationController {
         let preview = QLPreviewController()
+        let navigation = UINavigationController(rootViewController: preview)
+        preview.delegate = context.coordinator
         preview.dataSource = context.coordinator
-        return preview
+        return navigation
     }
     
-    func updateUIViewController(_ uiViewController: QLPreviewController, context: Context) {
-        
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        if let preview = uiViewController.topViewController as? QLPreviewController {
+            preview.reloadData()
+        }
     }
     
     // MARK: - Coordinator
@@ -27,7 +31,7 @@ struct ARView: UIViewControllerRepresentable {
         Coordinator(assetName: assetName)
     }
     
-    class Coordinator: NSObject, QLPreviewControllerDataSource {
+    class Coordinator: NSObject, QLPreviewControllerDelegate, QLPreviewControllerDataSource, UINavigationControllerDelegate {
         private let assetName:String
         
         // MARK: - Initialization
@@ -36,13 +40,14 @@ struct ARView: UIViewControllerRepresentable {
         }
         
         // MARK: - Quick look
+        // Data source
         func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
             return 1
         }
         
         func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
             guard let fileURL = Bundle.main.url(forResource: assetName,
-                                                withExtension: "reality") else {
+                                                withExtension: "usdz") else {
                 fatalError()
             }
             return fileURL as QLPreviewItem
@@ -53,7 +58,7 @@ struct ARView: UIViewControllerRepresentable {
 // MARK: - Preview
 struct ARView_Previews: PreviewProvider {
     static var previews: some View {
-        ARView(assetName: "2011_apple_event")
+        ARView(assetName: "let")
             .previewAsScreen()
     }
 }

@@ -16,7 +16,7 @@ struct AppSourceCodeItemView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Placeholder")
+            Image("apps")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: width, height: height)

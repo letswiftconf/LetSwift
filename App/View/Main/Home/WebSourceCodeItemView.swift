@@ -16,7 +16,7 @@ struct WebSourceCodeItemView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Placeholder")
+            Image("web")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: width, height: height)
