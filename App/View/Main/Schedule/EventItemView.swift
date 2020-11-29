@@ -29,11 +29,12 @@ struct EventItemView: View {
                         .fontWeight(.semibold)
                     Text("\(event.startsAt.readableDate) (\(event.startsAt.readableDayOfWeek)) \(event.startsAt.readableTime) - \(event.endsAt.readableTime)")
                         .font(.subheadline)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
                     Text(event.description)
                         .font(.footnote)
                     if !ProcessInfo.processInfo.isMacCatalystApp {
-                        Button("Add to Calendar", action: addToCalendar)
+                        Button("캘린더에 추가", action: addToCalendar)
                             .alert(isPresented: $addScheduleSuccess) {
                                 Alert(title: Text("캘린더"),
                                       message: Text("캘린더에 일정이 추가되었습니다. 잊지말고 보러오세요!"),

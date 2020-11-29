@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "timeline_1.png",
+      "filename" : "timeline_1_light.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "timeline_1_dark.png",
       "idiom" : "universal"
     }
   ],
