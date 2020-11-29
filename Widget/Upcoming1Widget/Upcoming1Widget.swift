@@ -53,8 +53,12 @@ struct UpComing1SmallView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Placeholder")
-                .resizable()
+            GeometryReader { geometry in
+                Image(event.titleImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.height)
+            }
             Color.black.opacity(0.75)
             VStack(alignment: .leading, spacing: 6) {
                 Text(event.title)
@@ -102,7 +106,7 @@ struct UpComing1MediumView: View {
                 }
                 .padding()
                 Spacer()
-                Image("Placeholder")
+                Image(event.titleImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.height)
@@ -117,7 +121,7 @@ struct UpComing1LargeView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image("Placeholder")
+            Image(event.titleImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .clipped()
