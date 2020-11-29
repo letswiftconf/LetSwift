@@ -23,7 +23,13 @@ extension UNUserNotificationCenter {
     }
     
     static func requestLetSwiftNotification() {
-        guard UserDefaults.standard.value(forKey: "isWillNotify") == nil || UserDefaults.standard.value(forKey: "isWillNotify") as? Bool == false else { return }
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (request) in
+            print(request)
+        }
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+//        guard UserDefaults.standard.value(forKey: "isWillNotify") == nil || UserDefaults.standard.value(forKey: "isWillNotify") as? Bool == false else { return }
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
@@ -35,7 +41,8 @@ extension UNUserNotificationCenter {
                     
                     let formatter = ISO8601DateFormatter()
                     let date = formatter.date(from: info.date)!
-                    let localizedDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                    var localizedDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                    localizedDate.timeZone = TimeZone(abbreviation: "KST")
                     let trigger = UNCalendarNotificationTrigger(dateMatching: localizedDate, repeats: false)
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                     

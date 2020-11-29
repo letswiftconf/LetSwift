@@ -27,12 +27,9 @@ struct LetSwiftApp: App {
         WindowGroup {
             MainView()
                 .accentColor(Color(.themePrimary))
-            letSwiftNotification()
+                .onAppear {
+                    UNUserNotificationCenter.requestLetSwiftNotification()
+                }
         }
-    }
-    
-    func letSwiftNotification() -> EmptyView {
-        UNUserNotificationCenter.requestLetSwiftNotification()
-        return EmptyView()
     }
 }
