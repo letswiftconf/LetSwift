@@ -57,7 +57,7 @@ class CalendarManager {
         let event = EKEvent(eventStore: store)
         let start = Date()
         let end = Date()
-        event.calendar = store.calendars(for: .event).first
+        event.calendar = store.defaultCalendarForNewEvents
         event.title = "Let'Swift 2019"
         event.location = "양재 aT 센터"
         event.notes = ""
