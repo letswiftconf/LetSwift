@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Sidebar: View {
-    @State private var selected: SidebarItem = .home
+    @State private var selected: Set<SidebarItem> = [.home]
     @State private var presentsSettings = false
     
     enum SidebarItem: Int, Identifiable, CaseIterable {
@@ -53,14 +53,17 @@ struct Sidebar: View {
     
     // MARK: - Body
     var body: some View {
-        List{
-//            ForEach(SidebarItem.allCases, id: \.self) { item in
+//        List(SidebarItem.allCases, id: \.self, selection: $selected) { item in
+//            if ProcessInfo.processInfo.isMacCatalystApp && item == .home {
+//                EmptyView()
+//            } else {
 //                NavigationLink(destination: item.presentingView) {
 //                    Label(item.name, systemImage: item.imageName)
 //                }
-//                    .tag(item)
+//                .tag(item)
 //            }
-            
+//        }
+        List() {
             Section(header: Text("Let'Swift 2020")) {
                 if !ProcessInfo.processInfo.isMacCatalystApp {
                     NavigationLink(destination: HomeView()) {
@@ -83,23 +86,23 @@ struct Sidebar: View {
 //                    Label("Settings", systemImage: "gearshape.2.fill")
 //                }
             }
-//            Section(header: Text("Past Events")) {
-//                NavigationLink(
-//                    destination: Text("Destination"),
-//                    label: {
-//                        Label("Let'Swift 2019", systemImage: "hammer.fill")
-//                    })
-//                NavigationLink(
-//                    destination: Text("Destination"),
-//                    label: {
-//                        Label("Let'Swift 2018", systemImage: "hammer.fill")
-//                    })
-//                NavigationLink(
-//                    destination: Text("Destination"),
-//                    label: {
-//                        Label("Let'Swift 2017", systemImage: "hammer.fill")
-//                    })
-//            }
+////            Section(header: Text("Past Events")) {
+////                NavigationLink(
+////                    destination: Text("Destination"),
+////                    label: {
+////                        Label("Let'Swift 2019", systemImage: "hammer.fill")
+////                    })
+////                NavigationLink(
+////                    destination: Text("Destination"),
+////                    label: {
+////                        Label("Let'Swift 2018", systemImage: "hammer.fill")
+////                    })
+////                NavigationLink(
+////                    destination: Text("Destination"),
+////                    label: {
+////                        Label("Let'Swift 2017", systemImage: "hammer.fill")
+////                    })
+////            }
         }
         .sheet(isPresented: $presentsSettings) {
             SettingsView()
