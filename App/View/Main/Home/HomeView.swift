@@ -6,15 +6,30 @@
 //
 
 import SwiftUI
+import PassKit
 
 struct HomeView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var presentsSettings = false
+    @State private var presentsAddPass = false
     
     private var settingsButton: some View {
         Button(action: presentSettings) {
             Image(systemName: "gearshape.2")
         }
+    }
+    
+    private var addPassView: some View {
+        guard let fileURL = Bundle.main.url(forResource: "LetSwift", withExtension: "pkpass") else {
+            return AnyView(EmptyView())
+        }
+        guard let data = try? Data(contentsOf: fileURL) else {
+            return AnyView(EmptyView())
+        }
+        guard let pass = try? PKPass(data: data) else {
+            return AnyView(EmptyView())
+        }
+        return AnyView(AddPassView(pass: pass))
     }
     
     // MARK: - Body
@@ -31,6 +46,16 @@ struct HomeView: View {
                     }
                 }
                 .frame(height: .homeItemHeight)
+                if PKAddPassesViewController.canAddPasses() && DateManager.isPassAvailable() {
+                    AddPassButton()
+                        .frame(height: 60)
+                        .onTapGesture {
+                            presentAddPass()
+                        }
+                        .sheet(isPresented: $presentsAddPass) {
+                            addPassView
+                        }
+                }
                 NewsletterItemView(height: .homeItemHeight)
                 GeometryReader { geometry in
                     let width = (geometry.size.width - CGFloat.homeItemHSpacing) / 2
@@ -64,6 +89,10 @@ struct HomeView: View {
     // MARK: - Action
     private func presentSettings() {
         presentsSettings.toggle()
+    }
+    
+    private func presentAddPass() {
+        presentsAddPass.toggle()
     }
 }
 

@@ -23,6 +23,9 @@
 		167BE51B25738C8000C6681A /* Timeline.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167BE51825738C8000C6681A /* Timeline.xcassets */; };
 		167BE51C25738C8000C6681A /* Timeline.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167BE51825738C8000C6681A /* Timeline.xcassets */; };
 		167BE5262573A1CB00C6681A /* let.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5252573A1CB00C6681A /* let.usdz */; };
+		167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BE5BF2574A73800C6681A /* AddPassButton.swift */; };
+		167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BE5C92574AB7E00C6681A /* AddPassView.swift */; };
+		167BE5D42574AE4200C6681A /* LetSwift.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5CF2574ABEF00C6681A /* LetSwift.pkpass */; };
 		1684F65625723F3100A784C0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684F65525723F3100A784C0 /* Date.swift */; };
 		1684F65725723F3100A784C0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684F65525723F3100A784C0 /* Date.swift */; };
 		1684F65825723F3100A784C0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684F65525723F3100A784C0 /* Date.swift */; };
@@ -160,6 +163,9 @@
 		167BE4FE2572754900C6681A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		167BE51825738C8000C6681A /* Timeline.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Timeline.xcassets; sourceTree = "<group>"; };
 		167BE5252573A1CB00C6681A /* let.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = let.usdz; sourceTree = "<group>"; };
+		167BE5BF2574A73800C6681A /* AddPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassButton.swift; sourceTree = "<group>"; };
+		167BE5C92574AB7E00C6681A /* AddPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassView.swift; sourceTree = "<group>"; };
+		167BE5CF2574ABEF00C6681A /* LetSwift.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = LetSwift.pkpass; sourceTree = "<group>"; };
 		1684F65525723F3100A784C0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1684F666257244F900A784C0 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		1684F66F2572624900A784C0 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -271,6 +277,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		167BE5BE2574A72400C6681A /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				167BE5BF2574A73800C6681A /* AddPassButton.swift */,
+				167BE5C92574AB7E00C6681A /* AddPassView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		1684F64925723D5E00A784C0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +347,7 @@
 			children = (
 				16984E73256A33910011C872 /* Safari */,
 				16984E97256A4F940011C872 /* AR */,
+				167BE5BE2574A72400C6681A /* Wallet */,
 			);
 			path = "UIKit View";
 			sourceTree = "<group>";
@@ -496,6 +512,7 @@
 			children = (
 				16DBE6232569EAD200B334A3 /* Assets.xcassets */,
 				167BE5252573A1CB00C6681A /* let.usdz */,
+				167BE5CF2574ABEF00C6681A /* LetSwift.pkpass */,
 				16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */,
 			);
 			path = Resource;
@@ -723,6 +740,7 @@
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
 				167BE51925738C8000C6681A /* Timeline.xcassets in Resources */,
+				167BE5D42574AE4200C6681A /* LetSwift.pkpass in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +786,7 @@
 			files = (
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* UIApplication.swift in Sources */,
+				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* UIColor.swift in Sources */,
 				16984E7E256A33C70011C872 /* AppInfoView.swift in Sources */,
@@ -808,6 +827,7 @@
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				1684F65625723F3100A784C0 /* Date.swift in Sources */,
 				16984E8A256A36000011C872 /* Placeholder.swift in Sources */,
+				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
 				1624BF09256B73A200634E29 /* Shadow.swift in Sources */,
 				16DBE6AE256A280800B334A3 /* LocationView.swift in Sources */,
