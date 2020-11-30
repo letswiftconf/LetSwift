@@ -12,15 +12,11 @@ struct MainView: View {
     
     // MARK: - Body
     var body: some View {
-        #if os(iOS)
         if horizontalSizeClass == .compact {
             TabNavigationView()
         } else {
             SidebarNavigationView()
         }
-        #else
-        SidebarNavigationView()
-        #endif
     }
 }
 

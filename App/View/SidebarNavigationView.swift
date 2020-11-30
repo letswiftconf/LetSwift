@@ -11,7 +11,11 @@ struct SidebarNavigationView: View {
     var body: some View {
         NavigationView {
             Sidebar()
-            HomeView()
+            if ProcessInfo.processInfo.isMacCatalystApp {
+                ScheduleView()
+            } else {
+                HomeView()
+            }
         }
     }
 }

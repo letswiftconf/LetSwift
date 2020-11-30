@@ -75,15 +75,11 @@ struct HomeView: View {
             .padding(.horizontal)
         }
         .navigationTitle("홈")
-        #if os(iOS)
         if horizontalSizeClass == .compact {
             return AnyView(home.navigationBarItems(trailing: settingsButton))
         } else {
             return AnyView(home.navigationBarItems(trailing: EmptyView()))
         }
-        #else
-        return AnyView(home)
-        #endif
     }
     
     // MARK: - Action

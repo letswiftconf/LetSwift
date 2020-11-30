@@ -38,7 +38,9 @@ struct HeroItemView: View {
                 .ignoresSafeArea(.all, edges: .all)
         }
         .onTapGesture {
-            presentAR.toggle()
+            if ProcessInfo.processInfo.isMacCatalystApp {
+                presentAR.toggle()
+            }
         }
     }
 }

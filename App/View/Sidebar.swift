@@ -62,8 +62,10 @@ struct Sidebar: View {
 //            }
             
             Section(header: Text("Let'Swift 2020")) {
-                NavigationLink(destination: HomeView()) {
-                    Label("Home", systemImage: "house.fill")
+                if !ProcessInfo.processInfo.isMacCatalystApp {
+                    NavigationLink(destination: HomeView()) {
+                        Label("Home", systemImage: "house.fill")
+                    }
                 }
                 NavigationLink(destination: ScheduleView()) {
                     Label("Schedule", systemImage: "calendar")

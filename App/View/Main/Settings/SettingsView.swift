@@ -18,22 +18,26 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("일반")) {
-                    permissionCell
-                }
-                Section(header: Text("행사")) {
-                    openHomepageCell
-                    openWebSourceCodeCell
+                if !ProcessInfo.processInfo.isMacCatalystApp {
+                    Section(header: Text("일반")) {
+                        permissionCell
+                    }
+                    Section(header: Text("행사")) {
+                        openHomepageCell
+                        openWebSourceCodeCell
+                    }
                 }
                 Section(header: Text("이 앱에 관하여"), footer: footer) {
                     versionCell
-                    writeReviewCell
-                    openAppFeedbackCell
-                    openAppSourceCodeCell
+                    if !ProcessInfo.processInfo.isMacCatalystApp {
+                        writeReviewCell
+                        openAppFeedbackCell
+                        openAppSourceCodeCell
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationBarTitle("Settings")
+            .navigationBarTitle("설정")
             .navigationBarItems(trailing: doneButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
