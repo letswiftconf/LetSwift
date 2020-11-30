@@ -54,7 +54,7 @@ struct HomeView: View {
         if horizontalSizeClass == .compact {
             return AnyView(home.navigationBarItems(trailing: settingsButton))
         } else {
-            return AnyView(home)
+            return AnyView(home.navigationBarItems(trailing: EmptyView()))
         }
         #else
         return AnyView(home)
