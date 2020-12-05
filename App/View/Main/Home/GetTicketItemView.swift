@@ -28,7 +28,9 @@ struct GetTicketItemView: View {
         .modifier(RoundedMask())
         .modifier(Shadow())
         .sheet(isPresented: $presentGetTicket) {
+            #if (iOS)
             Safari(url: .getTicket)
+            #endif
         }
         .onTapGesture {
             presentGetTicket.toggle()

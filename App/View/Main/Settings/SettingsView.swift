@@ -7,8 +7,8 @@
 //
 
 import SwiftUI
-import UIKit
 
+#if os(iOS)
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -48,7 +48,7 @@ struct SettingsView: View {
         Button(action: dismiss) {
             Text("Done")
         }
-        .accentColor(Color(.themePrimary))
+        .accentColor(.themePrimary)
     }
     
     private var openHomepageCell: some View {
@@ -130,4 +130,4 @@ struct SettingsView_Previews: PreviewProvider {
             .previewAsScreen()
     }
 }
-
+#endif

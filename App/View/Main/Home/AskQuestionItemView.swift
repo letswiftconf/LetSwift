@@ -28,7 +28,9 @@ struct AskQuestionItemView: View {
         .modifier(RoundedMask())
         .modifier(Shadow())
         .sheet(isPresented: $presentAskQuestion) {
+            #if (iOS)
             Safari(url: .askQuestion)
+            #endif
         }
         .onTapGesture {
             presentAskQuestion.toggle()

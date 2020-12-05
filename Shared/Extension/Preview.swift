@@ -24,6 +24,7 @@ struct ComponentPreview<Component: View>: View {
     var component: Component
     
     var body: some View {
+        #if canImport(UIKit)
         ForEach(values: ColorScheme.allCases) { scheme in
             ForEach(values: ContentSizeCategory.smallestAndLargest) { category in
                 self.component
@@ -36,6 +37,20 @@ struct ComponentPreview<Component: View>: View {
                     )
             }
         }
+        #else
+        ForEach(values: ColorScheme.allCases) { scheme in
+            ForEach(values: ContentSizeCategory.smallestAndLargest) { category in
+                self.component
+                    .previewLayout(.sizeThatFits)
+                    .background(Color(NSColor.windowBackgroundColor))
+                    .colorScheme(scheme)
+                    .environment(\.sizeCategory, category)
+                    .previewDisplayName(
+                        "\(scheme.previewName) + \(category.previewName)"
+                    )
+            }
+        }
+        #endif
     }
 }
 
@@ -43,6 +58,7 @@ struct ScreenPreview<Screen: View>: View {
     var screen: Screen
     
     var body: some View {
+        #if os(iOS)
         ForEach(values: deviceNames) { device in
             ForEach(values: ColorScheme.allCases) { scheme in
                 NavigationView {
@@ -56,13 +72,25 @@ struct ScreenPreview<Screen: View>: View {
                 .navigationViewStyle(StackNavigationViewStyle())
             }
         }
+        #else
+        ForEach(values: deviceNames) { device in
+            ForEach(values: ColorScheme.allCases) { scheme in
+                NavigationView {
+                    self.screen
+                }
+                .previewDevice(PreviewDevice(rawValue: device))
+                .colorScheme(scheme)
+                .previewDisplayName("\(scheme.previewName): \(device)")
+            }
+        }
+        #endif
     }
     
     private var deviceNames: [String] {
         [
             "iPhone 12 mini",
             "iPhone 12 Pro Max",
-//            "iPad Pro (11-inch) (2nd generation)"
+            "iPad Pro (11-inch) (2nd generation)"
         ]
     }
 }

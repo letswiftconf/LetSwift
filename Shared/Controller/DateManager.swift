@@ -43,18 +43,4 @@ struct DateManager {
         
         return true
     }
-    
-    @available(*, deprecated)
-    func stringDateConvert(date: String, time: String) -> (start: Date, end: Date)? {
-        let dateFormatter = DateFormatter.KSTDateFormatter(by: "yyyy년 MM월 dd일 HH:mm")
-        
-        let startTime = time[time.startIndex...time.index(time.startIndex, offsetBy: 4)]
-        let endTime = time[time.index(time.endIndex, offsetBy: -5)...time.index(before: time.endIndex)]
-        
-        guard let startDate = dateFormatter.date(from: "2020년 \(date) \(startTime)"),
-              let endDate = dateFormatter.date(from: "2020년 \(date) \(endTime)")
-        else { return nil }
-        
-        return (startDate, endDate)
-    }
 }

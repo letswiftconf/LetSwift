@@ -17,8 +17,13 @@ struct ActionCell: View {
         Button(action: {
             self.action()
         }) {
+            #if os(iOS)
             Text(title)
                 .foregroundColor(Color(.label))
+            #else
+            Text(title)
+                .foregroundColor(Color(.labelColor))
+            #endif
         }
     }
 }

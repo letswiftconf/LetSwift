@@ -45,7 +45,7 @@ struct EventItemView: View {
                 Spacer()
             }
             .padding()
-            .background(Color(UIColor.secondarySystemGroupedBackground))
+//            .background(Color(.secondarySystemGroupedBackground))
         }
         .modifier(RoundedMask())
         .modifier(Shadow())

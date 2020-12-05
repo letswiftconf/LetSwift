@@ -8,17 +8,8 @@
 import Foundation
 
 extension DateFormatter {
-    @available(*, deprecated)
-    static func KSTDateFormatter(by format: String) -> DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-        return dateFormatter
-    }
-    
     static func dateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
-//        formatter.dateStyle = .long
         formatter.dateFormat = "MM월 dd일 (E)"
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter

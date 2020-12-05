@@ -11,9 +11,11 @@ struct PersonDetailView: View {
     let person: Person
     
     var body: some View {
-        ZStack {
+        let body = ZStack {
+            #if os(iOS)
             Color(.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
+            #endif
             ScrollView {
                 VStack(spacing: 30) {
                     VStack(spacing: 8) {
@@ -26,7 +28,7 @@ struct PersonDetailView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .padding(4)
-                                    .background(Color(.themePrimary))
+                                    .background(Color.themePrimary)
                                     .cornerRadius(6)
                             }
                         }
@@ -39,14 +41,21 @@ struct PersonDetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     
                     VStack(spacing: 8) {
+                        #if os(iOS)
                         ForEach(person.sns, id: \.self) { sns in
                             Button(action: {
                                 open(url: sns.url)
                             }, label: {
                                 HStack {
+                                    #if os(iOS)
                                     Text(sns.localizedString)
                                         .font(.body)
                                         .foregroundColor(Color(.label))
+                                    #else
+                                    Text(sns.localizedString)
+                                        .font(.body)
+                                        .foregroundColor(Color(.labelColor))
+                                    #endif
                                     Spacer()
                                     Image(systemName: "arrow.up.right")
                                         .font(.caption)
@@ -57,18 +66,51 @@ struct PersonDetailView: View {
                             .background(Color(.secondarySystemGroupedBackground))
                             .cornerRadius(13)
                         }
+                        #else
+                        ForEach(person.sns, id: \.self) { sns in
+                            Button(action: {
+                                open(url: sns.url)
+                            }, label: {
+                                HStack {
+                                    #if os(iOS)
+                                    Text(sns.localizedString)
+                                        .font(.body)
+                                        .foregroundColor(Color(.label))
+                                    #else
+                                    Text(sns.localizedString)
+                                        .font(.body)
+                                        .foregroundColor(Color(.labelColor))
+                                    #endif
+                                    Spacer()
+                                    Image(systemName: "arrow.up.right")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding()
+                            })
+                        }
+                        #endif
                     }
                 }
                 .padding(.horizontal)
             }
         }
-        .navigationBarTitle(person.name)
+        #if os(iOS)
+        return body
+            .navigationBarTitle(person.name)
+        #else
+        return body
+        #endif
     }
     
     // MARK: - Action
     private func open(url: URL?) {
         guard let url = url else { return }
+        #if os(iOS)
         UIApplication.shared.open(url)
+        #else
+        NSWorkspace.shared.open(url)
+        #endif
     }
 }
 
@@ -76,7 +118,7 @@ struct PersonDetailView: View {
 struct PersonDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-//            PersonDetailView(person: People(type: .staff).list[0])
+            //            PersonDetailView(person: People(type: .staff).list[0])
             PersonDetailView(person: Person(name: "Name",
                                             organization: "Organization",
                                             role: [.organizer, .devApp, .staff],

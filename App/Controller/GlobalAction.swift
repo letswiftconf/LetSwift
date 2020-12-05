@@ -7,13 +7,18 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#else
+import AppKit
+#endif
 import StoreKit
 import os.log
 
 struct GlobalAction {
     // MARK: - Settings
     static func openAppSettings() {
+        #if os(iOS)
         let urlString = UIApplication.openSettingsURLString
         let app = UIApplication.shared
         guard let settingsURL = URL(string: urlString),
@@ -24,20 +29,31 @@ struct GlobalAction {
         app.open(settingsURL, options: [:]) { (didOpen) in
             os_log(.info, log: .default, "Opened application settings")
         }
+        #else
+        /// https://stackoverflow.com/questions/58330598/is-there-a-way-to-send-the-user-to-the-apps-privacy-settings-under-macos-like-w
+        let urlString = "x-apple.systempreferences:com.apple.preference.security"
+        guard let settingsURL = URL(string: urlString) else {
+            os_log(.error, log: .default, "Failed to open Preferences.app")
+            return
+        }
+        NSWorkspace.shared.open(settingsURL)
+        #endif
     }
     
     // MARK: - App Store
     static func openWriteReivew() {
-        let urlString = "itms-apps://apps.apple.com/app/id1282995254?action=write-review"
+        #if os(iOS)
         let app = UIApplication.shared
-        guard let settingsURL = URL(string: urlString),
-            app.canOpenURL(settingsURL) else {
+        guard app.canOpenURL(.appStoreReview) else {
                 os_log(.error, log: .default, "Failed to open App Store for review")
                 return
         }
-        app.open(settingsURL, options: [:]) { (didOpen) in
+        app.open(.appStoreReview, options: [:]) { (didOpen) in
             os_log(.info, log: .default, "Opened App Store for review")
         }
+        #else
+        NSWorkspace.shared.open(.appStoreReview)
+        #endif
     }
     
     static func requestAppStoreReview() {

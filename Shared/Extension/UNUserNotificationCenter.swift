@@ -5,7 +5,7 @@
 //  Created by 신한섭 on 2020/11/25.
 //
 
-import UIKit
+import UserNotifications
 
 typealias UserNotificationInfo = (title: String, message: String, date: String)
 

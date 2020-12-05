@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct PeopleGroupedByRoleView: View {
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    #endif
+    
     @EnvironmentObject private var people: People
     
     var numOfItemsInRow: Int {
-        switch UIDevice.current.model {
-        case "iPhone":
+        #if os(iOS)
+        if horizontalSizeClass == .compact {
             return 3
-        default:
+        } else {
             return 5
         }
+        #else
+        return 5
+        #endif
     }
     
     // MARK: - Body

@@ -63,7 +63,7 @@ struct Sidebar: View {
 //                .tag(item)
 //            }
 //        }
-        List() {
+        let list = List() {
             Section(header: Text("Let'Swift 2020")) {
                 if !ProcessInfo.processInfo.isMacCatalystApp {
                     NavigationLink(destination: HomeView()) {
@@ -105,12 +105,20 @@ struct Sidebar: View {
 ////            }
         }
         .sheet(isPresented: $presentsSettings) {
+            #if os(iOS)
             SettingsView()
+            #endif
         }
 //        .listStyle(InsetGroupedListStyle())
-        .navigationBarItems(trailing: settingsButton)
-        .listStyle(SidebarListStyle())
-        .navigationTitle("Let'Swift") 
+        #if os(iOS)
+        return list
+            .navigationBarItems(trailing: settingsButton)
+            .listStyle(SidebarListStyle())
+            .navigationTitle("Let'Swift")
+        #else
+        return list
+            .listStyle(SidebarListStyle())
+        #endif
     }
     
     // MARK: - Action

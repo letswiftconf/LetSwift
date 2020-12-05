@@ -14,7 +14,7 @@ struct HeroItemView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
+        let body = ZStack(alignment: .bottomLeading) {
             Image("Placeholder")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -33,15 +33,25 @@ struct HeroItemView: View {
         }
         .modifier(RoundedMask())
         .modifier(Shadow())
-        .fullScreenCover(isPresented: $presentAR) {
-            ARView(assetName: "let")
-                .ignoresSafeArea(.all, edges: .all)
-        }
-        .onTapGesture {
-            if ProcessInfo.processInfo.isMacCatalystApp {
-                presentAR.toggle()
+        #if os(iOS)
+        return body
+            .fullScreenCover(isPresented: $presentAR) {
+                ARView(assetName: "let")
+                    .ignoresSafeArea(.all, edges: .all)
             }
-        }
+            .onTapGesture {
+                if ProcessInfo.processInfo.isMacCatalystApp {
+                    presentAR.toggle()
+                }
+            }
+        #else
+        return body
+            .onTapGesture {
+                if ProcessInfo.processInfo.isMacCatalystApp {
+                    presentAR.toggle()
+                }
+            }
+        #endif
     }
 }
 

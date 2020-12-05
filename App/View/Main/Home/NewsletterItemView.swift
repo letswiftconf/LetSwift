@@ -29,7 +29,9 @@ struct NewsletterItemView: View {
         .modifier(RoundedMask())
         .modifier(Shadow())
         .sheet(isPresented: $presentNewsletter) {
+            #if (iOS)
             Safari(url: .newsletter)
+            #endif
         }
         .onTapGesture {
             presentNewsletter.toggle()

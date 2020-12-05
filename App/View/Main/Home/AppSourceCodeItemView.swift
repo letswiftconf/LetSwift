@@ -28,7 +28,9 @@ struct AppSourceCodeItemView: View {
         .modifier(RoundedMask())
         .modifier(Shadow())
         .sheet(isPresented: $presentAppSourceCode) {
+            #if (iOS)
             Safari(url: .appSourceCode)
+            #endif
         }
         .onTapGesture {
             presentAppSourceCode.toggle()

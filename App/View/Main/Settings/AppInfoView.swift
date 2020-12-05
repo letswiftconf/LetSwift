@@ -7,7 +7,9 @@
 //
 
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#endif
 
 struct AppInfoView: View {
     // MARK: - Body
@@ -17,6 +19,7 @@ struct AppInfoView: View {
 //                .resizable()
 //                .frame(width: 32, height: 32)
 //                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+            #if os(iOS)
             VStack(spacing: 2) {
                 Text(UIApplication.shared.applicationName)
                     .fontWeight(.bold)
@@ -24,6 +27,15 @@ struct AppInfoView: View {
                     .fontWeight(.semibold)
             }
             .font(.system(size: 10))
+            #else
+            VStack(spacing: 2) {
+                Text(NSApplication.shared.applicationName)
+                    .fontWeight(.bold)
+                Text(NSApplication.shared.versionString)
+                    .fontWeight(.semibold)
+            }
+            .font(.system(size: 10))
+            #endif
             Text("Made with 💖")
                 .font(.system(size: 12))
                 .fontWeight(.bold)
