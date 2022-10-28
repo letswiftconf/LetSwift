@@ -504,6 +504,7 @@
 		16DBE61B2569EAD100B334A3 = {
 			isa = PBXGroup;
 			children = (
+				6FD7CDA8290C01F8002CF140 /* 2022 */,
 				1684F64925723D5E00A784C0 /* Shared */,
 				16DBE62A2569EAD200B334A3 /* App */,
 				169344CE25721C1800B6CA9A /* Widget */,
@@ -627,6 +628,53 @@
 				16984E7D256A33C60011C872 /* AppInfoView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		6FD7CDA8290C01F8002CF140 /* 2022 */ = {
+			isa = PBXGroup;
+			children = (
+				6FD7CDAD290C0363002CF140 /* OnBoarding */,
+				6FD7CDA9290C02A8002CF140 /* Sesstions */,
+				6FD7CDAA290C02F4002CF140 /* Badges */,
+				6FD7CDAB290C030B002CF140 /* Playgrounds */,
+				6FD7CDAC290C0325002CF140 /* Settings */,
+			);
+			path = 2022;
+			sourceTree = "<group>";
+		};
+		6FD7CDA9290C02A8002CF140 /* Sesstions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sesstions;
+			sourceTree = "<group>";
+		};
+		6FD7CDAA290C02F4002CF140 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
+		6FD7CDAC290C0325002CF140 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6FD7CDAD290C0363002CF140 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		9A77C72D256EC0B300B30BC6 /* Frameworks */ = {
