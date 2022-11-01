@@ -124,6 +124,7 @@
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		60E17672256D509B0068B3F4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
+		6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */; };
 		9A77C72F256EC0B300B30BC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9A77C731256EC0B300B30BC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9A77C734256EC0B300B30BC6 /* ScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77C733256EC0B300B30BC6 /* ScheduleWidget.swift */; };
@@ -287,6 +288,7 @@
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		60E17671256D509B0068B3F4 /* Event.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
+		6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookContainerView.swift; sourceTree = "<group>"; };
 		9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScheduleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = Library/Frameworks/WidgetKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A77C730256EC0B300B30BC6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -630,6 +632,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		6F35A83629113B630000DC45 /* GuestBook */ = {
+			isa = PBXGroup;
+			children = (
+				6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */,
+			);
+			path = GuestBook;
+			sourceTree = "<group>";
+		};
 		6FD7CDA8290C01F8002CF140 /* 2022 */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +669,7 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				6F35A83629113B630000DC45 /* GuestBook */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -1011,6 +1022,7 @@
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
+				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
