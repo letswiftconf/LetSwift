@@ -12,7 +12,7 @@ import UserNotifications
 struct LetSwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            ChartView()
                 .accentColor(.themePrimary)
                 .onAppear {
                     UNUserNotificationCenter.requestLetSwiftNotification()
