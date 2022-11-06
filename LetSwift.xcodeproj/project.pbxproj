@@ -156,6 +156,11 @@
 		A5EC7768256BD23D0072E959 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7767256BD23D0072E959 /* People.swift */; };
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
+		CC1E753E291512820016092D /* ChartMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CC1E753D291512820016092D /* ChartMockData.json */; };
+		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
+		CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC829151F8700419AFC /* SurveyData.swift */; };
+		CCEF707829114AC300239EC9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF707729114AC300239EC9 /* ChartView.swift */; };
+		CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,6 +316,11 @@
 		A5EC7767256BD23D0072E959 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
+		CC1E753D291512820016092D /* ChartMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartMockData.json; sourceTree = "<group>"; };
+		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		CC2DCDC829151F8700419AFC /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
+		CCEF707729114AC300239EC9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = ../../../../Downloads/ChartView.swift; sourceTree = "<group>"; };
+		CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +679,11 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				CCEF707729114AC300239EC9 /* ChartView.swift */,
+				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
+				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
+				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
+				CC1E753D291512820016092D /* ChartMockData.json */,
 				6F35A83629113B630000DC45 /* GuestBook */,
 			);
 			path = Playgrounds;
@@ -900,6 +915,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60E17672256D509B0068B3F4 /* Event.json in Resources */,
+				CC1E753E291512820016092D /* ChartMockData.json in Resources */,
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
 				167BE51925738C8000C6681A /* Timeline.xcassets in Resources */,
@@ -996,6 +1012,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */,
+				CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */,
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
@@ -1006,6 +1024,8 @@
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
+				CCEF707829114AC300239EC9 /* ChartView.swift in Sources */,
+				CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
 				6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */,

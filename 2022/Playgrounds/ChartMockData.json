@@ -1,0 +1,50 @@
+{
+    "totalCount" : 37,
+    "surveyList" : [
+        {
+            "surveyId": 1,
+            "answerList":  [
+                {"answerId": 1, "count": 10},
+                {"answerId": 2, "count": 7},
+                {"answerId": 3, "count": 10},
+                {"answerId": 4,  "count": 10}
+            ]
+        },
+        {
+            "surveyId" : 2,
+            "answerList":  [
+                {"answerId": 1, "count": 7},
+                {"answerId": 2, "count": 7},
+                {"answerId": 3, "count": 13},
+                {"answerId": 4,  "count": 10}
+            ]
+        },
+        {
+            "surveyId" : 3,
+            "answerList":  [
+                {"answerId": 1, "count": 10},
+                {"answerId": 2, "count": 7},
+                {"answerId": 3, "count": 10},
+                {"answerId": 4,  "count": 10}
+            ]
+        },
+        {
+            "surveyId" : 4,
+            "answerList":  [
+                {"answerId": 1, "count": 5},
+                {"answerId": 2, "count": 7},
+                {"answerId": 3, "count": 15},
+                {"answerId": 4,  "count": 10}
+            ]
+        },
+        {
+            "surveyId" : 5,
+            "answerList":  [
+                {"answerId": 1, "count":  10},
+                {"answerId": 2, "count": 7},
+                {"answerId": 3, "count": 10},
+                {"answerId": 4,  "count": 10}
+            ]
+        }
+    ]
+}
