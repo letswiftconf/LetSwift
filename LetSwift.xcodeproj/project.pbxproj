@@ -20,7 +20,6 @@
 		165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		165C48BB257C16C900DC914F /* LetSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6212569EAD100B334A3 /* LetSwiftApp.swift */; };
 		165C48CD257C177100DC914F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DBE6232569EAD200B334A3 /* Assets.xcassets */; };
 		165C48D3257C179800DC914F /* LetSwift.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5CF2574ABEF00C6681A /* LetSwift.pkpass */; };
 		165C48D4257C179800DC914F /* let.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5252573A1CB00C6681A /* let.usdz */; };
@@ -159,7 +158,14 @@
 		CC1E753E291512820016092D /* ChartMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CC1E753D291512820016092D /* ChartMockData.json */; };
 		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
 		CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC829151F8700419AFC /* SurveyData.swift */; };
-		CCEF707829114AC300239EC9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF707729114AC300239EC9 /* ChartView.swift */; };
+		CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54A92919548E008ABB2F /* fontExtension.swift */; };
+		CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AA2919548E008ABB2F /* viewExtension.swift */; };
+		CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AB2919548E008ABB2F /* colorExtension.swift */; };
+		CC9B54AF291954FA008ABB2F /* LetSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6212569EAD100B334A3 /* LetSwiftApp.swift */; };
+		CC9B54B029195506008ABB2F /* colorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AB2919548E008ABB2F /* colorExtension.swift */; };
+		CC9B54B129195509008ABB2F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AA2919548E008ABB2F /* viewExtension.swift */; };
+		CC9B54B22919550B008ABB2F /* fontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54A92919548E008ABB2F /* fontExtension.swift */; };
+		CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC9B54B62919583F008ABB2F /* Color.xcassets */; };
 		CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -319,7 +325,10 @@
 		CC1E753D291512820016092D /* ChartMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartMockData.json; sourceTree = "<group>"; };
 		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		CC2DCDC829151F8700419AFC /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
-		CCEF707729114AC300239EC9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = ../../../../Downloads/ChartView.swift; sourceTree = "<group>"; };
+		CC9B54A92919548E008ABB2F /* fontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fontExtension.swift; sourceTree = "<group>"; };
+		CC9B54AA2919548E008ABB2F /* viewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewExtension.swift; sourceTree = "<group>"; };
+		CC9B54AB2919548E008ABB2F /* colorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorExtension.swift; sourceTree = "<group>"; };
+		CC9B54B62919583F008ABB2F /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -653,6 +662,7 @@
 		6FD7CDA8290C01F8002CF140 /* 2022 */ = {
 			isa = PBXGroup;
 			children = (
+				CC9B54A82919548E008ABB2F /* Utility */,
 				6FD7CDAD290C0363002CF140 /* OnBoarding */,
 				6FD7CDA9290C02A8002CF140 /* Sessions */,
 				6FD7CDAA290C02F4002CF140 /* Badges */,
@@ -679,7 +689,6 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF707729114AC300239EC9 /* ChartView.swift */,
 				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
 				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
 				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
@@ -751,6 +760,17 @@
 				A5EC776E256BE2FB0072E959 /* GridView.swift */,
 			);
 			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		CC9B54A82919548E008ABB2F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CC9B54A92919548E008ABB2F /* fontExtension.swift */,
+				CC9B54AA2919548E008ABB2F /* viewExtension.swift */,
+				CC9B54B62919583F008ABB2F /* Color.xcassets */,
+				CC9B54AB2919548E008ABB2F /* colorExtension.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -918,6 +938,7 @@
 				CC1E753E291512820016092D /* ChartMockData.json in Resources */,
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
+				CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */,
 				167BE51925738C8000C6681A /* Timeline.xcassets in Resources */,
 				167BE5D42574AE4200C6681A /* LetSwift.pkpass in Resources */,
 			);
@@ -973,7 +994,7 @@
 				165C4AF9257C276400DC914F /* WebSourceCodeItemView.swift in Sources */,
 				165C4B2C257C2B0E00DC914F /* SidebarNavigationView.swift in Sources */,
 				165C4A13257C213700DC914F /* Event.swift in Sources */,
-				165C48BB257C16C900DC914F /* LetSwiftApp.swift in Sources */,
+				CC9B54B029195506008ABB2F /* colorExtension.swift in Sources */,
 				165C4AFF257C279D00DC914F /* AppSourceCodeItemView.swift in Sources */,
 				165C49F4257C20C100DC914F /* Bundle.swift in Sources */,
 				165C4B1E257C297400DC914F /* PersonDetailView.swift in Sources */,
@@ -981,6 +1002,7 @@
 				165C4AB3257C26B200DC914F /* People.swift in Sources */,
 				165C49D2257C1D3500DC914F /* Color.swift in Sources */,
 				165C4A66257C242000DC914F /* Preview.swift in Sources */,
+				CC9B54B129195509008ABB2F /* viewExtension.swift in Sources */,
 				165C4AD5257C26EA00DC914F /* OnAirIconView.swift in Sources */,
 				165C4AF3257C275A00DC914F /* CGFloat.swift in Sources */,
 				165C4A4F257C22D400DC914F /* GlobalAction.swift in Sources */,
@@ -1002,9 +1024,11 @@
 				165C4A88257C25F200DC914F /* ActionCell.swift in Sources */,
 				165C4AE1257C26FD00DC914F /* CalendarManager.swift in Sources */,
 				165C4A19257C214100DC914F /* DateManager.swift in Sources */,
+				CC9B54B22919550B008ABB2F /* fontExtension.swift in Sources */,
 				165C49EE257C207900DC914F /* DateFormatter.swift in Sources */,
 				165C4B2F257C2B0E00DC914F /* Sidebar.swift in Sources */,
 				165C4B24257C299600DC914F /* PeopleGroupedByRoleView.swift in Sources */,
+				CC9B54AF291954FA008ABB2F /* LetSwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,6 +1040,7 @@
 				CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */,
+				CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */,
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */,
@@ -1024,7 +1049,6 @@
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
-				CCEF707829114AC300239EC9 /* ChartView.swift in Sources */,
 				CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
@@ -1040,6 +1064,7 @@
 				16984E6F256A33580011C872 /* TitleDetailCell.swift in Sources */,
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
+				CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
 				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
@@ -1053,6 +1078,7 @@
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
 				6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */,
+				CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */,
 				A5704B18256E510C00EB6C8F /* UNUserNotificationCenter.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				1684F65625723F3100A784C0 /* Date.swift in Sources */,
@@ -1325,7 +1351,7 @@
 				DEVELOPMENT_TEAM = D6H9T35QZM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1352,7 +1378,7 @@
 				DEVELOPMENT_TEAM = D6H9T35QZM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
