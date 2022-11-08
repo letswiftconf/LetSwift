@@ -41,7 +41,7 @@ extension TabNavigationView {
         // MARK:
         var presentingView: some View {
             switch self {
-            case .sessions: return AnyView(HomeView())
+            case .sessions: return AnyView(SessionView())
             case .badges: return AnyView(ScheduleView())
             case .playgrounds: return AnyView(EmptyView())
             case .settings: return AnyView(PeopleView())
