@@ -158,6 +158,7 @@
 		CC1E753E291512820016092D /* ChartMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CC1E753D291512820016092D /* ChartMockData.json */; };
 		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
 		CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC829151F8700419AFC /* SurveyData.swift */; };
+		CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC393F0A2917CB6E0008F0F4 /* ChartView.swift */; };
 		CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54A92919548E008ABB2F /* fontExtension.swift */; };
 		CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AA2919548E008ABB2F /* viewExtension.swift */; };
 		CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AB2919548E008ABB2F /* colorExtension.swift */; };
@@ -325,6 +326,7 @@
 		CC1E753D291512820016092D /* ChartMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartMockData.json; sourceTree = "<group>"; };
 		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		CC2DCDC829151F8700419AFC /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
+		CC393F0A2917CB6E0008F0F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CC9B54A92919548E008ABB2F /* fontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fontExtension.swift; sourceTree = "<group>"; };
 		CC9B54AA2919548E008ABB2F /* viewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewExtension.swift; sourceTree = "<group>"; };
 		CC9B54AB2919548E008ABB2F /* colorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorExtension.swift; sourceTree = "<group>"; };
@@ -690,6 +692,7 @@
 			isa = PBXGroup;
 			children = (
 				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
+				CC393F0A2917CB6E0008F0F4 /* ChartView.swift */,
 				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
 				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
 				CC1E753D291512820016092D /* ChartMockData.json */,
@@ -1064,6 +1067,7 @@
 				16984E6F256A33580011C872 /* TitleDetailCell.swift in Sources */,
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
+				CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */,
 				CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
