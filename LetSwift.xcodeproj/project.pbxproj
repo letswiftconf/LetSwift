@@ -119,6 +119,14 @@
 		16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C7256A2EC700B334A3 /* OSLog.swift */; };
 		16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* Application.swift */; };
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
+		555CB610291CC38B00D893CE /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60E291CC38B00D893CE /* PlaygroundView.swift */; };
+		555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60F291CC38B00D893CE /* GoToCardView.swift */; };
+		555CB619291CC3B800D893CE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB613291CC3B700D893CE /* LoadingView.swift */; };
+		555CB61A291CC3B800D893CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB614291CC3B700D893CE /* CardView.swift */; };
+		555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB615291CC3B700D893CE /* AnswerItemView.swift */; };
+		555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB616291CC3B700D893CE /* SurveyView.swift */; };
+		555CB61D291CC3B800D893CE /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB617291CC3B700D893CE /* NicknameView.swift */; };
+		555CB61E291CC3B800D893CE /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB618291CC3B800D893CE /* AnswerData.swift */; };
 		6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventItemView.swift */; };
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
@@ -296,6 +304,14 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		555CB60E291CC38B00D893CE /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
+		555CB613291CC3B700D893CE /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		555CB614291CC3B700D893CE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		555CB615291CC3B700D893CE /* AnswerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
+		555CB616291CC3B700D893CE /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		555CB617291CC3B700D893CE /* NicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		555CB618291CC3B800D893CE /* AnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		6054DA74256A53D500A49BD4 /* EventItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemView.swift; sourceTree = "<group>"; };
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -653,6 +669,32 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		555CB60D291CC37900D893CE /* CheeringCard */ = {
+			isa = PBXGroup;
+			children = (
+				555CB617291CC3B700D893CE /* NicknameView.swift */,
+				555CB616291CC3B700D893CE /* SurveyView.swift */,
+				555CB615291CC3B700D893CE /* AnswerItemView.swift */,
+				555CB613291CC3B700D893CE /* LoadingView.swift */,
+				555CB614291CC3B700D893CE /* CardView.swift */,
+				555CB618291CC3B800D893CE /* AnswerData.swift */,
+				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
+				555CB612291CC39E00D893CE /* Chart */,
+			);
+			path = CheeringCard;
+			sourceTree = "<group>";
+		};
+		555CB612291CC39E00D893CE /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				CC1E753D291512820016092D /* ChartMockData.json */,
+				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
+				CC393F0A2917CB6E0008F0F4 /* ChartView.swift */,
+				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		6F35A83629113B630000DC45 /* GuestBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,11 +733,9 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
-				CC393F0A2917CB6E0008F0F4 /* ChartView.swift */,
-				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
-				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
-				CC1E753D291512820016092D /* ChartMockData.json */,
+				555CB60F291CC38B00D893CE /* GoToCardView.swift */,
+				555CB60E291CC38B00D893CE /* PlaygroundView.swift */,
+				555CB60D291CC37900D893CE /* CheeringCard */,
 				6F35A83629113B630000DC45 /* GuestBook */,
 			);
 			path = Playgrounds;
@@ -1047,11 +1087,13 @@
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */,
+				555CB619291CC3B800D893CE /* LoadingView.swift in Sources */,
 				16984E7E256A33C70011C872 /* AppInfoView.swift in Sources */,
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
+				555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */,
 				CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
@@ -1064,6 +1106,7 @@
 				16984E6D256A33580011C872 /* ActionCell.swift in Sources */,
 				1624BF8D256C4A3D00634E29 /* WebSourceCodeItemView.swift in Sources */,
 				16984E6E256A33580011C872 /* SettingsView.swift in Sources */,
+				555CB61D291CC3B800D893CE /* NicknameView.swift in Sources */,
 				16984E6F256A33580011C872 /* TitleDetailCell.swift in Sources */,
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
@@ -1071,11 +1114,14 @@
 				CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
+				555CB61A291CC3B800D893CE /* CardView.swift in Sources */,
 				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
+				555CB61E291CC3B800D893CE /* AnswerData.swift in Sources */,
+				555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				16984E9A256A505A0011C872 /* ARView.swift in Sources */,
@@ -1083,8 +1129,10 @@
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
 				6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */,
 				CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */,
+				555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */,
 				A5704B18256E510C00EB6C8F /* UNUserNotificationCenter.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
+				555CB610291CC38B00D893CE /* PlaygroundView.swift in Sources */,
 				1684F65625723F3100A784C0 /* Date.swift in Sources */,
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
@@ -1189,7 +1237,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1216,7 +1264,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1352,7 +1400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = D6H9T35QZM;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1407,7 +1455,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1435,7 +1483,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1464,7 +1512,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1493,7 +1541,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1523,7 +1571,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
@@ -1552,7 +1600,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = 9HJKFUTNXJ;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
