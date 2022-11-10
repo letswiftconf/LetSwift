@@ -175,6 +175,14 @@
 		CC9B54B129195509008ABB2F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AA2919548E008ABB2F /* viewExtension.swift */; };
 		CC9B54B22919550B008ABB2F /* fontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54A92919548E008ABB2F /* fontExtension.swift */; };
 		CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC9B54B62919583F008ABB2F /* Color.xcassets */; };
+		CCF9A0C0291CE1C100EF8C9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */; };
+		CCF9A0C1291CE1C100EF8C9B /* SwiftWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */; };
+		CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */; };
+		CCF9A0C3291CE1C100EF8C9B /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0BC291CE1C100EF8C9B /* ProfileDetailView.swift */; };
+		CCF9A0CB291CE21800EF8C9B /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0C8291CE21800EF8C9B /* URLData.swift */; };
+		CCF9A0CF291CE25A00EF8C9B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0CD291CE25A00EF8C9B /* Profile.swift */; };
+		CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0CE291CE25A00EF8C9B /* ProfileData.swift */; };
+		CCF9A0D2291CE3C900EF8C9B /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */; };
 		CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -347,6 +355,14 @@
 		CC9B54AA2919548E008ABB2F /* viewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewExtension.swift; sourceTree = "<group>"; };
 		CC9B54AB2919548E008ABB2F /* colorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorExtension.swift; sourceTree = "<group>"; };
 		CC9B54B62919583F008ABB2F /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebView.swift; sourceTree = "<group>"; };
+		CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingMainView.swift; sourceTree = "<group>"; };
+		CCF9A0BC291CE1C100EF8C9B /* ProfileDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		CCF9A0C8291CE21800EF8C9B /* URLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
+		CCF9A0CD291CE25A00EF8C9B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		CCF9A0CE291CE25A00EF8C9B /* ProfileData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
+		CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -711,7 +727,7 @@
 				6FD7CDA9290C02A8002CF140 /* Sessions */,
 				6FD7CDAA290C02F4002CF140 /* Badges */,
 				6FD7CDAB290C030B002CF140 /* Playgrounds */,
-				6FD7CDAC290C0325002CF140 /* Settings */,
+				CCF9A0B8291CE1C100EF8C9B /* Settings */,
 			);
 			path = 2022;
 			sourceTree = "<group>";
@@ -739,13 +755,6 @@
 				6F35A83629113B630000DC45 /* GuestBook */,
 			);
 			path = Playgrounds;
-			sourceTree = "<group>";
-		};
-		6FD7CDAC290C0325002CF140 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		6FD7CDAD290C0363002CF140 /* OnBoarding */ = {
@@ -808,12 +817,35 @@
 		CC9B54A82919548E008ABB2F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */,
 				CC9B54A92919548E008ABB2F /* fontExtension.swift */,
 				CC9B54AA2919548E008ABB2F /* viewExtension.swift */,
 				CC9B54B62919583F008ABB2F /* Color.xcassets */,
 				CC9B54AB2919548E008ABB2F /* colorExtension.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		CCF9A0B8291CE1C100EF8C9B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */,
+				CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */,
+				CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */,
+				CCF9A0BC291CE1C100EF8C9B /* ProfileDetailView.swift */,
+				CCF9A0BD291CE1C100EF8C9B /* Data */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CCF9A0BD291CE1C100EF8C9B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CCF9A0CD291CE25A00EF8C9B /* Profile.swift */,
+				CCF9A0CE291CE25A00EF8C9B /* ProfileData.swift */,
+				CCF9A0C8291CE21800EF8C9B /* URLData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -982,6 +1014,7 @@
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
 				CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */,
+				CCF9A0D2291CE3C900EF8C9B /* Image.xcassets in Resources */,
 				167BE51925738C8000C6681A /* Timeline.xcassets in Resources */,
 				167BE5D42574AE4200C6681A /* LetSwift.pkpass in Resources */,
 			);
@@ -1106,14 +1139,17 @@
 				16984E6D256A33580011C872 /* ActionCell.swift in Sources */,
 				1624BF8D256C4A3D00634E29 /* WebSourceCodeItemView.swift in Sources */,
 				16984E6E256A33580011C872 /* SettingsView.swift in Sources */,
+				CCF9A0C0291CE1C100EF8C9B /* ProfileView.swift in Sources */,
 				555CB61D291CC3B800D893CE /* NicknameView.swift in Sources */,
 				16984E6F256A33580011C872 /* TitleDetailCell.swift in Sources */,
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
+				CCF9A0CF291CE25A00EF8C9B /* Profile.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
 				CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */,
 				CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
+				CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */,
 				555CB61A291CC3B800D893CE /* CardView.swift in Sources */,
 				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
@@ -1124,11 +1160,13 @@
 				555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
+				CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */,
 				16984E9A256A505A0011C872 /* ARView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
 				6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */,
 				CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */,
+				CCF9A0C1291CE1C100EF8C9B /* SwiftWebView.swift in Sources */,
 				555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */,
 				A5704B18256E510C00EB6C8F /* UNUserNotificationCenter.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
@@ -1137,10 +1175,12 @@
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
 				1624BF09256B73A200634E29 /* Shadow.swift in Sources */,
+				CCF9A0C3291CE1C100EF8C9B /* ProfileDetailView.swift in Sources */,
 				1624BF84256C487900634E29 /* GetTicketItemView.swift in Sources */,
 				1624BF98256C7D8500634E29 /* URL.swift in Sources */,
 				16DBE69F256A242600B334A3 /* Sidebar.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
+				CCF9A0CB291CE21800EF8C9B /* URLData.swift in Sources */,
 				A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */,
 				A5EC7768256BD23D0072E959 /* People.swift in Sources */,
 			);
@@ -1237,7 +1277,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1264,7 +1304,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1400,7 +1440,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = D6H9T35QZM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1427,7 +1467,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = D6H9T35QZM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1455,7 +1495,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1483,7 +1523,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1512,7 +1552,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1541,7 +1581,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1571,7 +1611,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
@@ -1600,7 +1640,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;

@@ -44,7 +44,7 @@ extension TabNavigationView {
             case .sessions: return AnyView(HomeView())
             case .badges: return AnyView(ScheduleView())
             case .playgrounds: return AnyView(PlaygroundView())
-            case .settings: return AnyView(PeopleView())
+            case .settings: return AnyView(SettingMainView())
 //            case .location: return AnyView(LocationView())
             }
         }
