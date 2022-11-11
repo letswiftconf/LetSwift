@@ -10,7 +10,7 @@ import SwiftUI
 extension View {
     func stack(at position: Int , in total: Int) -> some View {
         let offset = Double(total - position)
-        return self.offset(x: 0,y: offset - 10)
+        return self.offset(x: 0,y: offset * 10)
     }
 }
 
@@ -21,10 +21,11 @@ struct GuestBookContentView: View {
     @State private var angle: CGFloat = 5
     
     var body: some View {
-        ZStack {
-            VStack{
+//        ZStack {
+            VStack (spacing: 10) {
                 LottieView(filename: "arrow-up")
                     .frame(height: 50)
+                    .padding(.top)
                 
                 Text("Slide up to send your message")
                     .font(.headline)
@@ -32,11 +33,21 @@ struct GuestBookContentView: View {
                 
                 ZStack{
                     ForEach(0..<cards.count,id: \.self) { index in
-                        FormCardView(card: cards[index]).stack(at: index, in: cards.count)
+                        FormCardView(card: cards[index]){
+                            withAnimation {
+                                removeCard(at: index)
+                            }
+                        }.stack(at: index, in: cards.count)
                     }
                 }
+                Spacer()
             }
-        }
+//        }
+    }
+    
+    func removeCard(at index: Int) {
+        cards.remove(at: index)
+        print("전송완료!!")
     }
 }
 

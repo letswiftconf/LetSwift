@@ -9,7 +9,6 @@ import SwiftUI
 
 struct GuestBookContainerView: View {
     var body: some View {
-        
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Let' play \nat Swift Playgrounds")

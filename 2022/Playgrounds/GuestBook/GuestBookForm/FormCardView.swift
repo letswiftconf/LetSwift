@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct FormCardView: View {
-    
     let card: FormCard
-    @State private var isShowingAnswer = false
-    @State var name: String = ""
-    
     var removal: (() -> Void)? = nil
+    @State var content: String = ""
     @State private var offset = CGSize.zero
     @State private var feedback = UINotificationFeedbackGenerator()
     @State var currentIndex: Int = 0
@@ -32,7 +29,7 @@ struct FormCardView: View {
                         .font(.headline)
                         .foregroundColor(.gray)
                     
-                    TextField("하고싶은 말을 남겨주세요", text: $name)
+                    TextField("하고싶은 말을 남겨주세요", text: $content)
                         .padding()
                 }
                 .padding()
@@ -40,7 +37,7 @@ struct FormCardView: View {
             }
             .frame(height: 250)
             .padding([.leading,.trailing])
-            .rotationEffect(.degrees(Double(offset.height / 10)))
+            .rotationEffect(.degrees(Double(offset.height / 5)))
             .offset(x: 0, y: offset.height * 5)
             .opacity(2 - Double(abs(offset.height / 50)))
             .accessibilityAddTraits(.isButton)
@@ -52,15 +49,8 @@ struct FormCardView: View {
                     }
                     .onEnded { _ in
                         if abs(offset.height) > 100 {
-                            if offset.height > 0 {
-                                feedback.notificationOccurred(.success)
-                                print("방명록 보내기! 성공")
-                            } else {
-                                feedback.notificationOccurred(.error)
-                            }
-                            
                             removal?()
-                            offset = .zero
+                            content = ""
                         } else {
                             offset = .zero
                         }
@@ -73,7 +63,9 @@ struct FormCardView: View {
         }
         
     }
+    
 }
+
 
 extension View {
     func editTextEnd(){
