@@ -1,5 +1,5 @@
 //
-//  SurveyAnswerData.swift
+//  AnswerData.swift
 //  LetSwift
 //
 //  Created by jiin heo on 2022/11/07.
