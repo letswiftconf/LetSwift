@@ -9,45 +9,47 @@ import SwiftUI
 
 struct NicknameView: View {
     
-    // TODO: Nickname 저장
-    
     @State private var name = ""
+    @State private var showingAlert = false
     
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationView {
             VStack {
-                Text("이름(닉네임)이 무엇인가요?")
-                    .font(.title2)
-                    .bold()
-                TextField("닉네임을 입력해주세요", text: $name)
+                Text("이름(닉네임)이\n무엇인가요?")
+                    .font(.title3Bold)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 50)
-                    .background(Color.gray)
-                    .cornerRadius(10)
-                    .foregroundColor(.black)
+                TextField("", text: $name)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 22))
+                    .foregroundColor(.white)
+                    .padding(.top, 30)
                     .onChange(of: name) { newValue in
-                        if newValue.count > 8 {
-                            let str: String = newValue
-                            let startIndex = str.index(str.startIndex, offsetBy: 0)
-                            let endIndex = str.index(str.startIndex, offsetBy: 8)
-                            name = String(str[startIndex ..< endIndex])
-                        }
+                        checkNameCount(newValue)
                     }
-                NavigationLink {
-                    SurveyView(surveyId: 1)
-                } label: {
-                    Text("확인")
-                        .font(.title3)
-                        .bold()
-                        .padding(10)
-                        .background(Color.gray)
-                        .foregroundColor(.black)
-                        .cornerRadius(8)
+                Rectangle()
+                    .frame(width: 300, height: 2)
+                    .foregroundColor(.orange)
+                // TODO: - 닉네임 입력 확인 필요
+                if (name.count != 0){
+                    NavigationLink {
+                        SurveyView(surveyId: 1,userData: answerData(name: name) )
+                    } label: {
+                        HStack {
+                            Text("확인")
+                                .font(.title3)
+                                .padding(10)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 150, height: 40)
+                        .background(gradationBox())
+                        .padding(EdgeInsets(top: 60, leading: 0, bottom: 0, trailing: 0))
+                    }
                 }
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.backgroundBlack)
             .navigationTitle("")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -59,6 +61,40 @@ struct NicknameView: View {
                 }
             }
         }
+    }
+}
+
+extension NicknameView {
+    func answerData(name: String) -> AnswerData {
+        let userData = AnswerData(name: name, answer: [])
+        return userData
+    }
+    
+
+    func checkNameCount(_ string: String){
+        if string.count > 8 {
+            name = subString(string: string, count: 8)
+        }
+    }
+    
+    func checkname() {
+        if name.count == 0 {
+            showingAlert = true
+        }
+    }
+    
+    func subString(string: String, count: Int) -> String {
+        let startIndex = string.index(string.startIndex, offsetBy: 0)
+        let endIndex = string.index(string.startIndex, offsetBy: count)
+        return String(string[startIndex ..< endIndex])
+    }
+    
+    
+    @ViewBuilder func gradationBox() -> some View {
+        Rectangle()
+            .fill(LinearGradient.gradientOrange.opacity(0.45))
+            .cornerRadius(5)
+            .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
     }
 }
 

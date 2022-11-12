@@ -11,8 +11,11 @@ import SwiftUI
 
 struct CardView: View {
     
-    // TODO: Loading, 이미지 저장, 공유 기능
-    // TODO: 다시뽑기, Userdefault 값 저장
+    // TODO: Loading(Lottie), 이미지 저장, 공유 기능
+    // TODO: 다시뽑기
+    
+    // TODO: category 계산 로직 추가
+    // TODO: userData 가져오기 추가
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -22,68 +25,83 @@ struct CardView: View {
     var body: some View {
         VStack {
             Image("CheeringCard")
-            Text("\(category.rawValue) \(name)님! \n Playground에서 함께 놀아요")
-                .font(.title2)
-                .bold()
-                .foregroundColor(Color.white)
+                .resizable()
+                .scaledToFit()
+            HStack {
+                // TODO: 밑줄 구현
+                Text("\(category.rawValue) \(name)님! \n Playground에서 함께 놀아요")
+                    .font(.title3Bold)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.leading, 10)
+                    .padding(.top, 10)
+                Spacer()
+            }
             Text("#letswift #렛츠스위프트 @letswift를 태그해서 \n이미지를 공유하면 추첨해서 굿즈를 드립니다. ")
-                .font(.caption)
-                .bold()
-                .foregroundColor(Color.gray)
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                .font(.subheadRegular)
+                .foregroundColor(.white)
+                .padding(.top, 10)
             
             NavigationLink {
-                SurveyView(surveyId: 1)
+                ChartView()
             } label: {
-                Text("참가자 전체 결과 보기")
-                    .font(.title3)
-                    .bold()
+                HStack {
+                    Spacer()
+                    Text("참가자 전체 결과 보기")
+                        .font(.title3Reqular)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+        
             }
             .padding(10)
-            .background(Color.gray)
+            .background(gradationBox())
             .foregroundColor(.black)
             .cornerRadius(8)
-            .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+            .padding(.top, 10)
             
             HStack {
-                NavigationLink {
-                    SurveyView(surveyId: 1)
+                Button {
+                    // action
                 } label: {
-                    Text("이미지 저장")
-                        .font(.system(size: 15))
-                        .padding(10)
-                        .background(Color.gray)
-                        .foregroundColor(.black)
-                        .cornerRadius(8)
+                    boxText(title: "이미지 저장", image: "arrow.down.to.line")
                 }
-                NavigationLink {
-                    SurveyView(surveyId: 1)
+                Spacer()
+                Button {
+                    // action
                 } label: {
-                    Text("카드 공유")
-                        .font(.system(size: 15))
-                        .padding(10)
-                        .background(Color.gray)
-                        .foregroundColor(.black)
-                        .cornerRadius(8)
+                    boxText(title: "카드 공유", image: "square.and.arrow.up")
                 }
-                NavigationLink {
-                    SurveyView(surveyId: 1)
+                Spacer()
+                Button {
+                    // action
                 } label: {
-                    Text("동료 찾기")
-                        .font(.system(size: 15))
-                        .padding(10)
-                        .background(Color.gray)
-                        .foregroundColor(.black)
-                        .cornerRadius(8)
+                    boxText(title: "동료 찾기", image: "magnifyingglass")
                 }
             }
-            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 20))
-            
+            .padding(.top, 10)
             //TODO: Add Retry Button
+            Button {
+                print("다시 뽑기 click")
+            } label: {
+                Spacer()
+                HStack {
+                    Image(systemName: "goforward")
+                        .foregroundColor(.textGray)
+                        .frame(width: 10, height: 10)
+                    Text("다시 뽑기")
+                        .font(.footnote)
+                        .foregroundColor(.textGray)
+                }
+                .padding(.top,10)
+            }
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.backgroundBlack)
         .navigationTitle("")
         .toolbar {
+            // TODO: Close dismiss 구현
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -92,6 +110,32 @@ struct CardView: View {
                 })
             }
         }
+    }
+}
+
+extension CardView {
+    @ViewBuilder func gradationBox() -> some View {
+        Rectangle()
+            .fill(LinearGradient.gradientOrange.opacity(0.45))
+            .cornerRadius(5)
+            .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
+    }
+    
+    @ViewBuilder func boxText(title: String, image: String) -> some View {
+        HStack(alignment: .center) {
+            Spacer()
+            Image(systemName: image)
+                .frame(width: 10, height: 10)
+                .foregroundColor(.white)
+            Text(title)
+                .font(.footnote)
+                .foregroundColor(.white)
+                .cornerRadius(3)
+            Spacer()
+        }
+        .frame(height: 35)
+        .background(Color.backgroundCell)
+        .cornerRadius(5)
     }
 }
 
