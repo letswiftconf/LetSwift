@@ -18,6 +18,7 @@ struct GoToCardView: View {
             boxText(title: "나의 playground card\n뽑으러 가기")
         }
         .fullScreenCover(isPresented: $showModal, content: NicknameView.init)
+        
     }
 }
 

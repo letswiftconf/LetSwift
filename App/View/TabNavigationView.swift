@@ -43,7 +43,7 @@ extension TabNavigationView {
             switch self {
             case .sessions: return AnyView(HomeView())
             case .badges: return AnyView(ScheduleView())
-            case .playgrounds: return AnyView(PlaygroundView())
+            case .playgrounds: return AnyView(GuestBookContainerView())
             case .settings: return AnyView(SettingMainView())
 //            case .location: return AnyView(LocationView())
             }
