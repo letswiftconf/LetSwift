@@ -30,9 +30,6 @@ class GuestBookListViewModel: ObservableObject {
             \("Let' play".convertString(text: "Let"))
             \("at Swift Playgrounds".convertString(text: "Swift"))
         """
-        
-        SharedPreference.shared.cheeringCard = CheeringCard(name: "나다나다")
-        
         binding()
     }
     

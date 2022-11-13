@@ -15,14 +15,16 @@ class MyPlaygroundsViewModel: ObservableObject {
 
     @Published var movies: [String] = []
     init(){
-        SharedPreference.shared.cheeringCard = CheeringCard(name: "나다나다")
         
-        guard let user = SharedPreference.shared.cheeringCard , let name = user.name else{
-            return
-        }
-            
-        print("user \(user)")
-        hasCheeringCard = !name.isEmpty
+        //MARK: - 응원카드 작성 후 UserDefault 값 확인용 테스트코드
+//        SharedPreference.shared.cheeringCard = CheeringCard(name: "나다나다")
+//
+//        guard let user = SharedPreference.shared.cheeringCard , let name = user.name else{
+//            return
+//        }
+//
+//        print("user \(user)")
+//        hasCheeringCard = !name.isEmpty
 
     }
 }
