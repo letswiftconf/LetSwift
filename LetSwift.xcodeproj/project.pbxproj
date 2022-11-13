@@ -121,7 +121,6 @@
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
 		555CB610291CC38B00D893CE /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60E291CC38B00D893CE /* PlaygroundView.swift */; };
 		555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60F291CC38B00D893CE /* GoToCardView.swift */; };
-		555CB619291CC3B800D893CE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB613291CC3B700D893CE /* LoadingView.swift */; };
 		555CB61A291CC3B800D893CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB614291CC3B700D893CE /* CardView.swift */; };
 		555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB615291CC3B700D893CE /* AnswerItemView.swift */; };
 		555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB616291CC3B700D893CE /* SurveyView.swift */; };
@@ -314,7 +313,6 @@
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		555CB60E291CC38B00D893CE /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
-		555CB613291CC3B700D893CE /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		555CB614291CC3B700D893CE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		555CB615291CC3B700D893CE /* AnswerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
 		555CB616291CC3B700D893CE /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
@@ -685,17 +683,24 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		5529B6212920292600803956 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				555CB618291CC3B800D893CE /* AnswerData.swift */,
+				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		555CB60D291CC37900D893CE /* CheeringCard */ = {
 			isa = PBXGroup;
 			children = (
 				555CB617291CC3B700D893CE /* NicknameView.swift */,
 				555CB616291CC3B700D893CE /* SurveyView.swift */,
 				555CB615291CC3B700D893CE /* AnswerItemView.swift */,
-				555CB613291CC3B700D893CE /* LoadingView.swift */,
 				555CB614291CC3B700D893CE /* CardView.swift */,
-				555CB618291CC3B800D893CE /* AnswerData.swift */,
-				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
 				555CB612291CC39E00D893CE /* Chart */,
+				5529B6212920292600803956 /* Data */,
 			);
 			path = CheeringCard;
 			sourceTree = "<group>";
@@ -749,8 +754,8 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				555CB60F291CC38B00D893CE /* GoToCardView.swift */,
 				555CB60E291CC38B00D893CE /* PlaygroundView.swift */,
+				555CB60F291CC38B00D893CE /* GoToCardView.swift */,
 				555CB60D291CC37900D893CE /* CheeringCard */,
 				6F35A83629113B630000DC45 /* GuestBook */,
 			);
@@ -1120,7 +1125,6 @@
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */,
-				555CB619291CC3B800D893CE /* LoadingView.swift in Sources */,
 				16984E7E256A33C70011C872 /* AppInfoView.swift in Sources */,
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
