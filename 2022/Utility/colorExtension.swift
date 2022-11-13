@@ -19,4 +19,7 @@ extension Color {
     static let backgroundCell = Color("backgroundCell")
     static let gradientStart = Color("gradientStart")
     static let gradientEnd = Color("gradientEnd")
+    
+    // border
+    static let borderGray = Color("borderGray")
 }
