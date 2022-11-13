@@ -6,27 +6,64 @@
 //
 
 import SwiftUI
+import RxSwift
 
 struct GuestBookContainerView: View {
+    @StateObject var viewModel = GuestBookListViewModel()
+    var disposeBag = DisposeBag()
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Let' play \nat Swift Playgrounds")
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                
+                TitleView()
                 MyPlaygrounds()
-                
-                Section(header: Text("우리들의 기록")) {
-                    ForEach(GuestBooksModel.mockingData, id: \.id) { event in
+                    .background(LinearGradient.gradientOrange.opacity(0.45))
+                    .cornerRadius(10)
+                    .clipped()
+                Section(header: Text("우리들의 기록").font(.title3Bold)) {
+                    ForEach(viewModel.welcome ?? [], id: \.id) { event in
                         PlaygroundSimpleRow(guestBook: event)
+                            .background(Color.backgroundCell)
+                            .cornerRadius(10)
+                            .clipped()
                     }
                 }
             }
             .padding()
         }
         .padding(.top, 1)
+        .foregroundColor(.white)
+        .background(Color.backgroundBlack)
+        .onAppear{
+            self.viewModel.action.guestBookList.accept(())
+        }
         
+    }
+        
+}
+
+struct TitleView: View {
+    var body: some View {
+        VStack (alignment: .leading ){
+            HStack(spacing: 0) {
+                Text("Let")
+                    .font(.title3Bold)
+                    .foregroundColor(.orange)
+                Text("'s play")
+                    .font(.title3Bold)
+                    .foregroundColor(.white)
+            }
+            HStack {
+                Text("at")
+                    .font(.title3Bold)
+                    .foregroundColor(.white)
+                Text("Swift")
+                    .font(.title3Bold)
+                    .foregroundColor(.orange)
+                Text("Playgrounds")
+                    .font(.title3Bold)
+                    .foregroundColor(.white)
+            }
+        }
     }
 }
 

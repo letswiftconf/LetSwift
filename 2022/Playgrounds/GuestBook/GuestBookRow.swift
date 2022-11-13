@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct PlaygroundSimpleRow: View {
-    let guestBook: GuestBookModel
+//    let guestBook: GuestBookModel
+    let guestBook: WelcomeElement
     
     var body: some View {
-        VStack (alignment: .leading) {
-            HStack(spacing: 20) {
-                Image(systemName: guestBook.profile ?? "calendar")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 70)
-                
-                Text(guestBook.content ?? "")
-                
-            }
+        HStack (alignment: .top ) {
+            Text("?")
+                .font(.title3)
+                .bold()
+                .frame(width:35, height: 50)
+                .background(Color.orange)
+                .cornerRadius(3)
+            Text(guestBook.name ?? "")
+                .foregroundColor(Color.white)
+                .padding(.leading)
+            Spacer()
         }
-        .frame(height: 80)
+        .padding()
+        .cornerRadius(10)
+        
+        
     }
 }

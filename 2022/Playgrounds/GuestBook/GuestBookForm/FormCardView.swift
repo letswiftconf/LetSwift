@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormCardView: View {
     let card: FormCard
-    var removal: (() -> Void)? = nil
+    var removal: ((String) -> Void)? = nil
     @State var content: String = ""
     @State private var offset = CGSize.zero
     @State private var feedback = UINotificationFeedbackGenerator()
@@ -24,16 +24,24 @@ struct FormCardView: View {
                 RoundedRectangle(cornerRadius: 25,style: .circular)
                     .fill(.white)
                     .shadow(radius: 10)
-                VStack {
-                    Text(card.answer)
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    
-                    TextField("하고싶은 말을 남겨주세요", text: $content)
-                        .padding()
-                }
-                .padding()
-                .multilineTextAlignment(.center)
+                
+                    VStack {
+                        Text(card.answer)
+                            .font(.title3Reqular)
+                            .foregroundColor(.gray)
+                        
+                        TextEditor(text:  $content)
+                            .foregroundColor(Color.black)
+                            .padding()
+                            .cornerRadius(10)
+                            .shadow(radius: 1)
+                        
+
+                    }
+                    .padding()
+                    .multilineTextAlignment(.center)
+                
+              
             }
             .frame(height: 250)
             .padding([.leading,.trailing])
@@ -49,7 +57,7 @@ struct FormCardView: View {
                     }
                     .onEnded { _ in
                         if abs(offset.height) > 100 {
-                            removal?()
+                            removal?(content)
                             content = ""
                         } else {
                             offset = .zero
@@ -70,5 +78,10 @@ struct FormCardView: View {
 extension View {
     func editTextEnd(){
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        FormCardView(card: FormCard.example)
     }
 }

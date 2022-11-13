@@ -10,8 +10,9 @@ import SwiftUI
 struct GuestBookFormView: View {
     
     let card: FormCard
-    @State private var isShowingAnswer = false
-    @State var name: String = ""
+//    @State private var isShowingAnswer = false
+    @State var contents: String = ""
+    @Environment(\.presentationMode) var presentationMode
     
     var removal: (() -> Void)? = nil
     @State private var offset = CGSize.zero
@@ -32,7 +33,7 @@ struct GuestBookFormView: View {
                         .font(.headline)
                         .foregroundColor(.gray)
                     
-                    TextField("하고싶은 말을 남겨주세요", text: $name)
+                    TextField("하고싶은 말을 남겨주세요", text: $contents)
                         .padding()
                 }
                 .padding()
@@ -52,15 +53,8 @@ struct GuestBookFormView: View {
                     }
                     .onEnded { _ in
                         if abs(offset.height) > 100 {
-                            if offset.height > 0 {
-                                feedback.notificationOccurred(.success)
-                                print("방명록 보내기! 성공")
-                            } else {
-                                feedback.notificationOccurred(.error)
-                            }
-                            
                             removal?()
-                            offset = .zero
+                            contents = ""
                         } else {
                             offset = .zero
                         }
@@ -68,9 +62,11 @@ struct GuestBookFormView: View {
             )
             .animation(.spring(), value: offset)
             Spacer()
-        }.onTapGesture{
+        }
+        .onTapGesture{
             editTextEnd()
         }
+        
         
     }
 }

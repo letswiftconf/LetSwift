@@ -11,5 +11,5 @@ struct FormCard {
     let prompt: String
     let answer: String
     
-    static let example = FormCard(prompt: "Some Text", answer: "Hi, Let's Swift 내가 하고싶은 말은~")
+    static let example = FormCard(prompt: "Some Text", answer: "컨퍼런스 후기를 남겨주세요!")
 }

@@ -7,9 +7,24 @@
 
 import Foundation
 import SwiftUI
+import RxSwift
+import RxRelay
 
 class MyPlaygroundsViewModel: ObservableObject {
-    
+    var hasCheeringCard = false
+
+    @Published var movies: [String] = []
+    init(){
+        SharedPreference.shared.cheeringCard = CheeringCard(name: "나다나다")
+        
+        guard let user = SharedPreference.shared.cheeringCard , let name = user.name else{
+            return
+        }
+            
+        print("user \(user)")
+        hasCheeringCard = !name.isEmpty
+
+    }
 }
 
 
@@ -18,22 +33,11 @@ extension MyPlaygroundsViewModel {
         return isGuestBookViewHidden ? .gray : .orange
     }
     
-    func getContentBySelectedType(_ type: PlaygoundsType) -> String {
-        switch type {
-        case .guestBook:
-            return "오늘 컨퍼런스를 기록해보세요!"
-        case .myCard:
-            return "나의 playground card 뽑으러가기"
-        }
-    }
-    
-    func getNextView(_ type: PlaygoundsType) -> some View {
-        switch type {
-        case .guestBook:
-            return AnyView(GuestBookContentView())
-        case .myCard:
-            // MARK: -
-            return AnyView(GuestBookContentView())
+    func getNextView(_ has: Bool) -> some View {
+        if has {
+            return AnyView(GoToGuestBookFormView())
+        }else{
+            return AnyView(GoToCardView())
         }
     }
     

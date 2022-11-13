@@ -1,13 +1,13 @@
 //
-//  CardItem.swift
+//  GoToGuestBookFormView.swift
 //  LetSwift
 //
-//  Created by jiin heo on 2022/11/06.
+//  Created by Dongju on 2022/11/11.
 //
 
 import SwiftUI
 
-struct GoToCardView: View {
+struct GoToGuestBookFormView: View {
     
     @State private var showModal = false
     
@@ -22,23 +22,17 @@ struct GoToCardView: View {
                     .frame(width:35, height: 50)
                     .background(Color.black)
                     .cornerRadius(3)
-                Text("컨퍼런스 후기를 남겨주세요!")
+                Text("나의 playground card 뽑으러 가기")
                     .foregroundColor(Color.black)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(Color.black)
             }
-            .padding()            
+            .padding()
             .cornerRadius(10)
         }
-        .fullScreenCover(isPresented: $showModal, content: NicknameView.init)
+        .fullScreenCover(isPresented: $showModal, content: GuestBookContentView.init)
         
     }
 }
 
-
-struct CardItem_Previews: PreviewProvider {
-    static var previews: some View {
-        GoToCardView()
-    }
-}
