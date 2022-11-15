@@ -61,7 +61,9 @@ struct CardView: View {
                 }
                 Spacer()
                 Button {
-                    // action
+                    let image = captureView
+                        .foregroundColor(.black).snapshot()
+                    shareImage(image: image)
                 } label: {
                     boxText(title: "카드 공유", image: "square.and.arrow.up")
                 }
@@ -109,7 +111,6 @@ struct CardView: View {
     }
 }
 
-
 extension CardView {
     var captureView: some View {
         VStack {
@@ -126,6 +127,9 @@ extension CardView {
                 Spacer()
             }
         }
+    }
+    private func shareImage(image: UIImage) {
+        #warning("shareSheet 구현하기")
     }
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()

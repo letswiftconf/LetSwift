@@ -8,6 +8,7 @@
 import Foundation
 
 struct URLData {
+    static let appStore = URL(string: "https://apps.apple.com/us/app/letswift/id1282995254")!
     static let appStoreReview = URL(string: "itms-apps://apps.apple.com/app/id1282995254?action=write-review")!
 //    static let getTicket = URL(string: "https://festa.io/events/1315")!
 //    static let askQuestion = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfP87dYR09f3O5YVpSX5iI2IrXIroO4StEw65lUpAj3snrzQQ/viewform")!
