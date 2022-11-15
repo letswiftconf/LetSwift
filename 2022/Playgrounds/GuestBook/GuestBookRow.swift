@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlaygroundSimpleRow: View {
 //    let guestBook: GuestBookModel
-    let guestBook: WelcomeElement
+    let guestBook: GuestBook
     
     var body: some View {
         HStack (alignment: .top ) {
@@ -19,7 +19,7 @@ struct PlaygroundSimpleRow: View {
                 .frame(width:35, height: 50)
                 .background(Color.orange)
                 .cornerRadius(3)
-            Text(guestBook.name ?? "")
+            Text(guestBook.contents ?? "")
                 .foregroundColor(Color.white)
                 .padding(.leading)
             Spacer()
