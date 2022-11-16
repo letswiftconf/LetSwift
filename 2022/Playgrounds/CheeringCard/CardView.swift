@@ -11,17 +11,18 @@ import SwiftUI
 
 struct CardView: View {
     
-    // TODO: Loading(Lottie), 이미지 저장, 공유 기능
-    // TODO: 다시뽑기
-    
-    // TODO: category 계산 로직 추가
-    // TODO: userData 가져오기 추가
+    #warning("다시뽑기")
+    #warning("Loading(Lottie), 공유")
     
     @Environment(\.presentationMode) var presentationMode
     @State var isShowAlert = false
     
-    let category = TempChartData.getCardCase(answerId: 1)
-    let name = "허지인"
+    var category: String?
+    var name: String?
+    
+    init() {
+        userData()
+    }
     
     var body: some View {
         VStack {
@@ -96,7 +97,7 @@ struct CardView: View {
         .background(Color.backgroundBlack)
         .navigationTitle("")
         .toolbar {
-            // TODO: Close dismiss 구현
+            #warning("Close dismiss 구현")
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -119,7 +120,7 @@ extension CardView {
                 .scaledToFit()
             HStack {
                 // TODO: 밑줄 구현
-                Text("\(category.rawValue) \(name)님! \n Playground에서 함께 놀아요")
+                Text("\(category ?? "") \(name ?? "")님! \n Playground에서 함께 놀아요")
                     .font(.title3Bold)
                     .bold()
                     .padding(.leading, 10)
@@ -128,9 +129,19 @@ extension CardView {
             }
         }
     }
+    
     private func shareImage(image: UIImage) {
         #warning("shareSheet 구현하기")
     }
+    
+    private mutating func userData() {
+        guard let user = SharedPreference.shared.cheeringCard else {
+            return
+        }
+        self.name = user.name
+        self.category = user.category
+    }
+    
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()
             .fill(LinearGradient.gradientOrange.opacity(0.45))
