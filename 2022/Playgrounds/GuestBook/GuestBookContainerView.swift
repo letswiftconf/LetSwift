@@ -20,12 +20,12 @@ struct GuestBookContainerView: View {
                     .cornerRadius(10)
                     .clipped()
                 Section(header: Text("우리들의 기록").font(.title3Bold)) {
-                    ForEach(viewModel.getComments() , id: \.id) { event in
-                        PlaygroundSimpleRow(guestBook: event)
-                            .background(Color.backgroundCell)
-                            .cornerRadius(10)
-                            .clipped()
-                    }
+//                    ForEach(viewModel.getComments() , id: \.id) { event in
+//                        PlaygroundSimpleRow(guestBook: event)
+//                            .background(Color.backgroundCell)
+//                            .cornerRadius(10)
+//                            .clipped()
+//                    }
                 }
             }
             .padding()

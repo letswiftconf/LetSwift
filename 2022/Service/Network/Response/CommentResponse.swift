@@ -16,7 +16,6 @@ struct CommentResponse: Codable  {
 
 // MARK: - GuestBook
 struct GuestBook: Codable {
-    var id = UUID()
     let cheerCard: Int?
     let contents: String?
 }
