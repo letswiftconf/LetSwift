@@ -28,20 +28,18 @@ struct SurveyView: View {
                     .font(.title3Bold)
                     .multilineTextAlignment(.center)
             }
-            .padding(.top, 10)
-            .padding(.leading, 30)
-            .padding(.trailing, 30)
-            .padding(.bottom, 30)
+            .padding(EdgeInsets(top: 10, leading: 30, bottom: 30, trailing: 30))
             ForEach(1..<5) { i in
                 let answerItem = TempChartData.getAnswerText(surveyId: surveyId, answerId: i)
-                AnswerItemView(answerItem)
-                    .onTapGesture {
-                        if surveyId < TempChartData.questionList.count {
-                            isActive = true
-                            userData.answer.append((surveyId: surveyId , answerId: i))
-                            surveyId += 1
-                        }
+                Button {
+                    if surveyId < TempChartData.questionList.count {
+                        isActive = true
+                        userData.answer.append((surveyId: surveyId , answerId: i))
+                        surveyId += 1
                     }
+                } label: {
+                    AnswerItemView(answerItem)
+                }
                 NavigationLink("", isActive: $isActive) {
                     if surveyId < TempChartData.questionList.count {
                         SurveyView(surveyId: surveyId, userData: userData)
