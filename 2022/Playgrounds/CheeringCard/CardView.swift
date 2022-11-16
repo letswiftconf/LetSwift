@@ -18,25 +18,15 @@ struct CardView: View {
     // TODO: userData 가져오기 추가
     
     @Environment(\.presentationMode) var presentationMode
+    @State var isShowAlert = false
     
     let category = TempChartData.getCardCase(answerId: 1)
     let name = "허지인"
     
     var body: some View {
         VStack {
-            Image("CheeringCard")
-                .resizable()
-                .scaledToFit()
-            HStack {
-                // TODO: 밑줄 구현
-                Text("\(category.rawValue) \(name)님! \n Playground에서 함께 놀아요")
-                    .font(.title3Bold)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(.leading, 10)
-                    .padding(.top, 10)
-                Spacer()
-            }
+            captureView
+                .foregroundColor(.white)
             Text("#letswift #렛츠스위프트 @letswift를 태그해서 \n이미지를 공유하면 추첨해서 굿즈를 드립니다. ")
                 .font(.subheadRegular)
                 .foregroundColor(.white)
@@ -52,7 +42,7 @@ struct CardView: View {
                         .foregroundColor(.white)
                     Spacer()
                 }
-        
+                
             }
             .padding(10)
             .background(gradationBox())
@@ -62,13 +52,18 @@ struct CardView: View {
             
             HStack {
                 Button {
-                    // action
+                    let image = captureView
+                        .foregroundColor(.black).snapshot()
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    isShowAlert = true
                 } label: {
                     boxText(title: "이미지 저장", image: "arrow.down.to.line")
                 }
                 Spacer()
                 Button {
-                    // action
+                    let image = captureView
+                        .foregroundColor(.black).snapshot()
+                    shareImage(image: image)
                 } label: {
                     boxText(title: "카드 공유", image: "square.and.arrow.up")
                 }
@@ -110,10 +105,32 @@ struct CardView: View {
                 })
             }
         }
+        .alert(isPresented: $isShowAlert) {
+            return Alert(title: Text("사진이 저장되었습니다!"), message: nil, dismissButton: .cancel(Text("확인")))
+        }
     }
 }
 
 extension CardView {
+    var captureView: some View {
+        VStack {
+            Image("CheeringCard")
+                .resizable()
+                .scaledToFit()
+            HStack {
+                // TODO: 밑줄 구현
+                Text("\(category.rawValue) \(name)님! \n Playground에서 함께 놀아요")
+                    .font(.title3Bold)
+                    .bold()
+                    .padding(.leading, 10)
+                    .padding(.top, 10)
+                Spacer()
+            }
+        }
+    }
+    private func shareImage(image: UIImage) {
+        #warning("shareSheet 구현하기")
+    }
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()
             .fill(LinearGradient.gradientOrange.opacity(0.45))

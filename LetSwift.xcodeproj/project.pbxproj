@@ -780,8 +780,8 @@
 				34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
-               sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		5529B6212920292600803956 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1636,7 +1636,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1664,7 +1664,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/macOS/Info.plist";
@@ -1801,7 +1801,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1829,7 +1829,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1858,7 +1858,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1887,7 +1887,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1917,7 +1917,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1947,7 +1947,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1978,7 +1978,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
@@ -2008,7 +2008,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J7ZP3WYXRW;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;

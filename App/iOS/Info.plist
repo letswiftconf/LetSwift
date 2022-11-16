@@ -31,6 +31,8 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Allow access to save event to calendar.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Playground Card를 갤러리에 저장하기 위해 앨범 쓰기 권한을 허용해주세요.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
