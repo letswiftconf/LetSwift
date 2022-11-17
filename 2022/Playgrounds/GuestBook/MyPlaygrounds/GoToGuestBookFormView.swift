@@ -6,11 +6,24 @@
 //
 
 import SwiftUI
+import RxSwift
+import RxRelay
+
 
 struct GoToGuestBookFormView: View {
+    @EnvironmentObject var env:GuestBookEnviromentOjb
+    
+    struct Action {
+        var send = PublishRelay<Void>()
+        var guestBookList = PublishRelay<Void>()
+    }
+    var action = Action()
+
+    var disposeBag = DisposeBag()
+    var contents: [GuestBook] = []
+    
     
     @State private var showModal = false
-    
     var body: some View {
         Button {
             self.showModal = true
@@ -22,7 +35,7 @@ struct GoToGuestBookFormView: View {
                     .frame(width:35, height: 50)
                     .background(Color.black)
                     .cornerRadius(3)
-                Text("나의 playground card 뽑으러 가기")
+                Text(env.userContent)
                     .foregroundColor(Color.black)
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -31,8 +44,11 @@ struct GoToGuestBookFormView: View {
             .padding()
             .cornerRadius(10)
         }
-        .fullScreenCover(isPresented: $showModal, content: GuestBookContentView.init)
-        
+        .fullScreenCover(isPresented: $showModal) {
+            print("dismiss")
+        } content: {
+            GuestBookContentView()
+        }
     }
 }
 

@@ -11,9 +11,10 @@ class SharedPreference {
     static var shared = SharedPreference()
     
     enum PreferenceType: String {
-        case welcome // for testing Key
+        case comments
         case cheeringCard
         case myGuestBook
+        case user
     }
     
     func saveValues(key: String, values: AnyObject){

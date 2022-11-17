@@ -7,10 +7,14 @@
 
 import SwiftUI
 import RxSwift
+import Combine
 
 struct GuestBookContainerView: View {
-    @StateObject var viewModel = GuestBookListViewModel()
+    @EnvironmentObject var env: GuestBookEnviromentOjb
+    @ObservedObject var viewModel = GuestBookListViewModel()
+    
     var disposeBag = DisposeBag()
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -20,7 +24,7 @@ struct GuestBookContainerView: View {
                     .cornerRadius(10)
                     .clipped()
                 Section(header: Text("우리들의 기록").font(.title3Bold)) {
-                    ForEach(viewModel.welcome ?? [], id: \.id) { event in
+                    ForEach(env.contents.reversed() , id: \.self) { event in
                         PlaygroundSimpleRow(guestBook: event)
                             .background(Color.backgroundCell)
                             .cornerRadius(10)
@@ -33,12 +37,20 @@ struct GuestBookContainerView: View {
         .padding(.top, 1)
         .foregroundColor(.white)
         .background(Color.backgroundBlack)
-        .onAppear{
+        .onWillAappear {
             self.viewModel.action.guestBookList.accept(())
+            setupRX()
         }
         
     }
-        
+    
+    func setupRX(){
+        self.viewModel.state.receiveData
+            .subscribe(onNext: { data in
+                env.contents = data
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 struct TitleView: View {

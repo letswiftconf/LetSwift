@@ -17,11 +17,10 @@ class NetworkService {
         case .began:
             if let target = targetType as? LetSwiftAPI {
                 switch target {
-                case .healthCheck:
+                case .auth,.putAuth,.comment,.userComment,.putComment:
                     DispatchQueue.main.async {
                         IndicatorView.shared.show()
                     }
-                    
                 }
             }
             

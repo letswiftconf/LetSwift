@@ -8,8 +8,8 @@
 import Foundation
 
 struct FormCard {
-    let prompt: String
-    let answer: String
+    let content: String
+    let description: String
     
-    static let example = FormCard(prompt: "Some Text", answer: "컨퍼런스 후기를 남겨주세요!")
+    static let example = FormCard(content: "Some Text", description: "컨퍼런스 후기를 남겨주세요!")
 }

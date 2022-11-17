@@ -8,11 +8,11 @@
 import Foundation
 
 extension SharedPreference {
-    var welcome: Welcome? {
+    var comments: CommentResponse? {
         get {
-            if let data = getObjectValues(key: PreferenceType.welcome.rawValue) as? Data {
+            if let data = getObjectValues(key: PreferenceType.comments.rawValue) as? Data {
                 let decoder = JSONDecoder()
-                if let model = try? decoder.decode(Welcome.self, from: data) {
+                if let model = try? decoder.decode(CommentResponse.self, from: data) {
                     return model
                 }
             }
@@ -21,7 +21,7 @@ extension SharedPreference {
         set {
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(newValue){
-                saveValues(key: PreferenceType.welcome.rawValue, values: encoded as AnyObject)
+                saveValues(key: PreferenceType.comments.rawValue, values: encoded as AnyObject)
             }
         }
     }
