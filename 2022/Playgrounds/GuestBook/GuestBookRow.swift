@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct PlaygroundSimpleRow: View {
-//    let guestBook: GuestBookModel
     let guestBook: GuestBook
     
     var body: some View {
-        HStack (alignment: .top ) {
+        HStack {
             Text("?")
                 .font(.title3)
                 .bold()
