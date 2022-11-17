@@ -127,7 +127,8 @@
 		555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB615291CC3B700D893CE /* AnswerItemView.swift */; };
 		555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB616291CC3B700D893CE /* SurveyView.swift */; };
 		555CB61D291CC3B800D893CE /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB617291CC3B700D893CE /* NicknameView.swift */; };
-		555CB61E291CC3B800D893CE /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB618291CC3B800D893CE /* AnswerData.swift */; };
+		555CB61E291CC3B800D893CE /* SurveyAnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB618291CC3B800D893CE /* SurveyAnswerModel.swift */; };
+		55AA19B029252096003F1AA5 /* CheeringCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA19AF29252096003F1AA5 /* CheeringCardModel.swift */; };
 		6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA74256A53D500A49BD4 /* EventItemView.swift */; };
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
@@ -363,7 +364,8 @@
 		555CB615291CC3B700D893CE /* AnswerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
 		555CB616291CC3B700D893CE /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		555CB617291CC3B700D893CE /* NicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
-		555CB618291CC3B800D893CE /* AnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
+		555CB618291CC3B800D893CE /* SurveyAnswerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyAnswerModel.swift; sourceTree = "<group>"; };
+		55AA19AF29252096003F1AA5 /* CheeringCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheeringCardModel.swift; sourceTree = "<group>"; };
 		6054DA74256A53D500A49BD4 /* EventItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemView.swift; sourceTree = "<group>"; };
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -797,7 +799,8 @@
 		5529B6212920292600803956 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				555CB618291CC3B800D893CE /* AnswerData.swift */,
+				555CB618291CC3B800D893CE /* SurveyAnswerModel.swift */,
+				55AA19AF29252096003F1AA5 /* CheeringCardModel.swift */,
 				CC2DCDC829151F8700419AFC /* SurveyData.swift */,
 			);
 			path = Data;
@@ -1528,7 +1531,7 @@
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
-				555CB61E291CC3B800D893CE /* AnswerData.swift in Sources */,
+				555CB61E291CC3B800D893CE /* SurveyAnswerModel.swift in Sources */,
 				555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
 				6F3A3E5129196BE300E42D64 /* GuestBookContentView.swift in Sources */,
@@ -1559,6 +1562,7 @@
 				1624BF84256C487900634E29 /* GetTicketItemView.swift in Sources */,
 				1624BF98256C7D8500634E29 /* URL.swift in Sources */,
 				16DBE69F256A242600B334A3 /* Sidebar.swift in Sources */,
+				55AA19B029252096003F1AA5 /* CheeringCardModel.swift in Sources */,
 				6F3A3E5329196E1E00E42D64 /* View.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
 				6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,

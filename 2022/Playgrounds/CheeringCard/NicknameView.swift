@@ -11,9 +11,10 @@ struct NicknameView: View {
     
     @State private var name = ""
     @State private var showingAlert = false
+    @State private var isActive = false
     
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -26,26 +27,29 @@ struct NicknameView: View {
                     .foregroundColor(.white)
                     .padding(.top, 30)
                     .onChange(of: name) { newValue in
-                        checkNameCount(newValue)
+                        checkNameLimitCount(newValue)
                     }
                 Rectangle()
                     .frame(width: 300, height: 2)
                     .foregroundColor(.orange)
-                // TODO: - 닉네임 입력 확인 필요
-                if (name.count != 0){
-                    NavigationLink {
-                        SurveyView(surveyId: 1,userData: answerData(name: name) )
-                    } label: {
-                        HStack {
-                            Text("확인")
-                                .font(.title3)
-                                .padding(10)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 150, height: 40)
-                        .background(gradationBox())
-                        .padding(EdgeInsets(top: 60, leading: 0, bottom: 0, trailing: 0))
+                Button {
+                    checkNameNotInput()
+                } label: {
+                    HStack {
+                        Text("확인")
+                            .font(.title3)
+                            .padding(10)
+                            .foregroundColor(.white)
                     }
+                    .frame(width: 150, height: 40)
+                    .background(gradationBox())
+                    .padding(EdgeInsets(top: 60, leading: 0, bottom: 0, trailing: 0))
+                }
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("이름을 입력해 주세요."),message: nil, dismissButton:.default(Text("확인")))
+                }
+                NavigationLink("", isActive: $isActive) {
+                    SurveyView(surveyId: 1,userData: answerData(name: name))
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -65,30 +69,30 @@ struct NicknameView: View {
 }
 
 extension NicknameView {
-    func answerData(name: String) -> AnswerData {
-        let userData = AnswerData(name: name, answer: [])
+    private func answerData(name: String) -> SurveyAnswerModel {
+        let userData = SurveyAnswerModel(name: name, answer: [])
         return userData
     }
     
-
-    func checkNameCount(_ string: String){
+    private func checkNameLimitCount(_ string: String) {
         if string.count > 8 {
             name = subString(string: string, count: 8)
         }
     }
     
-    func checkname() {
+    private func checkNameNotInput() {
         if name.count == 0 {
             showingAlert = true
+        } else {
+            isActive = true
         }
     }
     
-    func subString(string: String, count: Int) -> String {
+    private func subString(string: String, count: Int) -> String {
         let startIndex = string.index(string.startIndex, offsetBy: 0)
         let endIndex = string.index(string.startIndex, offsetBy: count)
         return String(string[startIndex ..< endIndex])
     }
-    
     
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()

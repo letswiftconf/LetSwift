@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct CheeringCard: Codable {
-    var name: String?
-}
-
 class SharedPreference {
     static var shared = SharedPreference()
     
@@ -32,11 +28,11 @@ class SharedPreference {
 }
 
 extension SharedPreference {
-    var cheeringCard: CheeringCard? {
+    var cheeringCard: CheeringCardModel? {
         get {
             if let data = getObjectValues(key: PreferenceType.cheeringCard.rawValue) as? Data {
                 let decoder = JSONDecoder()
-                if let model = try? decoder.decode(CheeringCard.self, from: data) {
+                if let model = try? decoder.decode(CheeringCardModel.self, from: data) {
                     return model
                 }
             }

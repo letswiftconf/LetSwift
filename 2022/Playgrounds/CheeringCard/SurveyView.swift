@@ -10,15 +10,14 @@ import SwiftUI
 struct SurveyView: View {
     
     @State var isActive: Bool = false
-    @State var userData: AnswerData
     @State var surveyId: Int
+    @State var userData: SurveyAnswerModel
     
-    init(surveyId: Int, userData: AnswerData) {
+    init(surveyId: Int, userData: SurveyAnswerModel) {
         self.surveyId = surveyId
         self.userData = userData
     }
     // TODO: view 먼저 바뀌는 문제 해결
-    
     var body: some View {
         VStack {
             Text("\(surveyId) / \(TempChartData.questionList.count - 1)")
@@ -28,26 +27,26 @@ struct SurveyView: View {
                     .font(.title3Bold)
                     .multilineTextAlignment(.center)
             }
-            .padding(.top, 10)
-            .padding(.leading, 30)
-            .padding(.trailing, 30)
-            .padding(.bottom, 30)
+            .padding(EdgeInsets(top: 10, leading: 30, bottom: 30, trailing: 30))
             ForEach(1..<5) { i in
                 let answerItem = TempChartData.getAnswerText(surveyId: surveyId, answerId: i)
-                AnswerItemView(answerItem)
-                    .onTapGesture {
-                        if surveyId < TempChartData.questionList.count {
-                            isActive = true
-                            userData.answer.append((surveyId: surveyId , answerId: i))
-                            surveyId += 1
-                        }
+                Button {
+                    if surveyId < TempChartData.questionList.count {
+                        userData.answer.append(AnswerData(surveyId: surveyId, answerId: i))
+                        surveyId += 1
+                        isActive = true
                     }
+                    if isActive == true && surveyId == TempChartData.questionList.count {
+                        saveUserData()
+                    }
+                } label: {
+                    AnswerItemView(answerItem)
+                }
                 NavigationLink("", isActive: $isActive) {
                     if surveyId < TempChartData.questionList.count {
                         SurveyView(surveyId: surveyId, userData: userData)
                     } else {
-                        // TODO: Userdata POST
-                        // TODO: USerdata 저장, Userdefault 값 저장
+                        // TODO: Userdata POST - X
                         CardView().navigationBarBackButtonHidden(true)
                     }
                 }
@@ -58,6 +57,54 @@ struct SurveyView: View {
         .navigationTitle("")
         // TODO: - 뒤로가기 시 데이터 새로 저장
     }
+}
+
+extension SurveyView {
+    
+    private func saveUserData() {
+        let category = getCatetory(data: userData.answer)
+        SharedPreference.shared.cheeringCard = CheeringCardModel(name: userData.name, category: category, image: "")
+    }
+    
+    private func getCatetory(data: [AnswerData]) -> String {
+        let myCountSet = NSCountedSet()
+        var max = 0
+        
+        for item in data {
+            myCountSet.add(item.answerId)
+        }
+        
+        for i in 1...data.count {
+            if myCountSet.count(for: max) < myCountSet.count(for: i) {
+                max = i
+            }
+        }
+        return cardCase(answerId: max).rawValue
+    }
+    
+    enum CardCase: String {
+        case design = "🎨디자인왕"
+        case device = "📱기기왕"
+        case newTech = "💻신기술왕"
+        case conference = "🙆🏻‍♂️🙆🏻‍♀️소통왕"
+        case none
+    }
+    
+    private func cardCase(answerId: Int) -> CardCase {
+        switch answerId {
+            case 1:
+                return CardCase.design
+            case 2:
+                return CardCase.device
+            case 3:
+                return CardCase.newTech
+            case 4:
+                return CardCase.conference
+            default:
+                return CardCase.none
+        }
+    }
+    
 }
 
 //struct SurveyView_Previews: PreviewProvider {
