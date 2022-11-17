@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RxSwift
 
 extension View {
     func stack(at position: Int , in total: Int) -> some View {
@@ -15,15 +16,18 @@ extension View {
 }
 
 struct GuestBookContentView: View {
-    
+
     @State private var cards = Array<FormCard>(repeating: FormCard.example, count:10)
     @State private var scale: CGFloat = 0.020
     @State private var angle: CGFloat = 5
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var env:GuestBookEnviromentOjb
+    var viewModel = GuestBookContentViewModel()
+    var disposeBag = DisposeBag()
     
     var body: some View {
         ZStack (alignment: .top){
-            
             Text("방명록 남기기")
                 .font(.bodyRegular)
                 .foregroundColor(.white)
@@ -34,7 +38,7 @@ struct GuestBookContentView: View {
             VStack (spacing: 0) {
                 VStack (alignment: .leading , spacing: 0 ){
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }, label: {
                         Image(systemName: "xmark")
                     })
@@ -61,20 +65,35 @@ struct GuestBookContentView: View {
             }
             .foregroundColor(.white)
             .background(Color.backgroundBlack)
+            .onAppear{
+                self.setupRX()
+            }
         }
+    }
+    
+    func setupRX(){
+        viewModel.state.receive
+            .subscribe(onNext: { success in
+                
+                env.contents = viewModel.contents
+                Toast.shared.show(message: self.viewModel.getMessage(success: success), delay: 1.5){ _ in
+                    dismiss()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func removeCard(at index: Int, content: String) {
         cards.remove(at: index)
         if !content.isEmpty {
-            Toast.shared.show(message: "후기를 남겨주셔서 감사합니다 :)", delay: 1.5){ _ in
-                presentationMode.wrappedValue.dismiss()
-            }
+            env.userContent = content
+            self.viewModel.setContents(content)
+            self.viewModel.action.send.accept(())
         }else{
             if cards.count == 0 {
                 Toast.shared.show(message: "다음에는 꼭! 남겨주시기에요~", delay: 1.5){ _ in
                     if cards.isEmpty {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }
             }else if cards.count < 10 && cards.count > 5 {

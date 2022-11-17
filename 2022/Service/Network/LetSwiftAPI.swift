@@ -14,7 +14,7 @@ public enum LetSwiftAPI {
     case putAuth
     case comment
     case userComment(id: Int)
-    case putComment(id: Int)
+    case putComment(contents: String, userId: Int)
     
 }
 
@@ -29,8 +29,8 @@ extension LetSwiftAPI: TargetType {
             return "/api/v1/comment"
         case let .userComment(id):
             return "/api/v1/comment/\(id)"
-        case let .putComment(id):
-            return "/api/v1/comment/\(id)"
+        case .putComment:
+            return "/api/v1/comment"
         }
     }
     
@@ -45,8 +45,11 @@ extension LetSwiftAPI: TargetType {
     
     public var task: Moya.Task {
         switch self {
-        case .auth,.putAuth,.comment,.putComment , .userComment:
+        case .auth,.putAuth,.comment, .userComment:
             return .requestParameters(parameters: parameters, encoding: URLEncoding(destination: .queryString))
+        case .putComment:
+            return .requestParameters(parameters: parameters,
+                                      encoding: JSONEncoding.default)
         }
     }
     
@@ -68,8 +71,11 @@ extension LetSwiftAPI {
             return [:]
         case .comment:
             return [:]
-        case .putComment(id: let id):
-            return [ "id" : id ]
+        case let .putComment(contents, userId):
+            return [
+                "contents" : contents,
+                "userId" : userId
+            ]
         case .userComment(id: let id):
             return [ "id" : id ]
         }

@@ -10,26 +10,19 @@ import RxSwift
 import RxRelay
 
 class GuestBookListViewModel: ObservableObject {
-    var titleString: String = ""
-    @Published var comments: CommentResponse?
 
-    
     struct Action {
         var guestBookList = PublishRelay<Void>()
     }
     
     struct State {
-        var receiveData = PublishRelay<Void>()
+        var receiveData = PublishRelay<[GuestBook]>()
     }
     var action = Action()
     var state = State()
     var disposeBag = DisposeBag()
     
     init(){
-        titleString = """
-            \("Let' play".convertString(text: "Let"))
-            \("at Swift Playgrounds".convertString(text: "Swift"))
-        """
         binding()
     }
     
@@ -41,25 +34,15 @@ class GuestBookListViewModel: ObservableObject {
                 guard let self = self else { return  }
                 switch result {
                 case .success(let response):
-                    print("\(response)")
-                    self.comments = response
+                    
                     SharedPreference.shared.comments = response
-//                    self.state.receiveData.accept(())
+                    self.state.receiveData.accept(response.guestBooks)
                 case .failure(let response):
                     //Local storage data use
                     print(response.localizedDescription)
-                    self.comments = SharedPreference.shared.comments
+                    
+                    self.state.receiveData.accept(SharedPreference.shared.comments?.guestBooks ?? [])
                 }
             }).disposed(by: self.disposeBag)
-    }
-}
-
-extension GuestBookListViewModel {
-    func getComments() -> [GuestBook] {
-        guard let comments = self.comments else  {
-            return []
-        }
-        
-        return comments.guestBooks
     }
 }

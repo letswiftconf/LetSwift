@@ -13,13 +13,14 @@ struct MyPlaygrounds: View {
     var body: some View {
         VStack(alignment: .leading) {
             viewModel.getNextView(viewModel.hasCheeringCard)
+                
         }
     }
 }
 
-
-struct MyPlaygrounds_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPlaygrounds()
-    }
-}
+//
+//struct MyPlaygrounds_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyPlaygrounds()
+//    }
+//}

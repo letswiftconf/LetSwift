@@ -137,7 +137,6 @@
 		6F3A3E3E2917418300E42D64 /* GuestBookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */; };
 		6F3A3E402917C26300E42D64 /* MyPlaygrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E3F2917C26300E42D64 /* MyPlaygrounds.swift */; };
 		6F3A3E432919521000E42D64 /* MyPlaygroundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E422919521000E42D64 /* MyPlaygroundsViewModel.swift */; };
-		6F3A3E4629195C0900E42D64 /* GuestBookFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4529195C0900E42D64 /* GuestBookFormView.swift */; };
 		6F3A3E49291966F600E42D64 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6F3A3E48291966F600E42D64 /* Lottie */; };
 		6F3A3E4B2919672100E42D64 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4A2919672100E42D64 /* FormCard.swift */; };
 		6F3A3E4D2919673F00E42D64 /* FormCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4C2919673F00E42D64 /* FormCardView.swift */; };
@@ -162,6 +161,12 @@
 		6F3A3E7B291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */; };
 		6F3A3E7C291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */; };
 		6FC0FD0D2923F5FB0026714A /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */; };
+		6FC0FD0F2925BF400026714A /* GuestBookContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */; };
+		6FC0FD112925C1720026714A /* ContentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD102925C1720026714A /* ContentsResponse.swift */; };
+		6FC0FD132925C1B80026714A /* ContentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD122925C1B80026714A /* ContentRequest.swift */; };
+		6FC0FD152925C2C50026714A /* SharedPreference+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD142925C2C50026714A /* SharedPreference+User.swift */; };
+		6FC0FD172925D2AD0026714A /* LifeCycle+Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */; };
+		6FC0FD19292601A50026714A /* GuestBookEnviromentOjb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */; };
 		6FE5D036291F80D7001F6880 /* WelcomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D035291F80D7001F6880 /* WelcomElement.swift */; };
 		6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D037291F8E09001F6880 /* IndicatorView.swift */; };
 		6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D039291F9F2C001F6880 /* Toast.swift */; };
@@ -369,7 +374,6 @@
 		6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookRow.swift; sourceTree = "<group>"; };
 		6F3A3E3F2917C26300E42D64 /* MyPlaygrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaygrounds.swift; sourceTree = "<group>"; };
 		6F3A3E422919521000E42D64 /* MyPlaygroundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaygroundsViewModel.swift; sourceTree = "<group>"; };
-		6F3A3E4529195C0900E42D64 /* GuestBookFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookFormView.swift; sourceTree = "<group>"; };
 		6F3A3E4A2919672100E42D64 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
 		6F3A3E4C2919673F00E42D64 /* FormCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCardView.swift; sourceTree = "<group>"; };
 		6F3A3E4E291969C500E42D64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -385,6 +389,12 @@
 		6F3A3E74291F3CE400E42D64 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedPreference+GuestBook.swift"; sourceTree = "<group>"; };
 		6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookContentViewModel.swift; sourceTree = "<group>"; };
+		6FC0FD102925C1720026714A /* ContentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsResponse.swift; sourceTree = "<group>"; };
+		6FC0FD122925C1B80026714A /* ContentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRequest.swift; sourceTree = "<group>"; };
+		6FC0FD142925C2C50026714A /* SharedPreference+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedPreference+User.swift"; sourceTree = "<group>"; };
+		6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LifeCycle+Modifier.swift"; sourceTree = "<group>"; };
+		6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookEnviromentOjb.swift; sourceTree = "<group>"; };
 		6FE5D035291F80D7001F6880 /* WelcomElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomElement.swift; sourceTree = "<group>"; };
 		6FE5D037291F8E09001F6880 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		6FE5D039291F9F2C001F6880 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -827,6 +837,7 @@
 				6F3A3E3C29173D4C00E42D64 /* GeustBookListMock.json */,
 				6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */,
 				6F3A3E57291E8D5A00E42D64 /* GuestBookListViewModel.swift */,
+				6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */,
 			);
 			path = GuestBook;
 			sourceTree = "<group>";
@@ -844,11 +855,11 @@
 		6F3A3E4429195BCE00E42D64 /* GuestBookForm */ = {
 			isa = PBXGroup;
 			children = (
-				6F3A3E4529195C0900E42D64 /* GuestBookFormView.swift */,
 				6F3A3E4A2919672100E42D64 /* FormCard.swift */,
 				6F3A3E4C2919673F00E42D64 /* FormCardView.swift */,
 				6F3A3E4E291969C500E42D64 /* LottieView.swift */,
 				6F3A3E5029196BE300E42D64 /* GuestBookContentView.swift */,
+				6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */,
 			);
 			path = GuestBookForm;
 			sourceTree = "<group>";
@@ -877,6 +888,7 @@
 		6F3A3E77291F3DD700E42D64 /* Requset */ = {
 			isa = PBXGroup;
 			children = (
+				6FC0FD122925C1B80026714A /* ContentRequest.swift */,
 			);
 			path = Requset;
 			sourceTree = "<group>";
@@ -886,6 +898,7 @@
 			children = (
 				6FE5D035291F80D7001F6880 /* WelcomElement.swift */,
 				6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */,
+				6FC0FD102925C1720026714A /* ContentsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -894,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */,
+				6FC0FD142925C2C50026714A /* SharedPreference+User.swift */,
 			);
 			path = "SharedPreference+Extension";
 			sourceTree = "<group>";
@@ -1012,6 +1026,7 @@
 				6F3A3E79291F3E0500E42D64 /* SharedPreference+Extension */,
 				6FE5D037291F8E09001F6880 /* IndicatorView.swift */,
 				6FE5D039291F9F2C001F6880 /* Toast.swift */,
+				6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1456,6 +1471,7 @@
 				CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */,
 				6F3A3E4B2919672100E42D64 /* FormCard.swift in Sources */,
 				6F3A3E6F291F3CCA00E42D64 /* NetworkProvider.swift in Sources */,
+				6FC0FD19292601A50026714A /* GuestBookEnviromentOjb.swift in Sources */,
 				6F3A3E7B291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */,
 				CCFF977F29114CEF00BC5FD3 /* ChartDataModel.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
@@ -1464,6 +1480,7 @@
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
 				16984E85256A35B10011C872 /* MainView.swift in Sources */,
 				16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */,
+				6FC0FD172925D2AD0026714A /* LifeCycle+Modifier.swift in Sources */,
 				16984E7E256A33C70011C872 /* AppInfoView.swift in Sources */,
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
@@ -1505,9 +1522,10 @@
 				CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */,
 				555CB61A291CC3B800D893CE /* CardView.swift in Sources */,
 				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
+				6FC0FD132925C1B80026714A /* ContentRequest.swift in Sources */,
+				6FC0FD152925C2C50026714A /* SharedPreference+User.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
-				6F3A3E4629195C0900E42D64 /* GuestBookFormView.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
 				555CB61E291CC3B800D893CE /* AnswerData.swift in Sources */,
@@ -1516,6 +1534,7 @@
 				6F3A3E5129196BE300E42D64 /* GuestBookContentView.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */,
+				6FC0FD0F2925BF400026714A /* GuestBookContentViewModel.swift in Sources */,
 				16984E9A256A505A0011C872 /* ARView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
@@ -1523,6 +1542,7 @@
 				6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */,
 				6F3A3E4F291969C500E42D64 /* LottieView.swift in Sources */,
 				CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */,
+				6FC0FD112925C1720026714A /* ContentsResponse.swift in Sources */,
 				CCF9A0C1291CE1C100EF8C9B /* SwiftWebView.swift in Sources */,
 				555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */,
 				6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */,

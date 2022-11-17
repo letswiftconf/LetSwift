@@ -18,6 +18,7 @@ class SharedPreference {
         case comments
         case cheeringCard
         case myGuestBook
+        case user
     }
     
     func saveValues(key: String, values: AnyObject){

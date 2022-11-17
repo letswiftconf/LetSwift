@@ -15,7 +15,7 @@ struct CommentResponse: Codable  {
 }
 
 // MARK: - GuestBook
-struct GuestBook: Codable {
+struct GuestBook: Codable, Hashable{
     let cheerCard: Int?
     let contents: String?
 }
