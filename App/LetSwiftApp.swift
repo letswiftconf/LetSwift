@@ -17,6 +17,7 @@ struct LetSwiftApp: App {
                 .onAppear {
                     UNUserNotificationCenter.requestLetSwiftNotification()
                 }
+                .preferredColorScheme(ColorScheme.dark)
         }
     }
 }
