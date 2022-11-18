@@ -9,14 +9,50 @@ import SwiftUI
 
 struct TabNavigationView: View {
     @State private var selected: Tab = .sessions
-    
+    @State private var showModal = false
+    @StateObject var env: GuestBookEnviromentOjb = GuestBookEnviromentOjb()
     // MARK: - Body
     var body: some View {
         TabView(selection: $selected) {
             ForEach(Tab.allCases) { tab in
                 NavigationView {
-                    tab.presentingView
+                    ZStack(alignment: .bottomTrailing) {
+                        tab.presentingView
+                        
+                        if tab == .playgrounds {
+                            VStack {
+                                Button {
+                                    self.showModal = true
+                                } label: {
+                                    ZStack {
+                                        LottieView(filename: "ic_note")
+                                            .frame(height: 70)
+                                        VStack {
+                                            Text("방명록")
+                                                .font(.system(size: 13))
+                                            Spacer()
+                                            Text("작성하기")
+                                                .font(.system(size: 13))
+                                        }
+                                        .padding(.init(top: 2, leading: 0, bottom: 2, trailing: 0))
+                                    }
+                                }
+                                .frame(width: 70,height: 70)
+                                .opacity(0.7)
+                                .background(Color.white)
+                                .foregroundColor(Color.orange)
+                                .cornerRadius(20)
+                                .padding()
+                                .fullScreenCover(isPresented: $showModal) {
+                                    print("dismiss")
+                                } content: {
+                                    GuestBookContentView()
+                                }
+                            }
+                        }
+                    }
                 }
+                .environmentObject(env)
                 .tabItem { tab.tabItem }
                 .tag(tab)
             }
@@ -31,7 +67,7 @@ extension TabNavigationView {
         case badges
         case playgrounds
         case settings
-//        case location
+        //        case location
         
         // MARK: Identifiable
         var id: Int {
@@ -44,9 +80,9 @@ extension TabNavigationView {
             case .sessions: return AnyView(HomeView())
             case .badges: return AnyView(BadgeView())
             case .playgrounds:
-                return AnyView(GuestBookContainerView().environmentObject(GuestBookEnviromentOjb()))
+                return AnyView(GuestBookContainerView())
             case .settings: return AnyView(SettingMainView())
-//            case .location: return AnyView(LocationView())
+                //            case .location: return AnyView(LocationView())
             }
         }
         
@@ -63,7 +99,7 @@ extension TabNavigationView {
             case .badges: return "뱃지"
             case .playgrounds: return "놀이터"
             case .settings: return "설정"
-//            case .location: return "장소"
+                //            case .location: return "장소"
             }
         }
         
@@ -73,7 +109,7 @@ extension TabNavigationView {
             case .badges: return "ticket.fill"
             case .playgrounds: return "gamecontroller.fill"
             case .settings: return "gearshape.fill"
-//            case .location: return "map.fill"
+                //            case .location: return "map.fill"
             }
         }
     }

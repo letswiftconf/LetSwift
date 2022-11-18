@@ -14,7 +14,7 @@ public enum LetSwiftAPI {
     case putAuth
     case comment
     case userComment(id: Int)
-    case putComment(contents: String, userId: Int)
+    case putComment(contents: String, cheerCardNumber: Int)
     
 }
 
@@ -71,10 +71,10 @@ extension LetSwiftAPI {
             return [:]
         case .comment:
             return [:]
-        case let .putComment(contents, userId):
+        case let .putComment(contents, cheerCardNumber):
             return [
                 "contents" : contents,
-                "userId" : userId
+                "cheerCardNumber" : cheerCardNumber
             ]
         case .userComment(id: let id):
             return [ "id" : id ]

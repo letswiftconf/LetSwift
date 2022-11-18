@@ -1975,7 +1975,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = J7ZP3WYXRW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
