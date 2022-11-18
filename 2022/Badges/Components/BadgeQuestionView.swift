@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BadgeQuestionView: View {
+    
     var question : QuestionData
     init(question: QuestionData) {
         self.question = question
@@ -16,10 +17,12 @@ struct BadgeQuestionView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 32.0) {
             Spacer()
-            Text(question.question)
-                .font(.bodyRegular)
-                .foregroundColor(.white)
-                .padding(.all, 20.0)
+            NavigationLink(destination: QuestionView(data: question)) {
+                Text(question.question)
+                    .font(.bodyRegular)
+                    .foregroundColor(.white)
+                    .padding(.all, 20.0)
+            }
             Spacer()
         }
         .background(BackgroundView())

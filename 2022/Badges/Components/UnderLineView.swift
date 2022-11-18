@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct UnderLineView : View {
     var body: some View {
         VStack {

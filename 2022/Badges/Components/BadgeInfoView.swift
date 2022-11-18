@@ -14,6 +14,7 @@ struct BadgeInfoView : View {
         HStack(alignment: .center, spacing: 14.0) {
             Image("tempImage")
                 .resizable()
+                .cornerRadius(12)
                 .frame(width: 132.0, height: 132.0)
                 
             Text(titleText)
