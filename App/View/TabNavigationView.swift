@@ -42,7 +42,7 @@ extension TabNavigationView {
         var presentingView: some View {
             switch self {
             case .sessions: return AnyView(HomeView())
-            case .badges: return AnyView(ScheduleView())
+            case .badges: return AnyView(BadgeView())
             case .playgrounds:
                 return AnyView(GuestBookContainerView().environmentObject(GuestBookEnviromentOjb()))
             case .settings: return AnyView(SettingMainView())
