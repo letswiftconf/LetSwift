@@ -1657,7 +1657,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E441ABAF9BBF7178484A8B4A /* Pods-LetSwift (macOS).debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2020_let_dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/App/macOS/LetSwift.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -1685,7 +1685,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFE52E6DAF7459C4ADB46B30 /* Pods-LetSwift (macOS).release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2020_let_dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/App/macOS/LetSwift.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -1825,7 +1825,7 @@
 			baseConfigurationReference = CFD3E03764E188EF0DF6311D /* Pods-LetSwift.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2020_let_dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
@@ -1853,7 +1853,7 @@
 			baseConfigurationReference = 86E821D87DF784D4254FD405 /* Pods-LetSwift.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2020_let_dark;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
