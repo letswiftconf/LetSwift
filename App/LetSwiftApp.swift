@@ -16,6 +16,7 @@ struct LetSwiftApp: App {
                 .accentColor(.themePrimary)
                 .onAppear {
                     UNUserNotificationCenter.requestLetSwiftNotification()
+                    APICaller.shared.getAllProfileData()
                 }
                 .preferredColorScheme(ColorScheme.dark)
         }

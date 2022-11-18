@@ -207,6 +207,8 @@
 		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
 		CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC829151F8700419AFC /* SurveyData.swift */; };
 		CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC393F0A2917CB6E0008F0F4 /* ChartView.swift */; };
+		CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584CD292749C30091A7A1 /* APICaller.swift */; };
+		CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584D029274A0C0091A7A1 /* APIModel.swift */; };
 		CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54A92919548E008ABB2F /* fontExtension.swift */; };
 		CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AA2919548E008ABB2F /* viewExtension.swift */; };
 		CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B54AB2919548E008ABB2F /* colorExtension.swift */; };
@@ -431,6 +433,8 @@
 		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		CC2DCDC829151F8700419AFC /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
 		CC393F0A2917CB6E0008F0F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		CC8584CD292749C30091A7A1 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		CC8584D029274A0C0091A7A1 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		CC9B54A92919548E008ABB2F /* fontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fontExtension.swift; sourceTree = "<group>"; };
 		CC9B54AA2919548E008ABB2F /* viewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewExtension.swift; sourceTree = "<group>"; };
 		CC9B54AB2919548E008ABB2F /* colorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colorExtension.swift; sourceTree = "<group>"; };
@@ -1016,6 +1020,15 @@
 			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
+		CC8584CF29274A040091A7A1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CC8584CD292749C30091A7A1 /* APICaller.swift */,
+				CC8584D029274A0C0091A7A1 /* APIModel.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		CC9B54A82919548E008ABB2F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1037,9 +1050,10 @@
 		CCF9A0B8291CE1C100EF8C9B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */,
+				CC8584CF29274A040091A7A1 /* API */,
 				CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */,
 				CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */,
+				CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */,
 				CCF9A0BC291CE1C100EF8C9B /* ProfileDetailView.swift */,
 				CCF9A0BD291CE1C100EF8C9B /* Data */,
 			);
@@ -1533,7 +1547,9 @@
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
 				555CB61E291CC3B800D893CE /* SurveyAnswerModel.swift in Sources */,
 				555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */,
+				CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
+				CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */,
 				6F3A3E5129196BE300E42D64 /* GuestBookContentView.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */,

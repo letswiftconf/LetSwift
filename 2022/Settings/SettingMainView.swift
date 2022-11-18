@@ -23,7 +23,7 @@ struct SettingMainView: View {
                 NavigationLink {
                     ProfileView()
                 } label: {
-                    settingBox(title: "Organizer & Staff")
+                    settingBox(title: "Supporter & Staff")
                 }
                 
                 Link(destination: URLData.newsletter) {

@@ -13,19 +13,36 @@ struct ProfileDetailView: View {
     let role: ProfileRole
     let description: String
     let sns: [SNSCategory]
+    init(imageName: String, name: String, role: ProfileRole, description: String, sns: [SNSCategory]) {
+        self.imageName = imageName
+        self.name = name
+        self.role = role
+        self.description = description
+        self.sns = sns
+    }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack(alignment: .top, spacing: 0) {
-                    Image("tempImage")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(10)
-                        .padding(.trailing, 24)
+                    if let image = UIImage(named: imageName) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(10)
+                            .padding(.trailing, 24)
+                    } else {
+                        Image("tempImage")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(10)
+                            .padding(.trailing, 24)
+                    }
+                    
                     VStack(alignment: .leading) {
-                        Text("홍길동")
+                        Text(name)
                             .foregroundColor(.orange)
                             .font(.title3Bold)
                             .padding(.top, 10)
@@ -36,18 +53,18 @@ struct ProfileDetailView: View {
                             .padding(.bottom, 6)
                     }
                 }
-                Text("달콤한 스위프트와 후덕한 오브젝티브-C의 혼혈왕자 달콤한 스위프트와 후덕한 오브젝티브-C의 혼혈왕자 달콤한 스위프트와 후덕한 오브젝티브-C의 혼혈왕자 달콤한 스위프트와 후덕한 오브젝티브-C의 혼혈왕자")
+                Text(description)
+                    .font(.bodyRegular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 34)
                     .padding(.bottom, 50)
-                    .multilineTextAlignment(.leading)
-                    .font(.bodyRegular)
                 
                 ForEach(sns, id: \.self) { sns in
                     switch sns {
                         case .email(let address):
                             boxText(title: sns.localizedString, text: address)
-                        case .gitHub(let path), .twitter(let path), .blog(let path), .linkedIn(let path):
-                            boxLink(title: sns.localizedString, link: URL(string: path)!)
+                        case .gitHub(let path), .twitter(let path), .blog(let path), .linkedIn(let path), .SNS(let path):
+                            boxLink(title: sns.localizedString, link: URL(string: path) ?? URLData.homePage2022)
                     }
                 }
             }
