@@ -10,6 +10,7 @@ import Foundation
 struct QuestionData {
     var question: String
     var answer: String
+    var isCorrect: Bool = false
     
     var session: QuestionSessionData
 }

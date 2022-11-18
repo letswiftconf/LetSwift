@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct QuestionView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var data: QuestionData
+    init(data: QuestionData) {
+        self.data = data
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("X")
+                    .foregroundColor(.white)
+            }
+            Text("Q.")
+                .font(.title3Bold)
+                .foregroundColor(.white)
+                .padding(.horizontal, 9.0)
+                .padding(.top, 19.0)
+            QuestionInfoView(data: data)
+            Spacer()
+                .frame(height: 53.0)
+            QuestionSessionView(session: data.session)
+            Spacer()
+        }
+        .navigationBarBackButtonHidden(true)
+        .padding(.horizontal, 29.0)
+        .background(Color.backgroundBlack)
     }
 }
 
+
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        QuestionView(data: QuestionData.dummy.first!)
     }
 }
