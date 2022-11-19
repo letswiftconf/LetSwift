@@ -26,7 +26,7 @@ struct CardView: View {
     
     var body: some View {
         VStack {
-            captureView
+            cardView
                 .foregroundColor(.white)
             Text("#letswift #렛츠스위프트 @letswift를 태그해서 \n이미지를 공유하면 추첨해서 굿즈를 드립니다. ")
                 .font(.subheadRegular)
@@ -113,7 +113,7 @@ struct CardView: View {
 }
 
 extension CardView {
-    var captureView: some View {
+    private var cardView: some View {
         VStack {
             Image("CheeringCard")
                 .resizable()
@@ -129,7 +129,12 @@ extension CardView {
             }
         }
     }
-    
+    private var captureView: some View {
+        VStack {
+            cardView
+                .padding(.bottom, 40)
+        }
+    }
     private func shareImage(image: UIImage) {
         #warning("shareSheet 구현하기")
     }

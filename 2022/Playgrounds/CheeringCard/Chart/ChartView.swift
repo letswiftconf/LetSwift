@@ -16,6 +16,9 @@ struct ChartView: View {
             totalChart()
             individualChart()
         }
+        .foregroundColor(.white)
+        .background(Color.backgroundBlack)
+        .edgesIgnoringSafeArea(.bottom)
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
@@ -26,11 +29,12 @@ extension ChartView {
     func totalChart() -> some View {
         VStack(alignment: .leading) {
             if let chartDataList = viewModel.totalChartDataList {
-                if #available(iOS 16.0, *) {
-                    VStack(alignment: .leading) {
-                        Text("Let’Swift 22 참여자 개발 성향")
-                            .padding(.bottom, 30)
-                            .font(.title)
+                VStack(alignment: .leading) {
+                    Text("Let’Swift 22 개발자 성향")
+                        .padding(.bottom, 30)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .font(.title3Bold)
+                    if #available(iOS 16.0, *) {
                         Chart {
                             ForEach(chartDataList) { chartData in
                                 if let question = TempChartData.questionList.first(where: { $0.surveyId == chartData.surveyId })?.question,
@@ -45,15 +49,14 @@ extension ChartView {
                             }
                         }
                         .frame(height: 500)
+                    } else {
+                        iOS16View()
                     }
-                } else {
-                    Text("iOS 16.0 부터 결과를 확인할 수 있습니다 :)")
+                    Spacer()
                 }
             } else {
-#warning("이미지 넣기")
-                Text("로딩중...")
+                loadingView()
             }
-            Spacer()
         }
         .padding(.top, 50)
         .padding(.horizontal, 30)
@@ -62,15 +65,16 @@ extension ChartView {
     func individualChart() -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
-                Text("답변 전체 결과 보기")
+                Text("Let’Swift 22 답변 결과")
                     .padding(.bottom, 30)
-                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .font(.title3Bold)
                 if let chartData = viewModel.chartData {
                     if #available(iOS 16.0, *) {
                         ForEach(0..<chartData.surveyList.count, id: \.self) { index in
                             Text("\(index+1). \(TempChartData.getQuestionText(surveyId: index+1))")
                                 .padding(.bottom, 20)
-                                .font(.title3)
+                                .font(.title3Reqular)
                             VStack(alignment: .leading) {
                                 Chart {
                                     ForEach(chartData.surveyList[index].answerList) { answer in
@@ -112,18 +116,57 @@ extension ChartView {
                         }
                     }
                     else {
-                        Text("iOS 16.0 부터 결과를 확인할 수 있습니다 :)")
+                        iOS16View()
                     }
                 }
                 else {
-#warning("이미지 넣기")
-                    Text("로딩중...")
+                    loadingView()
                 }
             }
             .padding(.horizontal, 40)
-            .padding(.top, 50)
+            .padding(.top, 30)
             .padding(.bottom, 50)
         }
+    }
+    @ViewBuilder
+    func loadingView() -> some View {
+        VStack(alignment: .center) {
+            Image("loading")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 66, height: 66)
+                .padding(.bottom, 26)
+                .padding(.top, 40)
+            Text("LOADING")
+                .font(.title3Bold)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom, 14)
+            Text("잠시만 기다려주시기 바랍니다.")
+                .font(.footnote)
+            Spacer()
+        }
+        .padding(.top, 100)
+    }
+    @ViewBuilder
+    func iOS16View() -> some View {
+        VStack(alignment: .center) {
+            Image("iOS16")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 66, height: 66)
+                .padding(.bottom, 26)
+                .padding(.top, 40)
+            Text("해당 화면은 \niOS 16부터 지원합니다.")
+                .font(.title3Bold)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom, 14)
+            Text("업데이트 후 다시 이용해주시기 바랍니다.")
+                .font(.footnote)
+            Spacer()
+        }
+        .padding(.top, 100)
     }
 }
 

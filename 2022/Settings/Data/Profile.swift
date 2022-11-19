@@ -21,17 +21,30 @@ struct Profile: Hashable, Identifiable, Equatable {
     
     init(name: String, role: ProfileRole, description: String, sns: [SNSCategory]) {
         self.name = name
-        self.imageName = "2020_\(name)"
+        self.imageName = "2022_\(name)"
         self.role = role
         self.description = description
         self.sns = sns
     }
 }
 
-enum ProfileRole: String, Hashable {
+enum ProfileRole: String, Hashable, CaseIterable {
+    init?(profileRole: String) {
+        if profileRole == "speaker" {
+            self = .speaker
+        } else if profileRole == "staff" {
+            self = .staff
+        } else if profileRole == "supporter" {
+            self = .supporter
+        } else {
+            self = .noRole
+        }
+    }
+    
     case speaker
     case staff
     case supporter
+    case noRole
     
 //    var localizedString: String {
 //        switch self {
@@ -51,6 +64,7 @@ enum SNSCategory: Hashable {
     case twitter(String)
     case blog(String)
     case linkedIn(String)
+    case SNS(String)
     
     var localizedString: String {
         switch self {
@@ -64,6 +78,8 @@ enum SNSCategory: Hashable {
                 return "Twitter"
             case .linkedIn(_):
                 return "LinkedIn"
+            case .SNS(_):
+                return "SNS"
         }
     }
 }
