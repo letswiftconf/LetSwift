@@ -11,8 +11,8 @@ import SwiftUI
 
 struct CardView: View {
     
-    #warning("다시뽑기")
-    #warning("Loading(Lottie), 공유")
+#warning("다시뽑기")
+#warning("Loading(Lottie), 공유")
     
     @Environment(\.presentationMode) var presentationMode
     @State var isShowAlert = false
@@ -97,7 +97,7 @@ struct CardView: View {
         .background(Color.backgroundBlack)
         .navigationTitle("")
         .toolbar {
-            #warning("Close dismiss 구현")
+#warning("Close dismiss 구현")
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -113,6 +113,14 @@ struct CardView: View {
 }
 
 extension CardView {
+    private mutating func userData() {
+        guard let user = SharedPreference.shared.cheeringCard else {
+            return
+        }
+        self.name = user.name
+        self.category = user.category
+    }
+    
     private var cardView: some View {
         VStack {
             Image("CheeringCard")
@@ -135,16 +143,33 @@ extension CardView {
                 .padding(.bottom, 40)
         }
     }
+    
     private func shareImage(image: UIImage) {
-        #warning("shareSheet 구현하기")
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let viewController = Coordinator.topViewController()
+        activityViewController.popoverPresentationController?.sourceView = viewController?.view
+        viewController?.present(activityViewController, animated: true, completion: nil)
     }
     
-    private mutating func userData() {
-        guard let user = SharedPreference.shared.cheeringCard else {
-            return
+    private enum Coordinator {
+        static func topViewController(
+            _ viewController: UIViewController? = nil
+        ) -> UIViewController? {
+            let vc = viewController ?? UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
+            if let navigationController = vc as? UINavigationController {
+                return topViewController(navigationController.topViewController)
+            } else if let tabBarController = vc as? UITabBarController {
+                return tabBarController.presentedViewController != nil ?
+                topViewController(
+                    tabBarController.presentedViewController
+                ) : topViewController(
+                    tabBarController.selectedViewController
+                )
+            } else if let presentedViewController = vc?.presentedViewController {
+                return topViewController(presentedViewController)
+            }
+            return vc
         }
-        self.name = user.name
-        self.category = user.category
     }
     
     @ViewBuilder func gradationBox() -> some View {
