@@ -12,27 +12,30 @@ import Combine
 struct GuestBookContainerView: View {
     @EnvironmentObject var env: GuestBookEnviromentOjb
     @ObservedObject var viewModel = GuestBookListViewModel()
-    
+    @State private var showModal = false
     var disposeBag = DisposeBag()
-    
+    @State var selected = 0
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                TitleView()
-                MyPlaygrounds()
-                    .background(LinearGradient.gradientOrange.opacity(0.45))
-                    .cornerRadius(10)
-                    .clipped()
-                Section(header: Text("우리들의 기록").font(.title3Bold)) {
-                    ForEach(env.contents.reversed() , id: \.self) { event in
-                        PlaygroundSimpleRow(guestBook: event)
-                            .background(Color.backgroundCell)
-                            .cornerRadius(10)
-                            .clipped()
+            
+                VStack(alignment: .leading, spacing: 20) {
+                    TitleView()
+                    //MyPlaygrounds
+                    GoToCardView()
+                        .background(LinearGradient.gradientOrange.opacity(0.45))
+                        .cornerRadius(10)
+                        .clipped()
+                    Section(header: Text("우리들의 기록").font(.title3Bold)) {
+                        ForEach(env.contents.reversed() , id: \.self) { event in
+                            PlaygroundSimpleRow(guestBook: event)
+                                .background(Color.backgroundCell)
+                                .cornerRadius(10)
+                                .clipped()
+                        }
                     }
                 }
-            }
-            .padding()
+                .padding()
+            
         }
         .padding(.top, 1)
         .foregroundColor(.white)

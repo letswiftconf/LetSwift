@@ -9,13 +9,13 @@ import Foundation
 
 struct CommentResponse: Codable  {
     let size: Int?
-    let cheerCard: Int?
+    let cheerCardNumber: Int?
     let contents: String?
     let guestBooks: [GuestBook]
 }
 
 // MARK: - GuestBook
 struct GuestBook: Codable, Hashable{
-    let cheerCard: Int?
+    let cheerCardNumber: Int?
     let contents: String?
 }

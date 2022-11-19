@@ -32,7 +32,7 @@ class GuestBookContentViewModel {
     func binding(){
         self.action.send
             .flatMap{
-                NetworkService.shared.request(.putComment(contents: self.content, userId: 1), expectingReturnType: ContentsResponse.self)
+                NetworkService.shared.request(.putComment(contents: self.content, cheerCardNumber: 0), expectingReturnType: ContentsResponse.self)
             }.subscribe(onNext: { [weak self] result in
                 guard let self = self else { return  }
                 switch result {

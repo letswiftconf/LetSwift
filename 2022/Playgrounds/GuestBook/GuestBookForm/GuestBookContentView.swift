@@ -74,11 +74,20 @@ struct GuestBookContentView: View {
     func setupRX(){
         viewModel.state.receive
             .subscribe(onNext: { success in
-                
                 env.contents = viewModel.contents
-                Toast.shared.show(message: self.viewModel.getMessage(success: success), delay: 1.5){ _ in
-                    dismiss()
+                if success {
+                    env.isSuccess = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                        UIView.animate(withDuration: 0.4, delay: 0, options: .showHideTransitionViews) {
+                            dismiss()
+                        }
+                    }
+                }else{
+                    Toast.shared.show(message: self.viewModel.getMessage(success: success), delay: 1.5){ _ in
+                        dismiss()
+                    }
                 }
+                
             })
             .disposed(by: disposeBag)
     }
@@ -97,6 +106,7 @@ struct GuestBookContentView: View {
                     }
                 }
             }else if cards.count < 10 && cards.count > 5 {
+            
                 Toast.shared.show(message: "슝슝~ 카드 날리기 재밌죠~\n방명록과 함께 날리면 더 재밌어요~", delay: 1.5)
             }else{
                 Toast.shared.show(message: "이제 카드가 몇 장 남지않았어요~", delay: 1.5)

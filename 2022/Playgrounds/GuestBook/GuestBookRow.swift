@@ -9,14 +9,13 @@ import SwiftUI
 
 struct PlaygroundSimpleRow: View {
     let guestBook: GuestBook
-    
+    var viewModel = PlaygroundSimpleRowViewModel()
     var body: some View {
         HStack {
-            Text("?")
-                .font(.title3)
-                .bold()
-                .frame(width:35, height: 50)
-                .background(Color.orange)
+            Image(viewModel.getRandomImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50,height: 50)
                 .cornerRadius(3)
             Text(guestBook.contents ?? "")
                 .foregroundColor(Color.white)

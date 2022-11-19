@@ -17,7 +17,7 @@ struct FormCardView: View {
     @State var currentIndex: Int = 0
     @State private var angle: CGFloat = 5
     @Environment(\.colorScheme) var scheme
-    
+
     var body: some View {
         VStack {
             Spacer()
@@ -32,12 +32,27 @@ struct FormCardView: View {
                         .font(.title3Reqular)
                         .foregroundColor(.gray)
                     
-                    TextEditor(text:  $content)
-                        .padding()
-                        .foregroundColor(Color.orange)
-                        .background(Color.textGray)
-                        .cornerRadius(10)
-                        .shadow(radius: 1)
+                    if #available(iOS 16.0, *) {
+                        TextEditor(text:  $content)
+                            .padding()
+                            .foregroundColor(Color.orange)
+                            .background(Color.textGray)
+                            .textFieldStyle(.roundedBorder)
+                            .cornerRadius(10)
+                            .opacity(0.6)
+                            .scrollContentBackground(.hidden)
+                            .autocorrectionDisabled()
+                    } else {
+                        // Fallback on earlier versions
+                        TextEditor(text:  $content)
+                            .padding()
+                            .foregroundColor(Color.orange)
+                            .background(Color.textGray)
+                            .colorMultiply(.gray)
+                            .textFieldStyle(.roundedBorder)
+                            .cornerRadius(10)
+                            .autocorrectionDisabled()
+                    }
                 }
                 .padding()
                 .multilineTextAlignment(.center)
@@ -68,6 +83,14 @@ struct FormCardView: View {
             Spacer()
         }.onTapGesture{
             editTextEnd()
+        }.onAppear{
+            if #available(iOS 16.0, *) {
+                //'#unavailable' it can use upper swift 5.6
+            }else{
+                UITextView.appearance().backgroundColor = .clear
+            }
+     
+            
         }
     }
   
