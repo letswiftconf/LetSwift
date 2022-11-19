@@ -35,4 +35,7 @@ extension Color {
       )
     }
   }
+    
+    // border
+    static let borderGray = Color("borderGray")
 }

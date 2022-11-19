@@ -9,14 +9,54 @@ import SwiftUI
 
 struct TabNavigationView: View {
     @State private var selected: Tab = .sessions
-    
+    @State private var showModal = false
+    @StateObject var env: GuestBookEnviromentOjb = GuestBookEnviromentOjb()
     // MARK: - Body
     var body: some View {
         TabView(selection: $selected) {
             ForEach(Tab.allCases) { tab in
                 NavigationView {
-                    tab.presentingView
+                    ZStack(alignment: .bottomTrailing) {
+                        tab.presentingView
+                        
+                        if tab == .playgrounds {
+                            VStack {
+                                Button {
+                                    self.showModal = true
+                                } label: {
+                                    ZStack {
+                                        LottieView(filename: "ic_note")
+                                            .frame(height: 70)
+                                        VStack {
+                                            Text("방명록")
+                                                .font(.system(size: 13))
+                                            Spacer()
+                                            Text("작성하기")
+                                                .font(.system(size: 13))
+                                        }
+                                        .padding(.init(top: 2, leading: 0, bottom: 2, trailing: 0))
+                                    }
+                                }
+                                .frame(width: 70,height: 70)
+                                .opacity(0.7)
+                                .background(Color.white)
+                                .foregroundColor(Color.orange)
+                                .cornerRadius(20)
+                                .padding()
+                                .fullScreenCover(isPresented: $showModal) {
+                                    print("dismiss")
+                                    if env.isSuccess {
+                                        env.isSuccess = !env.isSuccess
+                                        Toast.shared.show(message: "후기를 작성해 주셔서 감사합니다!", delay: 1.5)
+                                    }
+                                } content: {
+                                    GuestBookContentView()
+                                }
+                            }
+                        }
+                    }
                 }
+                .environmentObject(env)
                 .tabItem { tab.tabItem }
                 .tag(tab)
             }
@@ -31,7 +71,7 @@ extension TabNavigationView {
         case badges
         case playgrounds
         case settings
-//        case location
+        //        case location
         
         // MARK: Identifiable
         var id: Int {
@@ -42,9 +82,10 @@ extension TabNavigationView {
         var presentingView: some View {
             switch self {
             case .sessions: return AnyView(SessionView())
-            case .badges: return AnyView(ScheduleView())
-            case .playgrounds: return AnyView(EmptyView())
-            case .settings: return AnyView(PeopleView())
+            case .badges: return AnyView(BadgeView())
+            case .playgrounds:
+                return AnyView(GuestBookContainerView())
+            case .settings: return AnyView(SettingMainView())
 //            case .location: return AnyView(LocationView())
             }
         }

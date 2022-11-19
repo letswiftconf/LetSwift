@@ -12,7 +12,7 @@ struct SurveyData {
     var question: String
     var answer: [(answerId: Int, answer: String)]
 }
-
+// TODO: 설문, 답변 텍스트 변경 필요
 struct TempChartData {
     static let questionList = [
         SurveyData(
