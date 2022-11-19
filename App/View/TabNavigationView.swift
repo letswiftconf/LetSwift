@@ -45,6 +45,10 @@ struct TabNavigationView: View {
                                 .padding()
                                 .fullScreenCover(isPresented: $showModal) {
                                     print("dismiss")
+                                    if env.isSuccess {
+                                        env.isSuccess = !env.isSuccess
+                                        Toast.shared.show(message: "후기를 작성해 주셔서 감사합니다!", delay: 1.5)
+                                    }
                                 } content: {
                                     GuestBookContentView()
                                 }

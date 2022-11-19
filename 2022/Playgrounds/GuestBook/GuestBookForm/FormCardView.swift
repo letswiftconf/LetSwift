@@ -32,20 +32,6 @@ struct FormCardView: View {
                         .font(.title3Reqular)
                         .foregroundColor(.gray)
                     
-//
-//                    if #available(iOS 16.0, *) {
-//                        TextField("입력해줘어~~~~~~~", text: $content, axis: .vertical)
-//                            .padding()
-//                            .foregroundColor(Color.orange)
-//                            .background(Color.textGray)
-//                            .frame(height: 100)
-//                            .textFieldStyle(.roundedBorder)
-//                            .autocorrectionDisabled()
-//                            .cornerRadius(10)
-//                    } else {
-//                        // Fallback on earlier versions
-//                    }
-//
                     if #available(iOS 16.0, *) {
                         TextEditor(text:  $content)
                             .padding()
@@ -67,8 +53,6 @@ struct FormCardView: View {
                             .cornerRadius(10)
                             .autocorrectionDisabled()
                     }
-                    
-    
                 }
                 .padding()
                 .multilineTextAlignment(.center)
