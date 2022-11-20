@@ -17,14 +17,47 @@ struct GoToCardView: View {
         Button {
             self.isShowModal = true
         } label: {
-            boxText(title: "나의 playground card\n뽑으러 가기")
+            boxText(state: state, title: title)
         }
-        .fullScreenCover(isPresented: $showModal, content: NicknameView.init)
-        
+        .fullScreenCover(isPresented: $isShowModal) {
+            if let user = SharedPreference.shared.cheeringCard {
+                if user.name.isEmpty {
+                    NicknameView(isShowModal: $isShowModal)
+                } else {
+                    CardView(showModal: $isShowModal)
+                        .onDisappear(){
+                            setTitle()
+                        }
+                }
+            } else {
+                NicknameView(isShowModal: $isShowModal)
+                    .onDisappear(){
+                        setTitle()
+                    }
+            }
+        }
+        .onAppear(){
+            setTitle()
+        }
     }
 }
 
 extension GoToCardView {
+    private func setTitle() {
+        if let user = SharedPreference.shared.cheeringCard {
+            if user.name.isEmpty {
+                state = "?"
+                title = "나의 playground card\n뽑으러 가기"
+            } else {
+                state = "♥️"
+                title = "\(user.category) \(user.name)님,\n전체 결과를 확인해보세요!"
+            }
+        } else {
+            state = "?"
+            title = "나의 playground card\n뽑으러 가기"
+        }
+    }
+    
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()
             .fill(LinearGradient.gradientOrange.opacity(0.45))
@@ -32,14 +65,15 @@ extension GoToCardView {
             .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
     }
     
-    @ViewBuilder func boxText(title: String) -> some View {
+    @ViewBuilder func boxText(state: String, title: String) -> some View {
         HStack(alignment: .center) {
-            Text("?")
+            Text(state)
                 .font(.bodyRegular)
                 .frame(width: 40, height: 55)
-                .background(.white)
+                .background(state == "?" ? Color.white : Color.backgroundBlack)
                 .cornerRadius(3)
                 .foregroundColor(.black)
+                .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
             Text(title)
                 .padding(.leading, 20)
                 .foregroundColor(.white)
@@ -58,10 +92,8 @@ extension GoToCardView {
     }
 }
 
-
-
-struct CardItem_Previews: PreviewProvider {
-    static var previews: some View {
-        GoToCardView()
-    }
-}
+//struct CardItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GoToCardView()
+//    }
+//}
