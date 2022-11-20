@@ -30,41 +30,44 @@ struct ChartView: View {
 extension ChartView {
     @ViewBuilder
     func totalChart() -> some View {
-        VStack(alignment: .leading) {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
-                Text("Let’Swift 22 개발자 성향")
-                    .padding(.bottom, 30)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .font(.title3Bold)
-                if let chartDataList = viewModel.totalChartDataList {
-                    if #available(iOS 16.0, *) {
-                        Chart {
-                            ForEach(chartDataList) { chartData in
-                                if let question = TempChartData.questionList.first(where: { $0.surveyId == chartData.surveyId })?.question,
-                                   let answer = TempChartData.getCardCase(answerId: chartData.answerId)
-                                {
-                                    BarMark(
-                                        x: .value("Category", answer.rawValue),
-                                        y: .value("Profit", chartData.count)
-                                    )
-                                    .foregroundStyle(by: .value("Product Category", question))
+                VStack(alignment: .leading) {
+                    Text("Let’Swift 22 개발자 성향")
+                        .padding(.bottom, 30)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .font(.title3Bold)
+                    if let chartDataList = viewModel.totalChartDataList {
+                        if #available(iOS 16.0, *) {
+                            Chart {
+                                ForEach(chartDataList) { chartData in
+                                    if let question = TempChartData.questionList.first(where: { $0.surveyId == chartData.surveyId })?.question,
+                                       let answer = TempChartData.getCardCase(answerId: chartData.answerId)
+                                    {
+                                        BarMark(
+                                            x: .value("Category", answer.rawValue),
+                                            y: .value("Profit", chartData.count)
+                                        )
+                                        .foregroundStyle(by: .value("Product Category", question))
+                                    }
                                 }
                             }
+                            .frame(height: 500)
+                        } else {
+                            iOS16View()
                         }
-                        .frame(height: 500)
+                        Spacer()
+                    } else if viewModel.alertArror == true {
+                        alertErrorView()
                     } else {
-                        iOS16View()
+                        loadingView()
                     }
-                    Spacer()
-                } else if viewModel.alertArror == true {
-                    alertErrorView()
-                } else {
-                    loadingView()
                 }
             }
+            .padding(.top, 30)
+            .padding(.bottom, 50)
+            .padding(.horizontal, 30)
         }
-        .padding(.top, 50)
-        .padding(.horizontal, 30)
     }
     @ViewBuilder
     func individualChart() -> some View {
