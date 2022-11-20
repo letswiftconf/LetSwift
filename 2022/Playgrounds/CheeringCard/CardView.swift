@@ -11,16 +11,17 @@ import SwiftUI
 
 struct CardView: View {
     
-#warning("다시뽑기")
 #warning("Loading(Lottie), 공유")
     
+    @Binding var isShowModal: Bool
     @Environment(\.presentationMode) var presentationMode
-    @State var isShowAlert = false
     
+    @State var isShowAlert = false
     var category: String?
     var name: String?
-    
-    init() {
+
+    init(showModal: Binding<Bool>) {
+        self._isShowModal = showModal
         userData()
     }
     
@@ -37,6 +38,15 @@ struct CardView: View {
                 ChartView()
             } label: {
                 HStack {
+                    Button {
+                        isShowModal = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 18, height: 18)
+                    }
+                    .padding(15)
                     Spacer()
                     Text("참가자 전체 결과 보기")
                         .font(.title3Reqular)

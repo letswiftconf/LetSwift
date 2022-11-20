@@ -10,13 +10,18 @@ import SwiftUI
 struct SurveyView: View {
     
     @State var isActive: Bool = false
+    
     @State var surveyId: Int
     @State var userData: SurveyAnswerModel
     
-    init(surveyId: Int, userData: SurveyAnswerModel) {
+    @Binding var isShowModal: Bool
+    
+    init(surveyId: Int, userData: SurveyAnswerModel, showModal: Binding<Bool>) {
         self.surveyId = surveyId
         self.userData = userData
+        self._isShowModal = showModal
     }
+    
     // TODO: view 먼저 바뀌는 문제 해결
     var body: some View {
         VStack {
@@ -28,6 +33,7 @@ struct SurveyView: View {
                     .multilineTextAlignment(.center)
             }
             .padding(EdgeInsets(top: 10, leading: 30, bottom: 30, trailing: 30))
+            
             ForEach(1..<5) { i in
                 let answerItem = TempChartData.getAnswerText(surveyId: surveyId, answerId: i)
                 Button {
@@ -44,10 +50,14 @@ struct SurveyView: View {
                 }
                 NavigationLink("", isActive: $isActive) {
                     if surveyId < TempChartData.questionList.count {
-                        SurveyView(surveyId: surveyId, userData: userData)
+                        SurveyView(surveyId: surveyId,
+                                   userData: userData,
+                                   showModal: $isShowModal
+                        )
                     } else {
                         // TODO: Userdata POST - X
-                        CardView().navigationBarBackButtonHidden(true)
+                        CardView(showModal: $isShowModal)
+                            .navigationBarBackButtonHidden(true)
                     }
                 }
             }

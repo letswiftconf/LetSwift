@@ -9,11 +9,13 @@ import SwiftUI
 
 struct GoToCardView: View {
     
-    @State private var showModal = false
+    @State private var isShowModal = false
+    @State var state: String = ""
+    @State var title: String = ""
     
     var body: some View {
         Button {
-            self.showModal = true
+            self.isShowModal = true
         } label: {
             boxText(title: "나의 playground card\n뽑으러 가기")
         }
