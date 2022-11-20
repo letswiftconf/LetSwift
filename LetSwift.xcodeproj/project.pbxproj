@@ -209,7 +209,6 @@
 		A5EC7768256BD23D0072E959 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7767256BD23D0072E959 /* People.swift */; };
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
-		CC1E753E291512820016092D /* ChartMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CC1E753D291512820016092D /* ChartMockData.json */; };
 		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
 		CC2DCDC929151F8700419AFC /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC829151F8700419AFC /* SurveyData.swift */; };
 		CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC393F0A2917CB6E0008F0F4 /* ChartView.swift */; };
@@ -442,7 +441,6 @@
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
 		AD7D71323B59767A6A3C9E86 /* Pods_LetSwift__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetSwift__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming2WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC1E753D291512820016092D /* ChartMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartMockData.json; sourceTree = "<group>"; };
 		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		CC2DCDC829151F8700419AFC /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
 		CC393F0A2917CB6E0008F0F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -839,7 +837,6 @@
 		555CB612291CC39E00D893CE /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				CC1E753D291512820016092D /* ChartMockData.json */,
 				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
 				CC393F0A2917CB6E0008F0F4 /* ChartView.swift */,
 				CCFF977E29114CEF00BC5FD3 /* ChartDataModel.swift */,
@@ -877,6 +874,7 @@
 		6F3A3E60291E9E8D00E42D64 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CC8584CF29274A040091A7A1 /* API */,
 				6F3A3E6A291EA05900E42D64 /* Network */,
 			);
 			path = Service;
@@ -1062,7 +1060,6 @@
 		CCF9A0B8291CE1C100EF8C9B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				CC8584CF29274A040091A7A1 /* API */,
 				CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */,
 				CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */,
 				CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */,
@@ -1256,7 +1253,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60E17672256D509B0068B3F4 /* Event.json in Resources */,
-				CC1E753E291512820016092D /* ChartMockData.json in Resources */,
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
 				CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */,

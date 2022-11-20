@@ -107,24 +107,6 @@ struct ProfileView: View {
 }
 
 extension ProfileView {
-    //    private func getRequest(urlString: String) {
-    //        guard let url = URL(string: urlString) else {return}
-    //
-    //        let session = URLSession(configuration: .default)
-    //        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-    //
-    //            guard let data = data else {return}
-    //
-    //            do {
-    //                //받은 json데이터 파싱
-    //                let result: Articles = try JSONDecoder().decode(Articles.self, from: data)
-    //                print(result.articles.first?.author)
-    //            } catch(let e) {
-    //                print(e)
-    //            }
-    //
-    //        }.resume()   //모든 task()는 일시정지 상태로 시작하기 때문에 resume()으로 task()를 시작해야합니다.
-    //    }
     @ViewBuilder func gradationBox() -> some View {
         Rectangle()
             .fill(LinearGradient.gradientOrange.opacity(0.45))
