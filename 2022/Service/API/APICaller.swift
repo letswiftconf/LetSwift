@@ -14,9 +14,31 @@ final class APICaller {
         static let staffURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/staff")
         static let supporterURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/supporter")
         static let speakerURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/speaker")
+        static let chartURL = URL(string: "http://13.209.242.34:29443/api/v1/survey")
     }
     
     private init() {}
+    
+    func getChartData(completion: @escaping (Result<ChartData, Error>) -> Void) {
+        guard let url = Constants.chartURL else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(ChartData.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+        
+        task.resume()
+    }
     
     func getAllProfileData() {
         for profileRole in ProfileRole.allCases {

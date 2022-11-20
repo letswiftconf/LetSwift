@@ -16,6 +16,9 @@ struct ChartView: View {
             totalChart()
             individualChart()
         }
+        .task {
+            viewModel.getChartData()
+        }
         .foregroundColor(.white)
         .background(Color.backgroundBlack)
         .edgesIgnoringSafeArea(.bottom)
@@ -28,12 +31,12 @@ extension ChartView {
     @ViewBuilder
     func totalChart() -> some View {
         VStack(alignment: .leading) {
-            if let chartDataList = viewModel.totalChartDataList {
-                VStack(alignment: .leading) {
-                    Text("Let’Swift 22 개발자 성향")
-                        .padding(.bottom, 30)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .font(.title3Bold)
+            VStack(alignment: .leading) {
+                Text("Let’Swift 22 개발자 성향")
+                    .padding(.bottom, 30)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .font(.title3Bold)
+                if let chartDataList = viewModel.totalChartDataList {
                     if #available(iOS 16.0, *) {
                         Chart {
                             ForEach(chartDataList) { chartData in
@@ -53,9 +56,11 @@ extension ChartView {
                         iOS16View()
                     }
                     Spacer()
+                } else if viewModel.alertArror == true {
+                    alertErrorView()
+                } else {
+                    loadingView()
                 }
-            } else {
-                loadingView()
             }
         }
         .padding(.top, 50)
@@ -118,8 +123,9 @@ extension ChartView {
                     else {
                         iOS16View()
                     }
-                }
-                else {
+                } else if viewModel.alertArror == true {
+                    alertErrorView()
+                } else {
                     loadingView()
                 }
             }
@@ -167,6 +173,42 @@ extension ChartView {
             Spacer()
         }
         .padding(.top, 100)
+    }
+    @ViewBuilder
+    func alertErrorView() -> some View {
+        VStack(alignment: .center) {
+            VStack(alignment: .center) {
+                Image("loading")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 66, height: 66)
+                    .padding(.bottom, 26)
+                    .padding(.top, 40)
+                Text("네트워크 연결 없음")
+                    .font(.title3Bold)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.bottom, 14)
+                Button {
+                    Task {
+                        viewModel.getChartData()
+                    }
+                } label: {
+                    Text("재시도 하기")
+                        .font(.subheadRegular)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 10)
+                        .background(gradationBox())
+                }
+                Spacer()
+            }
+            .padding(.top, 100)
+        }
+    }
+    @ViewBuilder func gradationBox() -> some View {
+        Rectangle()
+            .fill(LinearGradient.gradientOrange.opacity(0.45))
+            .cornerRadius(10)
     }
 }
 

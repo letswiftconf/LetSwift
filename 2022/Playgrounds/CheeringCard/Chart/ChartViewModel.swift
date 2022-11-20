@@ -9,33 +9,32 @@ import Foundation
 
 
 class ChartViewModel: ObservableObject {
-    @Published var chartData: ChartData?
-    @Published var totalChartDataList: [TotalChartData]?
+    @Published var chartData: ChartData? = nil {
+        didSet {
+            getTotalChartDataList()
+        }
+    }
+    @Published var totalChartDataList: [TotalChartData]? = nil
+    @Published var alertArror = false
     
-    init() {
-        self.chartData = getChartMockData()
-        self.totalChartDataList = getTotalChartDataList()
+    func getChartData() {
+        APICaller.shared.getChartData ( completion: { result in
+            switch result {
+                case .success(let APIResponse):
+                    DispatchQueue.main.async {
+                        self.chartData = APIResponse
+                    }
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self.alertArror = true
+                    }
+            }
+        })
     }
     
-    private func getChartMockData() -> ChartData? {
-        guard let path = Bundle.main.path(forResource: "ChartMockData", ofType: "json") else {
-            return nil
-        }
-        guard let jsonString = try? String(contentsOfFile: path) else {
-            return nil
-        }
-        let decoder = JSONDecoder()
-        let data = jsonString.data(using: .utf8)
-        guard let jsonData = data,
-              let chartData = try? decoder.decode(ChartData.self, from: jsonData) else {
-            return nil
-        }
-        return chartData
-    }
-    
-    private func getTotalChartDataList() -> [TotalChartData]? {
+    func getTotalChartDataList() {
         var totalChartDataList: [TotalChartData] = []
-        if chartData != nil {
+        if self.chartData != nil {
             for survey in self.chartData!.surveyList {
                 let surveyId = survey.surveyId
                 for answer in survey.answerList {
@@ -43,9 +42,7 @@ class ChartViewModel: ObservableObject {
                     totalChartDataList.append(totalChartData)
                 }
             }
-            return totalChartDataList
-        } else {
-            return nil
+            self.totalChartDataList = totalChartDataList
         }
     }
 }
