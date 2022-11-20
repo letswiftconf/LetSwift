@@ -72,11 +72,11 @@ struct SurveyView: View {
 extension SurveyView {
     
     private func saveUserData() {
-        let category = getCatetory(data: userData.answer)
-        SharedPreference.shared.cheeringCard = CheeringCardModel(name: userData.name, category: category, image: "")
+        let category = getCardType(data: userData.answer)
+        SharedPreference.shared.cheeringCard = CheeringCardModel(name: userData.name, category: category, image: nil)
     }
     
-    private func getCatetory(data: [AnswerData]) -> String {
+    private func getCardType(data: [AnswerData]) -> String {
         let myCountSet = NSCountedSet()
         var max = 0
         
@@ -89,30 +89,7 @@ extension SurveyView {
                 max = i
             }
         }
-        return cardCase(answerId: max).rawValue
-    }
-    
-    enum CardCase: String {
-        case design = "🎨디자인왕"
-        case device = "📱기기왕"
-        case newTech = "💻신기술왕"
-        case conference = "🙆🏻‍♂️🙆🏻‍♀️소통왕"
-        case none
-    }
-    
-    private func cardCase(answerId: Int) -> CardCase {
-        switch answerId {
-            case 1:
-                return CardCase.design
-            case 2:
-                return CardCase.device
-            case 3:
-                return CardCase.newTech
-            case 4:
-                return CardCase.conference
-            default:
-                return CardCase.none
-        }
+        return CardType.cardCase(answerId: max).rawValue
     }
     
 }
