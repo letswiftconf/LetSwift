@@ -106,8 +106,8 @@ extension NicknameView {
     }
 }
 
-struct Nickname_Previews: PreviewProvider {
-    static var previews: some View {
-        NicknameView()
-    }
-}
+//struct Nickname_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NicknameView()
+//    }
+//}
