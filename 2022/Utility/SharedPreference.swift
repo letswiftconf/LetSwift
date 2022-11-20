@@ -25,6 +25,11 @@ class SharedPreference {
     func getObjectValues(key:String ) -> AnyObject? {
         return UserDefaults.standard.object(forKey: key) as AnyObject?
     }
+    
+    func removeObjectValues(key:String){
+        UserDefaults.standard.removeObject(forKey: key)
+        UserDefaults.standard.synchronize()
+    }
 }
 
 extension SharedPreference {
@@ -43,7 +48,10 @@ extension SharedPreference {
             if let encoded = try? encoder.encode(newValue){
                 saveValues(key: PreferenceType.cheeringCard.rawValue, values: encoded as AnyObject)
             }
-            
         }
+    }
+    
+    func remove() {
+        removeObjectValues(key: PreferenceType.cheeringCard.rawValue)
     }
 }

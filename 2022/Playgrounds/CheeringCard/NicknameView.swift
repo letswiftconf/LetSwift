@@ -13,6 +13,8 @@ struct NicknameView: View {
     @State private var showingAlert = false
     @State private var isActive = false
     
+    @Binding var isShowModal: Bool
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -49,7 +51,9 @@ struct NicknameView: View {
                     Alert(title: Text("이름을 입력해 주세요."),message: nil, dismissButton:.default(Text("확인")))
                 }
                 NavigationLink("", isActive: $isActive) {
-                    SurveyView(surveyId: 1,userData: answerData(name: name))
+                    SurveyView(surveyId: 1,
+                               userData: answerData(name: name),
+                               showModal: $isShowModal)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -102,8 +106,8 @@ extension NicknameView {
     }
 }
 
-struct Nickname_Previews: PreviewProvider {
-    static var previews: some View {
-        NicknameView()
-    }
-}
+//struct Nickname_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NicknameView()
+//    }
+//}
