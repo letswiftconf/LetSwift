@@ -6,9 +6,23 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct CheeringCardModel: Codable {
+struct CheeringCardModel: Codable{
     var name: String
     var category: String
-    var image: String
+    var image: Data?
+    
+    func getImage(from data: Data) -> UIImage? {
+        return UIImage(data: data)
+    }
+    
+    /*
+     Image 적용하기
+     guard let data = user.image else {
+         return
+     }
+     
+     let image = UIImage(data: data)
+     */
 }
