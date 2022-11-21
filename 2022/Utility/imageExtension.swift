@@ -8,8 +8,6 @@
 import SwiftUI
 
 extension Image {
-  static let SessionViewTitle: Image = Image("SessionViewTitle")
-  
   enum Logo {
     static let instagram: Image = Image("InstagramLogo")
     static let twitter: Image = Image("TwitterLogo")

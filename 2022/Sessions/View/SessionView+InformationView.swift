@@ -19,34 +19,41 @@ extension SessionView {
     
     var body: some View {
       VStack(alignment: .leading, spacing: .zero) {
-        Image.SessionViewTitle
-        
-        HStack(spacing: 8) {
-          Spacer()
-          
-          Image.Logo.instagram
-          
-          Image.Logo.twitter
-            .padding(.trailing, 17)
-        }
-        .padding(.top, 20)
+        // FIXME: font
+        Text("Let’Swift 2022")
+          .font(.largeTitle)
+          .foregroundColor(.white)
         
         Text(self.informationTextString)
           .foregroundColor(.white)
           .font(.bodyRegular)
-          .padding(.top, 46)
+          .padding(.top, 22)
+        
+        HStack(spacing: 15) {
+          Button(
+            action: { print("click twitter") },
+            label: { Image.Logo.twitter }
+          )
+          
+          Button(
+            action: { print("click instagram") },
+            label: { Image.Logo.instagram }
+          )
+          
+          Spacer()
+        }
+        .padding(.top, 28)
         
         RowView(
           titleString: "일시",
-          contentString: "2022-11-30 | 09:00 - 19:30",
+          contentString: "2022년 11월30일  09:00 - 19:30",
           buttons: [
             GradientButton(textString: "캘린더 추가") {
               print("add calender")
             }
           ]
         )
-        .padding(.top, 63)
-        
+        .padding(.top, 46)
         
         RowView(
           titleString: "장소",
@@ -60,7 +67,7 @@ extension SessionView {
             }
           ]
         )
-        .padding(.top, 52)
+        .padding(.top, 20)
       }
     }
   }
@@ -79,11 +86,11 @@ extension SessionView.InformationView {
     }
     
     var body: some View {
-      VStack(alignment: .leading, spacing: 24) {
+      VStack(alignment: .leading, spacing: 15) {
         HStack(spacing: 9) {
           Text(self.titleString)
             .font(.bodyBold)
-            .foregroundColor(.orange)
+            .foregroundColor(.white)
           
           Spacer()
           
@@ -93,8 +100,12 @@ extension SessionView.InformationView {
         }
         
         Text(self.contentString)
+          .font(.subheadRegular)
           .foregroundColor(.white)
       }
+      .padding(20)
+      .background(Color.backgroundCell)
+      .cornerRadius(10)
     }
   }
 }

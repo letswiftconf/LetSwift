@@ -22,12 +22,12 @@ extension SessionView {
         action: { self.action() },
         label: {
           Text(self.textString)
-//            .font(.inter)
+            .font(.caption2Regular)
             .foregroundColor(.white)
             .padding(.vertical, 5)
             .padding(.horizontal, 10)
-            .background(Color.Gradient.orange)
-            .cornerRadius(5)
+            .background(Color.orange)
+            .cornerRadius(20)
         }
       )
     }

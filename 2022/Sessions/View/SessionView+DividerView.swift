@@ -10,15 +10,17 @@ import SwiftUI
 extension SessionView {
   struct DividerView: View {
     private let height: CGFloat
+    private let color: Color
     
-    init(height: CGFloat) {
+    init(height: CGFloat, color: Color) {
       self.height = height
+      self.color = color
     }
     
     var body: some View {
       Rectangle()
-        .foregroundColor(.orange)
-        .frame(height: height)
+        .foregroundColor(self.color)
+        .frame(height: self.height)
     }
   }
 }

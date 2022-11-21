@@ -12,11 +12,11 @@ struct SessionView: View {
     ScrollView {
       VStack(spacing: .zero) {
         InformationView()
-          .padding(.top, 20)
-          .padding(.bottom, 66)
+          .padding(.top, 40)
+          .padding(.bottom, 60)
           .padding(.horizontal, 20)
         
-        DividerView(height: 5)
+        DividerView(height: 5, color: .orange)
         
         ScheduleView()
           .padding(.top, 41)

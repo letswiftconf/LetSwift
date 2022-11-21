@@ -47,8 +47,8 @@ extension PlaceType {
   
   private var textString: String {
     switch self {
-    case .bigRoom: return "큰 방"
-    case .smallRoom: return "작은 방"
+    case .bigRoom: return "402호"
+    case .smallRoom: return "401호"
     case .Lobby: return "로비"
     }
   }
@@ -56,18 +56,19 @@ extension PlaceType {
 
 extension PlaceType {
   func button(isClicked: Bool) -> some View {
-    ZStack(alignment: .bottom) {
-      Rectangle()
-        .fill(Color.Gradient.orange)
-        .frame(width: 75, height: isClicked ? 0 : 3)
-        .cornerRadius(10)
-      
+    VStack(spacing: .zero) {
       Text(self.textString)
-//        .font(.inter)
+        .font(.subheadBold)
         .foregroundColor(.white)
-        .padding(.vertical, isClicked ? 5 : 0)
-        .padding(.horizontal, isClicked ? 10 : 0)
-        .background(isClicked ? Color.Gradient.orange : Color.Gradient.single(color: .clear))
+        .padding(.top, 10)
+        .padding(.bottom, isClicked ? 10 : 7)
+        .frame(width: 80)
+        .background(isClicked ? Color.orange : Color.clear)
+        .cornerRadius(5)
+      
+      Rectangle()
+        .fill(Color.backgroundWhite)
+        .frame(width: 80, height: isClicked ? 0 : 3)
         .cornerRadius(5)
     }
   }

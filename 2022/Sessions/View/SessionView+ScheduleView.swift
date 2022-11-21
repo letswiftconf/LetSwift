@@ -19,8 +19,8 @@ extension SessionView {
     var body: some View {
       VStack(alignment: .leading, spacing: .zero) {
         Text("Schedule")
-//          .font(.inter)
-          .foregroundColor(.orange)
+          .font(.title3Bold)
+          .foregroundColor(.white)
         
         HStack(spacing: 20) {
           ForEach(PlaceType.allCases) { placeType in
@@ -32,7 +32,7 @@ extension SessionView {
           
           Spacer()
         }
-        .padding(.top, 38)
+        .padding(.top, 25)
         
         Text(self.clickedPlaceType.titleString)
           .font(.bodyBold)
@@ -45,14 +45,30 @@ extension SessionView {
           .padding(.top, 12)
         
         VStack(spacing: 20) {
-          ForEach(self.sessionInformations) { information in
-            if information.placeType == self.clickedPlaceType {
+          ForEach(self.selectedPlaceTypeOfSessionInformations) { information in
+            VStack(alignment: .leading, spacing: 20) {
               RowView(sessionInformation: information)
+                .padding(.bottom, self.isLastModel(of: information) ? 50 : 0)
+              
+              if !self.isLastModel(of: information) {
+                SessionView.DividerView(height: 1, color: .backgroundWhite)
+              }
             }
           }
         }
         .padding(.top, 30)
       }
+    }
+    
+    private var selectedPlaceTypeOfSessionInformations: [SessionInformationModel] {
+      let selectedPlaceTypeOfSessionInformation = self.sessionInformations.filter { information in
+        information.placeType == self.clickedPlaceType
+      }
+      return selectedPlaceTypeOfSessionInformation
+    }
+    
+    private func isLastModel(of information: SessionInformationModel) -> Bool {
+      return information == self.selectedPlaceTypeOfSessionInformations.last
     }
   }
 }
@@ -66,30 +82,59 @@ extension SessionView.ScheduleView {
     }
     
     var body: some View {
-      HStack(spacing: 16) {
-        Text(self.information.time.startString)
-          .foregroundColor(.white)
-        
-        self.information.speaker.profileImage
-          .resizable()
-          .frame(width: 70, height: 70)
-        
-        VStack(alignment: .leading, spacing: 4) {
-          Text(self.information.titleString)
-            .foregroundColor(.white)
-          
-          Text(self.information.contentString)
-            .foregroundColor(.textGray)
-            .lineLimit(2)
-          
-          HStack {
-            Spacer()
+      switch information.rowType {
+      case .hasDetailView, .normal:
+        AnyView(
+          HStack(spacing: 30) {
+            VStack {
+              self.information.speaker.profileImage
+                .resizable()
+                .frame(width: 70, height: 70)
+              
+              Spacer()
+            }
             
-            GradientButton(textString: "더보기", action: { print("navigate to DetailSessionView") })
+            VStack(alignment: .leading, spacing: 5) {
+              Text(self.information.time.startString + " - " + self.information.time.endString)
+                .foregroundColor(.white)
+              
+              Text(self.information.titleString)
+                .foregroundColor(.white)
+              
+              Text(self.information.contentString)
+                .foregroundColor(.textGray)
+                .lineLimit(2)
+              
+              if information.rowType == .hasDetailView {
+                Button(
+                  action: {
+                    print("navigate to DetailSessionView")
+                  },
+                  label: {
+                    Text("더보기")
+                      .foregroundColor(.white)
+                      .padding(.vertical, 10)
+                      .padding(.horizontal, 30)
+                      .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                          .stroke(Color.backgroundWhite, lineWidth: 1)
+                      )
+                  }
+                )
+                .padding(.top, 10)
+              }
+            }
           }
-          
-          SessionView.DividerView(height: 1)
-        }
+          .padding(.top, 10)
+        )
+      case .otherTimes:
+        AnyView(
+          Text(self.information.titleString)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+            .background(Color.Gradient.orange)
+            .cornerRadius(5)
+        )
       }
     }
   }

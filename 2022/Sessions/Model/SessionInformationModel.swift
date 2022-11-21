@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SessionInformationModel {
+  let rowType: ScheduleRowType
   let placeType: PlaceType
   let time: SessionInformationModel.Time
   let titleString: String
   let contentString: String
   let speaker: SessionInformationModel.Speaker
+  
+  init(
+    rowType: ScheduleRowType,
+    placeType: PlaceType,
+    time: SessionInformationModel.Time,
+    titleString: String,
+    contentString: String = "",
+    speaker: SessionInformationModel.Speaker = .empty
+  ) {
+    self.rowType = rowType
+    self.placeType = placeType
+    self.time = time
+    self.titleString = titleString
+    self.contentString = contentString
+    self.speaker = speaker
+  }
 }
 
 extension SessionInformationModel {
@@ -29,8 +46,22 @@ extension SessionInformationModel {
   }
 }
 
-extension SessionInformationModel: Identifiable {
+extension SessionInformationModel: Identifiable, Equatable {
   var id: UUID { return UUID() }
+  
+  static func == (lhs: SessionInformationModel, rhs: SessionInformationModel) -> Bool {
+    // FIXME: fix to id: UUID
+    return lhs.titleString == rhs.titleString
+  }
+}
+
+extension SessionInformationModel.Speaker {
+  static let empty: SessionInformationModel.Speaker = .init(
+    nameString: "",
+    companyString: "",
+    introductionString: "",
+    profileImage: Image.Dummy.profile
+  )
 }
 
 // MARK: - dummy for test
@@ -38,9 +69,10 @@ extension SessionInformationModel: Identifiable {
 extension SessionInformationModel {
   static let dummys: [SessionInformationModel] = [
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .bigRoom,
       time: Time(startString: "10:00", endString: "11:00"),
-      titleString: "큰방에서 살아남기",
+      titleString: "큰방에서 살아남기1",
       contentString: """
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
@@ -59,9 +91,22 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .normal,
+      placeType: .bigRoom,
+      time: Time(startString: "10:30", endString: "10:50"),
+      titleString: "오프닝"
+    ),
+    SessionInformationModel(
+      rowType: .otherTimes,
+      placeType: .bigRoom,
+      time: Time(startString: "11:50", endString: "12:30"),
+      titleString: "점심 시간"
+    ),
+    SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .bigRoom,
       time: Time(startString: "10:00", endString: "11:00"),
-      titleString: "큰방에서 살아남기",
+      titleString: "큰방에서 살아남기2",
       contentString: """
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
@@ -80,9 +125,10 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .bigRoom,
       time: Time(startString: "10:00", endString: "11:00"),
-      titleString: "큰방에서 살아남기",
+      titleString: "큰방에서 살아남기3",
       contentString: """
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
       큰방에서 살아남기 위해서는 큰 마음을 가져야 합니다.
@@ -101,6 +147,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .smallRoom,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "작은방 이야기",
@@ -122,6 +169,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .Lobby,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "더미더미더미 오오오오",
@@ -138,6 +186,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .smallRoom,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "작은방 이야기",
@@ -159,6 +208,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .Lobby,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "더미더미더미 오오오오",
@@ -175,6 +225,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .smallRoom,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "작은방 이야기",
@@ -196,6 +247,7 @@ extension SessionInformationModel {
       )
     ),
     SessionInformationModel(
+      rowType: .hasDetailView,
       placeType: .Lobby,
       time: Time(startString: "10:00", endString: "11:00"),
       titleString: "더미더미더미 오오오오",
