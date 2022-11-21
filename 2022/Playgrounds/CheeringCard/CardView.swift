@@ -15,11 +15,11 @@ struct CardView: View {
     
     @Binding var isShowModal: Bool
     @Environment(\.presentationMode) var presentationMode
-    
     @State var isShowAlert = false
+    @State private var animationAmount: CGFloat = 1
     var category: String?
     var name: String?
-
+    
     init(showModal: Binding<Bool>) {
         self._isShowModal = showModal
         userData()
@@ -38,16 +38,31 @@ struct CardView: View {
                             .frame(width: 18, height: 18)
                     }
                     .padding(15)
+                    .opacity(Double(animationAmount-1))
+                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
                     Spacer()
                 }
                 VStack {
-                    cardView
-                        .padding(.top, 20)
-                        .padding(.bottom,20)
-                    Text("@letswift #letswift #렛츠스위프트 를 태그해서\n이미지를 공유하면 추첨해서 굿즈를 드립니다.")
-                        .font(.subheadRegular)
-                        .foregroundColor(.white)
-                        .frame(height: 50)
+                    ZStack {
+                        VStack{
+                            cardView
+                                .padding(.top, 20)
+                                .padding(.bottom,20)
+                                .opacity(Double(animationAmount-1))
+                                .animation(.easeIn(duration: 1).delay(3),value: animationAmount)
+                            Text("@letswift #letswift #렛츠스위프트 를 태그해서\n이미지를 공유하면 추첨해서 굿즈를 드립니다.")
+                                .font(.subheadRegular)
+                                .foregroundColor(.white)
+                                .frame(height: 50)
+                                .opacity(Double(animationAmount-1))
+                                .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
+                        }
+                        LottieView(filename: "tada")
+                            .opacity(Double(2 - animationAmount))
+                            .rotation3DEffect(.degrees(360), axis: (x: 0, y: 1, z: 0))
+                            .animation(.easeOut(duration: 0.5).delay(3),value: animationAmount)
+                    }
+                    
                     NavigationLink {
                         ChartView()
                     } label: {
@@ -64,6 +79,8 @@ struct CardView: View {
                     .foregroundColor(.black)
                     .cornerRadius(8)
                     .padding(.top, 10)
+                    .opacity(Double(animationAmount-1))
+                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
                     
                     HStack {
                         Button {
@@ -85,6 +102,8 @@ struct CardView: View {
                             boxText(title: "동료 찾기", image: "magnifyingglass")
                         }
                     }
+                    .opacity(Double(animationAmount-1))
+                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
                     .padding(.top, 15)
                     
                     Button {
@@ -102,6 +121,8 @@ struct CardView: View {
                         }
                         .padding(.top, 10)
                         .padding(.bottom, 10)
+                        .opacity(Double(animationAmount-1))
+                        .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
@@ -112,6 +133,9 @@ struct CardView: View {
         .navigationTitle("")
         .alert(isPresented: $isShowAlert) {
             return Alert(title: Text("사진이 저장되었습니다!"), message: nil, dismissButton: .cancel(Text("확인")))
+        }
+        .onAppear{
+            self.animationAmount += 1
         }
         .onDisappear(){
             saveImage()
