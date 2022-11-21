@@ -22,6 +22,8 @@ struct SessionView: View {
           .padding(.top, 41)
           .padding(.horizontal, 20)
       }
+      .navigationTitle("행사일정")
+      .navigationBarHidden(true)
     }
     .background(Color.backgroundBlack)
   }

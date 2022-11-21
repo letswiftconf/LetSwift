@@ -24,7 +24,7 @@ extension SessionView {
         
         HStack(spacing: 20) {
           ForEach(PlaceType.allCases) { placeType in
-            placeType.button(isClicked: placeType == self.clickedPlaceType)
+            placeType.buttonView(isClicked: placeType == self.clickedPlaceType)
               .onTapGesture {
                 self.clickedPlaceType = placeType
               }
@@ -105,9 +105,9 @@ extension SessionView.ScheduleView {
                 .foregroundColor(.textGray)
                 .lineLimit(2)
               
-              if information.rowType == .hasDetailView {
+              if self.information.rowType == .hasDetailView {
                 NavigationLink(
-                  destination: { SessionDetailView() },
+                  destination: { SessionDetailView(model: self.information) },
                   label: { self.navigateButtonView }
                 )
                 .padding(.top, 10)

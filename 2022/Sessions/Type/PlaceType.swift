@@ -55,7 +55,7 @@ extension PlaceType {
 }
 
 extension PlaceType {
-  func button(isClicked: Bool) -> some View {
+  func buttonView(isClicked: Bool) -> some View {
     VStack(spacing: .zero) {
       Text(self.textString)
         .font(.subheadBold)
