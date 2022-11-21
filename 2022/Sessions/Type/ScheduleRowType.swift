@@ -8,7 +8,7 @@
 import Foundation
 
 enum ScheduleRowType {
-  case normal
-  case hasDetailView
-  case otherTimes
+    case normal
+    case hasDetailView
+    case otherTimes
 }
