@@ -121,7 +121,7 @@
 		16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* Application.swift */; };
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
 		3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */; };
-		555CB610291CC38B00D893CE /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60E291CC38B00D893CE /* PlaygroundView.swift */; };
+		551BC154292A248C00DBD819 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BC153292A248C00DBD819 /* CardType.swift */; };
 		555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60F291CC38B00D893CE /* GoToCardView.swift */; };
 		555CB61A291CC3B800D893CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB614291CC3B700D893CE /* CardView.swift */; };
 		555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB615291CC3B700D893CE /* AnswerItemView.swift */; };
@@ -220,9 +220,8 @@
 		C63C5C91291AA26A00DAD52C /* PlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C90291AA26A00DAD52C /* PlaceType.swift */; };
 		C6CDB2CC2928DF8200960FBF /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2C92928DF8200960FBF /* ChartDataModel.swift */; };
 		C6CDB2CD2928DF8200960FBF /* ChartMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = C6CDB2CA2928DF8200960FBF /* ChartMockData.json */; };
-		C6CDB2CE2928DF8200960FBF /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2CB2928DF8200960FBF /* ChartViewModel.swift */; };
+		CC2DCDC7291514FC00419AFC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
 		C6CDB2D12928DFEF00960FBF /* SessionInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */; };
-		C6CDB2D32928E06000960FBF /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D22928E06000960FBF /* SurveyData.swift */; };
 		C6CDB2D52928F0A900960FBF /* ScheduleRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D42928F0A900960FBF /* ScheduleRowType.swift */; };
 		C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */; };
 		C6CDB2DB292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2DA292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift */; };
@@ -381,7 +380,7 @@
 		2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-ScheduleWidgetExtension/Pods-ScheduleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
-		555CB60E291CC38B00D893CE /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		551BC153292A248C00DBD819 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
 		555CB614291CC3B700D893CE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		555CB615291CC3B700D893CE /* AnswerItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
@@ -468,9 +467,8 @@
 		C63C5C90291AA26A00DAD52C /* PlaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceType.swift; sourceTree = "<group>"; };
 		C6CDB2C92928DF8200960FBF /* ChartDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
 		C6CDB2CA2928DF8200960FBF /* ChartMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChartMockData.json; sourceTree = "<group>"; };
-		C6CDB2CB2928DF8200960FBF /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformationModel.swift; sourceTree = "<group>"; };
-		C6CDB2D22928E06000960FBF /* SurveyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
 		C6CDB2D42928F0A900960FBF /* ScheduleRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRowType.swift; sourceTree = "<group>"; };
 		C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		C6CDB2DA292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionDetailView+PresentationInformationView.swift"; sourceTree = "<group>"; };
@@ -846,7 +844,7 @@
 		5529B6212920292600803956 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C6CDB2D22928E06000960FBF /* SurveyData.swift */,
+				551BC153292A248C00DBD819 /* CardType.swift */,
 				555CB618291CC3B800D893CE /* SurveyAnswerModel.swift */,
 				55AA19AF29252096003F1AA5 /* CheeringCardModel.swift */,
 			);
@@ -871,7 +869,7 @@
 			children = (
 				C6CDB2C92928DF8200960FBF /* ChartDataModel.swift */,
 				C6CDB2CA2928DF8200960FBF /* ChartMockData.json */,
-				C6CDB2CB2928DF8200960FBF /* ChartViewModel.swift */,
+				CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */,
 				CC393F0A2917CB6E0008F0F4 /* ChartView.swift */,
 			);
 			path = Chart;
@@ -907,6 +905,7 @@
 		6F3A3E60291E9E8D00E42D64 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CC8584CF29274A040091A7A1 /* API */,
 				6F3A3E6A291EA05900E42D64 /* Network */,
 			);
 			path = Service;
@@ -1147,7 +1146,6 @@
 		CCF9A0B8291CE1C100EF8C9B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				CC8584CF29274A040091A7A1 /* API */,
 				CCF9A0BA291CE1C100EF8C9B /* SwiftWebView.swift */,
 				CCF9A0BB291CE1C100EF8C9B /* SettingMainView.swift */,
 				CCF9A0B9291CE1C100EF8C9B /* ProfileView.swift */,
@@ -1642,6 +1640,7 @@
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				6F3A3E72291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
+				551BC154292A248C00DBD819 /* CardType.swift in Sources */,
 				CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */,
 				6FC0FD212927C5030026714A /* BadgeView.swift in Sources */,
 				555CB61A291CC3B800D893CE /* CardView.swift in Sources */,
@@ -1652,7 +1651,6 @@
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				6FC0FD2A2927C55C0026714A /* UnderLineView.swift in Sources */,
 				1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */,
-				C6CDB2D32928E06000960FBF /* SurveyData.swift in Sources */,
 				C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */,
 				1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */,
 				555CB61E291CC3B800D893CE /* SurveyAnswerModel.swift in Sources */,
@@ -1682,7 +1680,6 @@
 				A5704B18256E510C00EB6C8F /* UNUserNotificationCenter.swift in Sources */,
 				C6CDB2DD292B84D300960FBF /* SessionDetailView+SpeakerInformationView.swift in Sources */,
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
-				555CB610291CC38B00D893CE /* PlaygroundView.swift in Sources */,
 				1684F65625723F3100A784C0 /* Date.swift in Sources */,
 				6F3A3E5B291E938D00E42D64 /* SharedPreference.swift in Sources */,
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
