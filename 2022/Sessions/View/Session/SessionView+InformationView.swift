@@ -17,6 +17,9 @@ extension SessionView {
     함께 Swift Playground에서 만나고, 배우고, 즐겨요!
     """
     
+    @State
+    private var isAlertOpen: Bool = false
+    
     var body: some View {
       VStack(alignment: .leading, spacing: .zero) {
         // FIXME: font
@@ -31,12 +34,12 @@ extension SessionView {
         
         HStack(spacing: 15) {
           Button(
-            action: { print("click twitter") },
+            action: { self.urlClickAction(urlString: "https://twitter.com/letswiftkr") },
             label: { Image.Logo.twitter }
           )
           
           Button(
-            action: { print("click instagram") },
+            action: { self.urlClickAction(urlString: "https://www.instagram.com/letswiftkr") },
             label: { Image.Logo.instagram }
           )
           
@@ -46,24 +49,31 @@ extension SessionView {
         
         RowView(
           titleString: "일시",
-          contentString: "2022년 11월30일  09:00 - 19:30",
+          contentString: "2022년 11월30일  10:00 - 17:00",
           buttons: [
             GradientButton(textString: "캘린더 추가") {
-              print("add calender")
+              self.addToCalendar()
             }
           ]
         )
         .padding(.top, 46)
+        .alert(isPresented: self.$isAlertOpen) {
+          Alert(
+            title: Text("캘린더"),
+            message: Text("캘린더에 일정이 추가되었습니다. 잊지말고 보러오세요!"),
+            dismissButton: .default(Text("확인"))
+          )
+        }
         
         RowView(
           titleString: "장소",
           contentString: "서울 서초구 at센터 (창조룸 I,II)",
           buttons: [
             GradientButton(textString: "네이버 지도") {
-              print("get naver map")
+              self.urlClickAction(urlString: "https://naver.me/GY2c6JbS")
             },
             GradientButton(textString: "카카오 지도") {
-              print("get kakao map")
+              self.urlClickAction(urlString: "https://place.map.kakao.com/17023403")
             }
           ]
         )
@@ -107,5 +117,32 @@ extension SessionView.InformationView {
       .background(Color.backgroundCell)
       .cornerRadius(10)
     }
+  }
+}
+
+extension SessionView.InformationView {
+  private func addToCalendar() {
+    let manager = CalendarManager()
+    switch manager.authorizationStatus {
+    case .authorized:
+      manager.addConference2022()
+      self.isAlertOpen = true
+    case .denied, .restricted:
+      // TODO: Show error
+      break
+    case .notDetermined:
+      manager.requestAccess { (granted, error) in
+        addToCalendar()
+      }
+    @unknown default:
+      print("unknown error..")
+      break
+    }
+  }
+  
+  private func urlClickAction(urlString: String) {
+    guard let url: URL = URL(string: urlString),
+          UIApplication.shared.canOpenURL(url) else { return }
+    UIApplication.shared.open(url)
   }
 }

@@ -106,20 +106,9 @@ extension SessionView.ScheduleView {
                 .lineLimit(2)
               
               if information.rowType == .hasDetailView {
-                Button(
-                  action: {
-                    print("navigate to DetailSessionView")
-                  },
-                  label: {
-                    Text("더보기")
-                      .foregroundColor(.white)
-                      .padding(.vertical, 10)
-                      .padding(.horizontal, 30)
-                      .overlay(
-                        RoundedRectangle(cornerRadius: 50)
-                          .stroke(Color.backgroundWhite, lineWidth: 1)
-                      )
-                  }
+                NavigationLink(
+                  destination: { SessionDetailView() },
+                  label: { self.navigateButtonView }
                 )
                 .padding(.top, 10)
               }
@@ -137,5 +126,18 @@ extension SessionView.ScheduleView {
         )
       }
     }
+  }
+}
+
+extension SessionView.ScheduleView.RowView {
+  private var navigateButtonView: some View {
+    Text("더보기")
+      .foregroundColor(.white)
+      .padding(.vertical, 10)
+      .padding(.horizontal, 30)
+      .overlay(
+        RoundedRectangle(cornerRadius: 50)
+          .stroke(Color.backgroundWhite, lineWidth: 1)
+      )
   }
 }

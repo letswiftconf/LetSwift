@@ -224,6 +224,7 @@
 		C6CDB2D12928DFEF00960FBF /* SessionInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */; };
 		C6CDB2D32928E06000960FBF /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D22928E06000960FBF /* SurveyData.swift */; };
 		C6CDB2D52928F0A900960FBF /* ScheduleRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D42928F0A900960FBF /* ScheduleRowType.swift */; };
+		C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */; };
 		CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC393F0A2917CB6E0008F0F4 /* ChartView.swift */; };
 		CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584CD292749C30091A7A1 /* APICaller.swift */; };
 		CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584D029274A0C0091A7A1 /* APIModel.swift */; };
@@ -468,6 +469,7 @@
 		C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformationModel.swift; sourceTree = "<group>"; };
 		C6CDB2D22928E06000960FBF /* SurveyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
 		C6CDB2D42928F0A900960FBF /* ScheduleRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRowType.swift; sourceTree = "<group>"; };
+		C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		CC393F0A2917CB6E0008F0F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CC8584CD292749C30091A7A1 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		CC8584D029274A0C0091A7A1 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -1061,11 +1063,8 @@
 		C63C5C86291A94D800DAD52C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C63C5C80291A87BA00DAD52C /* SessionView.swift */,
-				C63C5C8B291A958400DAD52C /* SessionView+InformationView.swift */,
-				C63C5C8D291A95A900DAD52C /* SessionView+ScheduleView.swift */,
-				C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */,
-				C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */,
+				C6CDB2D6292B09D100960FBF /* Session */,
+				C6CDB2D7292B09DC00960FBF /* SessionDetail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1085,6 +1084,26 @@
 				C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C6CDB2D6292B09D100960FBF /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				C63C5C80291A87BA00DAD52C /* SessionView.swift */,
+				C63C5C8B291A958400DAD52C /* SessionView+InformationView.swift */,
+				C63C5C8D291A95A900DAD52C /* SessionView+ScheduleView.swift */,
+				C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */,
+				C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		C6CDB2D7292B09DC00960FBF /* SessionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */,
+			);
+			path = SessionDetail;
 			sourceTree = "<group>";
 		};
 		CC8584CF29274A040091A7A1 /* API */ = {
@@ -1572,6 +1591,7 @@
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
+				C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
 				555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */,
 				6FC0FD0D2923F5FB0026714A /* CommentResponse.swift in Sources */,
@@ -1930,6 +1950,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
@@ -1943,6 +1964,7 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = LetSwift;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1958,6 +1980,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
@@ -1971,6 +1994,7 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = LetSwift;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1987,7 +2011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
@@ -2000,6 +2024,7 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.ScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
@@ -2016,7 +2041,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
@@ -2029,6 +2054,7 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.ScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
