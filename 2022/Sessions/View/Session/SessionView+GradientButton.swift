@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension SessionView {
-    struct GradientButton: View {
+    struct OrangeButton: View {
         private let textString: String
         private let action: () -> Void
         
@@ -34,6 +34,6 @@ extension SessionView {
     }
 }
 
-extension SessionView.GradientButton: Identifiable {
+extension SessionView.OrangeButton: Identifiable {
     var id: UUID { return UUID() }
 }

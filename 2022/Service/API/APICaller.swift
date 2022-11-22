@@ -15,6 +15,7 @@ final class APICaller {
         static let supporterURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/supporter")
         static let speakerURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/speaker")
         static let chartURL = URL(string: "http://13.209.242.34:29443/api/v1/survey")
+        static let sessionURL = URL(string: "http://13.209.242.34:29443/api/v1/session")
     }
     
     private init() {}
@@ -44,21 +45,31 @@ final class APICaller {
         for profileRole in ProfileRole.allCases {
             APICaller.shared.getProfileData(profileType: profileRole, completion: { result in
                 switch result {
-                    case .success(let APIResponse):
-                        let profileDataList = ProfileData.changeToProfileModel(profileAPIDataList: APIResponse)
-                        switch profileRole {
-                            case .speaker:
-                                ProfileData.speakerList = profileDataList
-                            case .supporter:
-                                ProfileData.supporterList = profileDataList
-                            case .staff:
-                                ProfileData.staffList = profileDataList
-                            case .noRole: break
-                        }
-                    case .failure(let error):
-                        print("error", error)
+                case .success(let APIResponse):
+                    let profileDataList = ProfileData.changeToProfileModel(profileAPIDataList: APIResponse)
+                    switch profileRole {
+                    case .speaker:
+                        ProfileData.speakerList = profileDataList
+                    case .supporter:
+                        ProfileData.supporterList = profileDataList
+                    case .staff:
+                        ProfileData.staffList = profileDataList
+                    case .noRole: break
+                    }
+                case .failure(let error):
+                    print("error", error)
                 }
             })
+        }
+    }
+    
+    func getSessionData(completion: @escaping (Result<[SessionInformationModel], Error>) -> Void) {
+        guard let url: URL = Constants.sessionURL else {
+            return
+        }
+        
+        getDataTask(url: url) { (result: Result<[SessionInformationModel], Error>) in
+            completion(result)
         }
     }
     
@@ -76,12 +87,18 @@ final class APICaller {
             return
         }
         
+        getDataTask(url: url) { (result: Result<[ProfileAPIData], Error>) in
+            completion(result)
+        }
+    }
+    
+    private func getDataTask<T: Decodable>(url: URL, completion: @escaping (Result<[T], Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 completion(.failure(error))
             } else if let data = data {
                 do {
-                    let result = try JSONDecoder().decode([ProfileAPIData].self, from: data)
+                    let result = try JSONDecoder().decode([T].self, from: data)
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))

@@ -223,7 +223,6 @@
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
 		C63C5C7E291A860800DAD52C /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63C5C7D291A860800DAD52C /* Color.xcassets */; };
 		C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C80291A87BA00DAD52C /* SessionView.swift */; };
-		C63C5C83291A891A00DAD52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63C5C82291A891A00DAD52C /* Assets.xcassets */; };
 		C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C84291A894200DAD52C /* imageExtension.swift */; };
 		C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */; };
 		C63C5C8A291A953100DAD52C /* SessionView+GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */; };
@@ -236,9 +235,9 @@
 		C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */; };
 		C6CDB2DB292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2DA292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift */; };
 		C6CDB2DD292B84D300960FBF /* SessionDetailView+SpeakerInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2DC292B84D300960FBF /* SessionDetailView+SpeakerInformationView.swift */; };
-		C6CDB2DF292B850200960FBF /* SessionInformationModel+dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2DE292B850200960FBF /* SessionInformationModel+dummy.swift */; };
 		C6CDB2E1292C2D6C00960FBF /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2E0292C2D6C00960FBF /* SurveyData.swift */; };
 		C6CDB2E2292C2D9700960FBF /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */; };
+		C6CDB2E4292C50E600960FBF /* SessionView+ScheduleView+RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDB2E3292C50E600960FBF /* SessionView+ScheduleView+RowView.swift */; };
 		CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC393F0A2917CB6E0008F0F4 /* ChartView.swift */; };
 		CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584CD292749C30091A7A1 /* APICaller.swift */; };
 		CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8584D029274A0C0091A7A1 /* APIModel.swift */; };
@@ -488,7 +487,6 @@
 		C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming2WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63C5C7D291A860800DAD52C /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = 2022/Utility/Color.xcassets; sourceTree = SOURCE_ROOT; };
 		C63C5C80291A87BA00DAD52C /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
-		C63C5C82291A891A00DAD52C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63C5C84291A894200DAD52C /* imageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageExtension.swift; sourceTree = "<group>"; };
 		C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+DividerView.swift"; sourceTree = "<group>"; };
 		C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+GradientButton.swift"; sourceTree = "<group>"; };
@@ -501,8 +499,8 @@
 		C6CDB2D8292B09F000960FBF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		C6CDB2DA292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionDetailView+PresentationInformationView.swift"; sourceTree = "<group>"; };
 		C6CDB2DC292B84D300960FBF /* SessionDetailView+SpeakerInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionDetailView+SpeakerInformationView.swift"; sourceTree = "<group>"; };
-		C6CDB2DE292B850200960FBF /* SessionInformationModel+dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionInformationModel+dummy.swift"; sourceTree = "<group>"; };
 		C6CDB2E0292C2D6C00960FBF /* SurveyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
+		C6CDB2E3292C50E600960FBF /* SessionView+ScheduleView+RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+ScheduleView+RowView.swift"; sourceTree = "<group>"; };
 		CC2DCDC6291514FC00419AFC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		CC393F0A2917CB6E0008F0F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CC8584CD292749C30091A7A1 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -1160,7 +1158,6 @@
 			isa = PBXGroup;
 			children = (
 				C6CDB2D02928DFEF00960FBF /* SessionInformationModel.swift */,
-				C6CDB2DE292B850200960FBF /* SessionInformationModel+dummy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1171,6 +1168,7 @@
 				C63C5C80291A87BA00DAD52C /* SessionView.swift */,
 				C63C5C8B291A958400DAD52C /* SessionView+InformationView.swift */,
 				C63C5C8D291A95A900DAD52C /* SessionView+ScheduleView.swift */,
+				C6CDB2E3292C50E600960FBF /* SessionView+ScheduleView+RowView.swift */,
 				C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */,
 				C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */,
 			);
@@ -1204,7 +1202,6 @@
 				CC9B54AA2919548E008ABB2F /* viewExtension.swift */,
 				CC9B54B62919583F008ABB2F /* Color.xcassets */,
 				CC9B54AB2919548E008ABB2F /* colorExtension.swift */,
-				C63C5C82291A891A00DAD52C /* Assets.xcassets */,
 				C63C5C84291A894200DAD52C /* imageExtension.swift */,
 				6F3A3E54291E8BD800E42D64 /* String+Extension.swift */,
 				6F3A3E5A291E938D00E42D64 /* SharedPreference.swift */,
@@ -1440,7 +1437,6 @@
 				CC9B54B72919583F008ABB2F /* Color.xcassets in Resources */,
 				CCF9A0D2291CE3C900EF8C9B /* Image.xcassets in Resources */,
 				167BE51925738C8000C6681A /* Timeline.xcassets in Resources */,
-				C63C5C83291A891A00DAD52C /* Assets.xcassets in Resources */,
 				167BE5D42574AE4200C6681A /* LetSwift.pkpass in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1738,6 +1734,7 @@
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				CCF9A0CF291CE25A00EF8C9B /* Profile.swift in Sources */,
 				C6CDB2CC2928DF8200960FBF /* ChartDataModel.swift in Sources */,
+				C6CDB2E4292C50E600960FBF /* SessionView+ScheduleView+RowView.swift in Sources */,
 				1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */,
 				CC393F0B2917CB6E0008F0F4 /* ChartView.swift in Sources */,
 				CC9B54AD2919548E008ABB2F /* viewExtension.swift in Sources */,
@@ -1805,7 +1802,6 @@
 				6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */,
 				6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,
 				CCF9A0CB291CE21800EF8C9B /* URLData.swift in Sources */,
-				C6CDB2DF292B850200960FBF /* SessionInformationModel+dummy.swift in Sources */,
 				A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */,
 				6FC0FD2D2927C55C0026714A /* BadgeQuestionView.swift in Sources */,
 				A5EC7768256BD23D0072E959 /* People.swift in Sources */,

@@ -15,8 +15,8 @@ extension SessionDetailView {
         private let contentString: String
         
         init(model: SessionInformationModel) {
-            self.placeType = model.placeType
-            self.timeString = model.time.startString + " ~ " + model.time.endString
+          self.placeType = PlaceType(rawValue: model.placeTypeString) ?? .bigRoom
+            self.timeString = model.startTimeString + " ~ " + model.endTimeString
             self.titleString = model.titleString
             self.contentString = model.contentString
         }
@@ -29,15 +29,19 @@ extension SessionDetailView {
                     Text(self.timeString)
                         .font(.bodyRegular)
                         .foregroundColor(.textGray)
+                    
+                    Spacer()
                 }
                 
                 Text(self.titleString)
                     .font(.title3Bold)
                     .foregroundColor(.orange)
                 
-                Text(self.contentString)
-                    .font(.bodyRegular)
-                    .foregroundColor(.white)
+                if self.contentString != "" {
+                    Text(self.contentString)
+                        .font(.bodyRegular)
+                        .foregroundColor(.white)
+                }
             }
         }
     }

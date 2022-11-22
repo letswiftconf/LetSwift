@@ -21,11 +21,15 @@ struct SessionDetailView: View {
                     .padding(.top, 20)
                     .padding(.horizontal, 30)
                 
-                SessionView.DividerView(height: 5, color: .orange)
-                
-                SpeakerInformationView(speakerInformation: model.speaker)
-                    .padding(.bottom, 30)
-                    .padding(.horizontal, 30)
+                if let speakerInformation = model.speaker {
+                    if model.contentString != "" {
+                        SessionView.DividerView(height: 5, color: .orange)
+                    }
+                    
+                    SpeakerInformationView(information: speakerInformation)
+                        .padding(.bottom, 30)
+                        .padding(.horizontal, 30)
+                }
             }
         }
         .background(Color.backgroundBlack)

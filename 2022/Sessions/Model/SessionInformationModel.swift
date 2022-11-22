@@ -7,42 +7,39 @@
 
 import SwiftUI
 
-struct SessionInformationModel {
-    let rowType: ScheduleRowType
-    let placeType: PlaceType
-    let time: SessionInformationModel.Time
+struct SessionInformationModel: Decodable {
+    let rowTypeString: String
+    let placeTypeString: String
+    let startTimeString: String
+    let endTimeString: String
     let titleString: String
     let contentString: String
-    let speaker: SessionInformationModel.Speaker
-    
-    init(
-        rowType: ScheduleRowType,
-        placeType: PlaceType,
-        time: SessionInformationModel.Time,
-        titleString: String,
-        contentString: String = "",
-        speaker: SessionInformationModel.Speaker = .empty
-    ) {
-        self.rowType = rowType
-        self.placeType = placeType
-        self.time = time
-        self.titleString = titleString
-        self.contentString = contentString
-        self.speaker = speaker
-    }
+    let speaker: SessionSpeakerModel?
+  
+  enum CodingKeys: String, CodingKey {
+    case rowTypeString = "rowType"
+    case placeTypeString = "place"
+    case startTimeString = "startTime"
+    case endTimeString = "endTime"
+    case titleString = "title"
+    case contentString = "content"
+    case speaker = "speaker"
+  }
 }
 
 extension SessionInformationModel {
-    struct Time {
-        let startString: String
-        let endString: String
-    }
-    
-    struct Speaker {
+    struct SessionSpeakerModel: Decodable {
         let nameString: String
-        let companyString: String
-        let introductionString: String
-        let profileImage: Image
+        let roleString: String
+        let descriptionString: String
+        let profileString: String
+      
+      enum CodingKeys: String, CodingKey {
+        case nameString = "name"
+        case roleString = "role"
+        case descriptionString = "description"
+        case profileString = "profile"
+      }
     }
 }
 
@@ -53,13 +50,4 @@ extension SessionInformationModel: Identifiable, Equatable {
         // FIXME: fix to id: UUID
         return lhs.titleString == rhs.titleString
     }
-}
-
-extension SessionInformationModel.Speaker {
-    static let empty: SessionInformationModel.Speaker = .init(
-        nameString: "",
-        companyString: "",
-        introductionString: "",
-        profileImage: Image.Dummy.profile
-    )
 }

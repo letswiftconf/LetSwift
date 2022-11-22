@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private typealias GradientButton = SessionView.GradientButton
+private typealias GradientButton = SessionView.OrangeButton
 
 extension SessionView {
     struct InformationView: View {
@@ -51,7 +51,7 @@ extension SessionView {
                     titleString: "일시",
                     contentString: "2022년 11월30일  10:00 - 17:00",
                     buttons: [
-                        GradientButton(textString: "캘린더 추가") {
+                        OrangeButton(textString: "캘린더 추가") {
                             self.addToCalendar()
                         }
                     ]
@@ -67,12 +67,12 @@ extension SessionView {
                 
                 RowView(
                     titleString: "장소",
-                    contentString: "서울 서초구 at센터 (창조룸 I,II)",
+                    contentString: "서울 서초구 aT센터 (창조룸 I,II)",
                     buttons: [
-                        GradientButton(textString: "네이버 지도") {
+                        OrangeButton(textString: "네이버 지도") {
                             self.urlClickAction(urlString: "https://naver.me/GY2c6JbS")
                         },
-                        GradientButton(textString: "카카오 지도") {
+                        OrangeButton(textString: "카카오 지도") {
                             self.urlClickAction(urlString: "https://place.map.kakao.com/17023403")
                         }
                     ]
@@ -89,7 +89,7 @@ extension SessionView.InformationView {
         private let contentString: String
         private let buttons: [GradientButton]
         
-        init(titleString: String, contentString: String, buttons: [SessionView.GradientButton]) {
+        init(titleString: String, contentString: String, buttons: [SessionView.OrangeButton]) {
             self.titleString = titleString
             self.contentString = contentString
             self.buttons = buttons
