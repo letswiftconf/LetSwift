@@ -212,6 +212,15 @@
 		AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
 		AECAE6D0292CBF99007A0BFB /* LocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CF292CBF99007A0BFB /* LocationClient.swift */; };
 		AECAE6D2292CBFA4007A0BFB /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */; };
+		AECAE6EF292CC140007A0BFB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; };
+		AECAE6F0292CC140007A0BFB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
+		AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */; };
+		AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */; };
+		AECAE6F9292CC143007A0BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECAE6F8292CC143007A0BFB /* Assets.xcassets */; };
+		AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AECAE701292CC162007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
+		AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */; };
+		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
 		C63C5C7E291A860800DAD52C /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63C5C7D291A860800DAD52C /* Color.xcassets */; };
 		C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C80291A87BA00DAD52C /* SessionView.swift */; };
 		C63C5C83291A891A00DAD52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63C5C82291A891A00DAD52C /* Assets.xcassets */; };
@@ -296,6 +305,13 @@
 			remoteGlobalIDString = 9AD49444256EE09900C9E5C4;
 			remoteInfo = Upcoming2WidgetExtension;
 		};
+		AECAE6FB292CC143007A0BFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16DBE61C2569EAD100B334A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AECAE6ED292CC140007A0BFB;
+			remoteInfo = LocationWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -321,6 +337,7 @@
 				9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed App Extensions */,
 				9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed App Extensions */,
 				9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed App Extensions */,
+				AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +478,13 @@
 		AECAE6CD292CBF92007A0BFB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AECAE6CF292CBF99007A0BFB /* LocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClient.swift; sourceTree = "<group>"; };
 		AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
+		AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LocationWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWidgetBundle.swift; sourceTree = "<group>"; };
+		AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		AECAE6F8292CC143007A0BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AECAE6FA292CC143007A0BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming2WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63C5C7D291A860800DAD52C /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = 2022/Utility/Color.xcassets; sourceTree = SOURCE_ROOT; };
 		C63C5C80291A87BA00DAD52C /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
@@ -551,6 +575,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AECAE6EB292CC140007A0BFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AECAE6F0292CC140007A0BFB /* SwiftUI.framework in Frameworks */,
+				AECAE6EF292CC140007A0BFB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -624,6 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				169344F325721EA000B6CA9A /* Shared */,
+				AECAE6F1292CC141007A0BFB /* LocationWidget */,
 				9A77C732256EC0B300B30BC6 /* ScheduleWidget */,
 				9A77C779256EC57300B30BC6 /* Upcoming1Widget */,
 				9AD49448256EE09900C9E5C4 /* Upcoming2Widget */,
@@ -721,6 +755,7 @@
 				9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */,
 				9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */,
 				16A5B9E0257C125000162FC7 /* LetSwift (macOS).app */,
+				AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1081,6 +1116,28 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		AECAE6F1292CC141007A0BFB /* LocationWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AECAE702292CC1B6007A0BFB /* Resource */,
+				AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */,
+				AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */,
+				AECAE6FA292CC143007A0BFB /* Info.plist */,
+			);
+			name = LocationWidget;
+			path = ../LocationWidget;
+			sourceTree = "<group>";
+		};
+		AECAE702292CC1B6007A0BFB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AECAE6F8292CC143007A0BFB /* Assets.xcassets */,
+				AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */,
+				AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		C63C5C86291A94D800DAD52C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1280,7 @@
 				9A77C739256EC0B400B30BC6 /* PBXTargetDependency */,
 				9A77C780256EC57400B30BC6 /* PBXTargetDependency */,
 				9AD4944F256EE09B00C9E5C4 /* PBXTargetDependency */,
+				AECAE6FC292CC143007A0BFB /* PBXTargetDependency */,
 			);
 			name = LetSwift;
 			packageProductDependencies = (
@@ -1286,13 +1344,30 @@
 			productReference = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		AECAE6ED292CC140007A0BFB /* LocationWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AECAE700292CC144007A0BFB /* Build configuration list for PBXNativeTarget "LocationWidgetExtension" */;
+			buildPhases = (
+				AECAE6EA292CC140007A0BFB /* Sources */,
+				AECAE6EB292CC140007A0BFB /* Frameworks */,
+				AECAE6EC292CC140007A0BFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocationWidgetExtension;
+			productName = LocationWidgetExtension;
+			productReference = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		16DBE61C2569EAD100B334A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					16A5B9DF257C125000162FC7 = {
@@ -1309,6 +1384,9 @@
 					};
 					9AD49444256EE09900C9E5C4 = {
 						CreatedOnToolsVersion = 12.0.1;
+					};
+					AECAE6ED292CC140007A0BFB = {
+						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
@@ -1333,6 +1411,7 @@
 				9A77C72B256EC0B300B30BC6 /* ScheduleWidgetExtension */,
 				9A77C775256EC57300B30BC6 /* Upcoming1WidgetExtension */,
 				9AD49444256EE09900C9E5C4 /* Upcoming2WidgetExtension */,
+				AECAE6ED292CC140007A0BFB /* LocationWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1396,6 +1475,16 @@
 				169344C525721BD500B6CA9A /* WidgetAssets.xcassets in Resources */,
 				9AD49468256EE10F00C9E5C4 /* Event.json in Resources */,
 				16D029372570E855004AA960 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AECAE6EC292CC140007A0BFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */,
+				AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */,
+				AECAE6F9292CC143007A0BFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1768,6 +1857,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AECAE6EA292CC140007A0BFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AECAE701292CC162007A0BFB /* Model.swift in Sources */,
+				AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */,
+				AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1800,6 +1899,11 @@
 			isa = PBXTargetDependency;
 			target = 9AD49444256EE09900C9E5C4 /* Upcoming2WidgetExtension */;
 			targetProxy = 9AD4944E256EE09B00C9E5C4 /* PBXContainerItemProxy */;
+		};
+		AECAE6FC292CC143007A0BFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AECAE6ED292CC140007A0BFB /* LocationWidgetExtension */;
+			targetProxy = AECAE6FB292CC143007A0BFB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2215,6 +2319,69 @@
 			};
 			name = Release;
 		};
+		AECAE6FE292CC144007A0BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocationWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LocationWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.LocationWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AECAE6FF292CC144007A0BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocationWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LocationWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.LocationWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2268,6 +2435,15 @@
 			buildConfigurations = (
 				9AD49452256EE09B00C9E5C4 /* Debug */,
 				9AD49453256EE09B00C9E5C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AECAE700292CC144007A0BFB /* Build configuration list for PBXNativeTarget "LocationWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AECAE6FE292CC144007A0BFB /* Debug */,
+				AECAE6FF292CC144007A0BFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
