@@ -20,11 +20,10 @@ struct QuestionView: View {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("X")
-                    .foregroundColor(.white)
             }
             Text("Q.")
                 .font(.title3Bold)
-                .foregroundColor(.white)
+                
                 .padding(.horizontal, 9.0)
                 .padding(.top, 19.0)
             QuestionInfoView(data: data)
@@ -35,7 +34,7 @@ struct QuestionView: View {
         }
         .navigationBarBackButtonHidden(true)
         .padding(.horizontal, 29.0)
-        .background(Color.backgroundBlack)
+
     }
 }
 

@@ -26,25 +26,23 @@ struct QuestionSessionView: View {
                 VStack(alignment: .leading) {
                     Text(session.datetime)
                         .font(.bodyRegular)
-                        .foregroundColor(.white)
+                    
                     Spacer().frame(height: 2)
                     
                     Text(session.title)
                         .font(.bodyBold)
-                        .foregroundColor(.white)
                     
                     Spacer().frame(height: 7)
                         
                     Text(session.contents)
                         .font(.subheadRegular)
-                        .foregroundColor(.textGray)
+                    
                     Spacer().frame(height: 21)
                     Button {
                         //TODO : NAVIGATE TO SESSION VIEW
                     } label: {
                         Text("더보기")
                             .font(.bodyRegular)
-                            .foregroundColor(.white)
                     }
                     .frame(width: 100, height: 35, alignment: .center)
                     .overlay(

@@ -17,13 +17,11 @@ struct BadgeView: View {
                 VStack(alignment: .leading, spacing: 28.0) {
                     Text("뱃지받지")
                         .font(.title3Bold)
-                        .foregroundColor(.white)
                         .padding(.leading, 39.0)
                     BadgeInfoView()
                     HStack(alignment: .center, spacing: 37.0)  {
                         Text("0 / 6")
                             .font(.bodyRegular)
-                            .foregroundColor(.white)
                         Spacer()
                         Button {
                             self.filter = false
@@ -39,7 +37,6 @@ struct BadgeView: View {
                             self.filter = true
                         } label: {
                             Text("미완료")
-                                .foregroundColor(.white)
                         }
                         .frame(width: 82, height: 32, alignment: .center)
                         .cornerRadius(5)
@@ -50,7 +47,7 @@ struct BadgeView: View {
                         BadgeQuestionView(question: questions[idx])
                     }
                 }
-            }.background(Color.backgroundBlack)
+            }
         }
     }
 }

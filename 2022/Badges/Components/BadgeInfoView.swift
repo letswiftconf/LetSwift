@@ -12,14 +12,13 @@ struct BadgeInfoView : View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 14.0) {
-            Image("tempImage")
+            Image("badge-image")
                 .resizable()
                 .cornerRadius(12)
                 .frame(width: 132.0, height: 132.0)
                 
             Text(titleText)
                 .font(.bodyRegular)
-                .foregroundColor(.white)
                 .padding(.horizontal, 31.0)
             
             Spacer()
