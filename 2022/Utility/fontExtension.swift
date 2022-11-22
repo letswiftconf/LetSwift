@@ -21,4 +21,6 @@ extension Font {
     
     static let caption2Regular = Font.caption2.weight(.regular)
     static let footnote = Font.footnote.weight(.regular)
+  
+    // TODO: add `Inter`
 }

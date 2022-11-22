@@ -73,6 +73,27 @@ class CalendarManager {
             #endif
         }
     }
+  
+  func addConference2022() {
+      let event = EKEvent(eventStore: store)
+      let start = Calendar.current.date(from: DateComponents(year: 2022, month: 11, day: 30, hour: 10))
+      let end = Calendar.current.date(from: DateComponents(year: 2022, month: 11, day: 30, hour: 17))
+      event.calendar = store.defaultCalendarForNewEvents
+      event.title = "Let'Swift 2022"
+      event.location = "서울특별시 강남구 강남대로 27, 양재 AT Center 4층"
+      event.notes = ""
+      event.url = URL(string: "http://letswift.kr/2022")
+      event.startDate = start
+      event.endDate = end
+      
+      do {
+          try store.save(event, span: .thisEvent)
+      } catch {
+          #if DEBUG
+          fatalError()
+          #endif
+      }
+  }
     
     func addSession(title: String, startsAt: Date, endsAt: Date) {
         let event = EKEvent(eventStore: store)

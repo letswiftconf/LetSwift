@@ -81,12 +81,12 @@ extension TabNavigationView {
         // MARK:
         var presentingView: some View {
             switch self {
-            case .sessions: return AnyView(HomeView())
+            case .sessions: return AnyView(SessionView())
             case .badges: return AnyView(BadgeView())
             case .playgrounds:
                 return AnyView(GuestBookContainerView())
             case .settings: return AnyView(SettingMainView())
-                //            case .location: return AnyView(LocationView())
+//            case .location: return AnyView(LocationView())
             }
         }
         
@@ -103,7 +103,7 @@ extension TabNavigationView {
             case .badges: return "뱃지"
             case .playgrounds: return "놀이터"
             case .settings: return "설정"
-                //            case .location: return "장소"
+//            case .location: return "장소"
             }
         }
         
@@ -113,7 +113,7 @@ extension TabNavigationView {
             case .badges: return "ticket.fill"
             case .playgrounds: return "gamecontroller.fill"
             case .settings: return "gearshape.fill"
-                //            case .location: return "map.fill"
+//            case .location: return "map.fill"
             }
         }
     }

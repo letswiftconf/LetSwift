@@ -19,6 +19,22 @@ extension Color {
     static let backgroundCell = Color("backgroundCell")
     static let gradientStart = Color("gradientStart")
     static let gradientEnd = Color("gradientEnd")
+  
+  enum Gradient {
+    static let orange: LinearGradient = LinearGradient(
+      gradient: .init(colors: [.gradientStart.opacity(0.45), gradientEnd.opacity(0.45)]),
+      startPoint: .leading,
+      endPoint: .trailing
+    )
+    
+    public static func single(color: Color) -> LinearGradient {
+      return LinearGradient(
+        gradient: .init(colors: [color]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+      )
+    }
+  }
     
     // border
     static let borderGray = Color("borderGray")
