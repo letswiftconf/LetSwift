@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum ScheduleRowType {
+enum ScheduleRowType: String {
     case normal
     case hasDetailView
-    case otherTimes
 }
