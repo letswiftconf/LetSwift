@@ -18,47 +18,70 @@ struct TabNavigationView: View {
                 NavigationView {
                     ZStack(alignment: .bottomTrailing) {
                         tab.presentingView
-                        
-                        if tab == .playgrounds {
-                            VStack {
-                                Button {
-                                    self.showModal = true
-                                } label: {
-                                    ZStack {
-                                        LottieView(filename: "ic_note")
-                                            .frame(height: 70)
-                                        VStack {
-                                            Text("방명록")
-                                                .font(.system(size: 13))
-                                            Spacer()
-                                            Text("작성하기")
-                                                .font(.system(size: 13))
-                                        }
-                                        .padding(.init(top: 2, leading: 0, bottom: 2, trailing: 0))
-                                    }
-                                }
-                                .frame(width: 70,height: 70)
-                                .opacity(0.7)
-                                .background(Color.white)
-                                .foregroundColor(Color.orange)
-                                .cornerRadius(20)
-                                .padding()
-                                .fullScreenCover(isPresented: $showModal) {
-                                    print("dismiss")
-                                    if env.isSuccess {
-                                        env.isSuccess = !env.isSuccess
-                                        Toast.shared.show(message: "후기를 작성해 주셔서 감사합니다!", delay: 1.5)
-                                    }
-                                } content: {
-                                    GuestBookContentView()
-                                }
-                            }
-                        }
+                        buildFloatingButton(tab: tab)
                     }
                 }
                 .environmentObject(env)
                 .tabItem { tab.tabItem }
                 .tag(tab)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func buildFloatingButton(tab: Tab) -> some View {
+        ZStack {
+            switch tab {
+            case .sessions:
+                if #available(iOS 16.1, *) {
+                    Button(action: {LiveActivityStore.live.buttonTapped() }) {
+                        Text("Activate\nLive Activitiy")
+                            .font(.bodyBold)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(.orange)
+                            .cornerRadius(10)
+                    }
+                    .padding(.trailing, 8)
+                }
+                
+            case .playgrounds:
+                VStack {
+                    Button {
+                        self.showModal = true
+                    } label: {
+                        ZStack {
+                            LottieView(filename: "ic_note")
+                                .frame(height: 70)
+                            VStack {
+                                Text("방명록")
+                                    .font(.system(size: 13))
+                                Spacer()
+                                Text("작성하기")
+                                    .font(.system(size: 13))
+                            }
+                            .padding(.init(top: 2, leading: 0, bottom: 2, trailing: 0))
+                        }
+                    }
+                    .frame(width: 70,height: 70)
+                    .opacity(0.7)
+                    .background(Color.white)
+                    .foregroundColor(Color.orange)
+                    .cornerRadius(20)
+                    .padding()
+                    .fullScreenCover(isPresented: $showModal) {
+                        print("dismiss")
+                        if env.isSuccess {
+                            env.isSuccess = !env.isSuccess
+                            Toast.shared.show(message: "후기를 작성해 주셔서 감사합니다!", delay: 1.5)
+                        }
+                    } content: {
+                        GuestBookContentView()
+                    }
+                }
+                
+            default:
+                EmptyView()
             }
         }
     }
