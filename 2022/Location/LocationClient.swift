@@ -28,7 +28,7 @@ extension LocationClient {
                                 location: location,
                                 destination: venue.mapItem
                             )
-                            if distance > 1000 {
+                            if distance > 1 {
                                 continuation.yield(with: .success(distance))
                             } else {
                                 continuation.finish()
@@ -151,7 +151,7 @@ private func buildCLLocationDistance(
         let item = response.routes.first?.distance
     else { throw LocationClient.InternalError.unexpected }
     
-    return item
+    return item / 1000
 }
 
 private extension ConferenceVenue {

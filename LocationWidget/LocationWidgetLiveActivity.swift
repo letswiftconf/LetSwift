@@ -48,7 +48,7 @@ struct LocationLockScreenBannerView: View {
                         .foregroundColor(Color(hex: "545454"))
                     
                     HStack(alignment: .firstTextBaseline, spacing: 15) {
-                        Text("\(distance, specifier: "%.0f")")
+                        Text("\(distance, specifier: "%.2f")")
                             .font(.custom("Poppins-ExtraBold", size: 42))
                         
                         Text("Km")
