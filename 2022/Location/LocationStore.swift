@@ -33,6 +33,7 @@ class LiveActivityStore: ObservableObject {
                         break
                     }
                 }
+                await activity?.update(using: .init(movingState: .arrived))
             } catch {
                 print("💥", error)
                 guard !(error is CancellationError) else { return }
