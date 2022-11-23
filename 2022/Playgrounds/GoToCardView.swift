@@ -24,10 +24,12 @@ struct GoToCardView: View {
                 if user.name.isEmpty {
                     NicknameView(isShowModal: $isShowModal)
                 } else {
-                    CardView(showModal: $isShowModal)
-                        .onDisappear(){
-                            setTitle()
-                        }
+                    NavigationView {
+                        CardView(showModal: $isShowModal)
+                            .onDisappear(){
+                                setTitle()
+                            }
+                    }
                 }
             } else {
                 NicknameView(isShowModal: $isShowModal)
@@ -49,8 +51,8 @@ extension GoToCardView {
                 state = "?"
                 title = "나의 playground card\n뽑으러 가기"
             } else {
-                state = "♥️"
-                title = "\(user.category) \(user.name)님,\n전체 결과를 확인해보세요!"
+                state = CardType.cardImage(type: user.cardType)
+                title = "\(user.cardType)인 \(user.name)님,\n전체 결과를 확인해보세요!"
             }
         } else {
             state = "?"
@@ -67,13 +69,21 @@ extension GoToCardView {
     
     @ViewBuilder func boxText(state: String, title: String) -> some View {
         HStack(alignment: .center) {
-            Text(state)
-                .font(.bodyRegular)
-                .frame(width: 40, height: 55)
-                .background(state == "?" ? Color.white : Color.backgroundBlack)
-                .cornerRadius(3)
-                .foregroundColor(.black)
-                .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
+            if state == "?" {
+                Text(state)
+                    .font(.bodyRegular)
+                    .frame(width: 40, height: 55)
+                    .background(Color.white)
+                    .cornerRadius(3)
+                    .foregroundColor(.black)
+                    .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
+            } else {
+                Image(state)
+                    .resizable()
+                    .frame(width: 40, height: 55)
+                    .cornerRadius(3)
+                    .shadow(color: .black.opacity(0.4), radius: 5, x: 4, y: 4)
+            }
             Text(title)
                 .padding(.leading, 20)
                 .foregroundColor(.white)

@@ -62,6 +62,7 @@ struct TitleView: View {
             HStack(spacing: 0) {
                 Text("Let")
                     .font(.title3Bold)
+                    .font(.system(size: 30))
                     .foregroundColor(.orange)
                 Text("'s play")
                     .font(.title3Bold)

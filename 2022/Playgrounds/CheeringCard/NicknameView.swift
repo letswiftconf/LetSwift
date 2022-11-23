@@ -12,6 +12,7 @@ struct NicknameView: View {
     @State private var name = ""
     @State private var showingAlert = false
     @State private var isActive = false
+    @State private var goToNicknameView = false
     
     @Binding var isShowModal: Bool
     
@@ -35,6 +36,7 @@ struct NicknameView: View {
                     .frame(width: 300, height: 2)
                     .foregroundColor(.orange)
                 Button {
+                    hideKeyboard()
                     checkNameNotInput()
                 } label: {
                     HStack {
@@ -53,7 +55,9 @@ struct NicknameView: View {
                 NavigationLink("", isActive: $isActive) {
                     SurveyView(surveyId: 1,
                                userData: answerData(name: name),
+                               goToNicknameView: $goToNicknameView,
                                showModal: $isShowModal)
+                    .navigationBarBackButtonHidden(true)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

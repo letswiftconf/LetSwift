@@ -13,6 +13,7 @@ import SwiftUI
 extension Color {
     static let orange = Color("orange")
     static let textGray = Color("textGray")
+    static let cardTextGray = Color("cardTextGray")
     // background
     static let backgroundWhite = Color("backgroundWhite")
     static let backgroundBlack = Color("backgroundBlack")

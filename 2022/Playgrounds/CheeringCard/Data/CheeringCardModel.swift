@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CheeringCardModel: Codable{
     var name: String
-    var category: String
+    var cardType: String
     var image: Data?
     
     func getImage(from data: Data) -> UIImage? {

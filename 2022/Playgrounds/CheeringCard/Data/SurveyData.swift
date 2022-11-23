@@ -19,16 +19,16 @@ struct TempChartData {
             surveyId: 1,
             question: "Let’Swift 2022 컨퍼런스에 참여하게 된 주된 이유는 무엇인가요?",
             answer: [
-                (answerId: 1, answer: "굿즈가 매력있어서"),
-                (answerId: 2, answer: "애플 워치 굿즈 받기 위해서"),
-                (answerId: 3, answer: "개발 지식을 습득하기 위하여"),
-                (answerId: 4, answer: "네트워킹을 위해서")
+                (answerId: 1, answer: "Let’Swift 2022 캐릭터, Swity 너무 귀여워요"),
+                (answerId: 2, answer: "굿즈는 못참아! 나는야 굿즈 콜렉터!"),
+                (answerId: 3, answer: "눈부신 세션들 빨리 듣고싶어요"),
+                (answerId: 4, answer: "iOS개발자들과 소통하고싶어요")
             ]),
         SurveyData(
             surveyId: 2,
             question: "어떤 계기로 인해 iOS 개발자로 진로를 결정하게 되셨나요?",
             answer: [
-                (answerId: 1, answer: "iOS의 ui/ux가 좋아서"),
+                (answerId: 1, answer: "iOS의 UI/UX가 좋아서"),
                 (answerId: 2, answer: "내가 아이폰을 사용하고 있기 때문에"),
                 (answerId: 3, answer: "iOS의 신기술들이 너무 좋아서"),
                 (answerId: 4, answer: "애플 생태계가 좋아서")
@@ -37,51 +37,51 @@ struct TempChartData {
             surveyId: 3,
             question: "평소 관심있는 주제가 무엇인가요?",
             answer: [
-                (answerId: 1, answer: "HIG"),
-                (answerId: 2, answer: "새 기기 (m2칩, 맥북에어, 14프로 등)"),
-                (answerId: 3, answer: "wwdc.. 신기술.. 업데이트 공부"),
-                (answerId: 4, answer: "iOS의 컨퍼런스 및 소모임")
+                (answerId: 1, answer: "애플 감성의 디자인 가이드"),
+                (answerId: 2, answer: "트렌드를 이끌어 가는 애플 기기"),
+                (answerId: 3, answer: "매년 WWDC에서 발표되는 신기술"),
+                (answerId: 4, answer: "다양한 배움의 기회가 있는 iOS 컨퍼런스")
             ]),
         SurveyData(
             surveyId: 4,
-            question: "개발할 때 제일 싫은 부분은?",
+            question: "개발할 때 제일 힘들었던 경험은 무엇인가요?",
             answer: [
-                (answerId: 1, answer: "디자인이 생각보다 안 이쁠 때"),
+                (answerId: 1, answer: "HIG을 고려하지 않은 디자인을 받았을 때"),
                 (answerId: 2, answer: "다양한 테스트 기기가 없을 때"),
                 (answerId: 3, answer: "최소 버전이 낮아서 쓰고 싶은 기술을 사용 못할 때"),
-                (answerId: 4, answer: "말이 안통해요 ^^")
+                (answerId: 4, answer: "동료와 의사소통이 힘들 때")
             ]),
         SurveyData(
             surveyId: 5,
-            question: "내 주변에 있었으면 하는 동료는?",
+            question: "내 주변에 있었으면 좋겠는 동료는 누구인가요?",
             answer: [
-                (answerId: 1, answer: "디자인을 눈부시게 잘하는 동료"),
-                (answerId: 2, answer: "항상 최신 기기를 가지고 있어서 장단점 다 알려주는 동료"),
+                (answerId: 1, answer: "HIG를 고려해 디자인을 해주는 동료"),
+                (answerId: 2, answer: "애플 기기마다 장단점을 다 알려주는 동료"),
                 (answerId: 3, answer: "WWDC 같이 공부하는 동료"),
-                (answerId: 4, answer: "알잘딱깔센하게 알려주는 동료")
+                (answerId: 4, answer: "알잘딱깔센한 동료")
             ])
     ]
     
     enum CardCase: String {
-        case design = "🎨디자인왕"
-        case device = "📱기기왕"
-        case newTech = "💻신기술왕"
-        case conference = "🙆🏻‍♂️🙆🏻‍♀️소통왕"
+        case design = "디자인에 진심"
+        case device = "애플 기기에 진심"
+        case newTech = "신기술에 진심"
+        case conference = "소통에 진심"
         case none
     }
     
     static func getCardCase(answerId: Int) -> CardCase {
         switch answerId {
-            case 1:
-                return CardCase.design
-            case 2:
-                return CardCase.device
-            case 3:
-                return CardCase.newTech
-            case 4:
-                return CardCase.conference
-            default:
-                return CardCase.none
+        case 1:
+            return CardCase.design
+        case 2:
+            return CardCase.device
+        case 3:
+            return CardCase.newTech
+        case 4:
+            return CardCase.conference
+        default:
+            return CardCase.none
         }
     }
     

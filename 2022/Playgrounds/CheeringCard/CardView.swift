@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-
-
 struct CardView: View {
-    
-#warning("Loading(Lottie), 공유")
     
     @Binding var isShowModal: Bool
     @Environment(\.presentationMode) var presentationMode
+    
     @State var isShowAlert = false
     @State private var animationAmount: CGFloat = 1
+    
     var category: String?
     var name: String?
     
@@ -26,62 +24,70 @@ struct CardView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack {
-                    Button {
-                        isShowModal = false
-                    } label: {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: 18, height: 18)
-                    }
-                    .padding(15)
-                    .opacity(Double(animationAmount-1))
-                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
-                    Spacer()
+        VStack (spacing:0){
+            HStack {
+                Button {
+                    isShowModal = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 18, height: 18)
                 }
+                .padding(15)
+                .opacity(Double(animationAmount-1))
+                .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
+                Spacer()
+            }
+            ScrollView {
                 VStack {
                     ZStack {
-                        VStack{
+                        VStack(spacing:0){
                             cardView
                                 .padding(.top, 20)
                                 .padding(.bottom,20)
                                 .opacity(Double(animationAmount-1))
-                                .animation(.easeIn(duration: 1).delay(3),value: animationAmount)
-                            Text("@letswift #letswift #렛츠스위프트 를 태그해서\n이미지를 공유하면 추첨해서 굿즈를 드립니다.")
-                                .font(.subheadRegular)
-                                .foregroundColor(.white)
-                                .frame(height: 50)
+                                .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
+                            Text("@letswift  #letswift  #렛츠스위프트")
+                                .font(.subheadBold)
+                                .foregroundColor(.black)
                                 .opacity(Double(animationAmount-1))
-                                .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
+                                .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
+                            Text("인스타에 위의 태그를 걸어 게시물을 올려주세요!\n경품 추천 시간에 컨퍼런스 참여자를 대상으로 선물을 드립니다!")
+                                .font(.footnote)
+                                .foregroundColor(.white)
+                                .frame(height: 60)
+                                .multilineTextAlignment(.center)
+                                .opacity(Double(animationAmount-1))
+                                .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
                         }
+                        .padding(.top, 5)
                         LottieView(filename: "tada")
                             .opacity(Double(2 - animationAmount))
                             .rotation3DEffect(.degrees(360), axis: (x: 0, y: 1, z: 0))
-                            .animation(.easeOut(duration: 0.5).delay(3),value: animationAmount)
+                            .animation(.easeOut(duration: 0.5).delay(2),value: animationAmount)
                     }
                     
                     NavigationLink {
                         ChartView()
+                            .navigationBarBackButtonHidden(true)
                     } label: {
                         HStack {
                             Spacer()
                             Text("참가자 전체 결과 보기")
                                 .font(.title3Reqular)
-                                .foregroundColor(.white)
+                                .foregroundColor(.backgroundBlack)
                             Spacer()
                         }
                     }
                     .padding(10)
-                    .background(gradationBox())
-                    .foregroundColor(.black)
-                    .cornerRadius(8)
+                    .background(.white)
+                    .cornerRadius(5)
+                    .frame(height: 50)
                     .padding(.top, 10)
                     .opacity(Double(animationAmount-1))
-                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
-                    
+                    .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
+                    .shadow(color: .black.opacity(0.3), radius: 5, x: 3, y: 3)
                     HStack {
                         Button {
                             UIImageWriteToSavedPhotosAlbum(captureImage(), nil, nil, nil)
@@ -103,7 +109,7 @@ struct CardView: View {
                         }
                     }
                     .opacity(Double(animationAmount-1))
-                    .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
+                    .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
                     .padding(.top, 15)
                     
                     Button {
@@ -113,23 +119,23 @@ struct CardView: View {
                         Spacer()
                         HStack {
                             Image(systemName: "goforward")
-                                .foregroundColor(.textGray)
+                                .foregroundColor(.white)
                                 .frame(width: 10, height: 10)
                             Text("다시 뽑기")
                                 .font(.footnote)
-                                .foregroundColor(.textGray)
+                                .foregroundColor(.white)
                         }
-                        .padding(.top, 10)
+                        .padding(.top, 15)
                         .padding(.bottom, 10)
                         .opacity(Double(animationAmount-1))
-                        .animation(.easeIn(duration: 1).delay(4),value: animationAmount)
+                        .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.backgroundBlack)
+        .background(Color.orange)
         .navigationTitle("")
         .alert(isPresented: $isShowAlert) {
             return Alert(title: Text("사진이 저장되었습니다!"), message: nil, dismissButton: .cancel(Text("확인")))
@@ -141,6 +147,8 @@ struct CardView: View {
             saveImage()
         }
     }
+    
+    
 }
 
 extension CardView {
@@ -150,7 +158,7 @@ extension CardView {
             return
         }
         self.name = user.name
-        self.category = user.category
+        self.category = user.cardType
     }
     
     private func captureImage() -> UIImage {
@@ -164,7 +172,7 @@ extension CardView {
         guard let user = SharedPreference.shared.cheeringCard else {
             return
         }
-        SharedPreference.shared.cheeringCard = CheeringCardModel(name: user.name, category: user.category, image: imageData)
+        SharedPreference.shared.cheeringCard = CheeringCardModel(name: user.name, cardType: user.cardType, image: imageData)
     }
     
     private var cardView: some View {
@@ -173,32 +181,48 @@ extension CardView {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 330, height: 400)
-                .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 4)
-            VStack {
+                .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
+            VStack(spacing:0) {
                 Spacer()
-                VStack{
+                VStack(spacing:0){
                     HStack {
-                        Text("\(category ?? "")")
-                            .font(.system(size: 28))
-                            .font(.title)
-                            .bold()
-                            .padding(.top, 30)
+                        Text("Let’Swift 2022")
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
                         Spacer()
                     }
-                    .frame(height:40)
-                    HStack {
+                    HStack(spacing: 0) {
+                        Text("\(category ?? "")")
+                            .font(.title)
+                        Text("인")
+                            .font(.system(size: 25))
+                            .fontWeight(.light)
+                        
+                        Spacer()
+                    }
+                    .frame(height:33)
+                    .padding(.top, 10)
+                    HStack(spacing: 0) {
                         Text("\(name ?? "")")
                             .font(.title)
-                            .bold()
                         Text("님")
-                            .font(.title3)
-                            .padding(.top, 5)
+                            .font(.system(size: 25))
+                            .fontWeight(.light)
+                            .padding(.top, 2)
                         Spacer()
                     }
-                    .frame(height:40)
+                    .frame(height:33)
+                    HStack {
+                        Text("PLAYGROUND에서 함께 놀아요")
+                            .font(.system(size: 16))
+                            .fontWeight(.light)
+                            .foregroundColor(Color.cardTextGray)
+                        Spacer()
+                    }
+                    .padding(.top, 10)
                 }
                 .padding(.leading, 28)
-                .padding(.bottom, 65)
+                .padding(.bottom, 35)
             }
         }
         .frame(width: 330, height: 400)
@@ -261,7 +285,19 @@ extension CardView {
             Spacer()
         }
         .frame(height: 35)
-        .background(Color.backgroundCell)
+        .background(Color.backgroundBlack)
+        .cornerRadius(5)
+    }
+    
+    @ViewBuilder func tagBox(title: String) -> some View {
+        HStack(alignment: .center) {
+            Text(title)
+                .font(.footnote)
+                .foregroundColor(.white)
+                .cornerRadius(3)
+        }
+        .frame(height: 35)
+        .background(gradationBox())
         .cornerRadius(5)
     }
 }
