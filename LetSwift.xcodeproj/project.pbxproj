@@ -173,6 +173,7 @@
 		6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD292927C55C0026714A /* QuestionInfoView.swift */; };
 		6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD302927C56A0026714A /* QuestionData.swift */; };
 		6FC0FD332927DA980026714A /* PlaygroundSimpleRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */; };
+		6FC0FD35292F85640026714A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD34292F85640026714A /* NetworkManager.swift */; };
 		6FE5D036291F80D7001F6880 /* WelcomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D035291F80D7001F6880 /* WelcomElement.swift */; };
 		6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D037291F8E09001F6880 /* IndicatorView.swift */; };
 		6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D039291F9F2C001F6880 /* Toast.swift */; };
@@ -444,6 +445,7 @@
 		6FC0FD292927C55C0026714A /* QuestionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionInfoView.swift; path = Component/QuestionInfoView.swift; sourceTree = "<group>"; };
 		6FC0FD302927C56A0026714A /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionData.swift; path = Data/QuestionData.swift; sourceTree = "<group>"; };
 		6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundSimpleRowViewModel.swift; sourceTree = "<group>"; };
+		6FC0FD34292F85640026714A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = API/NetworkManager.swift; sourceTree = "<group>"; };
 		6FE5D035291F80D7001F6880 /* WelcomElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomElement.swift; sourceTree = "<group>"; };
 		6FE5D037291F8E09001F6880 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		6FE5D039291F9F2C001F6880 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -1018,6 +1020,7 @@
 		6FD7CDAA290C02F4002CF140 /* Badges */ = {
 			isa = PBXGroup;
 			children = (
+				6FC0FD34292F85640026714A /* NetworkManager.swift */,
 				6FC0FD1E2927C5030026714A /* BadgeView.swift */,
 				6FC0FD282927C55C0026714A /* BackgroundView.swift */,
 				6FC0FD272927C55C0026714A /* BadgeQuestionView.swift */,
@@ -1788,6 +1791,7 @@
 				6F3A3E5B291E938D00E42D64 /* SharedPreference.swift in Sources */,
 				AECAE6D2292CBFA4007A0BFB /* LocationStore.swift in Sources */,
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
+				6FC0FD35292F85640026714A /* NetworkManager.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
 				6F3A3E75291F3CE400E42D64 /* NetworkService.swift in Sources */,
 				1624BF09256B73A200634E29 /* Shadow.swift in Sources */,
@@ -2094,10 +2098,11 @@
 				PRODUCT_NAME = LetSwift;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2124,10 +2129,11 @@
 				PRODUCT_NAME = LetSwift;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2139,7 +2145,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
@@ -2169,7 +2176,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/ScheduleWidget/ScheduleWidgetExtension.entitlements";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
