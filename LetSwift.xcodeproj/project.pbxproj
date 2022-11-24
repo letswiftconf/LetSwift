@@ -124,6 +124,7 @@
 		4FFB9A93292F592000182AA4 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A92292F592000182AA4 /* Peer.swift */; };
 		4FFB9A95292F907200182AA4 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */; };
 		4FFB9A97292F9FA800182AA4 /* NearbyInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */; };
+		4FFB9A99292FA31500182AA4 /* PeerConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */; };
 		551BC154292A248C00DBD819 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BC153292A248C00DBD819 /* CardType.swift */; };
 		555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60F291CC38B00D893CE /* GoToCardView.swift */; };
 		555CB61A291CC3B800D893CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB614291CC3B700D893CE /* CardView.swift */; };
@@ -404,6 +405,7 @@
 		4FFB9A92292F592000182AA4 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
 		4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
 		4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyInteractionManager.swift; sourceTree = "<group>"; };
+		4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionController.swift; sourceTree = "<group>"; };
 		515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-ScheduleWidgetExtension/Pods-ScheduleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		551BC153292A248C00DBD819 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
@@ -892,6 +894,7 @@
 				4FFB9A91292F591800182AA4 /* Model */,
 				4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */,
 				4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */,
+				4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */,
 			);
 			path = PeerConnection;
 			sourceTree = "<group>";
@@ -1826,6 +1829,7 @@
 				6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */,
 				6F3A3E5329196E1E00E42D64 /* View.swift in Sources */,
 				4FFB9A97292F9FA800182AA4 /* NearbyInteractionManager.swift in Sources */,
+				4FFB9A99292FA31500182AA4 /* PeerConnectionController.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
 				6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */,
 				6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,
