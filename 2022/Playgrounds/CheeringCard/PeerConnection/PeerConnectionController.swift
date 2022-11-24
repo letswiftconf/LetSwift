@@ -54,6 +54,11 @@ final class PeerConnectionController {
         self.stopNearbyInteractionManager()
     }
     
+    /// peer를 MultipeerConnectivity session에 초대합니다.
+    func invite(to peerID: MCPeerID) {
+        self.multipeerConnectivityManager.invite(to: peerID)
+    }
+    
     /// peer와의 연결을 해제합니다.
     func disconnectToPeerDevice() {
         self.disconnectMCSession()
