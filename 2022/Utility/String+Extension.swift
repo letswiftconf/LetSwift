@@ -22,9 +22,11 @@ extension String {
         
     }
     
-    func utf8EncodedString()-> String {
-        let messageData = self.data(using: .nonLossyASCII)
-        let text = String(data: messageData!, encoding: .utf8) ?? ""
+    func utf8EncodedString() -> String {
+        guard let messageData = self.data(using: .nonLossyASCII),
+              let text = String(data: messageData, encoding: .utf8)
+        else { return "" }
+        
         return text
     }
 }
