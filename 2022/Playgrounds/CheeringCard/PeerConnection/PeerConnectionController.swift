@@ -65,6 +65,19 @@ private extension PeerConnectionController {
         self.isTokenSharedWithPeer = false
     }
     
+    /// NearybyInteraction 프레임워크를 사용하기 위해 연결된 peer에게 MultiPeerConenctivityManager를 이용해 DiscoveryToken을 전송합니다.
+    func sendDiscoveryToken(to peerID: MCPeerID) {
+        guard let discoveryToken = self.nearbyInteractionManager.localDiscoveryToken,
+              let encodedData = try? NSKeyedArchiver.archivedData(
+                withRootObject: discoveryToken,
+                requiringSecureCoding: true
+              ) else {
+            fatalError("Unexpectedly failed to encode discovery token.")
+        }
+        
+        self.multipeerConnectivityManager.send(with: encodedData, to: peerID)
+    }
+    
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
     func bindToPeerConnectionManager() {
         self.multipeerConnectivityManager.$receivedPeerID
@@ -83,6 +96,8 @@ private extension PeerConnectionController {
         self.multipeerConnectivityManager.peerConnected
             .sink { [weak self] peerID in
                 self?.connected(peerID: peerID)
+                self?.sendDiscoveryToken(to: peerID)
+                self?.nearbyInteractionManager.initiateNearbySession()
             }.store(in: &self.cancellables)
         
         self.multipeerConnectivityManager.peerNotConnected
