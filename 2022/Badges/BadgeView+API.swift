@@ -8,7 +8,6 @@
 import Foundation
 
 extension BadgeView {
-    
     func getQuestions() {
         NetworkManager.shared.call(api: .getQuestions, type: [QuestionModel].self).sink { data in
             if let data = data {

@@ -73,11 +73,12 @@ struct BadgeView: View {
                     }
                     
                 }
+                .onAppear {
+                    self.getQuestions()
+                }
                 .padding(.horizontal, 20)
             }
             .background(Color.backgroundBlack)
-        }.onAppear {
-            self.getQuestions()
         }
     }
 }
