@@ -93,13 +93,22 @@ private extension PeerConnectionController {
         self.nearbyInteractionManager.initiateNearbySession()
     }
     
+    /// 발견된 peer를 peers 배열에 추가합니다.
+    func received(peerID: MCPeerID) {
+        if self.peers.contains(where: { peer in
+            peer.id == peerID
+        }) == false {
+            self.peers.append(Peer(id: peerID))
+        }
+    }
+    
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
     func bindToPeerConnectionManager() {
         self.multipeerConnectivityManager.$receivedPeerID
             .receive(on: DispatchQueue.main)
             .compactMap({ $0 })
             .sink { [weak self] peerID in
-                
+                self?.received(peerID: peerID)
             }.store(in: &self.cancellables)
         
         self.multipeerConnectivityManager.peerLosted
