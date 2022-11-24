@@ -72,6 +72,23 @@ final class MultipeerConnectivityManager: NSObject {
             print("🧨 \(error.localizedDescription)")
         }
     }
+    
+    // MARK: - func
+    
+    func startMultiPeerConnectionManager() {
+        self.nearbyServiceAdvertiser.startAdvertisingPeer()
+        self.nearbyServiceBrowser.startBrowsingForPeers()
+    }
+    
+    func stopMultiPeerConnectionManager() {
+        self.nearbyServiceAdvertiser.stopAdvertisingPeer()
+        self.nearbyServiceBrowser.stopBrowsingForPeers()
+    }
+    
+    /// MCSession의 연결을 해제합니다.
+    func disconnectSession() {
+        self.session.disconnect()
+    }
 }
 
 private extension MultipeerConnectivityManager {
@@ -155,6 +172,7 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
             self.peerConnected.send(peerID)
         case .notConnected:
             self.peerNotConnected.send(peerID)
+            print("Not connected: \(peerID.displayName)")
         case .connecting:
             print("Connecting to: \(peerID.displayName)")
         @unknown default:
