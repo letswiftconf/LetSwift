@@ -40,6 +40,20 @@ final class PeerConnectionController {
     
     // MARK: - func
     
+    /// PeeerConnectionController를 시작합니다.
+    /// > 이전에 연결된 session이 있다면 연결을 해제한 후에 사용하기위해 ``self.multipeerConnectivityManager.disconnectSession()``을 호출합니다.
+    func startPeerConnetionController() {
+        self.multipeerConnectivityManager.disconnectSession()
+        self.startMultiPeerConnectionManager()
+        self.startNearbyInteractionManager()
+    }
+    
+    /// PeerConnectionController를 종료합니다.
+    func stopPeerConenctionController() {
+        self.stopMultiPeerConnectionManager()
+        self.stopNearbyInteractionManager()
+    }
+    
     /// peer와의 연결을 해제합니다.
     func disconnectToPeerDevice() {
         self.disconnectMCSession()
@@ -65,6 +79,24 @@ private extension PeerConnectionController {
         self.nearbyInteractionManager.sessionInvalidate()
         self.isNISessionEstablished = false
         self.isTokenSharedWithPeer = false
+    }
+    
+    func startNearbyInteractionManager() {
+        self.nearbyInteractionManager.startNearbyInteractionSession()
+    }
+    
+    func startMultiPeerConnectionManager() {
+        self.multipeerConnectivityManager.startMultiPeerConnectionManager()
+    }
+    
+    func stopMultiPeerConnectionManager() {
+        self.connectedPeer = nil
+        self.multipeerConnectivityManager.stopMultiPeerConnectionManager()
+    }
+    
+    func stopNearbyInteractionManager() {
+        self.isNISessionEstablished = false
+        self.nearbyInteractionManager.sessionInvalidate()
     }
     
     /// NearybyInteraction 프레임워크를 사용하기 위해 연결된 peer에게 MultiPeerConenctivityManager를 이용해 DiscoveryToken을 전송합니다.
@@ -97,6 +129,7 @@ private extension PeerConnectionController {
     
     /// 발견된 peer를 peers 배열에 추가합니다.
     func received(peerID: MCPeerID) {
+        print("print peer founded: \(peerID.displayName)")
         if self.peers.contains(where: { peer in
             peer.id == peerID
         }) == false {
