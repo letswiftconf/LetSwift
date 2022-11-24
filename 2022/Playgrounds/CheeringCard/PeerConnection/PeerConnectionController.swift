@@ -34,5 +34,59 @@ final class PeerConnectionController {
         self.nearbyInteractionManager = NearbyInteractionManager()
         self.multipeerConnectivityManager = MultipeerConnectivityManager()
         self.cancellables = Set<AnyCancellable>()
+        self.bindToPeerConnectionManager()
+        self.bindToNearbyInteractionManager()
+    }
+}
+
+private extension PeerConnectionController {
+    // MARK: - private func
+    
+    /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
+    func bindToPeerConnectionManager() {
+        self.multipeerConnectivityManager.$receivedPeerID
+            .receive(on: DispatchQueue.main)
+            .compactMap({ $0 })
+            .sink { [weak self] peerID in
+                
+            }.store(in: &self.cancellables)
+        
+        self.multipeerConnectivityManager.peerLosted
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] peerID in
+                
+            }.store(in: &self.cancellables)
+        
+        self.multipeerConnectivityManager.peerConnected
+            .sink { [weak self] peerID in
+                
+            }.store(in: &self.cancellables)
+        
+        self.multipeerConnectivityManager.peerNotConnected
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                
+            }.store(in: &self.cancellables)
+        
+        self.multipeerConnectivityManager.dataReceived
+            .sink { [weak self] (peerID, data) in
+                
+            }.store(in: &self.cancellables)
+    }
+    
+    /// NearbyInteraction의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
+    func bindToNearbyInteractionManager() {
+        self.nearbyInteractionManager.$updatedNearbyObject
+            .receive(on: DispatchQueue.main)
+            .compactMap({ $0 })
+            .sink { [weak self] nearbyObject in
+                
+            }.store(in: &self.cancellables)
+        
+        self.nearbyInteractionManager.sessionEstablished
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                
+            }.store(in: &self.cancellables)
     }
 }
