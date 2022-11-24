@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuestionModel : Codable {
+class QuestionModel : Codable, ObservableObject {
     var id: Int
     var question: String
     var answer: String
@@ -44,6 +44,10 @@ extension QuestionModel {
                                     profileString: ""
                                 )
         )
+    }
+    
+    func isCorreted() -> Bool {
+        return SharedPreference().getObjectValues(key: "question_\(self.id)") as? Bool ?? false
     }
 }
 

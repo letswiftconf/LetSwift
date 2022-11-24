@@ -12,6 +12,7 @@ struct BadgeView: View {
     @State var anyCancellable : [AnyCancellable] = []
     @State var filteredQuestions : [QuestionModel] = []
     @State var questions : [QuestionModel] = []
+    @State var correctedCount = 0
     @State var filter = false
     
     var body: some View {
@@ -21,9 +22,22 @@ struct BadgeView: View {
                     Text("뱃지받지")
                         .font(.title3Bold)
                         .padding(.leading, 39.0)
-                    BadgeInfoView(hasBadge: (questions.count - filteredQuestions.count) >= 6)
+                    HStack(alignment: .center, spacing: 14.0) {
+                        Image(correctedCount >= 6 ? "badge-image" : "badge-none")
+                            .resizable()
+                            .cornerRadius(12)
+                            .frame(width: 132.0, height: 132.0)
+                            
+                        Text(correctedCount >= 6 ? "🎉🎉🎉🎉\nLet's play at\nSwift Playgrounds" : "세션에 참여한 후, 6개 이상의 문제를 풀어보세요 !")
+                            .truncationMode(.tail)
+                            .font(.bodyRegular)
+                            .padding(.horizontal, 31.0)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, 35.0)
                     HStack(alignment: .center, spacing: 37.0)  {
-                        Text("\(questions.count - filteredQuestions.count) / 6")
+                        Text("\(correctedCount) / 6")
                             .frame(width: 60)
                             .font(.bodyRegular)
                         Spacer()

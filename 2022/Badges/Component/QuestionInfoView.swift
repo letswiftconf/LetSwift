@@ -14,7 +14,7 @@ struct QuestionInfoView: View {
     let data: QuestionModel
     init(data: QuestionModel) {
         self.data = data
-        self.isCorrected = UserDefaults.standard.bool(forKey: "question_\(data.id)")
+        self.isCorrected = data.isCorreted()
     }
     
     func checkAnswer() {

@@ -14,13 +14,16 @@ extension BadgeView {
             if let data = data {
                 self.questions = data
                 self.filtering()
+                
             }
         }.store(in: &anyCancellable)
     }
     
     func filtering() {
         self.filteredQuestions = self.questions.filter { item in
-            !(SharedPreference().getObjectValues(key: "question_\(item.id)") as? Bool ?? false)
+            !item.isCorreted()
         }
+        
+        self.correctedCount = self.questions.count - self.filteredQuestions.count
     }
 }

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct BadgeQuestionView: View {
-    
-    var question : QuestionModel
-    
+    @State var question : QuestionModel
     init(question: QuestionModel) {
         self.question = question
     }
@@ -18,19 +16,17 @@ struct BadgeQuestionView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 32.0) {
             Spacer()
-            NavigationLink(destination: QuestionView(data: question, isCorrected: isCorreted())) {
+            NavigationLink(destination: QuestionView(data: question)) {
                 Text(question.question)
                     .font(.bodyRegular)
                     .foregroundColor(.white)
                     .padding(.all, 20.0)
-            }
+            }.isDetailLink(false)
             Spacer()
         }
-        .background(BackgroundView(isCorrected: isCorreted()))
+        .background(BackgroundView(isCorrected: question.isCorreted()))
         .padding(.horizontal, 27.0)
     }
     
-    func isCorreted() -> Bool {
-        return SharedPreference().getObjectValues(key: "question_\(question.id)") as? Bool ?? false
-    }
+    
 }

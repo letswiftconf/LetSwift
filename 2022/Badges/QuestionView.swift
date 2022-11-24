@@ -14,9 +14,9 @@ struct QuestionView: View {
     
     @State var isCorrect = false
     
-    init(data: QuestionModel, isCorrected: Bool) {
+    init(data: QuestionModel) {
         self.data = data
-        self.isCorrected = isCorrected
+        self.isCorrected = data.isCorreted()
     }
     
     var body: some View {
