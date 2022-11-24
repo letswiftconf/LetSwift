@@ -52,6 +52,17 @@ final class MultipeerConnectivityManager: NSObject {
         super.init()
         self.setDelegation()
     }
+    
+    /// peer를 session에 초대합니다.
+    func invite(to peerID: MCPeerID)  {
+        let context = peerID.displayName.data(using: .utf8)
+        self.nearbyServiceBrowser.invitePeer(
+            peerID,
+            to: self.session,
+            withContext: context,
+            timeout: TimeInterval(20)
+        )
+    }
 }
 
 private extension MultipeerConnectivityManager {
