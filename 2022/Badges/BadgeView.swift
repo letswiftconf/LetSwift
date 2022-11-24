@@ -61,10 +61,9 @@ struct BadgeView: View {
                 }
                 .padding(.horizontal, 20)
             }
+            .background(Color.backgroundBlack)
         }.onAppear {
             self.getQuestions()
-        }.onWillAappear {
-            self.filtering()
         }
     }
 }

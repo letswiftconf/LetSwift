@@ -26,9 +26,11 @@ struct QuestionView: View {
             } label: {
                 Text("X")
             }
+            .padding(.horizontal, 29.0)
+            
             Text("Q.")
                 .font(.title3Bold)
-                .padding(.horizontal, 9.0)
+                .padding(.horizontal, 28.0)
                 .padding(.top, 19.0)
             QuestionInfoView(data: data)
             Spacer()
@@ -36,9 +38,9 @@ struct QuestionView: View {
             QuestionSessionView(model: data)
             Spacer()
         }
+        .background(Color.backgroundBlack)
         .navigationBarBackButtonHidden(true)
-        .padding(.horizontal, 29.0)
-
+        
     }
 }
 

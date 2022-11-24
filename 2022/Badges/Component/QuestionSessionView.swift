@@ -37,6 +37,8 @@ struct QuestionSessionView: View {
                         
                     Text(model.sessionRes.content)
                         .font(.subheadRegular)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
                     
                     Spacer().frame(height: 21)
                     NavigationLink(destination: SessionDetailView(model: model.toSessionInfomation())) {
@@ -53,6 +55,6 @@ struct QuestionSessionView: View {
                     
                 }.padding(.horizontal, 30)
             }.padding(.vertical, 18)
-        }
+        }.padding(.horizontal, 29.0)
     }
 }

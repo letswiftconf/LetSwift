@@ -76,6 +76,6 @@ struct QuestionInfoView: View {
             .frame(maxWidth: .infinity)
             .background(BackgroundView(isCorrected: true))
         }
-        .padding(.horizontal, 5)
+        .padding(.horizontal, 24)
     }
 }
