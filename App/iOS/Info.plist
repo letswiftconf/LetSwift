@@ -54,6 +54,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_letswift._tcp</string>
+		<string>_letswift._udp</string>
+	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Allow access to save event to calendar.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -61,9 +66,9 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>행사장까지 남은 거리를 계산하기 위해 권한이 필요합니다. (필수권한)</string>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>나와 관심사가 비슷한 동료를 찾기 위해 로컬 네트워크 권한을 허용해주세요.</string>
+	<string>나와 관심사가 비슷한 동료를 찾기 위해 로컬 네트워크 권한을 필요로 합니다.</string>
 	<key>NSNearbyInteractionUsageDescription</key>
-	<string>나와 관심사가 비슷한 동료를 찾기 위해 근처 상호작용 권한을 허용해주세요.</string>
+	<string>나와 관심사가 비슷한 동료를 찾기 위해 근처 상호작용 권한을 필요로 합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Playground Card를 갤러리에 저장하기 위해 앨범 쓰기 권한을 허용해주세요.</string>
 	<key>UIApplicationSceneManifest</key>
