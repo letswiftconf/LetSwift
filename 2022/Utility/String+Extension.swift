@@ -21,4 +21,10 @@ extension String {
         return attributedStr
         
     }
+    
+    func utf8EncodedString()-> String {
+        let messageData = self.data(using: .nonLossyASCII)
+        let text = String(data: messageData!, encoding: .utf8) ?? ""
+        return text
+    }
 }
