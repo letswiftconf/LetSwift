@@ -27,6 +27,10 @@ final class NearbyInteractionManager: NSObject {
     
     // MARK: - func
     
+    func setPeerDiscoveryToken(_ discoveryToken: NIDiscoveryToken) {
+        self.peerDiscoveryToken = discoveryToken
+    }
+    
     /// NISession을 initiate합니다.
     func initiateNearbySession() {
         guard let peerDiscoveryToken
