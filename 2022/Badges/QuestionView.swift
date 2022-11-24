@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var data: QuestionData
-    init(data: QuestionData) {
+    @Environment(\.presentationMode) var presentationMode
+    var data: QuestionModel
+    var isCorrected : Bool
+    
+    @State var isCorrect = false
+    
+    init(data: QuestionModel) {
         self.data = data
+        self.isCorrected = data.isCorreted()
     }
     
     var body: some View {
@@ -20,28 +25,28 @@ struct QuestionView: View {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("X")
-                    .foregroundColor(.white)
             }
+            .padding(.horizontal, 29.0)
+            
             Text("Q.")
                 .font(.title3Bold)
-                .foregroundColor(.white)
-                .padding(.horizontal, 9.0)
+                .padding(.horizontal, 28.0)
                 .padding(.top, 19.0)
             QuestionInfoView(data: data)
             Spacer()
                 .frame(height: 53.0)
-            QuestionSessionView(session: data.session)
+            QuestionSessionView(model: data)
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
-        .padding(.horizontal, 29.0)
         .background(Color.backgroundBlack)
+        .navigationBarBackButtonHidden(true)
+        
     }
 }
 
-
-struct QuestionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionView(data: QuestionData.dummy.first!)
-    }
-}
+//
+//struct QuestionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionView(data: QuestionModel.dummy.first!)
+//    }
+//}

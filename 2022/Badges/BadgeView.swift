@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BadgeView: View {
-    var questions = QuestionData.dummy
+    @State var anyCancellable : [AnyCancellable] = []
+    @State var filteredQuestions : [QuestionModel] = []
+    @State var questions : [QuestionModel] = []
+    @State var correctedCount = 0
     @State var filter = false
     
     var body: some View {
@@ -17,13 +21,25 @@ struct BadgeView: View {
                 VStack(alignment: .leading, spacing: 28.0) {
                     Text("뱃지받지")
                         .font(.title3Bold)
-                        .foregroundColor(.white)
                         .padding(.leading, 39.0)
-                    BadgeInfoView()
-                    HStack(alignment: .center, spacing: 37.0)  {
-                        Text("0 / 6")
+                    HStack(alignment: .center, spacing: 14.0) {
+                        Image(correctedCount >= 6 ? "badge-image" : "badge-none")
+                            .resizable()
+                            .cornerRadius(12)
+                            .frame(width: 132.0, height: 132.0)
+                            
+                        Text(correctedCount >= 6 ? "🎉🎉🎉🎉\nLet's play at\nSwift Playgrounds" : "세션에 참여한 후, 6개 이상의 문제를 풀어보세요 !")
+                            .truncationMode(.tail)
                             .font(.bodyRegular)
-                            .foregroundColor(.white)
+                            .padding(.horizontal, 31.0)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, 35.0)
+                    HStack(alignment: .center, spacing: 37.0)  {
+                        Text("\(correctedCount) / 6")
+                            .frame(width: 60)
+                            .font(.bodyRegular)
                         Spacer()
                         Button {
                             self.filter = false
@@ -33,29 +49,38 @@ struct BadgeView: View {
                         }
                         .frame(width: 82, height: 32, alignment: .center)
                         .cornerRadius(5)
-                        .background(BackgroundView())
+                        .background(UnderLineView(isSelected: !filter))
                         
                         Button {
                             self.filter = true
                         } label: {
                             Text("미완료")
-                                .foregroundColor(.white)
                         }
                         .frame(width: 82, height: 32, alignment: .center)
                         .cornerRadius(5)
-                        .background(UnderLineView())
+                        .background(UnderLineView(isSelected: filter))
                     }
                     .padding(.horizontal, 41.0)
-                    ForEach(0 ..< questions.count, id: \.self) { idx in
-                        BadgeQuestionView(question: questions[idx])
+                    
+                    if self.filter {
+                        ForEach(0 ..< filteredQuestions.count, id: \.self) { idx in
+                            BadgeQuestionView(question: filteredQuestions[idx])
+                        }
+                    } else {
+                        ForEach(0 ..< questions.count, id: \.self) { idx in
+                            BadgeQuestionView(question: questions[idx])
+                        }
                     }
+                    
                 }
-            }.background(Color.backgroundBlack)
+                .padding(.horizontal, 20)
+            }
+            .background(Color.backgroundBlack)
+        }.onAppear {
+            self.getQuestions()
         }
     }
 }
-
-
 
 
 struct BadgeView_Previews: PreviewProvider {

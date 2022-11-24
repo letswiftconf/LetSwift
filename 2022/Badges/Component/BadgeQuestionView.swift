@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct BadgeQuestionView: View {
-    
-    var question : QuestionData
-    init(question: QuestionData) {
+    @State var question : QuestionModel
+    init(question: QuestionModel) {
         self.question = question
     }
     
@@ -22,10 +21,12 @@ struct BadgeQuestionView: View {
                     .font(.bodyRegular)
                     .foregroundColor(.white)
                     .padding(.all, 20.0)
-            }
+            }.isDetailLink(false)
             Spacer()
         }
-        .background(BackgroundView())
+        .background(BackgroundView(isCorrected: question.isCorreted()))
         .padding(.horizontal, 27.0)
     }
+    
+    
 }
