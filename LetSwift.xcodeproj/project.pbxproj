@@ -168,7 +168,6 @@
 		6FC0FD212927C5030026714A /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD1E2927C5030026714A /* BadgeView.swift */; };
 		6FC0FD2A2927C55C0026714A /* UnderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD242927C55C0026714A /* UnderLineView.swift */; };
 		6FC0FD2B2927C55C0026714A /* QuestionSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD252927C55C0026714A /* QuestionSessionView.swift */; };
-		6FC0FD2C2927C55C0026714A /* BadgeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD262927C55C0026714A /* BadgeInfoView.swift */; };
 		6FC0FD2D2927C55C0026714A /* BadgeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD272927C55C0026714A /* BadgeQuestionView.swift */; };
 		6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD282927C55C0026714A /* BackgroundView.swift */; };
 		6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD292927C55C0026714A /* QuestionInfoView.swift */; };
@@ -259,6 +258,7 @@
 		CCF9A0D2291CE3C900EF8C9B /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */; };
 		D792442982A5ECA5A76BD9DF /* Pods_LetSwift__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7D71323B59767A6A3C9E86 /* Pods_LetSwift__macOS_.framework */; };
 		DB328360A89B436C6A937853 /* Pods_Upcoming1WidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3309A495A5037695D25036 /* Pods_Upcoming1WidgetExtension.framework */; };
+		F0CF890E292F6437006CAEB3 /* BadgeView+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF890D292F6437006CAEB3 /* BadgeView+API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -437,12 +437,11 @@
 		6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookEnviromentOjb.swift; sourceTree = "<group>"; };
 		6FC0FD1C2927C49E0026714A /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		6FC0FD1E2927C5030026714A /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
-		6FC0FD242927C55C0026714A /* UnderLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnderLineView.swift; path = Components/UnderLineView.swift; sourceTree = "<group>"; };
-		6FC0FD252927C55C0026714A /* QuestionSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionSessionView.swift; path = Components/QuestionSessionView.swift; sourceTree = "<group>"; };
-		6FC0FD262927C55C0026714A /* BadgeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgeInfoView.swift; path = Components/BadgeInfoView.swift; sourceTree = "<group>"; };
-		6FC0FD272927C55C0026714A /* BadgeQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgeQuestionView.swift; path = Components/BadgeQuestionView.swift; sourceTree = "<group>"; };
-		6FC0FD282927C55C0026714A /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Components/BackgroundView.swift; sourceTree = "<group>"; };
-		6FC0FD292927C55C0026714A /* QuestionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionInfoView.swift; path = Components/QuestionInfoView.swift; sourceTree = "<group>"; };
+		6FC0FD242927C55C0026714A /* UnderLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnderLineView.swift; path = Component/UnderLineView.swift; sourceTree = "<group>"; };
+		6FC0FD252927C55C0026714A /* QuestionSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionSessionView.swift; path = Component/QuestionSessionView.swift; sourceTree = "<group>"; };
+		6FC0FD272927C55C0026714A /* BadgeQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgeQuestionView.swift; path = Component/BadgeQuestionView.swift; sourceTree = "<group>"; };
+		6FC0FD282927C55C0026714A /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Component/BackgroundView.swift; sourceTree = "<group>"; };
+		6FC0FD292927C55C0026714A /* QuestionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionInfoView.swift; path = Component/QuestionInfoView.swift; sourceTree = "<group>"; };
 		6FC0FD302927C56A0026714A /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionData.swift; path = Data/QuestionData.swift; sourceTree = "<group>"; };
 		6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundSimpleRowViewModel.swift; sourceTree = "<group>"; };
 		6FE5D035291F80D7001F6880 /* WelcomElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomElement.swift; sourceTree = "<group>"; };
@@ -522,6 +521,7 @@
 		CFE52E6DAF7459C4ADB46B30 /* Pods-LetSwift (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift (macOS).release.xcconfig"; path = "Target Support Files/Pods-LetSwift (macOS)/Pods-LetSwift (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		D47628A67560A22BD43C1A9F /* Pods-Upcoming1WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming1WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming1WidgetExtension/Pods-Upcoming1WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		E441ABAF9BBF7178484A8B4A /* Pods-LetSwift (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift (macOS).debug.xcconfig"; path = "Target Support Files/Pods-LetSwift (macOS)/Pods-LetSwift (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		F0CF890D292F6437006CAEB3 /* BadgeView+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BadgeView+API.swift"; sourceTree = "<group>"; };
 		F102F0AC0806A9E044C8470B /* Pods_ScheduleWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1020,11 +1020,11 @@
 			children = (
 				6FC0FD1E2927C5030026714A /* BadgeView.swift */,
 				6FC0FD282927C55C0026714A /* BackgroundView.swift */,
-				6FC0FD262927C55C0026714A /* BadgeInfoView.swift */,
 				6FC0FD272927C55C0026714A /* BadgeQuestionView.swift */,
 				6FC0FD292927C55C0026714A /* QuestionInfoView.swift */,
 				6FC0FD252927C55C0026714A /* QuestionSessionView.swift */,
 				6FC0FD242927C55C0026714A /* UnderLineView.swift */,
+				F0CF890D292F6437006CAEB3 /* BadgeView+API.swift */,
 				6FC0FD302927C56A0026714A /* QuestionData.swift */,
 				6FC0FD1C2927C49E0026714A /* QuestionView.swift */,
 			);
@@ -1687,7 +1687,6 @@
 				6FC0FD19292601A50026714A /* GuestBookEnviromentOjb.swift in Sources */,
 				6F3A3E7B291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
-				6FC0FD2C2927C55C0026714A /* BadgeInfoView.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */,
 				CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */,
 				167BE5C02574A73800C6681A /* AddPassButton.swift in Sources */,
@@ -1711,6 +1710,7 @@
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */,
+				F0CF890E292F6437006CAEB3 /* BadgeView+API.swift in Sources */,
 				16A27AC82570AFC700D7C664 /* OnAirIconView.swift in Sources */,
 				C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
