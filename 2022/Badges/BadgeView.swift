@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BadgeView: View {
-    var questions = QuestionData.dummy
+    @State var anyCancellable : [AnyCancellable] = []
+    @State var filteredQuestions : [QuestionModel] = []
+    @State var questions : [QuestionModel] = []
     @State var filter = false
     
     var body: some View {
@@ -18,9 +21,10 @@ struct BadgeView: View {
                     Text("뱃지받지")
                         .font(.title3Bold)
                         .padding(.leading, 39.0)
-                    BadgeInfoView()
+                    BadgeInfoView(hasBadge: (questions.count - filteredQuestions.count) >= 6)
                     HStack(alignment: .center, spacing: 37.0)  {
-                        Text("0 / 6")
+                        Text("\(questions.count - filteredQuestions.count) / 6")
+                            .frame(width: 60)
                             .font(.bodyRegular)
                         Spacer()
                         Button {
@@ -31,7 +35,7 @@ struct BadgeView: View {
                         }
                         .frame(width: 82, height: 32, alignment: .center)
                         .cornerRadius(5)
-                        .background(BackgroundView())
+                        .background(UnderLineView(isSelected: !filter))
                         
                         Button {
                             self.filter = true
@@ -40,19 +44,30 @@ struct BadgeView: View {
                         }
                         .frame(width: 82, height: 32, alignment: .center)
                         .cornerRadius(5)
-                        .background(UnderLineView())
+                        .background(UnderLineView(isSelected: filter))
                     }
                     .padding(.horizontal, 41.0)
-                    ForEach(0 ..< questions.count, id: \.self) { idx in
-                        BadgeQuestionView(question: questions[idx])
+                    
+                    if self.filter {
+                        ForEach(0 ..< filteredQuestions.count, id: \.self) { idx in
+                            BadgeQuestionView(question: filteredQuestions[idx])
+                        }
+                    } else {
+                        ForEach(0 ..< questions.count, id: \.self) { idx in
+                            BadgeQuestionView(question: questions[idx])
+                        }
                     }
+                    
                 }
+                .padding(.horizontal, 20)
             }
+        }.onAppear {
+            self.getQuestions()
+        }.onWillAappear {
+            self.filtering()
         }
     }
 }
-
-
 
 
 struct BadgeView_Previews: PreviewProvider {
