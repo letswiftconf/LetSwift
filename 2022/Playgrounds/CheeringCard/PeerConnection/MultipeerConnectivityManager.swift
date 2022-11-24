@@ -63,6 +63,15 @@ final class MultipeerConnectivityManager: NSObject {
             timeout: TimeInterval(20)
         )
     }
+    
+    /// peer에게 데이터를 전송합니다.
+    func send(with data: Data, to peerID: MCPeerID) {
+        do {
+            try self.session.send(data, toPeers: [peerID], with: .reliable)
+        } catch let error {
+            print("🧨 \(error.localizedDescription)")
+        }
+    }
 }
 
 private extension MultipeerConnectivityManager {
@@ -146,7 +155,6 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
             self.peerConnected.send(peerID)
         case .notConnected:
             self.peerNotConnected.send(peerID)
-            print("Not connected: \(peerID.displayName)")
         case .connecting:
             print("Connecting to: \(peerID.displayName)")
         @unknown default:
