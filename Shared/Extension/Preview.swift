@@ -26,27 +26,27 @@ struct ComponentPreview<Component: View>: View {
     var body: some View {
         #if canImport(UIKit)
         ForEach(values: ColorScheme.allCases) { scheme in
-            ForEach(values: ContentSizeCategory.smallestAndLargest) { category in
+            ForEach(values: ContentSizeCategory.smallestAndLargest) { cardType in
                 self.component
                     .previewLayout(.sizeThatFits)
                     .background(Color(UIColor.systemBackground))
                     .colorScheme(scheme)
-                    .environment(\.sizeCategory, category)
+                    .environment(\.sizeCategory, cardType)
                     .previewDisplayName(
-                        "\(scheme.previewName) + \(category.previewName)"
+                        "\(scheme.previewName) + \(cardType.previewName)"
                     )
             }
         }
         #else
         ForEach(values: ColorScheme.allCases) { scheme in
-            ForEach(values: ContentSizeCategory.smallestAndLargest) { category in
+            ForEach(values: ContentSizeCategory.smallestAndLargest) { cardType in
                 self.component
                     .previewLayout(.sizeThatFits)
                     .background(Color(NSColor.windowBackgroundColor))
                     .colorScheme(scheme)
-                    .environment(\.sizeCategory, category)
+                    .environment(\.sizeCategory, cardType)
                     .previewDisplayName(
-                        "\(scheme.previewName) + \(category.previewName)"
+                        "\(scheme.previewName) + \(cardType.previewName)"
                     )
             }
         }

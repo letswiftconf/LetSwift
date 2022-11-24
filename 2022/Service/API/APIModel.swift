@@ -17,3 +17,9 @@ struct ProfileAPIData: Codable {
     let github: String?
     let linkedIn: String?
 }
+
+
+struct SurveyAPIData: Codable {
+    let totalCount: String?
+    let surveyList: String?
+}

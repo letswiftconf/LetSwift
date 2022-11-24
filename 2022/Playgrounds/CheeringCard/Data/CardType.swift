@@ -10,10 +10,10 @@ import Foundation
 struct CardType {
     
     enum CardCase: String {
-        case design = "디자인에 진심인"
-        case device = "애플 기기왕"
-        case newTech = "신기술에 진심인"
-        case conference = "소통왕"
+        case design = "디자인에 진심"
+        case device = "애플 기기에 진심"
+        case newTech = "신기술에 진심"
+        case conference = "소통에 진심"
         case none
     }
     

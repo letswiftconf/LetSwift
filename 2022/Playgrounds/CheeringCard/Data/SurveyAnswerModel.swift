@@ -14,5 +14,5 @@ struct SurveyAnswerModel: Codable {
 
 struct AnswerData: Codable {
     var surveyId: Int
-    var answerId: Int
+    var answer: Int
 }

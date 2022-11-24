@@ -16,6 +16,7 @@ final class APICaller {
         static let speakerURL = URL(string: "http://13.209.242.34:29443/api/v1/organizer/speaker")
         static let chartURL = URL(string: "http://13.209.242.34:29443/api/v1/survey")
         static let sessionURL = URL(string: "http://13.209.242.34:29443/api/v1/session")
+        static let surveyURL = URL(string: "http://13.209.242.34:29443/api/v1/survey/")
     }
     
     private init() {}
@@ -71,6 +72,37 @@ final class APICaller {
         getDataTask(url: url) { (result: Result<[SessionInformationModel], Error>) in
             completion(result)
         }
+    }
+    
+    func putServeyData(body: [AnswerData], completion: @escaping (Result<SurveyAPIData, Error>) -> Void) {
+        
+        guard let url = Constants.surveyURL else {
+            return
+        }
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try! encoder.encode(body)
+       
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = data
+        print(String(data: data, encoding: .utf8)!)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(SurveyAPIData.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+        task.resume()
     }
     
     private func getProfileData(profileType: ProfileRole, completion: @escaping (Result<[ProfileAPIData], Error>) -> Void) {
