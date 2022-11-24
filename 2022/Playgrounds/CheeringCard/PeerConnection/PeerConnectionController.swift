@@ -64,6 +64,11 @@ final class PeerConnectionController {
         self.disconnectMCSession()
         self.disconnectNISession()
     }
+    
+    deinit {
+        self.stopPeerConenctionController()
+        self.peers.removeAll()
+    }
 }
 
 private extension PeerConnectionController {
