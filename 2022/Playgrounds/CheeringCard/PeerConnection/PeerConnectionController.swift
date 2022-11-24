@@ -102,6 +102,15 @@ private extension PeerConnectionController {
         }
     }
     
+    /// 사라진 peer를 peers배열에서 삭제합니다.
+    func losted(peerID: MCPeerID) {
+        guard let index = self.peers.firstIndex(where: { peer in
+            peer.id == peerID
+        })
+        else { return }
+        self.peers.remove(at: index)
+    }
+    
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
     func bindToPeerConnectionManager() {
         self.multipeerConnectivityManager.$receivedPeerID
@@ -114,7 +123,7 @@ private extension PeerConnectionController {
         self.multipeerConnectivityManager.peerLosted
             .receive(on: DispatchQueue.main)
             .sink { [weak self] peerID in
-                
+                self?.losted(peerID: peerID)
             }.store(in: &self.cancellables)
         
         self.multipeerConnectivityManager.peerConnected
