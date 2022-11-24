@@ -38,6 +38,8 @@ final class PeerConnectionController {
         self.bindToNearbyInteractionManager()
     }
     
+    // MARK: - func
+    
     /// peer와의 연결을 해제합니다.
     func disconnectToPeerDevice() {
         self.disconnectMCSession()
@@ -111,6 +113,11 @@ private extension PeerConnectionController {
         self.peers.remove(at: index)
     }
     
+    /// 연결된 peer와의 거리를 업데이트 합니다.
+    func updateDistanceToPeerDevice(with nearbyObject: NINearbyObject) {
+        self.distanceToPeerDevice = nearbyObject.distance
+    }
+    
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
     func bindToPeerConnectionManager() {
         self.multipeerConnectivityManager.$receivedPeerID
@@ -151,13 +158,13 @@ private extension PeerConnectionController {
             .receive(on: DispatchQueue.main)
             .compactMap({ $0 })
             .sink { [weak self] nearbyObject in
-                
+                self?.updateDistanceToPeerDevice(with: nearbyObject)
             }.store(in: &self.cancellables)
         
         self.nearbyInteractionManager.sessionEstablished
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                
+                self?.isNISessionEstablished = true
             }.store(in: &self.cancellables)
     }
 }
