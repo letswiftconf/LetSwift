@@ -81,3 +81,74 @@ private extension MultipeerConnectivityManager {
         return userName
     }
 }
+
+extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
+    func advertiser(
+        _ advertiser: MCNearbyServiceAdvertiser,
+        didReceiveInvitationFromPeer peerID: MCPeerID,
+        withContext context: Data?,
+        invitationHandler: @escaping (Bool, MCSession?) -> Void
+    ) {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        
+        guard
+            let window = windowScene?.windows.first,
+            let context = context,
+            let peerName = String(data: context, encoding: .utf8)
+        else { return }
+    
+        let title = "\(peerName)와 연결"
+        let message = "\(peerName)와 연결하시겠습니까?"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+            invitationHandler(true, self.session)
+        })
+        window.rootViewController?.present(alertController, animated: true)
+    }
+}
+
+extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
+    func browser(
+        _ browser: MCNearbyServiceBrowser,
+        foundPeer peerID: MCPeerID,
+        withDiscoveryInfo info: [String : String]?
+    ) {
+        guard let identityValue = info?[self.cheeringCardType] else {
+            return
+        }
+        if identityValue == self.cheeringCardType {
+            self.receivedPeerID = peerID
+        }
+    }
+    
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        self.peerLosted.send(peerID)
+    }
+}
+
+extension MultipeerConnectivityManager: MCSessionDelegate {
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
+        switch state {
+        case .connected:
+            self.peerConnected.send(peerID)
+        case .notConnected:
+            self.peerNotConnected.send(peerID)
+            print("Not connected: \(peerID.displayName)")
+        case .connecting:
+            print("Connecting to: \(peerID.displayName)")
+        @unknown default:
+            print("Unknown state: \(state)")
+        }
+    }
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
+        self.dataReceived.send((peerID, data))
+    }
+    
+    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String,fromPeer peerID: MCPeerID) {}
+    
+    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {}
+    
+    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {}
+}
