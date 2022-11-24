@@ -9,6 +9,9 @@ import SwiftUI
 
 struct FormCardView: View {
     
+    enum FocusField: Hashable {
+      case field
+    }
     let card: FormCard
     var removal: ((String) -> Void)? = nil
     @State var content: String = ""
@@ -16,6 +19,8 @@ struct FormCardView: View {
     @State private var feedback = UINotificationFeedbackGenerator()
     @State var currentIndex: Int = 0
     @State private var angle: CGFloat = 5
+    @FocusState private var focused: FocusField?
+    
     @Environment(\.colorScheme) var scheme
 
     var body: some View {
@@ -25,37 +30,44 @@ struct FormCardView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 25,style: .circular)
                     .fill(.white)
-                    .shadow(radius: 10)
+                    .shadow(radius: 5)
                 
-                VStack {
-                    Text(card.description)
-                        .font(.title3Reqular)
-                        .foregroundColor(.gray)
-                    
+                ZStack(alignment: .topLeading) {
+                    if content.isEmpty {
+                        Text(card.description)
+                            .font(.title3Reqular)
+                            .padding(EdgeInsets(top: 21, leading: 21, bottom: 0, trailing: 0))
+                            .foregroundColor(.gray)
+                    }
                     if #available(iOS 16.0, *) {
                         TextEditor(text:  $content)
+                            .replaceDisabled()
+                            .findDisabled()
                             .padding()
-                            .foregroundColor(Color.orange)
-                            .background(Color.textGray)
+                            .foregroundColor(Color.black)
                             .textFieldStyle(.roundedBorder)
                             .cornerRadius(10)
                             .opacity(0.6)
                             .scrollContentBackground(.hidden)
+                            .focused($focused,equals: .field)
                             .autocorrectionDisabled()
+                            .autocapitalization(.none)
+                            
                     } else {
                         // Fallback on earlier versions
                         TextEditor(text:  $content)
                             .padding()
                             .foregroundColor(Color.orange)
-                            .background(Color.textGray)
                             .colorMultiply(.gray)
                             .textFieldStyle(.roundedBorder)
                             .cornerRadius(10)
+                            .focused($focused,equals: .field)
                             .autocorrectionDisabled()
+                            .autocapitalization(.none)
                     }
                 }
                 .padding()
-                .multilineTextAlignment(.center)
+                .multilineTextAlignment(.leading)
             }
             .frame(height: 250)
             .padding([.leading,.trailing])
@@ -81,9 +93,11 @@ struct FormCardView: View {
             .animation(.spring(), value: offset)
             
             Spacer()
-        }.onTapGesture{
+        }
+        .onTapGesture{
             editTextEnd()
         }.onAppear{
+            self.focused = .field
             if #available(iOS 16.0, *) {
                 //'#unavailable' it can use upper swift 5.6
             }else{

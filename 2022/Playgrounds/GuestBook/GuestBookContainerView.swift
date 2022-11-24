@@ -61,22 +61,26 @@ struct TitleView: View {
         VStack (alignment: .leading ){
             HStack(spacing: 0) {
                 Text("Let")
-                    .font(.title3Bold)
                     .font(.system(size: 30))
+                    .fontWeight(.bold)
                     .foregroundColor(.orange)
                 Text("'s play")
-                    .font(.title3Bold)
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
             }
             HStack {
                 Text("at")
-                    .font(.title3Bold)
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                 Text("Swift")
-                    .font(.title3Bold)
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
                     .foregroundColor(.orange)
                 Text("Playgrounds")
-                    .font(.title3Bold)
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
             }
         }

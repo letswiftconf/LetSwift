@@ -20,6 +20,8 @@ struct GuestBookContentView: View {
     @State private var cards = Array<FormCard>(repeating: FormCard.example, count:10)
     @State private var scale: CGFloat = 0.020
     @State private var angle: CGFloat = 5
+    @State private var guideText: String = "작성한 카드를 위로 밀어서 보내주세요."
+    @State private var isSent: Bool = false
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var env:GuestBookEnviromentOjb
@@ -44,20 +46,37 @@ struct GuestBookContentView: View {
                     })
                     .frame(width: 50,height: 50)
                     
-                    LottieView(filename: "arrow-up")
+                    
+                    if isSent {
+                        LottieView(filename: "arrow-up")
+                            .frame(height: 200)
+                    }else{
+                        LottieView(filename: "arrow-up")
+                    }
+                        
                 }
-                
-                Text("작성한 카드를 위로 밀어서 보내주세요.")
-                    .font(.title3Bold)
-                    .foregroundColor(.gray)
-                
-                ZStack{
-                    ForEach(0..<cards.count,id: \.self) { index in
-                        FormCardView(card: cards[index]){ content in
-                            withAnimation {
-                                removeCard(at: index, content: content)
-                            }
-                        }.stack(at: index, in: cards.count)
+                VStack(spacing: 40) {
+                    if isSent {
+                        VStack (alignment: .leading) {
+                            Text("🎉🎉")
+                                .font(.system(size: 30))
+                                .fontWeight(.bold)
+                            TitleView()
+                        }
+                    }
+                    Text(guideText)
+                        .font(guideText == "작성한 카드를 위로 밀어서 보내주세요." ? .title3: .title3Reqular)
+                        .foregroundColor(.white)
+                }
+                if !isSent {
+                    ZStack{
+                        ForEach(0..<cards.count,id: \.self) { index in
+                            FormCardView(card: cards[index]){ content in
+                                withAnimation {
+                                    removeCard(at: index, content: content)
+                                }
+                            }.stack(at: index, in: cards.count)
+                        }
                     }
                 }
                 
@@ -65,8 +84,12 @@ struct GuestBookContentView: View {
             }
             .foregroundColor(.white)
             .background(Color.backgroundBlack)
+            .onTapGesture {
+                self.editTextEnd()
+            }
             .onAppear{
                 self.setupRX()
+                
             }
         }
     }
@@ -77,9 +100,14 @@ struct GuestBookContentView: View {
                 env.contents = viewModel.contents
                 if success {
                     env.isSuccess = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                        UIView.animate(withDuration: 0.4, delay: 0, options: .showHideTransitionViews) {
-                            dismiss()
+                    UIView.animate(withDuration: 2, delay: 5, usingSpringWithDamping: 0.0, initialSpringVelocity: 0) {
+                        isSent = true
+                        guideText = "후기를 남겨주셔서 감사합니다."
+                    }completion: { _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                            UIView.animate(withDuration: 0.4, delay: 0, options: .showHideTransitionViews) {
+                                dismiss()
+                            }
                         }
                     }
                 }else{
@@ -106,7 +134,6 @@ struct GuestBookContentView: View {
                     }
                 }
             }else if cards.count < 10 && cards.count > 5 {
-            
                 Toast.shared.show(message: "슝슝~ 카드 날리기 재밌죠~\n방명록과 함께 날리면 더 재밌어요~", delay: 1.5)
             }else{
                 Toast.shared.show(message: "이제 카드가 몇 장 남지않았어요~", delay: 1.5)
