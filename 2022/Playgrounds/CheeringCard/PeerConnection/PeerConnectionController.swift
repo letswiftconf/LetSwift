@@ -37,6 +37,12 @@ final class PeerConnectionController {
         self.bindToPeerConnectionManager()
         self.bindToNearbyInteractionManager()
     }
+    
+    /// peer와의 연결을 해제합니다.
+    func disconnectToPeerDevice() {
+        self.disconnectMCSession()
+        self.disconnectNISession()
+    }
 }
 
 private extension PeerConnectionController {
@@ -44,6 +50,19 @@ private extension PeerConnectionController {
     
     func connected(peerID: MCPeerID) {
         self.connectedPeer = Peer(id: peerID)
+    }
+    
+    /// MCSession을 종료시키기 위해 사용합니다.
+    func disconnectMCSession() {
+        self.connectedPeer = nil
+        self.multipeerConnectivityManager.disconnectSession()
+    }
+    
+    /// NISession을 종료시키기 위해 사용합니다.
+    func disconnectNISession() {
+        self.nearbyInteractionManager.sessionInvalidate()
+        self.isNISessionEstablished = false
+        self.isTokenSharedWithPeer = false
     }
     
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
@@ -69,7 +88,7 @@ private extension PeerConnectionController {
         self.multipeerConnectivityManager.peerNotConnected
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                
+                self?.disconnectToPeerDevice()
             }.store(in: &self.cancellables)
         
         self.multipeerConnectivityManager.dataReceived
