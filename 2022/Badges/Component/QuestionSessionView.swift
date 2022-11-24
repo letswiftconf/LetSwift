@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct QuestionSessionView: View {
-    var session: QuestionSessionData
-    init(session: QuestionSessionData) {
-        self.session = session
+    var model: QuestionModel
+    
+    init(model: QuestionModel) {
+        self.model = model
     }
     
     var body: some View {
@@ -19,35 +20,34 @@ struct QuestionSessionView: View {
                 .font(.bodyBold)
                 .foregroundColor(.white)
             HStack(alignment: .top) {
-                Image("tempImage")
+                Image("2022_\(model.speakerRes.name)")
                     .resizable()
                     .frame(width: 70, height: 70)
                     .cornerRadius(8)
                 VStack(alignment: .leading) {
-                    Text(session.datetime)
+                    Text(model.sessionRes.getTime())
                         .font(.bodyRegular)
                     
                     Spacer().frame(height: 2)
                     
-                    Text(session.title)
+                    Text(model.sessionRes.title)
                         .font(.bodyBold)
                     
                     Spacer().frame(height: 7)
                         
-                    Text(session.contents)
+                    Text(model.sessionRes.content)
                         .font(.subheadRegular)
                     
                     Spacer().frame(height: 21)
-                    Button {
-                        //TODO : NAVIGATE TO SESSION VIEW
-                    } label: {
+                    NavigationLink(destination: SessionDetailView(model: model.toSessionInfomation())) {
                         Text("더보기")
+                            .foregroundColor(Color.orange)
                             .font(.bodyRegular)
                     }
                     .frame(width: 100, height: 35, alignment: .center)
                     .overlay(
                         RoundedRectangle(cornerRadius: 17.5)
-                            .stroke(.white)
+                            .stroke(Color.orange)
                     )
                     
                     
