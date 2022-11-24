@@ -42,6 +42,10 @@ final class PeerConnectionController {
 private extension PeerConnectionController {
     // MARK: - private func
     
+    func connected(peerID: MCPeerID) {
+        self.connectedPeer = Peer(id: peerID)
+    }
+    
     /// PeerConnectionManager의 이벤트를 전달받기 위해 PeerConnectionManager의 프로퍼티와 바인딩합니다.
     func bindToPeerConnectionManager() {
         self.multipeerConnectivityManager.$receivedPeerID
@@ -59,7 +63,7 @@ private extension PeerConnectionController {
         
         self.multipeerConnectivityManager.peerConnected
             .sink { [weak self] peerID in
-                
+                self?.connected(peerID: peerID)
             }.store(in: &self.cancellables)
         
         self.multipeerConnectivityManager.peerNotConnected
