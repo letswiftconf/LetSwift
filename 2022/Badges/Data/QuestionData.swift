@@ -7,35 +7,48 @@
 
 import Foundation
 
-struct QuestionData {
+struct QuestionModel : Codable {
+    var id: Int
     var question: String
     var answer: String
-    var isCorrect: Bool = false
     
-    var session: QuestionSessionData
+    var sessionRes: QuestionSessionModel
+    var speakerRes: QuestionSpeakerModel
 }
 
-struct QuestionSessionData {
-    var profile: String
-    var datetime: String
+struct QuestionSessionModel : Codable {
+    var startTime: String
+    var endTime: String
     var title: String
-    var contents: String
+    var content: String
+    var place: String
 }
 
-extension QuestionData {
-    static var dummy : [QuestionData] = [
-        QuestionData(question: "우리 행사이름 ?", answer: "letswift", session: .dummy),
-        QuestionData(question: "multiline text test\nmultiline text test\nmultiline text test", answer: "lorem ipsum", session: .dummy),
-        QuestionData(question: "swiftUI", answer: "반갑습니다", session: .dummy),
-        QuestionData(question: "넓게넓게넓게쓰기넓게넓게넓게쓰기넓게넓게넓게쓰기넓게넓게넓게쓰기", answer: "반갑습니다", session: .dummy)
-    ]
+struct QuestionSpeakerModel : Codable {
+    var name: String
+    var role: String
+    var description: String
 }
 
-extension QuestionSessionData {
-    static var dummy : QuestionSessionData = QuestionSessionData(
-        profile: "손재구",
-        datetime: "11:00 - 12:00",
-        title: "letswift",
-        contents: "letswift 행사 더미데이터 입니다"
-    )
+extension QuestionModel {
+    func toSessionInfomation() -> SessionInformationModel {
+        SessionInformationModel(rowTypeString: "", placeTypeString: "",
+                                startTimeString: sessionRes.startTime,
+                                endTimeString: sessionRes.endTime,
+                                titleString: sessionRes.title,
+                                contentString: sessionRes.content,
+                                speaker: SessionInformationModel.SessionSpeakerModel(
+                                    nameString: speakerRes.name,
+                                    roleString: speakerRes.role,
+                                    descriptionString: speakerRes.description,
+                                    profileString: ""
+                                )
+        )
+    }
+}
+
+extension QuestionSessionModel {
+    func getTime() -> String {
+        return "\(startTime) - \(endTime)"
+    }
 }

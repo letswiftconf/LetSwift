@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Combine
+
 final class NetworkManager {
     static let shared = NetworkManager()
     
     struct NetworkMethod {
-        public static let getQuestions = NetworkMethod(rawValue: "/question")
+        public static let getQuestions = NetworkMethod(rawValue: "/question/list")
         
         public init(rawValue: String) {
             self.rawValue = rawValue
@@ -18,7 +20,7 @@ final class NetworkManager {
         
         let usingProtocol = "http"
         let serverURL = "13.209.242.34:29443"
-        let version = "api/v1/"
+        let version = "api/v1"
         let rawValue : String
         
         func getApiURL() -> URL {
@@ -26,23 +28,24 @@ final class NetworkManager {
         }
     }
     
-    func getSession(api: NetworkMethod) -> URLSessionDataTask {
-        return URLSession.shared.dataTask(with: api.getApiURL())
+    func call<T: Decodable>(api: NetworkMethod, type: T.Type)  -> Future<T?, Never> {
+        return Future<T?, Never> { promise in
+            URLSession.shared.dataTask(with: api.getApiURL()) { data, _, error in
+                if let error = error {
+                    print(error)
+                    return promise(.success(nil))
+                } else if let data = data {
+                    do {
+                        
+                        let result = try JSONDecoder().decode(T.self, from: data)
+                        return promise(.success(result))
+                    } catch {
+                        print(error)
+                        return promise(.success(nil))
+                    }
+                }
+            }.resume()
+        }
     }
-//    
-//    func get() {
-//        getSession(api: .getQuestions)  { data, _, error in
-//            if let error = error {
-//                
-//            } else if let data = data {
-//                do {
-//                    let result = try JSONDecoder().decode([ProfileAPIData].self, from: data)
-//                    
-//                } catch {
-//                    
-//                }
-//            }
-//        }
-//    }
 }
  
