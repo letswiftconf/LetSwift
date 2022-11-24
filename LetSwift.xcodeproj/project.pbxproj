@@ -121,6 +121,10 @@
 		16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* Application.swift */; };
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
 		3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */; };
+		4FFB9A93292F592000182AA4 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A92292F592000182AA4 /* Peer.swift */; };
+		4FFB9A95292F907200182AA4 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */; };
+		4FFB9A97292F9FA800182AA4 /* NearbyInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */; };
+		4FFB9A99292FA31500182AA4 /* PeerConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */; };
 		551BC154292A248C00DBD819 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BC153292A248C00DBD819 /* CardType.swift */; };
 		555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB60F291CC38B00D893CE /* GoToCardView.swift */; };
 		555CB61A291CC3B800D893CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CB614291CC3B700D893CE /* CardView.swift */; };
@@ -399,6 +403,10 @@
 		1F3309A495A5037695D25036 /* Pods_Upcoming1WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming1WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		4FFB9A92292F592000182AA4 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
+		4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyInteractionManager.swift; sourceTree = "<group>"; };
+		4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionController.swift; sourceTree = "<group>"; };
 		515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-ScheduleWidgetExtension/Pods-ScheduleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		551BC153292A248C00DBD819 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
@@ -882,6 +890,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4FFB9A81292CDA1B00182AA4 /* PeerConnection */ = {
+			isa = PBXGroup;
+			children = (
+				4FFB9A91292F591800182AA4 /* Model */,
+				4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */,
+				4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */,
+				4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */,
+			);
+			path = PeerConnection;
+			sourceTree = "<group>";
+		};
+		4FFB9A91292F591800182AA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FFB9A92292F592000182AA4 /* Peer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5529B6212920292600803956 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +923,7 @@
 		555CB60D291CC37900D893CE /* CheeringCard */ = {
 			isa = PBXGroup;
 			children = (
+				4FFB9A81292CDA1B00182AA4 /* PeerConnection */,
 				555CB617291CC3B700D893CE /* NicknameView.swift */,
 				555CB616291CC3B700D893CE /* SurveyView.swift */,
 				555CB615291CC3B700D893CE /* AnswerItemView.swift */,
@@ -1745,6 +1773,7 @@
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
 				6F3A3E72291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
+				4FFB9A93292F592000182AA4 /* Peer.swift in Sources */,
 				551BC154292A248C00DBD819 /* CardType.swift in Sources */,
 				CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */,
 				6FC0FD212927C5030026714A /* BadgeView.swift in Sources */,
@@ -1783,6 +1812,7 @@
 				F0CF8916292FB823006CAEB3 /* BadgeView+API.swift in Sources */,
 				C6CDB2E1292C2D6C00960FBF /* SurveyData.swift in Sources */,
 				6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */,
+				4FFB9A95292F907200182AA4 /* MultipeerConnectivityManager.swift in Sources */,
 				C6CDB2DB292B84B600960FBF /* SessionDetailView+PresentationInformationView.swift in Sources */,
 				A5704B18256E510C00EB6C8F /* UNUserNotificationCenter.swift in Sources */,
 				C6CDB2DD292B84D300960FBF /* SessionDetailView+SpeakerInformationView.swift in Sources */,
@@ -1802,6 +1832,8 @@
 				55AA19B029252096003F1AA5 /* CheeringCardModel.swift in Sources */,
 				6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */,
 				6F3A3E5329196E1E00E42D64 /* View.swift in Sources */,
+				4FFB9A97292F9FA800182AA4 /* NearbyInteractionManager.swift in Sources */,
+				4FFB9A99292FA31500182AA4 /* PeerConnectionController.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
 				6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */,
 				6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,
