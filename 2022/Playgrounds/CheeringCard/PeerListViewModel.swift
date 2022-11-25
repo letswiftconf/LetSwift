@@ -27,6 +27,29 @@ final class PeerListViewModel: ObservableObject {
         self.peerConnectionController = peerConnectionController
         self.bindToPeerConnectionController()
     }
+    
+    // MARK: - func
+    
+    func startPeerConnectionController() {
+        self.peerConnectionController.startPeerConnetionController()
+    }
+    
+    func stopPeerConnectionController() {
+        self.peerConnectionController.stopPeerConenctionController()
+    }
+    
+    func invite(to peerID: MCPeerID) {
+        self.peerConnectionController.disconnectToPeerDevice()
+        self.peerConnectionController.invite(to: peerID)
+    }
+    
+    func disconnectToPeerDevice() {
+        self.peerConnectionController.disconnectToPeerDevice()
+    }
+    
+    func setIsSupportedNearbyInteraction() {
+        self.isShowAlert = NearbyInteractionManager.isSupportedNearbyInteraction() == false
+    }
 }
 
 private extension PeerListViewModel {
