@@ -132,7 +132,8 @@ extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
         guard
             let window = windowScene?.windows.first,
             let context = context,
-            let peerName = String(data: context, encoding: .utf8)
+            let peerName = String(data: context, encoding: .utf8),
+            let rootViewController = window.rootViewController
         else { return }
     
         let title = "\(peerName)와 연결"
@@ -142,7 +143,9 @@ extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
         alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
             invitationHandler(true, self.session)
         })
-        window.rootViewController?.present(alertController, animated: true)
+        if let presentedViewController = rootViewController.presentedViewController {
+            presentedViewController.present(alertController, animated: true)
+        }
     }
 }
 
