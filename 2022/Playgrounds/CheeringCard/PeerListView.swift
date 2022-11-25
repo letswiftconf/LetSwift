@@ -47,6 +47,26 @@ struct PeerListView: View {
                         }
                     }
                 }
+                Section(
+                    header: HStack(spacing: 8) {
+                        Text("나와 같은 응원카드를 가진 동료")
+                        Spacer()
+                        ProgressView()
+                    }
+                ) {
+                    ForEach(self.viewModel.peers, id: \.id) { peer in
+                        HStack {
+                            Text(peer.displayName)
+                                .font(.headline)
+                            Spacer()
+                            Image(systemName: "arrowshape.turn.up.right.fill")
+                        }
+                        .onTapGesture {
+                            self.viewModel.invite(to: peer.id)
+                        }
+                        .listRowBackground(Color.backgroundCell)
+                    }
+                }
             }
             .background(Color.backgroundBlack)
             .listStyle(InsetGroupedListStyle())
