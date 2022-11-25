@@ -14,10 +14,10 @@ final class PeerListViewModel: ObservableObject {
     // MARK: - properties
     
     private var peerConnectionController: PeerConnectionController
-    @Published var isNearbySessionEstablished: Bool = false
-    @Published var distanceToPeerDevice: String = ""
-    @Published var peerName: String = ""
-    @Published var peers: [Peer] = []
+    @Published private(set) var isNearbySessionEstablished: Bool = false
+    @Published private(set) var distanceToPeerDevice: String = ""
+    @Published private(set) var peerName: String = ""
+    @Published private(set) var peers: [Peer] = []
     @Published private(set) var isSupportedNearbyInteraction: Bool = false
     @Published var isShowAlert: Bool = false
     
