@@ -49,14 +49,14 @@ extension GoToCardView {
         if let user = SharedPreference.shared.cheeringCard {
             if user.name.isEmpty {
                 state = "?"
-                title = "나의 playground card\n뽑으러 가기"
+                title = "나의 playgrounds card\n뽑으러 가기"
             } else {
                 state = CardType.cardImage(type: user.cardType)
                 title = "\(user.cardType)인 \(user.name)님,\n전체 결과를 확인해보세요!"
             }
         } else {
             state = "?"
-            title = "나의 playground card\n뽑으러 가기"
+            title = "나의 playgrounds card\n뽑으러 가기"
         }
     }
     
