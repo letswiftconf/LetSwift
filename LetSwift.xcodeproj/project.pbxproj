@@ -177,7 +177,6 @@
 		6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD292927C55C0026714A /* QuestionInfoView.swift */; };
 		6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD302927C56A0026714A /* QuestionData.swift */; };
 		6FC0FD332927DA980026714A /* PlaygroundSimpleRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */; };
-		6FC0FD35292F85640026714A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD34292F85640026714A /* NetworkManager.swift */; };
 		6FE5D036291F80D7001F6880 /* WelcomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D035291F80D7001F6880 /* WelcomElement.swift */; };
 		6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D037291F8E09001F6880 /* IndicatorView.swift */; };
 		6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D039291F9F2C001F6880 /* Toast.swift */; };
@@ -213,6 +212,7 @@
 		A5EC7768256BD23D0072E959 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7767256BD23D0072E959 /* People.swift */; };
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
+		AE91AB4D2930D85500276B83 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AE91AB4C2930D85500276B83 /* AsyncAlgorithms */; };
 		AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
 		AECAE6D0292CBF99007A0BFB /* LocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CF292CBF99007A0BFB /* LocationClient.swift */; };
 		AECAE6D2292CBFA4007A0BFB /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */; };
@@ -552,6 +552,7 @@
 			files = (
 				6F3A3E49291966F600E42D64 /* Lottie in Frameworks */,
 				3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */,
+				AE91AB4D2930D85500276B83 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,6 +1317,7 @@
 			name = LetSwift;
 			packageProductDependencies = (
 				6F3A3E48291966F600E42D64 /* Lottie */,
+				AE91AB4C2930D85500276B83 /* AsyncAlgorithms */,
 			);
 			productName = "LetSwift (iOS)";
 			productReference = 16DBE6282569EAD200B334A3 /* LetSwift.app */;
@@ -1432,6 +1434,7 @@
 			mainGroup = 16DBE61B2569EAD100B334A3;
 			packageReferences = (
 				6F3A3E47291966F600E42D64 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				AE91AB4B2930D85500276B83 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 			);
 			productRefGroup = 16DBE6292569EAD200B334A3 /* Products */;
 			projectDirPath = "";
@@ -2498,6 +2501,14 @@
 				kind = branch;
 			};
 		};
+		AE91AB4B2930D85500276B83 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2505,6 +2516,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6F3A3E47291966F600E42D64 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		AE91AB4C2930D85500276B83 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE91AB4B2930D85500276B83 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
