@@ -54,6 +54,15 @@ final class NearbyInteractionManager: NSObject {
         self.localDiscoveryToken = self.session?.discoveryToken
         self.setNearbyInteractionSessionDelegate()
     }
+    
+    /// Nearby Interaction framework 사용여부를 판별합니다.
+    static func isSupportedNearbyInteraction() -> Bool {
+        if #available(iOS 16.0, *) {
+            return NISession.deviceCapabilities.supportsPreciseDistanceMeasurement
+        } else {
+            return NISession.isSupported
+        }
+    }
 }
 
 private extension NearbyInteractionManager {
