@@ -70,6 +70,12 @@ struct PeerListView: View {
             }
             .background(Color.backgroundBlack)
             .listStyle(InsetGroupedListStyle())
+            .onAppear {
+                self.viewModel.startPeerConnectionController()
+            }
+            .onDisappear {
+                self.viewModel.stopPeerConnectionController()
+            }
         }
         .navigationTitle("동료 찾기")
         .navigationBarTitleDisplayMode(.large)
