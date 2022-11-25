@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct PeerListView: View {
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var viewModel: PeerListViewModel
+    
+    init(viewModel: PeerListViewModel) {
+        self.viewModel = viewModel
+        UICollectionView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,6 +23,10 @@ struct PeerListView: View {
 
 struct PeerListView_Previews: PreviewProvider {
     static var previews: some View {
-        PeerListView()
+        PeerListView(
+            viewModel: PeerListViewModel(
+                peerConnectionController: PeerConnectionController()
+            )
+        )
     }
 }
