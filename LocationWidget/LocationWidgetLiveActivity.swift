@@ -9,24 +9,21 @@ struct LocationWidgetLiveActivity: Widget {
         } dynamicIsland: { context in
             /// MARK: - DynamicIsland는 추가 구현이 필요한 상태.
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    Text("")
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    Text("")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom")
-                    // more content
+                    Text("")
                 }
             } compactLeading: {
-                Text("L")
+                Text("")
             } compactTrailing: {
-                Text("T")
+                Text("")
             } minimal: {
-                Text("Min")
+                Text("")
             }
         }
     }
@@ -51,7 +48,7 @@ struct LocationLockScreenBannerView: View {
                         Text("\(distance, specifier: "%.2f")")
                             .font(.custom("Poppins-ExtraBold", size: 42))
                         
-                        Text("Km")
+                        Text("km")
                             .font(.custom("Poppins-ExtraBold", size: 30))
                     }
                     .foregroundColor(Color(hex: "0A0A0A"))
