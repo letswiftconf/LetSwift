@@ -14,7 +14,7 @@ extension SessionView {
         private let informationTextString: String = """
     지난 3년 간 다채로운 행사와 다양한 만남에 목말라 있었나요?\n
     드디어 긴 침묵 끝에, 3년 만에 2022 레츠스위프트가 오프라인으로 돌아왔습니다!\n
-    함께 Swift Playground에서 만나고, 배우고, 즐겨요!
+    함께 Swift Playgrounds에서 만나고, 배우고, 즐겨요!
     """
         
         @State
