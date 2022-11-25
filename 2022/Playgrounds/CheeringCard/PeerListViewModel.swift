@@ -54,7 +54,14 @@ private extension PeerListViewModel {
         self.peerConnectionController.$distanceToPeerDevice
             .receive(on: DispatchQueue.main)
             .sink { [weak self] distanceToPeerDevice in
-                
+                self?.setDistanceToPeerDevice(from: distanceToPeerDevice)
             }.store(in: &self.cancellables)
+    }
+    
+    func setDistanceToPeerDevice(from distanceToPeerDevice: Float?) {
+        self.distanceToPeerDevice = String(
+            format: "%0.2f",
+            distanceToPeerDevice ?? 0.0
+        )
     }
 }
