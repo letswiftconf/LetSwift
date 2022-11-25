@@ -18,7 +18,6 @@ final class PeerListViewModel: ObservableObject {
     @Published private(set) var distanceToPeerDevice: String = ""
     @Published private(set) var peerName: String = ""
     @Published private(set) var peers: [Peer] = []
-    @Published private(set) var isSupportedNearbyInteraction: Bool = false
     @Published var isShowAlert: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
