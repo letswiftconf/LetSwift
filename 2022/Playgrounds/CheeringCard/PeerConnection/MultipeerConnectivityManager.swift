@@ -101,12 +101,12 @@ private extension MultipeerConnectivityManager {
     }
     
     static func getCheeringCardType() -> String {
-        guard let cheeringCardCategory = SharedPreference.shared.cheeringCard?.category
+        guard let cheeringCardType = SharedPreference.shared.cheeringCard?.cardType
         else {
             return "none"
         }
         
-        return cheeringCardCategory.utf8EncodedString()
+        return cheeringCardType.utf8EncodedString()
     }
     
     static func getUserName() -> String {
