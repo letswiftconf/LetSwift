@@ -15,7 +15,7 @@ final class MultipeerConnectivityManager: NSObject {
     /// 응원카드의 타입이 같은 사용자와의 연결을 위한 필드입니다.
     private let cheeringCardType: String
     private let session: MCSession
-    private let localPeerId: MCPeerID
+    private let localPeerID: MCPeerID
     @Published var receivedPeerID: MCPeerID?
     private let nearbyServiceBrowser: MCNearbyServiceBrowser
     private let nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
@@ -28,21 +28,21 @@ final class MultipeerConnectivityManager: NSObject {
         let serviceType = "letswift"
         self.cheeringCardType = MultipeerConnectivityManager.getCheeringCardType()
         
-        self.localPeerId = MCPeerID(
+        self.localPeerID = MCPeerID(
             displayName: MultipeerConnectivityManager.getUserName()
         )
         self.session = MCSession(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             securityIdentity: nil,
             encryptionPreference: .none
         )
         self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             discoveryInfo: [self.cheeringCardType: self.cheeringCardType],
             serviceType: serviceType
         )
         self.nearbyServiceBrowser = MCNearbyServiceBrowser(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             serviceType: serviceType
         )
         self.peerConnected = PassthroughSubject()
