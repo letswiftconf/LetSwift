@@ -1,51 +1,54 @@
+import AsyncAlgorithms
 import CoreLocation
 import Foundation
 import MapKit
 
+@available(iOS 16.1, *)
 struct LocationClient {
-    let distanceStream: (_ venue: ConferenceVenue) -> AsyncThrowingStream<Double, Error>
+    let distanceStream: (_ venue: ConferenceVenue) async throws -> DistanceStream
+    let cancelStream: () -> Void
 }
 
+@available(iOS 16.1, *)
 extension LocationClient {
+    typealias DistanceStream =
+        AsyncFilterSequence<AsyncThrowingMapSequence<AsyncDebounceSequence<AsyncThrowingStream<CLLocation, Error>, ContinuousClock>, Double>>
+    
     enum InternalError: Error {
         case denied
         case unexpected
     }
     
-    @available(iOS 16.1, *)
     static let live: LocationClient = {
         let manager = Manager()
         
-        return LocationClient { venue in
-            return .init { continuation in
-                Task {
+        return LocationClient { @MainActor [manager] venue in
+            manager.checkAuthorizationStatus()
+            return try manager.locationStream()
+                .debounce(for: .seconds(2))
+                .map { @MainActor item in
                     do {
-                        if manager.isAuthorized {
-                            manager.startUpdatingLocation()
-                        }
-                        for try await location in try manager.locationStream() {
-                            let distance = try await buildCLLocationDistance(
-                                location: location,
-                                destination: venue.mapItem
-                            )
-                            if distance > 1 {
-                                continuation.yield(with: .success(distance))
-                            } else {
-                                continuation.finish()
-                                manager.stopUpdatingLocation()
-                            }
-                            try await Task.sleep(for: .seconds(5))
-                        }
+                        let distance = try await buildCLLocationDistance(
+                            location: item,
+                            destination: venue.mapItem
+                        )
+                        return distance as Double
                     } catch {
-                        manager.stopUpdatingLocation()
-                        continuation.yield(with: .failure(error))
+                        fatalError()
                     }
                 }
-            }
+                .filter { @MainActor item in
+                    let flag = item > 1
+                    flag ? nil : manager.stopUpdatingLocation(isCancelled: false)
+                    return flag
+                }
+        } cancelStream: { [manager] in
+            manager.stopUpdatingLocation(isCancelled: true)
         }
     }()
 }
 
+@available(iOS 16.1, *)
 extension LocationClient {
     final class Manager: NSObject, CLLocationManagerDelegate {
         private lazy var manager: CLLocationManager = {
@@ -56,32 +59,10 @@ extension LocationClient {
             
             return manager
         }()
-        var isAuthorized: Bool {
-            switch manager.authorizationStatus {
-            case .authorizedAlways, .authorizedWhenInUse:
-                return true
-                
-            default:
-                return false
-            }
-        }
         private var locationContinuation: AsyncThrowingStream<CLLocation, Error>.Continuation?
         
-        override init() {
-            super.init()
-            config()
-        }
-        
-        func locationStream() throws -> AsyncThrowingStream<CLLocation, Error> {
-            let flag = manager.authorizationStatus != .restricted &&
-            manager.authorizationStatus != .denied
-            guard flag else { throw InternalError.denied }
-            return AsyncThrowingStream { continuation in
-                self.locationContinuation = continuation
-            }
-        }
-        
-        private func config() {
+        @MainActor
+        func checkAuthorizationStatus() {
             switch manager.authorizationStatus {
             case .authorizedWhenInUse, .authorizedAlways:
                 manager.startUpdatingLocation()
@@ -94,13 +75,18 @@ extension LocationClient {
             }
         }
         
-        func startUpdatingLocation() {
-            manager.startUpdatingLocation()
+        func locationStream() throws -> AsyncThrowingStream<CLLocation, Error> {
+            let flag = manager.authorizationStatus != .restricted &&
+            manager.authorizationStatus != .denied
+            guard flag else { throw InternalError.denied }
+            return AsyncThrowingStream { [weak self] continuation in
+                self?.locationContinuation = continuation
+            }
         }
         
-        func stopUpdatingLocation() {
+        func stopUpdatingLocation(isCancelled: Bool) {
             manager.stopUpdatingLocation()
-            locationContinuation?.finish()
+            locationContinuation?.finish(throwing: isCancelled ? CancellationError() : nil)
         }
         
         func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -138,6 +124,8 @@ extension LocationClient {
     }
 }
 
+@available(iOS 16.1, *)
+@MainActor
 private func buildCLLocationDistance(
     location: CLLocation,
     destination: MKMapItem
