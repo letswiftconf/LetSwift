@@ -102,8 +102,12 @@ struct CardView: View {
                             boxText(title: "카드 공유", image: "square.and.arrow.up")
                         }
                         Spacer()
-                        Button {
-                            // action
+                        NavigationLink {
+                            PeerListView(
+                                viewModel: PeerListViewModel(
+                                    peerConnectionController: PeerConnectionController()
+                                )
+                            )
                         } label: {
                             boxText(title: "동료 찾기", image: "magnifyingglass")
                         }
