@@ -73,6 +73,24 @@ struct PeerListView: View {
         }
         .navigationTitle("동료 찾기")
         .navigationBarTitleDisplayMode(.large)
+        .alert(isPresented: self.$viewModel.isShowAlert) {
+            Alert(title: Text("알림"),
+                  message: Text("""
+Nearby Interaction을 이용한
+동료찾기 기능은 iPhone11 이상부터 사용가능합니다.
+"""
+                               ),
+                  dismissButton: .default(
+                    Text("확인"),
+                    action: {
+                        self.dismiss()
+                    }
+                  )
+            )
+        }
+        .onAppear {
+            self.viewModel.setIsSupportedNearbyInteraction()
+        }
     }
 }
 
