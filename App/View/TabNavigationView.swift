@@ -73,7 +73,7 @@ struct TabNavigationView: View {
                         print("dismiss")
                         if env.isSuccess {
                             env.isSuccess = !env.isSuccess
-                            Toast.shared.show(message: "후기를 작성해 주셔서 감사합니다!", delay: 1.5)
+                            Toast.shared.show(message: "컨퍼런스 후기가 등록되었어요", delay: 1.5)
                         }
                     } content: {
                         GuestBookContentView()
