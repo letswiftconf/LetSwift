@@ -122,6 +122,7 @@
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
 		3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */; };
 		4F74A95529314B76003311E8 /* PeerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74A95429314B76003311E8 /* PeerListViewModel.swift */; };
+		4F74A95729314E6C003311E8 /* PeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74A95629314E6C003311E8 /* PeerListView.swift */; };
 		4FFB9A93292F592000182AA4 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A92292F592000182AA4 /* Peer.swift */; };
 		4FFB9A95292F907200182AA4 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */; };
 		4FFB9A97292F9FA800182AA4 /* NearbyInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */; };
@@ -407,6 +408,7 @@
 		2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		4F74A95429314B76003311E8 /* PeerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerListViewModel.swift; sourceTree = "<group>"; };
+		4F74A95629314E6C003311E8 /* PeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerListView.swift; sourceTree = "<group>"; };
 		4FFB9A92292F592000182AA4 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
 		4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
 		4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyInteractionManager.swift; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 			children = (
 				4FFB9A81292CDA1B00182AA4 /* PeerConnection */,
 				4F74A95429314B76003311E8 /* PeerListViewModel.swift */,
+				4F74A95629314E6C003311E8 /* PeerListView.swift */,
 				555CB617291CC3B700D893CE /* NicknameView.swift */,
 				555CB616291CC3B700D893CE /* SurveyView.swift */,
 				555CB615291CC3B700D893CE /* AnswerItemView.swift */,
@@ -1753,6 +1756,7 @@
 				1684F667257244F900A784C0 /* Bundle.swift in Sources */,
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
+				4F74A95729314E6C003311E8 /* PeerListView.swift in Sources */,
 				AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */,
 				16A27AC82570AFC700D7C664 /* OnAirIconView.swift in Sources */,
 				C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */,
