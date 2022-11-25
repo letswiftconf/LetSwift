@@ -34,15 +34,7 @@ struct TabNavigationView: View {
             switch tab {
             case .sessions:
                 if #available(iOS 16.1, *) {
-                    Button(action: {LiveActivityStore.live.buttonTapped() }) {
-                        Text("Activate\nLive Activitiy")
-                            .font(.bodyBold)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(.orange)
-                            .cornerRadius(10)
-                    }
-                    .padding(.trailing, 8)
+                    SessionFloatingButton(store: .live)
                 }
                 
             case .playgrounds:
