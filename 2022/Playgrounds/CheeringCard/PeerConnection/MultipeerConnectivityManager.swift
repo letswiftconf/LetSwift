@@ -13,12 +13,14 @@ final class MultipeerConnectivityManager: NSObject {
     // MARK: - properties
     
     /// 응원카드의 타입이 같은 사용자와의 연결을 위한 필드입니다.
-    private let cheeringCardType: String
-    private let session: MCSession
-    private let localPeerID: MCPeerID
+    private var cheeringCardType: String
+    /// Bonjour service type에 등록된 service 명입니다.
+    private let serviceType = "letswift"
+    private var session: MCSession
+    private var localPeerID: MCPeerID
     @Published var receivedPeerID: MCPeerID?
-    private let nearbyServiceBrowser: MCNearbyServiceBrowser
-    private let nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
+    private var nearbyServiceBrowser: MCNearbyServiceBrowser
+    private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
     let peerConnected: PassthroughSubject<MCPeerID, Never>
     let peerNotConnected: PassthroughSubject<MCPeerID, Never>
     let peerLosted: PassthroughSubject<MCPeerID, Never>
@@ -76,6 +78,12 @@ final class MultipeerConnectivityManager: NSObject {
     // MARK: - func
     
     func startMultiPeerConnectionManager() {
+        self.setCheeringCardType()
+        self.setLocalPeerID()
+        self.setSession()
+        self.setNearbyServiceAdvertiser()
+        self.setNearbyServiceBrowser()
+        self.setDelegation()
         self.nearbyServiceAdvertiser.startAdvertisingPeer()
         self.nearbyServiceBrowser.startBrowsingForPeers()
     }
@@ -93,6 +101,39 @@ final class MultipeerConnectivityManager: NSObject {
 
 private extension MultipeerConnectivityManager {
     // MARK: - private func
+    
+    func setCheeringCardType() {
+        self.cheeringCardType = MultipeerConnectivityManager.getCheeringCardType()
+    }
+    
+    func setNearbyServiceBrowser() {
+        self.nearbyServiceBrowser = MCNearbyServiceBrowser(
+            peer: self.localPeerID,
+            serviceType: serviceType
+        )
+    }
+    
+    func setNearbyServiceAdvertiser() {
+        self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
+            peer: self.localPeerID,
+            discoveryInfo: [self.cheeringCardType: self.cheeringCardType],
+            serviceType: serviceType
+        )
+    }
+    
+    func setLocalPeerID() {
+        self.localPeerID =  MCPeerID(
+            displayName: MultipeerConnectivityManager.getUserName()
+        )
+    }
+    
+    func setSession() {
+        self.session = MCSession(
+            peer: self.localPeerID,
+            securityIdentity: nil,
+            encryptionPreference: .none
+        )
+    }
     
     func setDelegation() {
         self.session.delegate = self
