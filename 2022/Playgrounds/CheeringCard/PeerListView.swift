@@ -17,7 +17,42 @@ struct PeerListView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            List {
+                if self.viewModel.isNearbySessionEstablished {
+                    Section {
+                        VStack(spacing: 20) {
+                            HStack {
+                                Image(systemName: "person.circle")
+                                Text("\(self.viewModel.peerName) 님과의 거리")
+                                    .fontWeight(.bold)
+                                Spacer()
+                                Button {
+                                    self.viewModel.disconnectToPeerDevice()
+                                } label: {
+                                    Image(systemName: "xmark")
+                                        .resizable()
+                                        .frame(width: 10, height: 10)
+                                }
+                            }
+                            HStack {
+                                Text(
+                                    "\(self.viewModel.distanceToPeerDevice)"
+                                )
+                                .font(.title)
+                                .fontWeight(.bold)
+                                Text("m")
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+            }
+            .background(Color.backgroundBlack)
+            .listStyle(InsetGroupedListStyle())
+        }
+        .navigationTitle("동료 찾기")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
