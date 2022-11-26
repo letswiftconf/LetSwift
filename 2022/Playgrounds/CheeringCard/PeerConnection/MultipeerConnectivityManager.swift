@@ -13,12 +13,14 @@ final class MultipeerConnectivityManager: NSObject {
     // MARK: - properties
     
     /// 응원카드의 타입이 같은 사용자와의 연결을 위한 필드입니다.
-    private let cheeringCardType: String
-    private let session: MCSession
-    private let localPeerId: MCPeerID
+    private var cheeringCardType: String
+    /// Bonjour service type에 등록된 service 명입니다.
+    private let serviceType = "letswift"
+    private var session: MCSession
+    private var localPeerID: MCPeerID
     @Published var receivedPeerID: MCPeerID?
-    private let nearbyServiceBrowser: MCNearbyServiceBrowser
-    private let nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
+    private var nearbyServiceBrowser: MCNearbyServiceBrowser
+    private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
     let peerConnected: PassthroughSubject<MCPeerID, Never>
     let peerNotConnected: PassthroughSubject<MCPeerID, Never>
     let peerLosted: PassthroughSubject<MCPeerID, Never>
@@ -28,21 +30,21 @@ final class MultipeerConnectivityManager: NSObject {
         let serviceType = "letswift"
         self.cheeringCardType = MultipeerConnectivityManager.getCheeringCardType()
         
-        self.localPeerId = MCPeerID(
+        self.localPeerID = MCPeerID(
             displayName: MultipeerConnectivityManager.getUserName()
         )
         self.session = MCSession(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             securityIdentity: nil,
             encryptionPreference: .none
         )
         self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             discoveryInfo: [self.cheeringCardType: self.cheeringCardType],
             serviceType: serviceType
         )
         self.nearbyServiceBrowser = MCNearbyServiceBrowser(
-            peer: self.localPeerId,
+            peer: self.localPeerID,
             serviceType: serviceType
         )
         self.peerConnected = PassthroughSubject()
@@ -76,6 +78,12 @@ final class MultipeerConnectivityManager: NSObject {
     // MARK: - func
     
     func startMultiPeerConnectionManager() {
+        self.setCheeringCardType()
+        self.setLocalPeerID()
+        self.setSession()
+        self.setNearbyServiceAdvertiser()
+        self.setNearbyServiceBrowser()
+        self.setDelegation()
         self.nearbyServiceAdvertiser.startAdvertisingPeer()
         self.nearbyServiceBrowser.startBrowsingForPeers()
     }
@@ -93,6 +101,39 @@ final class MultipeerConnectivityManager: NSObject {
 
 private extension MultipeerConnectivityManager {
     // MARK: - private func
+    
+    func setCheeringCardType() {
+        self.cheeringCardType = MultipeerConnectivityManager.getCheeringCardType()
+    }
+    
+    func setNearbyServiceBrowser() {
+        self.nearbyServiceBrowser = MCNearbyServiceBrowser(
+            peer: self.localPeerID,
+            serviceType: serviceType
+        )
+    }
+    
+    func setNearbyServiceAdvertiser() {
+        self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
+            peer: self.localPeerID,
+            discoveryInfo: [self.cheeringCardType: self.cheeringCardType],
+            serviceType: serviceType
+        )
+    }
+    
+    func setLocalPeerID() {
+        self.localPeerID =  MCPeerID(
+            displayName: MultipeerConnectivityManager.getUserName()
+        )
+    }
+    
+    func setSession() {
+        self.session = MCSession(
+            peer: self.localPeerID,
+            securityIdentity: nil,
+            encryptionPreference: .none
+        )
+    }
     
     func setDelegation() {
         self.session.delegate = self
@@ -132,7 +173,8 @@ extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
         guard
             let window = windowScene?.windows.first,
             let context = context,
-            let peerName = String(data: context, encoding: .utf8)
+            let peerName = String(data: context, encoding: .utf8),
+            let rootViewController = window.rootViewController
         else { return }
     
         let title = "\(peerName)와 연결"
@@ -142,7 +184,9 @@ extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
         alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
             invitationHandler(true, self.session)
         })
-        window.rootViewController?.present(alertController, animated: true)
+        if let presentedViewController = rootViewController.presentedViewController {
+            presentedViewController.present(alertController, animated: true)
+        }
     }
 }
 
