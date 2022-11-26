@@ -28,7 +28,7 @@ struct BadgeView: View {
                             .cornerRadius(12)
                             .frame(width: 132.0, height: 132.0)
                             
-                        Text(correctedCount >= 6 ? "🎉🎉🎉🎉\nLet's play at\nSwift Playgrounds" : "세션에 참여한 후, 6개 이상의 문제를 풀어보세요 !")
+                        Text(correctedCount >= 6 ? "🎉🎉🎉🎉\nLet's play at\nSwift Playgrounds" : "세션에 참여한 후, 아래 문제를 풀어보세요 !")
                             .truncationMode(.tail)
                             .font(.bodyRegular)
                             .padding(.horizontal, 31.0)
