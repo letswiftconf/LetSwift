@@ -148,7 +148,7 @@ extension ChartView {
                                         }
                                     }
                                 }
-                                .frame(height: 150)
+                                .frame(height: index == 3 || index == 0 ? 250 : 150)
                                 .padding(.bottom, 50)
                             }
                         }

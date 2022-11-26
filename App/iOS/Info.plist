@@ -61,16 +61,18 @@
 	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Allow access to save event to calendar.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>나와 관심사가 비슷한 동료를 찾기 위해 로컬 네트워크 권한을 필요로 합니다.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>행사장까지 남은 거리를 계산하기 위해 권한이 필요합니다. (필수권한)</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>행사장까지 남은 거리를 계산하기 위해 권한이 필요합니다. (필수권한)</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>나와 관심사가 비슷한 동료를 찾기 위해 로컬 네트워크 권한을 필요로 합니다.</string>
 	<key>NSNearbyInteractionUsageDescription</key>
 	<string>나와 관심사가 비슷한 동료를 찾기 위해 근처 상호작용 권한을 필요로 합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Playground Card를 갤러리에 저장하기 위해 앨범 쓰기 권한을 허용해주세요.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -96,6 +98,8 @@
 	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -104,7 +108,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSSupportsLiveActivities</key>
-	<true/>
 </dict>
 </plist>
