@@ -5,12 +5,16 @@ import SwiftUI
 
 @available(iOS 16.1, *)
 class LiveActivityStore: ObservableObject {
-    @MainActor @Published var state = false
-    private var activity: Activity<LocationAttributes>?
-    private var taskList: [Task<Void, Never>] = []
+    @MainActor @Published var state: State
     private let environmnet: Environment
     
-    init(environment: Environment) {
+    private var taskList: [Task<Void, Never>] = []
+    
+    init(
+        initialState: State,
+        environment: Environment
+    ) {
+        self._state = .init(initialValue: initialState)
         self.environmnet = environment
     }
     
@@ -18,67 +22,59 @@ class LiveActivityStore: ObservableObject {
         guard
             taskList.isEmpty
         else {
-            environmnet.locationClient.cancelStream()
+            environmnet.locationClient.cancelStream(false)
+            Task { @MainActor [weak self] in
+                self?.state.isLiveActivityVisible = false
+            }
             return
         }
-        let task = Task {
+        let task = Task { @MainActor [weak self, environmnet] in
             do {
-                await toggle(item: true)
+                self?.state.isLiveActivityVisible = true
                 let stream = try await environmnet
                     .locationClient
                     .distanceStream(.aTCenter)
                 
                 for try await item in stream {
-                    if activity?.activityState == Optional(.active) {
-                        await activity?.update(using: .init(movingState: .going(item)))
+                    if self?.state.liveActivity?.activityState == Optional(.active) {
+                        if self?.state.liveActivity?.contentState.distance != Optional(item) {
+                            await self?.state.liveActivity?.update(using: .init(distance: item))
+                        }
                     } else {
-                        try buildActivity(item: item)
+                        try self?.buildActivity(distance: item)
                     }
                 }
-                await toggle(item: false)
-                await activity?.update(using: .init(movingState: .arrived))
+                self?.cancelTasks()
+                await self?.state.liveActivity?.update(using: .init(isArrived: true))
+            } catch is CancellationError {
+                self?.cancelTasks()
+                await self?.state.liveActivity?.end(dismissalPolicy: .immediate)
             } catch {
-                guard
-                    !(error is CancellationError)
-                else {
-                    await toggle(item: false)
-                    for _ in 0..<taskList.count {
-                        taskList.removeFirst().cancel()
-                    }
-                    await activity?.end(dismissalPolicy: .immediate)
-                    return
-                }
-                print("💥", error)
+                self?.cancelTasks(error: error)
             }
         }
         taskList.append(task)
     }
     
-    private func buildActivity(item: Double) throws {
-        activity = try .request(
+    @MainActor
+    private func buildActivity(distance: Double) throws {
+        state.liveActivity = try .request(
             attributes: .init(),
-            contentState: .init(movingState: .going(item))
+            contentState: .init(distance: distance)
         )
-        let task = Task { [activity, weak self] in
-            guard let self = self else { return }
-            if let activity {
-                for await activityState in activity.activityStateUpdates {
+        let task = Task { [weak self, state, environmnet] in
+            if let liveActivity = state.liveActivity {
+                for await activityState in liveActivity.activityStateUpdates {
                     switch activityState {
                     case .active:
                         break
                         
                     case .ended:
-                        await toggle(item: false)
-                        for _ in 0..<self.taskList.count {
-                            self.taskList.removeFirst().cancel()
-                        }
+                        self?.cancelTasks()
                         
                     case .dismissed:
-                        await toggle(item: false)
-                        environmnet.locationClient.cancelStream()
-                        for _ in 0..<self.taskList.count {
-                            self.taskList.removeFirst().cancel()
-                        }
+                        environmnet.locationClient.cancelStream(false)
+                        self?.cancelTasks()
                         
                     default:
                         break
@@ -90,16 +86,27 @@ class LiveActivityStore: ObservableObject {
     }
     
     @MainActor
-    private func toggle(item: Bool) {
-        withAnimation {
-            state = item
-        }
+    private func cancelTasks(error: Error? = nil) {
+        state.isLiveActivityVisible = false
+        taskList.indices
+            .forEach { [weak self] _ in self?.taskList.removeFirst().cancel() }
+        state.error = error
     }
 }
 
 @available(iOS 16.1, *)
 extension LiveActivityStore {
-    static let live = LiveActivityStore(environment: .live)
+    static let live = LiveActivityStore(
+        initialState: .init(),
+        environment: .live
+    )
+    
+    struct State {
+        var isLiveActivityVisible: Bool = false
+        var isButtonVisible: Bool = true
+        var liveActivity: Activity<LocationAttributes>?
+        var error: Error?
+    }
     
     struct Environment {
         static let live = Self(locationClient: .live)

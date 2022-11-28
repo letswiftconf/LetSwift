@@ -5,7 +5,7 @@ import SwiftUI
 struct LocationWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: LocationAttributes.self) { context in
-            LocationLockScreenBannerView(state: context.state.movingState)
+            LocationLockScreenBannerView(state: context.state)
         } dynamicIsland: { context in
             /// MARK: - DynamicIsland는 추가 구현이 필요한 상태.
             DynamicIsland {
@@ -30,12 +30,14 @@ struct LocationWidgetLiveActivity: Widget {
 }
 
 struct LocationLockScreenBannerView: View {
-    let state: LocationAttributes.MovingState
+    let state: LocationAttributes.ContentState
     
     var body: some View {
         ZStack(alignment: .leading) {
-            switch state {
-            case let .going(distance):
+            if state.isArrived {
+                Image("arrivedLockScreenBanner")
+                    .resizable()
+            } else {
                 Image("lockScreenBannerBackground")
                     .resizable()
                 
@@ -45,7 +47,7 @@ struct LocationLockScreenBannerView: View {
                         .foregroundColor(Color(hex: "545454"))
                     
                     HStack(alignment: .firstTextBaseline, spacing: 15) {
-                        Text("\(distance, specifier: "%.2f")")
+                        Text("\(state.distance, specifier: "%.2f")")
                             .font(.custom("Poppins-ExtraBold", size: 42))
                         
                         Text("km")
@@ -54,10 +56,6 @@ struct LocationLockScreenBannerView: View {
                     .foregroundColor(Color(hex: "0A0A0A"))
                 }
                 .padding(.leading, 28)
-                
-            case .arrived:
-                Image("arrivedLockScreenBanner")
-                    .resizable()
             }
         }
         .frame(height: 130)
