@@ -37,10 +37,9 @@ class LiveActivityStore: ObservableObject {
                 
                 for try await item in stream {
                     if self?.state.liveActivity?.activityState == Optional(.active) {
-                        guard
-                            self?.state.liveActivity?.contentState.distance != Optional(item)
-                        else { return }
-                        await self?.state.liveActivity?.update(using: .init(distance: item))
+                        if self?.state.liveActivity?.contentState.distance != Optional(item) {
+                            await self?.state.liveActivity?.update(using: .init(distance: item))
+                        }
                     } else {
                         try self?.buildActivity(distance: item)
                     }
