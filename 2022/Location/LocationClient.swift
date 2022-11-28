@@ -35,7 +35,7 @@ extension LocationClient {
         return LocationClient { @MainActor [manager] venue in
             manager.checkAuthorizationStatus()
             return try manager.locationStream()
-                .throttle(for: .seconds(2), latest: true)
+                .throttle(for: .seconds(3), latest: true)
                 .map { item in
                     return try await buildCLLocationDistance(
                         location: item,
@@ -43,7 +43,7 @@ extension LocationClient {
                     )
                 }
                 .filter { [manager] in
-                    let flag = $0 > 1
+                    let flag = $0 > 0.5
                     flag ? nil : manager.cancelStream(isFinished: true)
                     return flag
                 }
