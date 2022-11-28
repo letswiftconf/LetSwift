@@ -6,15 +6,25 @@ import MapKit
 @available(iOS 16.1, *)
 struct LocationClient {
     let distanceStream: (_ venue: ConferenceVenue) async throws -> DistanceStream
-    let cancelStream: () -> Void
+    let cancelStream: (_ isFinished: Bool) -> Void
 }
 
 @available(iOS 16.1, *)
 extension LocationClient {
     typealias DistanceStream =
-        AsyncFilterSequence<AsyncThrowingMapSequence<AsyncDebounceSequence<AsyncThrowingStream<CLLocation, Error>, ContinuousClock>, Double>>
+    AsyncFilterSequence<AsyncThrowingMapSequence<AsyncThrottleSequence<AsyncThrowingStream<CLLocation, Error>, ContinuousClock, CLLocation>, Double>>
     
-    enum InternalError: Error {
+    enum InternalError: Error, LocalizedError {
+        var errorDescription: String? {
+            switch self {
+            case .denied:
+                return "위치 권한이 거부됐습니다. 설정에서 권한을 허용하신 후 다시 시도해주세요."
+                
+            case .unexpected:
+                return "잠시 후에 다시 시도해주세요."
+            }
+        }
+        
         case denied
         case unexpected
     }
@@ -25,25 +35,20 @@ extension LocationClient {
         return LocationClient { @MainActor [manager] venue in
             manager.checkAuthorizationStatus()
             return try manager.locationStream()
-                .debounce(for: .seconds(2))
-                .map { @MainActor item in
-                    do {
-                        let distance = try await buildCLLocationDistance(
-                            location: item,
-                            destination: venue.mapItem
-                        )
-                        return distance as Double
-                    } catch {
-                        fatalError()
-                    }
+                .throttle(for: .seconds(2), latest: true)
+                .map { item in
+                    return try await buildCLLocationDistance(
+                        location: item,
+                        destination: venue.mapItem
+                    )
                 }
-                .filter { @MainActor item in
-                    let flag = item > 1
-                    flag ? nil : manager.stopUpdatingLocation(isCancelled: false)
+                .filter { [manager] in
+                    let flag = $0 > 1
+                    flag ? nil : manager.cancelStream(isFinished: true)
                     return flag
                 }
         } cancelStream: { [manager] in
-            manager.stopUpdatingLocation(isCancelled: true)
+            manager.cancelStream(isFinished: $0)
         }
     }()
 }
@@ -61,7 +66,6 @@ extension LocationClient {
         }()
         private var locationContinuation: AsyncThrowingStream<CLLocation, Error>.Continuation?
         
-        @MainActor
         func checkAuthorizationStatus() {
             switch manager.authorizationStatus {
             case .authorizedWhenInUse, .authorizedAlways:
@@ -79,14 +83,18 @@ extension LocationClient {
             let flag = manager.authorizationStatus != .restricted &&
             manager.authorizationStatus != .denied
             guard flag else { throw InternalError.denied }
-            return AsyncThrowingStream { [weak self] continuation in
+            let stream = AsyncThrowingStream { [weak self] continuation in
                 self?.locationContinuation = continuation
             }
+            locationContinuation?.onTermination = { [weak self] _ in
+                self?.manager.stopUpdatingLocation()
+            }
+            
+            return stream
         }
         
-        func stopUpdatingLocation(isCancelled: Bool) {
-            manager.stopUpdatingLocation()
-            locationContinuation?.finish(throwing: isCancelled ? CancellationError() : nil)
+        func cancelStream(isFinished: Bool) {
+            locationContinuation?.finish(throwing: isFinished ? nil : CancellationError())
         }
         
         func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -125,11 +133,10 @@ extension LocationClient {
 }
 
 @available(iOS 16.1, *)
-@MainActor
 private func buildCLLocationDistance(
     location: CLLocation,
     destination: MKMapItem
-) async throws -> CLLocationDistance {
+) async throws -> Double {
     let request = MKDirections.Request()
     request.source = .init(placemark: .init(coordinate: location.coordinate))
     request.destination = destination
