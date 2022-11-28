@@ -8,11 +8,7 @@ class LiveActivityStore: ObservableObject {
     @MainActor @Published var state: State
     private let environmnet: Environment
     
-    private var taskList: [Task<Void, Never>] = [] {
-        didSet {
-            print(taskList.count)
-        }
-    }
+    private var taskList: [Task<Void, Never>] = []
     
     init(
         initialState: State,
