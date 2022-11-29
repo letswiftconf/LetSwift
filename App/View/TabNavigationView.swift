@@ -32,11 +32,6 @@ struct TabNavigationView: View {
     func buildFloatingButton(tab: Tab) -> some View {
         ZStack {
             switch tab {
-            case .sessions:
-                if #available(iOS 16.1, *) {
-                    SessionFloatingButton(store: .live)
-                }
-                
             case .playgrounds:
                 VStack {
                     Button {
