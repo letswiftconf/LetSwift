@@ -1,0 +1,20 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Automatic pull request review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+  
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hkusu/review-assign-action@v1
+        with: 
+          assignees: ${{ github.actor}} # assign pull request author
+          reviewers: PotatoArtie
+    
+    
