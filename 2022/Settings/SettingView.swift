@@ -11,44 +11,55 @@ import SafariServices
 struct SettingView: View {
     @State var showSafari = false
     @State var link: URL?
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Link(destination: URLData.newsletter) {
-                    settingBox(title: "뉴스레터 구독")
-                        .padding(.bottom, 40)
-                }
-                
-                Link(destination: URLData.homePage2022) {
-                    settingBox(title: "2022 공식 홈페이지")
-                }
-                
-                NavigationLink {
-                    SwiftWebView()
-                } label: {
-                    settingBox(title: "역대 레츠 스위프트")
-                }
-                
-                Link(destination: URLData.webSourceCode) {
-                    settingBox(title: "웹 소스코드")
-                }
-                
-                Link(destination: URLData.appSourceCode) {
-                    settingBox(title: "앱 소스코드")
-                }
-                
-                settingBox(title: "앱 리뷰쓰기")
-                    .onTapGesture {
-                        moveToAppstoreComment()
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    Link(destination: URLData.newsletter) {
+                        settingBox(title: "뉴스레터 구독")
+                            .padding(.bottom, 40)
                     }
+                    
+                    Link(destination: URLData.homePage2022) {
+                        settingBox(title: "2022 공식 홈페이지")
+                    }
+                    
+                    NavigationLink {
+                        SwiftWebView()
+                    } label: {
+                        settingBox(title: "역대 레츠 스위프트")
+                    }
+                    
+                    Link(destination: URLData.webSourceCode) {
+                        settingBox(title: "웹 소스코드")
+                    }
+                    
+                    Link(destination: URLData.appSourceCode) {
+                        settingBox(title: "앱 소스코드")
+                    }
+                    
+                    settingBox(title: "앱 리뷰쓰기")
+                        .onTapGesture {
+                            moveToAppstoreComment()
+                        }
+                }
+                .padding(.horizontal, 20)
+                .ignoresSafeArea()
+                .background(Color.backgroundBlack)
             }
-            .padding(.horizontal, 20)
-            .ignoresSafeArea()
+            .background(Color.backgroundBlack)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                    }
+                }
+            }
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .background(Color.backgroundBlack)
-        .foregroundColor(.white)
     }
 }
 
