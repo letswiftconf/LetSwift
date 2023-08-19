@@ -14,7 +14,7 @@ struct SettingMainView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading) {
                     
                     Text("Speakers")
@@ -90,8 +90,10 @@ struct SettingMainView: View {
                         }
                     }
                 }
+                .background(Color.backgroundBlack)
                 .padding(8)
             }
+            .background(Color.backgroundBlack)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action: {
