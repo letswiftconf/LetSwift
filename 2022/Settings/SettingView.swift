@@ -15,17 +15,6 @@ struct SettingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                Text("설정")
-                    .font(.title3Bold)
-                    .padding(.bottom, 52)
-                    .padding(.top, 36)
-                
-                NavigationLink {
-                    ProfileView()
-                } label: {
-                    settingBox(title: "Supporter & Staff")
-                }
-                
                 Link(destination: URLData.newsletter) {
                     settingBox(title: "뉴스레터 구독")
                         .padding(.bottom, 40)
@@ -57,8 +46,6 @@ struct SettingView: View {
             .padding(.horizontal, 20)
             .ignoresSafeArea()
         }
-        .navigationBarTitle("설정", displayMode: .automatic)
-        .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.bottom)
         .background(Color.backgroundBlack)
         .foregroundColor(.white)
