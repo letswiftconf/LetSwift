@@ -56,9 +56,9 @@ extension ChartView {
                             if #available(iOS 16.0, *) {
                                 Chart {
                                     ForEach(chartDataList) { chartData in
-                                        if let question = TempChartData.questionList.first(where: { $0.surveyId == chartData.surveyId })?.question,
+                                        if let question = TempChartData.questionList.first(where: { $0.surveyId == chartData.surveyId })?.question {
                                            let answer = TempChartData.getCardCase(answerId: chartData.answerId)
-                                        {
+                                    
                                             BarMark(
                                                 x: .value("Category", answer.rawValue),
                                                 y: .value("Profit", chartData.count)
