@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13426C5821749B1F8B94471B /* Pods_Upcoming2WidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */; };
 		1624BF06256B734F00634E29 /* NewsletterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF05256B734F00634E29 /* NewsletterItemView.swift */; };
 		1624BF09256B73A200634E29 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF08256B73A200634E29 /* Shadow.swift */; };
 		1624BF0C256B753500634E29 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF0B256B753500634E29 /* CGFloat.swift */; };
@@ -18,9 +17,9 @@
 		1624BF90256C4B0D00634E29 /* PastEventItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF8F256C4B0D00634E29 /* PastEventItemView.swift */; };
 		1624BF93256C4B6300634E29 /* HeroItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF92256C4B6300634E29 /* HeroItemView.swift */; };
 		1624BF98256C7D8500634E29 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624BF97256C7D8500634E29 /* URL.swift */; };
-		165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		165C48CD257C177100DC914F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DBE6232569EAD200B334A3 /* Assets.xcassets */; };
 		165C48D3257C179800DC914F /* LetSwift.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5CF2574ABEF00C6681A /* LetSwift.pkpass */; };
 		165C48D4257C179800DC914F /* let.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 167BE5252573A1CB00C6681A /* let.usdz */; };
@@ -121,7 +120,6 @@
 		16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C8256A2EC800B334A3 /* Application.swift */; };
 		16DBE6CC256A2EC800B334A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBE6C9256A2EC800B334A3 /* Color.swift */; };
 		37E128332A91389B0093A56E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E128322A91389B0093A56E /* SettingView.swift */; };
-		3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */; };
 		4F74A95529314B76003311E8 /* PeerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74A95429314B76003311E8 /* PeerListViewModel.swift */; };
 		4F74A95729314E6C003311E8 /* PeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74A95629314E6C003311E8 /* PeerListView.swift */; };
 		4F74A9592931510E003311E8 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74A9582931510E003311E8 /* UICollectionReusableView+Extension.swift */; };
@@ -141,37 +139,14 @@
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		60E17672256D509B0068B3F4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
-		6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */; };
-		6F3A3E3B29173C2A00E42D64 /* GuestBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E3A29173C2A00E42D64 /* GuestBookModel.swift */; };
-		6F3A3E3E2917418300E42D64 /* GuestBookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */; };
-		6F3A3E49291966F600E42D64 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6F3A3E48291966F600E42D64 /* Lottie */; };
-		6F3A3E4B2919672100E42D64 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4A2919672100E42D64 /* FormCard.swift */; };
-		6F3A3E4D2919673F00E42D64 /* FormCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4C2919673F00E42D64 /* FormCardView.swift */; };
-		6F3A3E4F291969C500E42D64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E4E291969C500E42D64 /* LottieView.swift */; };
-		6F3A3E5129196BE300E42D64 /* GuestBookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E5029196BE300E42D64 /* GuestBookContentView.swift */; };
 		6F3A3E5329196E1E00E42D64 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E5229196E1E00E42D64 /* View.swift */; };
 		6F3A3E55291E8BD800E42D64 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E54291E8BD800E42D64 /* String+Extension.swift */; };
 		6F3A3E56291E8BD800E42D64 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E54291E8BD800E42D64 /* String+Extension.swift */; };
-		6F3A3E58291E8D5A00E42D64 /* GuestBookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E57291E8D5A00E42D64 /* GuestBookListViewModel.swift */; };
 		6F3A3E5B291E938D00E42D64 /* SharedPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E5A291E938D00E42D64 /* SharedPreference.swift */; };
 		6F3A3E5C291E938D00E42D64 /* SharedPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E5A291E938D00E42D64 /* SharedPreference.swift */; };
-		6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E6B291EA07100E42D64 /* LetSwiftAPI.swift */; };
-		6F3A3E6D291EA07100E42D64 /* LetSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E6B291EA07100E42D64 /* LetSwiftAPI.swift */; };
-		6F3A3E6F291F3CCA00E42D64 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E6E291F3CCA00E42D64 /* NetworkProvider.swift */; };
-		6F3A3E70291F3CCA00E42D64 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E6E291F3CCA00E42D64 /* NetworkProvider.swift */; };
-		6F3A3E72291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E71291F3CD800E42D64 /* NetworkLoggingPlugin.swift */; };
-		6F3A3E73291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E71291F3CD800E42D64 /* NetworkLoggingPlugin.swift */; };
-		6F3A3E75291F3CE400E42D64 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E74291F3CE400E42D64 /* NetworkService.swift */; };
-		6F3A3E76291F3CE400E42D64 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E74291F3CE400E42D64 /* NetworkService.swift */; };
-		6F3A3E7B291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */; };
-		6F3A3E7C291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */; };
-		6FC0FD0D2923F5FB0026714A /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */; };
-		6FC0FD0F2925BF400026714A /* GuestBookContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */; };
-		6FC0FD112925C1720026714A /* ContentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD102925C1720026714A /* ContentsResponse.swift */; };
-		6FC0FD132925C1B80026714A /* ContentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD122925C1B80026714A /* ContentRequest.swift */; };
-		6FC0FD152925C2C50026714A /* SharedPreference+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD142925C2C50026714A /* SharedPreference+User.swift */; };
+		6FBFE1AC2A9E3B5600D217D9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6FBFE1AB2A9E3B5600D217D9 /* SnapKit */; };
+		6FBFE1B02A9E3D4F00D217D9 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE1AF2A9E3D4F00D217D9 /* LottieView.swift */; };
 		6FC0FD172925D2AD0026714A /* LifeCycle+Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */; };
-		6FC0FD19292601A50026714A /* GuestBookEnviromentOjb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */; };
 		6FC0FD1D2927C49E0026714A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD1C2927C49E0026714A /* QuestionView.swift */; };
 		6FC0FD212927C5030026714A /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD1E2927C5030026714A /* BadgeView.swift */; };
 		6FC0FD2A2927C55C0026714A /* UnderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD242927C55C0026714A /* UnderLineView.swift */; };
@@ -180,22 +155,20 @@
 		6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD282927C55C0026714A /* BackgroundView.swift */; };
 		6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD292927C55C0026714A /* QuestionInfoView.swift */; };
 		6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD302927C56A0026714A /* QuestionData.swift */; };
-		6FC0FD332927DA980026714A /* PlaygroundSimpleRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */; };
-		6FE5D036291F80D7001F6880 /* WelcomElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D035291F80D7001F6880 /* WelcomElement.swift */; };
+		6FC2E1422A9E40CC0047FBDE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6FC2E1412A9E40CC0047FBDE /* Lottie */; };
 		6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D037291F8E09001F6880 /* IndicatorView.swift */; };
 		6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D039291F9F2C001F6880 /* Toast.swift */; };
-		8FB1FA6B6AE43C9048483759 /* Pods_ScheduleWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F102F0AC0806A9E044C8470B /* Pods_ScheduleWidgetExtension.framework */; };
 		9A77C72F256EC0B300B30BC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9A77C731256EC0B300B30BC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9A77C734256EC0B300B30BC6 /* ScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77C733256EC0B300B30BC6 /* ScheduleWidget.swift */; };
-		9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A77C742256EC0BC00B30BC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9A77C746256EC0CC00B30BC6 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		9A77C749256EC0E600B30BC6 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
 		9A77C777256EC57300B30BC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9A77C778256EC57300B30BC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9A77C77B256EC57300B30BC6 /* Upcoming1Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77C77A256EC57300B30BC6 /* Upcoming1Widget.swift */; };
-		9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A77C78A256EC59300B30BC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9A77C78B256EC59300B30BC6 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
 		9A77C78C256EC59300B30BC6 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
@@ -204,7 +177,7 @@
 		9AD49446256EE09900C9E5C4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9AD49447256EE09900C9E5C4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9AD4944A256EE09900C9E5C4 /* Upcoming2Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD49449256EE09900C9E5C4 /* Upcoming2Widget.swift */; };
-		9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9AD4945E256EE10300C9E5C4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9AD49463256EE10800C9E5C4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		9AD49468256EE10F00C9E5C4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
@@ -226,11 +199,10 @@
 		AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */; };
 		AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */; };
 		AECAE6F9292CC143007A0BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECAE6F8292CC143007A0BFB /* Assets.xcassets */; };
-		AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AECAE701292CC162007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
 		AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */; };
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
-		C63C5C7E291A860800DAD52C /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63C5C7D291A860800DAD52C /* Color.xcassets */; };
 		C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C80291A87BA00DAD52C /* SessionView.swift */; };
 		C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C84291A894200DAD52C /* imageExtension.swift */; };
 		C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */; };
@@ -267,8 +239,6 @@
 		CCF9A0CF291CE25A00EF8C9B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0CD291CE25A00EF8C9B /* Profile.swift */; };
 		CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF9A0CE291CE25A00EF8C9B /* ProfileData.swift */; };
 		CCF9A0D2291CE3C900EF8C9B /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */; };
-		D792442982A5ECA5A76BD9DF /* Pods_LetSwift__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7D71323B59767A6A3C9E86 /* Pods_LetSwift__macOS_.framework */; };
-		DB328360A89B436C6A937853 /* Pods_Upcoming1WidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3309A495A5037695D25036 /* Pods_Upcoming1WidgetExtension.framework */; };
 		F0CF8910292FACF7006CAEB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF890F292FACF7006CAEB3 /* NetworkManager.swift */; };
 		F0CF8916292FB823006CAEB3 /* BadgeView+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF8915292FB823006CAEB3 /* BadgeView+API.swift */; };
 /* End PBXBuildFile section */
@@ -326,31 +296,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		165C487D257C149A00DC914F /* Embed App Extensions */ = {
+		165C487D257C149A00DC914F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed App Extensions */,
-				165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed App Extensions */,
-				165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed App Extensions */,
+				165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */,
+				165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */,
+				165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A77C73C256EC0B500B30BC6 /* Embed App Extensions */ = {
+		9A77C73C256EC0B500B30BC6 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed App Extensions */,
-				9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed App Extensions */,
-				9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed App Extensions */,
-				AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed App Extensions */,
+				9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */,
+				9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */,
+				9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */,
+				AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -407,9 +377,6 @@
 		16DBE6CF256A2F0300B334A3 /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		16DBE6D0256A2F0300B334A3 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		16DBE6D2256A2F7B00B334A3 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
-		1F3309A495A5037695D25036 /* Pods_Upcoming1WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming1WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming2WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Upcoming2WidgetExtension/Pods-Upcoming2WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		37E128322A91389B0093A56E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		4F74A95429314B76003311E8 /* PeerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerListViewModel.swift; sourceTree = "<group>"; };
 		4F74A95629314E6C003311E8 /* PeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerListView.swift; sourceTree = "<group>"; };
@@ -418,7 +385,6 @@
 		4FFB9A94292F907200182AA4 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
 		4FFB9A96292F9FA800182AA4 /* NearbyInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyInteractionManager.swift; sourceTree = "<group>"; };
 		4FFB9A98292FA31500182AA4 /* PeerConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionController.swift; sourceTree = "<group>"; };
-		515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-ScheduleWidgetExtension/Pods-ScheduleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		551BC153292A248C00DBD819 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		555CB60F291CC38B00D893CE /* GoToCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToCardView.swift; sourceTree = "<group>"; };
 		555CB614291CC3B700D893CE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -431,30 +397,11 @@
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		60E17671256D509B0068B3F4 /* Event.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
-		6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookContainerView.swift; sourceTree = "<group>"; };
-		6F3A3E3A29173C2A00E42D64 /* GuestBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookModel.swift; sourceTree = "<group>"; };
-		6F3A3E3C29173D4C00E42D64 /* GeustBookListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GeustBookListMock.json; sourceTree = "<group>"; };
-		6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookRow.swift; sourceTree = "<group>"; };
-		6F3A3E4A2919672100E42D64 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
-		6F3A3E4C2919673F00E42D64 /* FormCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCardView.swift; sourceTree = "<group>"; };
-		6F3A3E4E291969C500E42D64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		6F3A3E5029196BE300E42D64 /* GuestBookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookContentView.swift; sourceTree = "<group>"; };
 		6F3A3E5229196E1E00E42D64 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		6F3A3E54291E8BD800E42D64 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		6F3A3E57291E8D5A00E42D64 /* GuestBookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookListViewModel.swift; sourceTree = "<group>"; };
 		6F3A3E5A291E938D00E42D64 /* SharedPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPreference.swift; sourceTree = "<group>"; };
-		6F3A3E6B291EA07100E42D64 /* LetSwiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetSwiftAPI.swift; sourceTree = "<group>"; };
-		6F3A3E6E291F3CCA00E42D64 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		6F3A3E71291F3CD800E42D64 /* NetworkLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggingPlugin.swift; sourceTree = "<group>"; };
-		6F3A3E74291F3CE400E42D64 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedPreference+GuestBook.swift"; sourceTree = "<group>"; };
-		6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
-		6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookContentViewModel.swift; sourceTree = "<group>"; };
-		6FC0FD102925C1720026714A /* ContentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsResponse.swift; sourceTree = "<group>"; };
-		6FC0FD122925C1B80026714A /* ContentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRequest.swift; sourceTree = "<group>"; };
-		6FC0FD142925C2C50026714A /* SharedPreference+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedPreference+User.swift"; sourceTree = "<group>"; };
+		6FBFE1AF2A9E3D4F00D217D9 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LifeCycle+Modifier.swift"; sourceTree = "<group>"; };
-		6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookEnviromentOjb.swift; sourceTree = "<group>"; };
 		6FC0FD1C2927C49E0026714A /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		6FC0FD1E2927C5030026714A /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		6FC0FD242927C55C0026714A /* UnderLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnderLineView.swift; path = Component/UnderLineView.swift; sourceTree = "<group>"; };
@@ -463,14 +410,9 @@
 		6FC0FD282927C55C0026714A /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Component/BackgroundView.swift; sourceTree = "<group>"; };
 		6FC0FD292927C55C0026714A /* QuestionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionInfoView.swift; path = Component/QuestionInfoView.swift; sourceTree = "<group>"; };
 		6FC0FD302927C56A0026714A /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionData.swift; path = Data/QuestionData.swift; sourceTree = "<group>"; };
-		6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundSimpleRowViewModel.swift; sourceTree = "<group>"; };
 		6FC0FD34292F85640026714A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = API/NetworkManager.swift; sourceTree = "<group>"; };
-		6FE5D035291F80D7001F6880 /* WelcomElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomElement.swift; sourceTree = "<group>"; };
 		6FE5D037291F8E09001F6880 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		6FE5D039291F9F2C001F6880 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		7A1F7497C77A5302C6C2F169 /* Pods-ScheduleWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-ScheduleWidgetExtension/Pods-ScheduleWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		86E821D87DF784D4254FD405 /* Pods-LetSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift.release.xcconfig"; path = "Target Support Files/Pods-LetSwift/Pods-LetSwift.release.xcconfig"; sourceTree = "<group>"; };
-		8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScheduleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = Library/Frameworks/WidgetKit.framework; sourceTree = DEVELOPER_DIR; };
 		9A77C730256EC0B300B30BC6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -493,7 +435,6 @@
 		A5EC7767256BD23D0072E959 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
-		AD7D71323B59767A6A3C9E86 /* Pods_LetSwift__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetSwift__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE91AB4E2930DA2A00276B83 /* SessionFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFloatingButton.swift; sourceTree = "<group>"; };
 		AECAE6CD292CBF92007A0BFB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AECAE6CF292CBF99007A0BFB /* LocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClient.swift; sourceTree = "<group>"; };
@@ -505,8 +446,6 @@
 		AECAE6FA292CC143007A0BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Upcoming2WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C63C5C7D291A860800DAD52C /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = 2022/Utility/Color.xcassets; sourceTree = SOURCE_ROOT; };
 		C63C5C80291A87BA00DAD52C /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		C63C5C84291A894200DAD52C /* imageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageExtension.swift; sourceTree = "<group>"; };
 		C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+DividerView.swift"; sourceTree = "<group>"; };
@@ -539,14 +478,8 @@
 		CCF9A0CD291CE25A00EF8C9B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		CCF9A0CE291CE25A00EF8C9B /* ProfileData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		CCF9A0D1291CE3C900EF8C9B /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
-		CFCD16B94CD495C8A52B785B /* Pods-Upcoming1WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming1WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Upcoming1WidgetExtension/Pods-Upcoming1WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
-		CFD3E03764E188EF0DF6311D /* Pods-LetSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift.debug.xcconfig"; path = "Target Support Files/Pods-LetSwift/Pods-LetSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		CFE52E6DAF7459C4ADB46B30 /* Pods-LetSwift (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift (macOS).release.xcconfig"; path = "Target Support Files/Pods-LetSwift (macOS)/Pods-LetSwift (macOS).release.xcconfig"; sourceTree = "<group>"; };
-		D47628A67560A22BD43C1A9F /* Pods-Upcoming1WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Upcoming1WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Upcoming1WidgetExtension/Pods-Upcoming1WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		E441ABAF9BBF7178484A8B4A /* Pods-LetSwift (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSwift (macOS).debug.xcconfig"; path = "Target Support Files/Pods-LetSwift (macOS)/Pods-LetSwift (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		F0CF890F292FACF7006CAEB3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = API/NetworkManager.swift; sourceTree = "<group>"; };
 		F0CF8915292FB823006CAEB3 /* BadgeView+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BadgeView+API.swift"; sourceTree = "<group>"; };
-		F102F0AC0806A9E044C8470B /* Pods_ScheduleWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,7 +487,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D792442982A5ECA5A76BD9DF /* Pods_LetSwift__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,9 +494,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F3A3E49291966F600E42D64 /* Lottie in Frameworks */,
-				3C07063899855A671DDB6508 /* Pods_LetSwift.framework in Frameworks */,
 				AE91AB4D2930D85500276B83 /* AsyncAlgorithms in Frameworks */,
+				6FBFE1AC2A9E3B5600D217D9 /* SnapKit in Frameworks */,
+				6FC2E1422A9E40CC0047FBDE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +506,6 @@
 			files = (
 				9A77C731256EC0B300B30BC6 /* SwiftUI.framework in Frameworks */,
 				9A77C72F256EC0B300B30BC6 /* WidgetKit.framework in Frameworks */,
-				8FB1FA6B6AE43C9048483759 /* Pods_ScheduleWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +515,6 @@
 			files = (
 				9A77C778256EC57300B30BC6 /* SwiftUI.framework in Frameworks */,
 				9A77C777256EC57300B30BC6 /* WidgetKit.framework in Frameworks */,
-				DB328360A89B436C6A937853 /* Pods_Upcoming1WidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,7 +524,6 @@
 			files = (
 				9AD49447256EE09900C9E5C4 /* SwiftUI.framework in Frameworks */,
 				9AD49446256EE09900C9E5C4 /* WidgetKit.framework in Frameworks */,
-				13426C5821749B1F8B94471B /* Pods_Upcoming2WidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,13 +689,12 @@
 		16DBE61B2569EAD100B334A3 = {
 			isa = PBXGroup;
 			children = (
-				6FD7CDA8290C01F8002CF140 /* 2022 */,
+				6FD7CDA8290C01F8002CF140 /* 2023 */,
 				1684F64925723D5E00A784C0 /* Shared */,
 				16DBE62A2569EAD200B334A3 /* App */,
 				169344CE25721C1800B6CA9A /* Widget */,
 				9A77C72D256EC0B300B30BC6 /* Frameworks */,
 				16DBE6292569EAD200B334A3 /* Products */,
-				3ECE2D126F20A5FB89CA1D4C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -888,23 +816,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		3ECE2D126F20A5FB89CA1D4C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CFD3E03764E188EF0DF6311D /* Pods-LetSwift.debug.xcconfig */,
-				86E821D87DF784D4254FD405 /* Pods-LetSwift.release.xcconfig */,
-				E441ABAF9BBF7178484A8B4A /* Pods-LetSwift (macOS).debug.xcconfig */,
-				CFE52E6DAF7459C4ADB46B30 /* Pods-LetSwift (macOS).release.xcconfig */,
-				7A1F7497C77A5302C6C2F169 /* Pods-ScheduleWidgetExtension.debug.xcconfig */,
-				515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */,
-				D47628A67560A22BD43C1A9F /* Pods-Upcoming1WidgetExtension.debug.xcconfig */,
-				CFCD16B94CD495C8A52B785B /* Pods-Upcoming1WidgetExtension.release.xcconfig */,
-				2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */,
-				34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		4FFB9A81292CDA1B00182AA4 /* PeerConnection */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,83 +872,22 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		6F35A83629113B630000DC45 /* GuestBook */ = {
-			isa = PBXGroup;
-			children = (
-				6F3A3E4429195BCE00E42D64 /* GuestBookForm */,
-				6F35A83729113BA40000DC45 /* GuestBookContainerView.swift */,
-				6F3A3E3A29173C2A00E42D64 /* GuestBookModel.swift */,
-				6F3A3E3C29173D4C00E42D64 /* GeustBookListMock.json */,
-				6FC0FD322927DA980026714A /* PlaygroundSimpleRowViewModel.swift */,
-				6F3A3E3D2917418300E42D64 /* GuestBookRow.swift */,
-				6F3A3E57291E8D5A00E42D64 /* GuestBookListViewModel.swift */,
-				6FC0FD18292601A50026714A /* GuestBookEnviromentOjb.swift */,
-			);
-			path = GuestBook;
-			sourceTree = "<group>";
-		};
-		6F3A3E4429195BCE00E42D64 /* GuestBookForm */ = {
-			isa = PBXGroup;
-			children = (
-				6F3A3E4A2919672100E42D64 /* FormCard.swift */,
-				6F3A3E4C2919673F00E42D64 /* FormCardView.swift */,
-				6F3A3E4E291969C500E42D64 /* LottieView.swift */,
-				6F3A3E5029196BE300E42D64 /* GuestBookContentView.swift */,
-				6FC0FD0E2925BF400026714A /* GuestBookContentViewModel.swift */,
-			);
-			path = GuestBookForm;
-			sourceTree = "<group>";
-		};
 		6F3A3E60291E9E8D00E42D64 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				CC8584CF29274A040091A7A1 /* API */,
-				6F3A3E6A291EA05900E42D64 /* Network */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		6F3A3E6A291EA05900E42D64 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				6F3A3E78291F3DE100E42D64 /* Response */,
-				6F3A3E77291F3DD700E42D64 /* Requset */,
-				6F3A3E6B291EA07100E42D64 /* LetSwiftAPI.swift */,
-				6F3A3E6E291F3CCA00E42D64 /* NetworkProvider.swift */,
-				6F3A3E71291F3CD800E42D64 /* NetworkLoggingPlugin.swift */,
-				6F3A3E74291F3CE400E42D64 /* NetworkService.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		6F3A3E77291F3DD700E42D64 /* Requset */ = {
-			isa = PBXGroup;
-			children = (
-				6FC0FD122925C1B80026714A /* ContentRequest.swift */,
-			);
-			path = Requset;
-			sourceTree = "<group>";
-		};
-		6F3A3E78291F3DE100E42D64 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				6FE5D035291F80D7001F6880 /* WelcomElement.swift */,
-				6FC0FD0C2923F5FB0026714A /* CommentResponse.swift */,
-				6FC0FD102925C1720026714A /* ContentsResponse.swift */,
-			);
-			path = Response;
 			sourceTree = "<group>";
 		};
 		6F3A3E79291F3E0500E42D64 /* SharedPreference+Extension */ = {
 			isa = PBXGroup;
 			children = (
-				6F3A3E7A291F3E3000E42D64 /* SharedPreference+GuestBook.swift */,
-				6FC0FD142925C2C50026714A /* SharedPreference+User.swift */,
 			);
 			path = "SharedPreference+Extension";
 			sourceTree = "<group>";
 		};
-		6FD7CDA8290C01F8002CF140 /* 2022 */ = {
+		6FD7CDA8290C01F8002CF140 /* 2023 */ = {
 			isa = PBXGroup;
 			children = (
 				AECAE6CC292CBF6D007A0BFB /* Location */,
@@ -1049,7 +899,7 @@
 				6FD7CDAB290C030B002CF140 /* Playgrounds */,
 				CCF9A0B8291CE1C100EF8C9B /* Settings */,
 			);
-			path = 2022;
+			path = 2023;
 			sourceTree = "<group>";
 		};
 		6FD7CDA9290C02A8002CF140 /* Sessions */ = {
@@ -1083,10 +933,9 @@
 		6FD7CDAB290C030B002CF140 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				C63C5C7D291A860800DAD52C /* Color.xcassets */,
+				6FBFE1AF2A9E3D4F00D217D9 /* LottieView.swift */,
 				555CB60F291CC38B00D893CE /* GoToCardView.swift */,
 				555CB60D291CC37900D893CE /* CheeringCard */,
-				6F35A83629113B630000DC45 /* GuestBook */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -1104,11 +953,6 @@
 			children = (
 				9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */,
 				9A77C730256EC0B300B30BC6 /* SwiftUI.framework */,
-				8ACD22972F91777DDDC6609F /* Pods_LetSwift.framework */,
-				AD7D71323B59767A6A3C9E86 /* Pods_LetSwift__macOS_.framework */,
-				F102F0AC0806A9E044C8470B /* Pods_ScheduleWidgetExtension.framework */,
-				1F3309A495A5037695D25036 /* Pods_Upcoming1WidgetExtension.framework */,
-				C5EBD07EA0290E773B1B302C /* Pods_Upcoming2WidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1295,11 +1139,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16A5B9ED257C125100162FC7 /* Build configuration list for PBXNativeTarget "LetSwift (macOS)" */;
 			buildPhases = (
-				23777530BCD43A0E0877BA20 /* [CP] Check Pods Manifest.lock */,
 				16A5B9DC257C125000162FC7 /* Sources */,
 				16A5B9DD257C125000162FC7 /* Frameworks */,
 				16A5B9DE257C125000162FC7 /* Resources */,
-				165C487D257C149A00DC914F /* Embed App Extensions */,
+				165C487D257C149A00DC914F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1317,12 +1160,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16DBE63C2569EAD200B334A3 /* Build configuration list for PBXNativeTarget "LetSwift" */;
 			buildPhases = (
-				7FB41FB89A38D749199D9BB1 /* [CP] Check Pods Manifest.lock */,
 				16DBE6242569EAD200B334A3 /* Sources */,
 				16DBE6252569EAD200B334A3 /* Frameworks */,
 				16DBE6262569EAD200B334A3 /* Resources */,
-				9A77C73C256EC0B500B30BC6 /* Embed App Extensions */,
-				A1040EB216C13D0CE0647A9D /* [CP] Embed Pods Frameworks */,
+				9A77C73C256EC0B500B30BC6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1334,8 +1175,9 @@
 			);
 			name = LetSwift;
 			packageProductDependencies = (
-				6F3A3E48291966F600E42D64 /* Lottie */,
 				AE91AB4C2930D85500276B83 /* AsyncAlgorithms */,
+				6FBFE1AB2A9E3B5600D217D9 /* SnapKit */,
+				6FC2E1412A9E40CC0047FBDE /* Lottie */,
 			);
 			productName = "LetSwift (iOS)";
 			productReference = 16DBE6282569EAD200B334A3 /* LetSwift.app */;
@@ -1345,7 +1187,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A77C73F256EC0B500B30BC6 /* Build configuration list for PBXNativeTarget "ScheduleWidgetExtension" */;
 			buildPhases = (
-				C4E46D584D5558F7DAB51B14 /* [CP] Check Pods Manifest.lock */,
 				9A77C728256EC0B300B30BC6 /* Sources */,
 				9A77C729256EC0B300B30BC6 /* Frameworks */,
 				9A77C72A256EC0B300B30BC6 /* Resources */,
@@ -1363,7 +1204,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A77C785256EC57400B30BC6 /* Build configuration list for PBXNativeTarget "Upcoming1WidgetExtension" */;
 			buildPhases = (
-				58AC86FB099D9468C8500993 /* [CP] Check Pods Manifest.lock */,
 				9A77C772256EC57300B30BC6 /* Sources */,
 				9A77C773256EC57300B30BC6 /* Frameworks */,
 				9A77C774256EC57300B30BC6 /* Resources */,
@@ -1381,7 +1221,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AD49454256EE09B00C9E5C4 /* Build configuration list for PBXNativeTarget "Upcoming2WidgetExtension" */;
 			buildPhases = (
-				A000389F8175372B7380ECCD /* [CP] Check Pods Manifest.lock */,
 				9AD49441256EE09900C9E5C4 /* Sources */,
 				9AD49442256EE09900C9E5C4 /* Frameworks */,
 				9AD49443256EE09900C9E5C4 /* Resources */,
@@ -1418,8 +1257,9 @@
 		16DBE61C2569EAD100B334A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					16A5B9DF257C125000162FC7 = {
 						CreatedOnToolsVersion = 12.2;
@@ -1451,8 +1291,9 @@
 			);
 			mainGroup = 16DBE61B2569EAD100B334A3;
 			packageReferences = (
-				6F3A3E47291966F600E42D64 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AE91AB4B2930D85500276B83 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+				6FBFE1AA2A9E3B5600D217D9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				6FC2E1402A9E40CC0047FBDE /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 16DBE6292569EAD200B334A3 /* Products */;
 			projectDirPath = "";
@@ -1486,7 +1327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60E17672256D509B0068B3F4 /* Event.json in Resources */,
-				C63C5C7E291A860800DAD52C /* Color.xcassets in Resources */,
 				167BE5262573A1CB00C6681A /* let.usdz in Resources */,
 				CC609A5F2932190200FFD60C /* Launch Screen.storyboard in Resources */,
 				16DBE6382569EAD200B334A3 /* Assets.xcassets in Resources */,
@@ -1542,136 +1382,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		23777530BCD43A0E0877BA20 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LetSwift (macOS)-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		58AC86FB099D9468C8500993 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Upcoming1WidgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7FB41FB89A38D749199D9BB1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LetSwift-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A000389F8175372B7380ECCD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Upcoming2WidgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1040EB216C13D0CE0647A9D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LetSwift/Pods-LetSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LetSwift/Pods-LetSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LetSwift/Pods-LetSwift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4E46D584D5558F7DAB51B14 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScheduleWidgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		16A5B9DC257C125000162FC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1696,7 +1406,6 @@
 				165C4AB3257C26B200DC914F /* People.swift in Sources */,
 				165C49D2257C1D3500DC914F /* Color.swift in Sources */,
 				165C4A66257C242000DC914F /* Preview.swift in Sources */,
-				6F3A3E7C291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */,
 				CC9B54B129195509008ABB2F /* viewExtension.swift in Sources */,
 				165C4AD5257C26EA00DC914F /* OnAirIconView.swift in Sources */,
 				165C4AF3257C275A00DC914F /* CGFloat.swift in Sources */,
@@ -1705,7 +1414,6 @@
 				165C4A55257C236E00DC914F /* URL.swift in Sources */,
 				165C4A31257C219100DC914F /* RoundedMask.swift in Sources */,
 				165C4AC4257C26CA00DC914F /* GridView.swift in Sources */,
-				6F3A3E6D291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,
 				165C4AED257C275300DC914F /* PastEventItemView.swift in Sources */,
 				6F3A3E5C291E938D00E42D64 /* SharedPreference.swift in Sources */,
 				165C4AB4257C26B200DC914F /* Person.swift in Sources */,
@@ -1716,7 +1424,6 @@
 				165C49FF257C210400DC914F /* OSLog.swift in Sources */,
 				165C49E8257C207300DC914F /* Date.swift in Sources */,
 				165C4B26257C299600DC914F /* PeopleView.swift in Sources */,
-				6F3A3E70291F3CCA00E42D64 /* NetworkProvider.swift in Sources */,
 				165C4B2D257C2B0E00DC914F /* MainView.swift in Sources */,
 				165C4A2B257C218F00DC914F /* Shadow.swift in Sources */,
 				165C4A88257C25F200DC914F /* ActionCell.swift in Sources */,
@@ -1727,8 +1434,6 @@
 				165C4B2F257C2B0E00DC914F /* Sidebar.swift in Sources */,
 				165C4B24257C299600DC914F /* PeopleGroupedByRoleView.swift in Sources */,
 				CC9B54AF291954FA008ABB2F /* LetSwiftApp.swift in Sources */,
-				6F3A3E76291F3CE400E42D64 /* NetworkService.swift in Sources */,
-				6F3A3E73291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1737,11 +1442,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */,
-				6FE5D036291F80D7001F6880 /* WelcomElement.swift in Sources */,
-				6F3A3E4B2919672100E42D64 /* FormCard.swift in Sources */,
-				6F3A3E6F291F3CCA00E42D64 /* NetworkProvider.swift in Sources */,
-				6FC0FD19292601A50026714A /* GuestBookEnviromentOjb.swift in Sources */,
-				6F3A3E7B291F3E3000E42D64 /* SharedPreference+GuestBook.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */,
 				CC9B54AC2919548E008ABB2F /* fontExtension.swift in Sources */,
@@ -1758,7 +1458,6 @@
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
 				555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */,
 				37E128332A91389B0093A56E /* SettingView.swift in Sources */,
-				6FC0FD0D2923F5FB0026714A /* CommentResponse.swift in Sources */,
 				C6CDB2D52928F0A900960FBF /* ScheduleRowType.swift in Sources */,
 				16984E79256A33AC0011C872 /* GlobalAction.swift in Sources */,
 				A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */,
@@ -1774,14 +1473,10 @@
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
 				C63C5C8C291A958400DAD52C /* SessionView+InformationView.swift in Sources */,
 				AECAE6D0292CBF99007A0BFB /* LocationClient.swift in Sources */,
-				6F3A3E58291E8D5A00E42D64 /* GuestBookListViewModel.swift in Sources */,
 				C6CDB2E2292C2D9700960FBF /* ChartViewModel.swift in Sources */,
-				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
 				6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */,
-				6F3A3E4D2919673F00E42D64 /* FormCardView.swift in Sources */,
 				16984E6D256A33580011C872 /* ActionCell.swift in Sources */,
 				6FC0FD1D2927C49E0026714A /* QuestionView.swift in Sources */,
-				6F3A3E3B29173C2A00E42D64 /* GuestBookModel.swift in Sources */,
 				AE91AB4F2930DA2A00276B83 /* SessionFloatingButton.swift in Sources */,
 				1624BF8D256C4A3D00634E29 /* WebSourceCodeItemView.swift in Sources */,
 				16984E6E256A33580011C872 /* SettingsView.swift in Sources */,
@@ -1789,7 +1484,6 @@
 				555CB61D291CC3B800D893CE /* NicknameView.swift in Sources */,
 				16984E6F256A33580011C872 /* TitleDetailCell.swift in Sources */,
 				6FC0FD2B2927C55C0026714A /* QuestionSessionView.swift in Sources */,
-				6FC0FD332927DA980026714A /* PlaygroundSimpleRowViewModel.swift in Sources */,
 				16984E77256A33970011C872 /* SafariView.swift in Sources */,
 				CCF9A0CF291CE25A00EF8C9B /* Profile.swift in Sources */,
 				C6CDB2CC2928DF8200960FBF /* ChartDataModel.swift in Sources */,
@@ -1800,16 +1494,12 @@
 				C63C5C8E291A95A900DAD52C /* SessionView+ScheduleView.swift in Sources */,
 				6F3A3E55291E8BD800E42D64 /* String+Extension.swift in Sources */,
 				16DBE6B1256A283E00B334A3 /* PeopleView.swift in Sources */,
-				6F3A3E72291F3CD800E42D64 /* NetworkLoggingPlugin.swift in Sources */,
 				A5704B1B256E8E2500EB6C8F /* DateFormatter.swift in Sources */,
 				4FFB9A93292F592000182AA4 /* Peer.swift in Sources */,
 				551BC154292A248C00DBD819 /* CardType.swift in Sources */,
 				CCF9A0C2291CE1C100EF8C9B /* SettingMainView.swift in Sources */,
 				6FC0FD212927C5030026714A /* BadgeView.swift in Sources */,
 				555CB61A291CC3B800D893CE /* CardView.swift in Sources */,
-				6F35A83829113BA40000DC45 /* GuestBookContainerView.swift in Sources */,
-				6FC0FD132925C1B80026714A /* ContentRequest.swift in Sources */,
-				6FC0FD152925C2C50026714A /* SharedPreference+User.swift in Sources */,
 				16984E8F256A378C0011C872 /* SidebarNavigationView.swift in Sources */,
 				A5346BB2256BB8BB007C41CE /* Person.swift in Sources */,
 				6FC0FD2A2927C55C0026714A /* UnderLineView.swift in Sources */,
@@ -1821,22 +1511,18 @@
 				CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
 				CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */,
-				6F3A3E5129196BE300E42D64 /* GuestBookContentView.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,
 				CCF9A0D0291CE25A00EF8C9B /* ProfileData.swift in Sources */,
-				6FC0FD0F2925BF400026714A /* GuestBookContentViewModel.swift in Sources */,
 				16984E9A256A505A0011C872 /* ARView.swift in Sources */,
 				16984E92256A37950011C872 /* TabNavigationView.swift in Sources */,
 				1624BF8A256C4A3700634E29 /* AppSourceCodeItemView.swift in Sources */,
 				C63C5C91291AA26A00DAD52C /* PlaceType.swift in Sources */,
 				C6CDB2D12928DFEF00960FBF /* SessionInformationModel.swift in Sources */,
+				6FBFE1B02A9E3D4F00D217D9 /* LottieView.swift in Sources */,
 				4F74A9592931510E003311E8 /* UICollectionReusableView+Extension.swift in Sources */,
 				6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */,
-				6F3A3E3E2917418300E42D64 /* GuestBookRow.swift in Sources */,
 				6054DA75256A53D500A49BD4 /* EventItemView.swift in Sources */,
-				6F3A3E4F291969C500E42D64 /* LottieView.swift in Sources */,
 				CC9B54AE2919548E008ABB2F /* colorExtension.swift in Sources */,
-				6FC0FD112925C1720026714A /* ContentsResponse.swift in Sources */,
 				CCF9A0C1291CE1C100EF8C9B /* SwiftWebView.swift in Sources */,
 				555CB61C291CC3B800D893CE /* SurveyView.swift in Sources */,
 				F0CF8916292FB823006CAEB3 /* BadgeView+API.swift in Sources */,
@@ -1853,7 +1539,6 @@
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
 				F0CF8910292FACF7006CAEB3 /* NetworkManager.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
-				6F3A3E75291F3CE400E42D64 /* NetworkService.swift in Sources */,
 				1624BF09256B73A200634E29 /* Shadow.swift in Sources */,
 				CCF9A0C3291CE1C100EF8C9B /* ProfileDetailView.swift in Sources */,
 				1624BF84256C487900634E29 /* GetTicketItemView.swift in Sources */,
@@ -1866,7 +1551,6 @@
 				4FFB9A99292FA31500182AA4 /* PeerConnectionController.swift in Sources */,
 				16DBE6342569EAD200B334A3 /* LetSwiftApp.swift in Sources */,
 				6FC0FD2E2927C55C0026714A /* BackgroundView.swift in Sources */,
-				6F3A3E6C291EA07100E42D64 /* LetSwiftAPI.swift in Sources */,
 				CCF9A0CB291CE21800EF8C9B /* URLData.swift in Sources */,
 				A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */,
 				6FC0FD2D2927C55C0026714A /* BadgeQuestionView.swift in Sources */,
@@ -1972,7 +1656,6 @@
 /* Begin XCBuildConfiguration section */
 		16A5B9EE257C125100162FC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E441ABAF9BBF7178484A8B4A /* Pods-LetSwift (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
@@ -1980,6 +1663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2000,7 +1684,6 @@
 		};
 		16A5B9EF257C125100162FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFE52E6DAF7459C4ADB46B30 /* Pods-LetSwift (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
@@ -2008,6 +1691,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 26;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2060,6 +1744,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2119,6 +1804,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2139,7 +1825,6 @@
 		};
 		16DBE63D2569EAD200B334A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFD3E03764E188EF0DF6311D /* Pods-LetSwift.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
@@ -2170,7 +1855,6 @@
 		};
 		16DBE63E2569EAD200B334A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86E821D87DF784D4254FD405 /* Pods-LetSwift.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2022_let_orange;
@@ -2202,7 +1886,6 @@
 		};
 		9A77C73D256EC0B500B30BC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A1F7497C77A5302C6C2F169 /* Pods-ScheduleWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2233,7 +1916,6 @@
 		};
 		9A77C73E256EC0B500B30BC6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 515AC2D1A6538F4AFA509A31 /* Pods-ScheduleWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2265,7 +1947,6 @@
 		};
 		9A77C783256EC57400B30BC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D47628A67560A22BD43C1A9F /* Pods-Upcoming1WidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2295,7 +1976,6 @@
 		};
 		9A77C784256EC57400B30BC6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFCD16B94CD495C8A52B785B /* Pods-Upcoming1WidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2326,7 +2006,6 @@
 		};
 		9AD49452256EE09B00C9E5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CEE5D31BF7A0CE9C14548DD /* Pods-Upcoming2WidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2356,7 +2035,6 @@
 		};
 		9AD49453256EE09B00C9E5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34AF4FE1450E9DA065A22F07 /* Pods-Upcoming2WidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2517,12 +2195,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6F3A3E47291966F600E42D64 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		6FBFE1AA2A9E3B5600D217D9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		6FC2E1402A9E40CC0047FBDE /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 		AE91AB4B2930D85500276B83 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
@@ -2536,9 +2222,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6F3A3E48291966F600E42D64 /* Lottie */ = {
+		6FBFE1AB2A9E3B5600D217D9 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6F3A3E47291966F600E42D64 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 6FBFE1AA2A9E3B5600D217D9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		6FC2E1412A9E40CC0047FBDE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FC2E1402A9E40CC0047FBDE /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
 		AE91AB4C2930D85500276B83 /* AsyncAlgorithms */ = {

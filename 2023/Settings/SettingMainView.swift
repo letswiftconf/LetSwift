@@ -95,18 +95,18 @@ struct SettingMainView: View {
             }
             .background(Color.backgroundBlack)
             .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button(action: {
-                        withAnimation {
-                            isSettingViewPresented.toggle()
-                        }
-                    }) {
-                        Image(systemName: "gear.badge.checkmark")
-                            .fullScreenCover(isPresented: $isSettingViewPresented) {
-                                SettingView()
-                            }
-                    }
-                }
+//                ToolbarItemGroup(placement: .topBarTrailing) {
+//                    Button(action: {
+//                        withAnimation {
+//                            isSettingViewPresented.toggle()
+//                        }
+//                    }) {
+//                        Image(systemName: "gear.badge.checkmark")
+//                            .fullScreenCover(isPresented: $isSettingViewPresented) {
+//                                SettingView()
+//                            }
+//                    }
+//                }
             }
         }
     }

@@ -89,7 +89,7 @@ extension SettingView {
         UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)
     }
 }
-
-#Preview {
-    SettingView()
-}
+//
+//#Preview {
+//    SettingView()
+//}
