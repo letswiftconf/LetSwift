@@ -2,7 +2,7 @@
 
 This is the official iOS app for the Let'Swift conference held annully in Seoul, Korea.
 
-
+Let'Swift 2022 | Version 3.2
 
 Let'Swift 2019 | Version 2.0 ~ 2.3.0
 
