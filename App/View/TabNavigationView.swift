@@ -10,7 +10,7 @@ import SwiftUI
 struct TabNavigationView: View {
     @State private var selected: Tab = .sessions
     @State private var showModal = false
-    @StateObject var env: GuestBookEnviromentOjb = GuestBookEnviromentOjb()
+    
     // MARK: - Body
     var body: some View {
         TabView(selection: $selected) {
@@ -21,7 +21,6 @@ struct TabNavigationView: View {
                         buildFloatingButton(tab: tab)
                     }
                 }
-                .environmentObject(env)
                 .tabItem { tab.tabItem }
                 .tag(tab)
             }
@@ -36,42 +35,6 @@ struct TabNavigationView: View {
                 if #available(iOS 16.1, *) {
                     SessionFloatingButton(store: .live)
                 }
-                
-            case .playgrounds:
-                VStack {
-                    Button {
-                        self.showModal = true
-                    } label: {
-                        ZStack {
-                            LottieView(filename: "ic_note")
-                                .frame(height: 70)
-                            VStack {
-                                Text("방명록")
-                                    .font(.system(size: 13))
-                                Spacer()
-                                Text("작성하기")
-                                    .font(.system(size: 13))
-                            }
-                            .padding(.init(top: 2, leading: 0, bottom: 2, trailing: 0))
-                        }
-                    }
-                    .frame(width: 70,height: 70)
-                    .opacity(0.7)
-                    .background(Color.white)
-                    .foregroundColor(Color.orange)
-                    .cornerRadius(20)
-                    .padding()
-                    .fullScreenCover(isPresented: $showModal) {
-                        print("dismiss")
-                        if env.isSuccess {
-                            env.isSuccess = !env.isSuccess
-                            Toast.shared.show(message: "컨퍼런스 후기가 등록되었어요", delay: 1.5)
-                        }
-                    } content: {
-                        GuestBookContentView()
-                    }
-                }
-                
             default:
                 EmptyView()
             }
@@ -83,7 +46,7 @@ struct TabNavigationView: View {
 extension TabNavigationView {
     enum Tab: Int, Identifiable, CaseIterable {
         case sessions
-        case badges
+//        case badges
         case playgrounds
         case settings
         //        case location
@@ -97,9 +60,9 @@ extension TabNavigationView {
         var presentingView: some View {
             switch self {
             case .sessions: return AnyView(SessionView())
-            case .badges: return AnyView(BadgeView())
+//            case .badges: return AnyView(BadgeView())
             case .playgrounds:
-                return AnyView(GuestBookContainerView())
+                return AnyView(GoToCardView())
             case .settings: return AnyView(SettingMainView())
 //            case .location: return AnyView(LocationView())
             }
@@ -115,7 +78,7 @@ extension TabNavigationView {
         private var name: String {
             switch self {
             case .sessions: return "세션"
-            case .badges: return "뱃지"
+//            case .badges: return "뱃지"
             case .playgrounds: return "놀이터"
             case .settings: return "설정"
 //            case .location: return "장소"
@@ -125,7 +88,7 @@ extension TabNavigationView {
         private var imageName: String {
             switch self {
             case .sessions: return "calendar"
-            case .badges: return "ticket.fill"
+//            case .badges: return "ticket.fill"
             case .playgrounds: return "gamecontroller.fill"
             case .settings: return "gearshape.fill"
 //            case .location: return "map.fill"
