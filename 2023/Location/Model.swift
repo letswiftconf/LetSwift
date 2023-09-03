@@ -9,5 +9,5 @@ struct LocationAttributes: ActivityAttributes {
 }
 
 enum ConferenceVenue {
-    case aTCenter
+    case kofst
 }

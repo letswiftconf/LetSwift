@@ -33,7 +33,7 @@ class LiveActivityStore: ObservableObject {
                 self?.state.isLiveActivityVisible = true
                 let stream = try await environmnet
                     .locationClient
-                    .distanceStream(.aTCenter)
+                    .distanceStream(.kofst)
                 
                 for try await item in stream {
                     if self?.state.liveActivity?.activityState == Optional(.active) {

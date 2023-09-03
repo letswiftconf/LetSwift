@@ -152,15 +152,16 @@ private func buildCLLocationDistance(
 private extension ConferenceVenue {
     var mapItem: MKMapItem {
         switch self {
-        case .aTCenter:
+        case .kofst:
             return .init(
                 placemark: .init(
                     coordinate: .init(
-                        latitude: 37.465640,
-                        longitude: 127.040311
+                        latitude: 37.5007029,
+                        longitude: 127.0307453
                     )
                 )
             )
         }
     }
 }
+
