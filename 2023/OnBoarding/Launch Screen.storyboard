@@ -22,7 +22,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash_01" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-0i-jB9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-0i-jB9">
                                 <rect key="frame" x="15" y="298" width="360" height="128"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-q3-wl8">
@@ -53,7 +53,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_splash_01" width="128" height="128"/>
+        <image name="ic_splash" width="128" height="128"/>
         <image name="splash_text" width="128" height="128"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@ public class Toast {
     
     var toastContainer: UIView = {
         var view = UIView()
-        view.backgroundColor = UIColor.orange.withAlphaComponent(0.9)
+        view.backgroundColor = UIColor.cardBlue.withAlphaComponent(0.9)
         view.layer.cornerRadius = 6
         view.clipsToBounds  =  true
         return view
@@ -64,7 +64,7 @@ public class Toast {
         })
     }
    
-    func show(message: String, delay: TimeInterval = 5.0, completion: ((Bool) -> Void)? = nil) {
+    func show(message: String, delay: TimeInterval = 2.0, completion: ((Bool) -> Void)? = nil) {
         DispatchQueue.main.async {
             let keyWindow = UIApplication.shared.connectedScenes
                 .filter({$0.activationState == .foregroundActive})

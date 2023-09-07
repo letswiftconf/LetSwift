@@ -7,16 +7,13 @@ struct SessionFloatingButton: View {
     
     var body: some View {
         Button(action: store.buttonTapped) {
-            Text(viewModel.getTitleText(store.state.isLiveActivityVisible))
-                .font(.bodyBold)
-                .padding()
-                .foregroundColor(.white)
-                .background(viewModel.getBackgroundColor(store.state.isLiveActivityVisible))
-                .cornerRadius(10)
             
+        
+            
+            Image("ic_floating")
+                    .background(viewModel.getBackgroundColor(store.state.isLiveActivityVisible))
         }
-        .padding(.trailing, 8)
-        .opacity(store.state.isButtonVisible ? 1.0 : .zero)
+        .padding(.trailing, -8)
         .alert(
             "알림",
             isPresented: .constant(store.state.error != nil)
@@ -27,8 +24,6 @@ struct SessionFloatingButton: View {
         } message: {
             Text(store.state.error?.localizedDescription ?? "잠시 후 다시 시도해주세요.")
         }
-      
-        
     }
 }
 
