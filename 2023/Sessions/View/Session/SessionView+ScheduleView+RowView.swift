@@ -17,40 +17,46 @@ extension SessionView.ScheduleView {
         
         var body: some View {
           switch ScheduleRowType(rawValue: information.rowTypeString) ?? .normal {
-            case .hasDetailView:
+          case .hasDetailView, .opening:
                 AnyView(
                     HStack(spacing: 30) {
                         VStack {
-                            Image("2022_" + (self.information.speaker?.nameString ?? ""))
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                            Rectangle()
+                                .foregroundColor(.mint)
                                 .frame(width: 70, height: 70)
                                 .cornerRadius(5)
-                            
+
                             Spacer()
                         }
-                        
-                        VStack(alignment: .leading, spacing: 5) {
+                        //                            Image("2022_" + (self.information.speaker?.nameString ?? ""))
+                        //                                .resizable()
+                        //                                .aspectRatio(contentMode: .fit)
+                        //                                .frame(width: 70, height: 70)
+                        //                                .cornerRadius(5)
+
+                        VStack(alignment: .leading, spacing: .zero) {
                             Text(self.information.startTimeString + " - " + self.information.endTimeString)
-                                .foregroundColor(.white)
+                                .font(.footnote)
+                                .foregroundColor(.subtext)
                             
                             Text(self.information.titleString)
-                                .font(.bodyBold)
-                                .foregroundColor(.white)
-                            
-                            if self.information.contentString != "" {
-                                Text(self.information.contentString)
-                                    .font(.subheadRegular)
-                                    .foregroundColor(.textGray)
-                                    .lineLimit(2)
+                                .font(.body1m)
+                                .foregroundColor(.title)
+                                .padding(.top, 4)
+
+                            if let speakerName = self.information.speaker?.nameString {
+                                Text("\(speakerName) 님")
+                                    .font(.body3r)
+                                    .foregroundColor(.text)
+                                    .padding(.top, 8)
                             }
-                            
-                          if self.information.rowTypeString == ScheduleRowType.hasDetailView.rawValue {
+
+                            if self.information.rowTypeString == ScheduleRowType.hasDetailView.rawValue {
                                 NavigationLink(
                                     destination: { SessionDetailView(model: self.information) },
                                     label: { self.navigateButtonView }
                                 )
-                                .padding(.top, 10)
+                                .padding(.top, 15)
                             }
                         }
                     }
@@ -59,10 +65,13 @@ extension SessionView.ScheduleView {
             case .normal:
                 AnyView(
                     Text(self.information.titleString)
+                        .font(.body3b)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
-                        .background(Color.Gradient.orange)
+                        .background(Color.primary)
                         .cornerRadius(5)
+                        .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+                        .padding(.vertical, 10)
                 )
             }
         }
@@ -74,10 +83,10 @@ extension SessionView.ScheduleView.RowView {
         Text("더보기")
             .foregroundColor(.white)
             .padding(.vertical, 10)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 33)
             .overlay(
                 RoundedRectangle(cornerRadius: 50)
-                    .stroke(Color.backgroundWhite.opacity(0.3), lineWidth: 1)
+                    .stroke(Color.primary.opacity(0.3), lineWidth: 1)
             )
     }
 }

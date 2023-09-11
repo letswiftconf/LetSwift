@@ -18,27 +18,30 @@ extension SessionDetailView {
         var body: some View {
             VStack(alignment: .leading, spacing: 30) {
                 HStack(spacing: 12) {
-                    Image("2022_" + self.speakerInformation.nameString)
-                        .resizable()
+                    Rectangle()
                         .frame(width: 70, height: 70)
                         .cornerRadius(5)
-                    
+//                    Image("2022_" + self.speakerInformation.nameString)
+//                        .resizable()
+//                        .frame(width: 70, height: 70)
+//                        .cornerRadius(5)
+//
                     VStack(alignment: .leading, spacing: 6) {
                         Spacer()
                         
                         Text(self.speakerInformation.nameString)
-                            .font(.bodyRegular)
-                            .foregroundColor(.orange)
+                            .font(.body1m)
+                            .foregroundColor(.text)
                         
                         Text(self.speakerInformation.roleString)
-                            .font(.caption2Regular)
-                            .foregroundColor(.textGray)
+                            .font(.body4r)
+                            .foregroundColor(.subtext)
                     }
                 }
                 
                 Text(self.speakerInformation.descriptionString)
-                    .font(.bodyRegular)
-                    .foregroundColor(.white)
+                    .font(.body4r)
+                    .foregroundColor(.text)
             }
         }
     }

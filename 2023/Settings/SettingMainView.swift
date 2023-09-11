@@ -95,7 +95,7 @@ struct SettingMainView: View {
             }
             .background(Color.backgroundBlack)
             .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
                         withAnimation {
                             isSettingViewPresented.toggle()

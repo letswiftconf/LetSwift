@@ -21,6 +21,8 @@ struct TabNavigationView: View {
                         buildFloatingButton(tab: tab)
                     }
                 }
+                .tint(.text)
+                .background(Color.bg)
                 .tabItem { tab.tabItem }
                 .tag(tab)
             }
