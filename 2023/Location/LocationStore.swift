@@ -6,7 +6,7 @@ import SwiftUI
 @available(iOS 16.1, *)
 class LiveActivityStore: ObservableObject {
     @MainActor @Published var state: State
-    private let environmnet: Environment
+    private let environment: Environment
     
     private var taskList: [Task<Void, Never>] = []
     
@@ -15,23 +15,23 @@ class LiveActivityStore: ObservableObject {
         environment: Environment
     ) {
         self._state = .init(initialValue: initialState)
-        self.environmnet = environment
+        self.environment = environment
     }
     
     func buttonTapped() {
         guard
             taskList.isEmpty
         else {
-            environmnet.locationClient.cancelStream(false)
+            environment.locationClient.cancelStream(false)
             Task { @MainActor [weak self] in
                 self?.state.isLiveActivityVisible = false
             }
             return
         }
-        let task = Task { @MainActor [weak self, environmnet] in
+        let task = Task { @MainActor [weak self, environment] in
             do {
                 self?.state.isLiveActivityVisible = true
-                let stream = try await environmnet
+                let stream = try await environment
                     .locationClient
                     .distanceStream(.aTCenter)
                 
@@ -62,7 +62,7 @@ class LiveActivityStore: ObservableObject {
             attributes: .init(),
             contentState: .init(distance: distance)
         )
-        let task = Task { [weak self, state, environmnet] in
+        let task = Task { [weak self, state, environment] in
             if let liveActivity = state.liveActivity {
                 for await activityState in liveActivity.activityStateUpdates {
                     switch activityState {
@@ -73,7 +73,7 @@ class LiveActivityStore: ObservableObject {
                         self?.cancelTasks()
                         
                     case .dismissed:
-                        environmnet.locationClient.cancelStream(false)
+                        environment.locationClient.cancelStream(false)
                         self?.cancelTasks()
                         
                     default:
