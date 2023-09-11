@@ -32,7 +32,6 @@ struct SessionDetailView: View {
                 }
             }
         }
-        .background(Color.backgroundBlack)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
