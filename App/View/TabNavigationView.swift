@@ -46,6 +46,7 @@ struct TabNavigationView: View {
                 EmptyView()
             }
         }
+        .padding()
     }
 }
 
