@@ -23,7 +23,7 @@ struct SettingView: View {
                     }
                     
                     Link(destination: URLData.homePage2023) {
-                        settingBox(title: "2022 공식 홈페이지")
+                        settingBox(title: "2023 공식 홈페이지")
                     }
                     
                     NavigationLink {
