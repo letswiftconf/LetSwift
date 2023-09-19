@@ -23,7 +23,6 @@ struct SettingMainView: View {
                 Spacer()
                 Button(action: {
                     withAnimation {
-                        print(profileList)
                         isSettingViewPresented.toggle()
                     }
                 }) {
@@ -113,13 +112,11 @@ struct SettingMainView: View {
                 .padding(.horizontal)
             }
             .padding(.horizontal, 10)
-            .padding(.bottom, 80)
             .scrollIndicators(.hidden)
         }
         .foregroundColor(.white)
         .background(Color.backgroundBlack)
         .edgesIgnoringSafeArea(.bottom)
-        .toolbar(.visible, for: .tabBar)
     }
 }
         

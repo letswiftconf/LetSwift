@@ -55,7 +55,6 @@ struct Profile2023View: View {
         }
         .padding(.horizontal, 10)
         .background(Color.backgroundBlack)
-        .toolbar(.hidden, for: .tabBar)
     }
 }
 
