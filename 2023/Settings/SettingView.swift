@@ -19,7 +19,7 @@ struct SettingView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Link(destination: URLData.newsletter) {
                         settingBox(title: "뉴스레터 구독")
-                            .padding(.bottom, 40)
+                            .padding(.top, 40)
                     }
                     
                     Link(destination: URLData.homePage2023) {
