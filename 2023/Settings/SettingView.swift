@@ -22,7 +22,7 @@ struct SettingView: View {
                             .padding(.bottom, 40)
                     }
                     
-                    Link(destination: URLData.homePage2022) {
+                    Link(destination: URLData.homePage2023) {
                         settingBox(title: "2022 공식 홈페이지")
                     }
                     
