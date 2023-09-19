@@ -73,11 +73,11 @@ struct SettingMainView: View {
                     }
                     .animation(.default, value: selectedRole)
                     .padding(.bottom, 18)
-      
+                    
                     LazyVGrid(
                         columns:
                             Array(
-                                repeating: .init(.flexible(), spacing: 30),
+                                repeating: .init(.flexible(), spacing: 10),
                                 count: 3
                             ),
                         alignment: .center,
@@ -85,37 +85,41 @@ struct SettingMainView: View {
                     ) {
                         ForEach(profileList, id: \.id) { profile in
                             NavigationLink(
-                                      destination: {
-                                          Profile2023View(profile: profile)
-                                      },
-                                      label: {
-                                          VStack(alignment: .center) {
-                                              Image(profile.imageName)
-                                                  .resizable()
-                                                  .aspectRatio(1, contentMode: .fit)
-                                                  .background(Color.yellow)
-                                                  .clipShape(Circle())
-                                              Spacer(minLength: 4)
-                                              Text(profile.name)
-                                                  .font(.system(size: 14, weight: .bold))
-                                                  .multilineTextAlignment(.center)
-                                          }
-                                          .padding(4)
-                                      }
-                                    )
-                             
-                            }
+                                destination: {
+                                    Profile2023View(profile: profile)
+                                },
+                                label: {
+                                    VStack(alignment: .center) {
+                                        Image(profile.imageName)
+                                            .resizable()
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .background(Color.yellow)
+                                            .clipShape(Circle())
+                                        Spacer(minLength: 10)
+                                        Text(profile.name)
+                                            .font(.system(size: 14, weight: .bold))
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .padding(4)
+
+                                }
+                            )
+                            
+                        }
+                        .navigationBarTitle("", displayMode: .inline)
+                        .accentColor(.white)
                     }
                 }
                 .padding(.horizontal)
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 10)
             .padding(.bottom, 80)
             .scrollIndicators(.hidden)
         }
         .foregroundColor(.white)
         .background(Color.backgroundBlack)
         .edgesIgnoringSafeArea(.bottom)
+        .toolbar(.visible, for: .tabBar)
     }
 }
         
