@@ -28,7 +28,7 @@ extension Color {
     static let cardTextGray = Color("cardTextGray")
     // background
     static let backgroundWhite = Color("backgroundWhite")
-    static let backgroundBlack = Color("backgroundBlack")
+    static let backgroundBlack = Color(hex: 0x071420, alpha: 1)
     static let backgroundCell = Color("backgroundCell")
     static let gradientStart = Color("gradientStart")
     static let gradientEnd = Color("gradientEnd")

@@ -10,62 +10,69 @@ import SwiftUI
 struct SettingMainView: View {
     @State private var isSettingViewPresented = false
     
-    private let colors: [Color] = [.red, .blue, .green, .yellow, .purple]
+    @State var selectedRole: Profile2023.Role = .Speaker
+    @State var profileList: [Profile2023] = Profile2023.speakers
     
     var body: some View {
-        NavigationStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    
-                    Text("Speakers")
-                        .font(Font.system(size: 24, weight: .bold))
-                        .foregroundLinearGradient(
-                            colors: [.init(hex: 0x0047FF), .init(hex: 0x011F6B)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-#warning("hani, 이미지 및 네비게이션")
-                            ForEach(colors.indices) { index in
-                                VStack(alignment: .leading) {
-                                    colors[index]
-                                        .frame(width: UIScreen.main.bounds.size.width * 0.4, height: UIScreen.main.bounds.size.width * 0.4)
-                                    
-                                    Text("Name")
-                                        .font(Font.system(size: 14, weight: .bold))
-                                    
-                                    Text("Title Time")
-                                        .font(Font.system(size: 12, weight: .semibold))
+        VStack(alignment: .center) {
+            HStack {
+                Text("Speakers & Organizers")
+                    .font(.title3Bold)
+                    .padding(.top, 20)
+                    .padding(.bottom, 25)
+                Spacer()
+                Button(action: {
+                    withAnimation {
+                        isSettingViewPresented.toggle()
+                    }
+                }) {
+                    Image(systemName: "gear.badge.checkmark")
+                        .fullScreenCover(isPresented: $isSettingViewPresented) {
+                            SettingView()
+                        }
+                }
+            }
+            .padding(.horizontal, 20)
+            ScrollView(.vertical) {
+                VStack(alignment: .center) {
+                    HStack {
+                        Spacer()
+                        ForEach(Profile2023.Role.allCases, id: \.self) { item in
+                            if selectedRole == item {
+                                Text(item.rawValue)
+                                    .padding(.vertical, 6)
+                                    .frame(width: 100)
+                                    .font(.footnote)
+                                    .background(Color(hex: 0x0047FF, alpha: 1))
+                                    .cornerRadius(5)
+                                    .padding(.bottom, 3)
+                                    .onTapGesture {
+                                        selectedRole = item
+                                    }
+                            } else {
+                                VStack(alignment: .center, spacing: 0) {
+                                    Text(item.rawValue)
+                                        .font(.footnote)
+                                        .padding(.bottom, 7)
+                                    Rectangle()
+                                        .fill(Color(hex: 0x0047FF, alpha: 1))
+                                        .frame(width: 100, height: 3)
                                 }
-                                .background(
-                                    LinearGradient(
-                                        colors: [.init(hex: 0x0047FF), .init(hex: 0x011F6B)],
-                                        startPoint: .top,
-                                        endPoint: .bottom
-                                    )
-                                )
-                                .cornerRadius(20.0)
+                                .onTapGesture {
+                                    selectedRole = item
+                                    switch selectedRole {
+                                    case .Speaker:
+                                        profileList = Profile2023.speakers
+                                    case .Organizer:
+                                        profileList = Profile2023.organizers
+                                    }
+                                }
                             }
-                            .frame(width: UIScreen.main.bounds.size.width * 0.4, height: UIScreen.main.bounds.size.width * 0.6)
-                            
                         }
                     }
-                    .onAppear {
-                        UIScrollView.appearance().isPagingEnabled = true
-                    }
+                    .animation(.default, value: selectedRole)
+                    .padding(.bottom, 18)
                     
-                    Spacer()
-                        .frame(height: 24)
-                    
-                    Text("Organizers")
-                        .font(Font.system(size: 24, weight: .bold))
-                        .foregroundLinearGradient(
-                            colors: [.init(hex: 0x0047FF), .init(hex: 0x011F6B)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
                     LazyVGrid(
                         columns:
                             Array(
@@ -73,45 +80,46 @@ struct SettingMainView: View {
                                 count: 3
                             ),
                         alignment: .center,
-                        spacing: 10
+                        spacing: 70
                     ) {
-                        ForEach(0..<20, id: \.self) { _ in
-#warning("hani, 이미지 및 네비게이션")
-                            VStack(alignment: .center) {
-                                Image(systemName: "heart.fill")
-                                    .resizable()
-                                    .aspectRatio(1, contentMode: .fit)
-                                    .background(Color.yellow)
-                                    .clipShape(Circle())
-                                Text("이름")
-                                    .font(.system(size: 14, weight: .bold))
-                            }
-                            .padding(4)
+                        ForEach(profileList, id: \.id) { profile in
+                            NavigationLink(
+                                destination: {
+                                    Profile2023View(profile: profile)
+                                },
+                                label: {
+                                    VStack(alignment: .center) {
+                                        Image(profile.imageName)
+                                            .resizable()
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .background(Color.yellow)
+                                            .clipShape(Circle())
+                                        Spacer(minLength: 10)
+                                        Text(profile.name)
+                                            .font(.system(size: 14, weight: .bold))
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .padding(4)
+
+                                }
+                            )
+                            
                         }
+                        .navigationBarTitle("", displayMode: .inline)
+                        .accentColor(.white)
                     }
                 }
-                .background(Color.backgroundBlack)
-                .padding(8)
+                .padding(.horizontal)
             }
-            .background(Color.backgroundBlack)
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        withAnimation {
-                            isSettingViewPresented.toggle()
-                        }
-                    }) {
-                        Image(systemName: "gear.badge.checkmark")
-                            .fullScreenCover(isPresented: $isSettingViewPresented) {
-                                SettingView()
-                            }
-                    }
-                }
-            }
+            .padding(.horizontal, 10)
+            .scrollIndicators(.hidden)
         }
+        .foregroundColor(.white)
+        .background(Color.backgroundBlack)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
-
+        
 struct SettingMainView_Previews: PreviewProvider {
     static var previews: some View {
         SettingMainView()
@@ -127,25 +135,5 @@ extension Color {
             blue: Double((hex >> 00) & 0xff) / 255,
             opacity: alpha
         )
-    }
-}
-extension Text {
-    public func foregroundLinearGradient(
-        colors: [Color],
-        startPoint: UnitPoint,
-        endPoint: UnitPoint) -> some View
-    {
-        self.overlay {
-
-            LinearGradient(
-                colors: colors,
-                startPoint: startPoint,
-                endPoint: endPoint
-            )
-            .mask(
-                self
-
-            )
-        }
     }
 }

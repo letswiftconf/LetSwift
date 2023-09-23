@@ -6,7 +6,7 @@ import SwiftUI
 @available(iOS 16.1, *)
 class LiveActivityStore: ObservableObject {
     @MainActor @Published var state: State
-    private let environment: Environment
+    private let environmnet: Environment
     
     private var taskList: [Task<Void, Never>] = []
     
@@ -15,26 +15,27 @@ class LiveActivityStore: ObservableObject {
         environment: Environment
     ) {
         self._state = .init(initialValue: initialState)
-        self.environment = environment
+        self.environmnet = environment
     }
     
     func buttonTapped() {
         guard
             taskList.isEmpty
         else {
-            environment.locationClient.cancelStream(false)
+            environmnet.locationClient.cancelStream(false)
             Task { @MainActor [weak self] in
                 self?.state.isLiveActivityVisible = false
             }
             return
         }
-        let task = Task { @MainActor [weak self, environment] in
+        let task = Task { @MainActor [weak self, environmnet] in
             do {
-                self?.state.isLiveActivityVisible = true
-                let stream = try await environment
-                    .locationClient
-                    .distanceStream(.aTCenter)
                 
+                let stream = try await environmnet
+                    .locationClient
+                    .distanceStream(.kofst)
+                
+                self?.state.isLiveActivityVisible = true
                 for try await item in stream {
                     if self?.state.liveActivity?.activityState == Optional(.active) {
                         if self?.state.liveActivity?.contentState.distance != Optional(item) {
@@ -62,7 +63,7 @@ class LiveActivityStore: ObservableObject {
             attributes: .init(),
             contentState: .init(distance: distance)
         )
-        let task = Task { [weak self, state, environment] in
+        let task = Task { [weak self, state, environmnet] in
             if let liveActivity = state.liveActivity {
                 for await activityState in liveActivity.activityStateUpdates {
                     switch activityState {
@@ -73,7 +74,7 @@ class LiveActivityStore: ObservableObject {
                         self?.cancelTasks()
                         
                     case .dismissed:
-                        environment.locationClient.cancelStream(false)
+                        environmnet.locationClient.cancelStream(false)
                         self?.cancelTasks()
                         
                     default:
@@ -102,7 +103,7 @@ extension LiveActivityStore {
     )
     
     struct State {
-        var isLiveActivityVisible: Bool = false
+        var isLiveActivityVisible: Bool? = nil
         var isButtonVisible: Bool = true
         var liveActivity: Activity<LocationAttributes>?
         var error: Error?

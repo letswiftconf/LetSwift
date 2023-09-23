@@ -19,11 +19,11 @@ struct SettingView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Link(destination: URLData.newsletter) {
                         settingBox(title: "뉴스레터 구독")
-                            .padding(.bottom, 40)
+                            .padding(.top, 40)
                     }
                     
-                    Link(destination: URLData.homePage2022) {
-                        settingBox(title: "2022 공식 홈페이지")
+                    Link(destination: URLData.homePage2023) {
+                        settingBox(title: "2023 공식 홈페이지")
                     }
                     
                     NavigationLink {
