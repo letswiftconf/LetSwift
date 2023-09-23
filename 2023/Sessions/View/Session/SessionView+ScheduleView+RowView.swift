@@ -21,18 +21,13 @@ extension SessionView.ScheduleView {
                 AnyView(
                     HStack(spacing: 30) {
                         VStack {
-                            Rectangle()
-                                .foregroundColor(.mint)
+                            Image(self.information.speaker?.profileString ?? "letSwift2023")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .frame(width: 70, height: 70)
                                 .cornerRadius(5)
-
                             Spacer()
                         }
-                        //                            Image("2022_" + (self.information.speaker?.nameString ?? ""))
-                        //                                .resizable()
-                        //                                .aspectRatio(contentMode: .fit)
-                        //                                .frame(width: 70, height: 70)
-                        //                                .cornerRadius(5)
 
                         VStack(alignment: .leading, spacing: .zero) {
                             Text(self.information.startTimeString + " - " + self.information.endTimeString)
@@ -51,13 +46,13 @@ extension SessionView.ScheduleView {
                                     .padding(.top, 8)
                             }
 
-                            if self.information.rowTypeString == ScheduleRowType.hasDetailView.rawValue {
-                                NavigationLink(
-                                    destination: { SessionDetailView(model: self.information) },
-                                    label: { self.navigateButtonView }
-                                )
-                                .padding(.top, 15)
-                            }
+//                            if self.information.rowTypeString == ScheduleRowType.hasDetailView.rawValue {
+//                                NavigationLink(
+//                                    destination: { SessionDetailView(model: self.information) },
+//                                    label: { self.navigateButtonView }
+//                                )
+//                                .padding(.top, 15)
+//                            }
                         }
                     }
                         .padding(.top, 10)

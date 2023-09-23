@@ -18,13 +18,10 @@ extension SessionDetailView {
         var body: some View {
             VStack(alignment: .leading, spacing: 30) {
                 HStack(spacing: 12) {
-                    Rectangle()
+                    Image(self.speakerInformation.profileString)
+                        .resizable()
                         .frame(width: 70, height: 70)
                         .cornerRadius(5)
-//                    Image("2022_" + self.speakerInformation.nameString)
-//                        .resizable()
-//                        .frame(width: 70, height: 70)
-//                        .cornerRadius(5)
 //
                     VStack(alignment: .leading, spacing: 6) {
                         Spacer()

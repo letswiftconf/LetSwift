@@ -64,6 +64,15 @@ extension SessionInformationModel {
             speaker: nil
         ),
         SessionInformationModel(
+            rowTypeString: "normal",
+            placeTypeString: "bigRoom",
+            startTimeString: "10:20",
+            endTimeString: "10:30",
+            titleString: "쉬는시간",
+            contentString: "",
+            speaker: nil
+        ),
+        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "10:30",
@@ -73,8 +82,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "이승준",
                 roleString: "OO회사 | 무슨 포지션",
-                descriptionString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
-                profileString: "이미지url"
+                descriptionString: "내가 `print()`를 들여다볼 때, `print()`도 나를 들여다보는 철학과 출신 iOS 개발자 입니다. 아는 내용을 공유하기를 좋아해요.",
+                profileString: "leeseungjun"
             )
         ),
         SessionInformationModel(
@@ -96,8 +105,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "라이노",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "코드가 가진 가능성을 탐구하는 것을 좋아합니다.",
+                profileString: "lino"
             )
         ),
         SessionInformationModel(
@@ -105,7 +114,7 @@ extension SessionInformationModel {
             placeTypeString: "bigRoom",
             startTimeString: "",
             endTimeString: "",
-            titleString: "점심 시간\n11:50 ~ 12:40 ",
+            titleString: "11:50 ~ 12:40 점심 시간",
             contentString: "",
             speaker: nil
         ),
@@ -115,12 +124,12 @@ extension SessionInformationModel {
             startTimeString: "12:40",
             endTimeString: "13:40",
             titleString: "객체가 함수를 만났을 때",
-            contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
+            contentString: "유엔젤 - 위메프를 거쳐 네이버/쿠팡까지 교육/커머스/메신저/검색 등 다양한 앱 개발 경험을 가진 iOS 개발자!! 공부, 입사, 성장 등에 걸친 경험에 대해 얘기하길 좋아합니다.",
             speaker: SessionSpeakerModel(
                 nameString: "권문범",
                 roleString: "OO회사",
                 descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                profileString: "KwonMunbum"
             )
         ),
         SessionInformationModel(
@@ -142,8 +151,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "노경섭",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "코드 속에 사용자 편의를 담는다는 신념으로, 사용자 경험을 위해 끊임없이 노력하는 개발자입니다.",
+                profileString: "NohGyungsub"
             )
         ),
         SessionInformationModel(
@@ -165,8 +174,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "김성종",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "새로운 기술을 익히고 떠드는걸 좋아하는 따뜻한 iOS 개발자입니다.",
+                profileString: "kimsungjong"
             )
         ),
         SessionInformationModel(
@@ -179,8 +188,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "방현석",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "정신 꽉 잡아!! 기획서가 또 바뀔거야!!\n서바이벌 iOS개발자 긱코드입니다.",
+                profileString: "banghyunseok"
             )
         ),
         SessionInformationModel(
@@ -202,8 +211,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "김우성",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "29CM의 모바일팀 리드를 맡고 있습니다. 도구 메이커 성향이 강해서, 팀 구성원의 업무를 좀 더 편하게 만들어줄 수 있는 스크립트를 이것저것 만들곤 합니다.",
+                profileString: "KimWooseong"
             )
         ),
         SessionInformationModel(
@@ -225,8 +234,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "곰튀김",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "리얼리즘 프로그래머",
+                profileString: "Gom"
             )
         ),
         SessionInformationModel(
@@ -250,6 +259,15 @@ extension SessionInformationModel {
             speaker: nil
         ),
         SessionInformationModel(
+            rowTypeString: "normal",
+            placeTypeString: "smallRoom",
+            startTimeString: "10:20",
+            endTimeString: "10:30",
+            titleString: "쉬는시간",
+            contentString: "",
+            speaker: nil
+        ),
+        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "10:30",
@@ -259,8 +277,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "허원",
                 roleString: "OO회사 | 무슨 포지션",
-                descriptionString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
-                profileString: "이미지url"
+                descriptionString: "유연한 서비스를 만드는데 관심이 많은 iOS 개발자입니다.",
+                profileString: "HeoWon"
             )
         ),
         SessionInformationModel(
@@ -282,8 +300,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "고드름",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "스위프트 뒤에서 몰래 함께한 혼열왕자 오브젝티브-C처럼 레츠스위프트 그 시작을 함께했던 교육 개발자입니다",
+                profileString: "JK"
             )
         ),
         SessionInformationModel(
@@ -291,7 +309,7 @@ extension SessionInformationModel {
             placeTypeString: "smallRoom",
             startTimeString: "",
             endTimeString: "",
-            titleString: "점심 시간\n11:50 ~ 12:40 ",
+            titleString: "11:50 ~ 12:40 점심 시간",
             contentString: "",
             speaker: nil
         ),
@@ -305,8 +323,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "안솔찬",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "오래오래 일하게 해주세요",
+                profileString: "AnhSolchan"
             )
         ),
         SessionInformationModel(
@@ -328,8 +346,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "리이오",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "현업과 상관없는 개발에 관심이 많아요",
+                profileString: "leeo"
             )
         ),
         SessionInformationModel(
@@ -352,7 +370,7 @@ extension SessionInformationModel {
                 nameString: "당근",
                 roleString: "OO회사",
                 descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                profileString: "karrot"
             )
         ),
         SessionInformationModel(
@@ -374,8 +392,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "Jihoon",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "다양한 방식의 접근을 좋아하는 iOS 개발자입니다",
+                profileString: "AnhJihoon"
             )
         ),
         SessionInformationModel(
@@ -397,8 +415,8 @@ extension SessionInformationModel {
             speaker: SessionSpeakerModel(
                 nameString: "허성진",
                 roleString: "OO회사",
-                descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                descriptionString: "복잡한 문제를 심플하고 유쾌하게 풀어내는 것을 좋아합니다.\n그래서 개발과 클라이밍을 좋아합니다.",
+                profileString: "heoseongjin"
             )
         ),
         SessionInformationModel(
@@ -421,7 +439,7 @@ extension SessionInformationModel {
                 nameString: "안정민",
                 roleString: "OO회사",
                 descriptionString: "무슨포지션",
-                profileString: "이미지url"
+                profileString: "jung-min"
             )
         ),
         SessionInformationModel(
