@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "selfie_layout2.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

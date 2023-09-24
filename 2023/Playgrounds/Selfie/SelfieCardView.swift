@@ -9,9 +9,12 @@ import SwiftUI
 
 // TODO: 카드 디자인에 맞춰서 컴포넌트 제작 필요.
 struct SelfieCardView: View {
+    
+    @State var isModal: Bool = false
+    
     var body: some View {
         Button {
-            // TODO: go to selfie page
+            self.isModal = true
         } label: {
             Text("인증샷 찍으러 가기")
                 .foregroundColor(.white)
@@ -21,6 +24,9 @@ struct SelfieCardView: View {
         .frame(maxWidth: .infinity)
         .cornerRadius(5)
         .background(design())
+        .fullScreenCover(isPresented: $isModal) {
+            SelfieFrameView()
+        }
     }
     
     private func design() -> some View {
