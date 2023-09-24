@@ -38,6 +38,8 @@
 	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Allow access to save event to calendar.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>인증샷을 찍기 위해 카메라 권한이 필요합니다.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>나와 관심사가 비슷한 동료를 찾기 위해 로컬 네트워크 권한을 필요로 합니다.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
