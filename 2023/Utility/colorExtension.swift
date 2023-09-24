@@ -20,6 +20,8 @@ extension Color {
     static let backgroundCell = Color("backgroundCell")
     static let gradientStart = Color("gradientStart")
     static let gradientEnd = Color("gradientEnd")
+    
+    static let primary_2023 = Color(hex: 0x0047FF, alpha: 1)
   
   enum Gradient {
     static let orange: LinearGradient = LinearGradient(
