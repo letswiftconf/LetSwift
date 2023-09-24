@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 // 인증샷 프레임 선택 뷰
 struct SelfieFrameView: View {
@@ -15,6 +16,9 @@ struct SelfieFrameView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("프레임을 선택 후 카메라로 촬영하면\n인증샷을 만들어드려요!")
+                    .font(.bodyBold)
+                
                 HStack(spacing: 32) {
                     selfieFrameButton(type: .typeA)
                         .frame(maxWidth: .infinity)
@@ -57,14 +61,14 @@ extension SelfieFrameView {
         
         let entity = SelfieEntity(type: type)
         
-        return Button {
-            print("카메라 찍으러 가자:: \(entity.type)")
-        } label: {
-            Image(entity.frameImage)
-                .resizable()
-                .scaledToFit()
-        }
-        .shadow(color: .white.opacity(0.2), radius: 5, x: 4, y: 4)
+        return NavigationLink {
+            SelfieCameraView(entity: entity)
+            } label: {
+                Image(entity.frameImage)
+                    .resizable()
+                    .scaledToFit()
+            }.shadow(color: .white.opacity(0.2), radius: 5, x: 4, y: 4)
+
     }
 }
 
