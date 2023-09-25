@@ -129,7 +129,7 @@ extension SessionInformationModel {
             placeTypeString: "bigRoom",
             startTimeString: "13:50",
             endTimeString: "14:30",
-            titleString: "스위프트 매크로, 어디다 쓰죠?",
+            titleString: "SwiftUI, 효율적인 개발 방법과 놀이에 관한 이야기",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
                 nameString: "노경섭",
@@ -143,7 +143,7 @@ extension SessionInformationModel {
             placeTypeString: "bigRoom",
             startTimeString: "14:40",
             endTimeString: "15:10",
-            titleString: "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다.",
+            titleString: "스위프트 매크로, 어디다 쓰죠?",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
                 nameString: "김성종",
