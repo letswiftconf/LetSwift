@@ -74,15 +74,6 @@ extension SessionInformationModel {
             speaker: nil
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "10:20",
-            endTimeString: "10:30",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "10:30",
@@ -95,15 +86,6 @@ extension SessionInformationModel {
                 descriptionString: "내가 `print()`를 들여다볼 때, `print()`도 나를 들여다보는 철학과 출신 iOS 개발자 입니다. 아는 내용을 공유하기를 좋아해요.",
                 profileString: "leeseungjun"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "11:00",
-            endTimeString: "11:10",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -143,15 +125,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "13:40",
-            endTimeString: "13:50",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "13:50",
@@ -164,15 +137,6 @@ extension SessionInformationModel {
                 descriptionString: "코드 속에 사용자 편의를 담는다는 신념으로, 사용자 경험을 위해 끊임없이 노력하는 개발자입니다.",
                 profileString: "NohGyungsub"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "14:30",
-            endTimeString: "14:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
