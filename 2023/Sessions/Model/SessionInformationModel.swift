@@ -15,16 +15,16 @@ struct SessionInformationModel: Decodable {
     let titleString: String
     let contentString: String
     let speaker: SessionSpeakerModel?
-  
-  enum CodingKeys: String, CodingKey {
-    case rowTypeString = "rowType"
-    case placeTypeString = "place"
-    case startTimeString = "startTime"
-    case endTimeString = "endTime"
-    case titleString = "title"
-    case contentString = "content"
-    case speaker = "speaker"
-  }
+
+    enum CodingKeys: String, CodingKey {
+        case rowTypeString = "rowType"
+        case placeTypeString = "place"
+        case startTimeString = "startTime"
+        case endTimeString = "endTime"
+        case titleString = "title"
+        case contentString = "content"
+        case speaker = "speaker"
+    }
 }
 
 extension SessionInformationModel {
@@ -33,19 +33,29 @@ extension SessionInformationModel {
         let roleString: String
         let descriptionString: String
         let profileString: String
-      
-      enum CodingKeys: String, CodingKey {
-        case nameString = "name"
-        case roleString = "role"
-        case descriptionString = "description"
-        case profileString = "profile"
-      }
+        let isTeam: Bool
+
+        init(nameString: String, roleString: String, descriptionString: String, profileString: String, isTeam: Bool = false) {
+            self.nameString = nameString
+            self.roleString = roleString
+            self.descriptionString = descriptionString
+            self.profileString = profileString
+            self.isTeam = isTeam
+        }
+
+        enum CodingKeys: String, CodingKey {
+            case nameString = "name"
+            case roleString = "role"
+            case descriptionString = "description"
+            case profileString = "profile"
+            case isTeam = "is_team"
+        }
     }
 }
 
 extension SessionInformationModel: Identifiable, Equatable {
     var id: UUID { return UUID() }
-    
+
     static func == (lhs: SessionInformationModel, rhs: SessionInformationModel) -> Bool {
         // FIXME: fix to id: UUID
         return lhs.titleString == rhs.titleString
@@ -247,7 +257,7 @@ extension SessionInformationModel {
             contentString: "",
             speaker: nil
         ),
-        
+
         //-=-=-=-=-=-=-=-=-===========
         SessionInformationModel(
             rowTypeString: "opening",
@@ -370,7 +380,8 @@ extension SessionInformationModel {
                 nameString: "당근",
                 roleString: "OO회사",
                 descriptionString: "무슨포지션",
-                profileString: "karrot"
+                profileString: "karrot",
+                isTeam: true
             )
         ),
         SessionInformationModel(

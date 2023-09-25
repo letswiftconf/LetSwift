@@ -39,8 +39,11 @@ extension SessionView.ScheduleView {
                                 .foregroundColor(.title)
                                 .padding(.top, 4)
 
-                            if let speakerName = self.information.speaker?.nameString {
-                                Text("\(speakerName) 님")
+                            if let speakerName = self.information.speaker?.nameString, let teamStatus = self.information.speaker?.isTeam {
+                                var teamString: String {
+                                    teamStatus == true ? "팀" : "님"
+                                }
+                                Text("\(speakerName) \(teamString)")
                                     .font(.body3r)
                                     .foregroundColor(.text)
                                     .padding(.top, 8)
