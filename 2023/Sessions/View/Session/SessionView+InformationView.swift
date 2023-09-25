@@ -51,12 +51,12 @@ extension SessionView {
 
                 VStack(spacing: 22) {
                     Text(self.informationTextString1)
-                        .font(.body2b)
+                        .font(.body1b)
                         .foregroundColor(.text)
                         .multilineTextAlignment(.center)
 
                     Text(self.informationTextString2)
-                        .font(.body4m)
+                        .font(.body4b)
                         .foregroundColor(.subtext)
                         .multilineTextAlignment(.center)
                 }

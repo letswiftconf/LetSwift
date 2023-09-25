@@ -10,7 +10,7 @@ import SwiftUI
 extension SessionView.ScheduleView {
     struct RowView: View {
         private let information: SessionInformationModel
-        
+
         init(sessionInformation: SessionInformationModel) {
             self.information = sessionInformation
         }
@@ -35,7 +35,7 @@ extension SessionView.ScheduleView {
                                 .foregroundColor(.subtext)
                             
                             Text(self.information.titleString)
-                                .font(.body1m)
+                                .font(.body1b)
                                 .foregroundColor(.title)
                                 .padding(.top, 4)
 

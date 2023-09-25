@@ -27,7 +27,7 @@ extension SessionDetailView {
                         Spacer()
                         
                         Text(self.speakerInformation.nameString)
-                            .font(.body1m)
+                            .font(.body1b)
                             .foregroundColor(.text)
                         
                         Text(self.speakerInformation.roleString)
