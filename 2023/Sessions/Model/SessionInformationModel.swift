@@ -167,15 +167,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "15:30",
-            endTimeString: "15:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "15:40",
@@ -188,15 +179,6 @@ extension SessionInformationModel {
                 descriptionString: "29CM의 모바일팀 리드를 맡고 있습니다. 도구 메이커 성향이 강해서, 팀 구성원의 업무를 좀 더 편하게 만들어줄 수 있는 스크립트를 이것저것 만들곤 합니다.",
                 profileString: "KimWooseong"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "16:10",
-            endTimeString: "16:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -233,15 +215,6 @@ extension SessionInformationModel {
             speaker: nil
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "10:20",
-            endTimeString: "10:30",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "10:30",
@@ -254,15 +227,6 @@ extension SessionInformationModel {
                 descriptionString: "유연한 서비스를 만드는데 관심이 많은 iOS 개발자입니다.",
                 profileString: "HeoWon"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "11:00",
-            endTimeString: "11:10",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -302,15 +266,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "13:10",
-            endTimeString: "13:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "13:20",
@@ -323,15 +278,6 @@ extension SessionInformationModel {
                 descriptionString: "현업과 상관없는 개발에 관심이 많아요",
                 profileString: "leeo"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "13:40",
-            endTimeString: "13:50",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -349,15 +295,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "14:30",
-            endTimeString: "14:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "14:40",
@@ -372,15 +309,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "15:20",
-            endTimeString: "15:30",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "15:30",
@@ -393,15 +321,6 @@ extension SessionInformationModel {
                 descriptionString: "복잡한 문제를 심플하고 유쾌하게 풀어내는 것을 좋아합니다.\n그래서 개발과 클라이밍을 좋아합니다.",
                 profileString: "heoseongjin"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "16:10",
-            endTimeString: "16:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
