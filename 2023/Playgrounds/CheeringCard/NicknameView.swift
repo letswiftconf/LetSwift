@@ -53,7 +53,7 @@ struct NicknameView: View {
                     Alert(title: Text("이름을 입력해 주세요."),message: nil, dismissButton:.default(Text("확인")))
                 }
                 NavigationLink("", isActive: $isActive) {
-                    SurveyView(surveyId: 1,
+                    SurveyView(surveyId: 0,
                                userData: answerData(name: name),
                                goToNicknameView: $goToNicknameView,
                                showModal: $isShowModal)

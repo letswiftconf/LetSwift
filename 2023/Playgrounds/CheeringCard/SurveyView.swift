@@ -27,13 +27,13 @@ struct SurveyView: View {
     var body: some View {
         VStack {
             VStack {
-                if surveyId == 1 {
+                if surveyId == 0 {
                     closeButton()
                 } else {
                     backCloseButton()
                 }
                 Spacer()
-                Text("\(surveyId) / \(TempChartData.questionList.count)")
+                Text("\(surveyId + 1) / \(TempChartData.questionList.count)")
                     .font(.bodyBold)
                 HStack {
                     Text(TempChartData.getQuestionText(surveyId: surveyId))
@@ -41,35 +41,43 @@ struct SurveyView: View {
                         .multilineTextAlignment(.center)
                 }
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: 30, trailing: 30))
-                
-                ForEach(1..<5) { i in
-                    
-                    let answerItem = TempChartData.getAnswerText(surveyId: surveyId, answerId: i)
-                    
-                    Button {
-                        if surveyId < TempChartData.questionList.count + 1 {
-                            userData.answer.append(AnswerData(surveyId: surveyId, answer: i))
-                            surveyId += 1
-                            animationAmount += 1
-                            
-                            if surveyId == TempChartData.questionList.count + 1 {
-                                isActive = true
-                                saveUserData()
-                                putSurveyData(body: userData.answer)
-                            } else {
-                                isActive = false
+                GeometryReader { geometry in
+                    ScrollView {
+                        if surveyId < TempChartData.questionList.count {
+                           
+                            let answerCount = TempChartData.questionList[surveyId].answer.count
+                            ForEach(0..<answerCount, id: \.self) { i in
+                                let answerItem = TempChartData.getAnswerText(surveyId: surveyId, answerId: i)
+                                
+                                Button {
+                                    if surveyId < TempChartData.questionList.count {
+                                        userData.answer.append(AnswerData(surveyId: surveyId, answer: i))
+                                        surveyId += 1
+                                        animationAmount += 1
+                                        
+                                        if surveyId == TempChartData.questionList.count {
+                                            isActive = true
+                                            saveUserData()
+                                            if surveyId >= TempChartData.questionList.count {
+                                                surveyId = 0
+                                            }
+                                        } else {
+                                            isActive = false
+                                        }
+                                    }
+                                } label: {
+                                    AnswerItemView(answerItem)
+                                }
+                                
+                                NavigationLink("", isActive: $isActive) {
+                                    CardView(showModal: $isShowModal)
+                                        .navigationBarBackButtonHidden(true)
+                                }
                             }
                         }
-                    } label: {
-                        AnswerItemView(answerItem)
-                    }
-                    
-                    NavigationLink("", isActive: $isActive) {
-                        CardView(showModal: $isShowModal)
-                            .navigationBarBackButtonHidden(true)
+                        Spacer()
                     }
                 }
-                Spacer()
             }
             .opacity(Double(animationAmount-1))
             .animation(.easeIn(duration: 0.2),value: animationAmount)
@@ -148,17 +156,6 @@ extension SurveyView {
             }
         }
         return CardType.cardCase(answerId: max).rawValue
-    }
-    
-    private func putSurveyData(body: [AnswerData]) {
-        APICaller.shared.putServeyData(body: body) { result in
-            switch result {
-            case .success(_):
-                print("success")
-            case .failure(_):
-                print("failure")
-            }
-        }
     }
 }
 
