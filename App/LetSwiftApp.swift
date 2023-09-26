@@ -13,7 +13,7 @@ struct LetSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .accentColor(.themePrimary)
+                .accentColor(.white)
                 .onAppear {
                     UNUserNotificationCenter.requestLetSwiftNotification()
                     APICaller.shared.getAllProfileData()

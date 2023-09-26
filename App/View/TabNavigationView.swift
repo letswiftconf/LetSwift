@@ -13,17 +13,24 @@ struct TabNavigationView: View {
     
     // MARK: - Body
     var body: some View {
-        TabView(selection: $selected) {
-            ForEach(Tab.allCases) { tab in
-                NavigationView {
+        NavigationStack {
+            TabView(selection: $selected) {
+                ForEach(Tab.allCases) { tab in
                     ZStack(alignment: .bottomTrailing) {
                         tab.presentingView
                         buildFloatingButton(tab: tab)
                     }
+                    .tabItem { tab.tabItem }
+                    .tag(tab)
                 }
-                .tabItem { tab.tabItem }
-                .tag(tab)
             }
+        }
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            UITabBar.appearance().isTranslucent = false
+            UITabBar.appearance().barTintColor = UIColor(Color.backgroundBlack)
         }
     }
     
@@ -39,6 +46,7 @@ struct TabNavigationView: View {
                 EmptyView()
             }
         }
+        .padding()
     }
 }
 

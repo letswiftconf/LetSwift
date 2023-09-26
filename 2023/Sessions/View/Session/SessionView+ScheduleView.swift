@@ -9,50 +9,47 @@ import SwiftUI
 
 extension SessionView {
     struct ScheduleView: View {
-        @State private var sessionInformations: [SessionInformationModel] = []
+        @State private var sessionInformations = SessionInformationModel.samples
         @State private var clickedPlaceType: PlaceType = .bigRoom
         
         var body: some View {
             VStack(alignment: .leading, spacing: .zero) {
                 Text("Schedule")
-                    .font(.title3Bold)
-                    .foregroundColor(.white)
+                    .font(.head2b)
+                    .foregroundColor(.title)
                 
-                HStack(spacing: 20) {
+                HStack(spacing: .zero) {
                     ForEach(PlaceType.allCases) { placeType in
                         placeType.buttonView(isClicked: placeType == self.clickedPlaceType)
                             .onTapGesture {
                                 self.clickedPlaceType = placeType
                             }
                     }
-                    
-                    Spacer()
                 }
-                .padding(.top, 25)
-                
+                .frame(width: UIScreen.main.bounds.width - 40)
+                .padding(.vertical)
+
                 VStack(spacing: 20) {
                     ForEach(self.selectedPlaceTypeOfSessionInformations) { information in
                         VStack(alignment: .leading, spacing: 20) {
                             RowView(sessionInformation: information)
-                                .padding(.bottom, self.isLastModel(of: information) ? 50 : 0)
+                                                            .padding(.bottom, self.isLastModel(of: information) ? 50 : 0)
                             
                             if !self.isLastModel(of: information) {
-                                SessionView.DividerView(height: 1, color: .backgroundWhite.opacity(0.3))
+                                SessionView.DividerView(height: 1, color: Color.primary.opacity(0.3))
                             }
                         }
                     }
                 }
-                .padding(.top, 30)
-            }
-            .onAppear {
-                self.setSessionInformations()
+                .padding(.top, 27)
             }
         }
         
         private var selectedPlaceTypeOfSessionInformations: [SessionInformationModel] {
             let selectedPlaceTypeOfSessionInformation = self.sessionInformations.filter { information in
-              information.placeTypeString == self.clickedPlaceType.rawValue
+                information.placeTypeString == self.clickedPlaceType.rawValue
             }
+
             return selectedPlaceTypeOfSessionInformation
         }
         

@@ -9,22 +9,16 @@ import SwiftUI
 
 struct SessionView: View {
     var body: some View {
-        ScrollView {
-            VStack(spacing: .zero) {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 67) {
                 InformationView()
-                    .padding(.top, 40)
-                    .padding(.bottom, 60)
-                    .padding(.horizontal, 20)
-                
-                DividerView(height: 5, color: .orange)
-                
+                    .padding(.top, 24)
+
                 ScheduleView()
-                    .padding(.top, 41)
-                    .padding(.horizontal, 20)
             }
+            .padding(.horizontal, 20)
             .navigationTitle("행사일정")
             .navigationBarHidden(true)
         }
-        .background(Color.backgroundBlack)
     }
 }

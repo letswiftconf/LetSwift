@@ -35,23 +35,29 @@ struct LocationLockScreenBannerView: View {
     var body: some View {
         ZStack(alignment: .leading) {
             if state.isArrived {
-                Image("arrivedLockScreenBanner")
+                Image("lockScreenBannerBackground")
                     .resizable()
+                
+                VStack(alignment: .leading) {
+                    Text("반가워요🥰\n행사장에 도착했습니다👏")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(Color(hex: "0A0A0A"))
+                }
+                .padding(.leading, 28)
             } else {
                 Image("lockScreenBannerBackground")
                     .resizable()
                 
                 VStack(alignment: .leading) {
                     Text("행사장까지 남은 거리")
-                        .font(.custom("NotoSansKR-Medium", size: 14))
+                        .font(.system(size: 14))
                         .foregroundColor(Color(hex: "545454"))
                     
                     HStack(alignment: .firstTextBaseline, spacing: 15) {
                         Text("\(state.distance, specifier: "%.2f")")
-                            .font(.custom("Poppins-ExtraBold", size: 42))
-                        
+                            .font(.system(size: 42, weight: .bold))
                         Text("km")
-                            .font(.custom("Poppins-ExtraBold", size: 30))
+                            .font(.system(size: 30, weight: .bold))
                     }
                     .foregroundColor(Color(hex: "0A0A0A"))
                 }

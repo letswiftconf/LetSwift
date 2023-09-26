@@ -3,21 +3,17 @@ import SwiftUI
 @available(iOS 16.1, *)
 struct SessionFloatingButton: View {
     @ObservedObject var store: LiveActivityStore
+    @ObservedObject var viewModel: LiveActivityViewModel = LiveActivityViewModel()
     
     var body: some View {
         Button(action: store.buttonTapped) {
-            let text = store.state.isLiveActivityVisible ?
-            "DeActivate" :
-            "Activate"
-            Text("\(text) Live Activitiy")
-                .font(.bodyBold)
-                .padding()
-                .foregroundColor(.white)
-                .background(.orange)
-                .cornerRadius(10)
+            
+        
+            
+            Image("ic_floating")
+                    .background(viewModel.getBackgroundColor(store.state.isLiveActivityVisible))
         }
-        .padding(.trailing, 8)
-        .opacity(store.state.isButtonVisible ? 1.0 : .zero)
+        .padding(.trailing, -8)
         .alert(
             "알림",
             isPresented: .constant(store.state.error != nil)
@@ -30,3 +26,14 @@ struct SessionFloatingButton: View {
         }
     }
 }
+
+struct SessionFloatingButton_Previews: PreviewProvider {
+    static var previews: some View {
+        if #available(iOS 16.1, *) {
+            SessionFloatingButton(store: .live)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+

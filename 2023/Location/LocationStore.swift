@@ -30,11 +30,12 @@ class LiveActivityStore: ObservableObject {
         }
         let task = Task { @MainActor [weak self, environmnet] in
             do {
-                self?.state.isLiveActivityVisible = true
+                
                 let stream = try await environmnet
                     .locationClient
-                    .distanceStream(.aTCenter)
+                    .distanceStream(.kofst)
                 
+                self?.state.isLiveActivityVisible = true
                 for try await item in stream {
                     if self?.state.liveActivity?.activityState == Optional(.active) {
                         if self?.state.liveActivity?.contentState.distance != Optional(item) {
@@ -102,7 +103,7 @@ extension LiveActivityStore {
     )
     
     struct State {
-        var isLiveActivityVisible: Bool = false
+        var isLiveActivityVisible: Bool? = nil
         var isButtonVisible: Bool = true
         var liveActivity: Activity<LocationAttributes>?
         var error: Error?
