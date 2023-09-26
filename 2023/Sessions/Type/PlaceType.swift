@@ -13,31 +13,32 @@ enum PlaceType: String {
 }
 
 extension PlaceType {
-    private var textString: String {
+    var textString: String {
         switch self {
-        case .bigRoom: return "402호"
-        case .smallRoom: return "401호"
+        case .bigRoom: return "대회의실 1"
+        case .smallRoom: return "대회의실 2"
         }
     }
 }
 
 extension PlaceType {
     func buttonView(isClicked: Bool) -> some View {
-        VStack(spacing: .zero) {
+        VStack(alignment: .center, spacing: .zero) {
             Text(self.textString)
-                .font(.subheadBold)
+                .font(.body3b)
                 .foregroundColor(.white)
+                .frame(width: (UIScreen.main.bounds.width - 40) / 2)
                 .padding(.top, 10)
                 .padding(.bottom, isClicked ? 10 : 7)
-                .frame(width: 80)
-                .background(isClicked ? Color.orange : Color.clear)
+                .background(isClicked ? Color.primary : Color.clear)
                 .cornerRadius(5)
             
             Rectangle()
-                .fill(Color.backgroundWhite.opacity(0.2))
-                .frame(width: 80, height: isClicked ? 0 : 2)
+                .fill(Color.primary.opacity(0.2))
+                .frame(height: isClicked ? 0 : 2)
                 .cornerRadius(5)
         }
+        .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
     }
 }
 

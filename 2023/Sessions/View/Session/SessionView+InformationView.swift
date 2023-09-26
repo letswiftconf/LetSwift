@@ -7,31 +7,62 @@
 
 import SwiftUI
 
-private typealias GradientButton = SessionView.OrangeButton
-
 extension SessionView {
     struct InformationView: View {
-        private let informationTextString: String = """
-    지난 3년 간 다채로운 행사와 다양한 만남에 목말라 있었나요?\n
-    드디어 긴 침묵 끝에, 3년 만에 2022 레츠스위프트가 오프라인으로 돌아왔습니다!\n
-    함께 Swift Playgrounds에서 만나고, 배우고, 즐겨요!
-    """
-        
+        private let informationTextString1: String =
+        """
+        스노클링을 해보신 경험이 있으신가요?
+
+        바닷속에는 우리가 보지 못했던 미지의 세계가
+
+        끝도 없이 펼쳐져 있습니다.
+        """
+
+        private let informationTextString2: String =
+        """
+        직접 들어가 보지 않으면 알 수 없는 세계를 탐험해 봤던 경험을
+        나누는 것은 우리의 지식과 경험을 더욱 풍부하게 만들 뿐 아니라
+        공유의 가치를 더해 줄 것입니다.
+
+        이제 Deep dive 할 시간입니다!
+        함께하시죠 into the unknown으로!
+
+        조심하세요!
+        너무 깊이 들어갔다간 헤어 나오지 못할지도 모릅니다!
+
+        """
+
         @State
         private var isAlertOpen: Bool = false
         
         var body: some View {
             VStack(alignment: .leading, spacing: .zero) {
                 // FIXME: font
-                Text("Let’Swift 2022")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                
-                Text(self.informationTextString)
-                    .foregroundColor(.white)
-                    .font(.bodyRegular)
-                    .padding(.top, 22)
-                
+                HStack(alignment: .lastTextBaseline) {
+                    Text("Deep Dive")
+                        .font(.head1b)
+
+                    Spacer()
+
+                    Text("into the unknown")
+                        .font(.body2m)
+                }
+                .foregroundColor(.title)
+
+                VStack(spacing: 22) {
+                    Text(self.informationTextString1)
+                        .font(.body2b)
+                        .foregroundColor(.text)
+                        .multilineTextAlignment(.center)
+
+                    Text(self.informationTextString2)
+                        .font(.body4m)
+                        .foregroundColor(.subtext)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(width: UIScreen.main.bounds.width - 40, alignment: .center)
+                .padding(.top, 24)
+
                 HStack(spacing: 15) {
                     Button(
                         action: { self.urlClickAction(urlString: "https://twitter.com/letswiftkr") },
@@ -45,18 +76,18 @@ extension SessionView {
                     
                     Spacer()
                 }
-                .padding(.top, 28)
+                .padding(.top)
                 
                 RowView(
                     titleString: "일시",
-                    contentString: "2022년 11월30일  10:00 - 17:00",
+                    contentString: "2023년 10월 13일  10:00 - 17:00",
                     buttons: [
-                        OrangeButton(textString: "캘린더 추가") {
+                        SmallBoxButton(textString: "캘린더 추가") {
                             self.addToCalendar()
                         }
                     ]
                 )
-                .padding(.top, 46)
+                .padding(.top, 10)
                 .alert(isPresented: self.$isAlertOpen) {
                     Alert(
                         title: Text("캘린더"),
@@ -67,13 +98,13 @@ extension SessionView {
                 
                 RowView(
                     titleString: "장소",
-                    contentString: "서울 서초구 aT센터 (창조룸 I,II)",
+                    contentString: "과학기술컨벤션센터 지하1층",
                     buttons: [
-                        OrangeButton(textString: "네이버 지도") {
-                            self.urlClickAction(urlString: "https://naver.me/GY2c6JbS")
+                        SmallBoxButton(textString: "네이버 지도") {
+                            self.urlClickAction(urlString: "https://naver.me/5SaMyyTt")
                         },
-                        OrangeButton(textString: "카카오 지도") {
-                            self.urlClickAction(urlString: "https://place.map.kakao.com/17023403")
+                        SmallBoxButton(textString: "카카오 지도") {
+                            self.urlClickAction(urlString: "https://place.map.kakao.com/1806062978")
                         }
                     ]
                 )
@@ -87,21 +118,20 @@ extension SessionView.InformationView {
     struct RowView: View {
         private let titleString: String
         private let contentString: String
-        private let buttons: [GradientButton]
+        private let buttons: [SessionView.SmallBoxButton]
         
-        init(titleString: String, contentString: String, buttons: [SessionView.OrangeButton]) {
+        init(titleString: String, contentString: String, buttons: [SessionView.SmallBoxButton]) {
             self.titleString = titleString
             self.contentString = contentString
             self.buttons = buttons
         }
         
         var body: some View {
-            VStack(alignment: .leading, spacing: 15) {
-                HStack(spacing: 9) {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack {
                     Text(self.titleString)
-                        .font(.bodyBold)
-                        .foregroundColor(.white)
-                    
+                        .font(.body1b)
+
                     Spacer()
                     
                     ForEach(self.buttons) { button in
@@ -110,12 +140,13 @@ extension SessionView.InformationView {
                 }
                 
                 Text(self.contentString)
-                    .font(.subheadRegular)
-                    .foregroundColor(.white)
+                    .font(.body3r)
             }
-            .padding(20)
-            .background(Color.backgroundCell)
+            .foregroundColor(.text)
+            .padding()
+            .background(Color.primary)
             .cornerRadius(10)
+            .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
         }
     }
 }
@@ -125,7 +156,7 @@ extension SessionView.InformationView {
         let manager = CalendarManager()
         switch manager.authorizationStatus {
         case .authorized:
-            manager.addConference2022()
+            manager.addConference2023()
             self.isAlertOpen = true
         case .denied, .restricted:
             // TODO: Show error

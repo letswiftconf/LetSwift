@@ -8,6 +8,7 @@
 import Foundation
 
 enum ScheduleRowType: String {
-    case normal
     case hasDetailView
+    case normal
+    case opening
 }
