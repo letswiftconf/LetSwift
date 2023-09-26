@@ -10,7 +10,7 @@ import SwiftUI
 extension SessionView.ScheduleView {
     struct RowView: View {
         private let information: SessionInformationModel
-        
+
         init(sessionInformation: SessionInformationModel) {
             self.information = sessionInformation
         }
@@ -35,12 +35,15 @@ extension SessionView.ScheduleView {
                                 .foregroundColor(.subtext)
                             
                             Text(self.information.titleString)
-                                .font(.body1m)
+                                .font(.body1b)
                                 .foregroundColor(.title)
                                 .padding(.top, 4)
 
-                            if let speakerName = self.information.speaker?.nameString {
-                                Text("\(speakerName) 님")
+                            if let speakerName = self.information.speaker?.nameString, let teamStatus = self.information.speaker?.isTeam {
+                                var teamString: String {
+                                    teamStatus == true ? "팀" : "님"
+                                }
+                                Text("\(speakerName) \(teamString)")
                                     .font(.body3r)
                                     .foregroundColor(.text)
                                     .padding(.top, 8)

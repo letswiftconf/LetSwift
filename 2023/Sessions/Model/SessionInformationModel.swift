@@ -15,16 +15,16 @@ struct SessionInformationModel: Decodable {
     let titleString: String
     let contentString: String
     let speaker: SessionSpeakerModel?
-  
-  enum CodingKeys: String, CodingKey {
-    case rowTypeString = "rowType"
-    case placeTypeString = "place"
-    case startTimeString = "startTime"
-    case endTimeString = "endTime"
-    case titleString = "title"
-    case contentString = "content"
-    case speaker = "speaker"
-  }
+
+    enum CodingKeys: String, CodingKey {
+        case rowTypeString = "rowType"
+        case placeTypeString = "place"
+        case startTimeString = "startTime"
+        case endTimeString = "endTime"
+        case titleString = "title"
+        case contentString = "content"
+        case speaker = "speaker"
+    }
 }
 
 extension SessionInformationModel {
@@ -33,19 +33,29 @@ extension SessionInformationModel {
         let roleString: String
         let descriptionString: String
         let profileString: String
-      
-      enum CodingKeys: String, CodingKey {
-        case nameString = "name"
-        case roleString = "role"
-        case descriptionString = "description"
-        case profileString = "profile"
-      }
+        let isTeam: Bool
+
+        init(nameString: String, roleString: String, descriptionString: String, profileString: String, isTeam: Bool = false) {
+            self.nameString = nameString
+            self.roleString = roleString
+            self.descriptionString = descriptionString
+            self.profileString = profileString
+            self.isTeam = isTeam
+        }
+
+        enum CodingKeys: String, CodingKey {
+            case nameString = "name"
+            case roleString = "role"
+            case descriptionString = "description"
+            case profileString = "profile"
+            case isTeam = "is_team"
+        }
     }
 }
 
 extension SessionInformationModel: Identifiable, Equatable {
     var id: UUID { return UUID() }
-    
+
     static func == (lhs: SessionInformationModel, rhs: SessionInformationModel) -> Bool {
         // FIXME: fix to id: UUID
         return lhs.titleString == rhs.titleString
@@ -64,15 +74,6 @@ extension SessionInformationModel {
             speaker: nil
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "10:20",
-            endTimeString: "10:30",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "10:30",
@@ -85,15 +86,6 @@ extension SessionInformationModel {
                 descriptionString: "내가 `print()`를 들여다볼 때, `print()`도 나를 들여다보는 철학과 출신 iOS 개발자 입니다. 아는 내용을 공유하기를 좋아해요.",
                 profileString: "leeseungjun"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "11:00",
-            endTimeString: "11:10",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -133,20 +125,11 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "13:40",
-            endTimeString: "13:50",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "13:50",
             endTimeString: "14:30",
-            titleString: "스위프트 매크로, 어디다 쓰죠?",
+            titleString: "SwiftUI, 효율적인 개발 방법과 놀이에 관한 이야기",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
                 nameString: "노경섭",
@@ -156,20 +139,11 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "14:30",
-            endTimeString: "14:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "14:40",
             endTimeString: "15:10",
-            titleString: "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다.",
+            titleString: "스위프트 매크로, 어디다 쓰죠?",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
                 nameString: "김성종",
@@ -193,15 +167,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "15:30",
-            endTimeString: "15:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "15:40",
@@ -214,15 +179,6 @@ extension SessionInformationModel {
                 descriptionString: "29CM의 모바일팀 리드를 맡고 있습니다. 도구 메이커 성향이 강해서, 팀 구성원의 업무를 좀 더 편하게 만들어줄 수 있는 스크립트를 이것저것 만들곤 합니다.",
                 profileString: "KimWooseong"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "bigRoom",
-            startTimeString: "16:10",
-            endTimeString: "16:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -247,7 +203,7 @@ extension SessionInformationModel {
             contentString: "",
             speaker: nil
         ),
-        
+
         //-=-=-=-=-=-=-=-=-===========
         SessionInformationModel(
             rowTypeString: "opening",
@@ -255,15 +211,6 @@ extension SessionInformationModel {
             startTimeString: "10:00",
             endTimeString: "10:20",
             titleString: "오프닝 키노트\n(대회의실 1)",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "10:20",
-            endTimeString: "10:30",
-            titleString: "쉬는시간",
             contentString: "",
             speaker: nil
         ),
@@ -280,15 +227,6 @@ extension SessionInformationModel {
                 descriptionString: "유연한 서비스를 만드는데 관심이 많은 iOS 개발자입니다.",
                 profileString: "HeoWon"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "11:00",
-            endTimeString: "11:10",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -328,15 +266,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "13:10",
-            endTimeString: "13:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "13:20",
@@ -351,15 +280,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "13:40",
-            endTimeString: "13:50",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "13:50",
@@ -370,17 +290,9 @@ extension SessionInformationModel {
                 nameString: "당근",
                 roleString: "OO회사",
                 descriptionString: "무슨포지션",
-                profileString: "karrot"
+                profileString: "karrot",
+                isTeam: true
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "14:30",
-            endTimeString: "14:40",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
@@ -397,15 +309,6 @@ extension SessionInformationModel {
             )
         ),
         SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "15:20",
-            endTimeString: "15:30",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
-        ),
-        SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "15:30",
@@ -418,15 +321,6 @@ extension SessionInformationModel {
                 descriptionString: "복잡한 문제를 심플하고 유쾌하게 풀어내는 것을 좋아합니다.\n그래서 개발과 클라이밍을 좋아합니다.",
                 profileString: "heoseongjin"
             )
-        ),
-        SessionInformationModel(
-            rowTypeString: "normal",
-            placeTypeString: "smallRoom",
-            startTimeString: "16:10",
-            endTimeString: "16:20",
-            titleString: "쉬는시간",
-            contentString: "",
-            speaker: nil
         ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
