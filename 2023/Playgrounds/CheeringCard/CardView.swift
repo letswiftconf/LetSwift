@@ -17,6 +17,22 @@ struct CardView: View {
     
     var category: String?
     var name: String?
+    var session: String?
+    
+    private let sessionDescription: String =
+    """
+    직접 들어가 보지 않으면 알 수 없는 세계를
+    
+    탐험해 봤던 경험을 나누는 것은
+    우리의 지식과 경험을 더욱 풍부하게 만들 뿐 아니라
+    공유의 가치를 더해 줄 것입니다.
+
+    이제 Deep dive 할 시간입니다!
+    함께하시죠 into the unknown으로!
+
+    조심하세요!  
+    너무 깊이 들어갔다간 헤어 나오지 못할지도 모릅니다!
+    """
     
     init(showModal: Binding<Bool>) {
         self._isShowModal = showModal
@@ -48,15 +64,9 @@ struct CardView: View {
                                 .padding(.bottom,20)
                                 .opacity(Double(animationAmount-1))
                                 .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
-                            Text("@letswift  #letswift  #렛츠스위프트")
-                                .font(.subheadBold)
-                                .foregroundColor(.black)
-                                .opacity(Double(animationAmount-1))
-                                .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
-                            Text("인스타에 위의 태그를 걸어 게시물을 올려주세요!\n경품 추천 시간에 컨퍼런스 참여자를 대상으로 선물을 드립니다!")
-                                .font(.footnote)
-                                .foregroundColor(.white)
-                                .frame(height: 60)
+                            Text("\(self.sessionDescription)")
+                                .font(.body4r)
+                                .foregroundColor(.subtext)
                                 .multilineTextAlignment(.center)
                                 .opacity(Double(animationAmount-1))
                                 .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
@@ -67,27 +77,6 @@ struct CardView: View {
                             .rotation3DEffect(.degrees(360), axis: (x: 0, y: 1, z: 0))
                             .animation(.easeOut(duration: 0.5).delay(2),value: animationAmount)
                     }
-                    
-                    NavigationLink {
-                        ChartView()
-                            .navigationBarBackButtonHidden(true)
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("참가자 전체 결과 보기")
-                                .font(.title3Reqular)
-                                .foregroundColor(.backgroundBlack)
-                            Spacer()
-                        }
-                    }
-                    .padding(10)
-                    .background(.white)
-                    .cornerRadius(5)
-                    .frame(height: 50)
-                    .padding(.top, 10)
-                    .opacity(Double(animationAmount-1))
-                    .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 3, y: 3)
                     HStack {
                         Button {
                             UIImageWriteToSavedPhotosAlbum(captureImage(), nil, nil, nil)
@@ -95,22 +84,15 @@ struct CardView: View {
                         } label: {
                             boxText(title: "이미지 저장", image: "arrow.down.to.line")
                         }
+                        
                         Spacer()
                         Button {
                             shareImage(image: captureImage())
                         } label: {
                             boxText(title: "카드 공유", image: "square.and.arrow.up")
                         }
+                        
                         Spacer()
-                        NavigationLink {
-                            PeerListView(
-                                viewModel: PeerListViewModel(
-                                    peerConnectionController: PeerConnectionController()
-                                )
-                            )
-                        } label: {
-                            boxText(title: "동료 찾기", image: "magnifyingglass")
-                        }
                     }
                     .opacity(Double(animationAmount-1))
                     .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
@@ -139,7 +121,7 @@ struct CardView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.orange)
+        .background(Color.bg)
         .navigationTitle("")
         .alert(isPresented: $isShowAlert) {
             return Alert(title: Text("사진이 저장되었습니다!"), message: nil, dismissButton: .cancel(Text("확인")))
@@ -163,6 +145,7 @@ extension CardView {
         }
         self.name = user.name
         self.category = user.cardType
+        self.session = user.sessionType
     }
     
     private func captureImage() -> UIImage {
@@ -176,7 +159,7 @@ extension CardView {
         guard let user = SharedPreference.shared.cheeringCard else {
             return
         }
-        SharedPreference.shared.cheeringCard = CheeringCardModel(name: user.name, cardType: user.cardType, image: imageData)
+        SharedPreference.shared.cheeringCard = CheeringCardModel(name: user.name, cardType: user.cardType, image: imageData, sessionType: user.sessionType)
     }
     
     private var cardView: some View {
@@ -187,46 +170,30 @@ extension CardView {
                 .frame(width: 330, height: 400)
                 .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
             VStack(spacing:0) {
-                Spacer()
                 VStack(spacing:0){
-                    HStack {
-                        Text("Let’Swift 2022")
-                            .font(.system(size: 14))
-                            .fontWeight(.regular)
-                        Spacer()
-                    }
                     HStack(spacing: 0) {
-                        Text("\(category ?? "")")
-                            .font(.title)
-                        Text("인")
-                            .font(.system(size: 25))
-                            .fontWeight(.light)
-                        
+                        Spacer()
+                        Text("\(session ?? "")")
+                            .font(.head3b)
                         Spacer()
                     }
                     .frame(height:33)
                     .padding(.top, 10)
                     HStack(spacing: 0) {
+                        Spacer()
+                        Text("\(category ?? "") ")
+                            .font(.head3b)
                         Text("\(name ?? "")")
-                            .font(.title)
+                            .font(.head3b)
                         Text("님")
-                            .font(.system(size: 25))
-                            .fontWeight(.light)
+                            .font(.body2b)
                             .padding(.top, 2)
                         Spacer()
                     }
                     .frame(height:33)
-                    HStack {
-                        Text("PLAYGROUND에서 함께 놀아요")
-                            .font(.system(size: 16))
-                            .fontWeight(.light)
-                            .foregroundColor(Color.cardTextGray)
-                        Spacer()
-                    }
-                    .padding(.top, 10)
                 }
-                .padding(.leading, 28)
-                .padding(.bottom, 35)
+                .padding(.top, 35)
+                Spacer()
             }
         }
         .frame(width: 330, height: 400)
@@ -289,7 +256,7 @@ extension CardView {
             Spacer()
         }
         .frame(height: 35)
-        .background(Color.backgroundBlack)
+        .background(Color.primary)
         .cornerRadius(5)
     }
     

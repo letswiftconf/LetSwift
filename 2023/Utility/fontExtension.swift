@@ -31,6 +31,7 @@ extension Font {
     static let head1b = Font.custom("WorkSans-Bold", size: 40)
     static let head2b = Font.system(size: 30, weight: .bold)
     static let head2m = Font.system(size: 30, weight: .medium)
+    static let head3b = Font.system(size: 20, weight: .bold)
 
     static let body1b = Font.system(size: 18, weight: .bold)
     static let body1m = Font.system(size: 18, weight: .medium)

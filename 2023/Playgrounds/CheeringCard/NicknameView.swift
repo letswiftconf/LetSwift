@@ -78,7 +78,7 @@ struct NicknameView: View {
 
 extension NicknameView {
     private func answerData(name: String) -> SurveyAnswerModel {
-        let userData = SurveyAnswerModel(name: name, answer: [])
+        let userData = SurveyAnswerModel(name: name, answer: [], session: "")
         return userData
     }
     

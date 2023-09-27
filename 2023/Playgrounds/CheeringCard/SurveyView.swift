@@ -51,7 +51,11 @@ struct SurveyView: View {
                                 
                                 Button {
                                     if surveyId < TempChartData.questionList.count {
-                                        userData.answer.append(AnswerData(surveyId: surveyId, answer: i))
+                                        if surveyId == TempChartData.questionList.count - 1 { // 마지막 질문
+                                            userData.session = getSessionType(sessionIndex: i)
+                                        } else {
+                                            userData.answer.append(AnswerData(surveyId: surveyId, answer: i))
+                                        }
                                         surveyId += 1
                                         animationAmount += 1
                                         
@@ -138,8 +142,10 @@ extension SurveyView {
     
     
     private func saveUserData() {
-        let category = getCardType(data: userData.answer)
-        SharedPreference.shared.cheeringCard = CheeringCardModel(name: userData.name, cardType: category, image: nil)
+        let category = getCardType(data: userData.answer) // 카테고리
+        let session = userData.session
+        
+        SharedPreference.shared.cheeringCard = CheeringCardModel(name: userData.name, cardType: category, image: nil, sessionType: session)
     }
     
     private func getCardType(data: [AnswerData]) -> String {
@@ -156,6 +162,10 @@ extension SurveyView {
             }
         }
         return CardType.cardCase(answerId: max).rawValue
+    }
+    
+    private func getSessionType(sessionIndex: Int) -> String {
+        return CardType.cardSession(answerId: sessionIndex).rawValue
     }
 }
 

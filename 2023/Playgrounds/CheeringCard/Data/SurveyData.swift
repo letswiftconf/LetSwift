@@ -83,11 +83,26 @@ struct TempChartData {
     ]
     
     enum CardCase: String {
-        case design = "디자인에 진심"
-        case device = "애플 기기에 진심"
-        case newTech = "신기술에 진심"
-        case conference = "소통에 진심"
+        case design = "🎨미적감각왕🎨"
+        case device = "🍎애플왕🍎"
+        case newTech = "💻신기술왕💻"
+        case conference = "🙌소통왕🙌"
         case none
+        
+        var color: String {
+            switch self {
+            case .design:
+                return "cardGreen"
+            case .device:
+                return "cardRed"
+            case .newTech:
+                return "primary"
+            case .conference:
+                return "cardYellow"
+            case .none:
+                return "primary"
+            }
+        }
     }
     
     static func getCardCase(answerId: Int) -> CardCase {
