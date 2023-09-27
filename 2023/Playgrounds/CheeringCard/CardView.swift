@@ -222,10 +222,7 @@ extension CardView {
     }
     
     private func shareImage(image: UIImage) {
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        let viewController = Coordinator.topViewController()
-        activityViewController.popoverPresentationController?.sourceView = viewController?.view
-        viewController?.present(activityViewController, animated: true, completion: nil)
+        ShareManager.shareInstagrame(with: image)
     }
     
     private enum Coordinator {
