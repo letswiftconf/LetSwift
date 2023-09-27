@@ -34,7 +34,7 @@ struct NicknameView: View {
                     }
                 Rectangle()
                     .frame(width: 300, height: 2)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.primary)
                 Button {
                     hideKeyboard()
                     checkNameNotInput()
@@ -46,8 +46,10 @@ struct NicknameView: View {
                             .foregroundColor(.white)
                     }
                     .frame(width: 150, height: 40)
-                    .background(gradationBox())
-                    .padding(EdgeInsets(top: 60, leading: 0, bottom: 0, trailing: 0))
+                    .background(Color.primary)
+                    .cornerRadius(5)
+                    .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+                    .padding(.vertical, 50)
                 }
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("이름을 입력해 주세요."),message: nil, dismissButton:.default(Text("확인")))
