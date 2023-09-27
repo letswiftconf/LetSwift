@@ -70,6 +70,7 @@ struct CardView: View {
                                 .multilineTextAlignment(.center)
                                 .opacity(Double(animationAmount-1))
                                 .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
+                                .padding(.top, 15)
                         }
                         .padding(.top, 5)
                         LottieView(filename: "tada")
@@ -84,6 +85,8 @@ struct CardView: View {
                         } label: {
                             boxText(title: "이미지 저장", image: "arrow.down.to.line")
                         }
+                        .frame(width: 170, height: 28)
+                        .cornerRadius(5)
                         
                         Spacer()
                         Button {
@@ -91,12 +94,15 @@ struct CardView: View {
                         } label: {
                             boxText(title: "카드 공유", image: "square.and.arrow.up")
                         }
-                        
+                        .frame(width: 170, height: 28)
+                        .cornerRadius(5)
                         Spacer()
                     }
+                    
                     .opacity(Double(animationAmount-1))
                     .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
-                    .padding(.top, 15)
+                    .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+                    
                     
                     Button {
                         isShowModal = false
@@ -111,7 +117,7 @@ struct CardView: View {
                                 .font(.footnote)
                                 .foregroundColor(.white)
                         }
-                        .padding(.top, 15)
+                        .padding(.top, 10)
                         .padding(.bottom, 10)
                         .opacity(Double(animationAmount-1))
                         .animation(.easeIn(duration: 1).delay(3.5),value: animationAmount)
@@ -164,6 +170,13 @@ extension CardView {
     
     private var cardView: some View {
         ZStack {
+            
+            Rectangle()
+                .fill(getCardColor(type: self.category ?? ""))
+                .frame(width: 350, height: 435)
+                .cornerRadius(20)
+                .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
+            
             Image(CardType.cardImage(type: self.category!))
                 .resizable()
                 .scaledToFit()
@@ -234,6 +247,10 @@ extension CardView {
             }
             return vc
         }
+    }
+    
+    private func getCardColor(type: String) -> Color {
+        return Color((CardType.CardCase(rawValue: type) ?? .none).color)
     }
     
     @ViewBuilder func gradationBox() -> some View {

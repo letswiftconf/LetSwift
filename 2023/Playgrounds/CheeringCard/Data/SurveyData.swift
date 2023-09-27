@@ -17,12 +17,12 @@ struct TempChartData {
     static let questionList = [
         SurveyData(
             surveyId: 0,
-            question: "Let’Swift 2022 컨퍼런스에 참여하게 된 주된 이유는 무엇인가요?",
+            question: "Let’Swift 2023 컨퍼런스에 참여하게 된 주된 이유는 무엇인가요?",
             answer: [
-                (answerId: 1, answer: "Let’Swift 2022 캐릭터, Swity 너무 귀여워요"),
+                (answerId: 1, answer: "Let’Swift 2023 한번 참여해보고 싶어서요!"),
                 (answerId: 2, answer: "굿즈는 못참아! 나는야 굿즈 콜렉터!"),
                 (answerId: 3, answer: "눈부신 세션들 빨리 듣고싶어요"),
-                (answerId: 4, answer: "iOS개발자들과 소통하고싶어요")
+                (answerId: 4, answer: "iOS 개발자들과 소통하고싶어요")
             ]),
         SurveyData(
             surveyId: 1,
