@@ -13,33 +13,59 @@ struct GoToCardView: View {
     @State var state: String = ""
     @State var title: String = ""
     
+    private let cardDescription =
+    """
+     🙌 💻 🎨 🍎  🙌 💻 🎨 🍎  🙌 💻 🎨 🍎  🙌 💻 🎨 🍎
+    관심있는 Session을 선택하고
+    나만의 Deep Dive 카드를 만들어봐요.
+     🙌 💻 🎨 🍎  🙌 💻 🎨 🍎  🙌 💻 🎨 🍎  🙌 💻 🎨 🍎
+
+    """
+    
+    private var btnTitle: String {
+        SharedPreference.shared.cheeringCard == nil ? "Deep Dive Card 만들기" : "내 Deep Dive Card 보러가기"
+    }
+    
     var body: some View {
-        Button {
-            self.isShowModal = true
-        } label: {
-            boxText(state: state, title: title)
-        }
-        .fullScreenCover(isPresented: $isShowModal) {
-            if let user = SharedPreference.shared.cheeringCard {
-                if user.name.isEmpty {
-                    NicknameView(isShowModal: $isShowModal)
-                } else {
-                    NavigationView {
-                        CardView(showModal: $isShowModal)
-                            .onDisappear(){
-                                setTitle()
-                            }
-                    }
-                }
-            } else {
-                NicknameView(isShowModal: $isShowModal)
-                    .onDisappear(){
-                        setTitle()
-                    }
+        VStack {
+            Text("Deep Dive Card")
+                .font(.head1b)
+                .foregroundColor(.white)
+            
+            // 캐로셀.. 어떡하죵,,
+            
+            
+            Text(self.cardDescription)
+                .foregroundColor(.subtext)
+                
+                .font(.body4m)
+                .multilineTextAlignment(.center)
+            
+            Button {
+                self.isShowModal = true
+            } label: {
+                Text(self.btnTitle)
+                    .font(.subheadRegular)
+                    .tint(.white)
             }
-        }
-        .onAppear(){
-            setTitle()
+            .fullScreenCover(isPresented: $isShowModal) {
+                if let user = SharedPreference.shared.cheeringCard {
+                    if user.name.isEmpty {
+                        NicknameView(isShowModal: $isShowModal)
+                    } else {
+                        NavigationView {
+                            CardView(showModal: $isShowModal)
+                        }
+                    }
+                } else {
+                    NicknameView(isShowModal: $isShowModal)
+                }
+            }
+            .frame(width: 320, height: 50, alignment: .center)
+            .background(Color.primary)
+            .cornerRadius(5)
+            .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+            .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
         }
     }
 }
