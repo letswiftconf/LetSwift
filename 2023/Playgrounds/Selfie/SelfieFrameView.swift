@@ -28,6 +28,7 @@ struct SelfieFrameView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.backgroundBlack)
+            .navigationBarTitle("", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     self.closeButton()
@@ -63,6 +64,8 @@ extension SelfieFrameView {
         
         return NavigationLink {
             SelfieCameraView(entity: entity)
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarBackButtonHidden(true)
             } label: {
                 Image(entity.frameImage)
                     .resizable()
