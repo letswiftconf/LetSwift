@@ -27,7 +27,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
     
     @Binding var maskingImageString: String
     
-    private var isFront: Bool = false
+    private var position: AVCaptureDevice.Position = .front
     
     init(maskingImageString: Binding<String> = .constant("selfie_masking_1")) {
         self._maskingImageString = maskingImageString
@@ -63,7 +63,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
                 if (self.sesstion.canAddInput(input)) {
                     self.sesstion.addInput(input)
                     self.input = input
-                    self.isFront = input.device.position == .front ? true : false
+                    self.position = input.device.position
                 }
                 
                 if (self.sesstion.canAddOutput(self.output)) {
@@ -123,7 +123,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
         
         var transformImage: CIImage = image
         
-        if (self.isFront) {
+        if (self.position == .front) {
             switch orientation {
             case .portrait:
                 transformImage = transformImage.oriented(.left)
@@ -202,10 +202,10 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
         }
     }
     
-    // TODO: 전면<>후면 간 전환 시 안되는 현상 bug fix 필요 
+    // TODO: 전면<>후면 간 전환 시 안되는 현상 bug fix 필요
     func reverse() {
         // 현재 사용 중인 카메라를 가져오기
-        guard let currentCamera = AVCaptureDevice.default(for: .video), let input = self.input else {
+        guard let input = self.input else {
             return
         }
         
@@ -213,13 +213,13 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
         let discoverySession = AVCaptureDevice.DiscoverySession(
             deviceTypes: [.builtInWideAngleCamera],
             mediaType: .video,
-            position: self.isFront ? .back : .front
+            position: self.position == .front ? .back : .front
         )
         let videoDevices = discoverySession.devices
         
         // 다른 카메라 찾기 (전면 카메라 <-> 후면 카메라 전환)
         for device in videoDevices {
-            if device.position != currentCamera.position {
+            if device.position != self.position {
                 
                 do {
                     let newInput = try AVCaptureDeviceInput(device: device)
@@ -228,7 +228,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
                     if self.sesstion.canAddInput(newInput) {
                         self.sesstion.addInput(newInput)
                         self.input = newInput
-                        self.isFront = device.position == .front ? true : false
+                        self.position = device.position
                     }
                 } catch {
                     print("reverse:: error:: \(error.localizedDescription)")
@@ -270,7 +270,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
             return
         }
         
-        if (self.isFront == false) {
+        if (self.position == .back) {
             UIGraphicsBeginImageContextWithOptions(picture.size, false, picture.scale)
             
             let context = UIGraphicsGetCurrentContext()!
