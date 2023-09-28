@@ -10,6 +10,7 @@ import Foundation
 enum SelfieFrameType: Int, CaseIterable {
     case typeA = 1
     case typeB = 2
+    case typeC = 3
 }
 
 struct SelfieEntity: CaseIterable, Identifiable {
@@ -35,6 +36,21 @@ struct SelfieEntity: CaseIterable, Identifiable {
     var thumbImage: String {
         get {
             return "selfie_thumb_\(type.rawValue)"
+        }
+    }
+    
+    var maskingImage: String {
+        get {
+            switch type {
+            case .typeC:
+                return "selfie_masking_2"
+            default:
+                return "selfie_masking_1"
+            }
+        }
+        
+        set {
+            
         }
     }
 }

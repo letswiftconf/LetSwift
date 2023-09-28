@@ -11,12 +11,11 @@ struct SelfieCameraView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State var maskingImage: UIImage?
     @State var currentIndex: Int = 0
     
     @StateObject var model = SelfieCameraModel()
     
-    private let frames: [SelfieEntity] = SelfieEntity.allCases
+    @State var frames: [SelfieEntity] = SelfieEntity.allCases
     
     var body: some View {
         NavigationView {
@@ -62,7 +61,6 @@ struct SelfieCameraView: View {
             }
             .onAppear {
                 model.check()
-                self.maskingImage = UIImage(named: "selfie_masking")
             }
             .onDisappear {
                 model.stop()

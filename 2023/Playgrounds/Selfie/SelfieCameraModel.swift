@@ -25,7 +25,13 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
     @Published var pictrue: UIImage? = nil
     @Published var captureImage: UIImage? = nil
     
+    @Binding var maskingImageString: String
+    
     private var isFront: Bool = false
+    
+    init(maskingImageString: Binding<String> = .constant("selfie_masking_1")) {
+        self._maskingImageString = maskingImageString
+    }
     
     func check() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -107,7 +113,7 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
-        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), let maskImage = UIImage(named: "selfie_masking") else {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), let maskImage = UIImage(named: "\(self.maskingImageString)") else {
             return
         }
         

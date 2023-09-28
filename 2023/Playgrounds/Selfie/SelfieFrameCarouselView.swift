@@ -41,7 +41,7 @@ struct SelfieFrameCarouselView<Content: View,T: Identifiable>: View {
                 }
             }
             .padding(.horizontal, padding - spacing)
-            .offset(x: currentIndex == 0 ? size/2 : CGFloat(currentIndex) * -adjustWidth)
+            .offset(x: currentIndex == 0 ? size/2 : list.count-1 == currentIndex ? CGFloat(currentIndex) * -adjustWidth - size/2 : CGFloat(currentIndex) * -adjustWidth)
             .gesture(
                 DragGesture()
                     .updating($offset, body: { value, out, _ in
