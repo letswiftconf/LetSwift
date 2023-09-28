@@ -103,6 +103,7 @@ extension SelfieCameraView {
             if (model.isTaken) {
                 Button {
                     self.model.reTake()
+                    self.currentIndex = 0
                 } label: {
                     Text("다시 찍기")
                         .foregroundColor(.white)
