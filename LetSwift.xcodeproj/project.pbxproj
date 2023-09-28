@@ -211,11 +211,11 @@
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
 		C14A30112AC0644300CBEDCE /* PlaygroundMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A30102AC0644300CBEDCE /* PlaygroundMainView.swift */; };
 		C14A30132AC064A900CBEDCE /* SelfieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A30122AC064A900CBEDCE /* SelfieCardView.swift */; };
-		C14A301A2AC06D3400CBEDCE /* SelfieFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A30192AC06D3400CBEDCE /* SelfieFrameView.swift */; };
 		C14A301C2AC074E300CBEDCE /* SelfieFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A301B2AC074E300CBEDCE /* SelfieFrame.swift */; };
 		C14A301E2AC07DEA00CBEDCE /* SelfieCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A301D2AC07DEA00CBEDCE /* SelfieCameraView.swift */; };
 		C14A30202AC07EF200CBEDCE /* SelfieCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A301F2AC07EF200CBEDCE /* SelfieCameraModel.swift */; };
 		C14A30222AC07FA900CBEDCE /* SelfieCameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A30212AC07FA900CBEDCE /* SelfieCameraPreview.swift */; };
+		C15F6CEE2AC5F3AE00EC0458 /* SelfieFrameCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15F6CED2AC5F3AE00EC0458 /* SelfieFrameCarouselView.swift */; };
 		C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C80291A87BA00DAD52C /* SessionView.swift */; };
 		C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C84291A894200DAD52C /* imageExtension.swift */; };
 		C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */; };
@@ -465,11 +465,11 @@
 		AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C14A30102AC0644300CBEDCE /* PlaygroundMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundMainView.swift; sourceTree = "<group>"; };
 		C14A30122AC064A900CBEDCE /* SelfieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieCardView.swift; sourceTree = "<group>"; };
-		C14A30192AC06D3400CBEDCE /* SelfieFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieFrameView.swift; sourceTree = "<group>"; };
 		C14A301B2AC074E300CBEDCE /* SelfieFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieFrame.swift; sourceTree = "<group>"; };
 		C14A301D2AC07DEA00CBEDCE /* SelfieCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieCameraView.swift; sourceTree = "<group>"; };
 		C14A301F2AC07EF200CBEDCE /* SelfieCameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieCameraModel.swift; sourceTree = "<group>"; };
 		C14A30212AC07FA900CBEDCE /* SelfieCameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieCameraPreview.swift; sourceTree = "<group>"; };
+		C15F6CED2AC5F3AE00EC0458 /* SelfieFrameCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieFrameCarouselView.swift; sourceTree = "<group>"; };
 		C63C5C80291A87BA00DAD52C /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		C63C5C84291A894200DAD52C /* imageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageExtension.swift; sourceTree = "<group>"; };
 		C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+DividerView.swift"; sourceTree = "<group>"; };
@@ -1070,11 +1070,11 @@
 			isa = PBXGroup;
 			children = (
 				C14A30122AC064A900CBEDCE /* SelfieCardView.swift */,
-				C14A30192AC06D3400CBEDCE /* SelfieFrameView.swift */,
 				C14A301B2AC074E300CBEDCE /* SelfieFrame.swift */,
 				C14A301D2AC07DEA00CBEDCE /* SelfieCameraView.swift */,
 				C14A301F2AC07EF200CBEDCE /* SelfieCameraModel.swift */,
 				C14A30212AC07FA900CBEDCE /* SelfieCameraPreview.swift */,
+				C15F6CED2AC5F3AE00EC0458 /* SelfieFrameCarouselView.swift */,
 			);
 			path = Selfie;
 			sourceTree = "<group>";
@@ -1492,6 +1492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15F6CEE2AC5F3AE00EC0458 /* SelfieFrameCarouselView.swift in Sources */,
 				C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */,
 				1624BF0C256B753500634E29 /* CGFloat.swift in Sources */,
 				16DBE6CB256A2EC800B334A3 /* Application.swift in Sources */,
@@ -1567,7 +1568,6 @@
 				555CB61B291CC3B800D893CE /* AnswerItemView.swift in Sources */,
 				CC8584CE292749C30091A7A1 /* APICaller.swift in Sources */,
 				1624BF87256C488000634E29 /* AskQuestionItemView.swift in Sources */,
-				C14A301A2AC06D3400CBEDCE /* SelfieFrameView.swift in Sources */,
 				C14A301E2AC07DEA00CBEDCE /* SelfieCameraView.swift in Sources */,
 				CC8584D129274A0C0091A7A1 /* APIModel.swift in Sources */,
 				16DBE6A4256A265600B334A3 /* HomeView.swift in Sources */,

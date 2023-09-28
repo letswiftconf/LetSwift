@@ -11,54 +11,62 @@ struct SelfieCameraView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State var entity: SelfieEntity
     @State var maskingImage: UIImage?
+    @State var currentIndex: Int = 0
     
     @StateObject var model = SelfieCameraModel()
     
+    private let frames: [SelfieEntity] = SelfieEntity.allCases
+    
     var body: some View {
-        ZStack {
-            Color.backgroundBlack.ignoresSafeArea(.all)
-            VStack {
-                Spacer().frame(height: 20)
-                
-                if let pictrue = model.pictrue, model.isSaved {
-                    Image(uiImage: pictrue)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    ZStack {
-                        Image(entity.frameImage)
+        NavigationView {
+            ZStack {
+                Color.black.ignoresSafeArea(.all)
+                VStack {
+                    Text("프레임을 선택 후 카메라로 촬영하면\n인증샷을 만들어드려요!")
+                        .frame(alignment: .center)
+                        .font(.bodyBold)
+                    
+                    Spacer().frame(height: 20)
+                    
+                    if let pictrue = model.pictrue, model.isSaved {
+                        Image(uiImage: pictrue)
                             .resizable()
                             .scaledToFit()
-                        if let captureImage = model.captureImage {
-                            Image(uiImage: captureImage)
+                    } else {
+                        ZStack {
+                            Image(frames[currentIndex].frameImage)
                                 .resizable()
                                 .scaledToFit()
+                            if let captureImage = model.captureImage {
+                                Image(uiImage: captureImage)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                         }
                     }
-                }
-                
-                Spacer().frame(height: 8)
-                
-                if (model.isTaken) {
-                    one()
-                } else {
-                    two()
+                    
+                    Spacer().frame(height: 8)
+                    
+                    if (model.isTaken) {
+                        completeView()
+                    } else {
+                        cameraView()
+                    }
                 }
             }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                self.closeButton()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    self.closeButton()
+                }
             }
-        }
-        .onAppear {
-            model.check()
-            self.maskingImage = UIImage(named: "selfie_masking")
-        }
-        .onDisappear {
-            model.stop()
+            .onAppear {
+                model.check()
+                self.maskingImage = UIImage(named: "selfie_masking")
+            }
+            .onDisappear {
+                model.stop()
+            }
         }
     }
 }
@@ -69,16 +77,18 @@ extension SelfieCameraView {
         Button {
             dismiss()
         } label: {
-            Image(systemName: "chevron.backward")
+            Image(systemName: "xmark")
+                .resizable()
                 .foregroundColor(.white)
+                .frame(width: 15, height: 15)
         }
     }
     
-    private func one() -> some View {
+    private func completeView() -> some View {
         HStack {
             Button {
                 if (!model.isSaved) {
-                    self.model.save(maskingImage: UIImage.init(named: "\(self.entity.frameImage)")!)
+                    self.model.save(maskingImage: UIImage.init(named: "\(frames[currentIndex].frameImage)")!)
                 }
             } label: {
                 Text(self.model.isSaved ? "저장 완료!" : "저장")
@@ -97,43 +107,56 @@ extension SelfieCameraView {
                     self.model.reTake()
                 } label: {
                     Text("다시 찍기")
-                        .foregroundColor(.white )
+                        .foregroundColor(.white)
                 }.padding(.trailing, 20)
             }
         }.frame(height: 75)
     }
     
-    private func two() -> some View {
+    private func cameraView() -> some View {
         ZStack {
-            HStack {
-                Spacer()
-                Button {
-                    self.model.takePicture()
-                } label: {
+            VStack {
+                Spacer().frame(height: 15)
+                
+                HStack {
+                    Spacer()
                     ZStack {
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 65, height: 65)
-                        Circle()
-                            .stroke(Color.white, style: .init(lineWidth: 2.0))
+                        
+                        SelfieFrameCarouselView(spacing: 40.0, size: 65.0, index: $currentIndex, items: frames) { frame in
+                            Button {
+                                self.model.takePicture()
+                            } label: {
+                                Image(frame.thumbImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(Circle())
+                                    .frame(width: 65.0, height: 65.0)
+                            }
                             .frame(width: 75, height: 75)
+                            .disabled(frame.id != frames[currentIndex].id)
+                        }
+                        
+                        Circle()
+                        .stroke(Color.white.opacity(0.85), style: .init(lineWidth: 2.0))
+                        .frame(width: 75, height: 75)
+                        
+                    }.frame(height: 75)
+                    Spacer()
+                }
+                
+                HStack {
+                    Spacer()
+                    Button {
+                        self.model.reverse()
+                    } label: {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.white)
+                            .clipShape(Circle())
                     }
-                }
-                Spacer()
+                }.padding(.trailing, 20)
             }
-            
-            HStack {
-                Spacer()
-                Button {
-                    self.model.reverse()
-                } label: {
-                    Image(systemName: "arrow.triangle.2.circlepath.camera")
-                        .foregroundColor(.black)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-            }.padding(.trailing, 20)
         }
     }
 }

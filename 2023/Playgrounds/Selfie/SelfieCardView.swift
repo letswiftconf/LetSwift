@@ -25,7 +25,7 @@ struct SelfieCardView: View {
         .cornerRadius(5)
         .background(design())
         .fullScreenCover(isPresented: $isModal) {
-            SelfieFrameView()
+            SelfieCameraView()
         }
     }
     

@@ -12,16 +12,29 @@ enum SelfieFrameType: Int, CaseIterable {
     case typeB = 2
 }
 
-struct SelfieEntity: CaseIterable {
+struct SelfieEntity: CaseIterable, Identifiable {
     
     static var allCases: [SelfieEntity] = SelfieFrameType.allCases.map { type -> SelfieEntity in
         return SelfieEntity(type: type)
     }
 
     let type: SelfieFrameType
+    
+    var id: Int {
+        get {
+            return type.rawValue
+        }
+    }
+    
     var frameImage: String {
         get {
             return "selfie_layout_\(type.rawValue)"
+        }
+    }
+    
+    var thumbImage: String {
+        get {
+            return "selfie_thumb_\(type.rawValue)"
         }
     }
 }
