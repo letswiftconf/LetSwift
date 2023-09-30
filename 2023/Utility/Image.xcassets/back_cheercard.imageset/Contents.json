@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "back_cheercard.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
