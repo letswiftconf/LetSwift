@@ -12,6 +12,7 @@ struct CheeringCardModel: Codable{
     var name: String
     var cardType: String
     var image: Data?
+    var sessionType: String
     
     func getImage(from data: Data) -> UIImage? {
         return UIImage(data: data)

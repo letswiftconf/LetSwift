@@ -10,6 +10,7 @@ import Foundation
 struct SurveyAnswerModel: Codable {
     var name: String
     var answer: [AnswerData]
+    var session: String // 세션 정보 저장
 }
 
 struct AnswerData: Codable {

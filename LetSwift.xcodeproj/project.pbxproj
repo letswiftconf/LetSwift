@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -210,6 +210,7 @@
 		AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */; };
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
 		B501D52F2AAD97C8004329C5 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B501D52E2AAD97C8004329C5 /* WorkSans-Bold.ttf */; };
+		C09978E02AC4838F000FF886 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09978DF2AC4838F000FF886 /* ShareManager.swift */; };
 		C63C5C81291A87BA00DAD52C /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C80291A87BA00DAD52C /* SessionView.swift */; };
 		C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C84291A894200DAD52C /* imageExtension.swift */; };
 		C63C5C88291A950A00DAD52C /* SessionView+DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */; };
@@ -458,6 +459,7 @@
 		AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		B501D52E2AAD97C8004329C5 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		C09978DF2AC4838F000FF886 /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		C63C5C80291A87BA00DAD52C /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		C63C5C84291A894200DAD52C /* imageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageExtension.swift; sourceTree = "<group>"; };
 		C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionView+DividerView.swift"; sourceTree = "<group>"; };
@@ -1128,6 +1130,7 @@
 				6FC0FD162925D2AD0026714A /* LifeCycle+Modifier.swift */,
 				4F74A9582931510E003311E8 /* UICollectionReusableView+Extension.swift */,
 				6FC2E1502AAA19BA0047FBDE /* Extension+UIColor.swift */,
+				C09978DF2AC4838F000FF886 /* ShareManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1479,6 +1482,7 @@
 				A56D7F2E256BF1D3003F8336 /* PersonDetailView.swift in Sources */,
 				16984E7B256A33AE0011C872 /* CalendarManager.swift in Sources */,
 				60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */,
+				C09978E02AC4838F000FF886 /* ShareManager.swift in Sources */,
 				C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */,
 				4F74A95529314B76003311E8 /* PeerListViewModel.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,

@@ -20,6 +20,10 @@ extension Color {
     static let text = Color("text")
     static let subtext = Color("subtext")
     static let line = Color("line")
+    // cardColor
+    static let cardRed = Color("cardRed")
+    static let cardYellow = Color("cardYellow")
+    static let cardGreen = Color("cardGreen")
 }
 
 extension Color {
