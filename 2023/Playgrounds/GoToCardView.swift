@@ -58,14 +58,12 @@ struct GoToCardView: View {
     @State private var animationAmount: CGFloat = 1
     
     var body: some View {
-       // ScrollView(showsIndicators: false) {
+//        ScrollView(showsIndicators: false) {
             VStack {
                 Text("Deep Dive Card")
                     .font(.head1b)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.leading)
-                
-                // 캐로셀.. 어떡하죵,,
                 
                 ZStack {
                     ForEach(store.items) { item in
@@ -118,7 +116,8 @@ struct GoToCardView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            draggingItem = snappedItem + value.translation.width / 50
+                            
+//                            draggingItem = snappedItem + value.translation.width / 200
                         }
                         .onEnded { value in
                             withAnimation {

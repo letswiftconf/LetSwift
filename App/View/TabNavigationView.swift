@@ -99,9 +99,9 @@ extension TabNavigationView {
         private var imageName: String {
             switch self {
             case .sessions: return "calendar"
-            case .people: return "person.line.dotted.person"
+            case .people: return "person.2.fill"
             case .playgrounds: return "gamecontroller.fill"
-            case .camera: return "camera.viewfinder"
+            case .camera: return "rectangle.on.rectangle"
             case .settings: return "gearshape.fill"
             }
         }
