@@ -32,8 +32,42 @@ extension SessionView {
             )
         }
     }
+
+    struct SmallBoxButton: View {
+        private let textString: String
+        private let action: () -> Void
+        private let color: Color
+
+        init(textString: String, action: @escaping () -> Void, color: Color = .white) {
+            self.textString = textString
+            self.action = action
+            self.color = color
+        }
+
+        var body: some View {
+            Button(
+                action: { self.action() },
+                label: {
+                    Text(self.textString)
+                        .font(.body4r)
+                        .foregroundColor(.primary)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 7)
+                        .background(Color.title)
+                        .cornerRadius(5)
+                }
+            )
+            .shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
+        }
+    }
+
 }
 
 extension SessionView.OrangeButton: Identifiable {
     var id: UUID { return UUID() }
 }
+
+extension SessionView.SmallBoxButton: Identifiable {
+    var id: UUID { return UUID() }
+}
+

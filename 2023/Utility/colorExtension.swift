@@ -9,6 +9,22 @@ import SwiftUI
 
 ///ex. Text("2022")
 ///.foregroundColor(.orange)
+/////////
+
+// 2023
+extension Color {
+    static let bg = Color("bg")
+    static let primary = Color("primary")
+    static let title = Color("title")
+    static let subtitle = Color("subtitle")
+    static let text = Color("text")
+    static let subtext = Color("subtext")
+    static let line = Color("line")
+    // cardColor
+    static let cardRed = Color("cardRed")
+    static let cardYellow = Color("cardYellow")
+    static let cardGreen = Color("cardGreen")
+}
 
 extension Color {
     static let orange = Color("orange")

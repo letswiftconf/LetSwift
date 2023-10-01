@@ -22,13 +22,13 @@ struct AnswerItemView: View {
                 .font(.subheadRegular)
                 .multilineTextAlignment(.center)
                 .padding(15)
+                .tint(.white)
             
             Spacer()
         }
-        .overlay(
-               RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.borderGray, lineWidth: 1)
-           )
+        .background(Color.primary)
+        .cornerRadius(5)
+        .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
     }
 }

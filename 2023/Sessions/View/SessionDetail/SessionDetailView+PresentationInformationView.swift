@@ -15,7 +15,7 @@ extension SessionDetailView {
         private let contentString: String
         
         init(model: SessionInformationModel) {
-          self.placeType = PlaceType(rawValue: model.placeTypeString) ?? .bigRoom
+            self.placeType = PlaceType(rawValue: model.placeTypeString) ?? .bigRoom
             self.timeString = model.startTimeString + " ~ " + model.endTimeString
             self.titleString = model.titleString
             self.contentString = model.contentString
@@ -24,18 +24,25 @@ extension SessionDetailView {
         var body: some View {
             VStack(alignment: .leading, spacing: 30) {
                 HStack(spacing: 20) {
-                    self.placeType.buttonView(isClicked: true)
-                    
+                    Text(placeType.textString)
+                        .font(.body3m)
+                        .foregroundColor(.title)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 7)
+                        .background(Color.primary)
+                        .cornerRadius(5)
+                        .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+
                     Text(self.timeString)
-                        .font(.bodyRegular)
-                        .foregroundColor(.textGray)
+                        .font(.body4r)
+                        .foregroundColor(.subtext)
                     
                     Spacer()
                 }
                 
                 Text(self.titleString)
                     .font(.title3Bold)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.title)
                 
                 if self.contentString != "" {
                     Text(self.contentString)
