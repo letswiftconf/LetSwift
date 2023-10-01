@@ -223,8 +223,7 @@ extension CardView {
                 .padding(20)
         }
         .padding(.bottom, 50)
-        .background(Color.black.opacity(0.0))
-        
+        .background(Color.black)
     }
     
     private func shareImage(image: UIImage) {
