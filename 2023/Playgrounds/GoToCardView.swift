@@ -118,12 +118,12 @@ struct GoToCardView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            draggingItem = snappedItem + value.translation.width / 700
+                            draggingItem = snappedItem + value.translation.width / 600
                             print(draggingItem)
                         }
                         .onEnded { value in
                             withAnimation {
-                                draggingItem = snappedItem + value.predictedEndTranslation.width / 700
+                                draggingItem = snappedItem + value.predictedEndTranslation.width / 600
                                 print(draggingItem)
                                 draggingItem = round(draggingItem).remainder(dividingBy: Double(store.items.count))
                                 print(draggingItem)
