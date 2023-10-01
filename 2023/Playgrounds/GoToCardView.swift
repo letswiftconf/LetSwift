@@ -57,123 +57,103 @@ struct GoToCardView: View {
     @State private var draggingItem = 0.0
     @State private var animationAmount: CGFloat = 1
     
-    @State private var currentIndex = 0
-    
     var body: some View {
-//        ScrollView(showsIndicators: false) {
-            VStack {
-                Text("Deep Dive Card")
-                    .font(.head1b)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.leading)
-                
-                ZStack {
-                    ForEach(store.items) { item in
-                        ZStack {
-                            Rectangle()
-                                .fill(getCardColor(type: item.color))
-                                .frame(width: 300, height: 385)
-                                .cornerRadius(20)
-                                .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
-                            Image("back_cheercard")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 280, height: 350)
-                                .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
-                            
-                            VStack(spacing:0) {
-                                VStack(spacing:0){
-                                    HStack(spacing: 0) {
-                                        Spacer()
-                                        Text(item.session)
-                                            .font(.head3b)
-                                        Spacer()
-                                    }
-                                    .frame(height:33)
-                                    .padding(.top, 10)
-                                    HStack(spacing: 0) {
-                                        Spacer()
-                                        Text("OOO 님")
-                                            .font(.head3b)
-                                        Spacer()
-                                    }
-                                    .frame(height:33)
+        VStack {
+            Text("Deep Dive Card")
+                .font(.head1b)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+            
+            // 캐로셀.. 어떡하죵,,
+            ZStack {
+                ForEach(store.items) { item in
+                    ZStack {
+                        Rectangle()
+                            .fill(getCardColor(type: item.color))
+                            .frame(width: 300, height: 385)
+                            .cornerRadius(20)
+                            .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
+                        Image("back_cheercard")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 285, height: 385)
+                            .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
+                        
+                        VStack(spacing:0) {
+                            VStack(spacing:0){
+                                HStack(spacing: 0) {
+                                    Spacer()
+                                    Text(item.session)
+                                        .font(.head3b)
+                                    Spacer()
                                 }
-                                .padding(.top, 35)
-                                Spacer()
-                                Image("content_cheercard")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.bottom, 15)
+                                .frame(height:33)
+                                .padding(.top, 10)
+                                HStack(spacing: 0) {
+                                    Spacer()
+                                    Text("OOO 님")
+                                        .font(.head3b)
+                                    Spacer()
+                                }
+                                .frame(height:33)
                             }
+                            .padding(.top, 35)
+                            Spacer()
                         }
-                        .scaleEffect(1.0 - abs(distance(item.id)) * 0.2 )
-                        .opacity(1.0 - abs(distance(item.id)) * 0.3 )
-                        .offset(x: myXOffset(item.id), y: 0)
-                        .zIndex(1.0 - abs(distance(item.id)) * 0.1)
                     }
+                    .scaleEffect(1.0 - abs(distance(item.id)) * 0.2 )
+                    .opacity(1.0 - abs(distance(item.id)) * 0.3 )
+                    .offset(x: myXOffset(item.id), y: 0)
+                    .zIndex(1.0 - abs(distance(item.id)) * 0.1)
                 }
-                .frame(width: 280, height: 350)
-                .padding(.bottom, 35)
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            draggingItem = snappedItem + value.translation.width / 600
-                            print(draggingItem)
+            }
+            .frame(width: 285, height: 385)
+            .padding(.bottom, 35)
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        draggingItem = snappedItem + value.translation.width / 100
+                    }
+                    .onEnded { value in
+                        withAnimation {
+                            draggingItem = snappedItem + value.predictedEndTranslation.width / 100
+                            draggingItem = round(draggingItem).remainder(dividingBy: Double(store.items.count))
+                            snappedItem = draggingItem
                         }
-                        .onEnded { value in
-                            withAnimation {
-                                draggingItem = snappedItem + value.predictedEndTranslation.width / 600
-                                print(draggingItem)
-                                draggingItem = round(draggingItem).remainder(dividingBy: Double(store.items.count))
-                                print(draggingItem)
-                                snappedItem = draggingItem
-                            }
-                        }
-                )
-                
-                Text(self.cardDescription)
-                    .foregroundColor(.subtext)
-                    .font(.body4m)
-                    .multilineTextAlignment(.center)
-                
-                Button {
-                    self.isShowModal = true
-                } label: {
-                    Text(self.btnTitle)
-                        .font(.subheadRegular)
-                        .tint(.white)
-                }
-                .fullScreenCover(isPresented: $isShowModal) {
-                    if let user = SharedPreference.shared.cheeringCard {
-                        if user.name.isEmpty {
-                            NicknameView(isShowModal: $isShowModal)
-                        } else {
-                            NavigationView {
-                                CardView(showModal: $isShowModal)
-                            }
-                        }
-                    } else {
+                    }
+            )
+            
+            Text(self.cardDescription)
+                .foregroundColor(.subtext)
+                .font(.body4m)
+                .multilineTextAlignment(.center)
+            
+            Button {
+                self.isShowModal = true
+            } label: {
+                Text(self.btnTitle)
+                    .font(.subheadRegular)
+                    .tint(.white)
+            }
+            .fullScreenCover(isPresented: $isShowModal) {
+                if let user = SharedPreference.shared.cheeringCard {
+                    if user.name.isEmpty {
                         NicknameView(isShowModal: $isShowModal)
+                    } else {
+                        NavigationView {
+                            CardView(showModal: $isShowModal)
+                        }
                     }
+                } else {
+                    NicknameView(isShowModal: $isShowModal)
                 }
-                .frame(width: 320, height: 50, alignment: .center)
-                .background(Color.primary)
-                .cornerRadius(5)
-                .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
-                .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
             }
-            . onAppear {
-                let timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
-                    currentIndex = (currentIndex + 1) % store.items.count
-                }
-                RunLoop.main.add(timer, forMode: .common)
-
-            }
-        
-        
-        
-//        }
+            .frame(width: 320, height: 50, alignment: .center)
+            .background(Color.primary)
+            .cornerRadius(5)
+            .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
+            .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
+        }
     }
     
     private func getCardColor(type: String) -> Color {
@@ -186,7 +166,7 @@ struct GoToCardView: View {
     
     func myXOffset(_ item: Int) -> Double {
         let angle = Double.pi * 2 / Double(store.items.count) * distance(item)
-        return sin(angle) * 300
+        return sin(angle) * 200
     }
     
 }

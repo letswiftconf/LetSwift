@@ -85,7 +85,7 @@ struct CardView: View {
                         } label: {
                             boxText(title: "이미지 저장", image: "arrow.down.to.line")
                         }
-                        .frame(width: 170, height: 28)
+                        .frame(width: 170, height: 34)
                         .cornerRadius(5)
                         
                         Spacer()
@@ -94,7 +94,7 @@ struct CardView: View {
                         } label: {
                             boxText(title: "카드 공유", image: "square.and.arrow.up")
                         }
-                        .frame(width: 170, height: 28)
+                        .frame(width: 170, height: 34)
                         .cornerRadius(5)
                         Spacer()
                     }
@@ -175,14 +175,16 @@ extension CardView {
                 .fill(getCardColor(type: self.category ?? ""))
                 .frame(width: 350, height: 435)
                 .cornerRadius(20)
+                .shadow(color: .gray.opacity(0.4), radius: 2, x: 4, y: 4)
                 .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
             
             //            Image(CardType.cardImage(type: self.category!))
             Image("back_cheercard")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 330, height: 400)
-                .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
+                .cornerRadius(15)
+                .frame(width: 340, height: 415)
+                .shadow(color: .black.opacity(0.6), radius: 15, x: 4, y: 3)
             VStack(spacing:0) {
                 VStack(spacing:0){
                     HStack(spacing: 0) {
@@ -192,7 +194,7 @@ extension CardView {
                         Spacer()
                     }
                     .frame(height:33)
-                    .padding(.top, 10)
+                    .padding(.top, 0)
                     HStack(spacing: 0) {
                         Spacer()
                         Text("\(category ?? "") ")
@@ -208,13 +210,9 @@ extension CardView {
                 }
                 .padding(.top, 35)
                 Spacer()
-                Image("content_cheercard")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom, 15)
             }
         }
-        .frame(width: 330, height: 400)
+        .frame(width: 340, height: 415)
     }
     
     private var captureView: some View {
@@ -223,8 +221,7 @@ extension CardView {
                 .padding(20)
         }
         .padding(.bottom, 50)
-        .background(Color.black.opacity(0.0))
-        
+        .background(Color.black)
     }
     
     private func shareImage(image: UIImage) {

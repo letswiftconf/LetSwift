@@ -68,8 +68,6 @@ extension SessionView.ScheduleView {
                         .padding(.vertical, 20)
                         .background(Color.primary)
                         .cornerRadius(5)
-                        .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
-                        .padding(.vertical, 10)
                 )
             }
         }
