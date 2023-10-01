@@ -45,7 +45,7 @@ extension SessionView {
                     Spacer()
 
                     Text("into the unknown")
-                        .font(.body2m)
+                        .font(.body1m)
                 }
                 .foregroundColor(.title)
 
