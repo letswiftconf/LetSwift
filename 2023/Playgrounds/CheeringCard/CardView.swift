@@ -181,8 +181,9 @@ extension CardView {
             Image("back_cheercard")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 330, height: 400)
-                .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
+                .cornerRadius(15)
+                .frame(width: 340, height: 415)
+                .shadow(color: .black.opacity(0.6), radius: 15, x: 4, y: 3)
             VStack(spacing:0) {
                 VStack(spacing:0){
                     HStack(spacing: 0) {
@@ -192,7 +193,7 @@ extension CardView {
                         Spacer()
                     }
                     .frame(height:33)
-                    .padding(.top, 10)
+                    .padding(.top, 0)
                     HStack(spacing: 0) {
                         Spacer()
                         Text("\(category ?? "") ")
@@ -208,13 +209,9 @@ extension CardView {
                 }
                 .padding(.top, 35)
                 Spacer()
-                Image("content_cheercard")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom, 15)
             }
         }
-        .frame(width: 330, height: 400)
+        .frame(width: 340, height: 415)
     }
     
     private var captureView: some View {
