@@ -69,6 +69,7 @@ struct CardType {
         }
     }
     
+    
     static func cardSession(answerId: Int) -> CardSessionCase {
         switch answerId {
         case 0: return .macro
@@ -79,7 +80,7 @@ struct CardType {
         case 6: return .ai
         case 7: return .segue
         case 8: return .dependancy
-        case 12: return .metal
+        case 11: return .metal
         case 13: return .bluetooth
         default: return .none
         }
