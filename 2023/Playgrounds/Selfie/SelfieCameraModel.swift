@@ -25,13 +25,9 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
     @Published var pictrue: UIImage? = nil
     @Published var captureImage: UIImage? = nil
     
-    @Binding var maskingImageString: String
+    @Published var maskingImageString: String = ""
     
     private var position: AVCaptureDevice.Position = .front
-    
-    init(maskingImageString: Binding<String> = .constant("selfie_masking_1")) {
-        self._maskingImageString = maskingImageString
-    }
     
     func check() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {

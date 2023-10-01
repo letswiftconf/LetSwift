@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// TODO: 카드 디자인에 맞춰서 컴포넌트 제작 필요.
+// TODO: 머지 이후 삭제 필요.
 struct SelfieCardView: View {
     
     @State var isModal: Bool = false

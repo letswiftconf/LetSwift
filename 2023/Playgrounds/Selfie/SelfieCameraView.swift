@@ -34,14 +34,14 @@ struct SelfieCameraView: View {
                             .scaledToFit()
                     } else {
                         ZStack {
-                            Image(frames[currentIndex].frameImage)
-                                .resizable()
-                                .scaledToFit()
                             if let captureImage = model.captureImage {
                                 Image(uiImage: captureImage)
                                     .resizable()
                                     .scaledToFit()
                             }
+                            Image(frames[currentIndex].frameImage)
+                                .resizable()
+                                .scaledToFit()
                         }
                     }
                     
@@ -61,9 +61,13 @@ struct SelfieCameraView: View {
             }
             .onAppear {
                 model.check()
+                model.maskingImageString = frames[currentIndex].maskingImage
             }
             .onDisappear {
                 model.stop()
+            }
+            .onChange(of: currentIndex) { newValue in
+                model.maskingImageString = frames[newValue].maskingImage
             }
         }
     }
