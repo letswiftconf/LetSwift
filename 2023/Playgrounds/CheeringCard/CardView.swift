@@ -85,7 +85,7 @@ struct CardView: View {
                         } label: {
                             boxText(title: "이미지 저장", image: "arrow.down.to.line")
                         }
-                        .frame(width: 170, height: 28)
+                        .frame(width: 170, height: 34)
                         .cornerRadius(5)
                         
                         Spacer()
@@ -94,7 +94,7 @@ struct CardView: View {
                         } label: {
                             boxText(title: "카드 공유", image: "square.and.arrow.up")
                         }
-                        .frame(width: 170, height: 28)
+                        .frame(width: 170, height: 34)
                         .cornerRadius(5)
                         Spacer()
                     }
