@@ -27,22 +27,27 @@ class SelfieCameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelega
     
     @Published var maskingImageString: String = ""
     
+    @Published var isAllow: Bool? = nil
+    
     private var position: AVCaptureDevice.Position = .front
     
     func check() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
-            setup()
+            self.setup()
+            self.isAllow = true
             return
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { (status) in
                 if (status) {
                     self.setup()
+                    self.isAllow = true
+                } else {
+                    self.isAllow = false
                 }
             }
-        case .denied:
-            return
         default:
+            isAllow = false
             return
         }
     }
