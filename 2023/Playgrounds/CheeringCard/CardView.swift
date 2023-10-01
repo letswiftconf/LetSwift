@@ -26,10 +26,10 @@ struct CardView: View {
     탐험해 봤던 경험을 나누는 것은
     우리의 지식과 경험을 더욱 풍부하게 만들 뿐 아니라
     공유의 가치를 더해 줄 것입니다.
-
+    
     이제 Deep dive 할 시간입니다!
     함께하시죠 into the unknown으로!
-
+    
     조심하세요!  
     너무 깊이 들어갔다간 헤어 나오지 못할지도 모릅니다!
     """
@@ -177,7 +177,8 @@ extension CardView {
                 .cornerRadius(20)
                 .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
             
-            Image(CardType.cardImage(type: self.category!))
+            //            Image(CardType.cardImage(type: self.category!))
+            Image("back_cheercard")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 330, height: 400)
@@ -207,6 +208,10 @@ extension CardView {
                 }
                 .padding(.top, 35)
                 Spacer()
+                Image("content_cheercard")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.bottom, 15)
             }
         }
         .frame(width: 330, height: 400)
@@ -218,33 +223,35 @@ extension CardView {
                 .padding(20)
         }
         .padding(.bottom, 50)
-        .background(Color.orange)
+        .background(Color.black.opacity(0.0))
+        
     }
     
     private func shareImage(image: UIImage) {
         ShareManager.shareInstagrame(with: image)
     }
     
-    private enum Coordinator {
-        static func topViewController(
-            _ viewController: UIViewController? = nil
-        ) -> UIViewController? {
-            let vc = viewController ?? UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
-            if let navigationController = vc as? UINavigationController {
-                return topViewController(navigationController.topViewController)
-            } else if let tabBarController = vc as? UITabBarController {
-                return tabBarController.presentedViewController != nil ?
-                topViewController(
-                    tabBarController.presentedViewController
-                ) : topViewController(
-                    tabBarController.selectedViewController
-                )
-            } else if let presentedViewController = vc?.presentedViewController {
-                return topViewController(presentedViewController)
-            }
-            return vc
+    //    private enum Coordinator {
+    static func topViewController(
+        _ viewController: UIViewController? = nil
+    ) -> UIViewController? {
+        let vc = viewController ?? UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
+        //            let vc = keyWindow?.rootViewController
+        if let navigationController = vc as? UINavigationController {
+            return topViewController(navigationController.topViewController)
+        } else if let tabBarController = vc as? UITabBarController {
+            return tabBarController.presentedViewController != nil ?
+            topViewController(
+                tabBarController.presentedViewController
+            ) : topViewController(
+                tabBarController.selectedViewController
+            )
+        } else if let presentedViewController = vc?.presentedViewController {
+            return topViewController(presentedViewController)
         }
+        return vc
     }
+    
     
     private func getCardColor(type: String) -> Color {
         return Color((CardType.CardCase(rawValue: type) ?? .none).color)
@@ -287,8 +294,20 @@ extension CardView {
     }
 }
 
+
 //struct CardView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CardView()
 //    }
 //}
+
+var keyWindow: UIWindow? {
+    let allScenes = UIApplication.shared.connectedScenes
+    for scene in allScenes {
+        guard let windowScene = scene as? UIWindowScene else { continue }
+        for window in windowScene.windows where window.isKeyWindow {
+            return window
+        }
+    }
+    return nil
+}
