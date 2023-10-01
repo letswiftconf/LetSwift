@@ -46,6 +46,7 @@ struct SettingMainView: View {
                                     .background(Color(hex: 0x0047FF, alpha: 1))
                                     .cornerRadius(5)
                                     .padding(.bottom, 3)
+                                    .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
                                     .onTapGesture {
                                         selectedRole = item
                                     }
@@ -70,7 +71,7 @@ struct SettingMainView: View {
                             }
                         }
                     }
-                    .animation(.default, value: selectedRole)
+                    .animation(.none, value: selectedRole)
                     .padding(.bottom, 18)
                     
                     LazyVGrid(

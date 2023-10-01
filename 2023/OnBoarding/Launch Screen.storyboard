@@ -3,7 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,14 +22,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-0i-jB9">
-                                <rect key="frame" x="15" y="298" width="360" height="128"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-q3-wl8">
-                                <rect key="frame" x="131" y="422" width="128" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="I3j-9X-UnO"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-0i-jB9">
+                                <rect key="frame" x="30" y="207" width="330" height="390"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -37,13 +31,11 @@
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
                             <constraint firstItem="IxI-0i-jB9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Fw-Vh-e23"/>
-                            <constraint firstItem="TGe-q3-wl8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MIK-i7-5sg"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="IxI-0i-jB9" secondAttribute="trailing" constant="15" id="ODr-cG-a12"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstItem="IxI-0i-jB9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-60" id="XnC-cx-CS9"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="IxI-0i-jB9" secondAttribute="trailing" constant="30" id="ODr-cG-a12"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstItem="IxI-0i-jB9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="XnC-cx-CS9"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="IxI-0i-jB9" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="15" id="hm2-Wd-jdf"/>
-                            <constraint firstItem="TGe-q3-wl8" firstAttribute="top" secondItem="IxI-0i-jB9" secondAttribute="bottom" constant="-4" id="uzF-kH-OMt"/>
+                            <constraint firstItem="IxI-0i-jB9" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="30" id="hm2-Wd-jdf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,7 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_splash" width="128" height="128"/>
-        <image name="splash_text" width="128" height="128"/>
+        <image name="splash.png" width="360" height="390"/>
     </resources>
 </document>
