@@ -76,7 +76,7 @@ struct GoToCardView: View {
                         Image("back_cheercard")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 280, height: 350)
+                            .frame(width: 285, height: 385)
                             .shadow(color: .black.opacity(0.6), radius: 5, x: 4, y: 3)
                         
                         VStack(spacing:0) {
@@ -99,10 +99,6 @@ struct GoToCardView: View {
                             }
                             .padding(.top, 35)
                             Spacer()
-                            Image("content_cheercard")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(.bottom, 15)
                         }
                     }
                     .scaleEffect(1.0 - abs(distance(item.id)) * 0.2 )
@@ -111,7 +107,7 @@ struct GoToCardView: View {
                     .zIndex(1.0 - abs(distance(item.id)) * 0.1)
                 }
             }
-            .frame(width: 280, height: 350)
+            .frame(width: 285, height: 385)
             .padding(.bottom, 35)
             .gesture(
                 DragGesture()

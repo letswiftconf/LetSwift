@@ -175,6 +175,7 @@ extension CardView {
                 .fill(getCardColor(type: self.category ?? ""))
                 .frame(width: 350, height: 435)
                 .cornerRadius(20)
+                .shadow(color: .gray.opacity(0.4), radius: 2, x: 4, y: 4)
                 .animation(.easeIn(duration: 1).delay(2.5),value: animationAmount)
             
             //            Image(CardType.cardImage(type: self.category!))
