@@ -56,31 +56,32 @@ struct CardType {
 
     static func cardCase(answerId: Int) -> CardCase {
         switch answerId {
-            case 1:
+            case 0:
                 return CardCase.design
-            case 2:
+            case 1:
                 return CardCase.device
-            case 3:
+            case 2:
                 return CardCase.newTech
-            case 4:
+            case 3:
                 return CardCase.conference
             default:
                 return CardCase.none
         }
     }
     
+    
     static func cardSession(answerId: Int) -> CardSessionCase {
         switch answerId {
-        case 1: return .macro
-        case 2, 3: return .productive
-        case 4, 10, 11: return .swiftUI
-        case 5, 13, 15: return .swift
-        case 6: return .module
-        case 7: return .ai
-        case 8: return .segue
-        case 9: return .dependancy
-        case 12: return .metal
-        case 14: return .bluetooth
+        case 0: return .macro
+        case 1, 2: return .productive
+        case 3, 9, 10: return .swiftUI
+        case 4, 12, 14: return .swift
+        case 5: return .module
+        case 6: return .ai
+        case 7: return .segue
+        case 8: return .dependancy
+        case 11: return .metal
+        case 13: return .bluetooth
         default: return .none
         }
     }

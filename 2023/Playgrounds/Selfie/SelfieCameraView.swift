@@ -18,7 +18,7 @@ struct SelfieCameraView: View {
     @State var frames: [SelfieEntity] = SelfieEntity.allCases
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
                 Color.black.ignoresSafeArea(.all)
                 VStack {
@@ -28,6 +28,7 @@ struct SelfieCameraView: View {
                         Text("프레임을 선택 후 카메라로 촬영하면\n인증샷을 만들어드려요!")
                             .multilineTextAlignment(.center)
                             .font(.bodyBold)
+                            .padding(.top, 15)
                         
                         Spacer().frame(height: 20)
                         
@@ -80,13 +81,15 @@ struct SelfieCameraView: View {
                         }
                         
                     }
+                    
+                    Spacer()
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    self.closeButton()
-                }
-            }
+//            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    self.closeButton()
+//                }
+//            }
             .onAppear {
                 model.check()
                 model.maskingImageString = frames[currentIndex].maskingImage

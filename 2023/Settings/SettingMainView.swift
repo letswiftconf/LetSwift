@@ -21,16 +21,16 @@ struct SettingMainView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 25)
                 Spacer()
-                Button(action: {
-                    withAnimation {
-                        isSettingViewPresented.toggle()
-                    }
-                }) {
-                    Image(systemName: "gear.badge.checkmark")
-                        .fullScreenCover(isPresented: $isSettingViewPresented) {
-                            SettingView()
-                        }
-                }
+//                Button(action: {
+//                    withAnimation {
+//                        isSettingViewPresented.toggle()
+//                    }
+//                }) {
+//                    Image(systemName: "gear.badge.checkmark")
+//                        .fullScreenCover(isPresented: $isSettingViewPresented) {
+//                            SettingView()
+//                        }
+//                }
             }
             .padding(.horizontal, 20)
             ScrollView(.vertical) {

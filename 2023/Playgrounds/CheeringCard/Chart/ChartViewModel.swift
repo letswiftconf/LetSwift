@@ -18,18 +18,18 @@ class ChartViewModel: ObservableObject {
     @Published var alertArror = false
     
     func getChartData() {
-        APICaller.shared.getChartData ( completion: { result in
-            switch result {
-                case .success(let APIResponse):
-                    DispatchQueue.main.async {
-                        self.chartData = APIResponse
-                    }
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        self.alertArror = true
-                    }
-            }
-        })
+//        APICaller.shared.getChartData ( completion: { result in
+//            switch result {
+//                case .success(let APIResponse):
+//                    DispatchQueue.main.async {
+//                        self.chartData = APIResponse
+//                    }
+//                case .failure(_):
+//                    DispatchQueue.main.async {
+//                        self.alertArror = true
+//                    }
+//            }
+//        })
     }
     
     func getTotalChartDataList() {

@@ -54,10 +54,11 @@ struct TabNavigationView: View {
 extension TabNavigationView {
     enum Tab: Int, Identifiable, CaseIterable {
         case sessions
-//        case badges
+        case people
         case playgrounds
+        case camera
         case settings
-        //        case location
+        
         
         // MARK: Identifiable
         var id: Int {
@@ -68,11 +69,12 @@ extension TabNavigationView {
         var presentingView: some View {
             switch self {
             case .sessions: return AnyView(SessionView())
-//            case .badges: return AnyView(BadgeView())
+            case .people: return AnyView(SettingMainView())
             case .playgrounds:
-                return AnyView(PlaygroundMainView())
-            case .settings: return AnyView(SettingMainView())
-//            case .location: return AnyView(LocationView())
+                return AnyView(GoToCardView())
+            case .camera: return AnyView(SelfieCameraView())
+            case .settings: return AnyView(SettingView())
+            
             }
         }
         
@@ -86,20 +88,21 @@ extension TabNavigationView {
         private var name: String {
             switch self {
             case .sessions: return "세션"
-//            case .badges: return "뱃지"
+            case .people: return "연사자&준비위원"
             case .playgrounds: return "놀이터"
+            case .camera: return "카메라"
             case .settings: return "설정"
-//            case .location: return "장소"
+            
             }
         }
         
         private var imageName: String {
             switch self {
             case .sessions: return "calendar"
-//            case .badges: return "ticket.fill"
+            case .people: return "person.2.fill"
             case .playgrounds: return "gamecontroller.fill"
+            case .camera: return "rectangle.on.rectangle"
             case .settings: return "gearshape.fill"
-//            case .location: return "map.fill"
             }
         }
     }

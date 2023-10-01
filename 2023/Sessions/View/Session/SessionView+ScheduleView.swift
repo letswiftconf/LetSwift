@@ -60,6 +60,7 @@ extension SessionView {
 }
 
 extension SessionView.ScheduleView {
+    /*
     private func setSessionInformations() {
         APICaller.shared.getSessionData { result in
             switch result {
@@ -70,4 +71,5 @@ extension SessionView.ScheduleView {
             }
         }
     }
+     */
 }
