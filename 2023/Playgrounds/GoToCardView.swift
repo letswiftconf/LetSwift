@@ -57,6 +57,8 @@ struct GoToCardView: View {
     @State private var draggingItem = 0.0
     @State private var animationAmount: CGFloat = 1
     
+    @State private var currentIndex = 0
+    
     var body: some View {
 //        ScrollView(showsIndicators: false) {
             VStack {
@@ -116,13 +118,15 @@ struct GoToCardView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            
-//                            draggingItem = snappedItem + value.translation.width / 200
+                            draggingItem = snappedItem + value.translation.width / 700
+                            print(draggingItem)
                         }
                         .onEnded { value in
                             withAnimation {
-                                draggingItem = snappedItem + value.predictedEndTranslation.width / 100
+                                draggingItem = snappedItem + value.predictedEndTranslation.width / 700
+                                print(draggingItem)
                                 draggingItem = round(draggingItem).remainder(dividingBy: Double(store.items.count))
+                                print(draggingItem)
                                 snappedItem = draggingItem
                             }
                         }
@@ -159,6 +163,16 @@ struct GoToCardView: View {
                 .shadow(color: .primary.opacity(0.5), radius: 2, x: 4, y: 4)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
             }
+            . onAppear {
+                let timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
+                    currentIndex = (currentIndex + 1) % store.items.count
+                }
+                RunLoop.main.add(timer, forMode: .common)
+
+            }
+        
+        
+        
 //        }
     }
     
