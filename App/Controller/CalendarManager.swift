@@ -21,34 +21,51 @@ class CalendarManager {
     // MARK: - Permission
     var authorizationStatus: EKAuthorizationStatus {
         let status = EKEventStore.authorizationStatus(for: .event)
-        switch status {
-        case .authorized:
-            os_log(.info, log: .default, "Calendar access authorized")
-        case .denied:
-            os_log(.info, log: .default, "Calendar access denied")
-        case .restricted:
-            os_log(.info, log: .default, "Calendar access restricted")
-        case .notDetermined:
-            os_log(.info, log: .default, "Calendar access not determined")
-        @unknown default:
-            #if DEBUG
-            fatalError()
-            #endif
-        }
+            switch status {
+            case .authorized:
+                os_log(.info, log: .default, "Calendar access authorized")
+            case .denied:
+                os_log(.info, log: .default, "Calendar access denied")
+            case .restricted:
+                os_log(.info, log: .default, "Calendar access restricted")
+            case .notDetermined:
+                os_log(.info, log: .default, "Calendar access not determined")
+            case .fullAccess:
+                os_log(.info, log: .default, "Calendar access fullAccess")
+            case .writeOnly:
+                os_log(.info, log: .default, "Calendar access writeOnly")
+            @unknown default:
+                #if DEBUG
+                fatalError()
+                #endif
+            }
         return status
     }
     
     func requestAccess(_ completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
         os_log(.info, log: .default, "Requesting calendar access")
-        store.requestAccess(to: .event) { (granted, error) in
-            if granted {
-                os_log(.info, log: .default, "Calendar access granted")
-            } else if let error = error {
-                os_log(.error, log: .default, "Calendar access not granted with error - %{PUBLIC}@", error.localizedDescription)
-            } else {
-                os_log(.error, log: .default, "Calendar access not granted")
+        /*
+         deprecated 대응 
+         https://developer.apple.com/documentation/eventkit/ekeventstore/1507547-requestaccesstoentitytype
+         */
+        if #available(iOS 17.0, *) {
+            store.requestWriteOnlyAccessToEvents(){ granted, error in
+                DispatchQueue.main.async {
+                    //write the existing logic here
+                    completion(granted, error)
+                }
             }
-            completion(granted, error)
+        }else{
+            store.requestAccess(to: .event) { (granted, error) in
+                if granted {
+                    os_log(.info, log: .default, "Calendar access granted")
+                } else if let error = error {
+                    os_log(.error, log: .default, "Calendar access not granted with error - %{PUBLIC}@", error.localizedDescription)
+                } else {
+                    os_log(.error, log: .default, "Calendar access not granted")
+                }
+                completion(granted, error)
+            }
         }
     }
     

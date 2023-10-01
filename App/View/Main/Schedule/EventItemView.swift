@@ -54,17 +54,25 @@ struct EventItemView: View {
     // MARK: - Action
     func addToCalendar() {
         let manager = CalendarManager()
+
         switch manager.authorizationStatus {
         case .authorized:
             manager.addSession(title: event.title, startsAt: event.startsAt, endsAt: event.endsAt)
             addScheduleSuccess = true
         case .denied, .restricted:
             // TODO: Show error
+            Toast.shared.show(message: "설정페이지에서 권한을 확인해주세요.")
             break
         case .notDetermined:
             manager.requestAccess { (granted, error) in
                 self.addToCalendar()
             }
+        case .fullAccess:
+            manager.addSession(title: event.title, startsAt: event.startsAt, endsAt: event.endsAt)
+            addScheduleSuccess = true
+        case .writeOnly:
+            manager.addSession(title: event.title, startsAt: event.startsAt, endsAt: event.endsAt)
+            addScheduleSuccess = true
         @unknown default:
             #if DEBUG
             fatalError()
