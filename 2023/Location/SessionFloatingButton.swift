@@ -7,9 +7,6 @@ struct SessionFloatingButton: View {
     
     var body: some View {
         Button(action: store.buttonTapped) {
-            
-        
-            
             Image("ic_floating")
                     .background(viewModel.getBackgroundColor(store.state.isLiveActivityVisible))
         }
