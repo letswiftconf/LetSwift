@@ -20,7 +20,7 @@ struct TabNavigationView: View {
                 ForEach(Tab.allCases) { tab in
                     ZStack(alignment: .bottomTrailing) {
                         tab.presentingView
-                        buildFloatingButton(tab: tab)
+//                        buildFloatingButton(tab: tab)
                     }
                     .tabItem { tab.tabItem }
                     .tag(tab)
@@ -36,6 +36,7 @@ struct TabNavigationView: View {
         }
     }
     
+    /*
     @ViewBuilder
     func buildFloatingButton(tab: Tab) -> some View {
         ZStack {
@@ -52,6 +53,7 @@ struct TabNavigationView: View {
         }
         .padding()
     }
+     */
 }
 
 // MARK: - Tab model
