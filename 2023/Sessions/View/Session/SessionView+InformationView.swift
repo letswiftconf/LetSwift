@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension SessionView {
+    
     struct InformationView: View {
         private let informationTextString1: String =
         """
@@ -133,6 +134,19 @@ extension SessionView.InformationView {
                         .font(.body1b)
 
                     Spacer()
+                    if titleString == "장소" {
+                        NavigationLink(destination: MapView()) {
+                            ZStack {
+                                Text("애플 지도")
+                                    .font(.body4r)
+                                    .foregroundColor(.primary)
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 7)
+                                    .background(Color.title)
+                                    .cornerRadius(5)
+                            }.shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
+                        }
+                    }
                     
                     ForEach(self.buttons) { button in
                         button

@@ -142,7 +142,7 @@ extension SessionInformationModel {
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "14:40",
-            endTimeString: "15:10",
+            endTimeString: "15:20",
             titleString: "스위프트 매크로, 어디다 쓰죠?",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
@@ -152,24 +152,24 @@ extension SessionInformationModel {
                 profileString: "kimsungjong"
             )
         ),
+//        SessionInformationModel(
+//            rowTypeString: "hasDetailView",
+//            placeTypeString: "bigRoom",
+//            startTimeString: "15:10",
+//            endTimeString: "15:30",
+//            titleString: "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다.",
+//            contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
+//            speaker: SessionSpeakerModel(
+//                nameString: "방현석",
+//                roleString: "OO회사",
+//                descriptionString: "정신 꽉 잡아!! 기획서가 또 바뀔거야!!\n서바이벌 iOS개발자 긱코드입니다.",
+//                profileString: "banghyunseok"
+//            )
+//        ),
         SessionInformationModel(
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
-            startTimeString: "15:10",
-            endTimeString: "15:30",
-            titleString: "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다.",
-            contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
-            speaker: SessionSpeakerModel(
-                nameString: "방현석",
-                roleString: "OO회사",
-                descriptionString: "정신 꽉 잡아!! 기획서가 또 바뀔거야!!\n서바이벌 iOS개발자 긱코드입니다.",
-                profileString: "banghyunseok"
-            )
-        ),
-        SessionInformationModel(
-            rowTypeString: "hasDetailView",
-            placeTypeString: "bigRoom",
-            startTimeString: "15:40",
+            startTimeString: "15:30",
             endTimeString: "16:10",
             titleString: "Tuist, 도입은 했는데 그래서 Modular Architecture 은 어떻게 만들어가면 되나요?",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
@@ -184,7 +184,7 @@ extension SessionInformationModel {
             rowTypeString: "hasDetailView",
             placeTypeString: "bigRoom",
             startTimeString: "16:20",
-            endTimeString: "16:50",
+            endTimeString: "17:00",
             titleString: "요즘유행하는 AI 나도 해보자 (feat. CoreML)",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
@@ -298,7 +298,7 @@ extension SessionInformationModel {
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "14:40",
-            endTimeString: "15:20",
+            endTimeString: "15:00",
             titleString: "Swift로 Cross Platform 하기",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(
@@ -306,6 +306,20 @@ extension SessionInformationModel {
                 roleString: "OO회사",
                 descriptionString: "다양한 방식의 접근을 좋아하는 iOS 개발자입니다",
                 profileString: "AnhJihoon"
+            )
+        ),
+        SessionInformationModel(
+            rowTypeString: "hasDetailView",
+            placeTypeString: "smallRoom",
+            startTimeString: "15:00",
+            endTimeString: "15:20",
+            titleString: "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다.",
+            contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
+            speaker: SessionSpeakerModel(
+                nameString: "방현석",
+                roleString: "OO회사",
+                descriptionString: "정신 꽉 잡아!! 기획서가 또 바뀔거야!!\n서바이벌 iOS개발자 긱코드입니다.",
+                profileString: "banghyunseok"
             )
         ),
         SessionInformationModel(
@@ -326,7 +340,7 @@ extension SessionInformationModel {
             rowTypeString: "hasDetailView",
             placeTypeString: "smallRoom",
             startTimeString: "16:20",
-            endTimeString: "16:50",
+            endTimeString: "17:00",
             titleString: "iOS 애플리케이션 개발 생산성 고찰 - 빠른 퇴근을 위한 우리는 어떻게 해야할 것인가?",
             contentString: "연사자의 본인 소개가 들어가는 부분입니다. 예시입니다. ios 생태계에서 공부를 하며 많은 사고들이 바뀌었지만, 가장 중요하면서 컸던 사고의 변화는 “다양성”의 중요성에 대한 이해였습니다. 다름을 다양성으로 받아들이고 나",
             speaker: SessionSpeakerModel(

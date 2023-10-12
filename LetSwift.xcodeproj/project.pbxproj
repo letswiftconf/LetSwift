@@ -142,6 +142,7 @@
 		6054DA7D256A9DBF00A49BD4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		60E1766A256D4FBE0068B3F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		60E17672256D509B0068B3F4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
+		6F165C092AD2455E006249F2 /* Sesseion+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F165C082AD2455E006249F2 /* Sesseion+Map.swift */; };
 		6F3A3E5329196E1E00E42D64 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E5229196E1E00E42D64 /* View.swift */; };
 		6F3A3E55291E8BD800E42D64 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E54291E8BD800E42D64 /* String+Extension.swift */; };
 		6F3A3E56291E8BD800E42D64 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A3E54291E8BD800E42D64 /* String+Extension.swift */; };
@@ -166,14 +167,12 @@
 		9A77C72F256EC0B300B30BC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9A77C731256EC0B300B30BC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9A77C734256EC0B300B30BC6 /* ScheduleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77C733256EC0B300B30BC6 /* ScheduleWidget.swift */; };
-		9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C72C256EC0B300B30BC6 /* ScheduleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A77C742256EC0BC00B30BC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9A77C746256EC0CC00B30BC6 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		9A77C749256EC0E600B30BC6 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
 		9A77C777256EC57300B30BC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9A77C778256EC57300B30BC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9A77C77B256EC57300B30BC6 /* Upcoming1Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77C77A256EC57300B30BC6 /* Upcoming1Widget.swift */; };
-		9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A77C776256EC57300B30BC6 /* Upcoming1WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A77C78A256EC59300B30BC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9A77C78B256EC59300B30BC6 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
 		9A77C78C256EC59300B30BC6 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
@@ -182,7 +181,6 @@
 		9AD49446256EE09900C9E5C4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; platformFilter = ios; };
 		9AD49447256EE09900C9E5C4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		9AD4944A256EE09900C9E5C4 /* Upcoming2Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD49449256EE09900C9E5C4 /* Upcoming2Widget.swift */; };
-		9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9AD49445256EE09900C9E5C4 /* Upcoming2WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9AD4945E256EE10300C9E5C4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E17669256D4FBE0068B3F4 /* Event.swift */; };
 		9AD49463256EE10800C9E5C4 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6054DA7C256A9DBF00A49BD4 /* DateManager.swift */; };
 		9AD49468256EE10F00C9E5C4 /* Event.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E17671256D509B0068B3F4 /* Event.json */; };
@@ -204,7 +202,6 @@
 		AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */; };
 		AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */; };
 		AECAE6F9292CC143007A0BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECAE6F8292CC143007A0BFB /* Assets.xcassets */; };
-		AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AECAE701292CC162007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
 		AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */; };
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
@@ -276,34 +273,6 @@
 			remoteGlobalIDString = 9AD49444256EE09900C9E5C4;
 			remoteInfo = Upcoming2WidgetExtension;
 		};
-		9A77C738256EC0B400B30BC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16DBE61C2569EAD100B334A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A77C72B256EC0B300B30BC6;
-			remoteInfo = ScheduleWidgetExtension;
-		};
-		9A77C77F256EC57400B30BC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16DBE61C2569EAD100B334A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A77C775256EC57300B30BC6;
-			remoteInfo = Upcoming1WidgetExtension;
-		};
-		9AD4944E256EE09B00C9E5C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16DBE61C2569EAD100B334A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9AD49444256EE09900C9E5C4;
-			remoteInfo = Upcoming2WidgetExtension;
-		};
-		AECAE6FB292CC143007A0BFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16DBE61C2569EAD100B334A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AECAE6ED292CC140007A0BFB;
-			remoteInfo = LocationWidgetExtension;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -316,20 +285,6 @@
 				165C4877257C149900DC914F /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */,
 				165C4874257C149900DC914F /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */,
 				165C487A257C149A00DC914F /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A77C73C256EC0B500B30BC6 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				9A77C781256EC57400B30BC6 /* Upcoming1WidgetExtension.appex in Embed Foundation Extensions */,
-				9A77C73A256EC0B400B30BC6 /* ScheduleWidgetExtension.appex in Embed Foundation Extensions */,
-				9AD49450256EE09B00C9E5C4 /* Upcoming2WidgetExtension.appex in Embed Foundation Extensions */,
-				AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +366,7 @@
 		6054DA7C256A9DBF00A49BD4 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		60E17669256D4FBE0068B3F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		60E17671256D509B0068B3F4 /* Event.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
+		6F165C082AD2455E006249F2 /* Sesseion+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sesseion+Map.swift"; sourceTree = "<group>"; };
 		6F3A3E5229196E1E00E42D64 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		6F3A3E54291E8BD800E42D64 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		6F3A3E5A291E938D00E42D64 /* SharedPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPreference.swift; sourceTree = "<group>"; };
@@ -1113,6 +1069,7 @@
 				C6CDB2E3292C50E600960FBF /* SessionView+ScheduleView+RowView.swift */,
 				C63C5C87291A950A00DAD52C /* SessionView+DividerView.swift */,
 				C63C5C89291A953100DAD52C /* SessionView+GradientButton.swift */,
+				6F165C082AD2455E006249F2 /* Sesseion+Map.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -1212,15 +1169,10 @@
 				16DBE6242569EAD200B334A3 /* Sources */,
 				16DBE6252569EAD200B334A3 /* Frameworks */,
 				16DBE6262569EAD200B334A3 /* Resources */,
-				9A77C73C256EC0B500B30BC6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9A77C739256EC0B400B30BC6 /* PBXTargetDependency */,
-				9A77C780256EC57400B30BC6 /* PBXTargetDependency */,
-				9AD4944F256EE09B00C9E5C4 /* PBXTargetDependency */,
-				AECAE6FC292CC143007A0BFB /* PBXTargetDependency */,
 			);
 			name = LetSwift;
 			packageProductDependencies = (
@@ -1523,6 +1475,7 @@
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				4F74A95729314E6C003311E8 /* PeerListView.swift in Sources */,
+				6F165C092AD2455E006249F2 /* Sesseion+Map.swift in Sources */,
 				AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */,
 				16A27AC82570AFC700D7C664 /* OnAirIconView.swift in Sources */,
 				C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */,
@@ -1690,26 +1643,6 @@
 			isa = PBXTargetDependency;
 			target = 9AD49444256EE09900C9E5C4 /* Upcoming2WidgetExtension */;
 			targetProxy = 165C487B257C149A00DC914F /* PBXContainerItemProxy */;
-		};
-		9A77C739256EC0B400B30BC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A77C72B256EC0B300B30BC6 /* ScheduleWidgetExtension */;
-			targetProxy = 9A77C738256EC0B400B30BC6 /* PBXContainerItemProxy */;
-		};
-		9A77C780256EC57400B30BC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A77C775256EC57300B30BC6 /* Upcoming1WidgetExtension */;
-			targetProxy = 9A77C77F256EC57400B30BC6 /* PBXContainerItemProxy */;
-		};
-		9AD4944F256EE09B00C9E5C4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9AD49444256EE09900C9E5C4 /* Upcoming2WidgetExtension */;
-			targetProxy = 9AD4944E256EE09B00C9E5C4 /* PBXContainerItemProxy */;
-		};
-		AECAE6FC292CC143007A0BFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AECAE6ED292CC140007A0BFB /* LocationWidgetExtension */;
-			targetProxy = AECAE6FB292CC143007A0BFB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1886,13 +1819,12 @@
 		16DBE63D2569EAD200B334A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2023_let_deep_dive;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
@@ -1901,29 +1833,28 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = LetSwift;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		16DBE63E2569EAD200B334A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_2023_let_deep_dive;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = 2020_primary;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
@@ -1932,16 +1863,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = LetSwift;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
