@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -159,7 +159,6 @@
 		6FC0FD2F2927C55C0026714A /* QuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD292927C55C0026714A /* QuestionInfoView.swift */; };
 		6FC0FD312927C56A0026714A /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0FD302927C56A0026714A /* QuestionData.swift */; };
 		6FC2E1422A9E40CC0047FBDE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6FC2E1412A9E40CC0047FBDE /* Lottie */; };
-		6FC2E1442AA4468B0047FBDE /* LiveActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2E1432AA4468B0047FBDE /* LiveActivityViewModel.swift */; };
 		6FC2E1512AAA19BA0047FBDE /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2E1502AAA19BA0047FBDE /* Extension+UIColor.swift */; };
 		6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D037291F8E09001F6880 /* IndicatorView.swift */; };
 		6FE5D03A291F9F2C001F6880 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5D039291F9F2C001F6880 /* Toast.swift */; };
@@ -195,17 +194,12 @@
 		A5EC776F256BE2FB0072E959 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC776E256BE2FB0072E959 /* GridView.swift */; };
 		A5EC7773256BE3730072E959 /* PeopleGroupedByRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */; };
 		AE91AB4D2930D85500276B83 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AE91AB4C2930D85500276B83 /* AsyncAlgorithms */; };
-		AE91AB4F2930DA2A00276B83 /* SessionFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91AB4E2930DA2A00276B83 /* SessionFloatingButton.swift */; };
-		AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
-		AECAE6D0292CBF99007A0BFB /* LocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CF292CBF99007A0BFB /* LocationClient.swift */; };
-		AECAE6D2292CBFA4007A0BFB /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */; };
 		AECAE6EF292CC140007A0BFB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C72E256EC0B300B30BC6 /* WidgetKit.framework */; };
 		AECAE6F0292CC140007A0BFB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A77C730256EC0B300B30BC6 /* SwiftUI.framework */; };
 		AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */; };
 		AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */; };
 		AECAE6F9292CC143007A0BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AECAE6F8292CC143007A0BFB /* Assets.xcassets */; };
 		AECAE6FD292CC143007A0BFB /* LocationWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AECAE701292CC162007A0BFB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAE6CD292CBF92007A0BFB /* Model.swift */; };
 		AECAE704292CC219007A0BFB /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE703292CC219007A0BFB /* Poppins-ExtraBold.ttf */; };
 		AECAE706292CC232007A0BFB /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AECAE705292CC232007A0BFB /* NotoSansKR-Medium.otf */; };
 		B501D52F2AAD97C8004329C5 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B501D52E2AAD97C8004329C5 /* WorkSans-Bold.ttf */; };
@@ -425,7 +419,6 @@
 		6FC0FD292927C55C0026714A /* QuestionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionInfoView.swift; path = Component/QuestionInfoView.swift; sourceTree = "<group>"; };
 		6FC0FD302927C56A0026714A /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionData.swift; path = Data/QuestionData.swift; sourceTree = "<group>"; };
 		6FC0FD34292F85640026714A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = API/NetworkManager.swift; sourceTree = "<group>"; };
-		6FC2E1432AA4468B0047FBDE /* LiveActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityViewModel.swift; sourceTree = "<group>"; };
 		6FC2E1502AAA19BA0047FBDE /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		6FE5D037291F8E09001F6880 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		6FE5D039291F9F2C001F6880 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -451,10 +444,6 @@
 		A5EC7767256BD23D0072E959 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A5EC776E256BE2FB0072E959 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A5EC7772256BE3730072E959 /* PeopleGroupedByRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGroupedByRoleView.swift; sourceTree = "<group>"; };
-		AE91AB4E2930DA2A00276B83 /* SessionFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFloatingButton.swift; sourceTree = "<group>"; };
-		AECAE6CD292CBF92007A0BFB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		AECAE6CF292CBF99007A0BFB /* LocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClient.swift; sourceTree = "<group>"; };
-		AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
 		AECAE6EE292CC140007A0BFB /* LocationWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LocationWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECAE6F2292CC141007A0BFB /* LocationWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWidgetBundle.swift; sourceTree = "<group>"; };
 		AECAE6F4292CC141007A0BFB /* LocationWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWidgetLiveActivity.swift; sourceTree = "<group>"; };
@@ -503,6 +492,20 @@
 		F0CF890F292FACF7006CAEB3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = API/NetworkManager.swift; sourceTree = "<group>"; };
 		F0CF8915292FB823006CAEB3 /* BadgeView+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BadgeView+API.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AE888FC62C18822500C2146F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model.swift,
+			);
+			target = AECAE6ED292CC140007A0BFB /* LocationWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AE888FBE2C18822500C2146F /* Location */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AE888FC62C18822500C2146F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Location; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		16A5B9DD257C125000162FC7 /* Frameworks */ = {
@@ -922,7 +925,7 @@
 			isa = PBXGroup;
 			children = (
 				6FC2E14B2AA9AEE00047FBDE /* Splash */,
-				AECAE6CC292CBF6D007A0BFB /* Location */,
+				AE888FBE2C18822500C2146F /* Location */,
 				6F3A3E60291E9E8D00E42D64 /* Service */,
 				CC9B54A82919548E008ABB2F /* Utility */,
 				6FD7CDAD290C0363002CF140 /* OnBoarding */,
@@ -1030,18 +1033,6 @@
 				A5EC776E256BE2FB0072E959 /* GridView.swift */,
 			);
 			path = "Supporting Views";
-			sourceTree = "<group>";
-		};
-		AECAE6CC292CBF6D007A0BFB /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				AECAE6CD292CBF92007A0BFB /* Model.swift */,
-				AECAE6CF292CBF99007A0BFB /* LocationClient.swift */,
-				AECAE6D1292CBFA4007A0BFB /* LocationStore.swift */,
-				AE91AB4E2930DA2A00276B83 /* SessionFloatingButton.swift */,
-				6FC2E1432AA4468B0047FBDE /* LiveActivityViewModel.swift */,
-			);
-			path = Location;
 			sourceTree = "<group>";
 		};
 		AECAE6F1292CC141007A0BFB /* LocationWidget */ = {
@@ -1221,6 +1212,9 @@
 				9A77C780256EC57400B30BC6 /* PBXTargetDependency */,
 				9AD4944F256EE09B00C9E5C4 /* PBXTargetDependency */,
 				AECAE6FC292CC143007A0BFB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AE888FBE2C18822500C2146F /* Location */,
 			);
 			name = LetSwift;
 			packageProductDependencies = (
@@ -1509,7 +1503,6 @@
 				C6CDB2D9292B09F000960FBF /* SessionDetailView.swift in Sources */,
 				4F74A95529314B76003311E8 /* PeerListViewModel.swift in Sources */,
 				16DBE6A8256A279B00B334A3 /* ScheduleView.swift in Sources */,
-				6FC2E1442AA4468B0047FBDE /* LiveActivityViewModel.swift in Sources */,
 				555CB611291CC38B00D893CE /* GoToCardView.swift in Sources */,
 				37E128332A91389B0093A56E /* SettingView.swift in Sources */,
 				C6CDB2D52928F0A900960FBF /* ScheduleRowType.swift in Sources */,
@@ -1523,17 +1516,14 @@
 				16DBE6CA256A2EC800B334A3 /* OSLog.swift in Sources */,
 				16984E76256A33970011C872 /* Safari.swift in Sources */,
 				4F74A95729314E6C003311E8 /* PeerListView.swift in Sources */,
-				AECAE6CE292CBF92007A0BFB /* Model.swift in Sources */,
 				16A27AC82570AFC700D7C664 /* OnAirIconView.swift in Sources */,
 				C63C5C85291A894200DAD52C /* imageExtension.swift in Sources */,
 				16DBE6C4256A2E5B00B334A3 /* Preview.swift in Sources */,
 				C63C5C8C291A958400DAD52C /* SessionView+InformationView.swift in Sources */,
-				AECAE6D0292CBF99007A0BFB /* LocationClient.swift in Sources */,
 				C6CDB2E2292C2D9700960FBF /* ChartViewModel.swift in Sources */,
 				6FE5D038291F8E09001F6880 /* IndicatorView.swift in Sources */,
 				16984E6D256A33580011C872 /* ActionCell.swift in Sources */,
 				6FC0FD1D2927C49E0026714A /* QuestionView.swift in Sources */,
-				AE91AB4F2930DA2A00276B83 /* SessionFloatingButton.swift in Sources */,
 				C14A30112AC0644300CBEDCE /* PlaygroundMainView.swift in Sources */,
 				1624BF8D256C4A3D00634E29 /* WebSourceCodeItemView.swift in Sources */,
 				16984E6E256A33580011C872 /* SettingsView.swift in Sources */,
@@ -1595,7 +1585,6 @@
 				16984E82256A351D0011C872 /* RoundedMask.swift in Sources */,
 				1684F65625723F3100A784C0 /* Date.swift in Sources */,
 				6F3A3E5B291E938D00E42D64 /* SharedPreference.swift in Sources */,
-				AECAE6D2292CBFA4007A0BFB /* LocationStore.swift in Sources */,
 				167BE5CA2574AB7E00C6681A /* AddPassView.swift in Sources */,
 				F0CF8910292FACF7006CAEB3 /* NetworkManager.swift in Sources */,
 				A511FC42256BA88D0085CC13 /* PersonCell.swift in Sources */,
@@ -1667,7 +1656,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECAE701292CC162007A0BFB /* Model.swift in Sources */,
 				AECAE6F5292CC141007A0BFB /* LocationWidgetLiveActivity.swift in Sources */,
 				AECAE6F3292CC141007A0BFB /* LocationWidgetBundle.swift in Sources */,
 			);
@@ -1893,7 +1881,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1924,7 +1912,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(PROJECT_DIR)/App/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1955,7 +1943,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1985,7 +1973,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/ScheduleWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2015,7 +2003,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2044,7 +2032,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming1Widget/Upcoming1WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/Upcoming1Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2074,7 +2062,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
@@ -2103,7 +2091,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_DIR)/Widget/Upcoming2Widget/Upcoming2WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				INFOPLIST_FILE = Widget/Upcoming2Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
@@ -2134,7 +2122,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LocationWidget;
@@ -2165,7 +2153,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6HG325P9V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LocationWidget;
