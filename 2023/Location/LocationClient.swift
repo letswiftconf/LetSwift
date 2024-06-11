@@ -94,7 +94,14 @@ private final class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationStream() throws -> AsyncThrowingStream<CLLocation, Error> {
     let isAuthorized = manager.authorizationStatus != .restricted && manager.authorizationStatus != .denied
     guard isAuthorized else { throw _Error.denied }
-    return subject.eraseToAnyPublisher().stream
+    return subject
+      .handleEvents(
+        receiveCancel: { [weak self] in
+          self?.manager.stopUpdatingLocation()
+        }
+      )
+      .eraseToAnyPublisher()
+      .stream
   }
   
   private func configure() {
