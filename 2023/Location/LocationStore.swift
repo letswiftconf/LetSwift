@@ -4,113 +4,98 @@ import Foundation
 import SwiftUI
 
 @available(iOS 16.1, *)
+@MainActor
 class LiveActivityStore: ObservableObject {
-    @MainActor @Published var state: State
-    private let environmnet: Environment
-    
-    private var taskList: [Task<Void, Never>] = []
-    
-    init(
-        initialState: State,
-        environment: Environment
-    ) {
-        self._state = .init(initialValue: initialState)
-        self.environmnet = environment
+  @Published var state: State
+  private var locationStreamTask: Task<Void, Never>?
+  private var liveActivityTask: Task<Void, Never>?
+  
+  private let environmnet: Environment
+  
+  init(
+    initialState: State,
+    environment: Environment
+  ) {
+    self._state = .init(initialValue: initialState)
+    self.environmnet = environment
+  }
+  
+  func buttonTapped() {
+    if let _ = locationStreamTask {
+      locationStreamTask?.cancel()
+      liveActivityTask?.cancel()
+      state.isLiveActivityVisible = false
+    } else {
+      buildLocationTask()
     }
-    
-    func buttonTapped() {
-        guard
-            taskList.isEmpty
-        else {
-            environmnet.locationClient.cancelStream(false)
-            Task { @MainActor [weak self] in
-                self?.state.isLiveActivityVisible = false
-            }
-            return
+  }
+  
+  private func buildLocationTask() {
+    locationStreamTask = Task {
+      defer { locationStreamTask = nil }
+      do {
+        let stream = try environmnet.locationClient.distanceStream(venue: .kofst)
+        state.isLiveActivityVisible = true
+        for try await distance in stream {
+          try Task.checkCancellation()
+          if state.liveActivity?.activityState == .active {
+            await state.liveActivity?.update(using: .init(distance: distance))
+          } else {
+            try buildActivity(distance: distance)
+          }
         }
-        let task = Task { @MainActor [weak self, environmnet] in
-            do {
-                
-                let stream = try await environmnet
-                    .locationClient
-                    .distanceStream(.kofst)
-                
-                self?.state.isLiveActivityVisible = true
-                for try await item in stream {
-                    if self?.state.liveActivity?.activityState == Optional(.active) {
-                        if self?.state.liveActivity?.contentState.distance != Optional(item) {
-                            await self?.state.liveActivity?.update(using: .init(distance: item))
-                        }
-                    } else {
-                        try self?.buildActivity(distance: item)
-                    }
-                }
-                self?.cancelTasks()
-                await self?.state.liveActivity?.update(using: .init(isArrived: true))
-            } catch is CancellationError {
-                self?.cancelTasks()
-                await self?.state.liveActivity?.end(dismissalPolicy: .immediate)
-            } catch {
-                self?.cancelTasks(error: error)
-            }
-        }
-        taskList.append(task)
-    }
-    
-    @MainActor
-    private func buildActivity(distance: Double) throws {
-        state.liveActivity = try .request(
-            attributes: .init(),
-            contentState: .init(distance: distance)
-        )
-        let task = Task { [weak self, state, environmnet] in
-            if let liveActivity = state.liveActivity {
-                for await activityState in liveActivity.activityStateUpdates {
-                    switch activityState {
-                    case .active:
-                        break
-                        
-                    case .ended:
-                        self?.cancelTasks()
-                        
-                    case .dismissed:
-                        environmnet.locationClient.cancelStream(false)
-                        self?.cancelTasks()
-                        
-                    default:
-                        break
-                    }
-                }
-            }
-        }
-        taskList.append(task)
-    }
-    
-    @MainActor
-    private func cancelTasks(error: Error? = nil) {
+        try Task.checkCancellation()
         state.isLiveActivityVisible = false
-        taskList.indices
-            .forEach { [weak self] _ in self?.taskList.removeFirst().cancel() }
+        await state.liveActivity?.update(using: .init(isArrived: true))
+      } catch is CancellationError {
+        state.isLiveActivityVisible = false
+        await state.liveActivity?.end(dismissalPolicy: .immediate)
+      } catch {
+        state.isLiveActivityVisible = false
         state.error = error
+      }
     }
+  }
+  
+  private func buildActivity(distance: Double) throws {
+    state.liveActivity = try .request(
+      attributes: .init(),
+      contentState: .init(distance: distance)
+    )
+    liveActivityTask = Task {
+      defer { liveActivityTask = nil }
+      if let liveActivity = state.liveActivity {
+        for await activityState in liveActivity.activityStateUpdates {
+          switch activityState {
+          case .ended, .dismissed:
+            liveActivityTask?.cancel()
+          default:
+            break
+          }
+        }
+      }
+    }
+  }
 }
 
 @available(iOS 16.1, *)
 extension LiveActivityStore {
-    static let live = LiveActivityStore(
-        initialState: .init(),
-        environment: .live
-    )
-    
-    struct State {
-        var isLiveActivityVisible: Bool? = nil
-        var isButtonVisible: Bool = true
-        var liveActivity: Activity<LocationAttributes>?
-        var error: Error?
-    }
-    
-    struct Environment {
-        static let live = Self(locationClient: .live)
-        let locationClient: LocationClient
-    }
+  @MainActor
+  static let live = LiveActivityStore(
+    initialState: .init(),
+    environment: .live
+  )
+  
+  struct State {
+    var isLiveActivityVisible: Bool? = nil
+    var isButtonVisible: Bool = true
+    var liveActivity: Activity<LocationAttributes>?
+    var error: Error?
+  }
+  
+  struct Environment {
+    @MainActor
+    static let live = Self(locationClient: .live)
+    let locationClient: LocationClient
+  }
 }
