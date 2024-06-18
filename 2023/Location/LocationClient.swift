@@ -60,7 +60,7 @@ extension LocationClient {
         request.destination = mapItem
         let directions = MKDirections(request: request)
         let response = try await directions.calculate()
-        guard 
+        guard
           let distance = response.routes.first?.distance
         else { throw _Error.missingData }
         return distance / 1000 /// km
@@ -69,8 +69,9 @@ extension LocationClient {
   }()
 }
 
+/// 무조건 "MainActor"에서 호출해주셔아 합니다.
 @MainActor
-private final class LocationManager: NSObject, CLLocationManagerDelegate {
+private final class LocationManager: NSObject, @preconcurrency CLLocationManagerDelegate {
   private let manager: CLLocationManager
   let subject: PassthroughSubject<CLLocation, Error> = .init()
   
@@ -81,19 +82,16 @@ private final class LocationManager: NSObject, CLLocationManagerDelegate {
   }
   
   func checkAuthorizationStatus() {
-    switch manager.authorizationStatus {
-    case .authorizedWhenInUse, .authorizedAlways:
-      manager.startUpdatingLocation()
-    case .notDetermined:
+    if case .notDetermined = manager.authorizationStatus {
       manager.requestAlwaysAuthorization()
-    default:
-      break
     }
   }
   
   func locationStream() throws -> AsyncThrowingStream<CLLocation, Error> {
     let isAuthorized = manager.authorizationStatus != .restricted && manager.authorizationStatus != .denied
     guard isAuthorized else { throw _Error.denied }
+    manager.startUpdatingLocation()
+    
     return subject
       .handleEvents(
         receiveCancel: { [weak self] in
@@ -110,44 +108,31 @@ private final class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.showsBackgroundLocationIndicator = true
   }
   
-  //MARK: - CLLocationManagerDelegate
-  /// CLLocationManagerDelegate의 경우,  LocationManager가 MainActor에서 호출될 걸 보장하기 때문에
-  /// MainActor.assumeIsolated를 사용해서 처리하게 됐습니다.
-  /// 다른 곳에서도 MainActor.assumeIsolated을 사용하실 때 MainActor를 보장하지 못한다면 fatalError가 발생할 수 있습니다.
-  nonisolated
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-    MainActor.assumeIsolated {
-      switch self.manager.authorizationStatus {
-      case .authorizedAlways, .authorizedWhenInUse:
-        self.manager.startUpdatingLocation()
-      case .denied, .restricted:
-        subject.send(completion: .failure(_Error.denied))
-      default:
-        break
-      }
+    switch manager.authorizationStatus {
+    case .denied, .restricted:
+      subject.send(completion: .failure(_Error.denied))
+    default:
+      break
     }
   }
   
-  nonisolated
   func locationManager(
     _ manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]
   ) {
-    MainActor.assumeIsolated {
-      guard let location = locations.first else {
-        subject.send(completion: .failure(_Error.missingData))
-        return
-      }
-      subject.send(location)
+    guard let location = locations.first else {
+      subject.send(completion: .failure(_Error.missingData))
+      return
     }
+    subject.send(location)
   }
   
-  nonisolated
   func locationManager(
     _ manager: CLLocationManager,
     didFailWithError error: any Error
   ) {
-    MainActor.assumeIsolated { subject.send(completion: .failure(error)) }
+    subject.send(completion: .failure(error))
   }
 }
 
