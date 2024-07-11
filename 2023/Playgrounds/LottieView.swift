@@ -9,10 +9,21 @@ import SwiftUI
 import UIKit
 import Lottie
 
+class EventMessenger: ObservableObject {
+    @Published var isPressed: Bool = false
+}
+
 struct LottieView : UIViewRepresentable {
     var filename = "arrow-up"
     typealias UIViewType = UIView
-
+    
+    private var notifier: EventMessenger = EventMessenger()
+    
+    init(filename: String = "arrow-up", notifier: EventMessenger = EventMessenger()) {
+        self.filename = filename
+        self.notifier = notifier
+    }
+    
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         let animationView = LottieAnimationView()
@@ -29,6 +40,9 @@ struct LottieView : UIViewRepresentable {
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
 
+        animationView.play  { finished in
+            notifier.isPressed = !finished
+        }
 
         return view
     }

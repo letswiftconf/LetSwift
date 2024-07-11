@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct MainView: View {
-    #if os(iOS)
+//    #if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    #endif
+//    #endif
     
     // MARK: - Body
     var body: some View {
-        #if os(iOS)
-        if horizontalSizeClass == .compact {
-            TabNavigationView()
-        } else {
-            SidebarNavigationView()
-        }
-        #else
-        SidebarNavigationView()
-        #endif
+        TabNavigationView()
+//        #if os(iOS)
+//        if horizontalSizeClass == .compact {
+//            TabNavigationView()
+//        } else {
+//            SidebarNavigationView()
+//        }
+//        #else
+//        SidebarNavigationView()
+//        #endif
     }
 }
 

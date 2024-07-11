@@ -10,7 +10,9 @@ import SwiftUI
 struct TabNavigationView: View {
     @State private var selected: Tab = .sessions
     @State private var showModal = false
+//
     
+      
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -18,7 +20,7 @@ struct TabNavigationView: View {
                 ForEach(Tab.allCases) { tab in
                     ZStack(alignment: .bottomTrailing) {
                         tab.presentingView
-                        buildFloatingButton(tab: tab)
+//                        buildFloatingButton(tab: tab)
                     }
                     .tabItem { tab.tabItem }
                     .tag(tab)
@@ -34,20 +36,24 @@ struct TabNavigationView: View {
         }
     }
     
+    /*
     @ViewBuilder
     func buildFloatingButton(tab: Tab) -> some View {
         ZStack {
             switch tab {
             case .sessions:
-                if #available(iOS 16.1, *) {
-                    SessionFloatingButton(store: .live)
-                }
+//                if #available(iOS 16.1, *) {
+                    SessionFloatingButton()
+//                    .environment(notifier)
+                
+//                }
             default:
                 EmptyView()
             }
         }
         .padding()
     }
+     */
 }
 
 // MARK: - Tab model
