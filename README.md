@@ -19,7 +19,7 @@ Let'Swift 2017 | Version 1.0 ~ 1.0.1
 
 
 ## Developers
-__Version 4__: [DongJu Lim](https://github.com/PotatoArtie), [YeaJu Choi](https://github.com/yeaju-Choi), [Taekyun Kim](https://github.com/cozytk), [Hani Levenshtein](https://github.com/Hani-Levenshtein), [JIIN HEO](https://github.com/JIINHEO), [doitduri]([https://github.com/JIINHEO](https://github.com/doitduri))
+__Version 4__: [DongJu Lim](https://github.com/PotatoArtie), [YeaJu Choi](https://github.com/yeaju-Choi), [Taekyun Kim](https://github.com/cozytk), [Hani Levenshtein](https://github.com/Hani-Levenshtein), [JIIN HEO](https://github.com/JIINHEO), [doitduri](https://github.com/doitduri)
 
 __Version 2__: [BumMo Koo](https://github.com/gbmksquare), [NaYong Kim](https://github.com/yoee), [ChangWoo Son](https://github.com/kor45cw), [HyungJung Kim](https://github.com/clsoft), [HyunAh Jeong](https://github.com/hyunable)
 
