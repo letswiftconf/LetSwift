@@ -1,0 +1,18 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "LetSwift"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
