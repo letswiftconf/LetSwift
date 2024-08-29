@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
+    "·" : {
+
+    },
     "events.title" : {
       "localizations" : {
         "en" : {

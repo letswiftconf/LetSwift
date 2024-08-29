@@ -139,6 +139,10 @@ struct SessionRowView: View {
                         Text(LocalizedStringKey(speaker.name))
                             .font(.regular(size: 12))
                             .foregroundColor(.gray8)
+                        
+                        Text("·")
+                            .font(.regular(size: 12))
+                            .foregroundColor(.gray8)
                     }
                     
                     Text(formatTimeRange(start: session.startTime, end: session.endTime))
