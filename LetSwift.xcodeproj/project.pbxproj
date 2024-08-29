@@ -43,6 +43,7 @@
 		C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E662C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E672C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
+		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		C16B9E592C74CBEF009CCC06 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
+		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				219973572C3F5F5B0015D1AF /* MainView.swift */,
 				214AA4572C42296500C1C747 /* Information */,
+				D19F73E72C80CB2B009D0D9F /* Session */,
 				214AA46B2C42303300C1C747 /* Events */,
 				214AA4582C42296900C1C747 /* Settings */,
 				C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */,
@@ -269,6 +272,14 @@
 				C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D19F73E72C80CB2B009D0D9F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				D19F73E82C80CB4B009D0D9F /* SessionView.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */,
 				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
@@ -581,6 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
+				DEVELOPMENT_TEAM = JRXGXW25BG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
@@ -612,6 +625,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
+				DEVELOPMENT_TEAM = JRXGXW25BG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
