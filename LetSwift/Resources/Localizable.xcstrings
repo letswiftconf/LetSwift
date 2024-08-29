@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
+    "2024년 11월 25일\n00:00 ~ 00:00" : {
+
+    },
     "events.title" : {
       "localizations" : {
         "en" : {
@@ -66,6 +69,15 @@
           }
         }
       }
+    },
+    "Let'Swift 2024" : {
+
+    },
+    "navigationStack sampleView" : {
+
+    },
+    "One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?" : {
+
     },
     "pastevents.title" : {
       "localizations" : {
@@ -162,6 +174,15 @@
           }
         }
       }
+    },
+    "세종대학교 광개토회관" : {
+
+    },
+    "지도" : {
+
+    },
+    "캘린더 등록" : {
+
     }
   },
   "version" : "1.0"

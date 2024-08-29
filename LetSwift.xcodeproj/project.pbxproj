@@ -30,6 +30,7 @@
 		219973902C4222870015D1AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973572C3F5F5B0015D1AF /* MainView.swift */; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
+		4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFB2C8066C000670837 /* SampleView.swift */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E552C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E562C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -76,6 +77,7 @@
 		2199738A2C3F61020015D1AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		4D7B0FFB2C8066C000670837 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		C16B9E572C74CBEF009CCC06 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C16B9E582C74CBEF009CCC06 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				214AA4602C422BA900C1C747 /* Time Table */,
 				214AA4612C422BB300C1C747 /* Sponsors */,
 				214AA4622C422BC900C1C747 /* Past Events */,
+				4D7B0FFB2C8066C000670837 /* SampleView.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
 				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,
+				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				214AA45A2C42298500C1C747 /* SettingsView.swift in Sources */,
 				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,

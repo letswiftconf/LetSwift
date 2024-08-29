@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct InformationView: View {
-    
     init() {
         UINavigationBar.appearance().backgroundColor = .black
         let coloredAppearance = UINavigationBarAppearance()
@@ -20,7 +19,7 @@ struct InformationView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.blackBackground
                     .ignoresSafeArea(edges: .all)
