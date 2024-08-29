@@ -113,6 +113,23 @@
         }
       }
     },
+    "timetable.tab.savedSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Sessions"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장한 세션"
+          }
+        }
+      }
+    },
     "timetable.title" : {
       "localizations" : {
         "en" : {

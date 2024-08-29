@@ -277,9 +277,17 @@
 		D19F73E72C80CB2B009D0D9F /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				D19F73EA2C80CD14009D0D9F /* Models */,
 				D19F73E82C80CB4B009D0D9F /* SessionView.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		D19F73EA2C80CD14009D0D9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
