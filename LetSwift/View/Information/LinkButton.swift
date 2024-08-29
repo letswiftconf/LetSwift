@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LinkButton: View {
+    @ObservedObject var navigationVM: HomeNavigationViewModel
     var title: String
     var link: String
     
@@ -23,11 +24,11 @@ struct LinkButton: View {
         .background(Color.grayRec)
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .onTapGesture {
-            print(#fileID, #function, #line, "- 링크로 이동")
+            navigationVM.push(to: .webView(urlString: link))
         }
     }
 }
 
 #Preview {
-    LinkButton(title: "뉴스레터", link: "")
+    LinkButton(navigationVM: HomeNavigationViewModel(), title: "뉴스레터", link: "")
 }

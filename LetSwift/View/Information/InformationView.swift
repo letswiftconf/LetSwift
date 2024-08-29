@@ -8,18 +8,10 @@
 import SwiftUI
 
 struct InformationView: View {
-    init() {
-        UINavigationBar.appearance().backgroundColor = .black
-        let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
-        coloredAppearance.backgroundColor = .black
-        UINavigationBar.appearance().standardAppearance = coloredAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-    }
+    @StateObject private var navigationVM: HomeNavigationViewModel = HomeNavigationViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationVM.presentedRoutes) {
             ZStack {
                 Color.blackBackground
                     .ignoresSafeArea(edges: .all)
@@ -43,6 +35,12 @@ struct InformationView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: HomeRoute.self) { route in
+                switch route {
+                case .sample: SampleView()
+                case .webView(let urlString): WebView(urlToload: urlString)
+                }
+            }
         }
         .tabItem {
             Label("information.title", image: "ic_home")
@@ -61,11 +59,21 @@ struct InformationView: View {
     
     var buttonStack: some View {
         HStack(spacing: 16) {
-            LinkButton(title: "뉴스레터 구독", link: "")
-            LinkButton(title: "홈페이지", link: "")
-            LinkButton(title: "페스타", link: "")
+            LinkButton(navigationVM: navigationVM, title: "뉴스레터 구독", link: "")
+            LinkButton(navigationVM: navigationVM, title: "홈페이지", link: "")
+            LinkButton(navigationVM: navigationVM, title: "페스타", link: "")
         }
         
+    }
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = .black
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
+        coloredAppearance.backgroundColor = .black
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
     }
 }
 
