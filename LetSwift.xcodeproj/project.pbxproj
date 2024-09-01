@@ -52,6 +52,10 @@
 		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
 		D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */; };
+		D46704982C84D154000F6B7F /* SettingsSectionDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46704972C84D154000F6B7F /* SettingsSectionDivider.swift */; };
+		D467049A2C84D29E000F6B7F /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46704992C84D29E000F6B7F /* SettingsCellView.swift */; };
+		D467049D2C88C2AE000F6B7F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D467049C2C88C2AE000F6B7F /* Settings.swift */; };
+		D46704A12C88C5C1000F6B7F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46704A02C88C5C1000F6B7F /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +100,10 @@
 		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+SampleData.swift"; sourceTree = "<group>"; };
+		D46704972C84D154000F6B7F /* SettingsSectionDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionDivider.swift; sourceTree = "<group>"; };
+		D46704992C84D29E000F6B7F /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		D467049C2C88C2AE000F6B7F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D46704A02C88C5C1000F6B7F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +149,11 @@
 		214AA4582C42296900C1C747 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D467049B2C88B425000F6B7F /* Models */,
 				214AA4592C42298500C1C747 /* SettingsView.swift */,
+				D46704A02C88C5C1000F6B7F /* SettingsViewModel.swift */,
+				D46704992C84D29E000F6B7F /* SettingsCellView.swift */,
+				D46704972C84D154000F6B7F /* SettingsSectionDivider.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -338,6 +350,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D467049B2C88B425000F6B7F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D467049C2C88C2AE000F6B7F /* Settings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -486,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */,
+				D46704A12C88C5C1000F6B7F /* SettingsViewModel.swift in Sources */,
 				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
@@ -493,12 +514,15 @@
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
 				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
 				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,
+				D467049D2C88C2AE000F6B7F /* Settings.swift in Sources */,
+				D467049A2C84D29E000F6B7F /* SettingsCellView.swift in Sources */,
 				4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */,
 				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				214AA45A2C42298500C1C747 /* SettingsView.swift in Sources */,
 				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
+				D46704982C84D154000F6B7F /* SettingsSectionDivider.swift in Sources */,
 				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				219973902C4222870015D1AF /* MainView.swift in Sources */,
 				214AA46D2C42304200C1C747 /* EventsView.swift in Sources */,
