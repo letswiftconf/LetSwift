@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
+    "2024년 11월 25일\n00:00 ~ 00:00" : {
+
+    },
     "events.title" : {
       "localizations" : {
         "en" : {
@@ -17,21 +20,64 @@
         }
       }
     },
-    "information.title" : {
+    "information.date" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Let'Swift"
+            "value" : "Date"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Let'Swift"
+            "value" : "일시"
           }
         }
       }
+    },
+    "information.location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loca"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "장소"
+          }
+        }
+      }
+    },
+    "information.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈"
+          }
+        }
+      }
+    },
+    "Let'Swift 2024" : {
+
+    },
+    "navigationStack sampleView" : {
+
+    },
+    "One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?" : {
+
     },
     "pastevents.title" : {
       "localizations" : {
@@ -128,6 +174,15 @@
           }
         }
       }
+    },
+    "세종대학교 광개토회관" : {
+
+    },
+    "지도" : {
+
+    },
+    "캘린더 등록" : {
+
     }
   },
   "version" : "1.0"

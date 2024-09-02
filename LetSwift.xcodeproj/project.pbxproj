@@ -28,6 +28,12 @@
 		219973862C3F61020015D1AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973852C3F61020015D1AF /* Assets.xcassets */; };
 		219973892C3F61020015D1AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973882C3F61020015D1AF /* Preview Assets.xcassets */; };
 		219973902C4222870015D1AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973572C3F5F5B0015D1AF /* MainView.swift */; };
+		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
+		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
+		4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFB2C8066C000670837 /* SampleView.swift */; };
+		4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFE2C80721C00670837 /* WebView.swift */; };
+		4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */; };
+		4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10042C8073A100670837 /* HomeRoute.swift */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E552C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E562C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -72,6 +78,12 @@
 		219973852C3F61020015D1AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		219973882C3F61020015D1AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2199738A2C3F61020015D1AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
+		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		4D7B0FFB2C8066C000670837 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		4D7B0FFE2C80721C00670837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
+		4D7B10042C8073A100670837 /* HomeRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRoute.swift; sourceTree = "<group>"; };
 		C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		C16B9E572C74CBEF009CCC06 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C16B9E582C74CBEF009CCC06 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -109,10 +121,13 @@
 			isa = PBXGroup;
 			children = (
 				214AA4552C42296200C1C747 /* InformationView.swift */,
+				4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */,
+				4D7B0FF12C7F724500670837 /* LinkButton.swift */,
 				214AA45F2C422BA400C1C747 /* Speakers */,
 				214AA4602C422BA900C1C747 /* Time Table */,
 				214AA4612C422BB300C1C747 /* Sponsors */,
 				214AA4622C422BC900C1C747 /* Past Events */,
+				4D7B0FFB2C8066C000670837 /* SampleView.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -188,6 +203,8 @@
 		219973542C3F5F5B0015D1AF /* LetSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4D7B10032C80739500670837 /* Model */,
+				4D7B10002C80734100670837 /* ViewModel */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
 				219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */,
 				2199738E2C4221510015D1AF /* View */,
@@ -239,6 +256,7 @@
 		2199738E2C4221510015D1AF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D7B0FFD2C8071EA00670837 /* WebView */,
 				219973572C3F5F5B0015D1AF /* MainView.swift */,
 				214AA4572C42296500C1C747 /* Information */,
 				214AA46B2C42303300C1C747 /* Events */,
@@ -258,6 +276,30 @@
 				214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4D7B0FFD2C8071EA00670837 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				4D7B0FFE2C80721C00670837 /* WebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		4D7B10002C80734100670837 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D7B10032C80739500670837 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D7B10042C8073A100670837 /* HomeRoute.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C16B9E522C74CBB5009CCC06 /* Fonts */ = {
@@ -421,13 +463,19 @@
 				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
+				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
+				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
 				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,
+				4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */,
+				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				214AA45A2C42298500C1C747 /* SettingsView.swift in Sources */,
 				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
+				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				219973902C4222870015D1AF /* MainView.swift in Sources */,
 				214AA46D2C42304200C1C747 /* EventsView.swift in Sources */,
+				4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,9 +626,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
@@ -598,6 +648,7 @@
 				MARKETING_VERSION = 6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,9 +660,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
@@ -629,6 +682,7 @@
 				MARKETING_VERSION = 6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

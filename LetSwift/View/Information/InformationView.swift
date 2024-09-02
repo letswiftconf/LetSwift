@@ -8,26 +8,72 @@
 import SwiftUI
 
 struct InformationView: View {
+    @StateObject private var navigationVM: HomeNavigationViewModel = HomeNavigationViewModel()
+    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 36) {
-                    // Banner
-                    RoundedRectangle(cornerRadius: 23, style: .continuous)
-                        .foregroundStyle(Color(.systemGroupedBackground))
-                        .frame(height: 160)
-                    SpeakersView()
-                    TimeTableView()
-                    SponsorsView()
-                    PastEventsView()
+        NavigationStack(path: $navigationVM.presentedRoutes) {
+            ZStack {
+                Color.blackBackground
+                    .ignoresSafeArea(edges: .all)
+                ScrollView {
+                    VStack(spacing: 36) {
+                        // Banner
+                        Image("banner1")
+                            .frame(height: 160)
+                        sloganView
+                        LocationAndDateView()
+                        buttonStack
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
-            .navigationTitle("information.title")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Let'Swift 2024")
+                        .font(.semiBold(size: 22))
+                        .foregroundStyle(Color.white)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: HomeRoute.self) { route in
+                switch route {
+                case .sample: SampleView()
+                case .webView(let urlString): WebView(urlToload: urlString)
+                }
+            }
         }
         .tabItem {
-            Label("information.title", systemImage: "swift")
+            Label("information.title", image: "ic_home")
         }
+        .toolbarBackground(.blackBackground, for: .tabBar)
+    }
+    
+    var sloganView: some View {
+        Text("One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?")
+            .padding(.bottom, 0)
+            .multilineTextAlignment(.center)
+            .font(.semiBold(size: 16))
+            .foregroundStyle(Color.white)
+            .padding(.bottom, 90)
+    }
+    
+    var buttonStack: some View {
+        HStack(spacing: 16) {
+            LinkButton(navigationVM: navigationVM, title: "뉴스레터 구독", link: "")
+            LinkButton(navigationVM: navigationVM, title: "홈페이지", link: "")
+            LinkButton(navigationVM: navigationVM, title: "페스타", link: "")
+        }
+        
+    }
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = .black
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
+        coloredAppearance.backgroundColor = .black
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
     }
 }
 
@@ -35,4 +81,5 @@ struct InformationView: View {
     TabView {
         InformationView()
     }
+    .environment(\.locale, .init(identifier: "ko"))
 }
