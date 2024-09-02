@@ -49,6 +49,9 @@
 		C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E662C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E672C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
+		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
+		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
+		D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,9 @@
 		C16B9E592C74CBEF009CCC06 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
+		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+SampleData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +265,7 @@
 				4D7B0FFD2C8071EA00670837 /* WebView */,
 				219973572C3F5F5B0015D1AF /* MainView.swift */,
 				214AA4572C42296500C1C747 /* Information */,
+				D19F73E72C80CB2B009D0D9F /* Session */,
 				214AA46B2C42303300C1C747 /* Events */,
 				214AA4582C42296900C1C747 /* Settings */,
 				C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */,
@@ -311,6 +318,24 @@
 				C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D19F73E72C80CB2B009D0D9F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				D19F73EA2C80CD14009D0D9F /* Models */,
+				D19F73E82C80CB4B009D0D9F /* SessionView.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		D19F73EA2C80CD14009D0D9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D19F73EB2C80D5F5009D0D9F /* Session.swift */,
+				D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */,
 				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
@@ -471,10 +497,12 @@
 				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				214AA45A2C42298500C1C747 /* SettingsView.swift in Sources */,
 				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
+				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
 				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				219973902C4222870015D1AF /* MainView.swift in Sources */,
 				214AA46D2C42304200C1C747 /* EventsView.swift in Sources */,
+				D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */,
 				4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

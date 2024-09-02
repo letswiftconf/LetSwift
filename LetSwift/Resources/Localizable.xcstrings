@@ -2,7 +2,6 @@
   "sourceLanguage" : "ko",
   "strings" : {
     "2024년 11월 25일\n00:00 ~ 00:00" : {
-
     },
     "events.title" : {
       "localizations" : {
@@ -95,6 +94,9 @@
         }
       }
     },
+    "Sessions" : {
+
+    },
     "settings.title" : {
       "localizations" : {
         "en" : {
@@ -155,6 +157,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "후원사"
+          }
+        }
+      }
+    },
+    "timetable.tab.savedSession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Sessions"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장한 세션"
           }
         }
       }

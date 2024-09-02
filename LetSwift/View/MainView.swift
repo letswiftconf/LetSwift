@@ -11,6 +11,7 @@ struct MainView: View {
     var body: some View {
         TabView {
             InformationView()
+            SessionView()
             EventsView()
             SettingsView()
         }
