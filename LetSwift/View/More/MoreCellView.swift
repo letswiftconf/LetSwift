@@ -1,5 +1,5 @@
 //
-//  SettingsCellView.swift
+//  MoreCellView.swift
 //  LetSwift
 //
 //  Created by Philip Chung on 9/2/24.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SettingsCellView: View {
-    typealias Cell = Settings.Section.Cell
+struct MoreCellView: View {
+    typealias Cell = More.Section.Cell
     
     private let cell: Cell
     private let onClickEvent: (_ type: Cell.CellType) -> ()
     
     init(
-        cell: Settings.Section.Cell,
+        cell: Cell,
         onClickEvent: @escaping (_ type: Cell.CellType) -> Void
     ) {
         self.cell = cell
@@ -43,12 +43,12 @@ struct SettingsCellView: View {
     }
 }
 
-#Preview("SettingsCellView", traits: .fixedLayout(width: 500, height: 60)) {
-    SettingsCellView(cell: Settings.Section.Cell.sampleCell) { _ in
+#Preview("MoreCellView", traits: .fixedLayout(width: 500, height: 60)) {
+    MoreCellView(cell: More.Section.Cell.sampleCell) { _ in
         print("Clicked")
     }
 }
 
-extension Settings.Section.Cell {
-    fileprivate static let sampleCell = Settings.data.sections[0].cells[0]
+extension More.Section.Cell {
+    fileprivate static let sampleCell = More.data.sections[0].cells[0]
 }

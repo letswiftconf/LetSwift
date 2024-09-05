@@ -1,5 +1,5 @@
 //
-//  SettingsSectionDivider.swift
+//  MoreSectionDivider.swift
 //  LetSwift
 //
 //  Created by Philip Chung on 9/2/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsSectionDivider: View {
+struct MoreSectionDivider: View {
     private let height: CGFloat
     
     init(height: CGFloat = 10) {
@@ -22,6 +22,5 @@ struct SettingsSectionDivider: View {
 }
 
 #Preview {
-    SettingsSectionDivider()
-
+    MoreSectionDivider()
 }

@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  MoreView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 7/13/24.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct MoreView: View {
     @Environment(\.openURL) private var openURL
-    private var viewModel: SettingsViewModel
+    private var viewModel: MoreViewModel
     
-    init(viewModel: SettingsViewModel) {
+    init(viewModel: MoreViewModel) {
         self.viewModel = viewModel
     }
     
@@ -21,7 +21,7 @@ struct SettingsView: View {
                 ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { offset, section in
                     VStack(spacing: 1) {
                         ForEach(section.cells) { cell in
-                            SettingsCellView(cell: cell) { type in
+                            MoreCellView(cell: cell) { type in
                                 switch type {
                                 case .navigate: break
                                 case .openUrl(let urlString):
@@ -34,7 +34,7 @@ struct SettingsView: View {
                     .background(.grayStoke)
     
                     if offset != viewModel.numberOfSections - 1 {
-                        SettingsSectionDivider()
+                        MoreSectionDivider()
                     }
                 }
             }
@@ -42,22 +42,22 @@ struct SettingsView: View {
         .padding(.top, 1)   // 상단 safe area 영역 벗어나서 컨텐츠가 보이지 않도록 하기 위함
         .background(Color.darkBackground)
         .tabItem {
-            Label("settings.title", image: "ic_menu")
+            Label("more.title", image: "ic_menu")
         }
         .toolbarBackground(.darkBackground, for: .tabBar)
     }
 }
 
-#Preview("Settings(ko)") {
+#Preview("More(ko)") {
     TabView {
-        SettingsView(viewModel: SettingsViewModel())
+        MoreView(viewModel: MoreViewModel())
             .environment(\.locale, Locale(identifier: "ko"))
     }
 }
 
-#Preview("Settings(en)") {
+#Preview("More(en)") {
     TabView {
-        SettingsView(viewModel: SettingsViewModel())
+        MoreView(viewModel: MoreViewModel())
             .environment(\.locale, Locale(identifier: "en"))
     }
 }
