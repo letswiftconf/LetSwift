@@ -11,10 +11,6 @@ import SwiftUI
 @Observable
 final class SessionViewModel {
     
-    private(set) var currentTab: SessionTab = .trackA
-    private(set) var isLoading: Bool = false
-    private(set) var sessions: [Session] = []
-    private(set) var savedSessionIds: Set<String> = Set(UserDefaults.standard.stringArray(forKey: Constant.savedSessionsKey) ?? [])
     var filteredSessions: [Session] {
         switch currentTab {
         case .trackA:
@@ -25,6 +21,18 @@ final class SessionViewModel {
             return sessions.filter { savedSessionIds.contains($0.id) }
         }
     }
+    
+    init() {
+        self.currentTab = .trackA
+        self.isLoading = false
+        self.sessions = []
+        self.savedSessionIds = Set(UserDefaults.standard.stringArray(forKey: Constant.savedSessionsKey) ?? [])
+    }
+    
+    private(set) var currentTab: SessionTab
+    private(set) var isLoading: Bool
+    private(set) var sessions: [Session]
+    private(set) var savedSessionIds: Set<String>
     
     @ObservationIgnored
     private lazy var jsonDecoder: JSONDecoder = {
