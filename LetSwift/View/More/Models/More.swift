@@ -74,6 +74,6 @@ extension More {
         static let subscribeNewsletterURL: String = "https://page.stibee.com/subscriptions/58654"
         static let homepageURL: String = "https://letswift.kr/2024/"
         static let githubURL: String = "https://github.com/letswiftconf/LetSwift/tree/2024/develop"
-        static let appReviewURL: String = "https://apps.apple.com/app/id{appID}?action=write-review"    // TODO: 적절한 appID로 변경
+        static let appReviewURL: String = "https://apps.apple.com/app/id1282995254?action=write-review"
     }
 }
