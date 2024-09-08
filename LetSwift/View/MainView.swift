@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    var sessionViewModel: SessionViewModel = SessionViewModel()
+    
     var body: some View {
         TabView {
             InformationView()
-            SessionView()
+            SessionView(viewModel: sessionViewModel)
             EventsView()
             MoreView(viewModel: MoreViewModel())
         }
