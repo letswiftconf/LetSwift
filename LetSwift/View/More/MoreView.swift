@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
+    @Environment(\.requestReview) private var requestReview
     private var viewModel: MoreViewModel
     
     init(viewModel: MoreViewModel) {
@@ -27,6 +29,8 @@ struct MoreView: View {
                                 case .openUrl(let urlString):
                                     guard let url = URL(string: urlString) else { return }
                                     openURL(url)
+                                case .requestReview:
+                                    requestReview()
                                 }
                             }
                         }
