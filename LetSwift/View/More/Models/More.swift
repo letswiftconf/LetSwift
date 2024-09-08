@@ -21,8 +21,9 @@ struct More {
             let type: CellType
             
             enum CellType {
-                case navigate(_ route: any Hashable)    // 범용성 고려해서 case 추가함
+                case navigate(_ route: any Hashable)
                 case openUrl(url: String)
+                case requestReview
             }
         }
     }
@@ -60,7 +61,7 @@ extension More {
                     More.Section.Cell(
                         title: "앱 리뷰쓰기",
                         titleEn: "Write an App Review",
-                        type: .openUrl(url: More.Constants.appReviewURL)
+                        type: .requestReview
                     ),
                 ]
             ),
@@ -70,10 +71,9 @@ extension More {
 
 extension More {
     private enum Constants {
-        static let organizerURL: String = "https://www.naver.com"   // TODO: URL 미정
+        static let organizerURL: String = "https://letswift.kr/2024/"   // TODO: URL 미정
         static let subscribeNewsletterURL: String = "https://page.stibee.com/subscriptions/58654"
         static let homepageURL: String = "https://letswift.kr/2024/"
         static let githubURL: String = "https://github.com/letswiftconf/LetSwift/tree/2024/develop"
-        static let appReviewURL: String = "https://apps.apple.com/app/id1282995254?action=write-review"
     }
 }
