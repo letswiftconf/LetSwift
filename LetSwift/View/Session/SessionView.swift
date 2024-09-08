@@ -8,23 +8,13 @@
 import SwiftUI
 
 struct SessionView: View {
-    @State private var currentTab: Tab = .trackA
-    @State private var sessions: [Session] = Session.sampleData
-    @State private var savedSessionIds: Set<String> = Set(UserDefaults.standard.stringArray(forKey: "savedSessions") ?? [])
-
-    enum Tab: String, Identifiable, CaseIterable {
-        var id: String { self.rawValue }
-        case trackA, trackB, savedSession
-
-        var title: String {
-            switch self {
-            case .trackA: return "Track A"
-            case .trackB: return "Track B"
-            case .savedSession: return NSLocalizedString("timetable.tab.savedSession", comment: "Saved Session tab title")
-            }
-        }
+    
+    @Bindable private var viewModel: SessionViewModel
+    
+    init(viewModel: SessionViewModel) {
+        self.viewModel = viewModel
     }
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -37,22 +27,28 @@ struct SessionView: View {
         .tabItem {
             Label("timetable.title", image: "ic_timetable")
         }
+        .task {
+            defer { viewModel.update(isLoading: false) }
+            viewModel.update(isLoading: true)
+            guard let sessions = try? await viewModel.fetchSessions() else { return }
+            viewModel.update(sessions: sessions)
+        }
     }
 
     private var tabView: some View {
         HStack(spacing: 0) {
-            ForEach(Tab.allCases) { tab in
+            ForEach(SessionTab.allCases) { tab in
                 Button {
-                    currentTab = tab
+                    viewModel.update(currentTab: tab)
                 } label: {
                     ZStack {
                         Color.darkBackground
                         Text(tab.title)
-                            .font(currentTab == tab ? .medium(size: 15) : .regular(size: 15))
-                            .foregroundStyle(currentTab == tab ? Color.primaryPink : Color.gray5)
+                            .font(viewModel.currentTab == tab ? .medium(size: 15) : .regular(size: 15))
+                            .foregroundStyle(viewModel.currentTab == tab ? Color.primaryPink : Color.gray5)
                     }
                     .overlay(alignment: .bottom) {
-                        if currentTab == tab {
+                        if viewModel.currentTab == tab {
                             Color.primaryPink.frame(height: 3)
                         } else {
                             Color.gray5.frame(height: 1)
@@ -67,12 +63,12 @@ struct SessionView: View {
     private var sessionList: some View {
         ScrollView {
             VStack(spacing: 1) {
-                ForEach(filteredSessions) { session in
-                    SessionRowView(session: session, isSaved: savedSessionIds.contains(session.id)) {
-                        toggleSavedSession(session.id)
+                ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.offset) { offset, session in
+                    SessionRowView(session: session, isSaved: viewModel.savedSessionIds.contains(session.id)) {
+                        viewModel.toggleSavedSession(session.id)
                     }
                     .overlay(alignment: .top) {
-                        if session != filteredSessions.first {
+                        if offset != .zero {
                             Color.grayStoke
                                 .frame(height: 1)
                         }
@@ -80,26 +76,11 @@ struct SessionView: View {
                 }
             }
         }
-    }
-
-    private var filteredSessions: [Session] {
-        switch currentTab {
-        case .trackA:
-            return sessions.filter { $0.track == "Track A" }
-        case .trackB:
-            return sessions.filter { $0.track == "Track B" }
-        case .savedSession:
-            return sessions.filter { savedSessionIds.contains($0.id) }
+        .overlay {
+            ProgressView()
+                 .progressViewStyle(CircularProgressViewStyle())
+                 .opacity(viewModel.isLoading ? 1.0 : 0.0)
         }
-    }
-
-    private func toggleSavedSession(_ id: String) {
-        if savedSessionIds.contains(id) {
-            savedSessionIds.remove(id)
-        } else {
-            savedSessionIds.insert(id)
-        }
-        UserDefaults.standard.set(Array(savedSessionIds), forKey: "savedSessions")
     }
 }
 
@@ -170,5 +151,5 @@ struct SessionRowView: View {
 }
 
 #Preview {
-    SessionView()
+    SessionView(viewModel: SessionViewModel())
 }
