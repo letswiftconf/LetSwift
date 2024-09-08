@@ -16,7 +16,7 @@ struct MainView: View {
             InformationView()
             SessionView(viewModel: sessionViewModel)
             EventsView()
-            SettingsView()
+            MoreView(viewModel: MoreViewModel())
         }
     }
 }

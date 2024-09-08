@@ -1,7 +1,11 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
+    "·" : {
+
+    },
     "2024년 11월 25일\n00:00 ~ 00:00" : {
+
     },
     "events.title" : {
       "localizations" : {
@@ -97,34 +101,18 @@
     "Sessions" : {
 
     },
-    "settings.title" : {
+    "more.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Settings"
+            "value" : "More"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "설정"
-          }
-        }
-      }
-    },
-    "settings.writeReview" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Write a Review"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 리뷰 쓰기"
+            "value" : "더보기"
           }
         }
       }
