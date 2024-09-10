@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UserNotifications
 
 @Observable
 final class SessionViewModel {
@@ -83,6 +84,22 @@ extension SessionViewModel {
             savedSessionIds.insert(id)
         }
         UserDefaults.standard.set(Array(savedSessionIds), forKey: Constant.savedSessionsKey)
+        
+        let notificationContent = UNMutableNotificationContent()
+
+//        notificationContent.title = "알림 테스트"
+        notificationContent.body = "이것은 알림을 테스트 하는 것이다\nhihi\n✅\n- 수시니거부 : 마이>설정>알림설정"
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                            content: notificationContent,
+                                            trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
     }
 }
 

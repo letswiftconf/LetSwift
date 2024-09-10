@@ -17,6 +17,9 @@ struct LetSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .task {
+                    NotificationManager.shared.setup()
+                }
         }
     }
     

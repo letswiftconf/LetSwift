@@ -93,6 +93,7 @@
 		D467049A2C84D29E000F6B7F /* MoreCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46704992C84D29E000F6B7F /* MoreCellView.swift */; };
 		D467049D2C88C2AE000F6B7F /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = D467049C2C88C2AE000F6B7F /* More.swift */; };
 		D46704A12C88C5C1000F6B7F /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46704A02C88C5C1000F6B7F /* MoreViewModel.swift */; };
+		D978C27D2C9042510097500D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978C27C2C9042510097500D /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		D46704992C84D29E000F6B7F /* MoreCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCellView.swift; sourceTree = "<group>"; };
 		D467049C2C88C2AE000F6B7F /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		D46704A02C88C5C1000F6B7F /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
+		D978C27C2C9042510097500D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				4D7B10002C80734100670837 /* ViewModel */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
 				219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */,
+				D978C27A2C903FDA0097500D /* Notifications */,
 				2199738E2C4221510015D1AF /* View */,
 				2199738F2C42217F0015D1AF /* Resources */,
 				C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */,
@@ -500,6 +503,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D978C27A2C903FDA0097500D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				D978C27C2C9042510097500D /* NotificationManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -680,6 +691,7 @@
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
+				D978C27D2C9042510097500D /* NotificationManager.swift in Sources */,
 				60019F852CB05E2B00192FD7 /* StampBoard.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
