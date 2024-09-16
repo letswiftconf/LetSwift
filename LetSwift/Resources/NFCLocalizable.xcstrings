@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "defaultNFC.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hold your iPhone near the NFC tag."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자의 기기를 NFC 태그 가까이 들고 있어주십시오."
+          }
+        }
+      }
+    },
+    "detectMultipleTags.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiple NFC tags detected, please try again."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "여러 개의 NFC 태그를 감지했습니다. 다시 시도해주세요."
+          }
+        }
+      }
+    },
+    "successStampCollection.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successful stamp collection "
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스탬프 적립 성공"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

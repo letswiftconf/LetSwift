@@ -76,8 +76,34 @@
     "Let'Swift 2024" : {
 
     },
+    "more.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "더보기"
+          }
+        }
+      }
+    },
     "navigationStack sampleView" : {
 
+    },
+    "NFC 기능을 이용해 스탬프를 얻어보세요!\n스탬프는 이벤트 및 경품 추첨에 사용됩니다." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
+          }
+        }
+      }
     },
     "One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?" : {
 
@@ -100,22 +126,6 @@
     },
     "Sessions" : {
 
-    },
-    "more.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "더보기"
-          }
-        }
-      }
     },
     "speakers.title" : {
       "localizations" : {
@@ -145,6 +155,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "후원사"
+          }
+        }
+      }
+    },
+    "stampButton.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect Stamps"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스탬프 적립하기"
           }
         }
       }
@@ -184,6 +210,16 @@
     },
     "세종대학교 광개토회관" : {
 
+    },
+    "스탬프를 모아보세요" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect Your Stamps"
+          }
+        }
+      }
     },
     "지도" : {
 
