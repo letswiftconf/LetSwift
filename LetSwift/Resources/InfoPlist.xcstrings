@@ -12,6 +12,18 @@
           }
         }
       }
+    },
+    "NFCReaderUsageDescription" : {
+      "comment" : "Privacy - NFC Scan Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
