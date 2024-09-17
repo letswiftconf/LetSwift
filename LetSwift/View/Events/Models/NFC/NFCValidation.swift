@@ -26,21 +26,16 @@ struct NFCValidation {
     func isValidateNDEFMessage(in tag: NFCNDEFMessage?) -> Result<String, Error> {
         do {
             let message = try isValidateMessage(tag: tag)  // NFC Tag 인식 확인
-            print("message: ", message)
             let record = try isValidateRecord(of: message) // 단일 Record 적용
-            print("record: ", record)
             try isValidateTypeNameFormat(record: record)   // Record 타입 형식 확인
             let payload = try isValidatePayloadEncoding(payload: record.payload)  // payload 인코딩
-            print("payload: ", payload)
             
-            let languageCodeLength = Int(record.payload.first!) & 0x3F // 언어 코드 길이 추출
-            let text = String(payload.dropFirst(languageCodeLength + 1))
-            print("languageCodeLength: ", languageCodeLength)
-            print("text: ", text)
+            let languageCodeLength = Int(record.payload.first ?? 0) & 0x3F
+            let result = String(payload.dropFirst(languageCodeLength + 1)) // 언어 코드 제거
             
-            try checkPayload(payload: text)
+            try checkPayload(payload: result)
             
-            return .success(text)
+            return .success(result)
         } catch {
             return .failure(error)
         }
