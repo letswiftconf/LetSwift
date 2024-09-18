@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct LetSwiftApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     init() {
         setTabBarAppearance()
@@ -18,7 +19,10 @@ struct LetSwiftApp: App {
         WindowGroup {
             MainView()
                 .task {
-                    NotificationManager.shared.setup()
+                    await NotificationManager.shared.requestAuthorization()
+                    if Date.now < NotificationRequest.conferenceClosingNotification.sendDate {
+                        try? await NotificationManager.shared.registerNotification(NotificationRequest.conferenceClosingNotification)
+                    }
                 }
         }
     }

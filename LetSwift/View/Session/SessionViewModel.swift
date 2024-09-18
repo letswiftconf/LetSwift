@@ -12,28 +12,26 @@ import UserNotifications
 @Observable
 final class SessionViewModel {
     
-    var filteredSessions: [Session] {
+    var filteredSessions: [SessionRowViewModel] {
         switch currentTab {
         case .trackA:
             return sessions.filter { $0.trackEn == "Track A" }
         case .trackB:
             return sessions.filter { $0.trackEn == "Track B" }
         case .savedSession:
-            return sessions.filter { savedSessionIds.contains($0.id) }
+            return sessionRowViewModels.filter { $0.session.isSaved }
         }
     }
     
     init() {
         self.currentTab = .trackA
         self.isLoading = false
-        self.sessions = []
-        self.savedSessionIds = Set(UserDefaults.standard.stringArray(forKey: Constant.savedSessionsKey) ?? [])
+        self.sessionRowViewModels = []
     }
     
     private(set) var currentTab: SessionTab
     private(set) var isLoading: Bool
-    private(set) var sessions: [Session]
-    private(set) var savedSessionIds: Set<String>
+    private(set) var sessionRowViewModels: [SessionRowViewModel]
     
     @ObservationIgnored
     private lazy var jsonDecoder: JSONDecoder = {
@@ -66,7 +64,23 @@ extension SessionViewModel {
     }
     
     func update(sessions: [Session]) {
-        self.sessions = sessions
+        let sessionModels = sessions.map { SessionModel(from: $0) }
+        let savedSessionIds: Set<String> = UserDefaultsManager.savedSessions
+        let alarmedSessionids: Set<String> = UserDefaultsManager.alarmedSessions
+        
+        for (index, _) in sessionModels.enumerated() {
+            // 저장한 세션 정보 반영
+            if savedSessionIds.contains(sessionModels[index].identifier) {
+                sessionModels[index].isSaved = true
+            }
+            
+            // 알림 설정한 세션 정보 반영
+            if alarmedSessionids.contains(sessionModels[index].identifier) {
+                sessionModels[index].isAlarmed = true
+            }
+        }
+        
+        self.sessionRowViewModels = sessionModels.map { SessionRowViewModel(session: $0) }
     }
     
     func update(isLoading: Bool) {
@@ -76,38 +90,12 @@ extension SessionViewModel {
     func update(currentTab: SessionTab) {
         self.currentTab = currentTab
     }
-    
-    func toggleSavedSession(_ id: String) {
-        if savedSessionIds.contains(id) {
-            savedSessionIds.remove(id)
-        } else {
-            savedSessionIds.insert(id)
-        }
-        UserDefaults.standard.set(Array(savedSessionIds), forKey: Constant.savedSessionsKey)
-        
-        let notificationContent = UNMutableNotificationContent()
-
-//        notificationContent.title = "알림 테스트"
-        notificationContent.body = "이것은 알림을 테스트 하는 것이다\nhihi\n✅\n- 수시니거부 : 마이>설정>알림설정"
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                            content: notificationContent,
-                                            trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Notification Error: ", error)
-            }
-        }
-    }
 }
 
 private extension SessionViewModel {
-    
+
     enum Constant {
         static let sessionURL: String = "https://api.bummo.dev/letswift2024/schedule"
-        static let savedSessionsKey: String = "savedSessions"
         static let serverTimeFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
     }
 }
