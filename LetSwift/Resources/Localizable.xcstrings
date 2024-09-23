@@ -7,6 +7,38 @@
     "2024년 11월 25일\n00:00 ~ 00:00" : {
 
     },
+    "eventHeader.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC 기능을 이용해 스탬프를 얻어보세요!\n스탬프는 이벤트 및 경품 추첨에 사용됩니다."
+          }
+        }
+      }
+    },
+    "eventHeader.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect Your Stamps"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스탬프를 모아보세요"
+          }
+        }
+      }
+    },
     "events.title" : {
       "localizations" : {
         "en" : {
@@ -76,6 +108,22 @@
     "Let'Swift 2024" : {
 
     },
+    "more.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "더보기"
+          }
+        }
+      }
+    },
     "navigationStack sampleView" : {
 
     },
@@ -100,22 +148,6 @@
     },
     "Sessions" : {
 
-    },
-    "more.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "더보기"
-          }
-        }
-      }
     },
     "speakers.title" : {
       "localizations" : {
@@ -145,6 +177,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "후원사"
+          }
+        }
+      }
+    },
+    "stampButton.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect Stamps"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스탬프 적립하기"
           }
         }
       }

@@ -17,7 +17,6 @@
 		214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4652C422DB000C1C747 /* SponsorsView.swift */; };
 		214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4672C422EB400C1C747 /* PastEventsView.swift */; };
 		214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4692C422F2100C1C747 /* TimeTableView.swift */; };
-		214AA46D2C42304200C1C747 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA46C2C42304200C1C747 /* EventsView.swift */; };
 		219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */; };
 		2199735A2C3F5F5D0015D1AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2199735C2C3F5F5D0015D1AF /* Preview Assets.xcassets */; };
@@ -36,6 +35,12 @@
 		4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFE2C80721C00670837 /* WebView.swift */; };
 		4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */; };
 		4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10042C8073A100670837 /* HomeRoute.swift */; };
+		988A2CF22C96A62600B160FC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CE92C96A62600B160FC /* Company.swift */; };
+		988A2CF32C96A62600B160FC /* NFCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEB2C96A62600B160FC /* NFCError.swift */; };
+		988A2CF42C96A62600B160FC /* NFCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEC2C96A62600B160FC /* NFCValidation.swift */; };
+		988A2CF52C96A62600B160FC /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEE2C96A62600B160FC /* EventsView.swift */; };
+		988A2CF72C96A62600B160FC /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CF02C96A62600B160FC /* StampButton.swift */; };
+		98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E552C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E562C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -71,7 +76,6 @@
 		214AA4652C422DB000C1C747 /* SponsorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsView.swift; sourceTree = "<group>"; };
 		214AA4672C422EB400C1C747 /* PastEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastEventsView.swift; sourceTree = "<group>"; };
 		214AA4692C422F2100C1C747 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
-		214AA46C2C42304200C1C747 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		219973522C3F5F5B0015D1AF /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetSwiftApp.swift; sourceTree = "<group>"; };
 		219973572C3F5F5B0015D1AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -95,6 +99,13 @@
 		4D7B0FFE2C80721C00670837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
 		4D7B10042C8073A100670837 /* HomeRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRoute.swift; sourceTree = "<group>"; };
+		988A2CE92C96A62600B160FC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		988A2CEB2C96A62600B160FC /* NFCError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCError.swift; sourceTree = "<group>"; };
+		988A2CEC2C96A62600B160FC /* NFCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCValidation.swift; sourceTree = "<group>"; };
+		988A2CEE2C96A62600B160FC /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		988A2CF02C96A62600B160FC /* StampButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
+		98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = NFCLocalizable.xcstrings; sourceTree = "<group>"; };
+		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
 		C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		C16B9E572C74CBEF009CCC06 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C16B9E582C74CBEF009CCC06 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -194,14 +205,6 @@
 			path = "Past Events";
 			sourceTree = "<group>";
 		};
-		214AA46B2C42303300C1C747 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				214AA46C2C42304200C1C747 /* EventsView.swift */,
-			);
-			path = Events;
-			sourceTree = "<group>";
-		};
 		219973492C3F5F5B0015D1AF = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +228,7 @@
 		219973542C3F5F5B0015D1AF /* LetSwift */ = {
 			isa = PBXGroup;
 			children = (
+				98B898852C98276100A7073D /* LetSwift.entitlements */,
 				4D7B10032C80739500670837 /* Model */,
 				4D7B10002C80734100670837 /* ViewModel */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
@@ -282,7 +286,7 @@
 				219973572C3F5F5B0015D1AF /* MainView.swift */,
 				214AA4572C42296500C1C747 /* Information */,
 				D19F73E72C80CB2B009D0D9F /* Session */,
-				214AA46B2C42303300C1C747 /* Events */,
+				988A2CF12C96A62600B160FC /* Events */,
 				214AA4582C42296900C1C747 /* More */,
 				C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */,
 			);
@@ -296,6 +300,7 @@
 				219973592C3F5F5D0015D1AF /* Assets.xcassets */,
 				2199735C2C3F5F5D0015D1AF /* Preview Assets.xcassets */,
 				214AA45B2C4229F900C1C747 /* Localizable.xcstrings */,
+				98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */,
 				214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */,
 			);
 			path = Resources;
@@ -323,6 +328,43 @@
 				4D7B10042C8073A100670837 /* HomeRoute.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		988A2CEA2C96A62600B160FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				988A2CE92C96A62600B160FC /* Company.swift */,
+				988A2CED2C96A62600B160FC /* NFC */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		988A2CED2C96A62600B160FC /* NFC */ = {
+			isa = PBXGroup;
+			children = (
+				988A2CEB2C96A62600B160FC /* NFCError.swift */,
+				988A2CEC2C96A62600B160FC /* NFCValidation.swift */,
+			);
+			path = NFC;
+			sourceTree = "<group>";
+		};
+		988A2CF12C96A62600B160FC /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				988A2CF82C96A64D00B160FC /* Views */,
+				988A2CEA2C96A62600B160FC /* Models */,
+			);
+			name = Events;
+			path = LetSwift/View/Events;
+			sourceTree = SOURCE_ROOT;
+		};
+		988A2CF82C96A64D00B160FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				988A2CEE2C96A62600B160FC /* EventsView.swift */,
+				988A2CF02C96A62600B160FC /* StampButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C16B9E522C74CBB5009CCC06 /* Fonts */ = {
@@ -469,6 +511,7 @@
 			files = (
 				2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */,
 				C16B9E5A2C74CBEF009CCC06 /* Pretendard-Regular.otf in Resources */,
+				98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */,
 				C16B9E5D2C74CBEF009CCC06 /* Pretendard-SemiBold.otf in Resources */,
 				C16B9E602C74CBEF009CCC06 /* Pretendard-Medium.otf in Resources */,
 				C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */,
@@ -513,27 +556,31 @@
 			files = (
 				D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */,
 				D46704A12C88C5C1000F6B7F /* MoreViewModel.swift in Sources */,
+				988A2CF42C96A62600B160FC /* NFCValidation.swift in Sources */,
 				1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */,
 				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
+				988A2CF22C96A62600B160FC /* Company.swift in Sources */,
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
 				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
 				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,
 				D467049D2C88C2AE000F6B7F /* More.swift in Sources */,
 				D467049A2C84D29E000F6B7F /* MoreCellView.swift in Sources */,
+				988A2CF52C96A62600B160FC /* EventsView.swift in Sources */,
+				988A2CF72C96A62600B160FC /* StampButton.swift in Sources */,
 				4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */,
 				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				214AA45A2C42298500C1C747 /* MoreView.swift in Sources */,
 				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
+				988A2CF32C96A62600B160FC /* NFCError.swift in Sources */,
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
 				D46704982C84D154000F6B7F /* MoreSectionDivider.swift in Sources */,
 				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				219973902C4222870015D1AF /* MainView.swift in Sources */,
-				214AA46D2C42304200C1C747 /* EventsView.swift in Sources */,
 				D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */,
 				4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */,
 			);
@@ -686,15 +733,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LetSwift/LetSwift.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N6LML762WM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -720,15 +769,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LetSwift/LetSwift.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N6LML762WM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
