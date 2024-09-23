@@ -62,10 +62,6 @@ fileprivate extension EventsView {
     @ViewBuilder
     func content() -> some View {
         companyEvents()
-        
-        RoundedRectangle(cornerRadius: 23, style: .continuous)
-            .foregroundStyle(Color(.systemGroupedBackground))
-            .frame(height: 200)
     }
     
     @ViewBuilder
