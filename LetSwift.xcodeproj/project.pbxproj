@@ -39,7 +39,6 @@
 		988A2CF32C96A62600B160FC /* NFCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEB2C96A62600B160FC /* NFCError.swift */; };
 		988A2CF42C96A62600B160FC /* NFCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEC2C96A62600B160FC /* NFCValidation.swift */; };
 		988A2CF52C96A62600B160FC /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEE2C96A62600B160FC /* EventsView.swift */; };
-		988A2CF62C96A62600B160FC /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEF2C96A62600B160FC /* EventViewModel.swift */; };
 		988A2CF72C96A62600B160FC /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CF02C96A62600B160FC /* StampButton.swift */; };
 		98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -104,7 +103,6 @@
 		988A2CEB2C96A62600B160FC /* NFCError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCError.swift; sourceTree = "<group>"; };
 		988A2CEC2C96A62600B160FC /* NFCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCValidation.swift; sourceTree = "<group>"; };
 		988A2CEE2C96A62600B160FC /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
-		988A2CEF2C96A62600B160FC /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		988A2CF02C96A62600B160FC /* StampButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = NFCLocalizable.xcstrings; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 			isa = PBXGroup;
 			children = (
 				988A2CF82C96A64D00B160FC /* Views */,
-				98B898862C982F7400A7073D /* ViewModels */,
 				988A2CEA2C96A62600B160FC /* Models */,
 			);
 			name = Events;
@@ -368,14 +365,6 @@
 				988A2CF02C96A62600B160FC /* StampButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		98B898862C982F7400A7073D /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				988A2CEF2C96A62600B160FC /* EventViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C16B9E522C74CBB5009CCC06 /* Fonts */ = {
@@ -574,7 +563,6 @@
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
-				988A2CF62C96A62600B160FC /* EventViewModel.swift in Sources */,
 				988A2CF22C96A62600B160FC /* Company.swift in Sources */,
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
 				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
