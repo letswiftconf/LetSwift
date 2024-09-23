@@ -7,6 +7,38 @@
     "2024년 11월 25일\n00:00 ~ 00:00" : {
 
     },
+    "eventHeader.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC 기능을 이용해 스탬프를 얻어보세요!\n스탬프는 이벤트 및 경품 추첨에 사용됩니다."
+          }
+        }
+      }
+    },
+    "eventHeader.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect Your Stamps"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스탬프를 모아보세요"
+          }
+        }
+      }
+    },
     "events.title" : {
       "localizations" : {
         "en" : {
@@ -94,16 +126,6 @@
     },
     "navigationStack sampleView" : {
 
-    },
-    "NFC 기능을 이용해 스탬프를 얻어보세요!\n스탬프는 이벤트 및 경품 추첨에 사용됩니다." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
-          }
-        }
-      }
     },
     "One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?" : {
 
@@ -210,16 +232,6 @@
     },
     "세종대학교 광개토회관" : {
 
-    },
-    "스탬프를 모아보세요" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Collect Your Stamps"
-          }
-        }
-      }
     },
     "지도" : {
 

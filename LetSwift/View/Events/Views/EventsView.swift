@@ -42,15 +42,12 @@ fileprivate extension EventsView {
     @ViewBuilder
     func header() -> some View {
         VStack(spacing: 7) {
-            Text("스탬프를 모아보세요")
+            Text("eventHeader.title")
                 .foregroundStyle(.whiteText)
                 .font(.bold(size: 22))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("""
-                 NFC 기능을 이용해 스탬프를 얻어보세요!
-                 스탬프는 이벤트 및 경품 추첨에 사용됩니다.
-                 """)
+            Text("eventHeader.description")
                 .foregroundStyle(.gray8)
                 .font(.regular(size: 14))
                 .frame(maxWidth: .infinity, alignment: .leading)
