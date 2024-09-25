@@ -1,0 +1,85 @@
+{
+  "year": 2016,
+  "items": [
+    {
+      "title": "스위프트 3.0",
+      "speaker": "박세현",
+      "timeLine": "25:05",
+      "referenceLink": "http://www.slideshare.net/SehyunPark10/letswift-swift-30",
+      "thumbnail": "https://i.ytimg.com/vi/7MfHsBuQQSs/default.jpg",
+      "videoID": "7MfHsBuQQSs"
+    },
+    {
+      "title": "개발환경의 변화",
+      "speaker": "허혁",
+      "timeLine": "36:46",
+      "referenceLink": "http://www.slideshare.net/mobile/HyukHur/swift-and-xcode8",
+      "thumbnail": "https://i.ytimg.com/vi/feGlHLMgCs4/default.jpg",
+      "videoID": "feGlHLMgCs4"
+    },
+    {
+      "title": "Do Swift",
+      "speaker": "김윤봉",
+      "timeLine": "25:47",
+      "referenceLink": "http://www.slideshare.net/kyb714/do-swift-swift",
+      "thumbnail": "https://i.ytimg.com/vi/z8TVNbf-qnM/default.jpg",
+      "videoID": "z8TVNbf-qnM"
+    },
+    {
+      "title": "스위프트 Internals",
+      "speaker": "김정",
+      "timeLine": "38:38",
+      "referenceLink": "http://www.slideshare.net/godrm/swift-internals-63879936",
+      "thumbnail": "https://i.ytimg.com/vi/vg3SaKZukMs/default.jpg",
+      "videoID": "vg3SaKZukMs"
+    },
+    {
+      "title": "안드로이드 개발자를 위한 스위프트",
+      "speaker": "유병한",
+      "timeLine": "25:56",
+      "referenceLink": "http://www.slideshare.net/YooByungHan/ss-63978821",
+      "thumbnail": "https://i.ytimg.com/vi/08S9oMQypV4/default.jpg",
+      "videoID": "08S9oMQypV4"
+    },
+    {
+      "title": "RxSwift 시작하기",
+      "speaker": "최완복",
+      "timeLine": "33:11",
+      "referenceLink": "http://www.slideshare.net/imyostarr/letswift-rxswift",
+      "thumbnail": "https://i.ytimg.com/vi/twoCv0vf4F0/default.jpg",
+      "videoID": "twoCv0vf4F0"
+    },
+    {
+      "title": "스위프트 패키지 매니저",
+      "speaker": "윤성관",
+      "timeLine": "29:02",
+      "referenceLink": "http://www.slideshare.net/lingostar/swift-package-manager",
+      "thumbnail": "https://i.ytimg.com/vi/xH8G-WBVYi0/default.jpg",
+      "videoID": "xH8G-WBVYi0"
+    },
+    {
+      "title": "프로토콜 오리엔티드 프로그래밍",
+      "speaker": "조성규",
+      "timeLine": "30:42",
+      "referenceLink": "http://www.slideshare.net/JoSeongGyu/protocol-oriented-programming-in-swift",
+      "thumbnail": "https://i.ytimg.com/vi/9gkzHUsQiUc/default.jpg",
+      "videoID": "9gkzHUsQiUc"
+    },
+    {
+      "title": "스위프트 성능 이해하기",
+      "speaker": "유용하",
+      "timeLine": "42:57",
+      "referenceLink": "http://www.slideshare.net/YongHaYoo/ss-63881606",
+      "thumbnail": "https://i.ytimg.com/vi/z1Gf6EosaUQ/default.jpg",
+      "videoID": "z1Gf6EosaUQ"
+    },
+    {
+      "title": "모바일 데이터베이스 Realm",
+      "speaker": "박민우",
+      "timeLine": "15:58",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/doEK3fK8M4I/default.jpg",
+      "videoID": "doEK3fK8M4I"
+    }
+  ]
+}
