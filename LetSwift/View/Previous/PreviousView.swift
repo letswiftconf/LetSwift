@@ -63,9 +63,10 @@ private struct SearchView: View {
         text: $searchText,
         label: {
           Text("세션 이름을 검색해보세요")
-            .foregroundStyle(.white)
+            .foregroundStyle(.gray5)
         }
       )
+      .foregroundStyle(.white)
     }
     .padding(.horizontal, 18)
     .padding(.vertical, 12)
