@@ -1,0 +1,133 @@
+{
+  "year": 2022,
+  "items": [
+    {
+      "title": "키노트",
+      "speaker": "고드름",
+      "timeLine": "16:10",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/b8JPjHK5wvw/default.jpg",
+      "videoID": "b8JPjHK5wvw"
+    },
+    {
+      "title": "인증서와 프로비저닝 프로파일",
+      "speaker": "강수진",
+      "timeLine": "20:26",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/Kbx_lBhhwDA/default.jpg",
+      "videoID": "Kbx_lBhhwDA"
+    },
+    {
+      "title": "우린 같은곳을 바라보고 있을까요?",
+      "speaker": "박용권",
+      "timeLine": "21:29",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/BjvVfUQtsOs/default.jpg",
+      "videoID": "BjvVfUQtsOs"
+    },
+    {
+      "title": "비전공 대졸 경력0년차 초주니어의 iOS 개발자로 살아남기",
+      "speaker": "권은빈",
+      "timeLine": "22:01",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/3k3LyFBKwyo/default.jpg",
+      "videoID": "3k3LyFBKwyo"
+    },
+    {
+      "title": "PencilKit과 Point in polygon 알고리즘을 활용한 올가미 툴 개발기",
+      "speaker": "이해석",
+      "timeLine": "21:10",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/PU8FkRTMc2M/default.jpg",
+      "videoID": "PU8FkRTMc2M"
+    },
+    {
+      "title": "Modular Architecture with Tuist",
+      "speaker": "김우성",
+      "timeLine": "34:24",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/kfuOcu0q0Ls/default.jpg",
+      "videoID": "kfuOcu0q0Ls"
+    },
+    {
+      "title": "테크스펙으로 모두가 함께 성장하기",
+      "speaker": "류성두",
+      "timeLine": "23:51",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/QHaVLYGqjvs/default.jpg",
+      "videoID": "QHaVLYGqjvs"
+    },
+    {
+      "title": "Migration to tvOS",
+      "speaker": "손원영",
+      "timeLine": "22:18",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/koOZNqT1NNM/default.jpg",
+      "videoID": "koOZNqT1NNM"
+    },
+    {
+      "title": "키노트",
+      "speaker": "리이오",
+      "timeLine": "13:02",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/diodVQ0yO_Y/default.jpg",
+      "videoID": "diodVQ0yO_Y"
+    },
+    {
+      "title": "사업가의 눈으로 본 iOS 개발자의 미래",
+      "speaker": "이재관",
+      "timeLine": "21:16",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/IAj-9MQLsvY/default.jpg",
+      "videoID": "IAj-9MQLsvY"
+    },
+    {
+      "title": "(워크숍) SwiftUI와 TCA로 GithubSearch 앱 만들기",
+      "speaker": "허규영",
+      "timeLine": "51:14",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/2DO420E9lvs/default.jpg",
+      "videoID": "2DO420E9lvs"
+    },
+    {
+      "title": "우당탕탕! SafariExtension에서 XcodeExtension까지",
+      "speaker": "이다혜",
+      "timeLine": "18:10",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/XDaaN9MLPvQ/default.jpg",
+      "videoID": "XDaaN9MLPvQ"
+    },
+    {
+      "title": "iOS 개발에서 알아두면 좋은 것들",
+      "speaker": "강민규, 안정민",
+      "timeLine": "32:58",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/2F2ao66eDUw/default.jpg",
+      "videoID": "2F2ao66eDUw"
+    },
+    {
+      "title": "(티타임) 당근마켓 iOS 개발문화",
+      "speaker": "",
+      "timeLine": "19:19",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/K_elCcD27IA/default.jpg",
+      "videoID": "K_elCcD27IA"
+    },
+    {
+      "title": "SwiftUI가 UIKit품기 vs UIKit이 SwiftUI 품기",
+      "speaker": "김예원, 리이오",
+      "timeLine": "18:55",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/BjevH2P84Rg/default.jpg",
+      "videoID": "BjevH2P84Rg"
+    },
+    {
+      "title": "(워크숍) 그래서 테스트코드는 어떻게 작성하고 있나요?",
+      "speaker": "윤중현",
+      "timeLine": "1:04:18",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/QEatbenQC7E/default.jpg",
+      "videoID": "QEatbenQC7E"
+    },
+  ]
+}

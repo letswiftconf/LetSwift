@@ -1,0 +1,85 @@
+{
+  "year": 2019,
+  "items": [
+    {
+      "title": "RxSwift to Combine",
+      "speaker": "박보영",
+      "timeLine": "38:05",
+      "referenceLink": "https://www.slideshare.net/BoYoungPark11/rxswift-to-combine-192620911",
+      "thumbnail": "https://i.ytimg.com/vi/Y273NDkYBg4/default.jpg",
+      "videoID": "Y273NDkYBg4"
+    },
+    {
+      "title": "Behind Scene of Delightful Experience",
+      "speaker": "백성욱",
+      "timeLine": "22:27",
+      "referenceLink": "https://www.slideshare.net/ssuserfc47fa/behind-scene-of-delightful-experience-letswift-2019",
+      "thumbnail": "https://i.ytimg.com/vi/okWX5Ub-lUc/default.jpg",
+      "videoID": "okWX5Ub-lUc"
+    },
+    {
+      "title": "미려한 UI/UX를 위한 여정",
+      "speaker": "강승철",
+      "timeLine": "44:17",
+      "referenceLink": "https://www.slideshare.net/seungchulkang39/uiux-193451561",
+      "thumbnail": "https://i.ytimg.com/vi/u6bIQWy0KwU/default.jpg",
+      "videoID": "u6bIQWy0KwU"
+    },
+    {
+      "title": "MVC, MVVM, ReactorKit, Viper를 거쳐 RIB 정착기",
+      "speaker": "안정민",
+      "timeLine": "26:34",
+      "referenceLink": "https://speakerdeck.com/minsone/mvc-mvvm-reactorkit-viperreul-geocyeo-rib-jeongcaggi",
+      "thumbnail": "https://i.ytimg.com/vi/3XS6xLzKRjc/default.jpg",
+      "videoID": "3XS6xLzKRjc"
+    },
+    {
+      "title": "Swift in SwiftUI",
+      "speaker": "이봉원",
+      "timeLine": "18:29",
+      "referenceLink": "https://www.slideshare.net/itpersons/swift-in-swiftui",
+      "thumbnail": "https://i.ytimg.com/vi/Gr-rwKqIaeE/default.jpg",
+      "videoID": "Gr-rwKqIaeE"
+    },
+    {
+      "title": "Xcode Previews - IB 없이 개발하기",
+      "speaker": "김남현",
+      "timeLine": "40:56",
+      "referenceLink": "https://speakerdeck.com/vcnc/xcode-previews-ibeobsi-gaebalhagi",
+      "thumbnail": "https://i.ytimg.com/vi/eGerQUlXeyg/default.jpg",
+      "videoID": "eGerQUlXeyg"
+    },
+    {
+      "title": "RxTest 같이 시작하기",
+      "speaker": "이병찬",
+      "timeLine": "17:05",
+      "referenceLink": "https://www.slideshare.net/ssuser750dc6/rxswift-testing-feat-rxblocking-rxtest-192641266",
+      "thumbnail": "https://i.ytimg.com/vi/tVWKUMxyqVo/default.jpg",
+      "videoID": "tVWKUMxyqVo"
+    },
+    {
+      "title": "iOS 앱에서 머신러닝이 해결할 수 있는 문제들",
+      "speaker": "곽도영",
+      "timeLine": "35:10",
+      "referenceLink": "https://www.slideshare.net/DoyoungGwak/lets-swift-2019-ios",
+      "thumbnail": "https://i.ytimg.com/vi/zKPB8rnS-EM/default.jpg",
+      "videoID": "zKPB8rnS-EM"
+    },
+    {
+      "title": "코드로 iOS UI 편하게 작업하기 위한 라이브러리 작업",
+      "speaker": "이정우",
+      "timeLine": "17:02",
+      "referenceLink": "http://letswift.kr/2019/resources/Session10_JungwooLEE.pdf",
+      "thumbnail": "https://i.ytimg.com/vi/EzjyuEf61Vo/default.jpg",
+      "videoID": "EzjyuEf61Vo"
+    },
+    {
+      "title": "워크숍#2 - 클린코드, 클린아키텍처",
+      "speaker": "김정",
+      "timeLine": "1:16:49",
+      "referenceLink": "https://www.slideshare.net/godrm/letswift19cleanarchitecture",
+      "thumbnail": "https://i.ytimg.com/vi/KUEe1tc2CbE/default.jpg",
+      "videoID": "KUEe1tc2CbE"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "year": 2018,
+  "items": [
+    {
+      "title": "Let'Swift 2018 키노트",
+      "speaker": "김정",
+      "timeLine": "17:49",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/xZ5IywL9Zkg/default.jpg",
+      "videoID": "xZ5IywL9Zkg"
+    },
+    {
+      "title": "사이드프로젝트로 앱스토어1위공략하기",
+      "speaker": "노수진",
+      "timeLine": "29:21",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/_2t24zQvRFs/default.jpg",
+      "videoID": "_2t24zQvRFs"
+    },
+    {
+      "title": "iOS Ruby",
+      "speaker": "김은영",
+      "timeLine": "29:15",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/BDuVrhfnsnE/default.jpg",
+      "videoID": "BDuVrhfnsnE"
+    },
+    {
+      "title": "TDS(Toss Design System) v2 소개",
+      "speaker": "이택규",
+      "timeLine": "24:38",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/fWdXnLERm8E/default.jpg",
+      "videoID": "fWdXnLERm8E"
+    },
+    {
+      "title": "RxRIBs, Multiplatform architecture with Rx",
+      "speaker": "김남현",
+      "timeLine": "29:54",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/BvPW-cd8mpw/default.jpg",
+      "videoID": "BvPW-cd8mpw"
+    },
+    {
+      "title": "Reactor Kit으로 RxSwift 시작하기",
+      "speaker": "김태준",
+      "timeLine": "23:13",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/G1b1sBy8XBA/default.jpg",
+      "videoID": "G1b1sBy8XBA"
+    },
+    {
+      "title": "ReSwift와 함께 Unidirectional Architecture",
+      "speaker": "황재욱",
+      "timeLine": "25:51",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/ypI9VP0Q48k/default.jpg",
+      "videoID": "ypI9VP0Q48k"
+    },
+    {
+      "title": "RxSwift Internal",
+      "speaker": "오진성",
+      "timeLine": "29:40",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/DsE-sagI04A/default.jpg",
+      "videoID": "DsE-sagI04A"
+    },
+    {
+      "title": "GraphQL over Rest API",
+      "speaker": "이봉원",
+      "timeLine": "28:29",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/4JW8kku0V5I/default.jpg",
+      "videoID": "4JW8kku0V5I"
+    },
+    {
+      "title": "SIMD&MPS in Swift",
+      "speaker": "양승헌",
+      "timeLine": "34:34",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/S5tJi4KCItI/default.jpg",
+      "videoID": "S5tJi4KCItI"
+    },
+    {
+      "title": "Let's TDD",
+      "speaker": "전수열",
+      "timeLine": "1:17:40",
+      "referenceLink": "https://www.dropbox.com/s/mv1hyk0fcra5czu/workshop%234.Let%27s%20TDD.pdf?dl=0",
+      "thumbnail": "https://i.ytimg.com/vi/meTnd09Pf_M/default.jpg",
+      "videoID": "meTnd09Pf_M"
+    }
+  ]
+}

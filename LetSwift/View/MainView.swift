@@ -15,6 +15,7 @@ struct MainView: View {
         TabView {
             InformationView()
             SessionView(viewModel: sessionViewModel)
+            PreviousView()
             EventsView()
             MoreView(viewModel: MoreViewModel())
         }

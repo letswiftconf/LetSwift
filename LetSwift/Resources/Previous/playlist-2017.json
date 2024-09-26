@@ -1,0 +1,85 @@
+{
+  "year": 2017,
+  "items": [
+    {
+      "title": "2017 키노트",
+      "speaker": "김정",
+      "timeLine": "18:32",
+      "referenceLink": "https://www.slideshare.net/godrm/letswift-17",
+      "thumbnail": "https://i.ytimg.com/vi/pPcijkdS6TY/default.jpg",
+      "videoID": "pPcijkdS6TY"
+    },
+    {
+      "title": "What's New Swift 4",
+      "speaker": "김영후",
+      "timeLine": "31:02",
+      "referenceLink": "https://www.slideshare.net/m212a/whats-new-in-swift-4",
+      "thumbnail": "https://i.ytimg.com/vi/uIqP4SmSFww/default.jpg",
+      "videoID": "uIqP4SmSFww"
+    },
+    {
+      "title": "Swift, Kotlin과 모던 언어의 특징",
+      "speaker": "유용하",
+      "timeLine": "32:11",
+      "referenceLink": "https://www.slideshare.net/YongHaYoo/swift-kotlin-and-modern-languages-80109300",
+      "thumbnail": "https://i.ytimg.com/vi/1wmn97Csi9g/default.jpg",
+      "videoID": "1wmn97Csi9g"
+    },
+    {
+      "title": "Concurrency in Swift",
+      "speaker": "허혁",
+      "timeLine": "32:21",
+      "referenceLink": "https://www.slideshare.net/HyukHur/letswift-concurrency-in-swift",
+      "thumbnail": "https://i.ytimg.com/vi/0yj6ftn1Nzw/default.jpg",
+      "videoID": "0yj6ftn1Nzw"
+    },
+    {
+      "title": "Metal 기반 특별한 UI/UX 제공하기",
+      "speaker": "이선협",
+      "timeLine": "25:20",
+      "referenceLink": "https://www.slideshare.net/sunhyouplee/metal-uiux-letswift-2017",
+      "thumbnail": "https://i.ytimg.com/vi/mB9d5RDNryw/default.jpg",
+      "videoID": "mB9d5RDNryw"
+    },
+    {
+      "title": "iOS 11 ARKit 시작하기",
+      "speaker": "이봉원",
+      "timeLine": "32:08",
+      "referenceLink": "https://www.slideshare.net/itpersons/letswift-2017-arkit-80104374",
+      "thumbnail": "https://i.ytimg.com/vi/ODQE1u8S8_8/default.jpg",
+      "videoID": "ODQE1u8S8_8"
+    },
+    {
+      "title": "토스의 개발/배포 환경",
+      "speaker": "손민탁",
+      "timeLine": "33:14",
+      "referenceLink": "https://www.slideshare.net/MintakSon/ios-80115427",
+      "thumbnail": "https://i.ytimg.com/vi/338FdLzGhhY/default.jpg",
+      "videoID": "338FdLzGhhY"
+    },
+    {
+      "title": "Server-less vs. Server-side",
+      "speaker": "Bob Lee",
+      "timeLine": "24:08",
+      "referenceLink": "https://www.slideshare.net/BobLee51/serverless-vs-serversideswift-80097785",
+      "thumbnail": "https://i.ytimg.com/vi/3eneYtXdmR4/default.jpg",
+      "videoID": "3eneYtXdmR4"
+    },
+    {
+      "title": "RxSwift 활용하기",
+      "speaker": "최완복",
+      "timeLine": "32:27",
+      "referenceLink": "https://www.slideshare.net/imyostarr/rxswift-letswift-2017",
+      "thumbnail": "https://i.ytimg.com/vi/WN6s3xWZ3tw/default.jpg",
+      "videoID": "WN6s3xWZ3tw"
+    },
+    {
+      "title": "ReactorKit으로 단방향 반응형 앱 만들기",
+      "speaker": "전수열",
+      "timeLine": "31:28",
+      "referenceLink": "https://www.slideshare.net/secret/J5DTIzT3e4sSZu",
+      "thumbnail": "https://i.ytimg.com/vi/ASwBnMJNUK4/default.jpg",
+      "videoID": "ASwBnMJNUK4"
+    }
+  ]
+}

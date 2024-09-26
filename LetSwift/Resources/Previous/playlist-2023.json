@@ -1,0 +1,133 @@
+{
+  "year": 2023,
+  "items": [
+    {
+      "title": "오프닝 키노트",
+      "speaker": "고드름",
+      "timeLine": "12:28",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/KdK866IRp10/default.jpg",
+      "videoID": "KdK866IRp10"
+    },
+    {
+      "title": "요즘 유행하는 AI 나도 해보자 (feat. CoreML)",
+      "speaker": "곰튀김",
+      "timeLine": "41:03",
+      "referenceLink": "https://drive.google.com/file/d/1muXd7ndmpJ7dtxzbZAUQ6bo2k1p_U_6N/view",
+      "thumbnail": "https://i.ytimg.com/vi/UzLyavMqwtI/default.jpg",
+      "videoID": "UzLyavMqwtI"
+    },
+    {
+      "title": "스위프트 매크로, 어디다 쓰죠?",
+      "speaker": "김성종",
+      "timeLine": "37:21",
+      "referenceLink": "https://drive.google.com/file/d/1bUrKR6Mrad-kZOCN-y6rSobhKBWsIfjx/view",
+      "thumbnail": "https://i.ytimg.com/vi/2ZqyWLvglP0/default.jpg",
+      "videoID": "2ZqyWLvglP0"
+    },
+    {
+      "title": "Tuist, 도입은 했는데 그래서 Modular Architecture은 어떻게 만들어가면 되나요?",
+      "speaker": "김우성",
+      "timeLine": "38:30",
+      "referenceLink": "https://drive.google.com/file/d/1N3kti5EYjVcBtXLntFD6T1GWvoTLtg4u/view",
+      "thumbnail": "https://i.ytimg.com/vi/umadha26oNY/default.jpg",
+      "videoID": "umadha26oNY"
+    },
+    {
+      "title": "당근 iOS 프로젝트 성장기",
+      "speaker": "당근팀",
+      "timeLine": "35:55",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/vV1q9sEGadw/default.jpg",
+      "videoID": "vV1q9sEGadw"
+    },
+    {
+      "title": "Path of Swift - Swift가 프로그램이 되기까지",
+      "speaker": "라이노",
+      "timeLine": "29:01",
+      "referenceLink": "",
+      "thumbnail": "https://i.ytimg.com/vi/qW8L3evJU5E/default.jpg",
+      "videoID": "qW8L3evJU5E"
+    },
+    {
+      "title": "객체가 함수를 만났을 때",
+      "speaker": "권문범",
+      "timeLine": "56:41",
+      "referenceLink": "https://drive.google.com/file/d/1Mjbtl-Qr7edlENAKObj4uB0G7x7Fz8NG/view",
+      "thumbnail": "https://i.ytimg.com/vi/ARe1IkHYziY/default.jpg",
+      "videoID": "ARe1IkHYziY"
+    },
+    {
+      "title": "CoreBluetooth로 BLE기기를 연동할 때 마주하는 문제들과 부딪혀보기",
+      "speaker": "허성진",
+      "timeLine": "30:25",
+      "referenceLink": "https://drive.google.com/file/d/1XuQAZcmJvI49mKx1-Es3VDZIzIZ_whDe/view",
+      "thumbnail": "https://i.ytimg.com/vi/D9H9trRKpOM/default.jpg",
+      "videoID": "D9H9trRKpOM"
+    },
+    {
+      "title": "오픈 소스로서의 Swift 깊게 바라보기: Swift-evolution과 proposal",
+      "speaker": "이승준",
+      "timeLine": "28:29",
+      "referenceLink": "https://drive.google.com/file/d/1P4Ii70uQhUbX4vkf9Ms7RIYEXaFfpita/view",
+      "thumbnail": "https://i.ytimg.com/vi/JnmK70A3LZA/default.jpg",
+      "videoID": "JnmK70A3LZA"
+    },
+    {
+      "title": "SwiftUI 레이아웃과 데이터 플로우 이해하기",
+      "speaker": "허원",
+      "timeLine": "28:29",
+      "referenceLink": "https://drive.google.com/file/d/1Zsjx5GJag-6PuvZagFvI-GIxMy-jaNAy/view",
+      "thumbnail": "https://i.ytimg.com/vi/KZfsqZJdt74/default.jpg",
+      "videoID": "KZfsqZJdt74"
+    },
+    {
+      "title": "Metal Shader로 달라지는 UX/UI의 변화",
+      "speaker": "안솔찬",
+      "timeLine": "16:15",
+      "referenceLink": "https://drive.google.com/file/d/1UHGGHxi8ONfvGfRsYGUjX9-r-YDh6LDh/view",
+      "thumbnail": "https://i.ytimg.com/vi/MeM8hdDf2Z0/default.jpg",
+      "videoID": "MeM8hdDf2Z0"
+    },
+    {
+      "title": "SwiftUI border 어디까지 그려보셨나요?",
+      "speaker": "리이오",
+      "timeLine": "17:34",
+      "referenceLink": "https://drive.google.com/file/d/1voDAC-tPwFyeHLnRQ69C5ndqflkcE3xt/view",
+      "thumbnail": "https://i.ytimg.com/vi/PaClYRM5qZw/default.jpg",
+      "videoID": "PaClYRM5qZw"
+    },
+    {
+      "title": "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다",
+      "speaker": "방현석",
+      "timeLine": "20:36",
+      "referenceLink": "https://drive.google.com/file/d/1HiQ8ArklOEJC1GFDFmvOszEbclMwodby/view",
+      "thumbnail": "https://i.ytimg.com/vi/Rx9bim6-wOU/default.jpg",
+      "videoID": "Rx9bim6-wOU"
+    },
+    {
+      "title": "iOS 애플리케이션 개발 생산성 고찰 - 빠른 퇴근을 위한 우리는 어떻게 해야할 것인가?",
+      "speaker": "안정민",
+      "timeLine": "25:52",
+      "referenceLink": "https://drive.google.com/file/d/12P9BK3aWziaROek-5dTCkRaGZtUhOq8Z/view",
+      "thumbnail": "https://i.ytimg.com/vi/Tto6BJFAicA/default.jpg",
+      "videoID": "Tto6BJFAicA"
+    },
+    {
+      "title": "Swift로 Cross Platform 하기",
+      "speaker": "안지훈",
+      "timeLine": "18:52",
+      "referenceLink": "https://drive.google.com/file/d/1A_Gp_ISZtAC2OCnv3qzKcRPEawC9k5iM/view",
+      "thumbnail": "https://i.ytimg.com/vi/sh66E-wYOA4/default.jpg",
+      "videoID": "sh66E-wYOA4"
+    },
+    {
+      "title": "Xcode 프로젝트와 컴파일러 인덱스로 의존성 찾기",
+      "speaker": "고드름",
+      "timeLine": "32:53",
+      "referenceLink": "https://drive.google.com/file/d/1qjhmwU8VIqzIB3ICPdCM-WgBp2_XWc6f/view",
+      "thumbnail": "https://i.ytimg.com/vi/3ZWDTgOmZGk/default.jpg",
+      "videoID": "3ZWDTgOmZGk"
+    }
+  ]
+}

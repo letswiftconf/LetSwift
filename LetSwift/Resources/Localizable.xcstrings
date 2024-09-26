@@ -108,6 +108,9 @@
     "Let'Swift 2024" : {
 
     },
+    "LetSwift %@" : {
+
+    },
     "more.title" : {
       "localizations" : {
         "en" : {
@@ -142,6 +145,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이전 행사"
+          }
+        }
+      }
+    },
+    "previous.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지난 행사"
           }
         }
       }
@@ -229,6 +243,9 @@
           }
         }
       }
+    },
+    "세션 이름을 검색해보세요" : {
+
     },
     "세종대학교 광개토회관" : {
 
