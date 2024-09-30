@@ -30,10 +30,6 @@ struct EventsView: View {
             footer()
         }
         .background(.darkBackground)
-        .tabItem {
-            Label("events.title", image: "ic_event")
-        }
-        .toolbarBackground(.darkBackground, for: .tabBar)
     }
 }
 
