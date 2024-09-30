@@ -17,7 +17,7 @@ struct SessionView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 0) {
                 tabView
                 sessionList
             }
@@ -90,7 +90,7 @@ struct SessionRowView: View {
     let onToggleSave: () -> Void
 
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             VStack(spacing: 3) {
                 Color.gray5
                     .frame(width: 1)
@@ -103,10 +103,12 @@ struct SessionRowView: View {
                     .frame(width: 1)
             }
             .padding(.leading, 29)
+            .padding(.trailing, 22)
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(LocalizedStringKey(session.name))
                     .font(.medium(size: 15))
+                    .foregroundStyle(.whiteText)
                 HStack {
                     if let speaker = session.speaker {
                         AsyncImage(url: URL(string: speaker.imageUrl)) { image in

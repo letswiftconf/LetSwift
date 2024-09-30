@@ -12,22 +12,22 @@ struct YearKeywordsView: View {
   var years: [String]
   
   var body: some View {
-    ScrollView(.horizontal, showsIndicators: true) {
+    ScrollView(.horizontal, showsIndicators: false) {
       HStack(spacing: 10) {
         ForEach(years, id: \.self) { year in
           Text(year)
-            .padding(.horizontal, 15)
-            .padding(.vertical, 8)
-            .background(.gray2)
+            .padding(.horizontal, 13)
+            .padding(.vertical, 6)
+            .background(selectedYear == year ? .primaryPink.opacity(0.2) : .gray2)
             .overlay(
               RoundedRectangle(cornerRadius: 30)
                 .stroke(
                   selectedYear == year ? .primaryPink : .clear,
-                  lineWidth: 3
+                  lineWidth: 1
                 )
             )
             .foregroundStyle(selectedYear == year ? .primaryPink : .gray9)
-            .fontWeight(selectedYear == year ? .bold : .regular)
+            .font(selectedYear == year ? .semiBold(size: 13) : .regular(size: 13))
             .cornerRadius(30)
             .onTapGesture {
               selectedYear = year

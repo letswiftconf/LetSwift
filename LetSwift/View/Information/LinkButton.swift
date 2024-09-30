@@ -13,7 +13,7 @@ struct LinkButton: View {
     var link: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Image("ic_bell")
             Text(title)
                 .font(.regular(size: 12))

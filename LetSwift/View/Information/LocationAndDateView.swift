@@ -10,21 +10,19 @@ import SwiftUI
 /// 장소&일시
 struct LocationAndDateView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             locationTitle
             dateTitle
-            HStack(spacing: 12) {
+            HStack(spacing: 14) {
                 mapBtn
                 calendarBtn
             }
-            .padding(.top, 14)
-            .padding(.bottom, 19)
         }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.grayRec)
-        .clipShape(RoundedRectangle(cornerRadius: 15))
-        .padding(.horizontal)
-        
+        .clipShape(RoundedRectangle(cornerRadius: 15))        
     }
     
     var locationTitle: some View {
@@ -40,8 +38,7 @@ struct LocationAndDateView: View {
                 .font(.regular(size: 14))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading, 11)
-        .padding(.top, 18)
+        .padding(.bottom, 6)
     }
     
     var dateTitle: some View {
@@ -55,9 +52,11 @@ struct LocationAndDateView: View {
             Text("2024년 11월 25일\n00:00 ~ 00:00")
                 .foregroundStyle(Color.white)
                 .font(.regular(size: 14))
+                .lineSpacing(3)
+                .offset(y: 9)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading, 11)
+        .padding(.bottom, 24)
     }
     
     var mapBtn: some View {
@@ -67,12 +66,11 @@ struct LocationAndDateView: View {
             Text("지도")
                 .foregroundStyle(Color.black)
                 .font(.medium(size: 14))
+                .frame(maxWidth: .infinity)
+                .frame(height: 38)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 38)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        .padding(.leading)
     }
     
     var calendarBtn: some View {
@@ -82,12 +80,11 @@ struct LocationAndDateView: View {
             Text("캘린더 등록")
                 .foregroundStyle(Color.black)
                 .font(.medium(size: 14))
+                .frame(maxWidth: .infinity)
+                .frame(height: 38)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 38)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        .padding(.trailing)
     }
 }
 
