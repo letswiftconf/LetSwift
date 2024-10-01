@@ -25,12 +25,8 @@ struct PreviousView: View {
             previousViewModel.loadVideoData(for: newYear)
           }
       }
-      .background(.black)
+      .background(.darkBackground)
     }
-    .tabItem {
-        Label("previous.title", image: "ic_past")
-    }
-    .toolbarBackground(.blackBackground, for: .tabBar)
   }
 }
 
