@@ -12,7 +12,7 @@ struct PreviousView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
+      VStack(spacing: 0) {
         SearchView(searchText: $previousViewModel.searchText)
         
         YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)

@@ -37,7 +37,7 @@ struct EventsView: View {
 fileprivate extension EventsView {
     @ViewBuilder
     func header() -> some View {
-        VStack(spacing: 7) {
+        VStack(spacing: 12) {
             Text("eventHeader.title")
                 .foregroundStyle(.whiteText)
                 .font(.bold(size: 22))
@@ -47,6 +47,7 @@ fileprivate extension EventsView {
                 .foregroundStyle(.gray8)
                 .font(.regular(size: 14))
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .lineSpacing(3)
         }
         .padding(.top, 44)
         .padding(.bottom, 23)

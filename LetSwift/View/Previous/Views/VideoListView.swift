@@ -18,7 +18,7 @@ struct VideoListView: View {
           NavigationLink(destination: VideoPlayerView(videoID: item.videoID, selectedYear: selectedYear)) {
             VStack(spacing: 0) {
               Divider()
-                .background(Color.white.opacity(0.5))
+                .background(.grayStoke)
               
               Spacer()
               
@@ -28,26 +28,27 @@ struct VideoListView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 } placeholder: {
-                  Color.white
+                  Color.gray2
                 }
                 .frame(width: 110, height: 80)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
                 .padding(.leading, 18)
                 
                 VStack(alignment: .leading) {
                   Text(item.title)
-                    .font(.headline)
-                    .foregroundStyle(.white)
+                    .font(.semiBold(size: 15))
+                    .foregroundStyle(.whiteText)
                     .padding(.vertical, 4)
                     .lineLimit(2)
                   HStack {
                     Text(item.speaker)
-                      .font(.subheadline)
-                      .foregroundStyle(.gray9)
+                      .font(.regular(size: 15))
+                      .foregroundStyle(.gray8)
                       .lineLimit(1)
                       .padding(.trailing, 5)
                     Text(item.timeLine)
                       .font(.subheadline)
-                      .foregroundStyle(.gray9)
+                      .foregroundStyle(.gray8)
                       .lineLimit(1)
                   }
                   Spacer()

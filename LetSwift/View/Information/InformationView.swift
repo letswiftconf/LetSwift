@@ -13,25 +13,30 @@ struct InformationView: View {
     var body: some View {
         NavigationStack(path: $navigationVM.presentedRoutes) {
             ZStack {
-                Color.blackBackground
+                Color.darkBackground
                     .ignoresSafeArea(edges: .all)
                 ScrollView {
-                    VStack(spacing: 36) {
+                    VStack(spacing: 63) {
                         // Banner
                         Image("banner1")
-                            .frame(height: 160)
-                        sloganView
-                        LocationAndDateView()
-                        buttonStack
+                            .resizable()
+                            .scaledToFit()
+
+                        VStack(spacing: 16) {
+                            sloganView
+                            LocationAndDateView()
+                            buttonStack
+                        }
+                        .padding(.horizontal, 20)
+                        
                     }
-                    .padding(.horizontal)
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Let'Swift 2024")
                         .font(.semiBold(size: 22))
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.whiteText)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -46,10 +51,10 @@ struct InformationView: View {
     
     var sloganView: some View {
         Text("One more step!\n한 걸음 넘어선 곳에는 무엇이 있을까요?")
-            .padding(.bottom, 0)
             .multilineTextAlignment(.center)
             .font(.semiBold(size: 16))
-            .foregroundStyle(Color.white)
+            .foregroundStyle(Color.whiteText)
+            .lineSpacing(4)
             .padding(.bottom, 90)
     }
     
@@ -64,11 +69,12 @@ struct InformationView: View {
     }
     
     init() {
-        UINavigationBar.appearance().backgroundColor = .black
+        UINavigationBar.appearance().backgroundColor = .darkBackground
         let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(.white)]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
-        coloredAppearance.backgroundColor = .black
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(.whiteText)]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.whiteText)]
+        coloredAppearance.backgroundColor = .darkBackground
+        coloredAppearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
     }
