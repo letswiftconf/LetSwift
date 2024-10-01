@@ -22,10 +22,6 @@ struct SessionView: View {
                 sessionList
             }
             .background(Color.darkBackground)
-            .navigationTitle("Sessions")
-        }
-        .tabItem {
-            Label("timetable.title", image: "ic_timetable")
         }
         .task {
             defer { viewModel.update(isLoading: false) }

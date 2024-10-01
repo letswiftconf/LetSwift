@@ -45,10 +45,6 @@ struct MoreView: View {
         }
         .padding(.top, 1)   // 상단 safe area 영역 벗어나서 컨텐츠가 보이지 않도록 하기 위함
         .background(Color.darkBackground)
-        .tabItem {
-            Label("more.title", image: "ic_menu")
-        }
-        .toolbarBackground(.darkBackground, for: .tabBar)
     }
 }
 

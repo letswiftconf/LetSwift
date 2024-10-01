@@ -47,10 +47,6 @@ struct InformationView: View {
                 }
             }
         }
-        .tabItem {
-            Label("information.title", image: "ic_home")
-        }
-        .toolbarBackground(.blackBackground, for: .tabBar)
     }
     
     var sloganView: some View {
