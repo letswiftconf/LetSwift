@@ -137,7 +137,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Past Events"
           }
         },
@@ -159,9 +159,6 @@
           }
         }
       }
-    },
-    "Sessions" : {
-
     },
     "speakers.title" : {
       "localizations" : {
@@ -239,7 +236,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "세션"
+            "value" : "타임테이블"
           }
         }
       }
