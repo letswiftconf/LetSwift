@@ -84,7 +84,7 @@ fileprivate extension NFCValidation {
     }
     
     private func checkPayload(payload: String) throws {
-        guard Company.allCases.firstIndex(where: {$0.payload == payload}) != nil else {
+        guard Event.allCases.firstIndex(where: {$0.payload == payload}) != nil else {
             throw NFCError.messageError
         }
     }
