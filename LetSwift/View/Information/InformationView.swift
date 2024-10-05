@@ -19,9 +19,10 @@ struct InformationView: View {
                     VStack(spacing: 63) {
                         // Banner
                         Image("banner1")
-                            .resizable()
-                            .scaledToFit()
-
+                            .frame(height: 91)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.vertical, 53)
+                        
                         VStack(spacing: 16) {
                             sloganView
                             LocationAndDateView()
