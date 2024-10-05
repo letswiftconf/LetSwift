@@ -60,10 +60,10 @@ struct InformationView: View {
     
     var buttonStack: some View {
         HStack(spacing: 16) {
-            LinkButton(navigationVM: navigationVM, title: "뉴스레터 구독", link: "https://page.stibee.com/subscriptions/58654")
-            LinkButton(navigationVM: navigationVM, title: "홈페이지", link: "https://letswift.kr/2024/")
+            LinkButton(navigationVM: navigationVM, title: "뉴스레터 구독", icon: "ic_newsletter", link: "https://page.stibee.com/subscriptions/58654")
+            LinkButton(navigationVM: navigationVM, title: "홈페이지", icon: "ic_homepage", link: "https://letswift.kr/2024/")
             // 아직까지 작년 페스타로 올해 페스타 나오면 업데이트 필요
-            LinkButton(navigationVM: navigationVM, title: "페스타", link: "https://festa.io/events/3860")
+            LinkButton(navigationVM: navigationVM, title: "페스타", icon: "ic_festa", link: "https://festa.io/events/3860")
         }
         
     }
