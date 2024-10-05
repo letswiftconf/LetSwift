@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedTab: Tab = .information
+    @State var payload: String = ""
+
     var sessionViewModel: SessionViewModel = SessionViewModel()
     
     var body: some View {
@@ -24,7 +26,7 @@ struct MainView: View {
         .tint(.white)
         .toolbarBackground(.darkBackground, for: .tabBar)
         .onOpenURL { url in
-            // TODO: QR url 처리 >> 이벤트 탭 이동
+            handleURL(url: url)
         }
     }
     
@@ -38,9 +40,19 @@ struct MainView: View {
         case .previous:
             PreviousView()
         case .events:
-            EventsView()
+            EventsView(payload: $payload)
         case .more:
             MoreView(viewModel: MoreViewModel())
+        }
+    }
+    
+    private func handleURL(url: URL) {
+        let components = URLComponents(string: url.absoluteString)
+        
+        guard let queryValue = components?.queryItems?.first?.value else { return }
+        if components?.path == "/event" {
+            self.payload = queryValue
+            self.selectedTab = .events
         }
     }
 }

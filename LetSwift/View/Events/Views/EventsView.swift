@@ -11,8 +11,8 @@ import SwiftUI
 struct EventsView: View {
     
     // MARK: - Properties
-    @State private var payload: String = ""
-    @State private var eventCellStates: [Event] = Event.allCases
+    @State private var eventCellStates: [Event] = []
+    @Binding var payload: String
     private var gridLayout: [GridItem] {
         Array(repeating: GridItem(.flexible(), spacing: 0), count: StampBoard.boardRowCount)
     }
@@ -152,14 +152,14 @@ fileprivate extension EventsView {
 
 #Preview("Event(ko)") {
     TabView {
-        EventsView()
+        EventsView(payload: .constant(""))
             .environment(\.locale, Locale(identifier: "ko"))
     }
 }
 
 #Preview("Event(en)") {
     TabView {
-        EventsView()
+        EventsView(payload: .constant(""))
             .environment(\.locale, Locale(identifier: "en"))
     }
 }
