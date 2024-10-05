@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-mI-K2m">
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hgK-WR-eRR">
+                                <rect key="frame" x="235" y="399" width="340" height="302"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hgK-WR-eRR" secondAttribute="height" multiplier="664:589" id="mfH-f4-JF8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qV9-mI-K2m" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="4hj-tg-4B0"/>
+                            <constraint firstItem="qV9-mI-K2m" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="SFY-Jc-25r"/>
+                            <constraint firstItem="hgK-WR-eRR" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="UC5-3f-tcc"/>
+                            <constraint firstAttribute="bottom" secondItem="qV9-mI-K2m" secondAttribute="bottom" id="YQH-Fp-0US"/>
+                            <constraint firstItem="hgK-WR-eRR" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="bfV-oC-7WN"/>
+                            <constraint firstItem="hgK-WR-eRR" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.42" id="eUp-4G-8cU"/>
+                            <constraint firstItem="qV9-mI-K2m" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="h90-fX-jVU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="splash_background" width="946" height="2048"/>
+        <image name="splash_icon" width="295" height="332"/>
+    </resources>
+</document>
