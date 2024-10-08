@@ -35,7 +35,8 @@
 		4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFE2C80721C00670837 /* WebView.swift */; };
 		4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */; };
 		4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10042C8073A100670837 /* HomeRoute.swift */; };
-		988A2CF22C96A62600B160FC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CE92C96A62600B160FC /* Company.swift */; };
+		60019F852CB05E2B00192FD7 /* StampBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60019F842CB05E2B00192FD7 /* StampBoard.swift */; };
+		988A2CF22C96A62600B160FC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CE92C96A62600B160FC /* Event.swift */; };
 		988A2CF32C96A62600B160FC /* NFCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEB2C96A62600B160FC /* NFCError.swift */; };
 		988A2CF42C96A62600B160FC /* NFCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEC2C96A62600B160FC /* NFCValidation.swift */; };
 		988A2CF52C96A62600B160FC /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988A2CEE2C96A62600B160FC /* EventsView.swift */; };
@@ -128,7 +129,8 @@
 		4D7B0FFE2C80721C00670837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
 		4D7B10042C8073A100670837 /* HomeRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRoute.swift; sourceTree = "<group>"; };
-		988A2CE92C96A62600B160FC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		60019F842CB05E2B00192FD7 /* StampBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampBoard.swift; sourceTree = "<group>"; };
+		988A2CE92C96A62600B160FC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		988A2CEB2C96A62600B160FC /* NFCError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCError.swift; sourceTree = "<group>"; };
 		988A2CEC2C96A62600B160FC /* NFCValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCValidation.swift; sourceTree = "<group>"; };
 		988A2CEE2C96A62600B160FC /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
@@ -380,7 +382,8 @@
 		988A2CEA2C96A62600B160FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				988A2CE92C96A62600B160FC /* Company.swift */,
+				988A2CE92C96A62600B160FC /* Event.swift */,
+				60019F842CB05E2B00192FD7 /* StampBoard.swift */,
 				988A2CED2C96A62600B160FC /* NFC */,
 			);
 			path = Models;
@@ -677,9 +680,10 @@
 				214AA4562C42296200C1C747 /* InformationView.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
+				60019F852CB05E2B00192FD7 /* StampBoard.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
-				988A2CF22C96A62600B160FC /* Company.swift in Sources */,
+				988A2CF22C96A62600B160FC /* Event.swift in Sources */,
 				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
 				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
 				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,

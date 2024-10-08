@@ -11,14 +11,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NFC 기능을 이용해 스탬프를 얻어보세요!\n스탬프는 이벤트 및 경품 추첨에 사용됩니다."
+            "value" : "NFC 기능을 이용해 스탬프를 얻어보세요!\n이벤트 및 경품 추첨에 참여할 수 있어요."
           }
         }
       }
@@ -27,14 +27,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Collect Your Stamps"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "스탬프를 모아보세요"
+            "value" : "스탬프"
           }
         }
       }

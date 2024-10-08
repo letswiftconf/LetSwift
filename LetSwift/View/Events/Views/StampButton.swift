@@ -18,8 +18,8 @@ struct StampButton: UIViewRepresentable {
     
     // MARK: - Init
     init(
-        foregroundColor: UIColor = .white,
-        backgroundColor: UIColor = .primaryPink,
+        foregroundColor: UIColor = .black,
+        backgroundColor: UIColor = .whiteText,
         payload: Binding<String>
     ) {
         self.foregroundColor = foregroundColor
