@@ -21,8 +21,12 @@ struct LocationAndDateView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.grayRec)
-        .clipShape(RoundedRectangle(cornerRadius: 15))        
+        .background(Color.white.opacity(0.02))
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .overlay {
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.white.opacity(0.1), lineWidth: 1)
+        }
     }
     
     var locationTitle: some View {
