@@ -12,6 +12,7 @@ import Foundation
     let name: String
     let speaker: Session.Speaker?
     let track: String
+    let trackEn: String
     let startTime: Date
     let endTime: Date
     
@@ -23,6 +24,7 @@ import Foundation
         self.name = session.name
         self.speaker = session.speaker
         self.track = session.track
+        self.trackEn = session.trackEn
         self.startTime = session.startTime
         self.endTime = session.endTime
     }

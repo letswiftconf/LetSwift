@@ -15,9 +15,9 @@ final class SessionViewModel {
     var filteredSessions: [SessionRowViewModel] {
         switch currentTab {
         case .trackA:
-            return sessions.filter { $0.trackEn == "Track A" }
+            return sessionRowViewModels.filter { $0.session.trackEn == "Track A" }
         case .trackB:
-            return sessions.filter { $0.trackEn == "Track B" }
+            return sessionRowViewModels.filter { $0.session.trackEn == "Track B" }
         case .savedSession:
             return sessionRowViewModels.filter { $0.session.isSaved }
         }
