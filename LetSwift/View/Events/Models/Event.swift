@@ -9,7 +9,7 @@ import SwiftUI
 
 
 // NFC 또는 QR 사용에 사용할 더미데이터입니다.
-enum Event: String, CaseIterable {
+enum Event: String, CaseIterable, Codable {
     case event1
     case event2
     case event3

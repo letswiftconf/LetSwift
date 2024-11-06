@@ -10,6 +10,7 @@ import Foundation
 enum UserDefaultsKey: String {
     case savedSessions
     case alarmedSessions
+    case eventStamps
 }
 
 struct UserDefaultsManager {
@@ -18,4 +19,7 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: .alarmedSessions, defaultValue: Set<String>())
     static var alarmedSessions: Set<String>
+    
+    @UserDefaultsWrapper(key: .eventStamps, defaultValue: [Event]())
+    static var eventStamps: [Event]
 }

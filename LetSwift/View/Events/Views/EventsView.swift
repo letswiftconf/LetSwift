@@ -11,10 +11,15 @@ import SwiftUI
 struct EventsView: View {
     
     // MARK: - Properties
-    @State private var eventCellStates: [Event] = []
     @Binding var payload: String
+    private let viewModel = EventsViewModel()
     private var gridLayout: [GridItem] {
         Array(repeating: GridItem(.flexible(), spacing: 0), count: StampBoard.boardRowCount)
+    }
+    
+    // MARK: - Init
+    init(payload: Binding<String>) {
+        self._payload = payload
     }
     
     // MARK: - Views
@@ -71,10 +76,11 @@ fileprivate extension EventsView {
     func companyEvents() -> some View {
         LazyVGrid(columns: gridLayout, spacing: 0) {
             ForEach(Array(StampImagePosition.positions.enumerated()), id: \.offset) { (index, position) in
+                
                 eventCell(at: index)
                     .overlay {
-                        if index < eventCellStates.count {
-                            Image(uiImage: eventCellStates[index].image)
+                        if viewModel.eventCellStates.indices.contains(index) {
+                            Image(uiImage: viewModel.eventCellStates[index].image)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: position.imageWidth)
@@ -87,8 +93,9 @@ fileprivate extension EventsView {
         .background(border())
         .onChange(of: payload, { oldValue, newValue in
             guard let event = Event(rawValue: newValue) else { return }
-            if !eventCellStates.contains(where: { $0.payload == event.payload }) {
-                eventCellStates.append(event)
+            
+            if !viewModel.eventCellStates.contains(where: { $0.payload == event.payload }) {
+                viewModel.addStamp(event)
             }
         })
     }
