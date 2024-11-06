@@ -12,7 +12,7 @@ struct EventsView: View {
     
     // MARK: - Properties
     @Binding var payload: String
-    private var viewModel = EventsViewModel()
+    private let viewModel = EventsViewModel()
     private var gridLayout: [GridItem] {
         Array(repeating: GridItem(.flexible(), spacing: 0), count: StampBoard.boardRowCount)
     }
