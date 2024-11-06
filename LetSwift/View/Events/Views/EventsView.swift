@@ -79,8 +79,7 @@ fileprivate extension EventsView {
                 
                 eventCell(at: index)
                     .overlay {
-                        if index < viewModel.eventCellStates.count {
-                            
+                        if viewModel.eventCellStates.indices.contains(index) {
                             Image(uiImage: viewModel.eventCellStates[index].image)
                                 .resizable()
                                 .scaledToFit()
