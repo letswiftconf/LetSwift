@@ -28,19 +28,10 @@ final class EventsViewModel {
     }
     
     private func saveStamps(of events: [Event]) {
-        let encoder = JSONEncoder()
-        
-        if let encodedObject = try? encoder.encode(events) {
-            UserDefaults.standard.set(encodedObject, forKey: "events")
-        }
+        UserDefaultsManager.eventStamps = events
     }
     
     private func loadStamps() -> [Event] {
-        guard let savedEvents = UserDefaults.standard.object(forKey: "events") as? Data else { return [] }
-        
-        let decoder = JSONDecoder()
-        guard let decodedObjects = try? decoder.decode([Event].self,
-                                                       from: savedEvents) else { return [] }
-        return decodedObjects
+        return UserDefaultsManager.eventStamps
     }
 }
