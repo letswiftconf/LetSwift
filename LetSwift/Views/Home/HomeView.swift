@@ -1,5 +1,5 @@
 //
-//  InformationView.swift
+//  HomeView.swift
 //  LetSwift
 //
 //  Created by BumMo Koo on 7/13/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InformationView: View {
+struct HomeView: View {
     @StateObject private var navigationVM: HomeNavigationViewModel = HomeNavigationViewModel()
     
     var body: some View {
@@ -29,10 +29,8 @@ struct InformationView: View {
                     .padding(.horizontal, 20)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: HomeRoute.self) { route in
                 switch route {
-                case .sample: SampleView()
                 case .webView(let urlString): WebView(urlToload: urlString)
                 }
             }
@@ -52,7 +50,7 @@ struct InformationView: View {
 
 #Preview {
     TabView {
-        InformationView()
+        HomeView()
     }
     .environment(\.locale, .init(identifier: "ko"))
 }

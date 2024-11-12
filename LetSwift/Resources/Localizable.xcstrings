@@ -55,7 +55,7 @@
         }
       }
     },
-    "information.date" : {
+    "home.date" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -72,13 +72,13 @@
         }
       }
     },
-    "information.location" : {
+    "home.location" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Loca"
+            "value" : "Location"
           }
         },
         "ko" : {
@@ -89,7 +89,7 @@
         }
       }
     },
-    "information.title" : {
+    "home.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {

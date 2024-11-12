@@ -33,7 +33,7 @@ struct LocationAndDateView: View {
         HStack(spacing: 0) {
             Image("ic_location")
                 .padding(.trailing, 8)
-            Text("information.location")
+            Text("home.location")
                 .foregroundStyle(Color.grayIcon)
                 .font(.regular(size: 14))
                 .padding(.trailing, 18)
@@ -49,7 +49,7 @@ struct LocationAndDateView: View {
         HStack(spacing: 0) {
             Image("ic_calendar")
                 .padding(.trailing, 8)
-            Text("information.date")
+            Text("home.date")
                 .foregroundStyle(Color.grayIcon)
                 .font(.regular(size: 14))
                 .padding(.trailing, 18)

@@ -7,6 +7,12 @@
 
 import Foundation
 
+extension Session {
+    var speakerNames: String {
+        return self.speaker.map { $0.name }.joined(separator: "&")
+    }
+}
+
 struct Session: Identifiable, Codable, Equatable {
     static func == (lhs: Session, rhs: Session) -> Bool {
         lhs.id == rhs.id
@@ -20,7 +26,7 @@ struct Session: Identifiable, Codable, Equatable {
     let trackEn: String
     let venue: String
     let venueEn: String
-    let speaker: Speaker?
+    let speaker: [Speaker]
     let startTime: Date
     let duration: Int
     let endTime: Date
@@ -46,9 +52,10 @@ struct Session: Identifiable, Codable, Equatable {
         let imageUrl: String
         let description: String
         let social: SocialMedia
+        let affiliation: String
 
         enum CodingKeys: String, CodingKey {
-            case id, name, description, social
+            case id, name, description, social, affiliation
             case nameEn = "name_en"
             case imageName = "image_name"
             case imageUrl = "image_url"

@@ -7,7 +7,6 @@
 
 import CoreNFC
 
-
 enum NFCError: Error, CustomDebugStringConvertible {
     case readerSessionInvalidationError(NFCReaderError.Code)
     case statusIsNotSupported

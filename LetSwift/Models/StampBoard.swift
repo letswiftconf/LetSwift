@@ -19,7 +19,6 @@ struct StampBoard {
     static let imageWidth = StampBoard.boardWidth * 23 / 21
 }
 
-
 struct StampImagePosition: Hashable {
     let x: CGFloat
     let y: CGFloat

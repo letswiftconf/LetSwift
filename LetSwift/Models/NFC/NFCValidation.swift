@@ -7,7 +7,6 @@
 
 import CoreNFC
 
-
 struct NFCValidation {
     func isValidateReaderSession(of error: Error) throws {
         guard let error = error as? NFCReaderError else { return }

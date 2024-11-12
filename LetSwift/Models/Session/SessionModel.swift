@@ -10,7 +10,8 @@ import Foundation
 @Observable class SessionModel {
     let identifier: String
     let name: String
-    let speaker: Session.Speaker?
+    let speakerNames: String
+    let speaker: [Session.Speaker]
     let track: String
     let trackEn: String
     let startTime: Date
@@ -23,6 +24,7 @@ import Foundation
         self.identifier = session.id
         self.name = session.name
         self.speaker = session.speaker
+        self.speakerNames = session.speakerNames
         self.track = session.track
         self.trackEn = session.trackEn
         self.startTime = session.startTime

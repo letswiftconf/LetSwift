@@ -8,7 +8,6 @@
 import Foundation
 
 enum HomeRoute: Hashable {
-    case sample
     case webView(urlString: String)
 }
 

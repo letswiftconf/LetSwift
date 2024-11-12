@@ -13,7 +13,7 @@ struct Conference: Decodable {
 }
 
 struct VideoItem: Decodable, Identifiable {
-  let id = UUID()
+  var id = UUID()
   let title: String
   let speaker: String
   let timeLine: String

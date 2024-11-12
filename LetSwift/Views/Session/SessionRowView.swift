@@ -34,7 +34,7 @@ struct SessionRowView: View {
                     .font(.medium(size: 15))
                     .foregroundStyle(.whiteText)
                 HStack {
-                    if let speaker = viewModel.session.speaker {
+                    if let speaker = viewModel.session.speaker.first {
                         AsyncImage(url: URL(string: speaker.imageUrl)) { image in
                             image.resizable()
                         } placeholder: {

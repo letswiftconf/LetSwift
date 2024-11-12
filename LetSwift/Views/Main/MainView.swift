@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var selectedTab: Tab = .information
+    @State var selectedTab: Tab = .home
     @State var payload: String = ""
 
     var sessionViewModel: SessionViewModel = SessionViewModel()
@@ -33,8 +33,8 @@ struct MainView: View {
     @ViewBuilder
     func createTabView(for tab: Tab) -> some View {
         switch tab {
-        case .information:
-            InformationView()
+        case .home:
+            HomeView()
         case .session:
             SessionView(viewModel: sessionViewModel)
         case .previous:
@@ -59,42 +59,4 @@ struct MainView: View {
 
 #Preview {
     MainView()
-}
-
-enum Tab: CaseIterable {
-    case information
-    case session
-    case previous
-    case events
-    case more
-    
-    var icon: String {
-        switch self {
-        case .information:
-            "ic_home"
-        case .session:
-            "ic_timetable"
-        case .previous:
-            "ic_past"
-        case .events:
-            "ic_event"
-        case .more:
-            "ic_menu"
-        }
-    }
-    
-    var title: LocalizedStringKey {
-        switch self {
-        case .information:
-            "information.title"
-        case .session:
-            "timetable.title"
-        case .previous:
-            "previous.title"
-        case .events:
-            "events.title"
-        case .more:
-            "more.title"
-        }
-    }
 }
