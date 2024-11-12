@@ -16,13 +16,11 @@ struct SessionView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                tabView
-                sessionList
-            }
-            .background(Color.darkBackground)
+        VStack(spacing: 0) {
+            tabView
+            sessionList
         }
+        .background(Color.darkBackground)
         .task {
             defer { viewModel.update(isLoading: false) }
             viewModel.update(isLoading: true)
