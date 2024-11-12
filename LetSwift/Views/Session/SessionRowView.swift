@@ -34,19 +34,16 @@ struct SessionRowView: View {
                     .font(.medium(size: 15))
                     .foregroundStyle(.whiteText)
                 HStack {
-                    if let speaker = viewModel.session.speaker.first {
-                        AsyncImage(url: URL(string: speaker.imageUrl)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Color.gray
-                        }
-                        .frame(width: 24, height: 24)
-                        .clipShape(Circle())
+                    
+                    ForEach(viewModel.session.speaker) { speaker in
+                        SessionSpeakerView(name: speaker.name, imageUrl: speaker.imageUrl)
+                            .onTapGesture {
+                                // TODO: 스피커 정보 얼럿
+                            }
                         
-                        Text(LocalizedStringKey(speaker.name))
-                            .font(.regular(size: 12))
-                            .foregroundColor(.gray8)
-                        
+                    }
+                    
+                    if viewModel.session.speaker.count > 0 {
                         Text("·")
                             .font(.regular(size: 12))
                             .foregroundColor(.gray8)

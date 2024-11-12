@@ -11,7 +11,7 @@ struct MainView: View {
     @State var selectedTab: Tab = .home
     @State var payload: String = ""
 
-    var sessionViewModel: SessionViewModel = SessionViewModel()
+    let sessionViewModel: SessionViewModel = SessionViewModel()
     
     var body: some View {
         TabView(selection: $selectedTab) {

@@ -9,7 +9,7 @@ import Foundation
 
 extension Session {
     var speakerNames: String {
-        return self.speaker.map { $0.name }.joined(separator: "&")
+        return self.speakers.map { $0.name }.joined(separator: "&")
     }
 }
 
@@ -26,7 +26,7 @@ struct Session: Identifiable, Codable, Equatable {
     let trackEn: String
     let venue: String
     let venueEn: String
-    let speaker: [Speaker]
+    let speakers: [Speaker]
     let startTime: Date
     let duration: Int
     let endTime: Date
@@ -34,7 +34,7 @@ struct Session: Identifiable, Codable, Equatable {
     let videoUrl: String
 
     enum CodingKeys: String, CodingKey {
-        case id, name, type, track, venue, speaker, duration
+        case id, name, type, track, venue, speakers, duration
         case nameEn = "name_en"
         case trackEn = "track_en"
         case venueEn = "venue_en"
@@ -44,7 +44,7 @@ struct Session: Identifiable, Codable, Equatable {
         case videoUrl = "video_url"
     }
     
-    struct Speaker: Codable {
+    struct Speaker: Identifiable, Codable {
         let id: String
         let name: String
         let nameEn: String

@@ -23,7 +23,7 @@ import Foundation
     init(from session: Session) {
         self.identifier = session.id
         self.name = session.name
-        self.speaker = session.speaker
+        self.speaker = session.speakers
         self.speakerNames = session.speakerNames
         self.track = session.track
         self.trackEn = session.trackEn
