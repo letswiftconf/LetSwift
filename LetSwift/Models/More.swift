@@ -71,7 +71,7 @@ extension More {
 
 extension More {
     private enum Constants {
-        static let organizerURL: String = "https://letswift.kr/2024/"   // TODO: URL 미정
+        static let organizerURL: String = "https://letswift.kr/2024/#organizers"
         static let subscribeNewsletterURL: String = "https://page.stibee.com/subscriptions/58654"
         static let homepageURL: String = "https://letswift.kr/2024/"
         static let githubURL: String = "https://github.com/letswiftconf/LetSwift/tree/2024/develop"
