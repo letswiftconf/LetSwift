@@ -54,6 +54,8 @@
 		C1C3693D2CE315E50027BDC2 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693C2CE315E50027BDC2 /* EventsViewModel.swift */; };
 		C1C3693F2CE3161A0027BDC2 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693E2CE3161A0027BDC2 /* Tab.swift */; };
 		C1C369412CE341420027BDC2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369402CE341420027BDC2 /* HomeViewModel.swift */; };
+		C1C369452CE375730027BDC2 /* HomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369442CE375730027BDC2 /* HomeLink.swift */; };
+		C1C369472CE377260027BDC2 /* CustomAlert+HomeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */; };
 		C1CED42D2CAC66830011FFDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */; };
 		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
@@ -151,6 +153,8 @@
 		C1C3693C2CE315E50027BDC2 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		C1C3693E2CE3161A0027BDC2 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		C1C369402CE341420027BDC2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C1C369442CE375730027BDC2 /* HomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLink.swift; sourceTree = "<group>"; };
+		C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlert+HomeExtensions.swift"; sourceTree = "<group>"; };
 		C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				214AA4552C42296200C1C747 /* HomeView.swift */,
 				4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */,
 				4D7B0FF12C7F724500670837 /* LinkButton.swift */,
+				C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				C1C369362CE315300027BDC2 /* StampBoard.swift */,
 				D22F97FA2CA47FD4007BF1C9 /* VideoItem.swift */,
 				C1C3693E2CE3161A0027BDC2 /* Tab.swift */,
+				C1C369442CE375730027BDC2 /* HomeLink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -676,8 +682,10 @@
 				D40ED04A2CB28AFE00433E18 /* SessionNotification.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
 				D978C27D2C9042510097500D /* NotificationManager.swift in Sources */,
+				C1C369472CE377260027BDC2 /* CustomAlert+HomeExtensions.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
+				C1C369452CE375730027BDC2 /* HomeLink.swift in Sources */,
 				D40ECFDB2CA0125800433E18 /* UserDefaultsWrapper.swift in Sources */,
 				D40ED0462CAEF2D100433E18 /* AppDelegate.swift in Sources */,
 				D22F981C2CA489E4007BF1C9 /* VideoPlayerView.swift in Sources */,
@@ -867,12 +875,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
-				DEVELOPMENT_TEAM = N6LML762WM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "헹시 일정 등록을 위해 접근 권한을 확인해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
@@ -904,12 +913,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetSwift/Resources\"";
-				DEVELOPMENT_TEAM = N6LML762WM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "헹시 일정 등록을 위해 접근 권한을 확인해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";

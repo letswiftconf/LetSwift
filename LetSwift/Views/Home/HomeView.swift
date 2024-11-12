@@ -22,7 +22,7 @@ struct HomeView: View {
                 LocationAndDateView {
                     print("onTapMapButton")
                 } onTapCalendarButton: {
-                    print("onTapCalendarButton")
+                    viewModel.addEvent()
                 }
 
                 buttonStack
@@ -31,13 +31,18 @@ struct HomeView: View {
             Spacer()
         }
         .background(.darkBackground)
+        .customAlert($viewModel.alert)
     }
     
     var buttonStack: some View {
         HStack(spacing: 16) {
             ForEach(viewModel.outlinks) { link in
                 LinkButton(title: link.title, icon: link.iconName) {
-                    viewModel.open(link.urlString)
+                    Task {
+                        if let url = URL(string: link.urlString) {
+                            await UIApplication.shared.open(url)
+                        }
+                    }
                 }
             }
         }
