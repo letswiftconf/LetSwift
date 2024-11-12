@@ -11,6 +11,9 @@ enum Constants {
     enum URL {
         static let sessionServeyURL = "https://forms.gle/spyNgx1bhoZ2uAMr7"
         static let conferenceServeyURL = "https://forms.gle/1ukqfXUBRTnw9hjf6"
+        static let festaURL = "https://festa.io/events/5772"
+        static let eventURL = "https://letswift.kr/2024"
+        static let newsletterSubscribeURL = "https://page.stibee.com/subscriptions/58654"
     }
     
     enum Notification {

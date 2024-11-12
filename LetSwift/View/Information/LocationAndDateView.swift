@@ -53,7 +53,7 @@ struct LocationAndDateView: View {
                 .foregroundStyle(Color.grayIcon)
                 .font(.regular(size: 14))
                 .padding(.trailing, 18)
-            Text("2024년 11월 25일\n00:00 ~ 00:00")
+            Text("2024년 11월 25일\n11:00 ~ 18:00")
                 .foregroundStyle(Color.white)
                 .font(.regular(size: 14))
                 .lineSpacing(3)
