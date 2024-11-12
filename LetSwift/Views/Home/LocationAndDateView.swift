@@ -9,6 +9,10 @@ import SwiftUI
 
 /// 장소&일시
 struct LocationAndDateView: View {
+    
+    var onTapMapButton: () -> Void
+    var onTapCalendarButton: () -> Void
+    
     var body: some View {
         VStack(spacing: 0) {
             locationTitle
@@ -64,9 +68,7 @@ struct LocationAndDateView: View {
     }
     
     var mapBtn: some View {
-        Button {
-            print(#fileID, #function, #line, "- 지도")
-        } label: {
+        Button(action: onTapMapButton) {
             Text("지도")
                 .foregroundStyle(Color.black)
                 .font(.medium(size: 14))
@@ -78,9 +80,7 @@ struct LocationAndDateView: View {
     }
     
     var calendarBtn: some View {
-        Button {
-            print(#fileID, #function, #line, "- 캘린더 등록")
-        } label: {
+        Button(action: onTapCalendarButton) {
             Text("캘린더 등록")
                 .foregroundStyle(Color.black)
                 .font(.medium(size: 14))
@@ -93,5 +93,5 @@ struct LocationAndDateView: View {
 }
 
 #Preview {
-    LocationAndDateView()
+    LocationAndDateView(onTapMapButton: {}, onTapCalendarButton: {})
 }
