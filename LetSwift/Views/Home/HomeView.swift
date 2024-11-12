@@ -8,44 +8,46 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var navigationVM: HomeNavigationViewModel = HomeNavigationViewModel()
     
     var body: some View {
-        NavigationStack(path: $navigationVM.presentedRoutes) {
-            ZStack {
-                Color.darkBackground
-                    .ignoresSafeArea(edges: .all)
-                ScrollView {
-                    // Banner
-                    Image("banner1")
-                        .frame(height: 91)
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.vertical, 53)
-                    
-                    VStack(spacing: 16) {
-                        LocationAndDateView()
-                        buttonStack
-                    }
-                    .padding(.horizontal, 20)
-                }
+        VStack(spacing: 0) {
+            Image("banner1")
+                .frame(height: 91)
+                .aspectRatio(contentMode: .fit)
+                .padding(.vertical, 53)
+            
+            VStack(spacing: 16) {
+                LocationAndDateView()
+                buttonStack
             }
-            .navigationDestination(for: HomeRoute.self) { route in
-                switch route {
-                case .webView(let urlString): WebView(urlToload: urlString)
-                }
-            }
+            .padding(.horizontal, 20)
+            Spacer()
         }
+        .background(.darkBackground)
     }
     
     var buttonStack: some View {
         HStack(spacing: 16) {
-            LinkButton(navigationVM: navigationVM, title: "뉴스레터 구독", icon: "ic_newsletter", link: Constants.URL.newsletterSubscribeURL)
-            LinkButton(navigationVM: navigationVM, title: "홈페이지", icon: "ic_homepage", link: Constants.URL.eventURL)
-            LinkButton(navigationVM: navigationVM, title: "페스타", icon: "ic_festa", link: Constants.URL.festaURL)
+            LinkButton(title: "뉴스레터 구독", icon: "ic_newsletter") {
+                open(Constants.URL.newsletterSubscribeURL)
+            }
+            LinkButton(title: "홈페이지", icon: "ic_homepage") {
+                open(Constants.URL.eventURL)
+            }
+            LinkButton(title: "페스타", icon: "ic_festa") {
+                open(Constants.URL.festaURL)
+            }
         }
-        
     }
     
+    
+    func open(_ urlString: String) {
+        Task {
+            if let url = URL(string: urlString) {
+                await UIApplication.shared.open(url)
+            }
+        }
+    }
 }
 
 #Preview {

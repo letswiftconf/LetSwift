@@ -13,10 +13,6 @@
 		214AA45A2C42298500C1C747 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4592C42298500C1C747 /* MoreView.swift */; };
 		214AA45C2C4229F900C1C747 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 214AA45B2C4229F900C1C747 /* Localizable.xcstrings */; };
 		214AA45E2C422A0400C1C747 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */; };
-		214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4632C422BE600C1C747 /* SpeakersView.swift */; };
-		214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4652C422DB000C1C747 /* SponsorsView.swift */; };
-		214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4672C422EB400C1C747 /* PastEventsView.swift */; };
-		214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4692C422F2100C1C747 /* TimeTableView.swift */; };
 		219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */; };
 		2199735A2C3F5F5D0015D1AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2199735C2C3F5F5D0015D1AF /* Preview Assets.xcassets */; };
@@ -31,10 +27,7 @@
 		219973902C4222870015D1AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973572C3F5F5B0015D1AF /* MainView.swift */; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
-		4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFB2C8066C000670837 /* SampleView.swift */; };
 		4D7B0FFF2C80721C00670837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FFE2C80721C00670837 /* WebView.swift */; };
-		4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */; };
-		4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B10042C8073A100670837 /* HomeRoute.swift */; };
 		98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E552C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -119,10 +112,6 @@
 		214AA4592C42298500C1C747 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		214AA45B2C4229F900C1C747 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		214AA4632C422BE600C1C747 /* SpeakersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersView.swift; sourceTree = "<group>"; };
-		214AA4652C422DB000C1C747 /* SponsorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsView.swift; sourceTree = "<group>"; };
-		214AA4672C422EB400C1C747 /* PastEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastEventsView.swift; sourceTree = "<group>"; };
-		214AA4692C422F2100C1C747 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
 		219973522C3F5F5B0015D1AF /* LetSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetSwiftApp.swift; sourceTree = "<group>"; };
 		219973572C3F5F5B0015D1AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -142,10 +131,7 @@
 		2199738A2C3F61020015D1AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
-		4D7B0FFB2C8066C000670837 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		4D7B0FFE2C80721C00670837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
-		4D7B10042C8073A100670837 /* HomeRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRoute.swift; sourceTree = "<group>"; };
 		98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = NFCLocalizable.xcstrings; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
 		C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -232,11 +218,6 @@
 				214AA4552C42296200C1C747 /* HomeView.swift */,
 				4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */,
 				4D7B0FF12C7F724500670837 /* LinkButton.swift */,
-				214AA45F2C422BA400C1C747 /* Speakers */,
-				214AA4602C422BA900C1C747 /* Time Table */,
-				214AA4612C422BB300C1C747 /* Sponsors */,
-				214AA4622C422BC900C1C747 /* Past Events */,
-				4D7B0FFB2C8066C000670837 /* SampleView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -249,38 +230,6 @@
 				D46704972C84D154000F6B7F /* MoreSectionDivider.swift */,
 			);
 			path = More;
-			sourceTree = "<group>";
-		};
-		214AA45F2C422BA400C1C747 /* Speakers */ = {
-			isa = PBXGroup;
-			children = (
-				214AA4632C422BE600C1C747 /* SpeakersView.swift */,
-			);
-			path = Speakers;
-			sourceTree = "<group>";
-		};
-		214AA4602C422BA900C1C747 /* Time Table */ = {
-			isa = PBXGroup;
-			children = (
-				214AA4692C422F2100C1C747 /* TimeTableView.swift */,
-			);
-			path = "Time Table";
-			sourceTree = "<group>";
-		};
-		214AA4612C422BB300C1C747 /* Sponsors */ = {
-			isa = PBXGroup;
-			children = (
-				214AA4652C422DB000C1C747 /* SponsorsView.swift */,
-			);
-			path = Sponsors;
-			sourceTree = "<group>";
-		};
-		214AA4622C422BC900C1C747 /* Past Events */ = {
-			isa = PBXGroup;
-			children = (
-				214AA4672C422EB400C1C747 /* PastEventsView.swift */,
-			);
-			path = "Past Events";
 			sourceTree = "<group>";
 		};
 		219973492C3F5F5B0015D1AF = {
@@ -422,7 +371,6 @@
 		C1C3692E2CE314510027BDC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4D7B10042C8073A100670837 /* HomeRoute.swift */,
 				D19F73EA2C80CD14009D0D9F /* Session */,
 				D467049C2C88C2AE000F6B7F /* More.swift */,
 				C1C369352CE315300027BDC2 /* NFC */,
@@ -457,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				C1C3693C2CE315E50027BDC2 /* EventsViewModel.swift */,
-				4D7B10012C80734700670837 /* HomeNavigationViewModel.swift */,
 				1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */,
 				D40ECFD72C9EF05F00433E18 /* SessionRowViewModel.swift */,
 				D22F98192CA48903007BF1C9 /* PreviousViewModel.swift */,
@@ -717,36 +664,28 @@
 				D22F98202CA48A6E007BF1C9 /* VideoListView.swift in Sources */,
 				D22F98222CA48B09007BF1C9 /* YearKeywordsView.swift in Sources */,
 				1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */,
-				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* HomeView.swift in Sources */,
 				C1C3693F2CE3161A0027BDC2 /* Tab.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
 				D40ECFD62C9EEFBB00433E18 /* SessionRowView.swift in Sources */,
 				C1C369302CE314C60027BDC2 /* CustomAlert.swift in Sources */,
-				214AA46A2C422F2100C1C747 /* TimeTableView.swift in Sources */,
 				214AA4562C42296200C1C747 /* HomeView.swift in Sources */,
 				D40ED04A2CB28AFE00433E18 /* SessionNotification.swift in Sources */,
 				C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */,
 				D978C27D2C9042510097500D /* NotificationManager.swift in Sources */,
 				1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */,
 				4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */,
-				214AA4682C422EB400C1C747 /* PastEventsView.swift in Sources */,
-				4D7B10052C8073A100670837 /* HomeRoute.swift in Sources */,
 				D40ECFDB2CA0125800433E18 /* UserDefaultsWrapper.swift in Sources */,
 				D40ED0462CAEF2D100433E18 /* AppDelegate.swift in Sources */,
-				214AA4662C422DB000C1C747 /* SponsorsView.swift in Sources */,
 				D22F981C2CA489E4007BF1C9 /* VideoPlayerView.swift in Sources */,
 				D467049D2C88C2AE000F6B7F /* More.swift in Sources */,
 				D467049A2C84D29E000F6B7F /* MoreCellView.swift in Sources */,
 				C1C3693D2CE315E50027BDC2 /* EventsViewModel.swift in Sources */,
-				4D7B10022C80734700670837 /* HomeNavigationViewModel.swift in Sources */,
-				4D7B0FFC2C8066C000670837 /* SampleView.swift in Sources */,
 				C1C369372CE315300027BDC2 /* NFCError.swift in Sources */,
 				C1C369382CE315300027BDC2 /* StampBoard.swift in Sources */,
 				C1C369392CE315300027BDC2 /* NFCValidation.swift in Sources */,
 				C1C3693A2CE315300027BDC2 /* Event.swift in Sources */,
 				214AA45A2C42298500C1C747 /* MoreView.swift in Sources */,
-				214AA4642C422BE600C1C747 /* SpeakersView.swift in Sources */,
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
 				D22F98242CA48B77007BF1C9 /* SearchView.swift in Sources */,

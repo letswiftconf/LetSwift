@@ -124,10 +124,8 @@
         }
       }
     },
-    "navigationStack sampleView" : {
-
-    },
     "pastevents.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -155,6 +153,7 @@
       }
     },
     "speakers.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -171,6 +170,7 @@
       }
     },
     "sponsors.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
