@@ -14,7 +14,7 @@ struct VideoPlayerView: View {
   
   var body: some View {
     VideoView(url: URL(string: "https://www.youtube.com/watch?v=\(videoID)")!)
-      .navigationTitle("LetSwift \(selectedYear)")
+      .background(.darkBackground)
   }
 }
 
