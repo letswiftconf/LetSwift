@@ -12,6 +12,8 @@ final class HomeViewModel: ObservableObject {
     
     @Published var alert: CustomAlert?
     
+    public let mapUrlScheme: String = "http://maps.apple.com/?auid=12764360059818511054&ll=37.550354,127.073169"
+    
     private(set) var outlinks: [HomeLink]
     
     private var startDate: Date? {

@@ -20,11 +20,13 @@ struct HomeView: View {
             
             VStack(spacing: 16) {
                 LocationAndDateView {
-                    print("onTapMapButton")
+                    Task {
+                        await open(viewModel.mapUrlScheme)
+                    }
                 } onTapCalendarButton: {
                     viewModel.addEvent()
                 }
-
+                
                 buttonStack
             }
             .padding(.horizontal, 20)
@@ -39,15 +41,20 @@ struct HomeView: View {
             ForEach(viewModel.outlinks) { link in
                 LinkButton(title: link.title, icon: link.iconName) {
                     Task {
-                        if let url = URL(string: link.urlString) {
-                            await UIApplication.shared.open(url)
-                        }
+                        await open(link.urlString)
                     }
                 }
             }
         }
     }
     
+    private func open(_ urlString: String) async -> Bool {
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            return await UIApplication.shared.open(url)
+        }
+        
+        return false
+    }
 }
 
 #Preview {
