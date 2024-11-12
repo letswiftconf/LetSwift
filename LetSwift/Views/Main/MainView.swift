@@ -23,7 +23,7 @@ struct MainView: View {
                     .tag(tab)
             }
         }
-        .tint(.white)
+        .tintWithoutIPad()
         .toolbarBackground(.darkBackground, for: .tabBar)
         .onOpenURL { url in
             handleURL(url: url)
@@ -54,6 +54,16 @@ struct MainView: View {
             self.payload = queryValue
             self.selectedTab = .events
         }
+    }
+}
+
+extension TabView {
+    func tintWithoutIPad() -> some View {
+        if #available(iOS 18.0, *), UIDevice.current.userInterfaceIdiom == .pad {
+            return self.tint(.black)
+        }
+        
+        return self.tint(.white)
     }
 }
 
