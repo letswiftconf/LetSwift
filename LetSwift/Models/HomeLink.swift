@@ -21,7 +21,7 @@ enum HomeLink: Identifiable, CaseIterable {
         switch(self) {
         case .newsletter: return "뉴스레터 구독"
         case .event: return "홈페이지"
-        case .festa: return "페스타"
+        case .festa: return "티켓 구매"
         }
     }
     
