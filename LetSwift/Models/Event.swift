@@ -1,0 +1,66 @@
+//
+//  Event.swift
+//  LetSwift
+//
+//  Created by 지준용 on 9/14/24.
+//
+
+import SwiftUI
+
+// NFC 또는 QR 사용에 사용할 더미데이터입니다.
+enum Event: String, CaseIterable, Codable {
+    case event1
+    case event2
+    case event3
+    case event4
+    case event5
+    case event6
+    case event7
+    case event8
+    
+    var payload: String {
+        return self.rawValue
+    }
+    
+    var image: UIImage {
+        switch self.info.type {
+        case .organizer:
+            UIImage(resource: .stampOrganizer)
+        case .sponsor:
+            UIImage(resource: .stampSponsor)
+        }
+    }
+    
+    var info: EventInfo {
+        switch self {
+        case .event1:
+            EventInfo(title: "이벤트1", type: .organizer)
+        case .event2:
+            EventInfo(title: "이벤트2", type: .organizer)
+        case .event3:
+            EventInfo(title: "이벤트3", type: .sponsor)
+        case .event4:
+            EventInfo(title: "이벤트4", type: .organizer)
+        case .event5:
+            EventInfo(title: "이벤트5", type: .organizer)
+        case .event6:
+            EventInfo(title: "이벤트6", type: .sponsor)
+        case .event7:
+            EventInfo(title: "이벤트7", type: .organizer)
+        case .event8:
+            EventInfo(title: "이벤트8", type: .organizer)
+        }
+    }
+    
+    struct EventInfo {
+        let title: String
+        let type: EventType
+        let image: Image? = nil
+        let description: String? = nil
+    }
+    
+    enum EventType {
+        case organizer
+        case sponsor
+    }
+}

@@ -4,14 +4,14 @@
     "·" : {
 
     },
-    "2024년 11월 25일\n00:00 ~ 00:00" : {
+    "2024년 11월 25일\n11:00 ~ 18:00" : {
 
     },
     "eventHeader.description" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
           }
         },
@@ -55,7 +55,7 @@
         }
       }
     },
-    "information.date" : {
+    "home.date" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -72,13 +72,13 @@
         }
       }
     },
-    "information.location" : {
+    "home.location" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Loca"
+            "value" : "Location"
           }
         },
         "ko" : {
@@ -89,7 +89,7 @@
         }
       }
     },
-    "information.title" : {
+    "home.title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -104,9 +104,6 @@
           }
         }
       }
-    },
-    "LetSwift %@" : {
-
     },
     "more.title" : {
       "localizations" : {
@@ -124,10 +121,8 @@
         }
       }
     },
-    "navigationStack sampleView" : {
-
-    },
     "pastevents.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -155,6 +150,7 @@
       }
     },
     "speakers.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -171,6 +167,7 @@
       }
     },
     "sponsors.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -230,7 +227,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "타임테이블"
+            "value" : "시간표"
           }
         }
       }

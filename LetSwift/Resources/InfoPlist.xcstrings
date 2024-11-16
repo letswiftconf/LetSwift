@@ -24,6 +24,18 @@
           }
         }
       }
+    },
+    "NSCalendarsUsageDescription" : {
+      "comment" : "Privacy - Calendars Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "헹시 일정 등록을 위해 접근 권한을 확인해주세요."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
