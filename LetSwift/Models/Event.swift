@@ -34,21 +34,21 @@ enum Event: String, CaseIterable, Codable {
     var info: EventInfo {
         switch self {
         case .event1:
-            EventInfo(title: "이벤트1", type: .sponsor, description: "이벤트1에 대한 설명입니다.")
+            EventInfo(title: "이벤트1", type: .organizer)
         case .event2:
-            EventInfo(title: "이벤트2", type: .sponsor, description: "이벤트2에 대한 설명입니다.")
+            EventInfo(title: "이벤트2", type: .organizer)
         case .event3:
-            EventInfo(title: "이벤트3", type: .sponsor, description: "이벤트3에 대한 설명입니다.")
+            EventInfo(title: "이벤트3", type: .sponsor)
         case .event4:
-            EventInfo(title: "이벤트4", type: .organizer, description: "이벤트4에 대한 설명입니다.")
+            EventInfo(title: "이벤트4", type: .organizer)
         case .event5:
-            EventInfo(title: "이벤트5", type: .organizer, description: "이벤트5에 대한 설명입니다.")
+            EventInfo(title: "이벤트5", type: .organizer)
         case .event6:
-            EventInfo(title: "이벤트6", type: .organizer, description: "이벤트6에 대한 설명입니다.")
+            EventInfo(title: "이벤트6", type: .sponsor)
         case .event7:
-            EventInfo(title: "이벤트7", type: .sponsor, description: "이벤트7에 대한 설명입니다.")
+            EventInfo(title: "이벤트7", type: .organizer)
         case .event8:
-            EventInfo(title: "이벤트8", type: .sponsor, description: "이벤트8에 대한 설명입니다.")
+            EventInfo(title: "이벤트8", type: .organizer)
         }
     }
     
@@ -56,7 +56,7 @@ enum Event: String, CaseIterable, Codable {
         let title: String
         let type: EventType
         let image: Image? = nil
-        let description: String
+        let description: String? = nil
     }
     
     enum EventType {
