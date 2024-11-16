@@ -65,9 +65,6 @@ struct SessionView: View {
                                     .frame(height: 1)
                             }
                         }
-                        .onTapGesture {
-                            print("SessionRowView:: onTapGesture:: \(sessionRowViewModel.session.name)")
-                        }
                 }
             }
         }
