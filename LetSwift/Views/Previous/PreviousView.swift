@@ -11,20 +11,23 @@ struct PreviousView: View {
   @StateObject private var previousViewModel = PreviousViewModel()
   
   var body: some View {
-      VStack(spacing: 0) {
-        SearchView(searchText: $previousViewModel.searchText)
-        
-        YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
-        
-        VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
-          .onAppear {
-            previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
+      NavigationView {
+          VStack(spacing: 0) {
+            SearchView(searchText: $previousViewModel.searchText)
+            
+            YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
+            
+            VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
+              .onAppear {
+                previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
+              }
+              .onChange(of: previousViewModel.selectedYear) { _, newYear in
+                previousViewModel.loadVideoData(for: newYear)
+              }
           }
-          .onChange(of: previousViewModel.selectedYear) { _, newYear in
-            previousViewModel.loadVideoData(for: newYear)
-          }
+          .background(.darkBackground)
       }
-      .background(.darkBackground)
+      
   }
 }
 
