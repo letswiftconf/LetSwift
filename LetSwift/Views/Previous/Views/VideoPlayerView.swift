@@ -23,7 +23,10 @@ private struct VideoView: UIViewRepresentable {
   let url: URL
   
   func makeUIView(context: Context) -> WKWebView {
-    return WKWebView()
+      let config = WKWebViewConfiguration()
+      config.allowsInlineMediaPlayback = false
+      
+      return WKWebView.init(frame: .zero, configuration: config)
   }
   
   func updateUIView(_ uiView: WKWebView, context: Context) {
