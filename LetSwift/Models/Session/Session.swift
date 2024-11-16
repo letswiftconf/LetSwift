@@ -9,7 +9,22 @@ import Foundation
 
 extension Session {
     var speakerNames: String {
-        return self.speakers.map { $0.name }.joined(separator: "&")
+        return self.speakers.map { $0.officialName }.joined(separator: "&")
+    }
+}
+
+extension Session.Speaker {
+    var officialName: String {
+        
+        if nickname.count > 0 {
+            if name.isEmpty {
+                return nickname
+            }
+            
+            return "\(nickname) (\(name))"
+        }
+        
+        return name
     }
 }
 
@@ -48,6 +63,7 @@ struct Session: Identifiable, Codable, Equatable {
         let id: String
         let name: String
         let nameEn: String
+        let nickname: String
         let imageName: String
         let imageUrl: String
         let description: String
@@ -55,7 +71,7 @@ struct Session: Identifiable, Codable, Equatable {
         let affiliation: String
 
         enum CodingKeys: String, CodingKey {
-            case id, name, description, social, affiliation
+            case id, name, description, social, affiliation, nickname
             case nameEn = "name_en"
             case imageName = "image_name"
             case imageUrl = "image_url"

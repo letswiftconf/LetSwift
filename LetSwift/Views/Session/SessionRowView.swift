@@ -36,7 +36,7 @@ struct SessionRowView: View {
                 HStack {
                     
                     ForEach(viewModel.session.speaker) { speaker in
-                        SessionSpeakerView(name: speaker.name, imageUrl: speaker.imageUrl)
+                        SessionSpeakerView(name: speaker.officialName, imageUrl: speaker.imageUrl)
                             .onTapGesture {
                                 // TODO: 스피커 정보 얼럿
                             }
