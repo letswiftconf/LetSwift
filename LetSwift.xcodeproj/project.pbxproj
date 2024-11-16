@@ -56,6 +56,7 @@
 		C1C369452CE375730027BDC2 /* HomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369442CE375730027BDC2 /* HomeLink.swift */; };
 		C1C369472CE377260027BDC2 /* CustomAlert+HomeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */; };
 		C1C369492CE38C4D0027BDC2 /* SessionSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */; };
+		C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */; };
 		C1CED42D2CAC66830011FFDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */; };
 		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
@@ -155,6 +156,7 @@
 		C1C369442CE375730027BDC2 /* HomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLink.swift; sourceTree = "<group>"; };
 		C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlert+HomeExtensions.swift"; sourceTree = "<group>"; };
 		C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpeakerView.swift; sourceTree = "<group>"; };
+		C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		219973492C3F5F5B0015D1AF = {
 			isa = PBXGroup;
 			children = (
+				C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */,
 				219973542C3F5F5B0015D1AF /* LetSwift */,
 				219973692C3F60ED0015D1AF /* LetSwift-macOS */,
 				2199737C2C3F61000015D1AF /* LetSwift-visionOS */,
@@ -613,6 +616,7 @@
 				D22F98082CA48039007BF1C9 /* playlist-2022.json in Resources */,
 				D22F98092CA48039007BF1C9 /* playlist-2018.json in Resources */,
 				D22F980A2CA48039007BF1C9 /* playlist-2017.json in Resources */,
+				C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */,
 				C16B9E602C74CBEF009CCC06 /* Pretendard-Medium.otf in Resources */,
 				C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */,
 				2199735A2C3F5F5D0015D1AF /* Assets.xcassets in Resources */,
