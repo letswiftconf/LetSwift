@@ -49,17 +49,28 @@ final class SessionViewModel {
 }
 
 extension SessionViewModel {
-    
     func fetchSessions() async throws -> [Session] {
-        guard let url = URL(string: Constant.sessionURL) else {
+//        guard let url = URL(string: Constant.sessionURL) else {
+//            throw NSError()
+//        }
+//        let (data, response) = try await URLSession.shared.data(from: url)
+//        if let httpResponse = response as? HTTPURLResponse,
+//           (200...299) ~= httpResponse.statusCode {
+//            return try jsonDecoder.decode([Session].self, from: data)
+//        } else {
+//            throw NSError()
+//        }
+        
+        guard let url = Bundle.main.url(forResource: "Schedule", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
             throw NSError()
         }
-        let (data, response) = try await URLSession.shared.data(from: url)
-        if let httpResponse = response as? HTTPURLResponse,
-           (200...299) ~= httpResponse.statusCode {
-            return try jsonDecoder.decode([Session].self, from: data)
-        } else {
-            throw NSError()
+        
+        do {
+            let scheduleData = try jsonDecoder.decode([Session].self, from: data)
+            return scheduleData
+        } catch {
+            throw error
         }
     }
     

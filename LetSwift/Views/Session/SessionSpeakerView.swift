@@ -14,13 +14,15 @@ struct SessionSpeakerView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: imageUrl)) { image in
-                image.resizable()
-            } placeholder: {
-                Color.gray
-            }
-            .frame(width: 24, height: 24)
-            .clipShape(Circle())
+//            AsyncImage(url: URL(string: imageUrl)) { image in
+//                image.resizable()
+//            } placeholder: {
+//                Color.gray
+//            }
+            Image(uiImage: UIImage(named: imageUrl) ?? UIImage())
+                .resizable()
+                .frame(width: 24, height: 24)
+                .clipShape(Circle())
             
             Text(LocalizedStringKey(name))
                 .font(.regular(size: 12))
