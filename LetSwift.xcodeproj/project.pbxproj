@@ -89,14 +89,7 @@
 		C16B9E652C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E662C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
 		C16B9E672C74D49F009CCC06 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */; };
-		C1C3692C2CE314130027BDC2 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3692A2CE314130027BDC2 /* EventsView.swift */; };
-		C1C3692D2CE314130027BDC2 /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3692B2CE314130027BDC2 /* StampButton.swift */; };
 		C1C369302CE314C60027BDC2 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */; };
-		C1C369372CE315300027BDC2 /* NFCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369332CE315300027BDC2 /* NFCError.swift */; };
-		C1C369382CE315300027BDC2 /* StampBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369362CE315300027BDC2 /* StampBoard.swift */; };
-		C1C369392CE315300027BDC2 /* NFCValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369342CE315300027BDC2 /* NFCValidation.swift */; };
-		C1C3693A2CE315300027BDC2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369322CE315300027BDC2 /* Event.swift */; };
-		C1C3693D2CE315E50027BDC2 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693C2CE315E50027BDC2 /* EventsViewModel.swift */; };
 		C1C3693F2CE3161A0027BDC2 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693E2CE3161A0027BDC2 /* Tab.swift */; };
 		C1C369412CE341420027BDC2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369402CE341420027BDC2 /* HomeViewModel.swift */; };
 		C1C369452CE375730027BDC2 /* HomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369442CE375730027BDC2 /* HomeLink.swift */; };
@@ -235,13 +228,7 @@
 		C16B9E592C74CBEF009CCC06 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C16B9E642C74D49F009CCC06 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
-		C1C3692A2CE314130027BDC2 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
-		C1C3692B2CE314130027BDC2 /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
-		C1C369322CE315300027BDC2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		C1C369332CE315300027BDC2 /* NFCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCError.swift; sourceTree = "<group>"; };
-		C1C369342CE315300027BDC2 /* NFCValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCValidation.swift; sourceTree = "<group>"; };
-		C1C369362CE315300027BDC2 /* StampBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampBoard.swift; sourceTree = "<group>"; };
 		C1C3693C2CE315E50027BDC2 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		C1C3693E2CE3161A0027BDC2 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		C1C369402CE341420027BDC2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -421,7 +408,6 @@
 				214AA4572C42296500C1C747 /* Home */,
 				D19F73E72C80CB2B009D0D9F /* Session */,
 				D22F97F72CA47EEE007BF1C9 /* Previous */,
-				C1C369252CE3136D0027BDC2 /* Event */,
 				214AA4582C42296900C1C747 /* More */,
 				C1C369312CE314DC0027BDC2 /* Common */,
 			);
@@ -539,23 +525,11 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		C1C369252CE3136D0027BDC2 /* Event */ = {
-			isa = PBXGroup;
-			children = (
-				C1C3692A2CE314130027BDC2 /* EventsView.swift */,
-				C1C3692B2CE314130027BDC2 /* StampButton.swift */,
-			);
-			path = Event;
-			sourceTree = "<group>";
-		};
 		C1C3692E2CE314510027BDC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D19F73EA2C80CD14009D0D9F /* Session */,
 				D467049C2C88C2AE000F6B7F /* More.swift */,
-				C1C369352CE315300027BDC2 /* NFC */,
-				C1C369322CE315300027BDC2 /* Event.swift */,
-				C1C369362CE315300027BDC2 /* StampBoard.swift */,
 				D22F97FA2CA47FD4007BF1C9 /* VideoItem.swift */,
 				C1C3693E2CE3161A0027BDC2 /* Tab.swift */,
 				C1C369442CE375730027BDC2 /* HomeLink.swift */,
@@ -570,15 +544,6 @@
 				D40ECFE02CA085BD00433E18 /* View+Extensions.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		C1C369352CE315300027BDC2 /* NFC */ = {
-			isa = PBXGroup;
-			children = (
-				C1C369332CE315300027BDC2 /* NFCError.swift */,
-				C1C369342CE315300027BDC2 /* NFCValidation.swift */,
-			);
-			path = NFC;
 			sourceTree = "<group>";
 		};
 		C1C3693B2CE3158B0027BDC2 /* ViewModels */ = {
@@ -912,12 +877,7 @@
 				D22F981C2CA489E4007BF1C9 /* VideoPlayerView.swift in Sources */,
 				D467049D2C88C2AE000F6B7F /* More.swift in Sources */,
 				D467049A2C84D29E000F6B7F /* MoreCellView.swift in Sources */,
-				C1C3693D2CE315E50027BDC2 /* EventsViewModel.swift in Sources */,
-				C1C369372CE315300027BDC2 /* NFCError.swift in Sources */,
 				C1C369412CE341420027BDC2 /* HomeViewModel.swift in Sources */,
-				C1C369382CE315300027BDC2 /* StampBoard.swift in Sources */,
-				C1C369392CE315300027BDC2 /* NFCValidation.swift in Sources */,
-				C1C3693A2CE315300027BDC2 /* Event.swift in Sources */,
 				214AA45A2C42298500C1C747 /* MoreView.swift in Sources */,
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
@@ -931,8 +891,6 @@
 				D40ECFDD2CA0128600433E18 /* UserDefaultsManager.swift in Sources */,
 				D40ECFC32C9AD30300433E18 /* NotificationRequest.swift in Sources */,
 				D40ECFE52CA1B9A200433E18 /* Date+Extensions.swift in Sources */,
-				C1C3692C2CE314130027BDC2 /* EventsView.swift in Sources */,
-				C1C3692D2CE314130027BDC2 /* StampButton.swift in Sources */,
 				D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */,
 				D40ECFC52C9ADFE200433E18 /* SessionModel.swift in Sources */,
 				D40ECFBD2C9ABA9B00433E18 /* Constants.swift in Sources */,
