@@ -18,7 +18,7 @@ struct MainView: View {
             ForEach(Tab.allCases, id: \.self) { tab in
                 createTabView(for: tab)
                     .tabItem {
-                        Label(tab.title, image: tab.icon)
+                        Label(tab.title, systemImage: tab.icon)
                     }
                     .tag(tab)
             }
@@ -27,7 +27,7 @@ struct MainView: View {
         .onOpenURL { url in
             handleURL(url: url)
         }
-        .tint(.white)
+        .tint(.primaryPink)
         .environment(\.horizontalSizeClass, .compact)
     }
     

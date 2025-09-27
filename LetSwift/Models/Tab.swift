@@ -18,15 +18,15 @@ enum Tab: CaseIterable {
     var icon: String {
         switch self {
         case .home:
-            "ic_home"
+            "house"
         case .session:
-            "ic_timetable"
+            "music.microphone"
         case .previous:
-            "ic_past"
+            "play.rectangle"
         case .events:
-            "ic_event"
+            "fireworks"
         case .more:
-            "ic_menu"
+            "link"
         }
     }
     

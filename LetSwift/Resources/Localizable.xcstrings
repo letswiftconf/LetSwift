@@ -141,6 +141,12 @@
     "previous.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous Title"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
