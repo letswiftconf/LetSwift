@@ -18,7 +18,7 @@ struct MoreView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { offset, section in
                     Section {
