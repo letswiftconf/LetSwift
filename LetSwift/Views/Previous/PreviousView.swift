@@ -11,7 +11,7 @@ struct PreviousView: View {
   @StateObject private var previousViewModel = PreviousViewModel()
   
   var body: some View {
-      NavigationView {
+      NavigationStack {
           VStack(spacing: 0) {
             SearchView(searchText: $previousViewModel.searchText)
             
