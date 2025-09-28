@@ -73,7 +73,6 @@
 		21DC4AD22D5AE26300880CD4 /* jinhee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A802D5AE26300880CD4 /* jinhee.jpg */; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
-		98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */; };
 		C16B9E542C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E552C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
 		C16B9E562C74CBD9009CCC06 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */; };
@@ -220,7 +219,6 @@
 		21DC4AA42D5AE26300880CD4 /* rc_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rc_white.png; sourceTree = "<group>"; };
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
-		98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = NFCLocalizable.xcstrings; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
 		C16B9E532C74CBD9009CCC06 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		C16B9E572C74CBEF009CCC06 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 				219973592C3F5F5D0015D1AF /* Assets.xcassets */,
 				C184F2BF2CE9C69100AF7720 /* Preview Content */,
 				214AA45B2C4229F900C1C747 /* Localizable.xcstrings */,
-				98B898832C96A81600A7073D /* NFCLocalizable.xcstrings */,
 				214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */,
 				21DC4A172D5ADEE800880CD4 /* Schedule.json */,
 			);
@@ -742,7 +739,6 @@
 				2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */,
 				C16B9E5A2C74CBEF009CCC06 /* Pretendard-Regular.otf in Resources */,
 				C1CED42D2CAC66830011FFDD /* Launch Screen.storyboard in Resources */,
-				98B898842C96A81600A7073D /* NFCLocalizable.xcstrings in Resources */,
 				C16B9E5D2C74CBEF009CCC06 /* Pretendard-SemiBold.otf in Resources */,
 				D22F98042CA48039007BF1C9 /* playlist-2023.json in Resources */,
 				D22F98052CA48039007BF1C9 /* playlist-2016.json in Resources */,

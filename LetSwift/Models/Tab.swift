@@ -17,13 +17,13 @@ enum Tab: CaseIterable {
     var icon: String {
         switch self {
         case .home:
-            "ic_home"
+            "house"
         case .session:
-            "ic_timetable"
+            "music.microphone"
         case .previous:
-            "ic_past"
+            "play.rectangle"
         case .more:
-            "ic_menu"
+            "link"
         }
     }
     
