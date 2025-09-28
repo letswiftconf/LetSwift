@@ -22,9 +22,6 @@ struct MainView: View {
                     .tag(tab)
             }
         }
-        .onOpenURL { url in
-            handleURL(url: url)
-        }
         .tint(.primaryPink)
     }
     
