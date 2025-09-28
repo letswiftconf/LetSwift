@@ -12,7 +12,6 @@ enum Tab: CaseIterable {
     case home
     case session
     case previous
-    case events
     case more
     
     var icon: String {
@@ -23,8 +22,6 @@ enum Tab: CaseIterable {
             "music.microphone"
         case .previous:
             "play.rectangle"
-        case .events:
-            "fireworks"
         case .more:
             "link"
         }
@@ -38,8 +35,6 @@ enum Tab: CaseIterable {
             "timetable.title"
         case .previous:
             "previous.title"
-        case .events:
-            "events.title"
         case .more:
             "more.title"
         }
