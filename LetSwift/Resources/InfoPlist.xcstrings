@@ -5,6 +5,12 @@
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LetSwift"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "new",
@@ -17,6 +23,12 @@
       "comment" : "Privacy - NFC Scan Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app needs access to read NFC tags."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "new",
@@ -29,6 +41,12 @@
       "comment" : "Privacy - Calendars Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please allow access to register event schedules."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "new",

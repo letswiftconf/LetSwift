@@ -1,11 +1,21 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
-    "·" : {
-
-    },
     "2024년 11월 25일\n11:00 ~ 18:00" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "November 25, 2024\n11:00 ~ 18:00"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2024년 11월 25일\n11:00 ~ 18:00"
+          }
+        }
+      }
     },
     "home.date" : {
       "extractionState" : "manual",
@@ -73,70 +83,19 @@
         }
       }
     },
-    "pastevents.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Past Events"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이전 행사"
-          }
-        }
-      }
-    },
     "previous.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Previous Title"
+            "value" : "Previous"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "지난 행사"
-          }
-        }
-      }
-    },
-    "speakers.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speakers"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "연사자"
-          }
-        }
-      }
-    },
-    "sponsors.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sponsors"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "후원사"
           }
         }
       }
@@ -175,16 +134,68 @@
       }
     },
     "세션 이름을 검색해보세요" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for session names"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세션 이름을 검색해보세요"
+          }
+        }
+      }
     },
     "세종대학교 광개토회관" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sejong University Gwanggaeto Hall"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세종대학교 광개토회관"
+          }
+        }
+      }
     },
     "지도" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지도"
+          }
+        }
+      }
     },
     "캘린더 등록" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Calendar"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캘린더 등록"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

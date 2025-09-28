@@ -45,7 +45,7 @@ struct SessionRowView: View {
                     }
                     
                     if viewModel.session.speaker.count > 0 {
-                        Text("·")
+                        Text(String("."))
                             .font(.regular(size: 12))
                             .foregroundColor(.gray8)
                     }
