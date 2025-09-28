@@ -23,12 +23,10 @@ struct MainView: View {
                     .tag(tab)
             }
         }
-        .toolbarBackground(.darkBackground, for: .tabBar)
         .onOpenURL { url in
             handleURL(url: url)
         }
         .tint(.white)
-        .environment(\.horizontalSizeClass, .compact)
     }
     
     @ViewBuilder
