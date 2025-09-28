@@ -22,24 +22,16 @@ struct MoreCellView: View {
     }
     
     var body: some View {
-        HStack {
-            Button {
-                onClickEvent(cell.type)
-            } label: {
+        Button {
+            onClickEvent(cell.type)
+        } label: {
+            HStack {
                 Text(cell.title)
-                    .font(.medium(size: 16))
-                    .foregroundStyle(Color.whiteText)
-                
                 Spacer()
-                
                 Image("ic_forward")
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 17)
-        .frame(maxWidth: .infinity)
-        .frame(height: 58)
-        .background(Color.darkBackground)
+        .buttonStyle(.plain)
     }
 }
 
