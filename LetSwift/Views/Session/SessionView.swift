@@ -38,7 +38,7 @@ struct SessionView: View {
                     ZStack {
                         Color.darkBackground
                         Text(tab.title)
-                            .font(viewModel.currentTab == tab ? .medium(size: 15) : .regular(size: 15))
+                            .font(viewModel.currentTab == tab ? .system(size: 15, weight: .medium) : .system(size: 15))
                             .foregroundStyle(viewModel.currentTab == tab ? Color.primaryPink : Color.gray5)
                     }
                     .overlay(alignment: .bottom) {

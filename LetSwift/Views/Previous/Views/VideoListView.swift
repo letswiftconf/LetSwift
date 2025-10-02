@@ -36,13 +36,13 @@ struct VideoListView: View {
                 
                 VStack(alignment: .leading) {
                   Text(item.title)
-                    .font(.semiBold(size: 15))
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(.whiteText)
                     .padding(.vertical, 4)
                     .lineLimit(2)
                   HStack {
                     Text(item.speaker)
-                      .font(.regular(size: 15))
+                          .font(.system(size: 15))
                       .foregroundStyle(.gray8)
                       .lineLimit(1)
                       .padding(.trailing, 5)
