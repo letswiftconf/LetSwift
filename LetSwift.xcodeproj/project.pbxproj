@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -249,6 +249,10 @@
 		D978C27C2C9042510097500D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		2199734F2C3F5F5B0015D1AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -326,6 +330,7 @@
 				C1C3692E2CE314510027BDC2 /* Models */,
 				D40ED0452CAEF2D100433E18 /* AppDelegate.swift */,
 				D40ECFBC2C9ABA9B00433E18 /* Constants.swift */,
+				2199952F2E8E87A200F10254 /* Extensions */,
 				D40ECFD92CA0124100433E18 /* UserDefaults */,
 				D978C27A2C903FDA0097500D /* Notifications */,
 				2199738F2C42217F0015D1AF /* Resources */,
@@ -609,6 +614,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2199952F2E8E87A200F10254 /* Extensions */,
 			);
 			name = LetSwift;
 			productName = LetSwift;

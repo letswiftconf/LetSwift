@@ -133,6 +133,16 @@
         }
       }
     },
+    "구독" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe"
+          }
+        }
+      }
+    },
     "세션 이름을 검색해보세요" : {
       "localizations" : {
         "en" : {
@@ -165,6 +175,26 @@
         }
       }
     },
+    "소스 코드" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source Code"
+          }
+        }
+      }
+    },
+    "앱" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        }
+      }
+    },
     "지도" : {
       "localizations" : {
         "en" : {
@@ -193,6 +223,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "캘린더 등록"
+          }
+        }
+      }
+    },
+    "홈페이지" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
           }
         }
       }

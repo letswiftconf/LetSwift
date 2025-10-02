@@ -28,7 +28,17 @@ struct MoreCellView: View {
             HStack {
                 Text(cell.title)
                 Spacer()
-                Image("ic_forward")
+                switch cell.type {
+                case .appVersion:
+                    Text(Bundle.appVersion)
+                        .foregroundStyle(.secondary)
+                case .navigate:
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.secondary)
+                case .openUrl, .requestReview:
+                    Image(systemName: "arrow.up.right")
+                        .foregroundStyle(.secondary)
+                }
             }
         }
         .buttonStyle(.plain)

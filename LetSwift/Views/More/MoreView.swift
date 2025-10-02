@@ -31,9 +31,12 @@ struct MoreView: View {
                                     openURL(url)
                                 case .requestReview:
                                     requestReview()
+                                case .appVersion: break
                                 }
                             }
                         }
+                    } header: {
+                        Text(section.title)
                     }
                 }
             }
