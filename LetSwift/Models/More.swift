@@ -12,6 +12,7 @@ struct More {
     
     struct Section: Identifiable {
         var id: String = UUID().uuidString
+        let title: LocalizedStringResource
         let cells: [Cell]
         
         struct Cell: Identifiable {
@@ -24,6 +25,7 @@ struct More {
                 case navigate(_ route: any Hashable)
                 case openUrl(url: String)
                 case requestReview
+                case appVersion
             }
         }
     }
@@ -33,35 +35,52 @@ extension More {
     static let data = More(
         sections: [
             More.Section(
+                title: "홈페이지",
                 cells: [
-                    More.Section.Cell(
-                        title: "Let'Swift 2024 운영진",
-                        titleEn: "Let'Swift 2024 Organizer",
-                        type: .openUrl(url: More.Constants.organizerURL)
-                    ),
-                    More.Section.Cell(
-                        title: "뉴스레터 구독",
-                        titleEn: "Subscribe newsletter",
-                        type: .openUrl(url: More.Constants.subscribeNewsletterURL)
-                    ),
                     More.Section.Cell(
                         title: "Let'Swift 2024 홈페이지",
                         titleEn: "Let'Swift 2024 Homepage",
                         type: .openUrl(url: More.Constants.homepageURL)
                     ),
+                    More.Section.Cell(
+                        title: "Let'Swift 2024 운영진",
+                        titleEn: "Let'Swift 2024 Organizer",
+                        type: .openUrl(url: More.Constants.organizerURL)
+                    ),
                 ]
             ),
             More.Section(
+                title: "구독",
                 cells: [
                     More.Section.Cell(
-                        title: "Github",
-                        titleEn: "Github",
+                        title: "뉴스레터 구독",
+                        titleEn: "Subscribe newsletter",
+                        type: .openUrl(url: More.Constants.subscribeNewsletterURL)
+                    ),
+                ]
+            ),
+            More.Section(
+                title: "소스 코드",
+                cells: [
+                    More.Section.Cell(
+                        title: "앱 소스 코드",
+                        titleEn: "App source code on Github",
                         type: .openUrl(url: More.Constants.githubURL)
                     ),
+                ]
+            ),
+            More.Section(
+                title: "앱",
+                cells: [
                     More.Section.Cell(
-                        title: "앱 리뷰쓰기",
+                        title: "앱 리뷰 쓰기",
                         titleEn: "Write an App Review",
                         type: .requestReview
+                    ),
+                    More.Section.Cell(
+                        title: "앱 버전",
+                        titleEn: "Version",
+                        type: .appVersion
                     ),
                 ]
             ),

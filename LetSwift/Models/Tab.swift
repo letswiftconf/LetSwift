@@ -12,21 +12,18 @@ enum Tab: CaseIterable {
     case home
     case session
     case previous
-    case events
     case more
     
     var icon: String {
         switch self {
         case .home:
-            "ic_home"
+            "house"
         case .session:
-            "ic_timetable"
+            "music.microphone"
         case .previous:
-            "ic_past"
-        case .events:
-            "ic_event"
+            "play.rectangle"
         case .more:
-            "ic_menu"
+            "link"
         }
     }
     
@@ -38,8 +35,6 @@ enum Tab: CaseIterable {
             "timetable.title"
         case .previous:
             "previous.title"
-        case .events:
-            "events.title"
         case .more:
             "more.title"
         }

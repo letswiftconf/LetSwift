@@ -25,7 +25,7 @@ struct SessionSpeakerView: View {
                 .clipShape(Circle())
             
             Text(LocalizedStringKey(name))
-                .font(.regular(size: 12))
+                .font(.system(size: 12))
                 .foregroundColor(.gray8)
         }
     }

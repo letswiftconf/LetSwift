@@ -17,7 +17,7 @@ struct LinkButton: View {
         VStack(spacing: 8) {
             Image(icon)
             Text(title)
-                .font(.regular(size: 12))
+                .font(.system(size: 12))
                 .foregroundStyle(Color.whiteText)
         }
         .frame(maxWidth: .infinity)

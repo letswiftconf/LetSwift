@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedTab: Tab = .home
-    @State var payload: String = ""
 
     let sessionViewModel: SessionViewModel = SessionViewModel()
     
@@ -18,17 +17,12 @@ struct MainView: View {
             ForEach(Tab.allCases, id: \.self) { tab in
                 createTabView(for: tab)
                     .tabItem {
-                        Label(tab.title, image: tab.icon)
+                        Label(tab.title, systemImage: tab.icon)
                     }
                     .tag(tab)
             }
         }
-        .toolbarBackground(.darkBackground, for: .tabBar)
-        .onOpenURL { url in
-            handleURL(url: url)
-        }
-        .tint(.white)
-        .environment(\.horizontalSizeClass, .compact)
+        .tint(.primaryPink)
     }
     
     @ViewBuilder
@@ -40,20 +34,8 @@ struct MainView: View {
             SessionView(viewModel: sessionViewModel)
         case .previous:
             PreviousView()
-        case .events:
-            EventsView(payload: $payload)
         case .more:
             MoreView(viewModel: MoreViewModel())
-        }
-    }
-    
-    private func handleURL(url: URL) {
-        let components = URLComponents(string: url.absoluteString)
-        
-        guard let queryValue = components?.queryItems?.first?.value else { return }
-        if components?.path == "/event" {
-            self.payload = queryValue
-            self.selectedTab = .events
         }
     }
 }

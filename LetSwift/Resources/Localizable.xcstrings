@@ -1,56 +1,18 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
-    "·" : {
-
-    },
     "2024년 11월 25일\n11:00 ~ 18:00" : {
-
-    },
-    "eventHeader.description" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Earn stamps using NFC!\nStamps can be used for events and prize draws."
+            "value" : "November 25, 2024\n11:00 ~ 18:00"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NFC 기능을 이용해 스탬프를 얻어보세요!\n이벤트 및 경품 추첨에 참여할 수 있어요."
-          }
-        }
-      }
-    },
-    "eventHeader.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Collect Your Stamps"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "스탬프"
-          }
-        }
-      }
-    },
-    "events.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Events"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이벤트"
+            "value" : "2024년 11월 25일\n11:00 ~ 18:00"
           }
         }
       }
@@ -121,80 +83,19 @@
         }
       }
     },
-    "pastevents.title" : {
-      "extractionState" : "stale",
+    "previous.title" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Past Events"
+            "value" : "Previous"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이전 행사"
-          }
-        }
-      }
-    },
-    "previous.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "지난 행사"
-          }
-        }
-      }
-    },
-    "speakers.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speakers"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "연사자"
-          }
-        }
-      }
-    },
-    "sponsors.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sponsors"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "후원사"
-          }
-        }
-      }
-    },
-    "stampButton.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Collect Stamps"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "스탬프 적립하기"
           }
         }
       }
@@ -232,17 +133,109 @@
         }
       }
     },
+    "구독" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscribe"
+          }
+        }
+      }
+    },
     "세션 이름을 검색해보세요" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for session names"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세션 이름을 검색해보세요"
+          }
+        }
+      }
     },
     "세종대학교 광개토회관" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sejong University Gwanggaeto Hall"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세종대학교 광개토회관"
+          }
+        }
+      }
+    },
+    "소스 코드" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source Code"
+          }
+        }
+      }
+    },
+    "앱" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        }
+      }
     },
     "지도" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지도"
+          }
+        }
+      }
     },
     "캘린더 등록" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Calendar"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캘린더 등록"
+          }
+        }
+      }
+    },
+    "홈페이지" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

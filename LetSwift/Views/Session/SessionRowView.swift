@@ -31,7 +31,7 @@ struct SessionRowView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(LocalizedStringKey(viewModel.session.name))
-                    .font(.medium(size: 15))
+                    .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(.whiteText)
                 HStack {
                     
@@ -45,13 +45,13 @@ struct SessionRowView: View {
                     }
                     
                     if viewModel.session.speaker.count > 0 {
-                        Text("·")
-                            .font(.regular(size: 12))
+                        Text(String("."))
+                            .font(.system(size: 12))
                             .foregroundColor(.gray8)
                     }
                     
                     Text(formatTimeRange(start: viewModel.session.startTime, end: viewModel.session.endTime))
-                        .font(.regular(size: 12))
+                        .font(.system(size: 12))
                         .foregroundColor(.gray8)
                 }
             }

@@ -18,10 +18,10 @@ struct MoreView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 0) {
+        NavigationStack {
+            List {
                 ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { offset, section in
-                    VStack(spacing: 1) {
+                    Section {
                         ForEach(section.cells) { cell in
                             MoreCellView(cell: cell) { type in
                                 switch type {
@@ -31,20 +31,18 @@ struct MoreView: View {
                                     openURL(url)
                                 case .requestReview:
                                     requestReview()
+                                case .appVersion: break
                                 }
                             }
                         }
-                    }
-                    .background(.grayStoke)
-    
-                    if offset != viewModel.numberOfSections - 1 {
-                        MoreSectionDivider()
+                    } header: {
+                        Text(section.title)
                     }
                 }
             }
+            .navigationTitle("more.title")
+            .background(Color.darkBackground)
         }
-        .padding(.top, 1)   // 상단 safe area 영역 벗어나서 컨텐츠가 보이지 않도록 하기 위함
-        .background(Color.darkBackground)
     }
 }
 

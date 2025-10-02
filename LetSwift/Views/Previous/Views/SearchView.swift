@@ -21,7 +21,7 @@ struct SearchView: View {
         label: {
           Text("세션 이름을 검색해보세요")
             .foregroundStyle(.gray5)
-            .font(.regular(size: 14))
+            .font(.system(size: 14))
         }
       )
       .foregroundStyle(.white)

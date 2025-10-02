@@ -39,11 +39,11 @@ struct LocationAndDateView: View {
                 .padding(.trailing, 8)
             Text("home.location")
                 .foregroundStyle(Color.grayIcon)
-                .font(.regular(size: 14))
+                .font(.system(size: 14))
                 .padding(.trailing, 18)
             Text("세종대학교 광개토회관")
                 .foregroundStyle(Color.white)
-                .font(.regular(size: 14))
+                .font(.system(size: 14))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.bottom, 6)
@@ -55,11 +55,11 @@ struct LocationAndDateView: View {
                 .padding(.trailing, 8)
             Text("home.date")
                 .foregroundStyle(Color.grayIcon)
-                .font(.regular(size: 14))
+                .font(.system(size: 14))
                 .padding(.trailing, 18)
             Text("2024년 11월 25일\n11:00 ~ 18:00")
                 .foregroundStyle(Color.white)
-                .font(.regular(size: 14))
+                .font(.system(size: 14))
                 .lineSpacing(3)
                 .offset(y: 9)
         }
@@ -71,7 +71,7 @@ struct LocationAndDateView: View {
         Button(action: onTapMapButton) {
             Text("지도")
                 .foregroundStyle(Color.black)
-                .font(.medium(size: 14))
+                .font(.system(size: 14, weight: .medium))
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)
         }
@@ -83,7 +83,7 @@ struct LocationAndDateView: View {
         Button(action: onTapCalendarButton) {
             Text("캘린더 등록")
                 .foregroundStyle(Color.black)
-                .font(.medium(size: 14))
+                .font(.system(size: 14, weight: .medium))
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)
         }

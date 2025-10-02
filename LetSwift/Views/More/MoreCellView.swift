@@ -22,24 +22,26 @@ struct MoreCellView: View {
     }
     
     var body: some View {
-        HStack {
-            Button {
-                onClickEvent(cell.type)
-            } label: {
+        Button {
+            onClickEvent(cell.type)
+        } label: {
+            HStack {
                 Text(cell.title)
-                    .font(.medium(size: 16))
-                    .foregroundStyle(Color.whiteText)
-                
                 Spacer()
-                
-                Image("ic_forward")
+                switch cell.type {
+                case .appVersion:
+                    Text(Bundle.appVersion)
+                        .foregroundStyle(.secondary)
+                case .navigate:
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.secondary)
+                case .openUrl, .requestReview:
+                    Image(systemName: "arrow.up.right")
+                        .foregroundStyle(.secondary)
+                }
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 17)
-        .frame(maxWidth: .infinity)
-        .frame(height: 58)
-        .background(Color.darkBackground)
+        .buttonStyle(.plain)
     }
 }
 

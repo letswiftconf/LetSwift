@@ -15,16 +15,19 @@
 			</array>
 		</dict>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Pretendard-Medium.otf</string>
-		<string>Pretendard-Regular.otf</string>
-		<string>Pretendard-Bold.otf</string>
-		<string>Pretendard-SemiBold.otf</string>
-	</array>
-	<key>UIBackgroundModes</key>
+  	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>logo_2025_200</string>
+		<key>UITabBar</key>
+		<dict>
+			<key>UIImageName</key>
+			<string></string>
+		</dict>
+	</dict>
 </dict>
 </plist>

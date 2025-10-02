@@ -45,7 +45,7 @@ struct YearKeywordsView: View {
                     )
             )
             .foregroundStyle(selectedYear == year ? .primaryPink : .gray9)
-            .font(selectedYear == year ? .semiBold(size: 13) : .regular(size: 13))
+            .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
             .cornerRadius(30)
             .onTapGesture {
                 selectedYear = year
