@@ -80,7 +80,6 @@
 		C1C369472CE377260027BDC2 /* CustomAlert+HomeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */; };
 		C1C369492CE38C4D0027BDC2 /* SessionSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */; };
 		C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */; };
-		C1CED42D2CAC66830011FFDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */; };
 		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
 		D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */; };
@@ -213,7 +212,6 @@
 		C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlert+HomeExtensions.swift"; sourceTree = "<group>"; };
 		C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpeakerView.swift; sourceTree = "<group>"; };
 		C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+SampleData.swift"; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				D40ECFD92CA0124100433E18 /* UserDefaults */,
 				D978C27A2C903FDA0097500D /* Notifications */,
 				2199738F2C42217F0015D1AF /* Resources */,
-				C1CED42C2CAC66830011FFDD /* Launch Screen.storyboard */,
 				219973552C3F5F5B0015D1AF /* LetSwiftApp.swift */,
 			);
 			path = LetSwift;
@@ -702,7 +699,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */,
-				C1CED42D2CAC66830011FFDD /* Launch Screen.storyboard in Resources */,
 				D22F98042CA48039007BF1C9 /* playlist-2023.json in Resources */,
 				D22F98052CA48039007BF1C9 /* playlist-2016.json in Resources */,
 				D22F98062CA48039007BF1C9 /* playlist-2019.json in Resources */,
@@ -1014,7 +1010,6 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "헹시 일정 등록을 위해 접근 권한을 확인해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1054,7 +1049,6 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "헹시 일정 등록을 위해 접근 권한을 확인해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
