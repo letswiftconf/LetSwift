@@ -35,7 +35,7 @@ struct MainView: View {
         case .previous:
             PreviousView()
         case .more:
-            MoreView(viewModel: MoreViewModel())
+            MoreView()
         }
     }
 }
