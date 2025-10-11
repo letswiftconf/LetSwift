@@ -22,7 +22,7 @@ struct MainView: View {
                     .tag(tab)
             }
         }
-        .tint(.primaryPink)
+        .tint(.themePrimary)
     }
     
     @ViewBuilder

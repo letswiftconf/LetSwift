@@ -36,15 +36,15 @@ struct YearKeywordsView: View {
         Text(year)
             .padding(.horizontal, 13)
             .padding(.vertical, 6)
-            .background(selectedYear == year ? .primaryPink.opacity(0.2) : .gray2)
+            .background(selectedYear == year ? .themePrimary.opacity(0.2) : .gray2)
             .overlay(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(
-                        selectedYear == year ? .primaryPink : .clear,
+                        selectedYear == year ? .themePrimary : .clear,
                         lineWidth: 1
                     )
             )
-            .foregroundStyle(selectedYear == year ? .primaryPink : .gray9)
+            .foregroundStyle(selectedYear == year ? .themePrimary : .gray9)
             .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
             .cornerRadius(30)
             .onTapGesture {

@@ -39,11 +39,11 @@ struct SessionView: View {
                         Color.darkBackground
                         Text(tab.title)
                             .font(viewModel.currentTab == tab ? .system(size: 15, weight: .medium) : .system(size: 15))
-                            .foregroundStyle(viewModel.currentTab == tab ? Color.primaryPink : Color.gray5)
+                            .foregroundStyle(viewModel.currentTab == tab ? Color.themePrimary : Color.gray5)
                     }
                     .overlay(alignment: .bottom) {
                         if viewModel.currentTab == tab {
-                            Color.primaryPink.frame(height: 3)
+                            Color.themePrimary.frame(height: 3)
                         } else {
                             Color.gray5.frame(height: 1)
                         }
