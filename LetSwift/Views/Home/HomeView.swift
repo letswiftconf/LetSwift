@@ -13,10 +13,10 @@ struct HomeView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image("banner1")
+            Image("logo_2025_200")
                 .frame(height: 91)
                 .aspectRatio(contentMode: .fit)
-                .padding(.vertical, 53)
+                .padding(.vertical, 80)
             
             VStack(spacing: 16) {
                 LocationAndDateView {
