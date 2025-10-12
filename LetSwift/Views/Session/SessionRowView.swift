@@ -60,7 +60,8 @@ struct SessionRowView: View {
             
             VStack(spacing: 10) {
                 Button(action: viewModel.onToggleBookmark) {
-                    Image(viewModel.bookmarkImageString)
+                    Image(systemName: viewModel.bookmarkImageString)
+                        .tint(viewModel.session.isSaved ? .themePrimary : .secondary)
                 }
                 
                 Button(action: {
@@ -68,7 +69,8 @@ struct SessionRowView: View {
                         await viewModel.onToggleAlarm()
                     }
                 }) {
-                    Image(viewModel.alarmImageString)
+                    Image(systemName: viewModel.alarmImageString)
+                        .tint(viewModel.session.isAlarmed ? .themePrimary : .secondary)
                 }
             }
             .frame(width: 24, height: 24)
