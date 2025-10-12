@@ -14,7 +14,6 @@ struct VideoPlayerView: View {
   
   var body: some View {
     VideoView(url: URL(string: "https://www.youtube.com/watch?v=\(videoID)")!)
-      .background(.darkBackground)
   }
 }
 

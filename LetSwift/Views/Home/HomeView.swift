@@ -32,7 +32,7 @@ struct HomeView: View {
             .padding(.horizontal, 20)
             Spacer()
         }
-        .background(.darkBackground)
+        .background(Color(.systemGroupedBackground))
         .customAlert($viewModel.alert)
     }
     

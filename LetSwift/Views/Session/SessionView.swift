@@ -20,7 +20,6 @@ struct SessionView: View {
             tabView
             sessionList
         }
-        .background(Color.darkBackground)
         .task {
             defer { viewModel.update(isLoading: false) }
             viewModel.update(isLoading: true)
@@ -36,16 +35,16 @@ struct SessionView: View {
                     viewModel.update(currentTab: tab)
                 } label: {
                     ZStack {
-                        Color.darkBackground
+                        Color(.systemBackground)
                         Text(tab.title)
                             .font(viewModel.currentTab == tab ? .system(size: 15, weight: .medium) : .system(size: 15))
-                            .foregroundStyle(viewModel.currentTab == tab ? Color.themePrimary : Color.gray5)
+                            .foregroundStyle(viewModel.currentTab == tab ? Color.themePrimary : Color.primary)
                     }
                     .overlay(alignment: .bottom) {
                         if viewModel.currentTab == tab {
                             Color.themePrimary.frame(height: 3)
                         } else {
-                            Color.gray5.frame(height: 1)
+                            Color(.opaqueSeparator).frame(height: 1)
                         }
                     }
                 }
@@ -61,7 +60,7 @@ struct SessionView: View {
                     SessionRowView(viewModel: sessionRowViewModel)
                         .overlay(alignment: .top) {
                             if offset != .zero {
-                                Color.grayStoke
+                                Color(.separator)
                                     .frame(height: 1)
                             }
                         }

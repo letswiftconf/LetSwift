@@ -26,7 +26,7 @@ struct SessionSpeakerView: View {
             
             Text(LocalizedStringKey(name))
                 .font(.system(size: 12))
-                .foregroundColor(.gray8)
+                .foregroundStyle(.secondary)
         }
     }
 }

@@ -17,14 +17,14 @@ struct SessionRowView: View {
     var body: some View {
         HStack {
             VStack(spacing: 3) {
-                Color.gray5
+                Color(.opaqueSeparator)
                     .frame(width: 1)
                 
                 Circle()
-                    .stroke(Color.gray5)
+                    .stroke(Color(.opaqueSeparator))
                     .frame(width: 10, height: 10)
                 
-                Color.gray5
+                Color(.opaqueSeparator)
                     .frame(width: 1)
             }
             .padding(.leading, 29)
@@ -32,7 +32,6 @@ struct SessionRowView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(LocalizedStringKey(viewModel.session.name))
                     .font(.system(size: 15, weight: .medium))
-                    .foregroundStyle(.white)
                 HStack {
                     
                     ForEach(viewModel.session.speaker) { speaker in
@@ -47,12 +46,12 @@ struct SessionRowView: View {
                     if viewModel.session.speaker.count > 0 {
                         Text(String("."))
                             .font(.system(size: 12))
-                            .foregroundColor(.gray8)
+                            .foregroundStyle(.secondary)
                     }
                     
                     Text(formatTimeRange(start: viewModel.session.startTime, end: viewModel.session.endTime))
                         .font(.system(size: 12))
-                        .foregroundColor(.gray8)
+                        .foregroundStyle(.secondary)
                 }
             }
             
@@ -85,6 +84,10 @@ struct SessionRowView: View {
         formatter.dateFormat = "HH:mm"
         return "\(formatter.string(from: start)) ~ \(formatter.string(from: end))"
     }
+}
+
+#Preview("Session") {
+    SessionView(viewModel: SessionViewModel())
 }
 
 
