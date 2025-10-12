@@ -18,7 +18,7 @@ struct LinkButton: View {
             Image(icon)
             Text(title)
                 .font(.system(size: 12))
-                .foregroundStyle(Color.whiteText)
+                .foregroundStyle(Color.white)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 75)
