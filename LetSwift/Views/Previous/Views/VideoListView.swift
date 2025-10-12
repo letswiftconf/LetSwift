@@ -37,7 +37,7 @@ struct VideoListView: View {
                 VStack(alignment: .leading) {
                   Text(item.title)
                     .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(.whiteText)
+                    .foregroundStyle(.white)
                     .padding(.vertical, 4)
                     .lineLimit(2)
                   HStack {

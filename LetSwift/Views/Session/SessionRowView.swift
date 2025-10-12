@@ -32,7 +32,7 @@ struct SessionRowView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(LocalizedStringKey(viewModel.session.name))
                     .font(.system(size: 15, weight: .medium))
-                    .foregroundStyle(.whiteText)
+                    .foregroundStyle(.white)
                 HStack {
                     
                     ForEach(viewModel.session.speaker) { speaker in
