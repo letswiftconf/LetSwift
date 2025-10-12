@@ -16,6 +16,9 @@ struct MoreView: View {
                 letswiftSection
                 openSourceSection
                 appSection
+#if DEBUG
+                debugSection
+#endif
             }
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
@@ -40,6 +43,18 @@ struct MoreView: View {
             .buttonStyle(.plain)
         } header: {
             Text("settings.section.letswift")
+        }
+    }
+    
+    // MARK: - Debug section
+    @ViewBuilder
+    private var debugSection: some View {
+        Section {
+            NavigationLink("settings.appIcon") {
+                AppIconView()
+            }
+        } header: {
+            Text("settings.section.debug")
         }
     }
     
