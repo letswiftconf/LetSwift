@@ -13,7 +13,7 @@ struct PreviousView: View {
   var body: some View {
       NavigationStack {
           VStack(spacing: 0) {
-            SearchView(searchText: $previousViewModel.searchText)
+//            SearchView(searchText: $previousViewModel.searchText)
             
             YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
             
@@ -24,6 +24,9 @@ struct PreviousView: View {
               .onChange(of: previousViewModel.selectedYear) { _, newYear in
                 previousViewModel.loadVideoData(for: newYear)
               }
+              .searchable(text: $previousViewModel.searchText,
+                          placement: .automatic,
+                          prompt: "세션 이름을 검색해보세요")
           }
           .background(.darkBackground)
       }
