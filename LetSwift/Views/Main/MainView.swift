@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct MainView: View {
+    @Environment(\.requestReview) private var requestReview
+    
     @State var selectedTab: Tab = .home
 
     let sessionViewModel: SessionViewModel = SessionViewModel()
@@ -23,6 +26,11 @@ struct MainView: View {
             }
         }
         .tint(.themePrimary)
+        .onAppear {
+#if !DEBUG
+            requestReview()
+#endif
+        }
     }
     
     @ViewBuilder
