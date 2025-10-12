@@ -21,11 +21,11 @@ final class SessionRowViewModel {
 // MARK: - Image
 extension SessionRowViewModel {
     var bookmarkImageString: String {
-        return session.isSaved ? "ic_bookmark_fill" : "ic_bookmark"
+        return session.isSaved ? "bookmark.fill" : "bookmark"
     }
     
     var alarmImageString: String {
-        return session.isAlarmed ? "ic_alarm_fill" : "ic_alarm"
+        return session.isAlarmed ? "bell.fill" : "bell"
     }
 }
 
