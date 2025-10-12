@@ -35,7 +35,8 @@ struct LocationAndDateView: View {
     
     var locationTitle: some View {
         HStack(spacing: 0) {
-            Image("ic_location")
+            Image(systemName: "mappin.and.ellipse")
+                .foregroundStyle(.secondary)
                 .padding(.trailing, 8)
             Text("home.location")
                 .foregroundStyle(Color.grayIcon)
@@ -51,7 +52,8 @@ struct LocationAndDateView: View {
     
     var dateTitle: some View {
         HStack(spacing: 0) {
-            Image("ic_calendar")
+            Image(systemName: "calendar")
+                .foregroundStyle(.secondary)
                 .padding(.trailing, 8)
             Text("home.date")
                 .foregroundStyle(Color.grayIcon)
