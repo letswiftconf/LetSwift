@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import StoreKit
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
-    @Environment(\.requestReview) private var requestReview
     
     var body: some View {
         NavigationStack {
@@ -77,7 +75,7 @@ struct MoreView: View {
     private var appSection: some View {
         Section {
             Button {
-                requestReview()
+                openURL(URL.appStoreReview)
             } label: {
                 ListItem(title: "settings.requestReview", style: .externalLink)
             }
