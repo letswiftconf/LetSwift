@@ -8,7 +8,7 @@
         },
         {
           "appearance" : "tinted",
-          "value" : 0.5
+          "value" : 1
         }
       ],
       "layers" : [
@@ -33,21 +33,10 @@
         }
       ],
       "specular" : true,
-      "translucency-specializations" : [
-        {
-          "value" : {
-            "enabled" : false,
-            "value" : 0.5
-          }
-        },
-        {
-          "appearance" : "tinted",
-          "value" : {
-            "enabled" : true,
-            "value" : 0.5
-          }
-        }
-      ]
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
     }
   ],
   "supported-platforms" : {
