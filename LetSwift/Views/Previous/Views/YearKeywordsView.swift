@@ -16,7 +16,12 @@ struct YearKeywordsView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(years, id: \.self) { year in
-                        items(year)
+                        if #available(iOS 26.0, *) {
+                            items(year)
+                                .glassEffect()
+                        } else {
+                            items(year)
+                        }
                     }
                 }
                 .padding(.horizontal, 10)

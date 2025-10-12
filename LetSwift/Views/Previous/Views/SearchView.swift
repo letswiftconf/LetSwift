@@ -37,3 +37,6 @@ struct SearchView: View {
   }
 }
 
+#Preview {
+    PreviousView()
+}
