@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>AppIcon_2025</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon_2025</string>
+			</dict>
+			<key>AppIcon_Alt</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon_Alt</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -15,7 +31,7 @@
 			</array>
 		</dict>
 	</array>
-  	<key>UIBackgroundModes</key>
+	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>

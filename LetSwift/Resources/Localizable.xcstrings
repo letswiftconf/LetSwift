@@ -17,6 +17,54 @@
         }
       }
     },
+    "appIcon.2025" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let’Swift 2025"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let’Swift 2025"
+          }
+        }
+      }
+    },
+    "appIcon.alternative" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Color"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "컬러"
+          }
+        }
+      }
+    },
+    "appIcon.default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본"
+          }
+        }
+      }
+    },
     "home.date" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -96,6 +144,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "지난 행사"
+          }
+        }
+      }
+    },
+    "settings.appIcon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Icon"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 아이콘"
           }
         }
       }
@@ -224,6 +288,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "앱"
+          }
+        }
+      }
+    },
+    "settings.section.debug" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개발자"
           }
         }
       }
