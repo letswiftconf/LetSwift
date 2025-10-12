@@ -25,12 +25,8 @@ struct LocationAndDateView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white.opacity(0.02))
-        .clipShape(RoundedRectangle(cornerRadius: 15))
-        .overlay {
-            RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.white.opacity(0.1), lineWidth: 1)
-        }
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
     }
     
     var locationTitle: some View {
@@ -39,11 +35,10 @@ struct LocationAndDateView: View {
                 .foregroundStyle(.secondary)
                 .padding(.trailing, 8)
             Text("home.location")
-                .foregroundStyle(Color.grayIcon)
+                .foregroundStyle(.secondary)
                 .font(.system(size: 14))
                 .padding(.trailing, 18)
             Text("세종대학교 광개토회관")
-                .foregroundStyle(Color.white)
                 .font(.system(size: 14))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -56,11 +51,10 @@ struct LocationAndDateView: View {
                 .foregroundStyle(.secondary)
                 .padding(.trailing, 8)
             Text("home.date")
-                .foregroundStyle(Color.grayIcon)
+                .foregroundStyle(.secondary)
                 .font(.system(size: 14))
                 .padding(.trailing, 18)
             Text("2024년 11월 25일\n11:00 ~ 18:00")
-                .foregroundStyle(Color.white)
                 .font(.system(size: 14))
                 .lineSpacing(3)
                 .offset(y: 9)
@@ -77,8 +71,8 @@ struct LocationAndDateView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)
         }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .background(Color(.tertiarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
     }
     
     var calendarBtn: some View {
@@ -89,8 +83,8 @@ struct LocationAndDateView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)
         }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .background(Color(.tertiarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
     }
 }
 

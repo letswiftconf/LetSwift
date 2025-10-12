@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct YearKeywordsView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @Binding var selectedYear: String
     let years: [String]
     
@@ -16,7 +18,7 @@ struct YearKeywordsView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(years, id: \.self) { year in
-                        if #available(iOS 26.0, *) {
+                        if #available(iOS 26.0, *), colorScheme == .dark {
                             items(year)
                                 .glassEffect()
                         } else {
@@ -41,7 +43,7 @@ struct YearKeywordsView: View {
         Text(year)
             .padding(.horizontal, 13)
             .padding(.vertical, 6)
-            .background(selectedYear == year ? .themePrimary.opacity(0.2) : .gray2)
+            .background(selectedYear == year ? .themePrimary.opacity(0.2) : Color(.secondarySystemBackground))
             .overlay(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(
@@ -49,11 +51,15 @@ struct YearKeywordsView: View {
                         lineWidth: 1
                     )
             )
-            .foregroundStyle(selectedYear == year ? .themePrimary : .gray9)
+            .foregroundStyle(selectedYear == year ? .themePrimary : .secondary)
             .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
             .cornerRadius(30)
             .onTapGesture {
                 selectedYear = year
             }
     }
+}
+
+#Preview("Previous") {
+    PreviousView()
 }

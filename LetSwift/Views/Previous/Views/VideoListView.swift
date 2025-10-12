@@ -18,7 +18,7 @@ struct VideoListView: View {
           NavigationLink(destination: VideoPlayerView(videoID: item.videoID, selectedYear: selectedYear)) {
             VStack(spacing: 0) {
               Divider()
-                .background(.grayStoke)
+                    .background(Color(.separator))
               
               Spacer()
               
@@ -28,7 +28,7 @@ struct VideoListView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 } placeholder: {
-                  Color.gray2
+                    Color(.secondarySystemFill)
                 }
                 .frame(width: 110, height: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
@@ -37,18 +37,17 @@ struct VideoListView: View {
                 VStack(alignment: .leading) {
                   Text(item.title)
                     .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(.white)
                     .padding(.vertical, 4)
                     .lineLimit(2)
                   HStack {
                     Text(item.speaker)
                           .font(.system(size: 15))
-                      .foregroundStyle(.gray8)
+                          .foregroundStyle(.secondary)
                       .lineLimit(1)
                       .padding(.trailing, 5)
                     Text(item.timeLine)
                       .font(.subheadline)
-                      .foregroundStyle(.gray8)
+                      .foregroundStyle(.secondary)
                       .lineLimit(1)
                   }
                   Spacer()
@@ -68,6 +67,11 @@ struct VideoListView: View {
     }
   }
 }
+
+#Preview("Previous") {
+    PreviousView()
+}
+
 
 #Preview {
   VideoListView(filteredItems: [], selectedYear: "2024")

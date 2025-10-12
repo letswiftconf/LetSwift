@@ -28,7 +28,6 @@ struct PreviousView: View {
                           placement: .automatic,
                           prompt: "세션 이름을 검색해보세요")
           }
-          .background(.darkBackground)
       }
       
   }
