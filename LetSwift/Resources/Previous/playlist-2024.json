@@ -1,0 +1,110 @@
+{
+    "year": 2024,
+    "items": [
+      {
+        "title": "늦었다고 생각할 때 진짜 늦었으니 UITest로 시나리오 테스트하기",
+        "speaker": "이재웅(커리)",
+        "timeLine": "20:31",
+        "referenceLink": "https://drive.google.com/file/d/1KP-XPLmdMD9AFtdqukr-t9SGWG73jrH5/view",
+        "thumbnail": "https://i.ytimg.com/vi/UHh7NzGuaRM/default.jpg",
+        "videoID": "UHh7NzGuaRM"
+      },
+      {
+        "title": "애플 인텔리전스를 통해 엿보는 AI 패러다임의 방향",
+        "speaker": "꼼꼼한 재은씨",
+        "timeLine": "37:45",
+        "referenceLink": "https://drive.google.com/file/d/1OZGYaCXhvoPTP1L_UywmZ9s_DHWP4kJr/view",
+        "thumbnail": "https://i.ytimg.com/vi/lswSgR5AbJI/default.jpg",
+        "videoID": "lswSgR5AbJI"
+      },
+      {
+        "title": "Plugin 패턴을 이용하여 기능 확장하기",
+        "speaker": "안정민(민소네)",
+        "timeLine": "35:34",
+        "referenceLink": "https://drive.google.com/file/d/1DwadfNBTu9BUHAUi9S1fLiNG6vPgKAEy/view",
+        "thumbnail": "https://i.ytimg.com/vi/ngZAj2fsiXo/default.jpg",
+        "videoID": "ngZAj2fsiXo"
+      },
+      {
+        "title": "차근차근 Swift 6 마이그레이션",
+        "speaker": "황예은(Yeni)",
+        "timeLine": "20:01",
+        "referenceLink": "https://drive.google.com/file/d/1R6kEDzMjWhQxpqLpQGvKuv8x5gg_50yb/view",
+        "thumbnail": "https://i.ytimg.com/vi/oxLvAw3el10/default.jpg",
+        "videoID": "oxLvAw3el10"
+      },
+      {
+        "title": "적용해보면 해볼수록 빠져드는 성장형 아키텍쳐 TCA",
+        "speaker": "황재욱",
+        "timeLine": "37:13",
+        "referenceLink": "https://drive.google.com/file/d/14heYxetfMwq89s6_6-vUJ1AdvBLjMgdk/view",
+        "thumbnail": "https://i.ytimg.com/vi/cI9i0MgIk5A/default.jpg",
+        "videoID": "cI9i0MgIk5A"
+      },
+      {
+        "title": "자고 일어났더니, 앱스토어 3위? 나만의 네컷",
+        "speaker": "서희찬(Seochan)",
+        "timeLine": "40:51",
+        "referenceLink": "https://drive.google.com/file/d/1wZTJfRfcS45wKcocrnYKzYUCLSSa292q/view",
+        "thumbnail": "https://i.ytimg.com/vi/AOW8BQj4XaE/default.jpg",
+        "videoID": "AOW8BQj4XaE"
+      },
+      {
+        "title": "현실적인 SwiftUI 적응기",
+        "speaker": "손원영 & 김용덕(Double D)",
+        "timeLine": "22:21",
+        "referenceLink": "https://drive.google.com/file/d/1wByaiJ9xxjsEy5awma4VBpSrXnEEx7gC/view",
+        "thumbnail": "https://i.ytimg.com/vi/a8OSqBeuJP8/default.jpg",
+        "videoID": "a8OSqBeuJP8"
+      },
+      {
+        "title": "SPM의 동적인 사용과 TCA",
+        "speaker": "이동혁(베어)",
+        "timeLine": "19:58",
+        "referenceLink": "https://drive.google.com/file/d/1FQYzHM5VSW90yVGiRRp00DBNgA77weQ5/view",
+        "thumbnail": "https://i.ytimg.com/vi/05Wikx5MHbA/default.jpg",
+        "videoID": "05Wikx5MHbA"
+      },
+      {
+        "title": "새로운 회사와 프로젝트에 빠르게 적응하는 방법",
+        "speaker": "이태현(Jake)",
+        "timeLine": "40:25",
+        "referenceLink": "https://drive.google.com/file/d/1iz_fKJ0n8Gchs5yNsXR8nPzOppGZUvB6/view",
+        "thumbnail": "https://i.ytimg.com/vi/mpFV2dk0Ywk/default.jpg",
+        "videoID": "mpFV2dk0Ywk"
+      },
+      {
+        "title": "App Intents, 어떻게 쓰죠?",
+        "speaker": "김성종",
+        "timeLine": "39:26",
+        "referenceLink": "https://drive.google.com/file/d/15ljtU2Z4XMEYqXbyahlS_BmvuA5qcl5n/view",
+        "thumbnail": "https://i.ytimg.com/vi/sAa1Vz5zLCE/default.jpg",
+        "videoID": "sAa1Vz5zLCE"
+      },
+      {
+        "title": "On Device Debugging EchoKit",
+        "speaker": "김정(고드름)",
+        "timeLine": "36:29",
+        "referenceLink": "https://drive.google.com/file/d/1-ItRxztuUXC0ce1_D8KHxk26h4Y8nCCQ/view?usp=sharing",
+        "thumbnail": "https://i.ytimg.com/vi/-EV_kyaYZ3o/default.jpg",
+        "videoID": "-EV_kyaYZ3o"
+      },
+      {
+        "title": "VisionOS로 Vision 그려보기",
+        "speaker": "이민지(Judy)",
+        "timeLine": "37:51",
+        "referenceLink": "https://drive.google.com/file/d/1LDUSzo7Ge86oN6f9PHgfr3__rbEg-87F/view",
+        "thumbnail": "https://i.ytimg.com/vi/IsuwFjq0HlY/default.jpg",
+        "videoID": "IsuwFjq0HlY"
+      },
+      {
+        "title": "앱의 경계를 넘다 Interactive Widget",
+        "speaker": "유재호",
+        "timeLine": "33:32",
+        "referenceLink": "https://drive.google.com/file/d/1mlItVPKSA-KCfB5unxfiQwLIULkD6n-h/view",
+        "thumbnail": "https://i.ytimg.com/vi/AK0byeN90Sg/default.jpg",
+        "videoID": "AK0byeN90Sg"
+      }
+    ]
+  }
+  
