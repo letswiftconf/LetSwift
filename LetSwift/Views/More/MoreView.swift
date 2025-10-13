@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
+    
+    @State private var presentURL: URL? = nil
     
     var body: some View {
         NavigationStack {
@@ -23,6 +26,11 @@ struct MoreView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
         }
+        .safariView(item: $presentURL) { item in
+            SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))
+                .preferredControlAccentColor(.themePrimary)
+                .dismissButtonStyle(.close)
+        }
     }
     
     // MARK: - Web section
@@ -30,13 +38,13 @@ struct MoreView: View {
     private var letswiftSection: some View {
         Section {
             Button {
-                openURL(URL.letswiftHome)
+                present(url: URL.letswiftHome)
             } label: {
                 ListItem(title: "settings.linkHome", style: .externalLink)
             }
             .buttonStyle(.plain)
             Button {
-                openURL(URL.letswiftNewsletter)
+                present(url: URL.letswiftNewsletter)
             } label: {
                 ListItem(title: "settings.linkNewsletter", style: .externalLink)
             }
@@ -63,19 +71,19 @@ struct MoreView: View {
     private var openSourceSection: some View {
         Section {
             Button {
-                openURL(URL.githubAppRepository)
+                present(url: URL.githubAppRepository)
             } label: {
                 ListItem(title: "settings.linkAppRepository", style: .externalLink)
             }
             .buttonStyle(.plain)
             Button {
-                openURL(URL.githubWebRepository)
+                present(url: URL.githubWebRepository)
             } label: {
                 ListItem(title: "settings.linkWebRepository", style: .externalLink)
             }
             .buttonStyle(.plain)
             Button {
-                openURL(URL.githubNewsletterRepository)
+                present(url: URL.githubNewsletterRepository)
             } label: {
                 ListItem(title: "settings.linkNewsletterRepository", style: .externalLink)
             }
@@ -104,6 +112,15 @@ struct MoreView: View {
         } header: {
             Text("settings.section.app")
         }
+    }
+    
+    // MARK: - Action
+    private func present(url: URL?) {
+        guard let url = url else {
+            return
+        }
+        presentURL = url
+//        openURL(url)
     }
 }
 
