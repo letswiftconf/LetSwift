@@ -82,6 +82,7 @@
 		21DC4AD02D5AE26300880CD4 /* j.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A7F2D5AE26300880CD4 /* j.jpg */; };
 		21DC4AD12D5AE26300880CD4 /* bummo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A782D5AE26300880CD4 /* bummo.jpg */; };
 		21DC4AD22D5AE26300880CD4 /* jinhee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A802D5AE26300880CD4 /* jinhee.jpg */; };
+		21F2B6982E9CCE9200F7B3FC /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 21F2B6972E9CCE9200F7B3FC /* BetterSafariView */; };
 		21FF02362E9A219E00E44F61 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02352E9A219E00E44F61 /* ListItem.swift */; };
 		21FF02532E9B9F8600E44F61 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02522E9B9F8600E44F61 /* AppIconView.swift */; };
 		21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -309,6 +310,7 @@
 				19D3D7892E8058F90062DB4B /* FirebaseAppDistribution-Beta in Frameworks */,
 				19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */,
 				19D3D78F2E8058F90062DB4B /* FirebaseMessaging in Frameworks */,
+				21F2B6982E9CCE9200F7B3FC /* BetterSafariView in Frameworks */,
 				19B614A72E75690400BB0448 /* FirebaseAnalyticsCore in Frameworks */,
 				19D3D7872E8058F90062DB4B /* FirebaseAnalyticsIdentitySupport in Frameworks */,
 				19D3D7852E8058F90062DB4B /* FirebaseAnalyticsCore in Frameworks */,
@@ -787,6 +789,7 @@
 			mainGroup = 219973492C3F5F5B0015D1AF;
 			packageReferences = (
 				19D3D7812E8058F90062DB4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				21F2B6962E9CCE9200F7B3FC /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 			);
 			productRefGroup = 219973532C3F5F5B0015D1AF /* Products */;
 			projectDirPath = "";
@@ -1450,6 +1453,14 @@
 				minimumVersion = 12.3.0;
 			};
 		};
+		21F2B6962E9CCE9200F7B3FC /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1502,6 +1513,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 19D3D7812E8058F90062DB4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		21F2B6972E9CCE9200F7B3FC /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21F2B6962E9CCE9200F7B3FC /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
