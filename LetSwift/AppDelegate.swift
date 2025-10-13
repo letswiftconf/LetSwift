@@ -22,7 +22,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     private func initializeApp(_ application: UIApplication) {
-        FirebaseApp.configure()
+        // GoogleService-info.plist 파일 추가되면 활성화합니다.
+//        FirebaseApp.configure()
 
         // 앱 실행 시 사용자에게 알림 허용 권한을 받음
         UNUserNotificationCenter.current().delegate = self
