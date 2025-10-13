@@ -17,6 +17,22 @@
         }
       }
     },
+    "alert.confirm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        }
+      }
+    },
     "appIcon.2025" : {
       "localizations" : {
         "en" : {
@@ -61,6 +77,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기본"
+          }
+        }
+      }
+    },
+    "appIcon.error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to change app icon."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 아이콘 변경에 실패 했습니다."
           }
         }
       }

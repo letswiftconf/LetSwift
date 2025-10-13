@@ -8,20 +8,34 @@
 import SwiftUI
 
 struct AppIconView: View {
+    @State private var presentError = false
+    
     var body: some View {
         List {
             Button {
-                UIApplication.shared.setAlternateIconName(nil)
+                UIApplication.shared.setAlternateIconName(nil) { error in
+                    if let _ = error {
+                        presentError = true
+                    }
+                }
             } label: {
                 AppIconPreview(imageName: "AppIcon_preview", iconName: "appIcon.default")
             }
             Button {
-                UIApplication.shared.setAlternateIconName("AppIcon_Alt")
+                UIApplication.shared.setAlternateIconName("AppIcon_Alt") { error in
+                    if let _ = error {
+                        presentError = true
+                    }
+                }
             } label: {
                 AppIconPreview(imageName: "AppIcon_Alt_preview", iconName: "appIcon.alternative")
             }
             Button {
-                UIApplication.shared.setAlternateIconName("AppIcon_2025")
+                UIApplication.shared.setAlternateIconName("AppIcon_2025") { error in
+                    if let _ = error {
+                        presentError = true
+                    }
+                }
             } label: {
                 AppIconPreview(imageName: "AppIcon_2025_preview", iconName: "appIcon.2025")
             }
@@ -29,6 +43,9 @@ struct AppIconView: View {
         .buttonStyle(.plain)
         .listStyle(.insetGrouped)
         .navigationTitle("settings.appIcon")
+        .alert("appIcon.error", isPresented: $presentError) {
+            Button("alert.confirm", role: .cancel) {}
+        }
     }
 }
 
