@@ -84,6 +84,7 @@
 		21DC4AD22D5AE26300880CD4 /* jinhee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A802D5AE26300880CD4 /* jinhee.jpg */; };
 		21FF02362E9A219E00E44F61 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02352E9A219E00E44F61 /* ListItem.swift */; };
 		21FF02532E9B9F8600E44F61 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02522E9B9F8600E44F61 /* AppIconView.swift */; };
+		21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
 		C1C369302CE314C60027BDC2 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */; };
@@ -139,6 +140,30 @@
 		D40ED04A2CB28AFE00433E18 /* SessionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ED0492CB28AFE00433E18 /* SessionNotification.swift */; };
 		D978C27D2C9042510097500D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978C27C2C9042510097500D /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21FF027C2E9C7D2D00E44F61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2199734A2C3F5F5B0015D1AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FF02732E9C7D2B00E44F61;
+			remoteInfo = "LetSwift-watchOS Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		21FF027F2E9C7D2D00E44F61 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		192FA3992E8B77970078326A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -213,6 +238,7 @@
 		21DC4AA42D5AE26300880CD4 /* rc_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rc_white.png; sourceTree = "<group>"; };
 		21FF02352E9A219E00E44F61 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		21FF02522E9B9F8600E44F61 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
+		21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetSwift-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
@@ -257,9 +283,22 @@
 		D978C27C2C9042510097500D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/AppIcon_2025.icon,
+				Resources/AppIcon_Alt.icon,
+				Resources/AppIcon.icon,
+			);
+			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +327,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		219973782C3F61000015D1AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21FF02712E9C7D2B00E44F61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -324,6 +370,7 @@
 				C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
 				219973542C3F5F5B0015D1AF /* LetSwift */,
+				21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */,
 				219973692C3F60ED0015D1AF /* LetSwift-macOS */,
 				2199737C2C3F61000015D1AF /* LetSwift-visionOS */,
 				219973532C3F5F5B0015D1AF /* Products */,
@@ -336,6 +383,7 @@
 				219973522C3F5F5B0015D1AF /* LetSwift.app */,
 				219973682C3F60ED0015D1AF /* LetSwift-macOS.app */,
 				2199737B2C3F61000015D1AF /* LetSwift-visionOS.app */,
+				21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -629,10 +677,12 @@
 				2199734E2C3F5F5B0015D1AF /* Sources */,
 				2199734F2C3F5F5B0015D1AF /* Frameworks */,
 				219973502C3F5F5B0015D1AF /* Resources */,
+				21FF027F2E9C7D2D00E44F61 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				21FF027D2E9C7D2D00E44F61 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				2199952F2E8E87A200F10254 /* Extensions */,
@@ -679,6 +729,28 @@
 			productReference = 2199737B2C3F61000015D1AF /* LetSwift-visionOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21FF02822E9C7D2D00E44F61 /* Build configuration list for PBXNativeTarget "LetSwift-watchOS" */;
+			buildPhases = (
+				21FF02702E9C7D2B00E44F61 /* Sources */,
+				21FF02712E9C7D2B00E44F61 /* Frameworks */,
+				21FF02722E9C7D2B00E44F61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */,
+			);
+			name = "LetSwift-watchOS";
+			packageProductDependencies = (
+			);
+			productName = "LetSwift-watchOS Watch App";
+			productReference = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -686,7 +758,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					219973512C3F5F5B0015D1AF = {
@@ -697,6 +769,9 @@
 					};
 					2199737A2C3F61000015D1AF = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					21FF02732E9C7D2B00E44F61 = {
+						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
 			};
@@ -718,6 +793,7 @@
 			projectRoot = "";
 			targets = (
 				219973512C3F5F5B0015D1AF /* LetSwift */,
+				21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */,
 				219973672C3F60ED0015D1AF /* LetSwift-macOS */,
 				2199737A2C3F61000015D1AF /* LetSwift-visionOS */,
 			);
@@ -823,6 +899,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21FF02722E9C7D2B00E44F61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -891,7 +974,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21FF02702E9C7D2B00E44F61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21FF027D2E9C7D2D00E44F61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
+			targetProxy = 21FF027C2E9C7D2D00E44F61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2199735E2C3F5F5D0015D1AF /* Debug */ = {
@@ -956,6 +1054,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1015,6 +1114,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1215,6 +1315,74 @@
 			};
 			name = Release;
 		};
+		21FF02802E9C7D2D00E44F61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = themePrimary;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2025.09;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		21FF02812E9C7D2D00E44F61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = themePrimary;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2025.09;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.jk.letswift.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1250,6 +1418,15 @@
 			buildConfigurations = (
 				2199738C2C3F61020015D1AF /* Debug */,
 				2199738D2C3F61020015D1AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21FF02822E9C7D2D00E44F61 /* Build configuration list for PBXNativeTarget "LetSwift-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21FF02802E9C7D2D00E44F61 /* Debug */,
+				21FF02812E9C7D2D00E44F61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
