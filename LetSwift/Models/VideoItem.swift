@@ -17,6 +17,10 @@ struct VideoItem: Decodable, Identifiable {
         videoID
     }
     
+    var hasReference: Bool {
+        !referenceLink.isEmpty
+    }
+    
     let title: String
     let speaker: String
     let timeLine: String
