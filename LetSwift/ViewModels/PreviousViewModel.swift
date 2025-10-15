@@ -9,10 +9,10 @@ import SwiftUI
 
 final class PreviousViewModel: ObservableObject {
   @Published var searchText: String = ""
-  @Published var videoData: Conference = Conference(year: 2023, items: [])
-  @Published var selectedYear: String = "2023"
+  @Published var videoData: Conference = Conference(year: 2024, items: [])
+  @Published var selectedYear: String = "2024"
   
-  var years = ["2023", "2022", "2019", "2018", "2017", "2016"]
+  var years = ["2024", "2023", "2022", "2019", "2018", "2017", "2016"]
   
   var filteredItems: [VideoItem] {
     if searchText.isEmpty {

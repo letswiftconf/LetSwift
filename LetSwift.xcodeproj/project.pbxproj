@@ -88,6 +88,9 @@
 		21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
+		B846C24D2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
+		B846C24E2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
+		B846C24F2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
 		C1C369302CE314C60027BDC2 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */; };
 		C1C3693F2CE3161A0027BDC2 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693E2CE3161A0027BDC2 /* Tab.swift */; };
 		C1C369412CE341420027BDC2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369402CE341420027BDC2 /* HomeViewModel.swift */; };
@@ -243,6 +246,7 @@
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
+		B846C24C2E9F84D7002B4B3F /* playlist-2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2024.json"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		C1C3693E2CE3161A0027BDC2 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -627,6 +631,7 @@
 		D22F97FC2CA47FF0007BF1C9 /* Previous */ = {
 			isa = PBXGroup;
 			children = (
+				B846C24C2E9F84D7002B4B3F /* playlist-2024.json */,
 				D22F97FD2CA48039007BF1C9 /* playlist-2016.json */,
 				D22F97FE2CA48039007BF1C9 /* playlist-2017.json */,
 				D22F97FF2CA48039007BF1C9 /* playlist-2018.json */,
@@ -855,6 +860,7 @@
 				21DC4ACD2D5AE26300880CD4 /* wonyoung.jpg in Resources */,
 				21DC4ACE2D5AE26300880CD4 /* jjy.png in Resources */,
 				21DC4ACF2D5AE26300880CD4 /* jm.jpg in Resources */,
+				B846C24E2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 				21DC4AD02D5AE26300880CD4 /* j.jpg in Resources */,
 				21DC4AD12D5AE26300880CD4 /* bummo.jpg in Resources */,
 				21DC4AD22D5AE26300880CD4 /* jinhee.jpg in Resources */,
@@ -883,6 +889,7 @@
 				D22F980F2CA48039007BF1C9 /* playlist-2022.json in Resources */,
 				D22F98102CA48039007BF1C9 /* playlist-2018.json in Resources */,
 				D22F98112CA48039007BF1C9 /* playlist-2017.json in Resources */,
+				B846C24D2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +906,7 @@
 				D22F98162CA48039007BF1C9 /* playlist-2022.json in Resources */,
 				D22F98172CA48039007BF1C9 /* playlist-2018.json in Resources */,
 				D22F98182CA48039007BF1C9 /* playlist-2017.json in Resources */,
+				B846C24F2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
