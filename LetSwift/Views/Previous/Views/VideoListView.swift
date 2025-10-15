@@ -22,12 +22,12 @@ struct VideoListView: View {
                         Button {
                             presentVideo(item)
                         } label: {
-                            VideoListItemView(item: item)
+                            VideoListItemView(item: item, presentURL: $presentURL)
                         }
                         .buttonStyle(PlainButtonStyle())
                     } else {
                         NavigationLink(destination: VideoPlayerView(videoID: item.videoID, selectedYear: selectedYear)) {
-                            VideoListItemView(item: item)
+                            VideoListItemView(item: item, presentURL: $presentURL)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -50,6 +50,7 @@ struct VideoListView: View {
 
 struct VideoListItemView: View {
     let item: VideoItem
+    @Binding var presentURL: URL?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -85,6 +86,17 @@ struct VideoListItemView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
+                        Spacer()
+                        if item.hasReference {
+                            Button {
+                                if let url = URL(string: item.referenceLink) {
+                                    presentURL = url
+                                }
+                            } label: {
+                                Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
+                                    .tint(.gray8)
+                            }
+                        }
                     }
                     Spacer()
                 }
