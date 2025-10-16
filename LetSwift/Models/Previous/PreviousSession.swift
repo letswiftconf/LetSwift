@@ -33,6 +33,9 @@ struct PreviousSession {
         return conferenceData
     }
     
+    /// Loads and combines all conferences from all available years.
+    /// Uses graceful error handling to ensure partial data can be loaded even if some years fail.
+    /// This is intentionally different from `conference(for:)` which uses fatalError for missing data.
     private func allConferences() -> Conference {
         var allItems: [VideoItem] = []
         
