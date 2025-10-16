@@ -102,7 +102,6 @@
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
 		D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */; };
 		D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F97F82CA47F27007BF1C9 /* PreviousView.swift */; };
-		D22F97FB2CA47FDA007BF1C9 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F97FA2CA47FD4007BF1C9 /* VideoItem.swift */; };
 		D22F98042CA48039007BF1C9 /* playlist-2023.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98032CA48039007BF1C9 /* playlist-2023.json */; };
 		D22F98052CA48039007BF1C9 /* playlist-2016.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FD2CA48039007BF1C9 /* playlist-2016.json */; };
 		D22F98062CA48039007BF1C9 /* playlist-2019.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98002CA48039007BF1C9 /* playlist-2019.json */; };
@@ -259,7 +258,6 @@
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+SampleData.swift"; sourceTree = "<group>"; };
 		D22F97F82CA47F27007BF1C9 /* PreviousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousView.swift; sourceTree = "<group>"; };
-		D22F97FA2CA47FD4007BF1C9 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
 		D22F97FD2CA48039007BF1C9 /* playlist-2016.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2016.json"; sourceTree = "<group>"; };
 		D22F97FE2CA48039007BF1C9 /* playlist-2017.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2017.json"; sourceTree = "<group>"; };
 		D22F97FF2CA48039007BF1C9 /* playlist-2018.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2018.json"; sourceTree = "<group>"; };
@@ -304,6 +302,7 @@
 		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
 		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
+		B846C2502EA10756002B4B3F /* Previous */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Previous; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,8 +567,8 @@
 		C1C3692E2CE314510027BDC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B846C2502EA10756002B4B3F /* Previous */,
 				D19F73EA2C80CD14009D0D9F /* Session */,
-				D22F97FA2CA47FD4007BF1C9 /* VideoItem.swift */,
 				C1C3693E2CE3161A0027BDC2 /* Tab.swift */,
 				C1C369442CE375730027BDC2 /* HomeLink.swift */,
 			);
@@ -694,6 +693,7 @@
 			fileSystemSynchronizedGroups = (
 				2199952F2E8E87A200F10254 /* Extensions */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
+				B846C2502EA10756002B4B3F /* Previous */,
 			);
 			name = LetSwift;
 			productName = LetSwift;
@@ -948,7 +948,6 @@
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
 				D22F98242CA48B77007BF1C9 /* SearchView.swift in Sources */,
-				D22F97FB2CA47FDA007BF1C9 /* VideoItem.swift in Sources */,
 				D22F981A2CA48912007BF1C9 /* PreviousViewModel.swift in Sources */,
 				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				D40ECFE12CA085BD00433E18 /* View+Extensions.swift in Sources */,

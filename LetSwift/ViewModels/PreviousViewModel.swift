@@ -9,10 +9,20 @@ import SwiftUI
 
 final class PreviousViewModel: ObservableObject {
   @Published var searchText: String = ""
-  @Published var videoData: Conference = Conference(year: 2024, items: [])
-  @Published var selectedYear: String = "2024"
+  @Published var videoData: Conference
+  @Published var selectedYear: String
   
-  var years = ["2024", "2023", "2022", "2019", "2018", "2017", "2016"]
+  private let sessionProvider = PreviousSession()
+  
+  var years: [String] {
+    sessionProvider.years
+  }
+  
+  init() {
+    let latestYear = sessionProvider.latestSession
+    self.selectedYear = latestYear
+    self.videoData = sessionProvider.conference(for: latestYear)
+  }
   
   var filteredItems: [VideoItem] {
     if searchText.isEmpty {
@@ -23,15 +33,7 @@ final class PreviousViewModel: ObservableObject {
   }
   
   func loadVideoData(for year: String) {
-    videoData = loadJSON(selectedYear: year)
-  }
-  
-  private func loadJSON(selectedYear: String) -> Conference {
-    guard let url = Bundle.main.url(forResource: "playlist-"+selectedYear, withExtension: "json"),
-          let data = try? Data(contentsOf: url),
-          let videoData = try? JSONDecoder().decode(Conference.self, from: data) else {
-      fatalError("Failed to load or parse JSON")
-    }
-    return videoData
+    videoData = sessionProvider.conference(for: year)
   }
 }
+
