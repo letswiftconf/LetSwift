@@ -22,11 +22,12 @@ struct PreviousView: View {
                 previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
               }
               .onChange(of: previousViewModel.selectedYear) { _, newYear in
+                previousViewModel.searchText = ""
                 previousViewModel.loadVideoData(for: newYear)
               }
               .searchable(text: $previousViewModel.searchText,
                           placement: .automatic,
-                          prompt: "세션 이름을 검색해보세요")
+                          prompt: "\(previousViewModel.selectedYear)년 세션 검색")
           }
       }
       
