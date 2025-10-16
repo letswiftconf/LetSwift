@@ -9,6 +9,7 @@ import Foundation
 
 struct PreviousSession {
     static let allYearsKey = "전체"
+    static let allYearsValue = -1
     private let sessions: [Int] = [2024, 2023, 2022, 2020, 2019, 2018, 2017, 2016]
 
     var years: [String] {
@@ -37,13 +38,24 @@ struct PreviousSession {
         
         for session in sessions {
             let yearString = String(session)
-            if let url = Bundle.main.url(forResource: "playlist-" + yearString, withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let conferenceData = try? JSONDecoder().decode(Conference.self, from: data) {
-                allItems.append(contentsOf: conferenceData.items)
+            guard let url = Bundle.main.url(forResource: "playlist-" + yearString, withExtension: "json") else {
+                print("Warning: Could not find playlist file for year \(yearString)")
+                continue
             }
+            
+            guard let data = try? Data(contentsOf: url) else {
+                print("Warning: Could not load data from playlist file for year \(yearString)")
+                continue
+            }
+            
+            guard let conferenceData = try? JSONDecoder().decode(Conference.self, from: data) else {
+                print("Warning: Could not decode playlist data for year \(yearString)")
+                continue
+            }
+            
+            allItems.append(contentsOf: conferenceData.items)
         }
         
-        return Conference(year: 0, items: allItems)
+        return Conference(year: PreviousSession.allYearsValue, items: allItems)
     }
 }
