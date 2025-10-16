@@ -28,7 +28,7 @@ final class PreviousViewModel: ObservableObject {
     if searchText.isEmpty {
       return videoData.items
     } else {
-      return videoData.items.filter { $0.title.contains(searchText) || $0.speaker.contains(searchText) }
+      return videoData.items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.speaker.localizedCaseInsensitiveContains(searchText) }
     }
   }
   
