@@ -15,27 +15,41 @@ struct YearKeywordsView: View {
     
     var body: some View {
         ScrollViewReader { proxy in
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(years, id: \.self) { year in
-                        if #available(iOS 26.0, *), colorScheme == .dark {
-                            items(year)
-                                .glassEffect()
-                        } else {
-                            items(year)
+            if #available(iOS 26, *) {
+                scrollContent
+                    .padding(.vertical, 8)
+                    .onChange(of: selectedYear) { oldValue, newValue in
+                        withAnimation {
+                            proxy.scrollTo(newValue, anchor: .center)
                         }
                     }
-                }
-                .padding(.horizontal, 10)
-            }
-            .padding(.leading, 5)
-            .padding(.bottom, 18)
-            .onChange(of: selectedYear) { oldValue, newValue in
-                withAnimation {
-                    proxy.scrollTo(newValue, anchor: .center)
-                }
+            } else {
+                scrollContent
+                    .padding(.bottom, 18)
+                    .onChange(of: selectedYear) { oldValue, newValue in
+                        withAnimation {
+                            proxy.scrollTo(newValue, anchor: .center)
+                        }
+                    }
             }
         }
+    }
+    
+    private var scrollContent: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(years, id: \.self) { year in
+                    if #available(iOS 26.0, *), colorScheme == .dark {
+                        items(year)
+                            .glassEffect()
+                    } else {
+                        items(year)
+                    }
+                }
+            }
+            .padding(.horizontal, 10)
+        }
+        .padding(.leading, 5)
     }
     
     @ViewBuilder
