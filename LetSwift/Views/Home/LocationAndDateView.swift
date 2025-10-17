@@ -66,7 +66,7 @@ struct LocationAndDateView: View {
     var mapBtn: some View {
         Button(action: onTapMapButton) {
             Text("지도")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.primary)
                 .font(.system(size: 14, weight: .medium))
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)
@@ -78,7 +78,7 @@ struct LocationAndDateView: View {
     var calendarBtn: some View {
         Button(action: onTapCalendarButton) {
             Text("캘린더 등록")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.primary)
                 .font(.system(size: 14, weight: .medium))
                 .frame(maxWidth: .infinity)
                 .frame(height: 38)

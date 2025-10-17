@@ -12,32 +12,34 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
-            Image("logo_2025_200")
-                .frame(height: 91)
-                .aspectRatio(contentMode: .fit)
-                .padding(.vertical, 80)
-            
-            VStack(spacing: 16) {
-                LocationAndDateView {
-                    Task {
-                        await open(viewModel.mapUrlScheme)
-                    }
-                } onTapCalendarButton: {
-                    viewModel.addEvent()
-                }
+        ScrollView {
+            VStack(spacing: 0) {
+                Image("logo_2025_200")
+                    .frame(height: 91)
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.vertical, 80)
                 
-                buttonStack
+                VStack(spacing: 16) {
+                    LocationAndDateView {
+                        Task {
+                            await open(viewModel.mapUrlScheme)
+                        }
+                    } onTapCalendarButton: {
+                        viewModel.addEvent()
+                    }
+                    
+                    buttonStack
+                }
+                .padding(.horizontal, 20)
+                Spacer()
             }
-            .padding(.horizontal, 20)
-            Spacer()
         }
         .background(Color(.systemGroupedBackground))
         .customAlert($viewModel.alert)
     }
     
     var buttonStack: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 8) {
             ForEach(viewModel.outlinks) { link in
                 LinkButton(title: link.title, icon: link.iconName) {
                     Task {
