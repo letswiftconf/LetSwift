@@ -16,6 +16,15 @@ struct MainView: View {
     let sessionViewModel: SessionViewModel = SessionViewModel()
     
     var body: some View {
+        if #available(iOS 26, *) {
+            mainContent
+                .tabBarMinimizeBehavior(.onScrollDown)
+        } else {
+            mainContent
+        }
+    }
+    
+    private var mainContent: some View {
         TabView(selection: $selectedTab) {
             ForEach(Tab.allCases, id: \.self) { tab in
                 createTabView(for: tab)
