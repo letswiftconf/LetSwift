@@ -1,5 +1,5 @@
 //
-//  Tab.swift
+//  TabItem.swift
 //  LetSwift
 //
 //  Created by duri on 11/12/24.
@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-enum Tab: CaseIterable {
+enum TabItem: CaseIterable {
     case home
     case session
     case previous
     case more
+    case search
     
     var icon: String {
         switch self {
@@ -24,6 +25,8 @@ enum Tab: CaseIterable {
             "play.circle.fill"
         case .more:
             "ellipsis"
+        case .search:
+            "magnifyingglass"
         }
     }
     
@@ -37,6 +40,12 @@ enum Tab: CaseIterable {
             "previous.title"
         case .more:
             "more.title"
+        case .search:
+            "search.title"
         }
+    }
+    
+    static var tabCases: [TabItem] {
+        [.home, .session, .previous, .more]
     }
 }

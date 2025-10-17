@@ -11,7 +11,7 @@ import StoreKit
 struct MainView: View {
     @Environment(\.requestReview) private var requestReview
     
-    @State var selectedTab: Tab = .home
+    @State var selectedTab: TabItem = .home
 
     let sessionViewModel: SessionViewModel = SessionViewModel()
     
@@ -21,13 +21,44 @@ struct MainView: View {
                 .tabBarMinimizeBehavior(.onScrollDown)
                 .tabViewStyle(.sidebarAdaptable)
         } else {
-            mainContent
+            mainContentPreiOS26
         }
     }
     
+    @available(iOS 26, *)
     private var mainContent: some View {
         TabView(selection: $selectedTab) {
-            ForEach(Tab.allCases, id: \.self) { tab in
+            ForEach(TabItem.tabCases, id: \.self) { item in
+                Tab(item.title, systemImage: item.icon, value: item) {
+                    switch item {
+                    case .home:
+                        HomeView()
+                    case .session:
+                        SessionView(viewModel: sessionViewModel)
+                    case .previous:
+                        PreviousView()
+                    case .more:
+                        MoreView()
+                    case .search:
+                        EmptyView()
+                    }
+                }
+            }
+            Tab(TabItem.search.title, systemImage: TabItem.search.icon, value: .search, role: .search) {
+                PreviousView()
+            }
+        }
+        .tint(.themePrimary)
+        .onAppear {
+#if !DEBUG
+            requestReview()
+#endif
+        }
+    }
+    
+    private var mainContentPreiOS26: some View {
+        TabView(selection: $selectedTab) {
+            ForEach(TabItem.allCases, id: \.self) { tab in
                 createTabView(for: tab)
                     .tabItem {
                         Label(tab.title, systemImage: tab.icon)
@@ -44,8 +75,8 @@ struct MainView: View {
     }
     
     @ViewBuilder
-    func createTabView(for tab: Tab) -> some View {
-        switch tab {
+    func createTabView(for item: TabItem) -> some View {
+        switch item {
         case .home:
             HomeView()
         case .session:
@@ -54,6 +85,8 @@ struct MainView: View {
             PreviousView()
         case .more:
             MoreView()
+        case .search:
+            EmptyView()
         }
     }
 }
