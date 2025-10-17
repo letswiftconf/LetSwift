@@ -47,7 +47,6 @@ struct PreviousView: View {
             SearchView(searchText: $previousViewModel.searchText)
             
             YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
-                .background(Color.red.opacity(0.25))
             
             VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
                 .onAppear {
