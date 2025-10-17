@@ -180,6 +180,9 @@
         }
       }
     },
+    "search.title" : {
+
+    },
     "settings.appIcon" : {
       "localizations" : {
         "en" : {
