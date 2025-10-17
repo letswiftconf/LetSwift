@@ -59,7 +59,7 @@ struct VideoListItemView: View {
             
             Spacer()
             
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 0) {
                 AsyncImage(url: URL(string: item.thumbnail)) { image in
                     image
                         .resizable()
@@ -68,23 +68,23 @@ struct VideoListItemView: View {
                     Color(.secondarySystemFill)
                 }
                 .frame(width: 110, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                 .padding(.leading, 18)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(item.title)
                         .font(.system(size: 15, weight: .semibold))
                         .padding(.vertical, 4)
                         .lineLimit(2)
-                    HStack {
+                    HStack(alignment: .firstTextBaseline, spacing: 04) {
                         Text(item.speaker)
-                            .font(.system(size: 15))
+                            .font(.system(size: 14, weight: .medium))
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
                             .padding(.trailing, 5)
                         Text(item.timeLine)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(.tertiary)
                             .lineLimit(1)
                         Spacer()
                         if item.hasReference {
@@ -94,7 +94,7 @@ struct VideoListItemView: View {
                                 }
                             } label: {
                                 Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
-                                    .tint(.gray8)
+                                    .tint(.secondary)
                             }
                         }
                     }
