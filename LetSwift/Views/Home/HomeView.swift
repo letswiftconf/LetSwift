@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct HomeView: View {
-    
+    @State private var presentURL: URL? = nil
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
@@ -36,18 +37,32 @@ struct HomeView: View {
         }
         .background(Color(.systemGroupedBackground))
         .customAlert($viewModel.alert)
+        .safariView(item: $presentURL) { item in
+            SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))
+                .preferredControlAccentColor(.themePrimary)
+                .dismissButtonStyle(.close)
+        }
     }
     
     var buttonStack: some View {
         HStack(spacing: 8) {
             ForEach(viewModel.outlinks) { link in
                 LinkButton(title: link.title, icon: link.iconName) {
-                    Task {
-                        await open(link.urlString)
-                    }
+//                    Task {
+//                        await open(link.urlString)
+//                    }
+                    present(url: link.url)
                 }
             }
         }
+    }
+    
+    // MARK: - Action
+    private func present(url: URL?) {
+        guard let url = url else {
+            return
+        }
+        presentURL = url
     }
     
     private func open(_ urlString: String) async -> Bool {
