@@ -40,4 +40,12 @@ enum HomeLink: Identifiable, CaseIterable {
         case .festa: return Constants.URL.festaURL
         }
     }
+    
+    var url: URL {
+        switch self {
+        case .newsletter: return URL.letswiftNewsletter
+        case .event: return URL.letswiftHome
+        case .festa: return URL.ticketaco2025
+        }
+    }
 }
