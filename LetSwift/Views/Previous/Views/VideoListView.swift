@@ -76,7 +76,7 @@ struct VideoListItemView: View {
                         .font(.system(size: 15, weight: .semibold))
                         .padding(.vertical, 4)
                         .lineLimit(2)
-                    HStack(alignment: .firstTextBaseline, spacing: 04) {
+                    HStack(alignment: .firstTextBaseline, spacing: 4) {
                         Text(item.speaker)
                             .font(.system(size: 14, weight: .medium))
                             .foregroundStyle(.secondary)
