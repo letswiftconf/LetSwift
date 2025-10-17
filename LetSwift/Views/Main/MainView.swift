@@ -19,6 +19,7 @@ struct MainView: View {
         if #available(iOS 26, *) {
             mainContent
                 .tabBarMinimizeBehavior(.onScrollDown)
+                .tabViewStyle(.sidebarAdaptable)
         } else {
             mainContent
         }

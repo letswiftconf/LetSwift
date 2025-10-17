@@ -21,9 +21,9 @@ enum Tab: CaseIterable {
         case .session:
             "music.microphone"
         case .previous:
-            "play.rectangle"
+            "play.circle.fill"
         case .more:
-            "link"
+            "ellipsis"
         }
     }
     
