@@ -14,8 +14,10 @@ struct AppIconView: View {
         List {
             Button {
                 UIApplication.shared.setAlternateIconName(nil) { error in
-                    if let _ = error {
-                        presentError = true
+                    Task { @MainActor in
+                        if let _ = error {
+                            presentError = true
+                        }
                     }
                 }
             } label: {
@@ -23,8 +25,10 @@ struct AppIconView: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon_Alt") { error in
-                    if let _ = error {
-                        presentError = true
+                    Task { @MainActor in
+                        if let _ = error {
+                            presentError = true
+                        }
                     }
                 }
             } label: {
@@ -32,8 +36,10 @@ struct AppIconView: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon_2025") { error in
-                    if let _ = error {
-                        presentError = true
+                    Task { @MainActor in
+                        if let _ = error {
+                            presentError = true
+                        }
                     }
                 }
             } label: {
