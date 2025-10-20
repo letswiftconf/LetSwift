@@ -39,7 +39,8 @@ extension SessionRowViewModel {
         savedSessions = savedSessions.symmetricDifference([session.identifier])
         UserDefaultsManager.savedSessions = savedSessions
     }
-    
+
+    @MainActor
     func onToggleAlarm() async {
         if !session.isAlarmed && Date.now >= session.endTime {
             self.alert = CustomAlert.sessionAlreadyPassed
