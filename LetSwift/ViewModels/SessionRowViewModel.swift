@@ -58,7 +58,7 @@ extension SessionRowViewModel {
         
         if alarmedSessions.contains(session.identifier) {
             alarmedSessions.remove(session.identifier)
-            NotificationManager.shared.removeNotification(identifiers: session.alarmNotificationIdentifiers)
+            await NotificationManager.shared.removeNotification(identifiers: session.alarmNotificationIdentifiers)
         } else {
             alarmedSessions.insert(session.identifier)
             try? await NotificationManager.shared.registerNotification(NotificationRequest(type: .begin, sessionModel: session))
