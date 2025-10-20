@@ -19,8 +19,10 @@ extension CustomAlert {
         CustomAlert(
             message: "세션 알림을 예약하려면 알림 권한이 필요해요. 권한을 확인해 주세요.",
             primaryButton: CustomAlert.AlertButton(text: "확인", action: {
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+                Task { @MainActor in
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
                 }
             })
         )
