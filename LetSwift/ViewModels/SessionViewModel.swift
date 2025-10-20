@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UserNotifications
 
+@MainActor
 @Observable
 final class SessionViewModel {
     
@@ -49,32 +50,49 @@ final class SessionViewModel {
 }
 
 extension SessionViewModel {
-    func fetchSessions() async throws -> [Session] {
-//        guard let url = URL(string: Constant.sessionURL) else {
-//            throw NSError()
-//        }
-//        let (data, response) = try await URLSession.shared.data(from: url)
-//        if let httpResponse = response as? HTTPURLResponse,
-//           (200...299) ~= httpResponse.statusCode {
-//            return try jsonDecoder.decode([Session].self, from: data)
-//        } else {
-//            throw NSError()
-//        }
+    func initialize() {
+        // Ensure loading state reflects actual async work duration.
+        isLoading = true
+        Task {
+            let result = await fetchSessions()
+            switch result {
+            case .success(let sessions):
+                update(sessions: sessions)
+            case .failure:
+                // Optionally handle error state here (e.g., set an alert)
+                break
+            }
+            isLoading = false
+        }
+    }
+    
+    func fetchSessions() async -> Result<[Session], Error> {
+
+        //        guard let url = URL(string: Constant.sessionURL) else {
+        //            throw NSError()
+        //        }
+        //        let (data, response) = try await URLSession.shared.data(from: url)
+        //        if let httpResponse = response as? HTTPURLResponse,
+        //           (200...299) ~= httpResponse.statusCode {
+        //            return try jsonDecoder.decode([Session].self, from: data)
+        //        } else {
+        //            throw NSError()
+        //        }
         
         guard let url = Bundle.main.url(forResource: "Schedule", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
-            throw NSError()
+            return .failure(NSError())
         }
         
         do {
             let scheduleData = try jsonDecoder.decode([Session].self, from: data)
-            return scheduleData
+            return .success(scheduleData)
         } catch {
-            throw error
+            return .failure(error)
         }
     }
     
-    func update(sessions: [Session]) {
+    private func update(sessions: [Session]) {
         let sessionModels = sessions.map { SessionModel(from: $0) }
         let savedSessionIds: Set<String> = UserDefaultsManager.savedSessions
         let alarmedSessionids: Set<String> = UserDefaultsManager.alarmedSessions
@@ -93,18 +111,13 @@ extension SessionViewModel {
         
         self.sessionRowViewModels = sessionModels.map { SessionRowViewModel(session: $0) }
     }
-    
-    func update(isLoading: Bool) {
-        self.isLoading = isLoading
-    }
-    
+
     func update(currentTab: SessionTab) {
         self.currentTab = currentTab
     }
 }
 
 private extension SessionViewModel {
-
     enum Constant {
         static let sessionURL: String = "https://api.bummo.dev/letswift2024/schedule"
         static let serverTimeFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
