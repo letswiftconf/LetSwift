@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PreviousView: View {
-    @StateObject private var previousViewModel = PreviousViewModel()
-    
+    @State private var previousViewModel = PreviousViewModel()
+
     var body: some View {
         NavigationStack {
             if #available(iOS 26, *) {
@@ -18,8 +18,12 @@ struct PreviousView: View {
                 mainContentPreiOS26
             }
         }
+        // Ensure initial async setup happens once when the view appears
+        .onAppear {
+            previousViewModel.fetchInitialData()
+        }
     }
-    
+
     @available(iOS 26, *)
     private var mainContent: some View {
         ScrollView {
@@ -41,13 +45,13 @@ struct PreviousView: View {
         .navigationTitle("previous.title")
         .toolbarTitleDisplayMode(.inline)
     }
-    
+
     private var mainContentPreiOS26: some View {
         VStack(spacing: 0) {
             SearchView(searchText: $previousViewModel.searchText)
-            
+
             YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
-            
+
             VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
                 .onAppear {
                     previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
@@ -55,9 +59,9 @@ struct PreviousView: View {
                 .onChange(of: previousViewModel.selectedYear) { _, newYear in
                     previousViewModel.loadVideoData(for: newYear)
                 }
-//                .searchable(text: $previousViewModel.searchText,
-//                            placement: .automatic,
-//                            prompt: "세션 이름을 검색해보세요")
+            //                .searchable(text: $previousViewModel.searchText,
+            //                            placement: .automatic,
+            //                            prompt: "세션 이름을 검색해보세요")
         }
     }
 }
@@ -70,3 +74,4 @@ struct PreviousView: View {
         }
     }
 }
+
