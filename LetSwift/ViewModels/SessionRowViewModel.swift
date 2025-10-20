@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 @Observable
 final class SessionRowViewModel {
     private(set) var session: SessionModel
@@ -40,7 +41,6 @@ extension SessionRowViewModel {
         UserDefaultsManager.savedSessions = savedSessions
     }
 
-    @MainActor
     func onToggleAlarm() async {
         if !session.isAlarmed && Date.now >= session.endTime {
             self.alert = CustomAlert.sessionAlreadyPassed
