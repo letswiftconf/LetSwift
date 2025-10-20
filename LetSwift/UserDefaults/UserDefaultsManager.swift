@@ -12,6 +12,7 @@ enum UserDefaultsKey: String {
     case alarmedSessions
 }
 
+@MainActor
 struct UserDefaultsManager {
     @UserDefaultsWrapper(key: .savedSessions, defaultValue: Set<String>())
     static var savedSessions: Set<String>
