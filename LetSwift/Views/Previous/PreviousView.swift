@@ -38,6 +38,7 @@ struct PreviousView: View {
                                 prompt: "세션 이름을 검색해보세요")
             }
         }
+        .background(.background1)
         .navigationTitle("previous.title")
         .toolbarTitleDisplayMode(.inline)
     }
