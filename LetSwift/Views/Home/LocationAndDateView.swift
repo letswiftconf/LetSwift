@@ -7,87 +7,120 @@
 
 import SwiftUI
 
-/// 장소&일시
 struct LocationAndDateView: View {
-    
-    var onTapMapButton: () -> Void
-    var onTapCalendarButton: () -> Void
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            locationTitle
-            dateTitle
-            HStack(spacing: 14) {
-                mapBtn
-                calendarBtn
-            }
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 18)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+  var onTapMapButton: () -> Void
+  var onTapCalendarButton: () -> Void
+
+  var body: some View {
+    VStack(spacing: 0) {
+      HStack(spacing: 0) {
+        locationTitle
+        mapButton
+      }
+
+      Divider()
+        .frame(height: 1)
+        .overlay(.black)
+        .padding(.leading, 40)
+
+      HStack(spacing: 0) {
+        dateTitle
+        calendarButton
+      }
     }
-    
-    var locationTitle: some View {
-        HStack(spacing: 0) {
-            Image(systemName: "mappin.and.ellipse")
-                .foregroundStyle(.secondary)
-                .padding(.trailing, 8)
-            Text("home.location")
-                .foregroundStyle(.secondary)
-                .font(.system(size: 14))
-                .padding(.trailing, 18)
-            Text("세종대학교 광개토회관")
-                .font(.system(size: 14))
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.bottom, 6)
+    .padding(.horizontal, 20)
+    .padding(.vertical, 12)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(Color(._272727))
+    .clipShape(RoundedRectangle(cornerRadius: 32, style: .circular))
+  }
+}
+
+// MARK: - Subviews
+extension LocationAndDateView {
+  // MARK: Location
+  private var locationTitle: some View {
+    HStack(spacing: 0) {
+      iconView(systemName: "location.fill")
+        .padding(.trailing, 16)
+
+      VStack(alignment: .leading, spacing: 0) {
+        Text("home.location")
+          .foregroundStyle(.background5)
+          .font(.system(size: 17, weight: .regular))
+
+        Text("서울 광진구 능동로 209")
+          .font(.system(size: 15, weight: .regular))
+          .foregroundStyle(.background4)
+      }
+      .padding(.vertical, 9)
     }
-    
-    var dateTitle: some View {
-        HStack(spacing: 0) {
-            Image(systemName: "calendar")
-                .foregroundStyle(.secondary)
-                .padding(.trailing, 8)
-            Text("home.date")
-                .foregroundStyle(.secondary)
-                .font(.system(size: 14))
-                .padding(.trailing, 18)
-            Text("2024년 11월 25일\n11:00 ~ 18:00")
-                .font(.system(size: 14))
-                .lineSpacing(3)
-                .offset(y: 9)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.bottom, 24)
+    .frame(maxWidth: .infinity, alignment: .leading)
+  }
+
+  // MARK: Date
+  private var dateTitle: some View {
+    HStack(spacing: 0) {
+      iconView(systemName: "calendar")
+        .padding(.trailing, 16)
+
+      VStack(alignment: .leading, spacing: 0) {
+        Text("home.date")
+          .foregroundStyle(.background5)
+          .font(.system(size: 17, weight: .regular))
+
+        Text("2025.11.24. 10:00 ~")
+          .font(.system(size: 15, weight: .regular))
+          .foregroundStyle(.background4)
+          .lineSpacing(3)
+      }
+      .padding(.vertical, 9)
     }
-    
-    var mapBtn: some View {
-        Button(action: onTapMapButton) {
-            Text("지도")
-                .foregroundStyle(.primary)
-                .font(.system(size: 14, weight: .medium))
-                .frame(maxWidth: .infinity)
-                .frame(height: 38)
-        }
-        .background(Color(.tertiarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+    .frame(maxWidth: .infinity, alignment: .leading)
+  }
+
+  // MARK: Buttons
+  private var mapButton: some View {
+    actionButton(
+      title: "지도에서 보기",
+      action: onTapMapButton
+    )
+  }
+
+  private var calendarButton: some View {
+    actionButton(
+      title: "캘린더 추가",
+      action: onTapCalendarButton
+    )
+  }
+
+  private func iconView(systemName: String) -> some View {
+    Text(Image(systemName: systemName))
+      .font(.system(size: 14.5, weight: .semibold))
+      .foregroundStyle(.F_14_D_35)
+      .padding(6)
+      .background {
+        Circle().foregroundStyle(.FFECE_5)
+      }
+  }
+
+  private func actionButton(title: String, action: @escaping () -> Void) -> some View {
+    Button(action: action) {
+      HStack(spacing: 16) {
+        Text(title)
+          .foregroundStyle(.F_14_D_35)
+          .font(.system(size: 17, weight: .regular))
+          .frame(height: 38)
+
+        Text(Image(systemName: "chevron.right"))
+          .font(.system(size: 17, weight: .semibold))
+          .foregroundStyle(.white)
+      }
+      .padding(.vertical, 22.5)
     }
-    
-    var calendarBtn: some View {
-        Button(action: onTapCalendarButton) {
-            Text("캘린더 등록")
-                .foregroundStyle(.primary)
-                .font(.system(size: 14, weight: .medium))
-                .frame(maxWidth: .infinity)
-                .frame(height: 38)
-        }
-        .background(Color(.tertiarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-    }
+  }
 }
 
 #Preview {
-    LocationAndDateView(onTapMapButton: {}, onTapCalendarButton: {})
+  LocationAndDateView(onTapMapButton: {}, onTapCalendarButton: {})
 }

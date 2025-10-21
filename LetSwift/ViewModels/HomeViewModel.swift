@@ -22,7 +22,7 @@ final class HomeViewModel: ObservableObject {
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
         dateFormatter.dateFormat = "yyyy년 MM월 dd일 a hh시"
 
-        let dateString = "2024년 11월 25일 오전 11시"
+        let dateString = "2025년 11월 24일 오전 10시"
         if let date = dateFormatter.date(from: dateString) {
             return date
         }
@@ -36,7 +36,7 @@ final class HomeViewModel: ObservableObject {
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
         dateFormatter.dateFormat = "yyyy년 MM월 dd일 a hh시"
 
-        let dateString = "2024년 11월 25일 오후 6시"
+        let dateString = "2025년 11월 24일 오후 4시"
         if let date = dateFormatter.date(from: dateString) {
             return date
         }
@@ -61,11 +61,11 @@ final class HomeViewModel: ObservableObject {
             
             let event = EKEvent(eventStore: store)
             event.calendar = store.defaultCalendarForNewEvents
-            event.title = "Let'Swift 2024"
+            event.title = "Let'Swift 2025"
             event.startDate = startDate
             event.endDate = endDate
             event.timeZone = TimeZone(identifier: "Asia/Seoul")
-            event.location = "서울 광진구 능동로 209 세종대학교 광개토관"
+            event.location = "서울 광진구 능동로 209"
 
             /// 2. 캘린더 저장
             do {

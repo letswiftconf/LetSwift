@@ -27,9 +27,9 @@ enum HomeLink: Identifiable, CaseIterable {
     
     var iconName: String {
         switch(self) {
-        case .newsletter: return "ic_newsletter"
-        case .event: return "ic_homepage"
-        case .festa: return "ic_festa"
+        case .newsletter: return "envelope.open.fill"
+        case .event: return "display"
+        case .festa: return "ticket.fill"
         }
     }
     
