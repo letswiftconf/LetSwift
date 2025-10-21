@@ -40,10 +40,10 @@ struct YearKeywordsView: View {
             HStack(spacing: 10) {
                 ForEach(years, id: \.self) { year in
                     if #available(iOS 26.0, *), colorScheme == .dark {
-                        items(year)
+                        yearItem(year)
                             .glassEffect()
                     } else {
-                        items(year)
+                        yearItem(year)
                     }
                 }
             }
@@ -53,21 +53,22 @@ struct YearKeywordsView: View {
     }
     
     @ViewBuilder
-    func items(_ year: String) -> some View {
+    func yearItem(_ year: String) -> some View {
         Text(year)
-            .padding(.horizontal, 13)
-            .padding(.vertical, 6)
-            .background(selectedYear == year ? .themePrimary.opacity(0.2) : Color(.secondarySystemBackground))
-            .overlay(
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(
-                        selectedYear == year ? .themePrimary : .clear,
-                        lineWidth: 1
+            .frame(width: 66, height: 28)
+            .background(
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(selectedYear == year ? Color(.fillRed) : Color(.background3))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .stroke(
+                                selectedYear == year ? .themePrimary : .clear,
+                                lineWidth: 1
+                            )
                     )
             )
-            .foregroundStyle(selectedYear == year ? .themePrimary : .secondary)
+            .foregroundStyle(selectedYear == year ? .accentRed : .white)
             .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
-            .cornerRadius(30)
             .onTapGesture {
                 selectedYear = year
             }
