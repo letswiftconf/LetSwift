@@ -58,7 +58,7 @@ struct YearKeywordsView: View {
             .frame(width: 66, height: 28)
             .background(
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(selectedYear == year ? Color(.fillRed) : Color(.background3))
+                    .fill(selectedYear == year ? Color(.themeSecondary) : Color(.background3))
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
                             .stroke(
@@ -67,7 +67,7 @@ struct YearKeywordsView: View {
                             )
                     )
             )
-            .foregroundStyle(selectedYear == year ? .accentRed : .white)
+            .foregroundStyle(selectedYear == year ? .themePrimary : .white)
             .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
             .onTapGesture {
                 selectedYear = year
