@@ -20,12 +20,12 @@ extension NotificationRequest {
         switch type {
         case .begin:
             self.identifier = sessionModel.alarmBeginNotificationIdentifier
-            self.body = "📣 \(sessionModel.name) \(sessionModel.speakerNames) 곧 시작됩니다! 원활한 진행을 위해 자리에 착석해 주세요."
+            self.body = "📣 \(sessionModel.title) \(sessionModel.speakerNames) 곧 시작됩니다! 원활한 진행을 위해 자리에 착석해 주세요."
             self.sendDate = sessionModel.startTime.addingTimeInterval(-10 * 60)
             self.clickType = nil
         case .end:
             self.identifier = sessionModel.alarmEndNotificationIdentifier
-            self.body = "💌 \(sessionModel.name) \(sessionModel.speakerNames) 어떠셨나요? 세션에 대한 소중한 의견을 설문을 남겨주세요."
+            self.body = "💌 \(sessionModel.title) \(sessionModel.speakerNames) 어떠셨나요? 세션에 대한 소중한 의견을 설문을 남겨주세요."
             self.sendDate = sessionModel.endTime
             self.clickType = .openUrl(url: Constants.URL.sessionServeyURL)
         }

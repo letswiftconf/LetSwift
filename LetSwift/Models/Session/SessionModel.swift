@@ -9,11 +9,10 @@ import Foundation
 
 @Observable class SessionModel {
     let identifier: String
-    let name: String
+    let title: String
     let speakerNames: String
     let speaker: [Session.Speaker]
     let track: String
-    let trackEn: String
     let startTime: Date
     let endTime: Date
     
@@ -21,12 +20,11 @@ import Foundation
     var isAlarmed: Bool = false
     
     init(from session: Session) {
-        self.identifier = session.id
-        self.name = session.name
+        self.identifier = "\(session.id)"
+        self.title = session.title
         self.speaker = session.speakers
         self.speakerNames = session.speakerNames
         self.track = session.track
-        self.trackEn = session.trackEn
         self.startTime = session.startTime
         self.endTime = session.endTime
     }

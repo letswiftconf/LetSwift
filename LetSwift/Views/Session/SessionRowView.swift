@@ -30,17 +30,11 @@ struct SessionRowView: View {
             .padding(.leading, 29)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(LocalizedStringKey(viewModel.session.name))
+                Text(LocalizedStringKey(viewModel.session.title))
                     .font(.system(size: 15, weight: .medium))
                 HStack {
-                    
                     ForEach(viewModel.session.speaker) { speaker in
-//                        SessionSpeakerView(name: speaker.officialName, imageUrl: speaker.imageUrl)
-                        SessionSpeakerView(name: speaker.officialName, imageUrl: speaker.imageName)
-                            .onTapGesture {
-                                // TODO: 스피커 정보 얼럿
-                            }
-                        
+                        SessionSpeakerView(name: speaker.name, imageUrl: speaker.profileImage)
                     }
                     
                     if viewModel.session.speaker.count > 0 {

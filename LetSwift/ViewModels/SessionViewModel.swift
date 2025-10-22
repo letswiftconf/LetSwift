@@ -12,13 +12,12 @@ import UserNotifications
 @MainActor
 @Observable
 final class SessionViewModel {
-    
     var filteredSessions: [SessionRowViewModel] {
         switch currentTab {
         case .trackA:
-            return sessionRowViewModels.filter { $0.session.trackEn == "Track A" }
+            return sessionRowViewModels.filter { $0.session.track == "A" }
         case .trackB:
-            return sessionRowViewModels.filter { $0.session.trackEn == "Track B" }
+            return sessionRowViewModels.filter { $0.session.track == "B" }
         case .savedSession:
             return sessionRowViewModels.filter { $0.session.isSaved }
         }
