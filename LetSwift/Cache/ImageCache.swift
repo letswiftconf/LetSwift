@@ -8,17 +8,22 @@
 import SwiftUI
 import UIKit
 
-final class ImageCache {
-    static let shared = NSCache<NSURL, UIImage>()
-    
-    private init() {
-        ImageCache.shared.countLimit = 100
-        ImageCache.shared.totalCostLimit = 50 * 1024 * 1024
-    }
-}
+actor ImageCache {
+    static let shared = ImageCache()
+    private let cache: NSCache<NSURL, UIImage>
 
-extension ImageCache {
-    static func insert(_ image: UIImage, for url: URL) {
+    private init() {
+        let cache = NSCache<NSURL, UIImage>()
+        cache.countLimit = 100
+        cache.totalCostLimit = 50 * 1024 * 1024
+        self.cache = cache
+    }
+
+    func image(for url: URL) -> UIImage? {
+        cache.object(forKey: url as NSURL)
+    }
+
+    func insert(_ image: UIImage, for url: URL) {
         let cost: Int
         if let data = image.pngData() {
             cost = data.count
@@ -27,6 +32,13 @@ extension ImageCache {
         } else {
             cost = 0
         }
-        shared.setObject(image, forKey: url as NSURL, cost: cost)
+        cache.setObject(image, forKey: url as NSURL, cost: cost)
+    }
+}
+
+extension ImageCache {
+    @MainActor
+    static func insert(_ image: UIImage, for url: URL) async {
+        await ImageCache.shared.insert(image, for: url)
     }
 }

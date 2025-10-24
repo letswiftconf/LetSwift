@@ -35,38 +35,38 @@ struct CachedImage<Content: View, Placeholder: View>: View {
                 placeholder()
             }
         }
-        .onAppear {
-            loadFromCache()
-            if cachedImage == nil && !isLoading {
-                Task { await loadOrFetch() }
-            }
+        .task {
+            await loadOrFetch()
         }
     }
 
-    private func loadFromCache() {
-        if let cached = ImageCache.shared.object(forKey: url as NSURL) {
-            cachedImage = cached
+    private func loadFromCache() async {
+        let cached = await ImageCache.shared.image(for: url)
+        await MainActor.run {
+            if let cached { self.cachedImage = cached; print(cached) }
         }
     }
 
     @MainActor
     private func setImageAndCache(_ image: UIImage, dataSize: Int) {
-        ImageCache.insert(image, for: url)
-        cachedImage = image
+        Task {
+            await ImageCache.insert(image, for: url)
+            cachedImage = image
+        }
     }
 
     private func loadOrFetch() async {
+        await loadFromCache()
         if cachedImage != nil { return }
+        
         await MainActor.run { isLoading = true }
         defer { Task { await MainActor.run { isLoading = false } } }
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let uiImage = UIImage(data: data) {
-                await MainActor.run {
-                    setImageAndCache(uiImage, dataSize: data.count)
-                }
+                setImageAndCache(uiImage, dataSize: data.count)
             }
-        } catch { }
+        } catch {}
     }
 }
