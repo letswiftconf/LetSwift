@@ -56,21 +56,11 @@ struct SessionRowView: View {
                     Image(systemName: viewModel.bookmarkImageString)
                         .tint(viewModel.session.isSaved ? .themePrimary : .secondary)
                 }
-                
-                Button(action: {
-                    Task {
-                        await viewModel.onToggleAlarm()
-                    }
-                }) {
-                    Image(systemName: viewModel.alarmImageString)
-                        .tint(viewModel.session.isAlarmed ? .themePrimary : .secondary)
-                }
             }
             .frame(width: 24, height: 24)
             .padding(.trailing, 16)
         }
         .frame(height: 120)
-        .customAlert($viewModel.alert)
     }
 
     private func formatTimeRange(start: Date, end: Date) -> String {

@@ -62,17 +62,11 @@ extension SessionViewModel {
     private func update(sessions: [Session]) {
         let sessionModels = sessions.map { SessionModel(from: $0) }
         let savedSessionIds: Set<String> = UserDefaultsManager.savedSessions
-        let alarmedSessionids: Set<String> = UserDefaultsManager.alarmedSessions
         
         for (index, _) in sessionModels.enumerated() {
             // 저장한 세션 정보 반영
             if savedSessionIds.contains(sessionModels[index].identifier) {
                 sessionModels[index].isSaved = true
-            }
-            
-            // 알림 설정한 세션 정보 반영
-            if alarmedSessionids.contains(sessionModels[index].identifier) {
-                sessionModels[index].isAlarmed = true
             }
         }
         
