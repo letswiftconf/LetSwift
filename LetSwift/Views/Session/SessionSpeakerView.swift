@@ -13,12 +13,18 @@ struct SessionSpeakerView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: imageUrl)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-            } placeholder: {
-                Color.gray
+            Group {
+                if let url = URL(string: imageUrl) {
+                    CachedImage(url: url, content: { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    }, placeholder: {
+                        placeholder
+                    })
+                } else {
+                    placeholder
+                }
             }
             .frame(width: 24, height: 24)
             .cornerRadius(4)
@@ -26,6 +32,10 @@ struct SessionSpeakerView: View {
             Text(LocalizedStringKey(name))
                 .font(.system(size: 10))
         }
+    }
+    
+    private var placeholder: some View {
+        Color.gray9
     }
 }
 
