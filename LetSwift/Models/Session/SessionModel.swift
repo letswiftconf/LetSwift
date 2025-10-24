@@ -11,7 +11,7 @@ import Foundation
     let identifier: String
     let title: String
     let speakerNames: String
-    let speaker: [Session.Speaker]
+    let speakers: [Session.Speaker]
     let track: String
     let startTime: Date
     let endTime: Date
@@ -22,7 +22,7 @@ import Foundation
     init(from session: Session) {
         self.identifier = "\(session.id)"
         self.title = session.title
-        self.speaker = session.speakers
+        self.speakers = session.speakers
         self.speakerNames = session.speakerNames
         self.track = session.track
         self.startTime = session.startTime

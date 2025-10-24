@@ -13,7 +13,7 @@ struct MainView: View {
     
     @State var selectedTab: TabItem = .home
 
-    let sessionViewModel: SessionViewModel = SessionViewModel()
+    @State private var sessionViewModel: SessionViewModel = SessionViewModel()
     
     var body: some View {
         if #available(iOS 26, *) {
@@ -34,7 +34,8 @@ struct MainView: View {
                     case .home:
                         HomeView()
                     case .session:
-                        SessionView(viewModel: sessionViewModel)
+                        SessionView()
+                            .environment(sessionViewModel)
                     case .previous:
                         PreviousView()
                     case .more:
@@ -80,7 +81,8 @@ struct MainView: View {
         case .home:
             HomeView()
         case .session:
-            SessionView(viewModel: sessionViewModel)
+            SessionView()
+                .environment(sessionViewModel)
         case .previous:
             PreviousView()
         case .more:
