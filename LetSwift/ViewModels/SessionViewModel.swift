@@ -27,6 +27,7 @@ final class SessionViewModel {
         self.currentTab = .trackA
         self.isLoading = false
         self.sessionRowViewModels = []
+        load()
     }
     
     private(set) var currentTab: SessionTab
@@ -49,45 +50,12 @@ final class SessionViewModel {
 }
 
 extension SessionViewModel {
-    func initialize() {
-        // Ensure loading state reflects actual async work duration.
+    func load() {
         isLoading = true
         Task {
-            let result = await fetchSessions()
-            switch result {
-            case .success(let sessions):
-                update(sessions: sessions)
-            case .failure:
-                // Optionally handle error state here (e.g., set an alert)
-                break
-            }
+            let sessions = await loadSessions()
+            update(sessions: sessions)
             isLoading = false
-        }
-    }
-    
-    func fetchSessions() async -> Result<[Session], Error> {
-
-        //        guard let url = URL(string: Constant.sessionURL) else {
-        //            throw NSError()
-        //        }
-        //        let (data, response) = try await URLSession.shared.data(from: url)
-        //        if let httpResponse = response as? HTTPURLResponse,
-        //           (200...299) ~= httpResponse.statusCode {
-        //            return try jsonDecoder.decode([Session].self, from: data)
-        //        } else {
-        //            throw NSError()
-        //        }
-        
-        guard let url = Bundle.main.url(forResource: "Schedule", withExtension: "json"),
-              let data = try? Data(contentsOf: url) else {
-            return .failure(NSError())
-        }
-        
-        do {
-            let scheduleData = try jsonDecoder.decode([Session].self, from: data)
-            return .success(scheduleData)
-        } catch {
-            return .failure(error)
         }
     }
     
@@ -118,7 +86,36 @@ extension SessionViewModel {
 
 private extension SessionViewModel {
     enum Constant {
-        static let sessionURL: String = "https://api.bummo.dev/letswift2024/schedule"
+        static let sessionURL: String = "http://223.130.133.110:8080/presentations"
         static let serverTimeFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
+    }
+}
+
+extension SessionViewModel {
+    private func loadSessions() async -> [Session] {
+        do {
+            let fetched = try await fetchSessions()
+            UserDefaultsManager.sessions = fetched
+            return fetched
+        } catch {
+            let cached = UserDefaultsManager.sessions
+            return cached
+        }
+    }
+    
+    private func fetchSessions() async throws -> [Session] {
+        guard let url = URL(string: Constant.sessionURL) else {
+            throw URLError(.badURL)
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        if let httpResponse = response as? HTTPURLResponse,
+           (200...299) ~= httpResponse.statusCode {
+            let decoded = try jsonDecoder.decode([Session].self, from: data)
+            return decoded
+        } else {
+            throw NSError()
+        }
     }
 }
