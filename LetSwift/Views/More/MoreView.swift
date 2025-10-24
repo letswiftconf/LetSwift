@@ -49,6 +49,12 @@ struct MoreView: View {
                 ListItem(title: "settings.linkNewsletter", style: .externalLink)
             }
             .buttonStyle(.plain)
+            Button {
+                present(url: URL.letswiftReview)
+            } label: {
+                ListItem(title: "settings.conferenceReview", style: .externalLink)
+            }
+            .buttonStyle(.plain)
         } header: {
             Text("settings.section.letswift")
         }

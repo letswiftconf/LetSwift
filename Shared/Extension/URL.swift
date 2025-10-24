@@ -10,6 +10,7 @@ import Foundation
 extension URL {
     static let letswiftHome = URL(string: "https://letswift.kr")!
     static let letswiftNewsletter = URL(string: "https://page.stibee.com/subscriptions/58654")!
+    static let letswiftReview = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeovrMzEaRbLqCR4IG7mkZQgHnrZ3OouXRzaRUsDclw6KqJvg/viewform?usp=sharing&ouid=117915791514720320713")!
     static let githubAppRepository = URL(string: "https://github.com/letswiftconf/LetSwift")!
     static let githubWebRepository = URL(string: "https://github.com/letswiftconf/letswift.kr")!
     static let githubNewsletterRepository = URL(string: "https://github.com/letswiftconf/newsletter")!
