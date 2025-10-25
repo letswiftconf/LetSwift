@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import UserNotifications
+@preconcurrency import UserNotifications
 import UIKit
 
-final class NotificationManager: NSObject {
+actor NotificationManager: NSObject {
     static let shared = NotificationManager()
     
     func setDelegate() {
@@ -25,8 +25,10 @@ final class NotificationManager: NSObject {
         let content = UNMutableNotificationContent()
         content.body = notificationRequest.body
         
-        if let userInfo = notificationRequest.userInfo {
-            content.userInfo = userInfo
+        if let clickType = notificationRequest.clickType {
+            content.userInfo = [
+                Constants.Notification.clickTypeUserInfoKey: clickType.dictionary
+            ]
         }
         
         let trigger = UNCalendarNotificationTrigger(
@@ -56,23 +58,26 @@ final class NotificationManager: NSObject {
 // MARK: - UNUserNotificationCenterDelegate
 extension NotificationManager: UNUserNotificationCenterDelegate {
     // For Foreground Notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+    nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         return [.list, .banner, .sound, .badge]
     }
     
-    @MainActor
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+    nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
         
         if let clickType = userInfo[Constants.Notification.clickTypeUserInfoKey] as? [String: Any],
-            let jsonData = try? JSONSerialization.data(withJSONObject: clickType),
-            let notificationType = try? JSONDecoder().decode(NotificationClickType.self, from: jsonData) {
+           let jsonData = try? JSONSerialization.data(withJSONObject: clickType),
+           let notificationType = try? JSONDecoder().decode(NotificationClickType.self, from: jsonData) {
             switch notificationType {
-            case .none: break
+            case .none:
+                break
             case .openUrl(let urlString):
                 guard let url = URL(string: urlString) else { return }
-                await UIApplication.shared.open(url)
+                await MainActor.run {
+                    UIApplication.shared.open(url)
+                }
             }
         }
     }
 }
+

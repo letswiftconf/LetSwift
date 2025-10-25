@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SessionView: View {
-
     @Bindable private var viewModel: SessionViewModel
     
     init(viewModel: SessionViewModel) {
@@ -21,10 +20,7 @@ struct SessionView: View {
             sessionList
         }
         .task {
-            defer { viewModel.update(isLoading: false) }
-            viewModel.update(isLoading: true)
-            guard let sessions = try? await viewModel.fetchSessions() else { return }
-            viewModel.update(sessions: sessions)
+            viewModel.initialize()
         }
     }
     

@@ -26,8 +26,10 @@ extension CustomAlert {
         CustomAlert(
             message: "행사 일정 등록을 위해 캘린더 권한을 확인해 주세요.",
             primaryButton: CustomAlert.AlertButton(text: "확인", action: {
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+                Task { @MainActor in
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
                 }
             })
         )

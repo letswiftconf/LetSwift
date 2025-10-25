@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NotificationClickType: Hashable, Codable {
+enum NotificationClickType: Hashable, Codable, Sendable {
     case none
     case openUrl(url: String)
     
@@ -19,3 +19,4 @@ enum NotificationClickType: Hashable, Codable {
         return dict
     }
 }
+
