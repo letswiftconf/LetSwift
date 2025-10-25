@@ -55,9 +55,6 @@ struct PreviousView: View {
                 .onChange(of: previousViewModel.selectedYear) { _, newYear in
                     previousViewModel.loadVideoData(for: newYear)
                 }
-//                .searchable(text: $previousViewModel.searchText,
-//                            placement: .automatic,
-//                            prompt: "세션 이름을 검색해보세요")
         }
     }
 }

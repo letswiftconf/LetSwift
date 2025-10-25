@@ -67,7 +67,7 @@ struct YearKeywordsView: View {
                             )
                     )
             )
-            .foregroundStyle(selectedYear == year ? .themePrimary : .white)
+            .foregroundStyle(selectedYear == year ? .themePrimary : .primary)
             .font(selectedYear == year ? .system(size: 13, weight: .semibold) : .system(size: 13))
             .onTapGesture {
                 selectedYear = year
