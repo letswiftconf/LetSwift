@@ -53,61 +53,63 @@ struct VideoListItemView: View {
     @Binding var presentURL: URL?
     
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .center, spacing: 10) {
-                thumbnailImage
-                    .padding(.leading, 14)
-                
-                VStack(alignment: .leading) {
-                    Text(item.title)
-                        .font(.system(size: 14, weight: .regular))
-                        .lineLimit(2)
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 0) {
+                HStack(alignment: .center, spacing: 10) {
+                    thumbnailImage
+                        .padding(.leading, 14)
                     
-                    Spacer()
-                    
-                    HStack {
-                        HStack(alignment: .bottom, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(item.title)
+                            .font(.system(size: 14, weight: .regular))
+                            .lineLimit(2)
+                        
+                        Spacer()
+                        
+                        HStack(alignment: .bottom, spacing: 12) {
                             Text(item.speaker)
                                 .font(.system(size: 10, weight: .regular))
-                                .foregroundStyle(.background7)
+                                .foregroundStyle(Color(UIColor.systemGray))
                                 .lineLimit(1)
-                                .padding(.trailing, 20)
                             Text(item.timeLine)
                                 .font(.system(size: 10, weight: .regular))
-                                .foregroundStyle(.background7)
+                                .foregroundStyle(Color(UIColor.systemGray))
                                 .lineLimit(1)
                         }
-                        Spacer()
-                        if item.hasReference {
-                            downloadReferenceButton
-                                .padding(.trailing, 16)
-                        }
                     }
+                    
+                    Spacer()
                 }
-                .padding(.vertical, 4)
+                .padding(.top, 8)
+                .padding(.bottom, 6)
+                
+                Divider()
+                    .frame(height: 2)
+                    .background(Color(.systemGray))
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 0)
             }
-            .padding(.top, 8)
-            .padding(.bottom, 6)
+            .overlay {
+                HStack {
+                    Rectangle()
+                        .fill(.themePrimary)
+                        .frame(width: 1, height: 72)
+                        .padding(0)
+                    Spacer()
+                }
+            }
+            .frame(height: 72)
+            .padding(.leading, 20)
+            .padding(.trailing, 12)
+            .padding(.vertical, 0)
             
-            Divider()
-                .frame(height: 2)
-                .background(Color(.background3))
-                .padding(.horizontal, 5)
-                .padding(.vertical, 0)
-        }
-        .overlay {
-            HStack {
-                Rectangle()
-                    .fill(.themePrimary)
-                    .frame(width: 1, height: 72)
-                    .padding(0)
-                Spacer()
+            if item.hasReference {
+                downloadReferenceButton
+                    .padding(.bottom, 11)
+                    .padding(.trailing, 32)
             }
         }
-        .frame(height: 72)
-        .padding(.leading, 20)
-        .padding(.trailing, 12)
-        .padding(.vertical, 0)
+        .contentShape(Rectangle())
     }
     
     private var thumbnailImage: some View {
@@ -116,9 +118,10 @@ struct VideoListItemView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         } placeholder: {
-            Color(.secondarySystemFill)
+            Color(.systemGray4)
         }
-        .frame(width: 85, height: 56)
+        .frame(width: 85, height: 58)
+        .clipped()
     }
     
     private var downloadReferenceButton: some View {
@@ -128,17 +131,9 @@ struct VideoListItemView: View {
             }
         } label: {
             Text("발표자료 받기")
-                .frame(width: 72, height: 18)
-                .foregroundStyle(.background7)
+                .foregroundStyle(.themeSecondary)
+                .underline()
                 .font(.system(size: 10, weight: .regular))
-                .background(
-                    RoundedRectangle(cornerRadius: 104)
-                        .fill(.clear)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 18)
-                                .stroke(.themePrimary, lineWidth: 1)
-                        )
-                )
         }
     }
 }

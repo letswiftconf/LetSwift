@@ -58,7 +58,7 @@ struct YearKeywordsView: View {
             .frame(width: 66, height: 28)
             .background(
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(selectedYear == year ? Color(.themeSecondary) : Color(.background3))
+                    .fill(selectedYear == year ? Color(.themeSecondary) : Color(uiColor: .systemGray6))
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
                             .stroke(
