@@ -16,6 +16,9 @@ struct SessionView: View {
             sessionList
         }
         .padding(.top, 20)
+        .task {
+            viewModel.load()
+        }
     }
     
     private var tabView: some View {

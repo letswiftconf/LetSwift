@@ -26,12 +26,13 @@ final class SessionViewModel {
     init() {
         self.currentTab = .trackA
         self.isLoading = false
+        self.isLoaded = false
         self.sessionRowViewModels = []
-        load()
     }
     
     private(set) var currentTab: SessionTab
     private(set) var isLoading: Bool
+    private(set) var isLoaded: Bool
     private(set) var sessionRowViewModels: [SessionRowViewModel]
     
     @ObservationIgnored
@@ -51,12 +52,21 @@ final class SessionViewModel {
 
 extension SessionViewModel {
     func load() {
+        guard !isLoaded, !isLoading else { return }
         isLoading = true
         Task {
             let sessions = await loadSessions()
-            update(sessions: sessions)
+            switch sessions {
+            case .success(let success):
+                update(sessions: success)
+                isLoaded = true
+            case .failure(_):
+                let cached = UserDefaultsManager.sessions
+                update(sessions: cached)
+            }
             isLoading = false
         }
+        
     }
     
     private func update(sessions: [Session]) {
@@ -86,14 +96,13 @@ private extension SessionViewModel {
 }
 
 extension SessionViewModel {
-    private func loadSessions() async -> [Session] {
+    private func loadSessions() async -> Result<[Session], Error> {
         do {
             let fetched = try await fetchSessions()
             UserDefaultsManager.sessions = fetched
-            return fetched
+            return Result.success(fetched)
         } catch {
-            let cached = UserDefaultsManager.sessions
-            return cached
+            return Result.failure(error)
         }
     }
     
