@@ -67,10 +67,12 @@ struct VideoListItemView: View {
                         Spacer()
                         
                         HStack(alignment: .bottom, spacing: 12) {
-                            Text(item.speaker)
-                                .font(.system(size: 10, weight: .regular))
-                                .foregroundStyle(Color(UIColor.systemGray))
-                                .lineLimit(1)
+                            if (!item.speaker.isEmpty) {
+                                Text(item.speaker)
+                                    .font(.system(size: 10, weight: .regular))
+                                    .foregroundStyle(Color(UIColor.systemGray))
+                                    .lineLimit(1)
+                            }
                             Text(item.timeLine)
                                 .font(.system(size: 10, weight: .regular))
                                 .foregroundStyle(Color(UIColor.systemGray))
