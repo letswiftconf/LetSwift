@@ -70,12 +70,12 @@ struct VideoListItemView: View {
                             if (!item.speaker.isEmpty) {
                                 Text(item.speaker)
                                     .font(.system(size: 10, weight: .regular))
-                                    .foregroundStyle(Color(UIColor.systemGray))
+                                    .foregroundStyle(Color(.systemGray))
                                     .lineLimit(1)
                             }
                             Text(item.timeLine)
                                 .font(.system(size: 10, weight: .regular))
-                                .foregroundStyle(Color(UIColor.systemGray))
+                                .foregroundStyle(Color(.systemGray))
                                 .lineLimit(1)
                         }
                     }
@@ -87,7 +87,7 @@ struct VideoListItemView: View {
                 
                 Divider()
                     .frame(height: 2)
-                    .background(Color(.systemGray))
+                    .background(Color(.systemGray2))
                     .padding(.horizontal, 5)
                     .padding(.vertical, 0)
             }
