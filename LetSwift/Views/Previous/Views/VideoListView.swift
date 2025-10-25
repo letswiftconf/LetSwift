@@ -133,7 +133,7 @@ struct VideoListItemView: View {
             }
         } label: {
             Text("발표자료 받기")
-                .foregroundStyle(Color(.systemGray3))
+                .foregroundStyle(Color(.themeSecondary))
                 .underline()
                 .font(.system(size: 10, weight: .regular))
         }
