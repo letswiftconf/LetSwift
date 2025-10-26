@@ -29,7 +29,7 @@ struct LetSwiftApp: App {
     
     func setTabBarAppearance() {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = UIColor(resource: .darkBackground)
+        appearance.backgroundColor = UIColor(resource: .background1)
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }

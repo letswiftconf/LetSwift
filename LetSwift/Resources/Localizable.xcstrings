@@ -2,6 +2,7 @@
   "sourceLanguage" : "ko",
   "strings" : {
     "2024년 11월 25일\n11:00 ~ 18:00" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -16,6 +17,9 @@
           }
         }
       }
+    },
+    "2025.11.24. 10:00 ~" : {
+
     },
     "alert.confirm" : {
       "localizations" : {
@@ -96,6 +100,9 @@
           }
         }
       }
+    },
+    "Ember to Stars!" : {
+
     },
     "home.date" : {
       "extractionState" : "manual",
@@ -459,6 +466,9 @@
         }
       }
     },
+    "서울 광진구 능동로 209" : {
+    
+    }
     "발표자료 받기" : {
       "localizations" : {
         "en" : {
@@ -492,6 +502,7 @@
       }
     },
     "세종대학교 광개토회관" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -530,6 +541,7 @@
       }
     },
     "지도" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -546,6 +558,7 @@
       }
     },
     "캘린더 등록" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

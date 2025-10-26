@@ -8,30 +8,52 @@
 import SwiftUI
 
 struct LinkButton: View {
-    
-    var title: String
-    var icon: String
-    var onTapGesture: () -> Void
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            Image(icon)
-            Text(title)
-                .font(.system(size: 12))
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: 75)
-        .background(Color(.secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-        .onTapGesture(perform: onTapGesture)
+  var title: String
+  var icon: String
+  var onTapGesture: () -> Void
+
+  var body: some View {
+    VStack(spacing: 12) {
+      Text(Image(systemName: icon))
+        .font(.system(size: 24, weight: .semibold))
+        .foregroundStyle(.background6)
+
+      Text(title)
+        .font(.system(size: 14, weight: .regular))
+        .foregroundStyle(.white)
     }
+    .padding(.vertical, 28)
+    .frame(maxWidth: .infinity)
+    .background(backgroundView)
+    .contentShape(Circle())
+    .onTapGesture(perform: onTapGesture)
+  }
+
+  @ViewBuilder
+  private var backgroundView: some View {
+    if #available(iOS 26.0, *) {
+      Circle()
+        .glassEffect(.clear)
+    } else {
+      // TODO: 디자인팀 답변 오면 수정
+      Circle()
+        .fill(.ultraThinMaterial)
+    }
+  }
+
 }
 
 #Preview {
-    LinkButton(title: "뉴스레터", icon: "ic_newsletter", onTapGesture: { })
+  HStack {
+    LinkButton(title: "뉴스레터 구독", icon: "envelope.open.fill", onTapGesture: {})
+    LinkButton(title: "홈페이지", icon: "display", onTapGesture: {})
+    LinkButton(title: "티켓 구매", icon: "ticket.fill", onTapGesture: {})
+  }
+  .padding()
+  .background(.background1)
 }
 
 
 #Preview("home") {
-    HomeView()
+  HomeView()
 }
