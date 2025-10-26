@@ -97,10 +97,10 @@ extension LocationAndDateView {
   private func iconView(systemName: String) -> some View {
     Text(Image(systemName: systemName))
       .font(.system(size: 14.5, weight: .semibold))
-      .foregroundStyle(.F_14_D_35)
+      .foregroundStyle(.themePrimary)
       .padding(6)
       .background {
-        Circle().foregroundStyle(.FFECE_5)
+          Circle().foregroundStyle(.themeSecondary)
       }
   }
 
@@ -108,7 +108,7 @@ extension LocationAndDateView {
     Button(action: action) {
       HStack(spacing: 16) {
         Text(title)
-          .foregroundStyle(.F_14_D_35)
+          .foregroundStyle(.themePrimary)
           .font(.system(size: 17, weight: .regular))
           .frame(height: 38)
 
