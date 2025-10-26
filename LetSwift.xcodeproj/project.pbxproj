@@ -88,6 +88,8 @@
 		21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4D7B0FF02C7F60A500670837 /* LocationAndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */; };
 		4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B0FF12C7F724500670837 /* LinkButton.swift */; };
+		8C8A8CD52EABFB9B00E59A33 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A8CD42EABFB9B00E59A33 /* ImageCache.swift */; };
+		8C8A8CD72EABFBDC00E59A33 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A8CD62EABFBDC00E59A33 /* CachedImage.swift */; };
 		B846C24D2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
 		B846C24E2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
 		B846C24F2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
@@ -136,7 +138,6 @@
 		D40ECFDB2CA0125800433E18 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ECFDA2CA0125800433E18 /* UserDefaultsWrapper.swift */; };
 		D40ECFDD2CA0128600433E18 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ECFDC2CA0128600433E18 /* UserDefaultsManager.swift */; };
 		D40ECFE12CA085BD00433E18 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ECFE02CA085BD00433E18 /* View+Extensions.swift */; };
-		D40ECFE32CA0860E00433E18 /* CustomAlert+SessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ECFE22CA0860E00433E18 /* CustomAlert+SessionExtensions.swift */; };
 		D40ECFE52CA1B9A200433E18 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ECFE42CA1B9A200433E18 /* Date+Extensions.swift */; };
 		D40ED0462CAEF2D100433E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ED0452CAEF2D100433E18 /* AppDelegate.swift */; };
 		D40ED0482CB17F0D00433E18 /* NotificationClickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40ED0472CB17F0D00433E18 /* NotificationClickType.swift */; };
@@ -244,6 +245,8 @@
 		21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetSwift-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7B0FEF2C7F60A500670837 /* LocationAndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAndDateView.swift; sourceTree = "<group>"; };
 		4D7B0FF12C7F724500670837 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		8C8A8CD42EABFB9B00E59A33 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		8C8A8CD62EABFBDC00E59A33 /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
 		B846C24C2E9F84D7002B4B3F /* playlist-2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2024.json"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -278,7 +281,6 @@
 		D40ECFDA2CA0125800433E18 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		D40ECFDC2CA0128600433E18 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D40ECFE02CA085BD00433E18 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		D40ECFE22CA0860E00433E18 /* CustomAlert+SessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlert+SessionExtensions.swift"; sourceTree = "<group>"; };
 		D40ECFE42CA1B9A200433E18 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		D40ED0452CAEF2D100433E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D40ED0472CB17F0D00433E18 /* NotificationClickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationClickType.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				D40ED0452CAEF2D100433E18 /* AppDelegate.swift */,
 				D40ECFBC2C9ABA9B00433E18 /* Constants.swift */,
 				2199952F2E8E87A200F10254 /* Extensions */,
+				8C8A8CD32EABFB8C00E59A33 /* Cache */,
 				D40ECFD92CA0124100433E18 /* UserDefaults */,
 				D978C27A2C903FDA0097500D /* Notifications */,
 				2199738F2C42217F0015D1AF /* Resources */,
@@ -548,6 +551,14 @@
 			path = sponsors;
 			sourceTree = "<group>";
 		};
+		8C8A8CD32EABFB8C00E59A33 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				8C8A8CD42EABFB9B00E59A33 /* ImageCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		C184F2BF2CE9C69100AF7720 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				C1C3692F2CE314C60027BDC2 /* CustomAlert.swift */,
+				8C8A8CD62EABFBDC00E59A33 /* CachedImage.swift */,
 				D40ECFE02CA085BD00433E18 /* View+Extensions.swift */,
 			);
 			path = Common;
@@ -600,7 +612,6 @@
 			children = (
 				D19F73E82C80CB4B009D0D9F /* SessionView.swift */,
 				D40ECFD52C9EEFBB00433E18 /* SessionRowView.swift */,
-				D40ECFE22CA0860E00433E18 /* CustomAlert+SessionExtensions.swift */,
 				C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */,
 			);
 			path = Session;
@@ -930,6 +941,7 @@
 				1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */,
 				214AA4562C42296200C1C747 /* HomeView.swift in Sources */,
 				C1C3693F2CE3161A0027BDC2 /* TabItem.swift in Sources */,
+				8C8A8CD72EABFBDC00E59A33 /* CachedImage.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
 				C1C369492CE38C4D0027BDC2 /* SessionSpeakerView.swift in Sources */,
 				D40ECFD62C9EEFBB00433E18 /* SessionRowView.swift in Sources */,
@@ -962,7 +974,7 @@
 				D40ECFBD2C9ABA9B00433E18 /* Constants.swift in Sources */,
 				D40ED0482CB17F0D00433E18 /* NotificationClickType.swift in Sources */,
 				D40ECFD82C9EF05F00433E18 /* SessionRowViewModel.swift in Sources */,
-				D40ECFE32CA0860E00433E18 /* CustomAlert+SessionExtensions.swift in Sources */,
+				8C8A8CD52EABFB9B00E59A33 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
