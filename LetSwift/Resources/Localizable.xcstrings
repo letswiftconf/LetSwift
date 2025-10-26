@@ -448,6 +448,22 @@
         }
       }
     },
+    "발표자료 받기" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download Keynote"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발표자료 받기"
+          }
+        }
+      }
+    },
     "세션 이름을 검색해보세요" : {
       "localizations" : {
         "en" : {
