@@ -43,7 +43,7 @@ struct CachedImage<Content: View, Placeholder: View>: View {
     private func loadFromCache() async {
         let cached = await ImageCache.shared.image(for: url)
         await MainActor.run {
-            if let cached { self.cachedImage = cached; print(cached) }
+            if let cached { self.cachedImage = cached }
         }
     }
 
