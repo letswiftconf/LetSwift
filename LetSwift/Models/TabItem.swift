@@ -22,7 +22,7 @@ enum TabItem: CaseIterable {
         case .session:
             "music.microphone"
         case .previous:
-            "play.circle.fill"
+            "tray.full"
         case .more:
             "ellipsis"
         case .search:

@@ -53,60 +53,89 @@ struct VideoListItemView: View {
     @Binding var presentURL: URL?
     
     var body: some View {
-        VStack(spacing: 0) {
-            Divider()
-                .background(Color(.separator))
-            
-            Spacer()
-            
-            HStack(alignment: .center, spacing: 0) {
-                AsyncImage(url: URL(string: item.thumbnail)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Color(.secondarySystemFill)
-                }
-                .frame(width: 110, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-                .padding(.leading, 18)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.title)
-                        .font(.system(size: 15, weight: .semibold))
-                        .padding(.vertical, 4)
-                        .lineLimit(2)
-                    HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(item.speaker)
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                            .padding(.trailing, 5)
-                        Text(item.timeLine)
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundStyle(.tertiary)
-                            .lineLimit(1)
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 0) {
+                HStack(alignment: .center, spacing: 10) {
+                    thumbnailImage
+                        .padding(.leading, 14)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(item.title)
+                            .font(.system(size: 14, weight: .regular))
+                            .lineLimit(2)
+                        
                         Spacer()
-                        if item.hasReference {
-                            Button {
-                                if let url = URL(string: item.referenceLink) {
-                                    presentURL = url
-                                }
-                            } label: {
-                                Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
-                                    .tint(.secondary)
+                        
+                        HStack(alignment: .bottom, spacing: 12) {
+                            if (!item.speaker.isEmpty) {
+                                Text(item.speaker)
+                                    .font(.system(size: 10, weight: .regular))
+                                    .foregroundStyle(Color(.systemGray))
+                                    .lineLimit(1)
                             }
+                            Text(item.timeLine)
+                                .font(.system(size: 10, weight: .regular))
+                                .foregroundStyle(Color(.systemGray))
+                                .lineLimit(1)
                         }
                     }
+                    
                     Spacer()
                 }
-                .padding(.horizontal)
-                .padding(.top, 10)
+                .padding(.top, 8)
+                .padding(.bottom, 6)
                 
-                Spacer()
+                Divider()
+                    .frame(height: 2)
+                    .background(Color(.systemGray2))
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 0)
             }
+            .overlay {
+                HStack {
+                    Rectangle()
+                        .fill(.themePrimary)
+                        .frame(width: 1, height: 72)
+                        .padding(0)
+                    Spacer()
+                }
+            }
+            .frame(height: 72)
+            .padding(.leading, 20)
+            .padding(.trailing, 12)
+            .padding(.vertical, 0)
             
-            Spacer()
+            if item.hasReference {
+                downloadReferenceButton
+                    .padding(.bottom, 11)
+                    .padding(.trailing, 32)
+            }
+        }
+        .contentShape(Rectangle())
+    }
+    
+    private var thumbnailImage: some View {
+        AsyncImage(url: URL(string: item.thumbnail)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        } placeholder: {
+            Color(.systemGray4)
+        }
+        .frame(width: 85, height: 58)
+        .clipped()
+    }
+    
+    private var downloadReferenceButton: some View {
+        Button {
+            if let url = URL(string: item.referenceLink) {
+                presentURL = url
+            }
+        } label: {
+            Text("발표자료 받기")
+                .foregroundStyle(Color(.themeSecondary))
+                .underline()
+                .font(.system(size: 10, weight: .regular))
         }
     }
 }

@@ -15,68 +15,48 @@ struct SessionRowView: View {
     }
     
     var body: some View {
-        HStack {
-            VStack(spacing: 3) {
-                Color(.opaqueSeparator)
-                    .frame(width: 1)
+        VStack(spacing: 22) {
+            HStack {
+                info
+                    .padding(.trailing, 30)
+                Spacer()
                 
-                Circle()
-                    .stroke(Color(.opaqueSeparator))
-                    .frame(width: 10, height: 10)
-                
-                Color(.opaqueSeparator)
-                    .frame(width: 1)
+                bookmarkToggle
             }
-            .padding(.leading, 29)
+            .padding(.horizontal, 10)
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text(LocalizedStringKey(viewModel.session.name))
-                    .font(.system(size: 15, weight: .medium))
-                HStack {
-                    
-                    ForEach(viewModel.session.speaker) { speaker in
-//                        SessionSpeakerView(name: speaker.officialName, imageUrl: speaker.imageUrl)
-                        SessionSpeakerView(name: speaker.officialName, imageUrl: speaker.imageName)
-                            .onTapGesture {
-                                // TODO: 스피커 정보 얼럿
-                            }
-                        
-                    }
-                    
-                    if viewModel.session.speaker.count > 0 {
-                        Text(String("."))
-                            .font(.system(size: 12))
-                            .foregroundStyle(.secondary)
-                    }
-                    
-                    Text(formatTimeRange(start: viewModel.session.startTime, end: viewModel.session.endTime))
-                        .font(.system(size: 12))
-                        .foregroundStyle(.secondary)
-                }
-            }
-            
-            Spacer()
-            
-            VStack(spacing: 10) {
-                Button(action: viewModel.onToggleBookmark) {
-                    Image(systemName: viewModel.bookmarkImageString)
-                        .tint(viewModel.session.isSaved ? .themePrimary : .secondary)
-                }
-                
-                Button(action: {
-                    Task {
-                        await viewModel.onToggleAlarm()
-                    }
-                }) {
-                    Image(systemName: viewModel.alarmImageString)
-                        .tint(viewModel.session.isAlarmed ? .themePrimary : .secondary)
-                }
-            }
-            .frame(width: 24, height: 24)
-            .padding(.trailing, 16)
+            Divider()
         }
-        .frame(height: 120)
-        .customAlert($viewModel.alert)
+    }
+    
+    private var info: some View {
+        let s = viewModel.session
+        
+        return VStack(alignment: .leading, spacing: 0) {
+            Text(s.title)
+                .font(.system(size: 16))
+                .frame(height: 40, alignment: .top)
+            
+            HStack(spacing: 10) {
+                ForEach(s.speakers, id: \.id) { speaker in
+                    SessionSpeakerView(
+                        name: speaker.name,
+                        imageUrl: speaker.profileImage
+                    )
+                }
+                Text(formatTimeRange(start: s.startTime, end: s.endTime))
+                    .font(.system(size: 10))
+            }
+        }
+    }
+    
+    private var bookmarkToggle: some View {
+        Button { viewModel.onToggleBookmark() } label: {
+            Image(systemName: viewModel.bookmarkImageString)
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundStyle(viewModel.session.isSaved ? .themePrimary : .grayIcon)
+        }
+        .buttonStyle(.plain)
     }
 
     private func formatTimeRange(start: Date, end: Date) -> String {
@@ -87,10 +67,14 @@ struct SessionRowView: View {
 }
 
 #Preview("Session") {
-    SessionView(viewModel: SessionViewModel())
+    let vm = SessionViewModel()
+    SessionView()
+        .environment(vm)
 }
 
 
 #Preview {
     SessionRowView(viewModel: SessionRowViewModel(session: SessionModel(from: Session.sampleData[0])))
+        .padding(11)
 }
+

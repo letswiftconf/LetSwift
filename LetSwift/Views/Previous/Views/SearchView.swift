@@ -14,23 +14,21 @@ struct SearchView: View {
   var body: some View {
     HStack {
       Image(systemName: "magnifyingglass")
-        .foregroundStyle(.gray5)
+            .foregroundStyle(Color(.systemGray2))
       
       TextField(
         text: $searchText,
         label: {
           Text("세션 이름을 검색해보세요")
-            .foregroundStyle(.gray5)
+            .foregroundStyle(Color(.systemGray2))
             .font(.system(size: 14))
         }
       )
-      .foregroundStyle(.white)
     }
     .padding(.horizontal, 18)
     .padding(.vertical, 7)
     .overlay(
       RoundedRectangle(cornerRadius: 30)
-        .stroke(.gray5, lineWidth: 1)
     )
     .padding(.horizontal, 20)
     .padding(.vertical, 18)

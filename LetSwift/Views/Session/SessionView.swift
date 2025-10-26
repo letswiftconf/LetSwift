@@ -8,23 +8,16 @@
 import SwiftUI
 
 struct SessionView: View {
-
-    @Bindable private var viewModel: SessionViewModel
-    
-    init(viewModel: SessionViewModel) {
-        self.viewModel = viewModel
-    }
+    @Environment(SessionViewModel.self) var viewModel
     
     var body: some View {
         VStack(spacing: 0) {
             tabView
             sessionList
         }
+        .padding(.top, 20)
         .task {
-            defer { viewModel.update(isLoading: false) }
-            viewModel.update(isLoading: true)
-            guard let sessions = try? await viewModel.fetchSessions() else { return }
-            viewModel.update(sessions: sessions)
+            viewModel.load()
         }
     }
     
@@ -34,38 +27,34 @@ struct SessionView: View {
                 Button {
                     viewModel.update(currentTab: tab)
                 } label: {
-                    ZStack {
-                        Color(.systemBackground)
-                        Text(tab.title)
-                            .font(viewModel.currentTab == tab ? .system(size: 15, weight: .medium) : .system(size: 15))
-                            .foregroundStyle(viewModel.currentTab == tab ? Color.themePrimary : Color.primary)
-                    }
-                    .overlay(alignment: .bottom) {
-                        if viewModel.currentTab == tab {
-                            Color.themePrimary.frame(height: 3)
-                        } else {
-                            Color(.opaqueSeparator).frame(height: 1)
+                    Text(tab.title)
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundStyle(viewModel.currentTab == tab ? .primary : .secondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 10)
+                        .overlay(alignment: .bottom) {
+                            if viewModel.currentTab == tab {
+                                Color.themePrimary.frame(height: 4)
+                                    .cornerRadius(4)
+                            } else {
+                                Color(.opaqueSeparator).frame(height: 2)
+                            }
                         }
-                    }
                 }
+                .buttonStyle(.plain)
             }
         }
-        .frame(height: 55)
     }
     
     private var sessionList: some View {
         ScrollView {
-            VStack(spacing: 1) {
+            VStack(spacing: 22) {
                 ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.offset) { offset, sessionRowViewModel in
                     SessionRowView(viewModel: sessionRowViewModel)
-                        .overlay(alignment: .top) {
-                            if offset != .zero {
-                                Color(.separator)
-                                    .frame(height: 1)
-                            }
-                        }
                 }
             }
+            .padding(.horizontal, 12)
+            .padding(.top, 22)
         }
         .overlay {
             ProgressView()
@@ -76,6 +65,16 @@ struct SessionView: View {
 }
 
 
-#Preview {
-    SessionView(viewModel: SessionViewModel())
+#Preview("Light Mode") {
+    let vm = SessionViewModel()
+    SessionView()
+        .environment(vm)
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark Mode") {
+    let vm = SessionViewModel()
+    SessionView()
+        .environment(vm)
+        .preferredColorScheme(.dark)
 }

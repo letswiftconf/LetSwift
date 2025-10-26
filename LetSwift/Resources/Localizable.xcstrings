@@ -235,6 +235,17 @@
         }
       }
     },
+    "settings.conferenceReview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let’Swift 2025 피드백 설문조사"
+          }
+        }
+      }
+    },
     "settings.linkAppRepository" : {
       "localizations" : {
         "en" : {
@@ -456,7 +467,23 @@
       }
     },
     "서울 광진구 능동로 209" : {
-
+    
+    }
+    "발표자료 받기" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download Keynote"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발표자료 받기"
+          }
+        }
+      }
     },
     "세션 이름을 검색해보세요" : {
       "localizations" : {
