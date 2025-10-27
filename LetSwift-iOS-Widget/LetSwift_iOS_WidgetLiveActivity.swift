@@ -12,81 +12,121 @@ import SwiftUI
 struct LetSwift_iOS_WidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: PresentationAttributes.self) { context in
-            // Lock screen/banner UI goes here
-            VStack(alignment: .leading, spacing: 8) {
-                Text(context.state.title)
-                    .font(.headline)
-                    .foregroundColor(.white)
+            HStack(alignment: .top, spacing: 8) {
+                Image(.logo2025200)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 52, height: 52)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(context.state.currentStatus == .upcoming ? Color(.upcoming) : Color(.themePrimary), lineWidth: 3)
+                    )
+                    .overlay(alignment: .bottomTrailing) {
+                        Circle()
+                            .fill(context.state.currentStatus == .upcoming ? Color(.upcoming) : Color(.themePrimary))
+                            .frame(width: 18, height: 18)
+                            .overlay(
+                                Image(systemName: "clock")
+                                    .resizable()
+                                    .frame(width: 13, height: 12)
+                                    .foregroundColor(.white)
+                            )
+                    }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 0) {
+                        Text(context.state.title)
+                            .font(.system(size: 15, weight: .bold))
+                            .foregroundStyle(Color.white)
+                        
+                        Spacer()
+                        
+                        if let location = context.state.location {
+                            Text(location)
+                                .font(.system(size: 10))
+                                .foregroundStyle(Color.white.opacity(0.6))
+                        }
+                    }
+                    
+                    Text(context.state.speakers.map(\.name).joined(separator: ", "))
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color.white)
+                    
+                    switch context.state.currentStatus {
+                    case .upcoming:
+                        Text("세션이 곧 시작할 예정입니다.")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundStyle(Color.white.opacity(0.6))
 
-                Text(context.state.speakers.map { $0.name }.joined(separator: ", "))
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.8))
+                    case .ongoing:
+                        if let startDate = parseDate(from: context.state.startTime),
+                           let endDate = parseDate(from: context.state.endTime) {
+                            ProgressView(
+                                timerInterval: startDate...endDate,
+                                countsDown: false,
+                                label: { EmptyView() },
+                                currentValueLabel: {
+                                    Text(startDate, style: .time) + Text(" ~ ") + Text(endDate, style: .time)ㅑ
+                                }
+                            )
+                            .progressViewStyle(.linear)
+                            .tint(Color(.themePrimary))
+                            .padding(.top, 10)
+                        } else {
+                            Text("진행 중")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundStyle(Color.white.opacity(0.6))
+                        }
 
-                HStack {
-                    Text("Track \(context.state.track)")
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(Color.white.opacity(0.2))
-                        .cornerRadius(4)
-
-                    Spacer()
-
-                    Text(context.state.currentStatus)
-                        .font(.caption)
-                        .foregroundColor(.white.opacity(0.8))
-                }
-
-                if let timeRemaining = context.state.timeRemaining, timeRemaining > 0 {
-                    Text("\(timeRemaining)분 남음")
-                        .font(.caption)
-                        .foregroundColor(.white.opacity(0.8))
+                    default:
+                        EmptyView()
+                    }
                 }
             }
             .padding()
-            .activityBackgroundTint(Color.blue)
             .activitySystemActionForegroundColor(Color.white)
+            .activityBackgroundTint(Color.black.opacity(0.7))
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    VStack(alignment: .leading) {
-                        Text(context.state.title)
-                            .font(.caption)
-                        Text(context.state.speakers.map { $0.name }.joined(separator: ", "))
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
-                    }
+                    EmptyView()
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    if let timeRemaining = context.state.timeRemaining, timeRemaining > 0 {
-                        VStack {
-                            Text("\(timeRemaining)")
-                                .font(.title2)
-                            Text("분 남음")
-                                .font(.caption2)
-                        }
-                    }
+                    EmptyView()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    HStack {
-                        Text("Track \(context.state.track)")
-                            .font(.caption)
-                        Spacer()
-                        Text(context.state.currentStatus)
-                            .font(.caption)
-                    }
+                    EmptyView()
                 }
             } compactLeading: {
-                Text("🎤")
+                EmptyView()
             } compactTrailing: {
-                if let timeRemaining = context.state.timeRemaining, timeRemaining > 0 {
-                    Text("\(timeRemaining)분")
-                        .font(.caption2)
-                }
+                EmptyView()
             } minimal: {
-                Text("🎤")
+                EmptyView()
             }
         }
+    }
+
+    private func parseDate(from dateString: String) -> Date? {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
+
+        // Try with timezone first
+        if let date = formatter.date(from: dateString) {
+            return date
+        }
+
+        // Try without timezone (add Z)
+        if let date = formatter.date(from: dateString + "Z") {
+            return date
+        }
+
+        // Fallback to DateFormatter
+        let fallbackFormatter = DateFormatter()
+        fallbackFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        fallbackFormatter.timeZone = TimeZone.current
+        return fallbackFormatter.date(from: dateString)
     }
 }
 
@@ -108,8 +148,7 @@ extension PresentationAttributes.ContentState {
             startTime: "2025-10-24T10:00:00",
             endTime: "2025-10-24T11:00:00",
             track: "A",
-            currentStatus: "진행 중",
-            timeRemaining: 25
+            currentStatus: .ongoing
         )
     }
 
@@ -123,8 +162,7 @@ extension PresentationAttributes.ContentState {
             startTime: "2025-10-24T11:00:00",
             endTime: "2025-10-24T12:00:00",
             track: "B",
-            currentStatus: "시작 예정",
-            timeRemaining: 30
+            currentStatus: .upcoming
         )
     }
 }

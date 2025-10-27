@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		192FA39A2E8B77970078326A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192FA3992E8B77970078326A /* GoogleService-Info.plist */; };
+		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		198E93ED2EAB1198006974E6 /* LiveActivityLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */; };
 		19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A42E75690400BB0448 /* FirebaseAnalytics */; };
 		19B614A72E75690400BB0448 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A62E75690400BB0448 /* FirebaseAnalyticsCore */; };
@@ -921,6 +922,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

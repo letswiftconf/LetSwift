@@ -20,11 +20,15 @@ struct PresentationAttributes: ActivityAttributes {
         var presentationId: Int
         var title: String
         var speakers: [Speaker]
+        var location: String?
         var startTime: String
         var endTime: String
         var track: String
-        var currentStatus: String
-        var timeRemaining: Int?
+        var currentStatus: Status
+        
+        enum Status: String, Codable, Hashable {
+            case upcoming, ongoing, ended, unknown
+        }
     }
 
     var track: String
