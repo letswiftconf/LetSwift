@@ -21,13 +21,13 @@ struct SessionCard: View {
                 VStack(alignment: .leading, spacing: 4) {
                     // Time range
                     Text(session.timeRange)
-                        .font(.system(size: 10, weight: .medium))
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundColor(.white)
                         .fixedSize()
                     
                     // Session title
                     Text(session.name)
-                        .font(.system(size: 13, weight: .regular))
+                        .font(.system(size: 16, weight: .medium))
                         .foregroundColor(.white)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
@@ -35,7 +35,7 @@ struct SessionCard: View {
                     
                     // Duration
                     Text(session.durationString)
-                        .font(.system(size: 10, weight: .regular))
+                        .font(.system(size: 16, weight: .light))
                         .foregroundColor(.white)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -49,14 +49,14 @@ struct SessionCard: View {
                 }) {
                     Image(systemName: isFavorite ? "star.fill" : "star")
                         .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(isFavorite ? .red : .white)
+                        .foregroundColor(isFavorite ? Color(hex: "F14D35") : .white)
                         .frame(width: 20, height: 20)
                 }
                 .buttonStyle(.plain)
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .background(Color(hex: "6C6C6C"))
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(Color(hex: "3F3F3F"))
             .cornerRadius(8.5)
         }
         .buttonStyle(.plain)

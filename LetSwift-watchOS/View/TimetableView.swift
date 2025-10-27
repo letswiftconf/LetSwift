@@ -21,7 +21,6 @@ struct TimetableView: View {
                 // Session list
                 sessionList
             }
-            .background(Color(hex: "17171B"))
             .padding(.top, 20)
             .edgesIgnoringSafeArea(.all)
             
@@ -31,10 +30,10 @@ struct TimetableView: View {
                     selectedSession = nil
                 })
                 .zIndex(1)
-                .padding(.top, 20)
                 .edgesIgnoringSafeArea(.all)
             }
         }
+        .background(Color(hex: "242424"))
     }
     
     private var navigationBar: some View {
@@ -79,9 +78,9 @@ struct TimetableView: View {
                     }, isLast: index == viewModel.filteredSessions.count - 1)
                 }
             }
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 10)
             .padding(.top, 8)
-            .padding(.bottom, 12)
+            .padding(.bottom, 30)
         }
     }
 }
