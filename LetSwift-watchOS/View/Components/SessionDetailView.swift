@@ -13,12 +13,18 @@ struct SessionDetailView: View {
     
     var body: some View {
         ZStack {
-            // Blurred background - full screen
-            Color.black.opacity(0.6)
-                .ignoresSafeArea()
-                .onTapGesture {
-                    dismiss()
-                }
+            // Blurred background
+            ZStack {
+                Color.gray.opacity(0.5)
+                    .blur(radius: 100)
+                    .ignoresSafeArea()
+                
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
+            }
+            .onTapGesture {
+                dismiss()
+            }
             
             // Scrollable content with separate rounded squares
             ScrollView {
@@ -58,16 +64,12 @@ struct SessionDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         ZStack {
-                            Color.white.opacity(0.08)
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.15),
-                                    Color.clear,
-                                    Color.white.opacity(0.08)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
+                            // Strong blur behind content
+                            Color.gray.opacity(0.5)
+                                .blur(radius: 80)
+                            
+                            // Glass effect
+                            glassEffect
                         }
                     )
                     .cornerRadius(18)
@@ -96,8 +98,31 @@ struct SessionDetailView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 42)
-                            .background(Color.white.opacity(0.2))
+                            .background(
+                                ZStack {
+                                    // Strong blur behind button
+                                    Color.gray.opacity(0.5)
+                                        .blur(radius: 80)
+                                    
+                                    // Glass effect
+                                    glassEffect
+                                }
+                            )
                             .cornerRadius(18)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 18)
+                                    .strokeBorder(
+                                        LinearGradient(
+                                            colors: [
+                                                Color.white.opacity(0.6),
+                                                Color.white.opacity(0.2)
+                                            ],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 1.5
+                                    )
+                            )
                     }
                     .buttonStyle(.plain)
                     .padding(.horizontal, 20)
@@ -106,6 +131,24 @@ struct SessionDetailView: View {
                 .padding(.top, 70)
                 .padding(.bottom, 16)
             }
+        }
+    }
+    
+    private var glassEffect: some View {
+        ZStack {
+            // Base glass color
+            Color.white.opacity(0.1)
+            
+            // Gradient for depth
+            LinearGradient(
+                colors: [
+                    Color.white.opacity(0.2),
+                    Color.clear,
+                    Color.white.opacity(0.1)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         }
     }
 }

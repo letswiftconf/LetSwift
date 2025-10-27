@@ -44,10 +44,15 @@ struct TimetableView: View {
             }) {
                 ZStack {
                     Circle()
-                        .fill(Color(hex: "3F3F3F"))
+                        .fill(Color.white.opacity(0.2))
                         .frame(width: 30, height: 30)
-                    Text(viewModel.currentTrack.buttonText)
-                        .font(.system(size: 14, weight: .semibold))
+                        .overlay(
+                            Circle()
+                                .strokeBorder(Color.white.opacity(0.4), lineWidth: 1)
+                        )
+                    
+                    Image(systemName: viewModel.currentTrack.buttonText.lowercased() + ".circle")
+                        .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.white)
                 }
             }
