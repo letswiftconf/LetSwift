@@ -2,7 +2,7 @@
 //  WatchSessionViewModel.swift
 //  LetSwift-watchOS Watch App
 //
-//  Created by AI on 11/25/24.
+//  Created by Coby on 11/25/24.
 //
 
 import Foundation
