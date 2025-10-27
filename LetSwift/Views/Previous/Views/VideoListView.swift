@@ -50,7 +50,9 @@ struct VideoListView: View {
 
 struct VideoListItemView: View {
     let item: VideoItem
+    
     @Binding var presentURL: URL?
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -133,7 +135,7 @@ struct VideoListItemView: View {
             }
         } label: {
             Text("발표자료 받기")
-                .foregroundStyle(Color(.themeSecondary))
+                .foregroundStyle(colorScheme == .dark ? Color(.themeSecondary) : Color(.themePrimary))
                 .underline()
                 .font(.system(size: 10, weight: .regular))
         }
