@@ -97,8 +97,7 @@ struct VideoListItemView: View {
                 HStack {
                     Rectangle()
                         .fill(.themePrimary)
-                        .frame(width: 1, height: 72)
-                        .padding(0)
+                        .frame(width: 1, height: 68)
                     Spacer()
                 }
             }
