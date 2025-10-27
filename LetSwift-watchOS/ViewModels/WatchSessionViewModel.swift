@@ -15,13 +15,41 @@ final class WatchSessionViewModel {
     var currentTrack: WatchTrack = .trackA
     
     private var allSessions: [SessionItem] = []
+    private var favoriteIds: Set<String> = []
     
     var filteredSessions: [SessionItem] {
         sessions.filter { $0.displayTrack == currentTrack.displayName }
     }
     
     init() {
+        loadFavoriteIds()
         loadSessions()
+    }
+    
+    private func loadFavoriteIds() {
+        if let data = UserDefaults.standard.data(forKey: "favoriteSessionIds"),
+           let ids = try? JSONDecoder().decode(Set<String>.self, from: data) {
+            favoriteIds = ids
+        }
+    }
+    
+    private func saveFavoriteIds() {
+        if let data = try? JSONEncoder().encode(favoriteIds) {
+            UserDefaults.standard.set(data, forKey: "favoriteSessionIds")
+        }
+    }
+    
+    func isFavorite(_ sessionId: String) -> Bool {
+        favoriteIds.contains(sessionId)
+    }
+    
+    func toggleFavorite(_ sessionId: String) {
+        if favoriteIds.contains(sessionId) {
+            favoriteIds.remove(sessionId)
+        } else {
+            favoriteIds.insert(sessionId)
+        }
+        saveFavoriteIds()
     }
     
     func loadSessions() {

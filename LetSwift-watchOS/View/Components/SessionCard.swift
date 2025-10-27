@@ -10,8 +10,12 @@ import SwiftUI
 struct SessionCard: View {
     let session: SessionItem
     let onTap: () -> Void
-    @State private var isFavorite = false
+    let viewModel: WatchSessionViewModel
     let isLast: Bool
+    
+    private var isFavorite: Bool {
+        viewModel.isFavorite(session.id)
+    }
     
     var body: some View {
         Button(action: {
@@ -45,7 +49,7 @@ struct SessionCard: View {
                 // Favorite button (separate tap target)
                 Button(action: {
                     HapticFeedback.click()
-                    isFavorite.toggle()
+                    viewModel.toggleFavorite(session.id)
                 }) {
                     Image(systemName: isFavorite ? "star.fill" : "star")
                         .font(.system(size: 16, weight: .medium))

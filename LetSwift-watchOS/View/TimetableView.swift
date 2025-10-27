@@ -75,7 +75,7 @@ struct TimetableView: View {
                 ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.element.id) { index, session in
                     SessionCard(session: session, onTap: {
                         selectedSession = session
-                    }, isLast: index == viewModel.filteredSessions.count - 1)
+                    }, viewModel: viewModel, isLast: index == viewModel.filteredSessions.count - 1)
                 }
             }
             .padding(.horizontal, 10)
