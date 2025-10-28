@@ -15,15 +15,12 @@ struct SessionDetailView: View {
         ZStack {
             // Blurred background
             ZStack {
-                Color.gray.opacity(0.5)
+                Color.gray.opacity(0.1)
                     .blur(radius: 100)
                     .ignoresSafeArea()
                 
-                Color.black.opacity(0.5)
+                Color.black.opacity(0.1)
                     .ignoresSafeArea()
-            }
-            .onTapGesture {
-                dismiss()
             }
             
             // Scrollable content with separate rounded squares
@@ -62,31 +59,7 @@ struct SessionDetailView: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        ZStack {
-                            // Strong blur behind content
-                            Color.gray.opacity(0.5)
-                                .blur(radius: 80)
-                            
-                            // Glass effect
-                            glassEffect
-                        }
-                    )
-                    .cornerRadius(18)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 18)
-                            .strokeBorder(
-                                LinearGradient(
-                                    colors: [
-                                        Color.white.opacity(0.6),
-                                        Color.white.opacity(0.2)
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ),
-                                lineWidth: 1.5
-                            )
-                    )
+                    .glassContainer(radius: 18)
                     
                     // Close button - separate rounded square
                     Button(action: {
@@ -98,31 +71,7 @@ struct SessionDetailView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 42)
-                            .background(
-                                ZStack {
-                                    // Strong blur behind button
-                                    Color.gray.opacity(0.5)
-                                        .blur(radius: 80)
-                                    
-                                    // Glass effect
-                                    glassEffect
-                                }
-                            )
-                            .cornerRadius(18)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 18)
-                                    .strokeBorder(
-                                        LinearGradient(
-                                            colors: [
-                                                Color.white.opacity(0.6),
-                                                Color.white.opacity(0.2)
-                                            ],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        ),
-                                        lineWidth: 1.5
-                                    )
-                            )
+                            .glassContainer(radius: 18)
                     }
                     .buttonStyle(.plain)
                     .padding(.horizontal, 20)
@@ -134,21 +83,54 @@ struct SessionDetailView: View {
         }
     }
     
-    private var glassEffect: some View {
-        ZStack {
-            // Base glass color
-            Color.white.opacity(0.1)
-            
-            // Gradient for depth
-            LinearGradient(
-                colors: [
-                    Color.white.opacity(0.2),
-                    Color.clear,
-                    Color.white.opacity(0.1)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+}
+
+// MARK: - Glass Style Extensions
+extension View {
+    @ViewBuilder
+    func glassContainer(radius: CGFloat) -> some View {
+        if #available(watchOS 26, *) {
+            self
+                .glassEffect(.clear, in: RoundedRectangle(cornerRadius: radius))
+        } else {
+            self
+                .background(
+                    ZStack {
+                        // More transparent blur
+                        Color.gray.opacity(0.08)
+                            .blur(radius: 30)
+                        
+                        // Glass effect
+                        ZStack {
+                            Color.white.opacity(0.02)
+                            
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.05),
+                                    Color.clear,
+                                    Color.white.opacity(0.02)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        }
+                    }
+                )
+                .cornerRadius(radius)
+                .overlay(
+                    RoundedRectangle(cornerRadius: radius)
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.6),
+                                    Color.white.opacity(0.2)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1.5
+                        )
+                )
         }
     }
 }
