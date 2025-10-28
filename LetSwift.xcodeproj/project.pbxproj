@@ -98,7 +98,6 @@
 		C1C369472CE377260027BDC2 /* CustomAlert+HomeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */; };
 		C1C369492CE38C4D0027BDC2 /* SessionSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */; };
 		C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */; };
-		CBDEE33E2EAEFB15002AD5D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBDEE33D2EAEFB15002AD5D0 /* GoogleService-Info.plist */; };
 		D19F73E92C80CB4B009D0D9F /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73E82C80CB4B009D0D9F /* SessionView.swift */; };
 		D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EB2C80D5F5009D0D9F /* Session.swift */; };
 		D19F73F02C80D6D0009D0D9F /* Session+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */; };
@@ -254,7 +253,6 @@
 		C1C369462CE377260027BDC2 /* CustomAlert+HomeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomAlert+HomeExtensions.swift"; sourceTree = "<group>"; };
 		C1C369482CE38C4D0027BDC2 /* SessionSpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpeakerView.swift; sourceTree = "<group>"; };
 		C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		CBDEE33D2EAEFB15002AD5D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D19F73E82C80CB4B009D0D9F /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		D19F73EB2C80D5F5009D0D9F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D19F73EF2C80D6D0009D0D9F /* Session+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+SampleData.swift"; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				Resources/AppIcon_2025.icon,
 				Resources/AppIcon_Alt.icon,
 				Resources/AppIcon.icon,
-				Info.plist,
 			);
 			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
 		};
@@ -380,7 +377,6 @@
 		219973492C3F5F5B0015D1AF = {
 			isa = PBXGroup;
 			children = (
-				CBDEE33D2EAEFB15002AD5D0 /* GoogleService-Info.plist */,
 				C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
 				219973542C3F5F5B0015D1AF /* LetSwift */,
@@ -851,7 +847,6 @@
 				21DC4AB52D5AE26300880CD4 /* phillip.jpg in Resources */,
 				21DC4AB62D5AE26300880CD4 /* minsone.jpg in Resources */,
 				21DC4AB72D5AE26300880CD4 /* judy.jpg in Resources */,
-				CBDEE33E2EAEFB15002AD5D0 /* GoogleService-Info.plist in Resources */,
 				21DC4AB82D5AE26300880CD4 /* ujin.png in Resources */,
 				21DC4AB92D5AE26300880CD4 /* jaeho.jpg in Resources */,
 				21DC4ABA2D5AE26300880CD4 /* dooori.jpg in Resources */,
@@ -1352,7 +1347,7 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = LetSwift-watchOS/Info.plist;
+				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;
@@ -1387,7 +1382,7 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = LetSwift-watchOS/Info.plist;
+				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;
