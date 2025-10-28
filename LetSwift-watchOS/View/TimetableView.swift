@@ -34,6 +34,9 @@ struct TimetableView: View {
             }
         }
         .background(Color(hex: "242424"))
+        .task {
+            await viewModel.loadSessionsOnce()
+        }
     }
     
     private var navigationBar: some View {
@@ -76,16 +79,36 @@ struct TimetableView: View {
     
     private var sessionList: some View {
         ScrollView {
-            VStack(spacing: 8) {
-                ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.element.id) { index, session in
-                    SessionCard(session: session, onTap: {
-                        selectedSession = session
-                    }, viewModel: viewModel, isLast: index == viewModel.filteredSessions.count - 1)
+            if viewModel.isLoading {
+                VStack {
+                    Spacer()
+                    ProgressView()
+                        .tint(Color(hex: "F14D35"))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Spacer()
                 }
+                .frame(height: 100)
+            } else if viewModel.filteredSessions.isEmpty {
+                VStack {
+                    Spacer()
+                    Text("세션이 없습니다")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.white.opacity(0.6))
+                    Spacer()
+                }
+                .frame(height: 100)
+            } else {
+                VStack(spacing: 8) {
+                    ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.element.id) { index, session in
+                        SessionCard(session: session, onTap: {
+                            selectedSession = session
+                        }, viewModel: viewModel, isLast: index == viewModel.filteredSessions.count - 1)
+                    }
+                }
+                .padding(.horizontal, 10)
+                .padding(.top, 8)
+                .padding(.bottom, 30)
             }
-            .padding(.horizontal, 10)
-            .padding(.top, 8)
-            .padding(.bottom, 30)
         }
     }
 }

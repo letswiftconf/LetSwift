@@ -8,11 +8,28 @@
 import Foundation
 import WatchKit
 
+// API Response Models
+struct Session: Identifiable, Codable {
+    let id: Int
+    let title: String
+    let track: String
+    let speakers: [Speaker]
+    let startTime: Date
+    let endTime: Date
+    
+    struct Speaker: Identifiable, Codable {
+        var id: String { self.name }
+        let name: String
+        let profileImage: String
+    }
+}
+
 @MainActor
 @Observable
 final class WatchSessionViewModel {
     var sessions: [SessionItem] = []
     var currentTrack: WatchTrack = .trackA
+    var isLoading: Bool = false
     
     private var allSessions: [SessionItem] = []
     private var favoriteIds: Set<String> = []
@@ -21,8 +38,30 @@ final class WatchSessionViewModel {
         sessions.filter { $0.displayTrack == currentTrack.displayName }
     }
     
+    @ObservationIgnored
+    private lazy var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(serverTimeFormatter)
+        return decoder
+    }()
+    
+    @ObservationIgnored
+    private let serverTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter
+    }()
+    
+    @ObservationIgnored
+    private var hasLoadedOnce = false
+    
     init() {
         loadFavoriteIds()
+    }
+    
+    func loadSessionsOnce() async {
+        guard !hasLoadedOnce else { return }
+        hasLoadedOnce = true
         loadSessions()
     }
     
@@ -53,76 +92,63 @@ final class WatchSessionViewModel {
     }
     
     func loadSessions() {
-        // Load from Schedule.json
-        guard let url = Bundle.main.url(forResource: "Schedule", withExtension: "json") else {
-            print("❌ Failed to find Schedule.json")
-            print("Bundle paths: \(Bundle.main.paths(forResourcesOfType: "json", inDirectory: nil))")
-            return
-        }
+        guard !isLoading else { return }
+        isLoading = true
         
-        print("✅ Found Schedule.json at: \(url)")
-        
-        guard let data = try? Data(contentsOf: url) else {
-            print("❌ Failed to load Schedule.json data")
-            return
-        }
-        
-        guard let json = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else {
-            print("❌ Failed to parse Schedule.json as JSON array")
-            return
-        }
-        
-        print("✅ Loaded Schedule.json with \(json.count) items")
-        
-        var loadedSessions: [SessionItem] = []
-        
-        for item in json {
-            guard let id = item["id"] as? String,
-                  let name = item["name"] as? String,
-                  let type = item["type"] as? String,
-                  let trackRaw = item["track"] as? String,
-                  let startTimeStr = item["start_time"] as? String,
-                  let endTimeStr = item["end_time"] as? String,
-                  let duration = item["duration"] as? Int else {
-                continue
+        Task {
+            let result = await fetchSessions()
+            switch result {
+            case .success(let fetchedSessions):
+                self.allSessions = fetchedSessions
+                self.sessions = fetchedSessions
+                // Cache the sessions
+                cacheSessions(fetchedSessions)
+                print("✅ Loaded \(fetchedSessions.count) sessions from API")
+            case .failure(let error):
+                print("❌ Failed to fetch sessions: \(error.localizedDescription)")
+                // Load from cache as fallback
+                loadCachedSessions()
             }
-            
-            // Parse dates
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            guard let startTime = dateFormatter.date(from: startTimeStr),
-                  let endTime = dateFormatter.date(from: endTimeStr) else {
-                continue
-            }
-            
-            // Parse speakers
-            var speakers: [String] = []
-            if let speakersArray = item["speakers"] as? [[String: Any]] {
-                speakers = speakersArray.compactMap { $0["name"] as? String }
-            }
-            
-            let session = SessionItem(
-                id: id,
-                name: name,
-                type: SessionType(rawValue: type) ?? .presentation,
-                track: trackRaw,
-                startTime: startTime,
-                endTime: endTime,
-                duration: duration,
-                speakers: speakers
-            )
-            
-            loadedSessions.append(session)
+            isLoading = false
+        }
+    }
+    
+    private func fetchSessions() async -> Result<[SessionItem], Error> {
+        guard let url = URL(string: "http://223.130.133.110:8080/presentations") else {
+            return .failure(URLError(.badURL))
         }
         
-        print("✅ Parsed \(loadedSessions.count) sessions")
-        
-        self.allSessions = loadedSessions
-        self.sessions = loadedSessions.filter { $0.isSession } // Filter to only presentation sessions
-        
-        print("✅ Filtered to \(self.sessions.count) presentation sessions")
-        print("✅ Track A sessions: \(self.sessions.filter { $0.displayTrack == "A" }.count)")
-        print("✅ Track B sessions: \(self.sessions.filter { $0.displayTrack == "B" }.count)")
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            if let httpResponse = response as? HTTPURLResponse,
+               (200...299) ~= httpResponse.statusCode {
+                let sessions = try jsonDecoder.decode([Session].self, from: data)
+                let sessionItems = sessions.map { SessionItem(from: $0) }
+                return .success(sessionItems)
+            } else {
+                return .failure(NSError())
+            }
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    private func cacheSessions(_ sessions: [SessionItem]) {
+        if let data = try? JSONEncoder().encode(sessions) {
+            UserDefaults.standard.set(data, forKey: "cachedSessions")
+        }
+    }
+    
+    private func loadCachedSessions() {
+        if let data = UserDefaults.standard.data(forKey: "cachedSessions"),
+           let sessions = try? JSONDecoder().decode([SessionItem].self, from: data) {
+            self.allSessions = sessions
+            self.sessions = sessions
+            print("✅ Loaded \(sessions.count) sessions from cache")
+        } else {
+            print("❌ No cached sessions available")
+        }
     }
     
     func toggleTrack() {
@@ -140,14 +166,36 @@ struct SessionItem: Identifiable, Codable {
     let duration: Int
     let speakers: [String]
     
+    init(id: String, name: String, type: SessionType, track: String, startTime: Date, endTime: Date, duration: Int, speakers: [String]) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.track = track
+        self.startTime = startTime
+        self.endTime = endTime
+        self.duration = duration
+        self.speakers = speakers
+    }
+    
+    init(from session: Session) {
+        self.id = "\(session.id)"
+        self.name = session.title
+        self.type = .presentation
+        self.track = session.track
+        self.startTime = session.startTime
+        self.endTime = session.endTime
+        self.duration = Int(session.endTime.timeIntervalSince(session.startTime))
+        self.speakers = session.speakers.map { $0.name }
+    }
+    
     var isSession: Bool {
         type == .presentation
     }
     
     var displayTrack: String {
-        if track.contains("트랙 A") || track.contains("Track A") {
+        if track.contains("트랙 A") || track.contains("Track A") || track == "A" {
             return "A"
-        } else if track.contains("트랙 B") || track.contains("Track B") {
+        } else if track.contains("트랙 B") || track.contains("Track B") || track == "B" {
             return "B"
         }
         return ""
