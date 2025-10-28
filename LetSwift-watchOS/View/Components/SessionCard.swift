@@ -14,7 +14,8 @@ struct SessionCard: View {
     let isLast: Bool
     
     private var isFavorite: Bool {
-        viewModel.isFavorite(session.id)
+        let _ = viewModel.updateTrigger // Force observation
+        return viewModel.isFavorite(session.id)
     }
     
     var body: some View {

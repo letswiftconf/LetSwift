@@ -31,8 +31,14 @@ final class WatchSessionViewModel {
     var currentTrack: WatchTrack = .trackA
     var isLoading: Bool = false
     
+    @ObservationIgnored
     private var allSessions: [SessionItem] = []
+    
+    @ObservationIgnored
     private var favoriteIds: Set<String> = []
+    
+    // This property is used to trigger UI updates when favorites change
+    var updateTrigger: Int = 0
     
     var filteredSessions: [SessionItem] {
         sessions.filter { $0.displayTrack == currentTrack.displayName }
@@ -69,12 +75,17 @@ final class WatchSessionViewModel {
         if let data = UserDefaults.standard.data(forKey: "favoriteSessionIds"),
            let ids = try? JSONDecoder().decode(Set<String>.self, from: data) {
             favoriteIds = ids
+            print("✅ Loaded \(ids.count) favorites from UserDefaults")
         }
     }
     
     private func saveFavoriteIds() {
-        if let data = try? JSONEncoder().encode(favoriteIds) {
+        do {
+            let data = try JSONEncoder().encode(favoriteIds)
             UserDefaults.standard.set(data, forKey: "favoriteSessionIds")
+            print("✅ Saved \(favoriteIds.count) favorites to UserDefaults")
+        } catch {
+            print("❌ Failed to save favorites: \(error.localizedDescription)")
         }
     }
     
@@ -89,6 +100,8 @@ final class WatchSessionViewModel {
             favoriteIds.insert(sessionId)
         }
         saveFavoriteIds()
+        // Trigger UI update
+        updateTrigger += 1
     }
     
     func loadSessions() {
