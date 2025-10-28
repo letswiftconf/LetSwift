@@ -13,11 +13,45 @@ struct SessionView: View {
     var body: some View {
         VStack(spacing: 0) {
             tabView
+            liveActivityToggle
             sessionList
         }
         .padding(.top, 20)
         .task {
             viewModel.load()
+        }
+        .alert("알림", isPresented: Binding(
+            get: { viewModel.showPermissionAlert },
+            set: { if !$0 { viewModel.dismissPermissionAlert() } }
+        )) {
+            Button("확인") {
+                viewModel.openSettings()
+            }
+            Button("취소", role: .cancel) {
+                viewModel.dismissPermissionAlert()
+            }
+        } message: {
+            Text("실시간 현황 알림을 받으려면 푸시 알림 권한 동의가 필요해요")
+        }
+        .alert("라이브 액티비티 시작", isPresented: Binding(
+            get: { viewModel.showSuccessAlert },
+            set: { if !$0 { viewModel.dismissSuccessAlert() } }
+        )) {
+            Button("확인", role: .cancel) {
+                viewModel.dismissSuccessAlert()
+            }
+        } message: {
+            Text("라이브 액티비티가 시작됩니다!")
+        }
+        .alert("오류", isPresented: Binding(
+            get: { viewModel.showErrorAlert },
+            set: { if !$0 { viewModel.dismissErrorAlert() } }
+        )) {
+            Button("확인", role: .cancel) {
+                viewModel.dismissErrorAlert()
+            }
+        } message: {
+            Text("인터넷 상태를 체크해주세요!")
         }
     }
     
@@ -45,7 +79,33 @@ struct SessionView: View {
             }
         }
     }
-    
+
+    private var liveActivityToggle: some View {
+        HStack {
+            Label("Live Activity 시작", systemImage: "bell.badge.fill")
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(.primary)
+
+            Spacer()
+
+            Button {
+                Task {
+                    await viewModel.startLiveActivityAction()
+                }
+            } label: {
+                Image(systemName: "play.circle.fill")
+                    .font(.system(size: 24))
+                    .foregroundStyle(.themePrimary)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(Color(.systemBackground))
+        .overlay(alignment: .bottom) {
+            Color(.opaqueSeparator).frame(height: 1)
+        }
+    }
+
     private var sessionList: some View {
         ScrollView {
             VStack(spacing: 22) {

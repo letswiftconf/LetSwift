@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import UserNotifications
+import UIKit
+import ActivityKit
 
 @MainActor
 @Observable
@@ -29,11 +31,14 @@ final class SessionViewModel {
         self.isLoaded = false
         self.sessionRowViewModels = []
     }
-    
+
     private(set) var currentTab: SessionTab
     private(set) var isLoading: Bool
     private(set) var isLoaded: Bool
     private(set) var sessionRowViewModels: [SessionRowViewModel]
+    private(set) var showPermissionAlert: Bool = false
+    private(set) var showSuccessAlert: Bool = false
+    private(set) var showErrorAlert: Bool = false
     
     @ObservationIgnored
     private lazy var jsonDecoder: JSONDecoder = {
@@ -85,6 +90,106 @@ extension SessionViewModel {
 
     func update(currentTab: SessionTab) {
         self.currentTab = currentTab
+    }
+
+    func startLiveActivityAction() async {
+        // First, end all existing Live Activities
+        await endAllLiveActivities()
+
+        // Check push notification permission
+        let hasPermission = await checkNotificationPermission()
+        if hasPermission {
+            await startLiveActivity()
+        } else {
+            // Request permission
+            let granted = await requestNotificationPermission()
+            if granted {
+                await startLiveActivity()
+            } else {
+                // Show alert to guide user to settings
+                showPermissionAlert = true
+            }
+        }
+    }
+
+    private func checkNotificationPermission() async -> Bool {
+        let settings = await UNUserNotificationCenter.current().notificationSettings()
+        return settings.authorizationStatus == .authorized
+    }
+
+    private func requestNotificationPermission() async -> Bool {
+        do {
+            let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+            return granted
+        } catch {
+            print("❌ Failed to request notification permission: \(error)")
+            return false
+        }
+    }
+
+    func openSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
+        showPermissionAlert = false
+    }
+
+    func dismissPermissionAlert() {
+        showPermissionAlert = false
+    }
+
+    func dismissSuccessAlert() {
+        showSuccessAlert = false
+    }
+
+    func dismissErrorAlert() {
+        showErrorAlert = false
+    }
+
+    private func endAllLiveActivities() async {
+        for activity in Activity<PresentationAttributes>.activities {
+            await activity.end(nil, dismissalPolicy: .immediate)
+            print("🛑 Ended existing Live Activity: \(activity.attributes.track)")
+        }
+    }
+
+    private func startLiveActivity() async {
+        guard let deviceId = UIDevice.current.identifierForVendor?.uuidString else {
+            print("❌ No device ID found")
+            showErrorAlert = true
+            return
+        }
+
+        let request: [String: Any] = [
+            "deviceIds": [deviceId]
+        ]
+
+        guard let url = URL(string: Constants.URL.liveActivityStartCurrentURL) else {
+            print("❌ Invalid URL")
+            showErrorAlert = true
+            return
+        }
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        do {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: request)
+            let (_, response) = try await URLSession.shared.data(for: urlRequest)
+
+            if let httpResponse = response as? HTTPURLResponse,
+               (200...299).contains(httpResponse.statusCode) {
+                print("✅ Live Activities started for both tracks")
+                showSuccessAlert = true
+            } else {
+                print("❌ Failed to start Live Activities")
+                showErrorAlert = true
+            }
+        } catch {
+            print("❌ Error starting Live Activities: \(error)")
+            showErrorAlert = true
+        }
     }
 }
 

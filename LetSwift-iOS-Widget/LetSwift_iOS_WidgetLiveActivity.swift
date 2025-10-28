@@ -67,7 +67,7 @@ struct LetSwift_iOS_WidgetLiveActivity: Widget {
                                 countsDown: false,
                                 label: { EmptyView() },
                                 currentValueLabel: {
-                                    Text(startDate, style: .time) + Text(" ~ ") + Text(endDate, style: .time)ㅑ
+                                    Text(startDate, style: .time) + Text(" ~ ") + Text(endDate, style: .time)
                                 }
                             )
                             .progressViewStyle(.linear)
