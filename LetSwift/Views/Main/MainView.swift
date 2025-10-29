@@ -14,7 +14,7 @@ struct MainView: View {
     @State var selectedTab: TabItem = .home
 
     @State private var sessionViewModel: SessionViewModel = SessionViewModel()
-    
+
     var body: some View {
         if #available(iOS 26, *) {
             mainContent
@@ -55,8 +55,11 @@ struct MainView: View {
             requestReview()
 #endif
         }
+        .task {
+            await sessionViewModel.autoStartLiveActivityIfNeeded()
+        }
     }
-    
+
     private var mainContentPreiOS26: some View {
         TabView(selection: $selectedTab) {
             ForEach(TabItem.allCases, id: \.self) { tab in
@@ -73,8 +76,11 @@ struct MainView: View {
             requestReview()
 #endif
         }
+        .task {
+            await sessionViewModel.autoStartLiveActivityIfNeeded()
+        }
     }
-    
+
     @ViewBuilder
     func createTabView(for item: TabItem) -> some View {
         switch item {

@@ -112,6 +112,25 @@ extension SessionViewModel {
         }
     }
 
+    func autoStartLiveActivityIfNeeded() async {
+        // Skip if already running
+        if !Activity<PresentationAttributes>.activities.isEmpty {
+            print("✅ Live Activity already running, skipping auto-start")
+            return
+        }
+
+        print("🚀 Auto-starting Live Activity...")
+
+        // Check push notification permission
+        let hasPermission = await checkNotificationPermission()
+        if hasPermission {
+            await startLiveActivity(showAlert: false)  // Don't show alert for auto-start
+        } else {
+            // Don't request permission for auto-start, just skip silently
+            print("⚠️ Push notification permission not granted, skipping auto-start")
+        }
+    }
+
     private func checkNotificationPermission() async -> Bool {
         let settings = await UNUserNotificationCenter.current().notificationSettings()
         return settings.authorizationStatus == .authorized
@@ -153,10 +172,12 @@ extension SessionViewModel {
         }
     }
 
-    private func startLiveActivity() async {
+    private func startLiveActivity(showAlert: Bool = true) async {
         guard let deviceId = UIDevice.current.identifierForVendor?.uuidString else {
             print("❌ No device ID found")
-            showErrorAlert = true
+            if showAlert {
+                showErrorAlert = true
+            }
             return
         }
 
@@ -166,7 +187,9 @@ extension SessionViewModel {
 
         guard let url = URL(string: Constants.URL.liveActivityStartCurrentURL) else {
             print("❌ Invalid URL")
-            showErrorAlert = true
+            if showAlert {
+                showErrorAlert = true
+            }
             return
         }
 
@@ -181,14 +204,20 @@ extension SessionViewModel {
             if let httpResponse = response as? HTTPURLResponse,
                (200...299).contains(httpResponse.statusCode) {
                 print("✅ Live Activities started for both tracks")
-                showSuccessAlert = true
+                if showAlert {
+                    showSuccessAlert = true
+                }
             } else {
                 print("❌ Failed to start Live Activities")
-                showErrorAlert = true
+                if showAlert {
+                    showErrorAlert = true
+                }
             }
         } catch {
             print("❌ Error starting Live Activities: \(error)")
-            showErrorAlert = true
+            if showAlert {
+                showErrorAlert = true
+            }
         }
     }
 }
