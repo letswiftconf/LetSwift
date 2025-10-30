@@ -16,9 +16,9 @@ import ActivityKit
 final class SessionViewModel {
     var filteredSessions: [SessionRowViewModel] {
         switch currentTab {
-        case .trackA:
+        case .star:
             return sessionRowViewModels.filter { $0.session.track == "A" }
-        case .trackB:
+        case .ember:
             return sessionRowViewModels.filter { $0.session.track == "B" }
         case .savedSession:
             return sessionRowViewModels.filter { $0.session.isSaved }
@@ -26,7 +26,7 @@ final class SessionViewModel {
     }
     
     init() {
-        self.currentTab = .trackA
+        self.currentTab = .star
         self.isLoading = false
         self.isLoaded = false
         self.sessionRowViewModels = []
