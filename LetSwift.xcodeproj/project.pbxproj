@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192FA39A2E8B77970078326A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192FA3992E8B77970078326A /* GoogleService-Info.plist */; };
+		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
+		198E93ED2EAB1198006974E6 /* LiveActivityLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */; };
 		19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A42E75690400BB0448 /* FirebaseAnalytics */; };
 		19B614A72E75690400BB0448 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A62E75690400BB0448 /* FirebaseAnalyticsCore */; };
 		19B614A92E75690400BB0448 /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A82E75690400BB0448 /* FirebaseAnalyticsIdentitySupport */; };
@@ -17,6 +20,9 @@
 		19D3D78B2E8058F90062DB4B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 19D3D78A2E8058F90062DB4B /* FirebaseCore */; };
 		19D3D78D2E8058F90062DB4B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19D3D78C2E8058F90062DB4B /* FirebaseCrashlytics */; };
 		19D3D78F2E8058F90062DB4B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 19D3D78E2E8058F90062DB4B /* FirebaseMessaging */; };
+		19F667222EA607FE00401846 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F667212EA607FE00401846 /* WidgetKit.framework */; };
+		19F667242EA607FE00401846 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F667232EA607FE00401846 /* SwiftUI.framework */; };
+		19F667312EA607FF00401846 /* LetSwift-iOS-WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 19F6671F2EA607FE00401846 /* LetSwift-iOS-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */; };
 		1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD16E692C861323006E4B53 /* SessionTab.swift */; };
 		214AA4562C42296200C1C747 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4552C42296200C1C747 /* HomeView.swift */; };
@@ -144,6 +150,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		19F6672F2EA607FF00401846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2199734A2C3F5F5B0015D1AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19F6671E2EA607FE00401846;
+			remoteInfo = "LetSwift-iOS-WidgetExtension";
+		};
 		21FF027C2E9C7D2D00E44F61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2199734A2C3F5F5B0015D1AF /* Project object */;
@@ -154,6 +167,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		19F667322EA607FF00401846 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				19F667312EA607FF00401846 /* LetSwift-iOS-WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21FF027F2E9C7D2D00E44F61 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,6 +192,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		192FA3992E8B77970078326A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityLauncher.swift; sourceTree = "<group>"; };
+		19F6671F2EA607FE00401846 /* LetSwift-iOS-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LetSwift-iOS-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F667212EA607FE00401846 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		19F667232EA607FE00401846 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		1CD16E692C861323006E4B53 /* SessionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTab.swift; sourceTree = "<group>"; };
 		214AA4552C42296200C1C747 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -285,6 +314,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		198E93A92EAB05ED006974E6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/PresentationAttributes.swift,
+			);
+			target = 19F6671E2EA607FE00401846 /* LetSwift-iOS-WidgetExtension */;
+		};
+		19F667352EA607FF00401846 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 19F6671E2EA607FE00401846 /* LetSwift-iOS-WidgetExtension */;
+		};
 		21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -304,13 +347,25 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		192EB6072EAA7FE20019DA34 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+		192EB60B2EAA806C0019DA34 /* FCMTokenRegister */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = FCMTokenRegister; sourceTree = "<group>"; };
+		19F667252EA607FE00401846 /* LetSwift-iOS-Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (19F667352EA607FF00401846 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-iOS-Widget"; sourceTree = "<group>"; };
 		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
-		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02992E9C7E2000E44F62 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
+		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 198E93A92EAB05ED006974E6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
 		B846C2502EA10756002B4B3F /* Previous */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Previous; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19F6671C2EA607FE00401846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F667242EA607FE00401846 /* SwiftUI.framework in Frameworks */,
+				19F667222EA607FE00401846 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2199734F2C3F5F5B0015D1AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +408,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F667202EA607FE00401846 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19F667212EA607FE00401846 /* WidgetKit.framework */,
+				19F667232EA607FE00401846 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		214AA4572C42296500C1C747 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +447,8 @@
 				21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */,
 				219973692C3F60ED0015D1AF /* LetSwift-macOS */,
 				2199737C2C3F61000015D1AF /* LetSwift-visionOS */,
+				19F667252EA607FE00401846 /* LetSwift-iOS-Widget */,
+				19F667202EA607FE00401846 /* Frameworks */,
 				219973532C3F5F5B0015D1AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -394,6 +460,7 @@
 				219973682C3F60ED0015D1AF /* LetSwift-macOS.app */,
 				2199737B2C3F61000015D1AF /* LetSwift-visionOS.app */,
 				21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */,
+				19F6671F2EA607FE00401846 /* LetSwift-iOS-WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,6 +468,8 @@
 		219973542C3F5F5B0015D1AF /* LetSwift */ = {
 			isa = PBXGroup;
 			children = (
+				192EB6072EAA7FE20019DA34 /* Services */,
+				192FA3992E8B77970078326A /* GoogleService-Info.plist */,
 				98B898852C98276100A7073D /* LetSwift.entitlements */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
 				2199738E2C4221510015D1AF /* Views */,
@@ -579,6 +648,7 @@
 		C1C3692E2CE314510027BDC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				192EB60B2EAA806C0019DA34 /* FCMTokenRegister */,
 				B846C2502EA10756002B4B3F /* Previous */,
 				D19F73EA2C80CD14009D0D9F /* Session */,
 				C1C3693E2CE3161A0027BDC2 /* TabItem.swift */,
@@ -681,6 +751,7 @@
 				D40ED0472CB17F0D00433E18 /* NotificationClickType.swift */,
 				D978C27C2C9042510097500D /* NotificationManager.swift */,
 				D40ECFE42CA1B9A200433E18 /* Date+Extensions.swift */,
+				198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -688,6 +759,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		19F6671E2EA607FE00401846 /* LetSwift-iOS-WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19F667362EA607FF00401846 /* Build configuration list for PBXNativeTarget "LetSwift-iOS-WidgetExtension" */;
+			buildPhases = (
+				19F6671B2EA607FE00401846 /* Sources */,
+				19F6671C2EA607FE00401846 /* Frameworks */,
+				19F6671D2EA607FE00401846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				19F667252EA607FE00401846 /* LetSwift-iOS-Widget */,
+			);
+			name = "LetSwift-iOS-WidgetExtension";
+			packageProductDependencies = (
+			);
+			productName = "LetSwift-iOS-WidgetExtension";
+			productReference = 19F6671F2EA607FE00401846 /* LetSwift-iOS-WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		219973512C3F5F5B0015D1AF /* LetSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 219973602C3F5F5D0015D1AF /* Build configuration list for PBXNativeTarget "LetSwift" */;
@@ -696,13 +789,17 @@
 				2199734F2C3F5F5B0015D1AF /* Frameworks */,
 				219973502C3F5F5B0015D1AF /* Resources */,
 				21FF027F2E9C7D2D00E44F61 /* Embed Watch Content */,
+				19F667322EA607FF00401846 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				21FF027D2E9C7D2D00E44F61 /* PBXTargetDependency */,
+				19F667302EA607FF00401846 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				192EB6072EAA7FE20019DA34 /* Services */,
+				192EB60B2EAA806C0019DA34 /* FCMTokenRegister */,
 				2199952F2E8E87A200F10254 /* Extensions */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
 				B846C2502EA10756002B4B3F /* Previous */,
@@ -780,6 +877,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					19F6671E2EA607FE00401846 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					219973512C3F5F5B0015D1AF = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -816,11 +916,20 @@
 				21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */,
 				219973672C3F60ED0015D1AF /* LetSwift-macOS */,
 				2199737A2C3F61000015D1AF /* LetSwift-visionOS */,
+				19F6671E2EA607FE00401846 /* LetSwift-iOS-WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		19F6671D2EA607FE00401846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		219973502C3F5F5B0015D1AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -930,6 +1039,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19F6671B2EA607FE00401846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2199734E2C3F5F5B0015D1AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -959,6 +1075,7 @@
 				D19F73EC2C80D5F5009D0D9F /* Session.swift in Sources */,
 				219973562C3F5F5B0015D1AF /* LetSwiftApp.swift in Sources */,
 				D22F98242CA48B77007BF1C9 /* SearchView.swift in Sources */,
+				198E93ED2EAB1198006974E6 /* LiveActivityLauncher.swift in Sources */,
 				D22F981A2CA48912007BF1C9 /* PreviousViewModel.swift in Sources */,
 				4D7B0FF22C7F724500670837 /* LinkButton.swift in Sources */,
 				D40ECFE12CA085BD00433E18 /* View+Extensions.swift in Sources */,
@@ -1005,6 +1122,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		19F667302EA607FF00401846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19F6671E2EA607FE00401846 /* LetSwift-iOS-WidgetExtension */;
+			targetProxy = 19F6672F2EA607FF00401846 /* PBXContainerItemProxy */;
+		};
 		21FF027D2E9C7D2D00E44F61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
@@ -1013,6 +1135,70 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		19F667332EA607FF00401846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetSwift-iOS-Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-iOS-Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.codesquad.jk.letswift.LetSwift-iOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19F667342EA607FF00401846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetSwift-iOS-Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-iOS-Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.codesquad.jk.letswift.LetSwift-iOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2199735E2C3F5F5D0015D1AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1409,6 +1595,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		19F667362EA607FF00401846 /* Build configuration list for PBXNativeTarget "LetSwift-iOS-WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19F667332EA607FF00401846 /* Debug */,
+				19F667342EA607FF00401846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2199734D2C3F5F5B0015D1AF /* Build configuration list for PBXProject "LetSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -14,6 +14,11 @@ enum Constants {
         static let festaURL = "https://festa.io/events/5772"
         static let eventURL = "https://letswift.kr/2024"
         static let newsletterSubscribeURL = "https://page.stibee.com/subscriptions/58654"
+
+        // Push Notification Server
+        static let pushServerBaseURL = "http://223.130.133.110:8080"
+        static let deviceRegisterURL = "\(pushServerBaseURL)/device/register"
+        static let liveActivityStartCurrentURL = "\(pushServerBaseURL)/live-activity/start-current"
     }
     
     enum Notification {
