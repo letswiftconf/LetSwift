@@ -16,7 +16,7 @@ struct LinkButton: View {
     VStack(spacing: 12) {
       Text(Image(systemName: icon))
         .font(.system(size: 24, weight: .semibold))
-        .foregroundStyle(.iconLabel1)
+        .foregroundStyle(.background4)
       
       Text(title)
         .font(.system(size: 14, weight: .regular))
@@ -49,7 +49,7 @@ struct LinkButton: View {
     LinkButton(title: "티켓 구매", icon: "ticket.fill", onTapGesture: {})
   }
   .padding()
-  .background(Color("System/background"))
+  .background(.background5)
 }
 
 #Preview("home") {

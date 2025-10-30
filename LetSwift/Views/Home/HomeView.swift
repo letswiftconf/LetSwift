@@ -21,7 +21,7 @@ struct HomeView: View {
         buttonStack
       }
     }
-    .background(Color("System/background"))
+    .background(.background1)
     .customAlert($viewModel.alert)
     .safariView(item: $presentURL) { item in
       SafariView(
@@ -73,7 +73,7 @@ extension HomeView {
   private var divider: some View {
     Divider()
       .frame(height: 1)
-      .overlay(Color("System/separator1"))
+      .overlay(.background6)
       .padding(.leading, 45)
       .padding(.bottom, 17)
   }

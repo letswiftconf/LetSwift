@@ -31,7 +31,7 @@ struct LocationAndDateView: View {
     .padding(.horizontal, 20)
     .padding(.vertical, 12)
     .frame(maxWidth: .infinity, alignment: .leading)
-    .background(Color("System/groupBackground"))
+    .background(.groupBackground)
     .clipShape(RoundedRectangle(cornerRadius: 32, style: .circular))
   }
 }
@@ -114,7 +114,7 @@ extension LocationAndDateView {
 
         Text(Image(systemName: "chevron.right"))
           .font(.system(size: 17, weight: .semibold))
-          .foregroundStyle(.iconLabel1)
+          .foregroundStyle(.background4)
       }
       .padding(.vertical, 22.5)
     }
