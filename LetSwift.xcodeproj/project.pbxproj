@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		192FA39A2E8B77970078326A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192FA3992E8B77970078326A /* GoogleService-Info.plist */; };
 		19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A42E75690400BB0448 /* FirebaseAnalytics */; };
 		19B614A72E75690400BB0448 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A62E75690400BB0448 /* FirebaseAnalyticsCore */; };
 		19B614A92E75690400BB0448 /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A82E75690400BB0448 /* FirebaseAnalyticsIdentitySupport */; };
@@ -36,7 +35,6 @@
 		219973862C3F61020015D1AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973852C3F61020015D1AF /* Assets.xcassets */; };
 		219973892C3F61020015D1AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973882C3F61020015D1AF /* Preview Assets.xcassets */; };
 		219973902C4222870015D1AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219973572C3F5F5B0015D1AF /* MainView.swift */; };
-		21DC4A182D5ADEE800880CD4 /* Schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A172D5ADEE800880CD4 /* Schedule.json */; };
 		21DC4AA62D5AE26300880CD4 /* hyuna.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A7D2D5AE26300880CD4 /* hyuna.jpg */; };
 		21DC4AA72D5AE26300880CD4 /* oliveyoung_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4AA02D5AE26300880CD4 /* oliveyoung_white.png */; };
 		21DC4AA82D5AE26300880CD4 /* parts.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DC4A962D5AE26300880CD4 /* parts.png */; };
@@ -170,7 +168,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		192FA3992E8B77970078326A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		1CD16E692C861323006E4B53 /* SessionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTab.swift; sourceTree = "<group>"; };
 		214AA4552C42296200C1C747 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -194,7 +191,6 @@
 		219973852C3F61020015D1AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		219973882C3F61020015D1AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2199738A2C3F61020015D1AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21DC4A172D5ADEE800880CD4 /* Schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Schedule.json; sourceTree = "<group>"; };
 		21DC4A762D5AE26300880CD4 /* anssanghee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = anssanghee.jpg; sourceTree = "<group>"; };
 		21DC4A772D5AE26300880CD4 /* arty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arty.jpg; sourceTree = "<group>"; };
 		21DC4A782D5AE26300880CD4 /* bummo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bummo.jpg; sourceTree = "<group>"; };
@@ -298,12 +294,19 @@
 			);
 			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
 		};
+		21FF02992E9C7E2000E44F62 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 21FF02732E9C7D2B00E44F61 /* LetSwift-watchOS */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
-		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
+		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02992E9C7E2000E44F62 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
 		B846C2502EA10756002B4B3F /* Previous */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Previous; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -398,7 +401,6 @@
 		219973542C3F5F5B0015D1AF /* LetSwift */ = {
 			isa = PBXGroup;
 			children = (
-				192FA3992E8B77970078326A /* GoogleService-Info.plist */,
 				98B898852C98276100A7073D /* LetSwift.entitlements */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
 				2199738E2C4221510015D1AF /* Views */,
@@ -480,7 +482,6 @@
 				C184F2BF2CE9C69100AF7720 /* Preview Content */,
 				214AA45B2C4229F900C1C747 /* Localizable.xcstrings */,
 				214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */,
-				21DC4A172D5ADEE800880CD4 /* Schedule.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -861,7 +862,6 @@
 				21DC4AC42D5AE26300880CD4 /* zeus.jpg in Resources */,
 				21DC4AC52D5AE26300880CD4 /* chjw.png in Resources */,
 				21DC4AC62D5AE26300880CD4 /* my4cut_white.png in Resources */,
-				192FA39A2E8B77970078326A /* GoogleService-Info.plist in Resources */,
 				21DC4AC72D5AE26300880CD4 /* oliveyoung_white_color.png in Resources */,
 				21DC4AC82D5AE26300880CD4 /* hjh.jpg in Resources */,
 				21DC4AC92D5AE26300880CD4 /* curry.jpg in Resources */,
@@ -881,7 +881,6 @@
 				D22F980A2CA48039007BF1C9 /* playlist-2017.json in Resources */,
 				C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */,
 				2199735A2C3F5F5D0015D1AF /* Assets.xcassets in Resources */,
-				21DC4A182D5ADEE800880CD4 /* Schedule.json in Resources */,
 				214AA45E2C422A0400C1C747 /* InfoPlist.xcstrings in Resources */,
 				214AA45C2C4229F900C1C747 /* Localizable.xcstrings in Resources */,
 			);
@@ -1347,7 +1346,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;
@@ -1381,7 +1381,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.codesquad.jk.letswift;

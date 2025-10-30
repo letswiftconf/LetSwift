@@ -1,7 +1,13 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
-    "Hello, Let'Swift!" : {
+    "%@트랙" : {
+
+    },
+    "닫기" : {
+
+    },
+    "세션이 없습니다" : {
 
     }
   },
