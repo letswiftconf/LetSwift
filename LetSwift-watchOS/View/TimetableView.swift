@@ -73,7 +73,7 @@ struct TimetableView: View {
                 Spacer()
                 
                 // Track name
-                Text("\(viewModel.currentTrack.displayName)트랙")
+                Text(viewModel.currentTrack.displayName)
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(Color(hex: "F14D35"))
             }
