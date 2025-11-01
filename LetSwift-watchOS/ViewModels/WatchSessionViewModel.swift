@@ -41,7 +41,8 @@ final class WatchSessionViewModel {
     var updateTrigger: Int = 0
     
     var filteredSessions: [SessionItem] {
-        sessions.filter { $0.displayTrack == currentTrack.displayName }
+        let trackLetter = currentTrack == .trackA ? "A" : "B"
+        return sessions.filter { $0.displayTrack == trackLetter }
     }
     
     @ObservationIgnored
@@ -206,9 +207,10 @@ struct SessionItem: Identifiable, Codable {
     }
     
     var displayTrack: String {
-        if track.contains("트랙 A") || track.contains("Track A") || track == "A" {
+        let trackLower = track.lowercased()
+        if trackLower.contains("트랙 a") || trackLower.contains("track a") || track == "A" || trackLower == "a" {
             return "A"
-        } else if track.contains("트랙 B") || track.contains("Track B") || track == "B" {
+        } else if trackLower.contains("트랙 b") || trackLower.contains("track b") || track == "B" || trackLower == "b" {
             return "B"
         }
         return ""
