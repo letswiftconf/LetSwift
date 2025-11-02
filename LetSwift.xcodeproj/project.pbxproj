@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		192FA39A2E8B77970078326A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192FA3992E8B77970078326A /* GoogleService-Info.plist */; };
 		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		198E93ED2EAB1198006974E6 /* LiveActivityLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */; };
 		19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A42E75690400BB0448 /* FirebaseAnalytics */; };
@@ -352,7 +351,7 @@
 		19F667252EA607FE00401846 /* LetSwift-iOS-Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (19F667352EA607FF00401846 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-iOS-Widget"; sourceTree = "<group>"; };
 		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 198E93A92EAB05ED006974E6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
-		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
+		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02992E9C7E2000E44F62 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
 		B846C2502EA10756002B4B3F /* Previous */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Previous; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -1532,7 +1531,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1553,7 +1552,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -1567,7 +1566,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "LetSwift-watchOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "LetSwift-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1588,7 +1587,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
