@@ -20,7 +20,7 @@ struct LocationAndDateView: View {
 
       Divider()
         .frame(height: 1)
-        .overlay(.black)
+        .overlay(.primaryLabel)
         .padding(.leading, 40)
 
       HStack(spacing: 0) {
@@ -31,7 +31,7 @@ struct LocationAndDateView: View {
     .padding(.horizontal, 20)
     .padding(.vertical, 12)
     .frame(maxWidth: .infinity, alignment: .leading)
-    .background(Color(._272727))
+    .background(.groupBackground)
     .clipShape(RoundedRectangle(cornerRadius: 32, style: .circular))
   }
 }
@@ -46,12 +46,12 @@ extension LocationAndDateView {
 
       VStack(alignment: .leading, spacing: 0) {
         Text("home.location")
-          .foregroundStyle(.background5)
+          .foregroundStyle(.title2)
           .font(.system(size: 17, weight: .regular))
 
         Text("서울 광진구 능동로 209")
           .font(.system(size: 15, weight: .regular))
-          .foregroundStyle(.background4)
+          .foregroundStyle(.primaryLabel)
       }
       .padding(.vertical, 9)
     }
@@ -66,12 +66,12 @@ extension LocationAndDateView {
 
       VStack(alignment: .leading, spacing: 0) {
         Text("home.date")
-          .foregroundStyle(.background5)
+          .foregroundStyle(.title2)
           .font(.system(size: 17, weight: .regular))
 
         Text("2025.11.24. 10:00 ~")
           .font(.system(size: 15, weight: .regular))
-          .foregroundStyle(.background4)
+          .foregroundStyle(.primaryLabel)
           .lineSpacing(3)
       }
       .padding(.vertical, 9)
@@ -114,7 +114,7 @@ extension LocationAndDateView {
 
         Text(Image(systemName: "chevron.right"))
           .font(.system(size: 17, weight: .semibold))
-          .foregroundStyle(.white)
+          .foregroundStyle(.background4)
       }
       .padding(.vertical, 22.5)
     }

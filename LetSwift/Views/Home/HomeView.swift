@@ -51,7 +51,7 @@ extension HomeView {
         Text("Ember to Stars!")
           .font(.system(size: 12))
       }
-      .foregroundStyle(.white)
+      .foregroundStyle(.title1)
       .frame(maxWidth: .infinity, alignment: .leading)
     }
     .padding(.horizontal, 35)
@@ -73,7 +73,7 @@ extension HomeView {
   private var divider: some View {
     Divider()
       .frame(height: 1)
-      .overlay(._272727)
+      .overlay(.background6)
       .padding(.leading, 45)
       .padding(.bottom, 17)
   }

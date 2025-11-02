@@ -16,11 +16,11 @@ struct LinkButton: View {
     VStack(spacing: 12) {
       Text(Image(systemName: icon))
         .font(.system(size: 24, weight: .semibold))
-        .foregroundStyle(.background6)
-
+        .foregroundStyle(.background4)
+      
       Text(title)
         .font(.system(size: 14, weight: .regular))
-        .foregroundStyle(.white)
+        .foregroundStyle(.title2)
     }
     .padding(.vertical, 28)
     .frame(maxWidth: .infinity)
@@ -33,14 +33,13 @@ struct LinkButton: View {
   private var backgroundView: some View {
     if #available(iOS 26.0, *) {
       Circle()
-        .glassEffect(.clear)
+        .foregroundStyle(.clear)
+        .glassEffect(.regular.interactive())
     } else {
-      // TODO: 디자인팀 답변 오면 수정
       Circle()
         .fill(.ultraThinMaterial)
     }
   }
-
 }
 
 #Preview {
@@ -50,9 +49,8 @@ struct LinkButton: View {
     LinkButton(title: "티켓 구매", icon: "ticket.fill", onTapGesture: {})
   }
   .padding()
-  .background(.background1)
+  .background(.background5)
 }
-
 
 #Preview("home") {
   HomeView()
