@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1927D4052EB7B4C600B953CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1927D4042EB7B4C600B953CC /* GoogleService-Info.plist */; };
 		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		198E93ED2EAB1198006974E6 /* LiveActivityLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */; };
 		19B614A52E75690400BB0448 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 19B614A42E75690400BB0448 /* FirebaseAnalytics */; };
@@ -191,7 +192,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		192FA3992E8B77970078326A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1927D4042EB7B4C600B953CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		198E93EC2EAB1198006974E6 /* LiveActivityLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityLauncher.swift; sourceTree = "<group>"; };
 		19F6671F2EA607FE00401846 /* LetSwift-iOS-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LetSwift-iOS-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F667212EA607FE00401846 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -441,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */,
+				1927D4042EB7B4C600B953CC /* GoogleService-Info.plist */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
 				219973542C3F5F5B0015D1AF /* LetSwift */,
 				21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */,
@@ -468,7 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				192EB6072EAA7FE20019DA34 /* Services */,
-				192FA3992E8B77970078326A /* GoogleService-Info.plist */,
 				98B898852C98276100A7073D /* LetSwift.entitlements */,
 				C16B9E632C74CEAE009CCC06 /* Info.plist */,
 				2199738E2C4221510015D1AF /* Views */,
@@ -945,6 +946,7 @@
 				21DC4AAB2D5AE26300880CD4 /* rc_white.png in Resources */,
 				21DC4AAC2D5AE26300880CD4 /* doyoung.jpg in Resources */,
 				21DC4AAD2D5AE26300880CD4 /* bear.jpg in Resources */,
+				1927D4052EB7B4C600B953CC /* GoogleService-Info.plist in Resources */,
 				21DC4AAE2D5AE26300880CD4 /* rayoung.jpg in Resources */,
 				21DC4AAF2D5AE26300880CD4 /* dobi.jpg in Resources */,
 				21DC4AB02D5AE26300880CD4 /* cw.jpg in Resources */,
