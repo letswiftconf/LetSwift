@@ -34,7 +34,7 @@ struct SessionRowView: View {
         
         return VStack(alignment: .leading, spacing: 0) {
             Text(s.title)
-                .font(.system(size: 16))
+                .font(.system(size: 16, weight: .regular))
                 .frame(height: 40, alignment: .top)
             
             HStack(spacing: 10) {
@@ -45,7 +45,8 @@ struct SessionRowView: View {
                     )
                 }
                 Text(formatTimeRange(start: s.startTime, end: s.endTime))
-                    .font(.system(size: 10))
+                    .font(.system(size: 10, weight: .regular))
+                    .foregroundStyle(.secondary)
             }
         }
     }

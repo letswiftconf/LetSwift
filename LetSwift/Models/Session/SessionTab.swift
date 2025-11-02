@@ -9,12 +9,12 @@ import Foundation
 
 enum SessionTab: String, Identifiable, CaseIterable {
     var id: String { self.rawValue }
-    case trackA, trackB, savedSession
+    case star, ember, savedSession
 
     var title: String {
         switch self {
-        case .trackA: return "Track A"
-        case .trackB: return "Track B"
+        case .star: return "STAR"
+        case .ember: return "EMBER"
         case .savedSession: return NSLocalizedString("timetable.tab.savedSession", comment: "Saved Session tab title")
         }
     }

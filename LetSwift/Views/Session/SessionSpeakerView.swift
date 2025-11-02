@@ -30,7 +30,8 @@ struct SessionSpeakerView: View {
             .cornerRadius(4)
             
             Text(LocalizedStringKey(name))
-                .font(.system(size: 10))
+                .font(.system(size: 10, weight: .regular))
+                .foregroundStyle(.secondary)
         }
     }
     

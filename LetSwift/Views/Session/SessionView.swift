@@ -62,7 +62,7 @@ struct SessionView: View {
                     viewModel.update(currentTab: tab)
                 } label: {
                     Text(tab.title)
-                        .font(.system(size: 20, weight: .medium))
+                        .font(.system(size: 20, weight: .regular))
                         .foregroundStyle(viewModel.currentTab == tab ? .primary : .secondary)
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 10)
