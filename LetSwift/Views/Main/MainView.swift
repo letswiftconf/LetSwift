@@ -45,9 +45,9 @@ struct MainView: View {
                     }
                 }
             }
-            Tab(TabItem.search.title, systemImage: TabItem.search.icon, value: .search, role: .search) {
-                PreviousView()
-            }
+//            Tab(TabItem.search.title, systemImage: TabItem.search.icon, value: .search, role: .search) {
+//                PreviousView()
+//            }
         }
         .tint(.themePrimary)
         .onAppear {
