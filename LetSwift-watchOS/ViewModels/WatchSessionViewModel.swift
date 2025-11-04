@@ -246,8 +246,8 @@ enum WatchTrack {
     
     var displayName: String {
         switch self {
-        case .trackA: return "STAR(B홀)"
-        case .trackB: return "BLAZE(C홀)"
+        case .trackA: return "EMBER(B홀)"
+        case .trackB: return "STAR(C홀)"
         }
     }
     

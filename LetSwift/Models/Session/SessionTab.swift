@@ -13,8 +13,8 @@ enum SessionTab: String, Identifiable, CaseIterable {
 
     var title: String {
         switch self {
-        case .star: return "STAR"
-        case .ember: return "EMBER"
+        case .star: return "EMBER"
+        case .ember: return "STAR"
         case .savedSession: return NSLocalizedString("timetable.tab.savedSession", comment: "Saved Session tab title")
         }
     }
