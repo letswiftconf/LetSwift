@@ -253,8 +253,8 @@ enum WatchTrack {
     
     var buttonText: String {
         switch self {
-        case .trackA: return "B"
-        case .trackB: return "A"
+        case .trackA: return "C"
+        case .trackB: return "B"
         }
     }
 }

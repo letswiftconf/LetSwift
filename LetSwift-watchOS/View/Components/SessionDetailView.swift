@@ -91,7 +91,7 @@ extension View {
     func glassContainer(radius: CGFloat) -> some View {
         if #available(watchOS 26, *) {
             self
-                .glassEffect(.clear, in: RoundedRectangle(cornerRadius: radius))
+                .glassEffect(.regular, in: RoundedRectangle(cornerRadius: radius))
         } else {
             self
                 .background(
