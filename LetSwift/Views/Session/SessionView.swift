@@ -107,19 +107,36 @@ struct SessionView: View {
     }
 
     private var sessionList: some View {
-        ScrollView {
-            VStack(spacing: 22) {
-                ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.offset) { offset, sessionRowViewModel in
-                    SessionRowView(viewModel: sessionRowViewModel)
+        Group {
+            if viewModel.currentTab == .savedSession && viewModel.filteredSessions.isEmpty && !viewModel.isLoading {
+                VStack(spacing: 12) {
+                    Image(systemName: "tray")
+                        .font(.system(size: 20, weight: .regular))
+                        .foregroundStyle(.secondary)
+
+                    Text("세션을 저장하고 시작 알림을 받아보세요")
+                        .font(.system(size: 14, weight: .regular))
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                ScrollView {
+                    VStack(spacing: 22) {
+                        ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.offset) { offset, sessionRowViewModel in
+                            SessionRowView(viewModel: sessionRowViewModel)
+                        }
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.top, 22)
+                }
+                .overlay {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .opacity(viewModel.isLoading ? 1.0 : 0.0)
                 }
             }
-            .padding(.horizontal, 12)
-            .padding(.top, 22)
-        }
-        .overlay {
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .opacity(viewModel.isLoading ? 1.0 : 0.0)
         }
     }
 }
