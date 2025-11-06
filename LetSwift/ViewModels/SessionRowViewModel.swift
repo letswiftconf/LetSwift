@@ -37,5 +37,10 @@ extension SessionRowViewModel {
         // Set에 값이 없으면 추가. 있으면 Set에서 제거.
         savedSessions = savedSessions.symmetricDifference([session.identifier])
         UserDefaultsManager.savedSessions = savedSessions
+        
+        // WatchConnectivity를 통해 워치에 즐겨찾기 변경 사항 전송
+        Task { @MainActor in
+            WatchConnectivityManager.shared.updateApplicationContext(savedSessions)
+        }
     }
 }

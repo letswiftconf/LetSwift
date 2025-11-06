@@ -30,6 +30,18 @@ final class SessionViewModel {
         self.isLoading = false
         self.isLoaded = false
         self.sessionRowViewModels = []
+        
+        // WatchConnectivity를 통해 워치에서 받은 즐겨찾기 업데이트를 반영
+        NotificationCenter.default.addObserver(
+            forName: .favoriteIdsDidUpdate,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            Task { @MainActor [self] in
+                self.updateFavoriteStates()
+            }
+        }
     }
 
     private(set) var currentTab: SessionTab
@@ -86,6 +98,17 @@ extension SessionViewModel {
         }
         
         self.sessionRowViewModels = sessionModels.map { SessionRowViewModel(session: $0) }
+    }
+    
+    private func updateFavoriteStates() {
+        let savedSessionIds: Set<String> = UserDefaultsManager.savedSessions
+        
+        for viewModel in sessionRowViewModels {
+            let shouldBeSaved = savedSessionIds.contains(viewModel.session.identifier)
+            if viewModel.session.isSaved != shouldBeSaved {
+                viewModel.session.isSaved = shouldBeSaved
+            }
+        }
     }
 
     func update(currentTab: SessionTab) {
