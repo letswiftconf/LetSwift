@@ -41,7 +41,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // Start observing Live Activity push-to-start token
         if #available(iOS 17.2, *) {
-            LiveActivityTokenManager.shared.observePushToStartToken()
+            Task {
+                await LiveActivityTokenManager.shared.observePushToStartToken()
+            }
         }
     }
 

@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct LetSwift_watchOS_Watch_AppApp: App {
+    init() {
+        // WatchConnectivity 초기화
+        _ = WatchConnectivityManager.shared
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
