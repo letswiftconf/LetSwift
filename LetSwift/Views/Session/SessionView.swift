@@ -109,18 +109,7 @@ struct SessionView: View {
     private var sessionList: some View {
         Group {
             if viewModel.currentTab == .savedSession && viewModel.filteredSessions.isEmpty && !viewModel.isLoading {
-                VStack(spacing: 12) {
-                    Image(systemName: "tray")
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundStyle(.secondary)
-
-                    Text("세션을 저장하고 시작 알림을 받아보세요")
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                emptySessionPlaceholder
             } else {
                 ScrollView {
                     VStack(spacing: 22) {
@@ -138,6 +127,21 @@ struct SessionView: View {
                 }
             }
         }
+    }
+
+    private var emptySessionPlaceholder: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "tray")
+                .font(.system(size: 20, weight: .regular))
+                .foregroundStyle(.secondary)
+
+            Text("세션을 저장하고 시작 알림을 받아보세요")
+                .font(.system(size: 14, weight: .regular))
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
