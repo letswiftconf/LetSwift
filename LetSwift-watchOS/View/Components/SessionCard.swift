@@ -52,7 +52,7 @@ struct SessionCard: View {
                     HapticFeedback.click()
                     viewModel.toggleFavorite(session.id)
                 }) {
-                    Image(systemName: isFavorite ? "star.fill" : "star")
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(isFavorite ? Color(hex: "F14D35") : .white)
                         .frame(width: 20, height: 20)
