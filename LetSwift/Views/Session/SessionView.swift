@@ -13,8 +13,10 @@ struct SessionView: View {
     var body: some View {
         VStack(spacing: 0) {
             tabView
-            #if os(iOS) && !targetEnvironment(macCatalyst)
-            liveActivityToggle
+            #if !os(visionOS)
+            if !ProcessInfo.processInfo.isiOSAppOnMac {
+                liveActivityToggle
+            }
             #endif
             sessionList
         }
