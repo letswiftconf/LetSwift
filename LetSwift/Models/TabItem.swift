@@ -46,6 +46,6 @@ enum TabItem: CaseIterable {
     }
     
     static var tabCases: [TabItem] {
-        [.home, .session, .previous, .more]
+        [.home, .session, .previous, .search, .more]
     }
 }

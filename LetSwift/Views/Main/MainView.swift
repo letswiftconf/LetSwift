@@ -41,13 +41,11 @@ struct MainView: View {
                     case .more:
                         MoreView()
                     case .search:
-                        EmptyView()
+                        SearchTabView()
+                            .environment(sessionViewModel)
                     }
                 }
             }
-//            Tab(TabItem.search.title, systemImage: TabItem.search.icon, value: .search, role: .search) {
-//                PreviousView()
-//            }
         }
         .tint(.themePrimary)
         .onAppear {
@@ -94,7 +92,8 @@ struct MainView: View {
         case .more:
             MoreView()
         case .search:
-            EmptyView()
+            SearchTabView()
+                .environment(sessionViewModel)
         }
     }
 }
