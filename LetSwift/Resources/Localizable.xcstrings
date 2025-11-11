@@ -273,10 +273,16 @@
     "settings.conferenceReview" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let'Swift 2025 Feedback Survey"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Let’Swift 2025 피드백 설문조사"
+            "value" : "Let'Swift 2025 피드백 설문조사"
           }
         }
       }
