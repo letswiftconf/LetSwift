@@ -20,6 +20,6 @@ extension Bundle {
     
     static var appName: String {
         let name = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
-        return name ?? "Dice"
+        return name ?? "Let'Swift"
     }
 }
