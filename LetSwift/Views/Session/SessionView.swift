@@ -130,18 +130,11 @@ struct SessionView: View {
     }
 
     private var emptySessionPlaceholder: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "tray")
-                .font(.system(size: 20, weight: .regular))
-                .foregroundStyle(.secondary)
-
-            Text("세션을 저장하고 시작 알림을 받아보세요")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
+        ContentUnavailableView {
+            Label("session.favorite.empty_title", systemImage: "tray")
+        } description: {
+            Text("session.favorite.empty_description")
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
