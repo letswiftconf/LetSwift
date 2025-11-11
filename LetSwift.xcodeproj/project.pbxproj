@@ -1338,6 +1338,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Let'Swift";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
@@ -1377,6 +1378,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetSwift/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Let'Swift";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "이 앱은 NFC 태그를 읽기 위해 접근 권한이 필요합니다.";
