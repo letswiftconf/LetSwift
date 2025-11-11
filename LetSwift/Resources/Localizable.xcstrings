@@ -206,6 +206,38 @@
         }
       }
     },
+    "session.favorite.empty_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save sessions and receive start notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세션을 저장하고 시작 알림을 받아보세요"
+          }
+        }
+      }
+    },
+    "session.favorite.empty_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Saved Sessions"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장된 세션 없음"
+          }
+        }
+      }
+    },
     "settings.appIcon" : {
       "localizations" : {
         "en" : {
