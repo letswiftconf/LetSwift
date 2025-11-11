@@ -10,9 +10,10 @@ import BetterSafariView
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
-    
+
     @State private var presentURL: URL? = nil
-    
+    @State private var showSurveyUnavailableAlert = false
+
     var body: some View {
         NavigationStack {
             List {
@@ -30,6 +31,9 @@ struct MoreView: View {
             SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))
                 .preferredControlAccentColor(.themePrimary)
                 .dismissButtonStyle(.close)
+        }
+        .alert("settings.survey.unavailable", isPresented: $showSurveyUnavailableAlert) {
+            Button("OK", role: .cancel) { }
         }
     }
     
@@ -50,7 +54,7 @@ struct MoreView: View {
             }
             .buttonStyle(.plain)
             Button {
-                present(url: URL.letswiftReview)
+                presentSurveyIfAvailable()
             } label: {
                 ListItem(title: "settings.conferenceReview", style: .externalLink)
             }
@@ -127,6 +131,24 @@ struct MoreView: View {
         }
         presentURL = url
 //        openURL(url)
+    }
+
+    private func presentSurveyIfAvailable() {
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        // Survey available date: November 24, 2025
+        let components = DateComponents(year: 2025, month: 11, day: 24)
+        guard let surveyAvailableDate = calendar.date(from: components) else {
+            return
+        }
+
+        // Check if current date is on or after November 24, 2025
+        if currentDate >= surveyAvailableDate {
+            present(url: URL.letswiftReview)
+        } else {
+            showSurveyUnavailableAlert = true
+        }
     }
 }
 
