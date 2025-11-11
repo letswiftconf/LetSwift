@@ -441,6 +441,23 @@
         }
       }
     },
+    "settings.survey.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can participate in the survey on the conference day."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "행사 당일부터 참여할 수 있어요."
+          }
+        }
+      }
+    },
     "settings.title" : {
       "localizations" : {
         "en" : {
