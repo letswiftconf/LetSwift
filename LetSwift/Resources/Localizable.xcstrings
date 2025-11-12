@@ -19,7 +19,20 @@
       }
     },
     "2025.11.24. 10:00 ~" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2025.11.24. 10:00 ~"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2025.11.24. 10:00 ~"
+          }
+        }
+      }
     },
     "alert.confirm" : {
       "localizations" : {
@@ -102,7 +115,14 @@
       }
     },
     "Ember to Stars!" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ember to Stars!"
+          }
+        }
+      }
     },
     "home.date" : {
       "extractionState" : "manual",
@@ -155,7 +175,14 @@
       }
     },
     "Live Activity 시작" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Live Activity"
+          }
+        }
+      }
     },
     "more.title" : {
       "localizations" : {
@@ -174,7 +201,14 @@
       }
     },
     "OK" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
     },
     "previous.title" : {
       "extractionState" : "manual",
@@ -528,10 +562,36 @@
       }
     },
     "라이브 액티비티 시작" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Live Activity"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "라이브 액티비티 시작"
+          }
+        }
+      }
     },
     "라이브 액티비티가 시작됩니다!" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Activity started!"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "라이브 액티비티가 시작됩니다!"
+          }
+        }
+      }
     },
     "발표자료 받기" : {
       "localizations" : {
@@ -550,7 +610,20 @@
       }
     },
     "서울 광진구 능동로 209" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서울 광진구 능동로 209"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서울 광진구 능동로 209"
+          }
+        }
+      }
     },
     "세션 이름을 검색해보세요" : {
       "localizations" : {
@@ -597,10 +670,36 @@
       }
     },
     "실시간 현황 알림을 받으려면 푸시 알림 권한 동의가 필요해요" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable push notification to receive session notifications."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "실시간 현황 알림을 받으려면 푸시 알림 권한 동의가 필요해요"
+          }
+        }
+      }
     },
     "알림" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
+          }
+        }
+      }
     },
     "앱" : {
       "extractionState" : "stale",
@@ -614,10 +713,36 @@
       }
     },
     "오류" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류"
+          }
+        }
+      }
     },
     "인터넷 상태를 체크해주세요!" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check internet connection"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인터넷 상태를 체크해주세요!"
+          }
+        }
+      }
     },
     "지도" : {
       "extractionState" : "stale",
@@ -637,7 +762,20 @@
       }
     },
     "취소" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
+          }
+        }
+      }
     },
     "캘린더 등록" : {
       "extractionState" : "stale",
@@ -668,7 +806,14 @@
       }
     },
     "확인" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
