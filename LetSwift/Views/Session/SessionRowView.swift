@@ -15,16 +15,14 @@ struct SessionRowView: View {
     }
     
     var body: some View {
-        VStack(spacing: 22) {
+        VStack(spacing: 12) {
             HStack {
                 info
-                    .padding(.trailing, 30)
                 Spacer()
-                
                 bookmarkToggle
             }
-            .padding(.horizontal, 10)
-            
+            .padding(.horizontal, 12)
+            .padding(.vertical, 4)
             Divider()
         }
     }
@@ -32,12 +30,12 @@ struct SessionRowView: View {
     private var info: some View {
         let s = viewModel.session
         
-        return VStack(alignment: .leading, spacing: 0) {
+        return VStack(alignment: .leading, spacing: 8) {
             Text(s.title)
                 .font(.system(size: 16, weight: .regular))
-                .frame(height: 40, alignment: .top)
+                .multilineTextAlignment(.leading)
             
-            HStack(spacing: 10) {
+            HStack(spacing: 12) {
                 ForEach(s.speakers, id: \.id) { speaker in
                     SessionSpeakerView(
                         name: speaker.name,
@@ -45,7 +43,7 @@ struct SessionRowView: View {
                     )
                 }
                 Text(formatTimeRange(start: s.startTime, end: s.endTime))
-                    .font(.system(size: 10, weight: .regular))
+                    .font(.system(size: 11, weight: .regular))
                     .foregroundStyle(.secondary)
             }
         }

@@ -61,12 +61,12 @@ struct YearKeywordsView: View {
                     .fill(
                         selectedYear == year
                         ? Color(.themeSecondary)
-                        : (colorScheme == .dark ? Color(UIColor.gray) : Color(UIColor.systemGray5))
+                        : (colorScheme == .dark ? Color(.secondarySystemGroupedBackground) : Color(UIColor.systemGray5))
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
                             .strokeBorder(
-                                selectedYear == year ? .themePrimary : .gray,
+                                selectedYear == year ? .themePrimary : Color(.separator),
                                 lineWidth: 1
                             )
                     )

@@ -20,7 +20,7 @@ struct LocationAndDateView: View {
 
       Divider()
         .frame(height: 1)
-        .overlay(.primaryLabel)
+//        .overlay(.primaryLabel)
         .padding(.leading, 40)
 
       HStack(spacing: 0) {

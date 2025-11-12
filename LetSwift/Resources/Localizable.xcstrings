@@ -173,6 +173,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "previous.title" : {
       "extractionState" : "manual",
       "localizations" : {

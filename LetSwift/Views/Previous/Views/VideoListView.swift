@@ -88,8 +88,6 @@ struct VideoListItemView: View {
                 .padding(.bottom, 6)
                 
                 Divider()
-                    .frame(height: 2)
-                    .background(Color(.systemGray2))
                     .padding(.horizontal, 5)
                     .padding(.vertical, 0)
             }
@@ -104,7 +102,7 @@ struct VideoListItemView: View {
             .frame(height: 72)
             .padding(.leading, 20)
             .padding(.trailing, 12)
-            .padding(.vertical, 0)
+            .padding(.vertical, 2)
             
             if item.hasReference {
                 downloadReferenceButton

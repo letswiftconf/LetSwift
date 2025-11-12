@@ -46,7 +46,7 @@ extension HomeView {
         .frame(width: 104, height: 103)
 
       VStack(alignment: .leading, spacing: 2) {
-        Text("appIcon.2025")
+          Text(Bundle.appName + String(" 2025"))
           .font(.system(size: 24, weight: .bold))
         Text("Ember to Stars!")
           .font(.system(size: 12))
