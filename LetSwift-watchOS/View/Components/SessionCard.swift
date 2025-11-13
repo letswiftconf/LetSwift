@@ -34,7 +34,7 @@ struct SessionCard: View {
                     Text(session.name)
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(.white)
-                        .lineLimit(2)
+//                        .lineLimit(2)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                     

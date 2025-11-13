@@ -14,14 +14,14 @@ struct SessionDetailView: View {
     var body: some View {
         ZStack {
             // Blurred background
-            ZStack {
-                Color.gray.opacity(0.1)
-                    .blur(radius: 100)
-                    .ignoresSafeArea()
-                
-                Color.black.opacity(0.1)
-                    .ignoresSafeArea()
-            }
+//            ZStack {
+//                Color.gray.opacity(0.1)
+//                    .blur(radius: 100)
+//                    .ignoresSafeArea()
+//                
+//                Color.black.opacity(0.1)
+//                    .ignoresSafeArea()
+//            }
             
             // Scrollable content with separate rounded squares
             ScrollView {
@@ -62,23 +62,23 @@ struct SessionDetailView: View {
                     .glassContainer(radius: 18)
                     
                     // Close button - separate rounded square
-                    Button(action: {
-                        HapticFeedback.click()
-                        dismiss()
-                    }) {
-                        Text("닫기")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 42)
-                            .glassContainer(radius: 18)
-                    }
-                    .buttonStyle(.plain)
-                    .padding(.horizontal, 20)
+//                    Button(action: {
+//                        HapticFeedback.click()
+//                        dismiss()
+//                    }) {
+//                        Text("닫기")
+//                            .font(.system(size: 16, weight: .semibold))
+//                            .foregroundColor(.white)
+//                            .frame(maxWidth: .infinity)
+//                            .frame(height: 42)
+//                            .glassContainer(radius: 18)
+//                    }
+//                    .buttonStyle(.plain)
+//                    .padding(.horizontal, 20)
                 }
                 .padding(.horizontal, 10)
-                .padding(.top, 70)
-                .padding(.bottom, 16)
+//                .padding(.top, 70)
+//                .padding(.bottom, 16)
             }
         }
     }

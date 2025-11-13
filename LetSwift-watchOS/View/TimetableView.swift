@@ -13,30 +13,49 @@ struct TimetableView: View {
     @State private var selectedSession: SessionItem?
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                // Navigation bar
-                navigationBar
-                
-                // Session list
-                sessionList
-            }
-            .padding(.top, 20)
-            .edgesIgnoringSafeArea(.all)
-            
-            // Popup overlay
-            if let session = selectedSession {
-                SessionDetailView(session: session, dismiss: {
-                    selectedSession = nil
-                })
-                .zIndex(1)
-                .edgesIgnoringSafeArea(.all)
+        NavigationStack {
+            sessionList
+                .navigationTitle(viewModel.currentTrack.displayName)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            viewModel.toggleTrack()
+                        } label: {
+                            Label("track", systemImage: viewModel.currentTrack.buttonText.lowercased() + ".circle")
+                                .labelStyle(.iconOnly)
+                        }
+                    }
+                }
+        }
+        .sheet(item: $selectedSession) { session in
+            SessionDetailView(session: session) {
+                selectedSession = nil
             }
         }
-        .background(Color(hex: "242424"))
         .task {
             await viewModel.loadSessionsOnce()
         }
+//        ZStack {
+//            VStack(spacing: 0) {
+//                // Navigation bar
+//                navigationBar
+//                
+//                // Session list
+//                sessionList
+//            }
+//            .padding(.top, 20)
+//            .edgesIgnoringSafeArea(.all)
+//            
+//            // Popup overlay
+//            if let session = selectedSession {
+//                SessionDetailView(session: session, dismiss: {
+//                    selectedSession = nil
+//                })
+//                .zIndex(1)
+//                .edgesIgnoringSafeArea(.all)
+//            }
+//        }
+//        .background(Color(hex: "242424"))
     }
     
     private var navigationBar: some View {
