@@ -27,7 +27,7 @@ struct ListItem: View {
                     .foregroundStyle(.secondary)
             case .externalLink:
                 Image(systemName: "arrow.up.right")
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.tertiary)
             }
         }
         .contentShape(.rect)
