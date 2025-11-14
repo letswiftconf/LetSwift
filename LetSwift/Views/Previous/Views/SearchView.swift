@@ -25,13 +25,7 @@ struct SearchView: View {
         }
       )
     }
-    .padding(.horizontal, 18)
-    .padding(.vertical, 7)
-    .overlay(
-      RoundedRectangle(cornerRadius: 10)
-    )
-    .padding(.horizontal, 20)
-    .padding(.vertical, 18)
+    .padding(18)
   }
 }
 
