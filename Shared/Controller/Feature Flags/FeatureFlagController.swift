@@ -24,7 +24,7 @@ class FeatureFlagController {
     }
 
     // MARK: - Feature Flag Properties
-    var commemorativePass2025: Bool {
+    var enableCommemorativePass2025: Bool {
         isFeatureEnabled("commemorative_pass_2025", currentAppVersion: currentAppVersion)
     }
 

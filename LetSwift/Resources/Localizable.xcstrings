@@ -275,6 +275,22 @@
         }
       }
     },
+    "settings.addToAppleWallet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Add to Apple Wallet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 지갑에 추가"
+          }
+        }
+      }
+    },
     "settings.appIcon" : {
       "localizations" : {
         "en" : {
@@ -480,6 +496,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오픈 소스"
+          }
+        }
+      }
+    },
+    "settings.section.pass" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commemorative Pass"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기념 패스"
           }
         }
       }

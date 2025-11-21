@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PassKit
 import BetterSafariView
 
 struct MoreView: View {
@@ -13,11 +14,15 @@ struct MoreView: View {
 
     @State private var presentURL: URL? = nil
     @State private var showSurveyUnavailableAlert = false
+    @State private var showAddPassSheet = false
+    @State private var commemorativePass: PKPass?
+    @State private var isLoadingPass = false
 
     var body: some View {
         NavigationStack {
             List {
                 letswiftSection
+                passSection
                 openSourceSection
                 appSection
 #if DEBUG
@@ -34,6 +39,21 @@ struct MoreView: View {
         }
         .alert("settings.survey.unavailable", isPresented: $showSurveyUnavailableAlert) {
             Button("OK", role: .cancel) { }
+        }
+        .sheet(isPresented: $showAddPassSheet) {
+            if let commemorativePass {
+                AddPassToWalletView(pass: commemorativePass)
+            }
+        }
+        .overlay {
+            if isLoadingPass {
+                ZStack {
+                    Color.black.opacity(0.3)
+                        .ignoresSafeArea()
+                    ProgressView()
+                        .tint(.white)
+                }
+            }
         }
     }
     
@@ -63,6 +83,23 @@ struct MoreView: View {
             }
         } header: {
             Text("settings.section.letswift")
+        }
+    }
+    
+    // MARK: - Pass section
+    @ViewBuilder
+    private var passSection: some View {
+        if FeatureFlagController.shared.enableCommemorativePass2025 {
+            Section {
+                Button {
+                    presentAddToAppleWalletIfAvailable()
+                } label: {
+                    ListItem(title: "settings.addToAppleWallet", style: .none)
+                }
+                .buttonStyle(.plain)
+            } header: {
+                Text("settings.section.pass")
+            }
         }
     }
     
@@ -140,6 +177,39 @@ struct MoreView: View {
             present(url: URL.letswiftReview)
         } else {
             showSurveyUnavailableAlert = true
+        }
+    }
+    
+    private func presentAddToAppleWalletIfAvailable() {
+        guard FeatureFlagController.shared.enableCommemorativePass2025 else {
+            return
+        }
+
+        Task {
+            await downloadAndPresentPass()
+        }
+    }
+
+    private func downloadAndPresentPass() async {
+        isLoadingPass = true
+
+        do {
+            print("[MoreView] Downloading commemorative pass...")
+            let (data, _) = try await URLSession.shared.data(from: .commemorativePass2025)
+
+            guard let pass = try? PKPass(data: data) else {
+                print("[MoreView] ❌ Invalid pass data")
+                isLoadingPass = false
+                return
+            }
+
+            print("[MoreView] Successfully downloaded pass")
+            commemorativePass = pass
+            isLoadingPass = false
+            showAddPassSheet = true
+        } catch {
+            print("[MoreView] ❌ Failed to download pass: \(error)")
+            isLoadingPass = false
         }
     }
 }
