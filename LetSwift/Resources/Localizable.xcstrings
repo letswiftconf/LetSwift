@@ -490,13 +490,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can participate in the survey on the conference day."
+            "value" : "This survey is currently unavailable."
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "행사 당일부터 참여할 수 있어요."
+            "value" : "현재 참여할 수 없는 설문이에요."
           }
         }
       }

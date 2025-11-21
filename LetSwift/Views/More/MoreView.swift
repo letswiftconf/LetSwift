@@ -134,17 +134,7 @@ struct MoreView: View {
     }
 
     private func presentSurveyIfAvailable() {
-        let currentDate = Date()
-        let calendar = Calendar.current
-
-        // Survey available date: November 24, 2025
-        let components = DateComponents(year: 2025, month: 11, day: 24)
-        guard let surveyAvailableDate = calendar.date(from: components) else {
-            return
-        }
-
-        // Check if current date is on or after November 24, 2025
-        if currentDate >= surveyAvailableDate {
+        if FeatureFlagController.shared.enableSurvey2025 {
             present(url: URL.letswiftReview)
         } else {
             showSurveyUnavailableAlert = true

@@ -26,6 +26,9 @@ struct LetSwiftApp: App {
                         try? await NotificationManager.shared.registerNotification(NotificationRequest.conferenceClosingNotification)
                     }
                 }
+                .task {
+                    _ = FeatureFlagController.shared
+                }
         }
     }
     
