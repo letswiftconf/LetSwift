@@ -71,15 +71,22 @@ final class Volcano {
         if context.state.currentStatus == .ongoing,
            let startDate = parseDate(from: context.state.startTime),
            let endDate = parseDate(from: context.state.endTime) {
-            ProgressView(
-                timerInterval: startDate...endDate,
-                countsDown: false,
-                label: { EmptyView() },
-                currentValueLabel: { EmptyView() }
-            )
-            .progressViewStyle(.circular)
-            .tint(Color(.themePrimary))
-            .frame(width: 16, height: 16)
+            ZStack {
+                ProgressView(
+                    timerInterval: startDate...endDate,
+                    countsDown: false,
+                    label: { EmptyView() },
+                    currentValueLabel: { EmptyView() }
+                )
+                .progressViewStyle(.circular)
+                .tint(Color(.themePrimary))
+                .frame(width: 16, height: 16)
+                Image(.logo2025200)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 10, height: 10)
+                    .clipShape(Circle())
+            }
         } else {
             Image(systemName: "clock.badge")
                 .font(.system(size: 12))
