@@ -23,184 +23,14 @@ struct LetSwift_iOS_WidgetLiveActivity: Widget {
                 )
             }
         } dynamicIsland: { context in
-            DynamicIsland {
-                // Expanded view
-                DynamicIslandExpandedRegion(.leading) {
-                    Image(.logo2025200)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
-                        .clipShape(Circle())
-                        .padding(.leading, 8)
-                }
-
-                DynamicIslandExpandedRegion(.trailing) {
-                    Image(systemName: context.state.currentStatus == .upcoming ? "clock.badge" : "clock.fill")
-                        .font(.system(size: 14))
-                        .foregroundColor(context.state.currentStatus == .upcoming ? Color(.upcoming) : Color(.themePrimary))
-                        .padding(.trailing, 8)
-                }
-
-                DynamicIslandExpandedRegion(.bottom) {
-                    VStack(spacing: 6) {
-                        // Title
-                        HStack {
-                            Text(context.state.title)
-                                .font(.system(size: 15, weight: .bold))
-                                .foregroundStyle(.white)
-                                .lineLimit(1)
-                            Spacer(minLength: 0)
-                        }
-
-                        // Speakers and Location row
-                        HStack(spacing: 8) {
-                            // Speakers
-                            HStack(spacing: 3) {
-                                Image(systemName: "person.fill")
-                                    .font(.system(size: 10))
-                                    .foregroundStyle(.white.opacity(0.6))
-
-                                Text(context.state.speakers.map(\.name).joined(separator: ", "))
-                                    .font(.system(size: 10))
-                                    .foregroundStyle(.white.opacity(0.8))
-                                    .lineLimit(1)
-                            }
-
-                            Spacer(minLength: 0)
-
-                            // Location
-                            if let location = context.state.location {
-                                HStack(spacing: 3) {
-                                    Image(systemName: "location.fill")
-                                        .font(.system(size: 10))
-                                        .foregroundStyle(.white.opacity(0.6))
-
-                                    Text(location)
-                                        .font(.system(size: 9))
-                                        .foregroundStyle(.white.opacity(0.8))
-                                        .lineLimit(1)
-                                }
-                            }
-                        }
-
-                        // Status-specific content
-                        switch context.state.currentStatus {
-                        case .upcoming:
-                            if let startDate = parseDate(from: context.state.startTime) {
-                                HStack {
-                                    HStack(spacing: 3) {
-                                        Image(systemName: "clock")
-                                            .font(.system(size: 8))
-                                            .foregroundStyle(Color(.upcoming))
-
-                                        (Text("시작: ") + Text(startDate, style: .time))
-                                            .font(.system(size: 9, weight: .medium))
-                                            .foregroundStyle(.white.opacity(0.9))
-                                    }
-                                    Spacer(minLength: 0)
-                                }
-                            }
-
-                        case .ongoing:
-                            if let startDate = parseDate(from: context.state.startTime),
-                               let endDate = parseDate(from: context.state.endTime) {
-                                ProgressView(
-                                    timerInterval: startDate...endDate,
-                                    countsDown: false,
-                                    label: { EmptyView() },
-                                    currentValueLabel: { EmptyView() }
-                                )
-                                .progressViewStyle(.linear)
-                                .tint(Color(.themePrimary))
-                            }
-
-                        default:
-                            EmptyView()
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 14)
-                    .padding(.bottom, 12)
-                }
-
-            } compactLeading: {
-                // Compact leading - Logo
-                Image(.logo2025200)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 18, height: 18)
-                    .clipShape(Circle())
-
-            } compactTrailing: {
-                // Compact trailing - Circular progress or icon
-                if context.state.currentStatus == .ongoing,
-                   let startDate = parseDate(from: context.state.startTime),
-                   let endDate = parseDate(from: context.state.endTime) {
-                    ProgressView(
-                        timerInterval: startDate...endDate,
-                        countsDown: false,
-                        label: { EmptyView() },
-                        currentValueLabel: { EmptyView() }
-                    )
-                    .progressViewStyle(.circular)
-                    .tint(Color(.themePrimary))
-                    .frame(width: 20, height: 20)
-                } else {
-                    Image(systemName: "clock.badge")
-                        .font(.system(size: 13))
-                        .foregroundColor(Color(.upcoming))
-                }
-
-            } minimal: {
-                // Minimal view - Circular progress or icon
-                if context.state.currentStatus == .ongoing,
-                   let startDate = parseDate(from: context.state.startTime),
-                   let endDate = parseDate(from: context.state.endTime) {
-                    ProgressView(
-                        timerInterval: startDate...endDate,
-                        countsDown: false,
-                        label: { EmptyView() },
-                        currentValueLabel: { EmptyView() }
-                    )
-                    .progressViewStyle(.circular)
-                    .tint(Color(.themePrimary))
-                    .frame(width: 16, height: 16)
-                } else {
-                    Image(systemName: "clock.badge")
-                        .font(.system(size: 12))
-                        .foregroundColor(Color(.upcoming))
-                }
-            }
+            Volcano.createDynamicIsland(with: context)
         }
-        
         if #available(iOS 18.0, *) {
             return configuration
                 .supplementalActivityFamilies([.small, .medium])
         } else {
             return configuration
         }
-    }
-
-    private func parseDate(from dateString: String) -> Date? {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
-
-        // Try with timezone first
-        if let date = formatter.date(from: dateString) {
-            return date
-        }
-
-        // Try without timezone (add Z)
-        if let date = formatter.date(from: dateString + "Z") {
-            return date
-        }
-
-        // Fallback to DateFormatter
-        let fallbackFormatter = DateFormatter()
-        fallbackFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        fallbackFormatter.timeZone = TimeZone.current
-        return fallbackFormatter.date(from: dateString)
     }
 }
 
@@ -393,13 +223,13 @@ private struct LiveActivityStatusView: View {
 }
 
 extension PresentationAttributes {
-    fileprivate static var preview: PresentationAttributes {
+    static var preview: PresentationAttributes {
         PresentationAttributes(track: "A")
     }
 }
 
 extension PresentationAttributes.ContentState {
-    fileprivate static var ongoing: PresentationAttributes.ContentState {
+    static var ongoing: PresentationAttributes.ContentState {
         let now = Date()
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
@@ -419,7 +249,7 @@ extension PresentationAttributes.ContentState {
         )
     }
 
-    fileprivate static var upcoming: PresentationAttributes.ContentState {
+    static var upcoming: PresentationAttributes.ContentState {
         let now = Date()
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
@@ -438,7 +268,7 @@ extension PresentationAttributes.ContentState {
         )
     }
 
-    fileprivate static var upcomingSoon: PresentationAttributes.ContentState {
+    static var upcomingSoon: PresentationAttributes.ContentState {
         let now = Date()
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
@@ -457,7 +287,7 @@ extension PresentationAttributes.ContentState {
         )
     }
 
-    fileprivate static var ongoingAlmostDone: PresentationAttributes.ContentState {
+    static var ongoingAlmostDone: PresentationAttributes.ContentState {
         let now = Date()
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
@@ -478,38 +308,33 @@ extension PresentationAttributes.ContentState {
     }
 }
 
+func parseDate(from dateString: String) -> Date? {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
+    
+    // Try with timezone first
+    if let date = formatter.date(from: dateString) {
+        return date
+    }
+    
+    // Try without timezone (add Z)
+    if let date = formatter.date(from: dateString + "Z") {
+        return date
+    }
+    
+    // Fallback to DateFormatter
+    let fallbackFormatter = DateFormatter()
+    fallbackFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    fallbackFormatter.timeZone = TimeZone.current
+    return fallbackFormatter.date(from: dateString)
+}
+
+
 // MARK: - Previews
 
 // Lock Screen Preview
 #Preview("Lock Screen", as: .content, using: PresentationAttributes.preview) {
    LetSwift_iOS_WidgetLiveActivity()
-} contentStates: {
-    PresentationAttributes.ContentState.ongoing
-    PresentationAttributes.ContentState.upcoming
-    PresentationAttributes.ContentState.upcomingSoon
-    PresentationAttributes.ContentState.ongoingAlmostDone
-}
-
-// Dynamic Island - Compact Preview
-#Preview("Dynamic Island - Compact", as: .dynamicIsland(.compact), using: PresentationAttributes.preview) {
-    LetSwift_iOS_WidgetLiveActivity()
-} contentStates: {
-    PresentationAttributes.ContentState.ongoing
-    PresentationAttributes.ContentState.upcoming
-    PresentationAttributes.ContentState.upcomingSoon
-}
-
-// Dynamic Island - Minimal Preview
-#Preview("Dynamic Island - Minimal", as: .dynamicIsland(.minimal), using: PresentationAttributes.preview) {
-    LetSwift_iOS_WidgetLiveActivity()
-} contentStates: {
-    PresentationAttributes.ContentState.ongoing
-    PresentationAttributes.ContentState.upcoming
-}
-
-// Dynamic Island - Expanded Preview
-#Preview("Dynamic Island - Expanded", as: .dynamicIsland(.expanded), using: PresentationAttributes.preview) {
-    LetSwift_iOS_WidgetLiveActivity()
 } contentStates: {
     PresentationAttributes.ContentState.ongoing
     PresentationAttributes.ContentState.upcoming
