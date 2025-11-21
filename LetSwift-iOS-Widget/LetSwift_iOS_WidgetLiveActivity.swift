@@ -42,7 +42,8 @@ private struct LiveActivityContentView: View {
 
     // 스마트 스택에서는 작은 아이콘, 일반 라이브 액티비티에서는 기본 크기
     private var isSmartStack: Bool {
-        activityFamily == .small || activityFamily == .medium
+//        activityFamily == .small || activityFamily == .medium
+        activityFamily == .small
     }
 
     private var iconSize: CGFloat {
