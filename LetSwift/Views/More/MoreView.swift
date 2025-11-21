@@ -11,6 +11,7 @@ import BetterSafariView
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
+    @State private var featureFlagController = FeatureFlagController.shared
 
     @State private var presentURL: URL? = nil
     @State private var showSurveyUnavailableAlert = false
@@ -73,7 +74,7 @@ struct MoreView: View {
                 ListItem(title: "settings.linkNewsletter", style: .externalLink)
             }
             .buttonStyle(.plain)
-            if FeatureFlagController.shared.enableSurvey2025 {
+            if featureFlagController.enableSurvey2025 {
                 Button {
                     presentSurveyIfAvailable()
                 } label: {
@@ -89,7 +90,7 @@ struct MoreView: View {
     // MARK: - Pass section
     @ViewBuilder
     private var passSection: some View {
-        if FeatureFlagController.shared.enableCommemorativePass2025 {
+        if featureFlagController.enableCommemorativePass2025 {
             Section {
                 Button {
                     presentAddToAppleWalletIfAvailable()
@@ -173,15 +174,15 @@ struct MoreView: View {
     }
 
     private func presentSurveyIfAvailable() {
-        if FeatureFlagController.shared.enableSurvey2025 {
+        if featureFlagController.enableSurvey2025 {
             present(url: URL.letswiftReview)
         } else {
             showSurveyUnavailableAlert = true
         }
     }
-    
+
     private func presentAddToAppleWalletIfAvailable() {
-        guard FeatureFlagController.shared.enableCommemorativePass2025 else {
+        guard featureFlagController.enableCommemorativePass2025 else {
             return
         }
 
