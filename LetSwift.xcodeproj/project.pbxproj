@@ -348,7 +348,6 @@
 		192EB6072EAA7FE20019DA34 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		192EB60B2EAA806C0019DA34 /* FCMTokenRegister */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = FCMTokenRegister; sourceTree = "<group>"; };
 		19F667252EA607FE00401846 /* LetSwift-iOS-Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (19F667352EA607FF00401846 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-iOS-Widget"; sourceTree = "<group>"; };
-		2199952F2E8E87A200F10254 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		21FF02312E9A1C0D00E44F61 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 198E93A92EAB05ED006974E6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
 		21FF02752E9C7D2B00E44F61 /* LetSwift-watchOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (21FF02992E9C7E2000E44F62 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LetSwift-watchOS"; sourceTree = "<group>"; };
 		B846C2502EA10756002B4B3F /* Previous */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Previous; sourceTree = "<group>"; };
@@ -474,7 +473,6 @@
 				C1C3692E2CE314510027BDC2 /* Models */,
 				D40ED0452CAEF2D100433E18 /* AppDelegate.swift */,
 				D40ECFBC2C9ABA9B00433E18 /* Constants.swift */,
-				2199952F2E8E87A200F10254 /* Extensions */,
 				8C8A8CD32EABFB8C00E59A33 /* Cache */,
 				D40ECFD92CA0124100433E18 /* UserDefaults */,
 				D978C27A2C903FDA0097500D /* Notifications */,
@@ -797,7 +795,6 @@
 			fileSystemSynchronizedGroups = (
 				192EB6072EAA7FE20019DA34 /* Services */,
 				192EB60B2EAA806C0019DA34 /* FCMTokenRegister */,
-				2199952F2E8E87A200F10254 /* Extensions */,
 				21FF02312E9A1C0D00E44F61 /* Shared */,
 				B846C2502EA10756002B4B3F /* Previous */,
 			);

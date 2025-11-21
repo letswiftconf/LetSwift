@@ -16,4 +16,5 @@ extension URL {
     static let githubNewsletterRepository = URL(string: "https://github.com/letswiftconf/newsletter")!
     static let appStoreReview = URL(string: "itms-apps://apps.apple.com/app/letswift/id1282995254?mt=8&action=write-review")!
     static let ticketaco2025 = URL(string: "https://www.ticketa.co/events/35")!
+    static let featureFlags = URL(string: "https://letswift.kr/2025/assets/json/app_feature_flags.json")!
 }
