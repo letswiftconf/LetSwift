@@ -53,12 +53,14 @@ struct MoreView: View {
                 ListItem(title: "settings.linkNewsletter", style: .externalLink)
             }
             .buttonStyle(.plain)
-            Button {
-                presentSurveyIfAvailable()
-            } label: {
-                ListItem(title: "settings.conferenceReview", style: .externalLink)
+            if FeatureFlagController.shared.enableSurvey2025 {
+                Button {
+                    presentSurveyIfAvailable()
+                } label: {
+                    ListItem(title: "settings.conferenceReview", style: .externalLink)
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
         } header: {
             Text("settings.section.letswift")
         }
