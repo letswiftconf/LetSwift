@@ -247,7 +247,7 @@ extension SessionViewModel {
 
 private extension SessionViewModel {
     enum Constant {
-        static let sessionURL: String = "http://223.130.133.110:8080/presentations"
+        static let sessionURL: String = "https://letswift.kr/2025/assets/json/schedule.json"
         static let serverTimeFormat: String = "yyyy-MM-dd'T'HH:mm:ss"
     }
 }
@@ -267,13 +267,14 @@ extension SessionViewModel {
         guard let url = URL(string: Constant.sessionURL) else {
             throw URLError(.badURL)
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         if let httpResponse = response as? HTTPURLResponse,
            (200...299) ~= httpResponse.statusCode {
             let decoded = try jsonDecoder.decode([Session].self, from: data)
-            return decoded
+            // Filter only presentation type sessions
+            return decoded.filter { $0.type == "presentation" }
         } else {
             throw NSError()
         }

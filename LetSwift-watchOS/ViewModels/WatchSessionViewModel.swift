@@ -8,19 +8,75 @@
 import Foundation
 import WatchKit
 
-// API Response Models
-struct Session: Identifiable, Codable {
+// API Response Models (Decodable only - converted to SessionItem for caching)
+struct Session: Identifiable, Decodable {
     let id: Int
     let title: String
+    let type: String
     let track: String
     let speakers: [Speaker]
     let startTime: Date
     let endTime: Date
-    
-    struct Speaker: Identifiable, Codable {
+
+    struct Speaker: Identifiable, Decodable {
         var id: String { self.name }
         let name: String
         let profileImage: String
+
+        enum CodingKeys: String, CodingKey {
+            case name
+            case imageUrl = "image_url"
+            case profileImage
+        }
+
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.name = try container.decode(String.self, forKey: .name)
+            if let imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl) {
+                self.profileImage = imageUrl
+            } else {
+                self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage) ?? ""
+            }
+        }
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, type, track, speakers
+        case startTime = "start_time"
+        case endTime = "end_time"
+    }
+
+    // Legacy keys for cached data
+    enum LegacyCodingKeys: String, CodingKey {
+        case id, title, track, speakers, startTime, endTime
+    }
+
+    init(from decoder: Decoder) throws {
+        // Try new format first
+        if let container = try? decoder.container(keyedBy: CodingKeys.self),
+           container.contains(.name) {
+            let idString = try container.decode(String.self, forKey: .id)
+            self.id = Int(idString) ?? 0
+            self.title = try container.decode(String.self, forKey: .name)
+            self.type = try container.decodeIfPresent(String.self, forKey: .type) ?? "presentation"
+            let fullTrack = try container.decode(String.self, forKey: .track)
+            self.track = fullTrack
+                .replacingOccurrences(of: "Track ", with: "")
+                .replacingOccurrences(of: "트랙 ", with: "")
+            self.speakers = try container.decode([Speaker].self, forKey: .speakers)
+            self.startTime = try container.decode(Date.self, forKey: .startTime)
+            self.endTime = try container.decode(Date.self, forKey: .endTime)
+        } else {
+            // Legacy format
+            let container = try decoder.container(keyedBy: LegacyCodingKeys.self)
+            self.id = try container.decode(Int.self, forKey: .id)
+            self.title = try container.decode(String.self, forKey: .title)
+            self.type = "presentation"
+            self.track = try container.decode(String.self, forKey: .track)
+            self.speakers = try container.decode([Speaker].self, forKey: .speakers)
+            self.startTime = try container.decode(Date.self, forKey: .startTime)
+            self.endTime = try container.decode(Date.self, forKey: .endTime)
+        }
     }
 }
 
@@ -150,17 +206,20 @@ final class WatchSessionViewModel {
     }
     
     private func fetchSessions() async -> Result<[SessionItem], Error> {
-        guard let url = URL(string: "http://223.130.133.110:8080/presentations") else {
+        guard let url = URL(string: "https://letswift.kr/2025/assets/json/schedule.json") else {
             return .failure(URLError(.badURL))
         }
-        
+
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
-            
+
             if let httpResponse = response as? HTTPURLResponse,
                (200...299) ~= httpResponse.statusCode {
                 let sessions = try jsonDecoder.decode([Session].self, from: data)
-                let sessionItems = sessions.map { SessionItem(from: $0) }
+                // Filter only presentation type sessions
+                let sessionItems = sessions
+                    .filter { $0.type == "presentation" }
+                    .map { SessionItem(from: $0) }
                 return .success(sessionItems)
             } else {
                 return .failure(NSError())
