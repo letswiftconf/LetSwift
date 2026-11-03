@@ -86,7 +86,7 @@ struct CalendarEvent: Codable, Hashable, Sendable {
         text.replacingOccurrences(of: "\\n", with: "\n")
             .replacingOccurrences(of: "\\N", with: "\n")
             .replacingOccurrences(of: "\\,", with: ",")
-            .replacingOccurrences(of: "\;", with: ";")
+            .replacingOccurrences(of: "\\;", with: ";")
             .replacingOccurrences(of: "\\\\", with: "\\")
     }
 }
