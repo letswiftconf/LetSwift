@@ -7,6 +7,9 @@
 
 import SwiftUI
 import PassKit
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "AddPassToWalletView")
 
 struct AddPassToWalletView: UIViewControllerRepresentable {
     let pass: PKPass
@@ -33,7 +36,7 @@ struct AddPassToWalletView: UIViewControllerRepresentable {
         }
 
         nonisolated func addPassesViewControllerDidFinish(_ controller: PKAddPassesViewController) {
-            print("[AddPassToWallet] Pass view controller dismissed")
+            logger.debug("Pass view controller dismissed")
             Task { @MainActor in
                 dismiss()
             }

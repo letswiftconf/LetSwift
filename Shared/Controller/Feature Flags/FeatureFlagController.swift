@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "FeatureFlagController")
 
 @Observable
 @MainActor
@@ -38,14 +41,14 @@ class FeatureFlagController {
             do {
                 try await fetchFeatureFlags()
             } catch {
-                print("[FeatureFlags] ❌ Failed to fetch on init: \(error)")
+                logger.error("Failed to fetch on init: \(error)")
             }
         }
     }
 
     // MARK: - Fetch
     func fetchFeatureFlags() async throws {
-        print("[FeatureFlags] Fetching feature flags from network...")
+        logger.debug("Fetching feature flags from network...")
         isLoading = true
         defer { isLoading = false }
 
@@ -54,7 +57,7 @@ class FeatureFlagController {
 
         featureFlags = response
         lastUpdated = Date()
-        print("[FeatureFlags] Successfully fetched \(response.featureFlags.count) flags")
+        logger.debug("Successfully fetched \(response.featureFlags.count) flags")
         saveToCache()
     }
 
@@ -66,15 +69,15 @@ class FeatureFlagController {
             let data = try JSONEncoder().encode(featureFlags)
             UserDefaults.standard.set(data, forKey: userDefaultsKey)
             UserDefaults.standard.set(lastUpdated, forKey: lastUpdatedKey)
-            print("[FeatureFlags] Saved \(featureFlags.featureFlags.count) flags to cache")
+            logger.debug("Saved \(featureFlags.featureFlags.count) flags to cache")
         } catch {
-            print("[FeatureFlags] ❌ Failed to save to cache: \(error)")
+            logger.error("Failed to save to cache: \(error)")
         }
     }
 
     private func loadFromCache() {
         guard let data = UserDefaults.standard.data(forKey: userDefaultsKey) else {
-            print("[FeatureFlags] No cached flags found")
+            logger.debug("No cached flags found")
             return
         }
 
@@ -83,9 +86,9 @@ class FeatureFlagController {
             featureFlags = cached
             lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date
             let timeInfo = lastUpdated.map { "updated \(formatTimeAgo($0))" } ?? "unknown age"
-            print("[FeatureFlags] Loaded \(cached.featureFlags.count) flags from cache (\(timeInfo))")
+            logger.debug("Loaded \(cached.featureFlags.count) flags from cache (\(timeInfo))")
         } catch {
-            print("[FeatureFlags] ❌ Failed to load from cache: \(error)")
+            logger.error("Failed to load from cache: \(error)")
         }
     }
 
@@ -105,23 +108,23 @@ class FeatureFlagController {
     // MARK: - Check
     func isFeatureEnabled(_ key: String, currentAppVersion: String) -> Bool {
         guard let flag = featureFlags?.featureFlags[key] else {
-            print("[FeatureFlags] Flag '\(key)' not found")
+            logger.debug("Flag '\(key)' not found")
             return false
         }
 
         guard flag.enabled else {
-            print("[FeatureFlags] Flag '\(key)' is disabled")
+            logger.debug("Flag '\(key)' is disabled")
             return false
         }
 
         // Check minimum version requirement
         if let minVersion = flag.minAppVersion {
             let meetsVersion = isVersion(currentAppVersion, greaterThanOrEqualTo: minVersion)
-            print("[FeatureFlags] Flag '\(key)': enabled=true, version check: \(currentAppVersion) >= \(minVersion) = \(meetsVersion)")
+            logger.debug("Flag '\(key)': enabled=true, version check: \(currentAppVersion) >= \(minVersion) = \(meetsVersion)")
             return meetsVersion
         }
 
-        print("[FeatureFlags] Flag '\(key)' is enabled (no version requirement)")
+        logger.debug("Flag '\(key)' is enabled (no version requirement)")
         return true
     }
 

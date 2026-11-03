@@ -46,9 +46,9 @@ extension HomeView {
         .frame(width: 104, height: 103)
 
       VStack(alignment: .leading, spacing: 2) {
-          Text(Bundle.appName + String(" 2025"))
+          Text(Bundle.appName + " \(Constants.Conference.year)")
           .font(.system(size: 24, weight: .bold))
-        Text("Ember to Stars!")
+        Text(Constants.Conference.slogan)
           .font(.system(size: 12))
       }
       .foregroundStyle(.title1)
@@ -59,7 +59,7 @@ extension HomeView {
   }
 
   private var locationAndDateSection: some View {
-    LocationAndDateView {
+    LocationAndDateView(showsCalendarButton: viewModel.canAddToCalendar) {
       Task {
         await open(viewModel.mapUrlScheme)
       }

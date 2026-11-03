@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LocationAndDateView: View {
+  var showsCalendarButton: Bool = true
   var onTapMapButton: () -> Void
   var onTapCalendarButton: () -> Void
 
@@ -25,7 +26,9 @@ struct LocationAndDateView: View {
 
       HStack(spacing: 0) {
         dateTitle
-        calendarButton
+        if showsCalendarButton {
+          calendarButton
+        }
       }
     }
     .padding(.horizontal, 20)
@@ -49,7 +52,7 @@ extension LocationAndDateView {
           .foregroundStyle(.title2)
           .font(.system(size: 17, weight: .regular))
 
-        Text("서울 광진구 능동로 209")
+        Text(Constants.Conference.location)
           .font(.system(size: 15, weight: .regular))
           .foregroundStyle(.primaryLabel)
       }
@@ -69,7 +72,7 @@ extension LocationAndDateView {
           .foregroundStyle(.title2)
           .font(.system(size: 17, weight: .regular))
 
-        Text("2025.11.24. 10:00 ~")
+        Text(Self.startDateText)
           .font(.system(size: 15, weight: .regular))
           .foregroundStyle(.primaryLabel)
           .lineSpacing(3)
@@ -77,6 +80,14 @@ extension LocationAndDateView {
       .padding(.vertical, 9)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
+  }
+
+  private static var startDateText: String {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ko_KR")
+    formatter.timeZone = Constants.Conference.timeZone
+    formatter.dateFormat = "yyyy.MM.dd. HH:mm ~"
+    return formatter.string(from: Constants.Conference.startDate)
   }
 
   // MARK: Buttons

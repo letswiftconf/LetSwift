@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "PreviousSessionProvider")
 
 struct PreviousSessionProvider {
     static let allYearsKey = "전체"
@@ -64,17 +67,17 @@ struct PreviousSessionProvider {
             }
 
             guard let url = Bundle.main.url(forResource: "playlist-" + yearString, withExtension: "json") else {
-                print("Warning: Could not find playlist file for year \(yearString)")
+                logger.error("Warning: Could not find playlist file for year \(yearString)")
                 continue
             }
 
             guard let data = try? Data(contentsOf: url) else {
-                print("Warning: Could not load data from playlist file for year \(yearString)")
+                logger.error("Warning: Could not load data from playlist file for year \(yearString)")
                 continue
             }
 
             guard let conferenceData = try? JSONDecoder().decode(Conference.self, from: data) else {
-                print("Warning: Could not decode playlist data for year \(yearString)")
+                logger.error("Warning: Could not decode playlist data for year \(yearString)")
                 continue
             }
 

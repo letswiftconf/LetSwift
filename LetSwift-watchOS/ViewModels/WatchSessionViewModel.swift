@@ -7,6 +7,9 @@
 
 import Foundation
 import WatchKit
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "WatchSessionViewModel")
 
 // API Response Models (Decodable only - converted to SessionItem for caching)
 struct Session: Identifiable, Decodable {
@@ -148,7 +151,7 @@ final class WatchSessionViewModel {
         if let data = UserDefaults.standard.data(forKey: "savedSessions"),
            let ids = try? JSONDecoder().decode(Set<String>.self, from: data) {
             favoriteIds = ids
-            print("✅ Loaded \(ids.count) favorites from UserDefaults")
+            logger.debug("Loaded \(ids.count) favorites from UserDefaults")
         }
     }
     
@@ -157,9 +160,9 @@ final class WatchSessionViewModel {
             let data = try JSONEncoder().encode(favoriteIds)
             // iOS 앱과 동일한 키 사용
             UserDefaults.standard.set(data, forKey: "savedSessions")
-            print("✅ Saved \(favoriteIds.count) favorites to UserDefaults")
+            logger.debug("Saved \(self.favoriteIds.count) favorites to UserDefaults")
         } catch {
-            print("❌ Failed to save favorites: \(error.localizedDescription)")
+            logger.error("Failed to save favorites: \(error.localizedDescription)")
         }
     }
     
@@ -195,9 +198,9 @@ final class WatchSessionViewModel {
                 self.sessions = fetchedSessions
                 // Cache the sessions
                 cacheSessions(fetchedSessions)
-                print("✅ Loaded \(fetchedSessions.count) sessions from API")
+                logger.debug("Loaded \(fetchedSessions.count) sessions from API")
             case .failure(let error):
-                print("❌ Failed to fetch sessions: \(error.localizedDescription)")
+                logger.error("Failed to fetch sessions: \(error.localizedDescription)")
                 // Load from cache as fallback
                 loadCachedSessions()
             }
@@ -240,9 +243,9 @@ final class WatchSessionViewModel {
            let sessions = try? JSONDecoder().decode([SessionItem].self, from: data) {
             self.allSessions = sessions
             self.sessions = sessions
-            print("✅ Loaded \(sessions.count) sessions from cache")
+            logger.debug("Loaded \(sessions.count) sessions from cache")
         } else {
-            print("❌ No cached sessions available")
+            logger.error("No cached sessions available")
         }
     }
     

@@ -8,6 +8,9 @@
 import SwiftUI
 import PassKit
 import BetterSafariView
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "MoreView")
 
 struct MoreView: View {
     @Environment(\.openURL) private var openURL
@@ -195,21 +198,21 @@ struct MoreView: View {
         isLoadingPass = true
 
         do {
-            print("[MoreView] Downloading commemorative pass...")
+            logger.debug("Downloading commemorative pass...")
             let (data, _) = try await URLSession.shared.data(from: .commemorativePass2025)
 
             guard let pass = try? PKPass(data: data) else {
-                print("[MoreView] ❌ Invalid pass data")
+                logger.error("Invalid pass data")
                 isLoadingPass = false
                 return
             }
 
-            print("[MoreView] Successfully downloaded pass")
+            logger.debug("Successfully downloaded pass")
             commemorativePass = pass
             isLoadingPass = false
             showAddPassSheet = true
         } catch {
-            print("[MoreView] ❌ Failed to download pass: \(error)")
+            logger.error("Failed to download pass: \(error)")
             isLoadingPass = false
         }
     }

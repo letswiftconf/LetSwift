@@ -7,6 +7,9 @@
 
 import Foundation
 import WatchConnectivity
+import OSLog
+
+private let logger = Logger(subsystem: "kr.codesquad.jk.letswift", category: "WatchConnectivityManager")
 
 @MainActor
 final class WatchConnectivityManager: NSObject {
@@ -34,10 +37,10 @@ final class WatchConnectivityManager: NSObject {
                 "timestamp": Date().timeIntervalSince1970
             ]
             session.sendMessage(message, replyHandler: nil) { error in
-                print("❌ Failed to send favoriteIds: \(error.localizedDescription)")
+                logger.error("Failed to send favoriteIds: \(error.localizedDescription)")
             }
         } catch {
-            print("❌ Failed to encode favoriteIds: \(error.localizedDescription)")
+            logger.error("Failed to encode favoriteIds: \(error.localizedDescription)")
         }
     }
     
@@ -52,7 +55,7 @@ final class WatchConnectivityManager: NSObject {
             ]
             try session.updateApplicationContext(context)
         } catch {
-            print("❌ Failed to update application context: \(error.localizedDescription)")
+            logger.error("Failed to update application context: \(error.localizedDescription)")
         }
     }
 }
@@ -61,9 +64,9 @@ extension WatchConnectivityManager: WCSessionDelegate {
     nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         Task { @MainActor in
             if let error = error {
-                print("❌ WCSession activation failed: \(error.localizedDescription)")
+                logger.error("WCSession activation failed: \(error.localizedDescription)")
             } else {
-                print("✅ WCSession activated with state: \(activationState.rawValue)")
+                logger.debug("WCSession activated with state: \(activationState.rawValue)")
                 // 앱 시작 시 현재 즐겨찾기 상태를 워치에 전송
                 syncFavoriteIdsToWatch()
             }
@@ -71,11 +74,11 @@ extension WatchConnectivityManager: WCSessionDelegate {
     }
     
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
-        print("⚠️ WCSession became inactive")
+        logger.notice("WCSession became inactive")
     }
     
     nonisolated func sessionDidDeactivate(_ session: WCSession) {
-        print("⚠️ WCSession deactivated")
+        logger.notice("WCSession deactivated")
         Task { @MainActor in
             WCSession.default.activate()
         }
@@ -114,7 +117,7 @@ extension WatchConnectivityManager: WCSessionDelegate {
         
         // 워치에서 받은 즐겨찾기 데이터를 iOS 앱에 반영
         UserDefaultsManager.savedSessions = favoriteIds
-        print("✅ Received favoriteIds from watch: \(favoriteIds.count) items")
+        logger.debug("Received favoriteIds from watch: \(favoriteIds.count) items")
         
         // NotificationCenter를 통해 UI 업데이트 알림
         NotificationCenter.default.post(name: .favoriteIdsDidUpdate, object: nil)
