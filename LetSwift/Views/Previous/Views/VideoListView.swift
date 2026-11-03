@@ -18,19 +18,12 @@ struct VideoListView: View {
         ScrollView(.vertical, showsIndicators: true) {
             VStack(spacing: 0) {
                 ForEach(filteredItems) { item in
-                    if #available(iOS 26, *) {
-                        Button {
-                            presentVideo(item)
-                        } label: {
-                            VideoListItemView(item: item, presentURL: $presentURL)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    } else {
-                        NavigationLink(destination: VideoPlayerView(videoID: item.videoID, selectedYear: selectedYear)) {
-                            VideoListItemView(item: item, presentURL: $presentURL)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                    Button {
+                        presentVideo(item)
+                    } label: {
+                        VideoListItemView(item: item, presentURL: $presentURL)
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }

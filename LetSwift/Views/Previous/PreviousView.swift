@@ -12,11 +12,7 @@ struct PreviousView: View {
 
     var body: some View {
         NavigationStack {
-            if #available(iOS 26, *) {
-                mainContent
-            } else {
-                mainContentPreiOS26
-            }
+            mainContent
         }
         // Ensure initial async setup happens once when the view appears
         .onAppear {
@@ -24,7 +20,6 @@ struct PreviousView: View {
         }
     }
 
-    @available(iOS 26, *)
     private var mainContent: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -45,25 +40,8 @@ struct PreviousView: View {
         .navigationTitle("previous.title")
         .toolbarTitleDisplayMode(.inline)
     }
-
-    private var mainContentPreiOS26: some View {
-        VStack(spacing: 0) {
-            SearchView(searchText: $previousViewModel.searchText)
-
-            YearKeywordsView(selectedYear: $previousViewModel.selectedYear, years: previousViewModel.years)
-
-            VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
-                .onAppear {
-                    previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
-                }
-                .onChange(of: previousViewModel.selectedYear) { _, newYear in
-                    previousViewModel.loadVideoData(for: newYear)
-                }
-        }
-    }
 }
 
-@available(iOS 26, *)
 #Preview {
     TabView {
         NavigationStack {

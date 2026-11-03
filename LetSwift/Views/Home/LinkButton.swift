@@ -29,16 +29,10 @@ struct LinkButton: View {
     .onTapGesture(perform: onTapGesture)
   }
 
-  @ViewBuilder
   private var backgroundView: some View {
-    if #available(iOS 26.0, *) {
-      Circle()
-        .foregroundStyle(.clear)
-        .glassEffect(.regular.interactive())
-    } else {
-      Circle()
-        .fill(.ultraThinMaterial)
-    }
+    Circle()
+      .foregroundStyle(.clear)
+      .glassEffect(.regular.interactive())
   }
 }
 

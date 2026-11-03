@@ -16,16 +16,11 @@ struct MainView: View {
     @State private var sessionViewModel: SessionViewModel = SessionViewModel()
 
     var body: some View {
-        if #available(iOS 26, *) {
-            mainContent
-                .tabBarMinimizeBehavior(.onScrollDown)
-                .tabViewStyle(.sidebarAdaptable)
-        } else {
-            mainContentPreiOS26
-        }
+        mainContent
+            .tabBarMinimizeBehavior(.onScrollDown)
+            .tabViewStyle(.sidebarAdaptable)
     }
     
-    @available(iOS 26, *)
     private var mainContent: some View {
         TabView(selection: $selectedTab) {
             ForEach(TabItem.tabCases, id: \.self) { item in
@@ -54,41 +49,6 @@ struct MainView: View {
 #if !DEBUG
             requestReview()
 #endif
-        }
-    }
-
-    private var mainContentPreiOS26: some View {
-        TabView(selection: $selectedTab) {
-            ForEach(TabItem.allCases, id: \.self) { tab in
-                createTabView(for: tab)
-                    .tabItem {
-                        Label(tab.title, systemImage: tab.icon)
-                    }
-                    .tag(tab)
-            }
-        }
-        .tint(.themePrimary)
-        .onAppear {
-#if !DEBUG
-            requestReview()
-#endif
-        }
-    }
-
-    @ViewBuilder
-    func createTabView(for item: TabItem) -> some View {
-        switch item {
-        case .home:
-            HomeView()
-        case .session:
-            SessionView()
-                .environment(sessionViewModel)
-        case .previous:
-            PreviousView()
-        case .more:
-            MoreView()
-        case .search:
-            EmptyView()
         }
     }
 }

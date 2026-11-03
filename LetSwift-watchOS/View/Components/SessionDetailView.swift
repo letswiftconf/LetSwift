@@ -87,50 +87,7 @@ struct SessionDetailView: View {
 
 // MARK: - Glass Style Extensions
 extension View {
-    @ViewBuilder
     func glassContainer(radius: CGFloat) -> some View {
-        if #available(watchOS 26, *) {
-            self
-                .glassEffect(.regular, in: RoundedRectangle(cornerRadius: radius))
-        } else {
-            self
-                .background(
-                    ZStack {
-                        // More transparent blur
-                        Color.gray.opacity(0.08)
-                            .blur(radius: 30)
-                        
-                        // Glass effect
-                        ZStack {
-                            Color.white.opacity(0.02)
-                            
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.05),
-                                    Color.clear,
-                                    Color.white.opacity(0.02)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        }
-                    }
-                )
-                .cornerRadius(radius)
-                .overlay(
-                    RoundedRectangle(cornerRadius: radius)
-                        .strokeBorder(
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.6),
-                                    Color.white.opacity(0.2)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: 1.5
-                        )
-                )
-        }
+        glassEffect(.regular, in: RoundedRectangle(cornerRadius: radius))
     }
 }

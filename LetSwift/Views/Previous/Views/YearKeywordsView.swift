@@ -15,23 +15,13 @@ struct YearKeywordsView: View {
     
     var body: some View {
         ScrollViewReader { proxy in
-            if #available(iOS 26, *) {
-                scrollContent
-                    .padding(.vertical, 8)
-                    .onChange(of: selectedYear) { oldValue, newValue in
-                        withAnimation {
-                            proxy.scrollTo(newValue, anchor: .center)
-                        }
+            scrollContent
+                .padding(.vertical, 8)
+                .onChange(of: selectedYear) { oldValue, newValue in
+                    withAnimation {
+                        proxy.scrollTo(newValue, anchor: .center)
                     }
-            } else {
-                scrollContent
-                    .padding(.bottom, 18)
-                    .onChange(of: selectedYear) { oldValue, newValue in
-                        withAnimation {
-                            proxy.scrollTo(newValue, anchor: .center)
-                        }
-                    }
-            }
+                }
         }
     }
     
@@ -39,7 +29,7 @@ struct YearKeywordsView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(years, id: \.self) { year in
-                    if #available(iOS 26.0, *), colorScheme == .dark {
+                    if colorScheme == .dark {
                         yearItem(year)
                             .glassEffect()
                     } else {

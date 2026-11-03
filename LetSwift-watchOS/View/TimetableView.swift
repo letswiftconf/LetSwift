@@ -65,19 +65,9 @@ struct TimetableView: View {
                 viewModel.toggleTrack()
             }) {
                 ZStack {
-                    if #available(watchOS 26, *) {
-                        Circle()
-                            .frame(width: 30, height: 30)
-                            .glassEffect(.clear, in: Circle())
-                    } else {
-                        Circle()
-                            .fill(Color.white.opacity(0.2))
-                            .frame(width: 30, height: 30)
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color.white.opacity(0.4), lineWidth: 1)
-                            )
-                    }
+                    Circle()
+                        .frame(width: 30, height: 30)
+                        .glassEffect(.clear, in: Circle())
                     
                     Image(systemName: viewModel.currentTrack.buttonText.lowercased() + ".circle")
                         .font(.system(size: 16, weight: .semibold))
