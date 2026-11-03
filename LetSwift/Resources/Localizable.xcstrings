@@ -947,13 +947,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Time"
+            "value" : "Duration"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "시간"
+            "value" : "길이"
           }
         }
       }
