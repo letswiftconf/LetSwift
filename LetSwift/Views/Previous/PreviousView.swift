@@ -12,38 +12,22 @@ struct PreviousView: View {
 
     var body: some View {
         NavigationStack {
-            mainContent
-        }
-        // Ensure initial async setup happens once when the view appears
-        .onAppear {
-            previousViewModel.fetchInitialData()
-        }
-    }
-
-    private var mainContent: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                VideoListView(filteredItems: previousViewModel.filteredItems, selectedYear: previousViewModel.selectedYear)
-                    .onAppear {
-                        previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
+            VideoListView(sections: previousViewModel.sections)
+                .searchable(text: $previousViewModel.searchText,
+                            placement: .automatic,
+                            prompt: "세션 이름을 검색해보세요")
+                .navigationTitle("video.title")
+                .navigationSubtitle(previousViewModel.selectedYear)
+                .toolbarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        yearFilterMenu
+                            .tint(.primary)
                     }
-                    .onChange(of: previousViewModel.selectedYear) { _, newYear in
-                        previousViewModel.loadVideoData(for: newYear)
-                    }
-                    .scrollDisabled(true)
-                    .searchable(text: $previousViewModel.searchText,
-                                placement: .automatic,
-                                prompt: "세션 이름을 검색해보세요")
-            }
+                }
         }
-        .navigationTitle("video.title")
-        .navigationSubtitle(previousViewModel.selectedYear)
-        .toolbarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                yearFilterMenu
-                    .tint(.primary)
-            }
+        .task(id: previousViewModel.selectedYear) {
+            await previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
         }
     }
 
@@ -61,10 +45,5 @@ struct PreviousView: View {
 }
 
 #Preview {
-    TabView {
-        NavigationStack {
-            PreviousView()
-        }
-    }
+    PreviousView()
 }
-

@@ -9,133 +9,81 @@ import SwiftUI
 import BetterSafariView
 
 struct VideoListView: View {
-    let filteredItems: [VideoItem]
-    let selectedYear: String
-    
+    let sections: [Conference]
+
     @State private var presentURL: URL? = nil
-    
+
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack(spacing: 0) {
-                ForEach(filteredItems) { item in
-                    Button {
-                        presentVideo(item)
-                    } label: {
+        List {
+            ForEach(sections, id: \.year) { conference in
+                Section(String(conference.year)) {
+                    ForEach(conference.items) { item in
                         VideoListItemView(item: item, presentURL: $presentURL)
                     }
-                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
+        .listStyle(.insetGrouped)
         .safariView(item: $presentURL) { item in
             SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))
                 .preferredControlAccentColor(.themePrimary)
                 .dismissButtonStyle(.close)
         }
     }
-    
-    // MARK: - Action
-    private func presentVideo(_ item: VideoItem) {
-        guard let url = URL(string: "https://www.youtube.com/watch?v=\(item.videoID)") else { return }
-        presentURL = url
-    }
 }
 
 struct VideoListItemView: View {
     let item: VideoItem
-    
+
     @Binding var presentURL: URL?
-    @Environment(\.colorScheme) private var colorScheme
-    
+
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            VStack(spacing: 0) {
-                HStack(alignment: .center, spacing: 10) {
+        HStack(spacing: 12) {
+            Button {
+                presentURL = URL(string: "https://www.youtube.com/watch?v=\(item.videoID)")
+            } label: {
+                HStack(spacing: 12) {
                     thumbnailImage
-                        .padding(.leading, 14)
-                    
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(item.title)
-                            .font(.system(size: 14, weight: .regular))
+                            .font(.subheadline)
+                            .foregroundStyle(.primary)
                             .lineLimit(2)
-                        
-                        Spacer()
-                        
-                        HStack(alignment: .bottom, spacing: 12) {
-                            if (!item.speaker.isEmpty) {
-                                Text(item.speaker)
-                                    .font(.system(size: 10, weight: .regular))
-                                    .foregroundStyle(Color(.systemGray))
-                                    .lineLimit(1)
-                            }
-                            Text(item.timeLine)
-                                .font(.system(size: 10, weight: .regular))
-                                .foregroundStyle(Color(.systemGray))
-                                .lineLimit(1)
-                        }
+                        Text([item.speaker, item.timeLine].filter { !$0.isEmpty }.joined(separator: " · "))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
                     }
-                    
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
-                .padding(.top, 8)
-                .padding(.bottom, 6)
-                
-                Divider()
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 0)
+                .contentShape(Rectangle())
             }
-            .overlay {
-                HStack {
-                    Rectangle()
-                        .fill(.themePrimary)
-                        .frame(width: 1, height: 68)
-                    Spacer()
-                }
-            }
-            .frame(height: 72)
-            .padding(.leading, 20)
-            .padding(.trailing, 12)
-            .padding(.vertical, 2)
-            
+            .buttonStyle(.borderless)
+            .tint(.primary)
+
             if item.hasReference {
-                downloadReferenceButton
-                    .padding(.bottom, 11)
-                    .padding(.trailing, 32)
+                Button("발표자료 받기", systemImage: "doc.text") {
+                    presentURL = URL(string: item.referenceLink)
+                }
+                .labelStyle(.iconOnly)
+                .buttonStyle(.borderless)
             }
         }
-        .contentShape(Rectangle())
     }
-    
+
     private var thumbnailImage: some View {
         AsyncImage(url: URL(string: item.thumbnail)) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         } placeholder: {
-            Color(.systemGray4)
+            Color(.systemGray5)
         }
-        .frame(width: 85, height: 58)
-        .clipped()
+        .frame(width: 85, height: 48)
+        .clipShape(RoundedRectangle(cornerRadius: 6))
     }
-    
-    private var downloadReferenceButton: some View {
-        Button {
-            if let url = URL(string: item.referenceLink) {
-                presentURL = url
-            }
-        } label: {
-            Text("발표자료 받기")
-                .foregroundStyle(colorScheme == .dark ? Color(.themeSecondary) : Color(.themePrimary))
-                .underline()
-                .font(.system(size: 10, weight: .regular))
-        }
-    }
-}
-
-#Preview("Previous") {
-    PreviousView()
 }
 
 #Preview {
-    VideoListView(filteredItems: [], selectedYear: "2024")
+    PreviousView()
 }
