@@ -29,6 +29,7 @@ struct WebsiteView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         if page.isLoading {
                             ProgressView()
+                                .tint(.primary)
                         } else {
                             Button("website.reload", systemImage: "arrow.clockwise") {
                                 page.reload()
