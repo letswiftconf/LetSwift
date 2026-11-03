@@ -50,21 +50,29 @@ struct VideoListItemView: View {
                         .lineLimit(1)
                 }
 
-                HStack(spacing: 8) {
+                HStack(spacing: 10) {
                     if !item.timeLine.isEmpty {
-                        Label(item.timeLine, systemImage: "clock")
+                        captionItem(Text(item.timeLine), systemImage: "clock")
                     }
                     if item.hasReference {
-                        Label("video.slides", systemImage: "doc.text")
+                        captionItem(Text("video.slides"), systemImage: "doc.text")
                     }
                 }
                 .font(.caption2)
                 .foregroundStyle(.tertiary)
-                .labelStyle(.titleAndIcon)
                 .lineLimit(1)
             }
         }
         .padding(.vertical, 4)
+    }
+
+    /// Icon + text with tight spacing (Label's default gap is too wide at caption size).
+    private func captionItem(_ text: Text, systemImage: String) -> some View {
+        HStack(spacing: 3) {
+            Image(systemName: systemImage)
+                .imageScale(.small)
+            text
+        }
     }
 }
 
