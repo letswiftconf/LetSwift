@@ -210,23 +210,6 @@
         }
       }
     },
-    "previous.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Previous"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "지난 행사"
-          }
-        }
-      }
-    },
     "search.title" : {
       "localizations" : {
         "en" : {
@@ -891,6 +874,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "웹사이트"
+          }
+        }
+      }
+    },
+    "video.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Videos"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "영상"
+          }
+        }
+      }
+    },
+    "video.filter" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filter"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "필터"
+          }
+        }
+      }
+    },
+    "video.filter.year" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Year"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "연도"
           }
         }
       }

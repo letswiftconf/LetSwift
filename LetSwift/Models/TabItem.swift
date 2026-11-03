@@ -22,7 +22,7 @@ enum TabItem: CaseIterable {
         case .home:
             "house"
         case .previous:
-            "tray.full"
+            "play.rectangle.on.rectangle"
         case .more:
             "ellipsis"
         case .search:
@@ -37,7 +37,7 @@ enum TabItem: CaseIterable {
         case .home:
             "home.title"
         case .previous:
-            "previous.title"
+            "video.title"
         case .more:
             "more.title"
         case .search:
