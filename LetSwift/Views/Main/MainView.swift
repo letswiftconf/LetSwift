@@ -55,9 +55,6 @@ struct MainView: View {
             requestReview()
 #endif
         }
-        .task {
-            await sessionViewModel.autoStartLiveActivityIfNeeded()
-        }
     }
 
     private var mainContentPreiOS26: some View {
@@ -75,9 +72,6 @@ struct MainView: View {
 #if !DEBUG
             requestReview()
 #endif
-        }
-        .task {
-            await sessionViewModel.autoStartLiveActivityIfNeeded()
         }
     }
 
