@@ -66,11 +66,9 @@ struct VideoDetailView: View {
         .navigationTitle(String(year))
         .toolbarTitleDisplayMode(.inline)
         .toolbar {
-            if let videoURL {
-                ToolbarItem(placement: .topBarTrailing) {
-                    ShareLink(item: videoURL, subject: Text(video.title))
-                        .tint(.primary)
-                }
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: video.watchURL, subject: Text(video.title))
+                    .tint(.primary)
             }
         }
         .safariView(item: $slidesURL) { url in
