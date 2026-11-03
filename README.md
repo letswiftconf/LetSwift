@@ -10,9 +10,14 @@ This is the official Let'Swift iOS app for the Let'Swift conference held annuall
 For more information about the Let'Swift conference, visit https://letswift.kr/.
 
 
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
 ## LICENSE
 
 The MIT License
 
-LetSwift is released under the MIT license. [See LICENSE](https://github.com/cleanios/LetSwift/blob/master/LICENSE) for details.
+LetSwift is released under the MIT license. [See LICENSE](LICENSE) for details.
 

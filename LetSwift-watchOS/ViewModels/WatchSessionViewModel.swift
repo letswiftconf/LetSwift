@@ -123,21 +123,6 @@ final class WatchSessionViewModel {
     
     init() {
         loadFavoriteIds()
-        // WatchConnectivity 초기화 및 동기화
-        _ = WatchConnectivityManager.shared
-        
-        // iOS 앱에서 즐겨찾기 업데이트를 받을 수 있도록 NotificationCenter 구독
-        NotificationCenter.default.addObserver(
-            forName: .favoriteIdsDidUpdate,
-            object: nil,
-            queue: .main
-        ) { [weak self] _ in
-            guard let self = self else { return }
-            Task { @MainActor [self] in
-                self.loadFavoriteIds()
-                self.updateTrigger += 1
-            }
-        }
     }
     
     func loadSessionsOnce() async {
@@ -147,7 +132,6 @@ final class WatchSessionViewModel {
     }
     
     private func loadFavoriteIds() {
-        // iOS 앱과 동일한 키 사용
         if let data = UserDefaults.standard.data(forKey: "savedSessions"),
            let ids = try? JSONDecoder().decode(Set<String>.self, from: data) {
             favoriteIds = ids
@@ -158,7 +142,6 @@ final class WatchSessionViewModel {
     private func saveFavoriteIds() {
         do {
             let data = try JSONEncoder().encode(favoriteIds)
-            // iOS 앱과 동일한 키 사용
             UserDefaults.standard.set(data, forKey: "savedSessions")
             logger.debug("Saved \(self.favoriteIds.count) favorites to UserDefaults")
         } catch {
@@ -179,11 +162,6 @@ final class WatchSessionViewModel {
         saveFavoriteIds()
         // Trigger UI update
         updateTrigger += 1
-        
-        // WatchConnectivity를 통해 iOS 앱에 즐겨찾기 변경 사항 전송
-        Task { @MainActor in
-            WatchConnectivityManager.shared.updateApplicationContext(favoriteIds)
-        }
     }
     
     func loadSessions() {
