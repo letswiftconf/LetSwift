@@ -69,6 +69,9 @@ private final class LinkNavigationDecider: WebPage.NavigationDeciding {
     ) async -> WKNavigationActionPolicy {
         guard let url = action.request.url else { return .allow }
 
+        // Schemes WebKit handles itself (e.g. about:blank / data: / blob: frames used by embeds like Google Maps).
+        if ["about", "data", "blob", "javascript"].contains(url.scheme) { return .allow }
+
         let isWeb = url.scheme == "http" || url.scheme == "https"
         let isLetSwift = url.host()?.hasSuffix("letswift.kr") ?? false
         let opensNewWindow = action.target == nil
