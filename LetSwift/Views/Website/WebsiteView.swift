@@ -193,7 +193,9 @@ private struct CalendarEventEditor: UIViewControllerRepresentable {
         init(dismiss: DismissAction) { self.dismiss = dismiss }
 
         func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
-            dismiss()
+            // UIKit calls this delegate on the main thread.
+            let dismiss = dismiss
+            MainActor.assumeIsolated { dismiss() }
         }
     }
 }
