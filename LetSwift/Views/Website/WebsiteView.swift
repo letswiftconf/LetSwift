@@ -9,7 +9,16 @@ import SwiftUI
 import WebKit
 
 struct WebsiteView: View {
-    @State private var page = WebPage()
+    @State private var navigationDecider: LinkNavigationDecider
+    @State private var page: WebPage
+
+    init() {
+        let decider = LinkNavigationDecider()
+        let page = WebPage(navigationDecider: decider)
+        decider.page = page
+        _navigationDecider = State(initialValue: decider)
+        _page = State(initialValue: page)
+    }
 
     var body: some View {
         NavigationStack {
@@ -44,6 +53,35 @@ struct WebsiteView: View {
                 page.load(URLRequest(url: .letswiftHome))
             }
         }
+    }
+}
+
+/// Handles links the web view can't show by itself:
+/// - `target="_blank"` / `window.open` links on letswift.kr load in the same page.
+/// - New-window links to other sites, and non-web schemes (mailto:, tel:, ...), open outside the app.
+@MainActor
+private final class LinkNavigationDecider: WebPage.NavigationDeciding {
+    weak var page: WebPage?
+
+    func decidePolicy(
+        for action: WebPage.NavigationAction,
+        preferences: inout WebPage.NavigationPreferences
+    ) async -> WKNavigationActionPolicy {
+        guard let url = action.request.url else { return .allow }
+
+        let isWeb = url.scheme == "http" || url.scheme == "https"
+        let isLetSwift = url.host()?.hasSuffix("letswift.kr") ?? false
+        let opensNewWindow = action.target == nil
+
+        if !isWeb || (opensNewWindow && !isLetSwift) {
+            await UIApplication.shared.open(url)
+            return .cancel
+        }
+        if opensNewWindow {
+            page?.load(action.request)
+            return .cancel
+        }
+        return .allow
     }
 }
 
