@@ -1,39 +1,6 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
-    "2024년 11월 25일\n11:00 ~ 18:00" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "November 25, 2024\n11:00 ~ 18:00"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2024년 11월 25일\n11:00 ~ 18:00"
-          }
-        }
-      }
-    },
-    "2025.11.24. 10:00 ~" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2025.11.24. 10:00 ~"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "2025.11.24. 10:00 ~"
-          }
-        }
-      }
-    },
     "alert.confirm" : {
       "localizations" : {
         "en" : {
@@ -124,40 +91,6 @@
         }
       }
     },
-    "home.date" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Date"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일시"
-          }
-        }
-      }
-    },
-    "home.location" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Location"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "장소"
-          }
-        }
-      }
-    },
     "home.title" : {
       "localizations" : {
         "en" : {
@@ -170,16 +103,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈"
-          }
-        }
-      }
-    },
-    "Live Activity 시작" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Live Activity"
           }
         }
       }
@@ -222,38 +145,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "검색"
-          }
-        }
-      }
-    },
-    "session.favorite.empty_description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save sessions and receive start notifications"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "세션을 저장하고 시작 알림을 받아보세요"
-          }
-        }
-      }
-    },
-    "session.favorite.empty_title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No Saved Sessions"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "저장된 세션 없음"
           }
         }
       }
@@ -532,98 +423,6 @@
         }
       }
     },
-    "timetable.tab.savedSession" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "My Sessions"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "저장한 세션"
-          }
-        }
-      }
-    },
-    "timetable.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessions"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "시간표"
-          }
-        }
-      }
-    },
-    "구독" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Subscribe"
-          }
-        }
-      }
-    },
-    "라이브 액티비티 시작" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start Live Activity"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "라이브 액티비티 시작"
-          }
-        }
-      }
-    },
-    "라이브 액티비티가 시작됩니다!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Live Activity started!"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "라이브 액티비티가 시작됩니다!"
-          }
-        }
-      }
-    },
-    "발표자료 받기" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download Keynote"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "발표자료 받기"
-          }
-        }
-      }
-    },
     "서울 광진구 능동로 209" : {
       "localizations" : {
         "en" : {
@@ -652,180 +451,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "세션 이름을 검색해보세요"
-          }
-        }
-      }
-    },
-    "세종대학교 광개토회관" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sejong University Gwanggaeto Hall"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "세종대학교 광개토회관"
-          }
-        }
-      }
-    },
-    "소스 코드" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Source Code"
-          }
-        }
-      }
-    },
-    "실시간 현황 알림을 받으려면 푸시 알림 권한 동의가 필요해요" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enable push notification to receive session notifications."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "실시간 현황 알림을 받으려면 푸시 알림 권한 동의가 필요해요"
-          }
-        }
-      }
-    },
-    "알림" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notification"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "알림"
-          }
-        }
-      }
-    },
-    "앱" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App"
-          }
-        }
-      }
-    },
-    "오류" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "오류"
-          }
-        }
-      }
-    },
-    "인터넷 상태를 체크해주세요!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please check internet connection"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "인터넷 상태를 체크해주세요!"
-          }
-        }
-      }
-    },
-    "지도" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Map"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "지도"
-          }
-        }
-      }
-    },
-    "취소" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "취소"
-          }
-        }
-      }
-    },
-    "캘린더 등록" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add to Calendar"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "캘린더 등록"
-          }
-        }
-      }
-    },
-    "홈페이지" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Website"
-          }
-        }
-      }
-    },
-    "확인" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confirm"
           }
         }
       }
@@ -986,6 +611,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "전체"
+          }
+        }
+      }
+    },
+    "notification.survey.body %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did you enjoy %@?\nPlease take a moment to share your feedback in our survey!"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 행사가 즐거우셨나요?\n소중한 의견을 위해 설문조사에 참여해주세요!"
           }
         }
       }

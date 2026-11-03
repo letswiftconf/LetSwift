@@ -10,6 +10,12 @@
             "state" : "new",
             "value" : "Let'Swift"
           }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let'Swift"
+          }
         }
       }
     },
@@ -62,7 +68,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "헹시 일정 등록을 위해 접근 권한을 확인해주세요."
+            "value" : "행사 일정 등록을 위해 접근 권한을 확인해주세요."
           }
         }
       }

@@ -19,7 +19,7 @@ extension NotificationRequest {
     static var conferenceClosingNotification: NotificationRequest {
         return NotificationRequest(
             identifier: "conference_closing",
-            body: "\(Constants.Conference.name) 행사가 즐거우셨나요?\n소중한 의견을 위해 설문조사에 참여해주세요!",
+            body: String(localized: "notification.survey.body \(Constants.Conference.name)"),
             sendDate: Constants.Conference.closingDate.addingTimeInterval(10 * 60),
             clickType: .openUrl(url: Constants.URL.conferenceSurveyURL)
         )

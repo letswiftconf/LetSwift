@@ -42,7 +42,7 @@ struct MoreView: View {
                 .dismissButtonStyle(.close)
         }
         .alert("settings.survey.unavailable", isPresented: $showSurveyUnavailableAlert) {
-            Button("OK", role: .cancel) { }
+            Button("alert.confirm", role: .cancel) { }
         }
         .sheet(isPresented: $showAddPassSheet) {
             if let commemorativePass {
