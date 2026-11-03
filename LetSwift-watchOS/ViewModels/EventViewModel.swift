@@ -43,23 +43,3 @@ final class EventViewModel {
         }
     }
 }
-
-extension CalendarEvent {
-    enum Status {
-        case upcoming(days: Int)
-        case today
-        case live
-        case ended
-    }
-
-    func status(at now: Date = .now, calendar: Calendar = .current) -> Status {
-        if now >= endDate { return .ended }
-        if now >= startDate { return .live }
-        let days = calendar.dateComponents(
-            [.day],
-            from: calendar.startOfDay(for: now),
-            to: calendar.startOfDay(for: startDate)
-        ).day ?? 0
-        return days == 0 ? .today : .upcoming(days: days)
-    }
-}
