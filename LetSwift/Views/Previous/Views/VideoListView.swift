@@ -6,81 +6,99 @@
 //
 
 import SwiftUI
-import BetterSafariView
 
 struct VideoListView: View {
     let sections: [Conference]
-
-    @State private var presentURL: URL? = nil
 
     var body: some View {
         List {
             ForEach(sections, id: \.year) { conference in
                 Section(String(conference.year)) {
                     ForEach(conference.items) { item in
-                        VideoListItemView(item: item, presentURL: $presentURL)
+                        NavigationLink {
+                            VideoDetailView(item: item, year: conference.year)
+                        } label: {
+                            VideoListItemView(item: item)
+                        }
                     }
                 }
             }
         }
         .listStyle(.insetGrouped)
-        .safariView(item: $presentURL) { item in
-            SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))
-                .preferredControlAccentColor(.themePrimary)
-                .dismissButtonStyle(.close)
-        }
     }
 }
 
 struct VideoListItemView: View {
     let item: VideoItem
 
-    @Binding var presentURL: URL?
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            VideoThumbnail(item: item, cornerRadius: 8, showsPlayBadge: true)
+                .frame(width: 128)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.title)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary)
+                    .lineLimit(3)
+                    .multilineTextAlignment(.leading)
+
+                if !item.speaker.isEmpty {
+                    Text(item.speaker)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+
+                HStack(spacing: 8) {
+                    if !item.timeLine.isEmpty {
+                        Label(item.timeLine, systemImage: "clock")
+                    }
+                    if item.hasReference {
+                        Label("video.slides", systemImage: "doc.text")
+                    }
+                }
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+                .labelStyle(.titleAndIcon)
+                .lineLimit(1)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+}
+
+/// 16:9 YouTube-style thumbnail with an optional play badge.
+struct VideoThumbnail: View {
+    let item: VideoItem
+    var cornerRadius: CGFloat = 8
+    var showsPlayBadge = false
 
     var body: some View {
-        HStack(spacing: 12) {
-            Button {
-                presentURL = URL(string: "https://www.youtube.com/watch?v=\(item.videoID)")
-            } label: {
-                HStack(spacing: 12) {
-                    thumbnailImage
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(item.title)
-                            .font(.subheadline)
-                            .foregroundStyle(.primary)
-                            .lineLimit(2)
-                        Text([item.speaker, item.timeLine].filter { !$0.isEmpty }.joined(separator: " · "))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                    }
-                    Spacer(minLength: 0)
+        Color(.systemGray5)
+            .aspectRatio(16 / 9, contentMode: .fit)
+            .overlay {
+                AsyncImage(url: URL(string: item.thumbnail)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    Image(systemName: "play.rectangle")
+                        .font(.title2)
+                        .foregroundStyle(.tertiary)
                 }
-                .contentShape(Rectangle())
             }
-            .buttonStyle(.borderless)
-            .tint(.primary)
-
-            if item.hasReference {
-                Button("발표자료 받기", systemImage: "doc.text") {
-                    presentURL = URL(string: item.referenceLink)
+            .overlay(alignment: .bottomTrailing) {
+                if showsPlayBadge {
+                    Image(systemName: "play.fill")
+                        .font(.caption2)
+                        .foregroundStyle(.white)
+                        .padding(6)
+                        .background(.black.opacity(0.6), in: Circle())
+                        .padding(6)
                 }
-                .labelStyle(.iconOnly)
-                .buttonStyle(.borderless)
             }
-        }
-    }
-
-    private var thumbnailImage: some View {
-        AsyncImage(url: URL(string: item.thumbnail)) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        } placeholder: {
-            Color(.systemGray5)
-        }
-        .frame(width: 85, height: 48)
-        .clipShape(RoundedRectangle(cornerRadius: 6))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
 }
 
