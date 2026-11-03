@@ -9,15 +9,14 @@ import SwiftUI
 import WatchKit
 
 struct TimetableView: View {
-    @State private var viewModel = WatchSessionViewModel()
+    @Bindable var viewModel: WatchSessionViewModel
     @State private var selectedSession: SessionItem?
     
     var body: some View {
-        NavigationStack {
-            sessionList
+        sessionList
                 .navigationTitle(viewModel.currentTrack.displayName)
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             viewModel.toggleTrack()
                         } label: {
@@ -26,14 +25,10 @@ struct TimetableView: View {
                         }
                     }
                 }
-        }
         .sheet(item: $selectedSession) { session in
             SessionDetailView(session: session) {
                 selectedSession = nil
             }
-        }
-        .task {
-            await viewModel.loadSessionsOnce()
         }
 //        ZStack {
 //            VStack(spacing: 0) {
@@ -129,5 +124,7 @@ struct TimetableView: View {
 }
 
 #Preview {
-    TimetableView()
+    NavigationStack {
+        TimetableView(viewModel: WatchSessionViewModel())
+    }
 }

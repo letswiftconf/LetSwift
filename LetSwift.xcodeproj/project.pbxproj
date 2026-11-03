@@ -167,6 +167,7 @@
 		21FF02872E9C7E1000E44F61 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Event/LetSwiftEvent.swift,
 				Resources/AppIcon_2025.icon,
 				Resources/AppIcon_Alt.icon,
 				Resources/AppIcon.icon,

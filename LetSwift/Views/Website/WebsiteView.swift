@@ -128,13 +128,21 @@ private final class LinkNavigationDecider: WebPage.NavigationDeciding {
 
     private func presentCalendarEvent(from url: URL) async {
         guard let ics = await calendarText(from: url),
-              let event = ICSParser.event(from: ics, store: eventStore) else {
+              let parsed = CalendarEvent(ics: ics) else {
             // Fall back to the system (Safari / Calendar) if we can't read it.
             if url.scheme == "http" || url.scheme == "https" {
                 await UIApplication.shared.open(url)
             }
             return
         }
+        let event = EKEvent(eventStore: eventStore)
+        event.title = parsed.title
+        event.startDate = parsed.startDate
+        event.endDate = parsed.endDate
+        event.isAllDay = parsed.isAllDay
+        event.location = parsed.location
+        event.notes = parsed.notes
+        event.url = parsed.url
         calendarEvent = CalendarEventItem(event: event, store: eventStore)
     }
 
@@ -197,70 +205,6 @@ private struct CalendarEventEditor: UIViewControllerRepresentable {
             let dismiss = dismiss
             MainActor.assumeIsolated { dismiss() }
         }
-    }
-}
-
-/// Minimal iCalendar (RFC 5545) reader for the first VEVENT.
-private enum ICSParser {
-    static func event(from ics: String, store: EKEventStore) -> EKEvent? {
-        // Unfold continuation lines (lines starting with a space or tab).
-        let unfolded = ics
-            .replacingOccurrences(of: "\r\n", with: "\n")
-            .replacingOccurrences(of: "\n ", with: "")
-            .replacingOccurrences(of: "\n\t", with: "")
-
-        var inEvent = false
-        var fields: [String: (params: String, value: String)] = [:]
-        for line in unfolded.split(separator: "\n").map(String.init) {
-            if line == "BEGIN:VEVENT" { inEvent = true; continue }
-            if line == "END:VEVENT" { break }
-            guard inEvent, let colon = line.firstIndex(of: ":") else { continue }
-            let key = String(line[..<colon])
-            let value = String(line[line.index(after: colon)...])
-            let name = key.split(separator: ";").first.map(String.init)?.uppercased() ?? key
-            let params = key.contains(";") ? String(key[key.index(after: key.firstIndex(of: ";")!)...]) : ""
-            if fields[name] == nil { fields[name] = (params, value) }
-        }
-
-        guard let start = fields["DTSTART"], let startDate = date(start.value, params: start.params) else { return nil }
-        let event = EKEvent(eventStore: store)
-        event.title = fields["SUMMARY"].map { unescape($0.value) } ?? ""
-        event.location = fields["LOCATION"].map { unescape($0.value) }
-        event.notes = fields["DESCRIPTION"].map { unescape($0.value) }
-        if let url = fields["URL"]?.value { event.url = URL(string: url) }
-        event.isAllDay = start.value.count == 8
-        event.startDate = startDate
-        event.endDate = fields["DTEND"].flatMap { date($0.value, params: $0.params) } ?? startDate.addingTimeInterval(3600)
-        return event
-    }
-
-    private static func date(_ value: String, params: String) -> Date? {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        if value.count == 8 {
-            formatter.dateFormat = "yyyyMMdd"
-            formatter.timeZone = .current
-            return formatter.date(from: value)
-        }
-        if value.hasSuffix("Z") {
-            formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-            formatter.timeZone = TimeZone(identifier: "UTC")
-        } else {
-            formatter.dateFormat = "yyyyMMdd'T'HHmmss"
-            let tzid = params.split(separator: ";")
-                .first { $0.uppercased().hasPrefix("TZID=") }
-                .map { String($0.dropFirst(5)) }
-            formatter.timeZone = tzid.flatMap(TimeZone.init(identifier:)) ?? .current
-        }
-        return formatter.date(from: value)
-    }
-
-    private static func unescape(_ text: String) -> String {
-        text.replacingOccurrences(of: "\\n", with: "\n")
-            .replacingOccurrences(of: "\\N", with: "\n")
-            .replacingOccurrences(of: "\\,", with: ",")
-            .replacingOccurrences(of: "\\;", with: ";")
-            .replacingOccurrences(of: "\\\\", with: "\\")
     }
 }
 

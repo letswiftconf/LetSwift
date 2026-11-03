@@ -120,6 +120,9 @@ final class WatchSessionViewModel {
     
     @ObservationIgnored
     private var hasLoadedOnce = false
+
+    @ObservationIgnored
+    private let cacheKey = "cachedSessions-\(LetSwiftEvent.year)"
     
     init() {
         loadFavoriteIds()
@@ -187,9 +190,7 @@ final class WatchSessionViewModel {
     }
     
     private func fetchSessions() async -> Result<[SessionItem], Error> {
-        guard let url = URL(string: "https://letswift.kr/2025/assets/json/schedule.json") else {
-            return .failure(URLError(.badURL))
-        }
+        let url = LetSwiftEvent.scheduleURL
 
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
@@ -203,7 +204,8 @@ final class WatchSessionViewModel {
                     .map { SessionItem(from: $0) }
                 return .success(sessionItems)
             } else {
-                return .failure(NSError())
+                // The event has no timetable (e.g. 404).
+                return .success([])
             }
         } catch {
             return .failure(error)
@@ -212,12 +214,12 @@ final class WatchSessionViewModel {
     
     private func cacheSessions(_ sessions: [SessionItem]) {
         if let data = try? JSONEncoder().encode(sessions) {
-            UserDefaults.standard.set(data, forKey: "cachedSessions")
+            UserDefaults.standard.set(data, forKey: cacheKey)
         }
     }
     
     private func loadCachedSessions() {
-        if let data = UserDefaults.standard.data(forKey: "cachedSessions"),
+        if let data = UserDefaults.standard.data(forKey: cacheKey),
            let sessions = try? JSONDecoder().decode([SessionItem].self, from: data) {
             self.allSessions = sessions
             self.sessions = sessions
@@ -285,7 +287,7 @@ struct SessionItem: Identifiable, Codable {
     }
     
     var durationString: String {
-        return "\(duration / 60)분"
+        Duration.seconds(duration).formatted(.units(allowed: [.minutes], width: .abbreviated))
     }
     
     var speakerName: String {
@@ -308,15 +310,15 @@ enum WatchTrack {
     
     var displayName: String {
         switch self {
-        case .trackA: return "EMBER(B홀)"
-        case .trackB: return "STAR(C홀)"
+        case .trackA: return String(localized: "track.a")
+        case .trackB: return String(localized: "track.b")
         }
     }
     
     var buttonText: String {
         switch self {
-        case .trackA: return "C"
-        case .trackB: return "B"
+        case .trackA: return "B"
+        case .trackB: return "A"
         }
     }
 }
