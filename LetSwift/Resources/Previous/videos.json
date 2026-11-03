@@ -1,0 +1,133 @@
+[
+  {
+    "year": 2024,
+    "videos": [
+      {"id": "UHh7NzGuaRM", "title": "늦었다고 생각할 때 진짜 늦었으니 UITest로 시나리오 테스트하기", "speaker": "이재웅(커리)", "duration": "20:31", "slides": "https://drive.google.com/file/d/1KP-XPLmdMD9AFtdqukr-t9SGWG73jrH5/view"},
+      {"id": "lswSgR5AbJI", "title": "애플 인텔리전스를 통해 엿보는 AI 패러다임의 방향", "speaker": "꼼꼼한 재은씨", "duration": "37:45", "slides": "https://drive.google.com/file/d/1OZGYaCXhvoPTP1L_UywmZ9s_DHWP4kJr/view"},
+      {"id": "ngZAj2fsiXo", "title": "Plugin 패턴을 이용하여 기능 확장하기", "speaker": "안정민(민소네)", "duration": "35:34", "slides": "https://drive.google.com/file/d/1DwadfNBTu9BUHAUi9S1fLiNG6vPgKAEy/view"},
+      {"id": "oxLvAw3el10", "title": "차근차근 Swift 6 마이그레이션", "speaker": "황예은(Yeni)", "duration": "20:01", "slides": "https://drive.google.com/file/d/1R6kEDzMjWhQxpqLpQGvKuv8x5gg_50yb/view"},
+      {"id": "cI9i0MgIk5A", "title": "적용해보면 해볼수록 빠져드는 성장형 아키텍쳐 TCA", "speaker": "황재욱", "duration": "37:13", "slides": "https://drive.google.com/file/d/14heYxetfMwq89s6_6-vUJ1AdvBLjMgdk/view"},
+      {"id": "AOW8BQj4XaE", "title": "자고 일어났더니, 앱스토어 3위? 나만의 네컷", "speaker": "서희찬(Seochan)", "duration": "40:51", "slides": "https://drive.google.com/file/d/1wZTJfRfcS45wKcocrnYKzYUCLSSa292q/view"},
+      {"id": "a8OSqBeuJP8", "title": "현실적인 SwiftUI 적응기", "speaker": "손원영 & 김용덕(Double D)", "duration": "22:21", "slides": "https://drive.google.com/file/d/1wByaiJ9xxjsEy5awma4VBpSrXnEEx7gC/view"},
+      {"id": "05Wikx5MHbA", "title": "SPM의 동적인 사용과 TCA", "speaker": "이동혁(베어)", "duration": "19:58", "slides": "https://drive.google.com/file/d/1FQYzHM5VSW90yVGiRRp00DBNgA77weQ5/view"},
+      {"id": "mpFV2dk0Ywk", "title": "새로운 회사와 프로젝트에 빠르게 적응하는 방법", "speaker": "이태현(Jake)", "duration": "40:25", "slides": "https://drive.google.com/file/d/1iz_fKJ0n8Gchs5yNsXR8nPzOppGZUvB6/view"},
+      {"id": "sAa1Vz5zLCE", "title": "App Intents, 어떻게 쓰죠?", "speaker": "김성종", "duration": "39:26", "slides": "https://drive.google.com/file/d/15ljtU2Z4XMEYqXbyahlS_BmvuA5qcl5n/view"},
+      {"id": "-EV_kyaYZ3o", "title": "On Device Debugging EchoKit", "speaker": "김정(고드름)", "duration": "36:29", "slides": "https://drive.google.com/file/d/1-ItRxztuUXC0ce1_D8KHxk26h4Y8nCCQ/view?usp=sharing"},
+      {"id": "IsuwFjq0HlY", "title": "visionOS로 Vision 그려보기", "speaker": "이민지(Judy)", "duration": "37:51", "slides": "https://drive.google.com/file/d/1LDUSzo7Ge86oN6f9PHgfr3__rbEg-87F/view"},
+      {"id": "AK0byeN90Sg", "title": "앱의 경계를 넘다 Interactive Widget", "speaker": "유재호", "duration": "33:32", "slides": "https://drive.google.com/file/d/1mlItVPKSA-KCfB5unxfiQwLIULkD6n-h/view"}
+    ]
+  },
+  {
+    "year": 2023,
+    "videos": [
+      {"id": "KdK866IRp10", "title": "오프닝 키노트", "speaker": "고드름", "duration": "12:28"},
+      {"id": "UzLyavMqwtI", "title": "요즘 유행하는 AI 나도 해보자 (feat. CoreML)", "speaker": "곰튀김", "duration": "41:03", "slides": "https://drive.google.com/file/d/1muXd7ndmpJ7dtxzbZAUQ6bo2k1p_U_6N/view"},
+      {"id": "2ZqyWLvglP0", "title": "스위프트 매크로, 어디다 쓰죠?", "speaker": "김성종", "duration": "37:21", "slides": "https://drive.google.com/file/d/1bUrKR6Mrad-kZOCN-y6rSobhKBWsIfjx/view"},
+      {"id": "umadha26oNY", "title": "Tuist, 도입은 했는데 그래서 Modular Architecture은 어떻게 만들어가면 되나요?", "speaker": "김우성", "duration": "38:30", "slides": "https://drive.google.com/file/d/1N3kti5EYjVcBtXLntFD6T1GWvoTLtg4u/view"},
+      {"id": "vV1q9sEGadw", "title": "당근 iOS 프로젝트 성장기", "speaker": "당근팀", "duration": "35:55"},
+      {"id": "qW8L3evJU5E", "title": "Path of Swift - Swift가 프로그램이 되기까지", "speaker": "라이노", "duration": "29:01"},
+      {"id": "ARe1IkHYziY", "title": "객체가 함수를 만났을 때", "speaker": "권문범", "duration": "56:41", "slides": "https://drive.google.com/file/d/1Mjbtl-Qr7edlENAKObj4uB0G7x7Fz8NG/view"},
+      {"id": "D9H9trRKpOM", "title": "CoreBluetooth로 BLE기기를 연동할 때 마주하는 문제들과 부딪혀보기", "speaker": "허성진", "duration": "30:25", "slides": "https://drive.google.com/file/d/1XuQAZcmJvI49mKx1-Es3VDZIzIZ_whDe/view"},
+      {"id": "JnmK70A3LZA", "title": "오픈 소스로서의 Swift 깊게 바라보기: Swift-evolution과 proposal", "speaker": "이승준", "duration": "28:29", "slides": "https://drive.google.com/file/d/1P4Ii70uQhUbX4vkf9Ms7RIYEXaFfpita/view"},
+      {"id": "KZfsqZJdt74", "title": "SwiftUI 레이아웃과 데이터 플로우 이해하기", "speaker": "허원", "duration": "28:29", "slides": "https://drive.google.com/file/d/1Zsjx5GJag-6PuvZagFvI-GIxMy-jaNAy/view"},
+      {"id": "MeM8hdDf2Z0", "title": "Metal Shader로 달라지는 UX/UI의 변화", "speaker": "안솔찬", "duration": "16:15", "slides": "https://drive.google.com/file/d/1UHGGHxi8ONfvGfRsYGUjX9-r-YDh6LDh/view"},
+      {"id": "PaClYRM5qZw", "title": "SwiftUI border 어디까지 그려보셨나요?", "speaker": "리이오", "duration": "17:34", "slides": "https://drive.google.com/file/d/1voDAC-tPwFyeHLnRQ69C5ndqflkcE3xt/view"},
+      {"id": "Rx9bim6-wOU", "title": "잊지마세요 Unwind Segue - 생각보다 Segue는 \"여전히\" 유용합니다", "speaker": "방현석", "duration": "20:36", "slides": "https://drive.google.com/file/d/1HiQ8ArklOEJC1GFDFmvOszEbclMwodby/view"},
+      {"id": "Tto6BJFAicA", "title": "iOS 애플리케이션 개발 생산성 고찰 - 빠른 퇴근을 위한 우리는 어떻게 해야할 것인가?", "speaker": "안정민", "duration": "25:52", "slides": "https://drive.google.com/file/d/12P9BK3aWziaROek-5dTCkRaGZtUhOq8Z/view"},
+      {"id": "sh66E-wYOA4", "title": "Swift로 Cross Platform 하기", "speaker": "안지훈", "duration": "18:52", "slides": "https://drive.google.com/file/d/1A_Gp_ISZtAC2OCnv3qzKcRPEawC9k5iM/view"},
+      {"id": "3ZWDTgOmZGk", "title": "Xcode 프로젝트와 컴파일러 인덱스로 의존성 찾기", "speaker": "고드름", "duration": "32:53", "slides": "https://drive.google.com/file/d/1qjhmwU8VIqzIB3ICPdCM-WgBp2_XWc6f/view"}
+    ]
+  },
+  {
+    "year": 2022,
+    "videos": [
+      {"id": "b8JPjHK5wvw", "title": "키노트", "speaker": "고드름", "duration": "16:10"},
+      {"id": "Kbx_lBhhwDA", "title": "인증서와 프로비저닝 프로파일", "speaker": "강수진", "duration": "20:26"},
+      {"id": "BjvVfUQtsOs", "title": "우린 같은곳을 바라보고 있을까요?", "speaker": "박용권", "duration": "21:29"},
+      {"id": "3k3LyFBKwyo", "title": "비전공 대졸 경력0년차 초주니어의 iOS 개발자로 살아남기", "speaker": "권은빈", "duration": "22:01"},
+      {"id": "PU8FkRTMc2M", "title": "PencilKit과 Point in polygon 알고리즘을 활용한 올가미 툴 개발기", "speaker": "이해석", "duration": "21:10"},
+      {"id": "kfuOcu0q0Ls", "title": "Modular Architecture with Tuist", "speaker": "김우성", "duration": "34:24"},
+      {"id": "QHaVLYGqjvs", "title": "테크스펙으로 모두가 함께 성장하기", "speaker": "류성두", "duration": "23:51"},
+      {"id": "koOZNqT1NNM", "title": "Migration to tvOS", "speaker": "손원영", "duration": "22:18"},
+      {"id": "diodVQ0yO_Y", "title": "키노트", "speaker": "리이오", "duration": "13:02"},
+      {"id": "IAj-9MQLsvY", "title": "사업가의 눈으로 본 iOS 개발자의 미래", "speaker": "이재관", "duration": "21:16"},
+      {"id": "2DO420E9lvs", "title": "(워크숍) SwiftUI와 TCA로 GithubSearch 앱 만들기", "speaker": "허규영", "duration": "51:14"},
+      {"id": "XDaaN9MLPvQ", "title": "우당탕탕! SafariExtension에서 XcodeExtension까지", "speaker": "이다혜", "duration": "18:10"},
+      {"id": "2F2ao66eDUw", "title": "iOS 개발에서 알아두면 좋은 것들", "speaker": "강민규, 안정민", "duration": "32:58"},
+      {"id": "K_elCcD27IA", "title": "(티타임) 당근마켓 iOS 개발문화", "duration": "19:19"},
+      {"id": "BjevH2P84Rg", "title": "SwiftUI가 UIKit품기 vs UIKit이 SwiftUI 품기", "speaker": "김예원, 리이오", "duration": "18:55"},
+      {"id": "QEatbenQC7E", "title": "(워크숍) 그래서 테스트코드는 어떻게 작성하고 있나요?", "speaker": "윤중현", "duration": "1:04:18"}
+    ]
+  },
+  {
+    "year": 2020,
+    "videos": [
+      {"id": "MMyfZ3pX2TA", "title": "레츠스위프트 2020 테크토크 Day#1", "duration": "2:14:33"},
+      {"id": "1KWRic-e5gg", "title": "레츠스위프트 2020 테크토크 Day#2", "duration": "2:16:54"},
+      {"id": "yXcRDHrHnik", "title": "레츠스위프트 2020 테크토크 Day#3", "duration": "2:08:33"},
+      {"id": "Pm8mgJXRHCY", "title": "레츠스위프트 2020 테크토크 Day#4", "duration": "2:04:44"},
+      {"id": "rq2SqGi7LRs", "title": "레츠스위프트 2020 테크토크 Day#5", "duration": "2:13:09"}
+    ]
+  },
+  {
+    "year": 2019,
+    "videos": [
+      {"id": "Y273NDkYBg4", "title": "RxSwift to Combine", "speaker": "박보영", "duration": "38:05", "slides": "https://www.slideshare.net/BoYoungPark11/rxswift-to-combine-192620911"},
+      {"id": "okWX5Ub-lUc", "title": "Behind Scene of Delightful Experience", "speaker": "백성욱", "duration": "22:27", "slides": "https://www.slideshare.net/ssuserfc47fa/behind-scene-of-delightful-experience-letswift-2019"},
+      {"id": "u6bIQWy0KwU", "title": "미려한 UI/UX를 위한 여정", "speaker": "강승철", "duration": "44:17", "slides": "https://www.slideshare.net/seungchulkang39/uiux-193451561"},
+      {"id": "3XS6xLzKRjc", "title": "MVC, MVVM, ReactorKit, Viper를 거쳐 RIB 정착기", "speaker": "안정민", "duration": "26:34", "slides": "https://speakerdeck.com/minsone/mvc-mvvm-reactorkit-viperreul-geocyeo-rib-jeongcaggi"},
+      {"id": "Gr-rwKqIaeE", "title": "Swift in SwiftUI", "speaker": "이봉원", "duration": "18:29", "slides": "https://www.slideshare.net/itpersons/swift-in-swiftui"},
+      {"id": "eGerQUlXeyg", "title": "Xcode Previews - IB 없이 개발하기", "speaker": "김남현", "duration": "40:56", "slides": "https://speakerdeck.com/vcnc/xcode-previews-ibeobsi-gaebalhagi"},
+      {"id": "tVWKUMxyqVo", "title": "RxTest 같이 시작하기", "speaker": "이병찬", "duration": "17:05", "slides": "https://www.slideshare.net/ssuser750dc6/rxswift-testing-feat-rxblocking-rxtest-192641266"},
+      {"id": "zKPB8rnS-EM", "title": "iOS 앱에서 머신러닝이 해결할 수 있는 문제들", "speaker": "곽도영", "duration": "35:10", "slides": "https://www.slideshare.net/DoyoungGwak/lets-swift-2019-ios"},
+      {"id": "EzjyuEf61Vo", "title": "코드로 iOS UI 편하게 작업하기 위한 라이브러리 작업", "speaker": "이정우", "duration": "17:02", "slides": "http://letswift.kr/2019/resources/Session10_JungwooLEE.pdf"},
+      {"id": "KUEe1tc2CbE", "title": "워크숍#2 - 클린코드, 클린아키텍처", "speaker": "김정", "duration": "1:16:49", "slides": "https://www.slideshare.net/godrm/letswift19cleanarchitecture"}
+    ]
+  },
+  {
+    "year": 2018,
+    "videos": [
+      {"id": "xZ5IywL9Zkg", "title": "Let'Swift 2018 키노트", "speaker": "김정", "duration": "17:49"},
+      {"id": "_2t24zQvRFs", "title": "사이드프로젝트로 앱스토어1위공략하기", "speaker": "노수진", "duration": "29:21"},
+      {"id": "BDuVrhfnsnE", "title": "iOS Ruby", "speaker": "김은영", "duration": "29:15"},
+      {"id": "fWdXnLERm8E", "title": "TDS(Toss Design System) v2 소개", "speaker": "이택규", "duration": "24:38"},
+      {"id": "BvPW-cd8mpw", "title": "RxRIBs, Multiplatform architecture with Rx", "speaker": "김남현", "duration": "29:54"},
+      {"id": "G1b1sBy8XBA", "title": "Reactor Kit으로 RxSwift 시작하기", "speaker": "김태준", "duration": "23:13"},
+      {"id": "ypI9VP0Q48k", "title": "ReSwift와 함께 Unidirectional Architecture", "speaker": "황재욱", "duration": "25:51"},
+      {"id": "DsE-sagI04A", "title": "RxSwift Internal", "speaker": "오진성", "duration": "29:40"},
+      {"id": "4JW8kku0V5I", "title": "GraphQL over Rest API", "speaker": "이봉원", "duration": "28:29"},
+      {"id": "S5tJi4KCItI", "title": "SIMD&MPS in Swift", "speaker": "양승헌", "duration": "34:34"},
+      {"id": "meTnd09Pf_M", "title": "Let's TDD", "speaker": "전수열", "duration": "1:17:40", "slides": "https://www.dropbox.com/s/mv1hyk0fcra5czu/workshop%234.Let%27s%20TDD.pdf?dl=0"}
+    ]
+  },
+  {
+    "year": 2017,
+    "videos": [
+      {"id": "pPcijkdS6TY", "title": "2017 키노트", "speaker": "김정", "duration": "18:32", "slides": "https://www.slideshare.net/godrm/letswift-17"},
+      {"id": "uIqP4SmSFww", "title": "What's New Swift 4", "speaker": "김영후", "duration": "31:02", "slides": "https://www.slideshare.net/m212a/whats-new-in-swift-4"},
+      {"id": "1wmn97Csi9g", "title": "Swift, Kotlin과 모던 언어의 특징", "speaker": "유용하", "duration": "32:11", "slides": "https://www.slideshare.net/YongHaYoo/swift-kotlin-and-modern-languages-80109300"},
+      {"id": "0yj6ftn1Nzw", "title": "Concurrency in Swift", "speaker": "허혁", "duration": "32:21", "slides": "https://www.slideshare.net/HyukHur/letswift-concurrency-in-swift"},
+      {"id": "mB9d5RDNryw", "title": "Metal 기반 특별한 UI/UX 제공하기", "speaker": "이선협", "duration": "25:20", "slides": "https://www.slideshare.net/sunhyouplee/metal-uiux-letswift-2017"},
+      {"id": "ODQE1u8S8_8", "title": "iOS 11 ARKit 시작하기", "speaker": "이봉원", "duration": "32:08", "slides": "https://www.slideshare.net/itpersons/letswift-2017-arkit-80104374"},
+      {"id": "338FdLzGhhY", "title": "토스의 개발/배포 환경", "speaker": "손민탁", "duration": "33:14", "slides": "https://www.slideshare.net/MintakSon/ios-80115427"},
+      {"id": "3eneYtXdmR4", "title": "Server-less vs. Server-side", "speaker": "Bob Lee", "duration": "24:08", "slides": "https://www.slideshare.net/BobLee51/serverless-vs-serversideswift-80097785"},
+      {"id": "WN6s3xWZ3tw", "title": "RxSwift 활용하기", "speaker": "최완복", "duration": "32:27", "slides": "https://www.slideshare.net/imyostarr/rxswift-letswift-2017"},
+      {"id": "ASwBnMJNUK4", "title": "ReactorKit으로 단방향 반응형 앱 만들기", "speaker": "전수열", "duration": "31:28", "slides": "https://www.slideshare.net/secret/J5DTIzT3e4sSZu"}
+    ]
+  },
+  {
+    "year": 2016,
+    "videos": [
+      {"id": "7MfHsBuQQSs", "title": "스위프트 3.0", "speaker": "박세현", "duration": "25:05", "slides": "http://www.slideshare.net/SehyunPark10/letswift-swift-30"},
+      {"id": "feGlHLMgCs4", "title": "개발환경의 변화", "speaker": "허혁", "duration": "36:46", "slides": "http://www.slideshare.net/mobile/HyukHur/swift-and-xcode8"},
+      {"id": "z8TVNbf-qnM", "title": "Do Swift", "speaker": "김윤봉", "duration": "25:47", "slides": "http://www.slideshare.net/kyb714/do-swift-swift"},
+      {"id": "vg3SaKZukMs", "title": "스위프트 Internals", "speaker": "김정", "duration": "38:38", "slides": "http://www.slideshare.net/godrm/swift-internals-63879936"},
+      {"id": "08S9oMQypV4", "title": "안드로이드 개발자를 위한 스위프트", "speaker": "유병한", "duration": "25:56", "slides": "http://www.slideshare.net/YooByungHan/ss-63978821"},
+      {"id": "twoCv0vf4F0", "title": "RxSwift 시작하기", "speaker": "최완복", "duration": "33:11", "slides": "http://www.slideshare.net/imyostarr/letswift-rxswift"},
+      {"id": "xH8G-WBVYi0", "title": "스위프트 패키지 매니저", "speaker": "윤성관", "duration": "29:02", "slides": "http://www.slideshare.net/lingostar/swift-package-manager"},
+      {"id": "9gkzHUsQiUc", "title": "프로토콜 오리엔티드 프로그래밍", "speaker": "조성규", "duration": "30:42", "slides": "http://www.slideshare.net/JoSeongGyu/protocol-oriented-programming-in-swift"},
+      {"id": "z1Gf6EosaUQ", "title": "스위프트 성능 이해하기", "speaker": "유용하", "duration": "42:57", "slides": "http://www.slideshare.net/YongHaYoo/ss-63881606"},
+      {"id": "doEK3fK8M4I", "title": "모바일 데이터베이스 Realm", "speaker": "박민우", "duration": "15:58"}
+    ]
+  }
+]

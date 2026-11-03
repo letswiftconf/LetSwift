@@ -17,7 +17,7 @@ struct PreviousView: View {
                             placement: .automatic,
                             prompt: "세션 이름을 검색해보세요")
                 .navigationTitle("video.title")
-                .navigationSubtitle(previousViewModel.selectedYear)
+                .navigationSubtitle(subtitle)
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -26,16 +26,22 @@ struct PreviousView: View {
                     }
                 }
         }
-        .task(id: previousViewModel.selectedYear) {
-            await previousViewModel.loadVideoData(for: previousViewModel.selectedYear)
+    }
+
+    private var subtitle: Text {
+        if let year = previousViewModel.selectedYear {
+            Text(String(year))
+        } else {
+            Text("video.filter.all")
         }
     }
 
     private var yearFilterMenu: some View {
         Menu {
             Picker("video.filter.year", selection: $previousViewModel.selectedYear) {
+                Text("video.filter.all").tag(Int?.none)
                 ForEach(previousViewModel.years, id: \.self) { year in
-                    Text(year).tag(year)
+                    Text(String(year)).tag(Int?.some(year))
                 }
             }
         } label: {

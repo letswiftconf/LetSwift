@@ -12,13 +12,13 @@ struct VideoListView: View {
 
     var body: some View {
         List {
-            ForEach(sections, id: \.year) { conference in
+            ForEach(sections) { conference in
                 Section(String(conference.year)) {
-                    ForEach(conference.items) { item in
+                    ForEach(conference.videos) { video in
                         NavigationLink {
-                            VideoDetailView(item: item, year: conference.year)
+                            VideoDetailView(video: video, year: conference.year)
                         } label: {
-                            VideoListItemView(item: item)
+                            VideoListItemView(video: video)
                         }
                     }
                 }
@@ -29,32 +29,32 @@ struct VideoListView: View {
 }
 
 struct VideoListItemView: View {
-    let item: VideoItem
+    let video: Video
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            VideoThumbnail(item: item, cornerRadius: 8, showsPlayBadge: true)
+            VideoThumbnail(video: video, cornerRadius: 8, showsPlayBadge: true)
                 .frame(width: 128)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.title)
+                Text(video.title)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.primary)
                     .lineLimit(3)
                     .multilineTextAlignment(.leading)
 
-                if !item.speaker.isEmpty {
-                    Text(item.speaker)
+                if let speaker = video.speaker {
+                    Text(speaker)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                 }
 
                 HStack(spacing: 10) {
-                    if !item.timeLine.isEmpty {
-                        captionItem(Text(item.timeLine), systemImage: "clock")
+                    if let duration = video.duration {
+                        captionItem(Text(duration), systemImage: "clock")
                     }
-                    if item.hasReference {
+                    if video.slides != nil {
                         captionItem(Text("video.slides"), systemImage: "doc.text")
                     }
                 }
@@ -78,7 +78,7 @@ struct VideoListItemView: View {
 
 /// 16:9 YouTube-style thumbnail with an optional play badge.
 struct VideoThumbnail: View {
-    let item: VideoItem
+    let video: Video
     var cornerRadius: CGFloat = 8
     var showsPlayBadge = false
 
@@ -86,7 +86,7 @@ struct VideoThumbnail: View {
         Color(.systemGray5)
             .aspectRatio(16 / 9, contentMode: .fit)
             .overlay {
-                AsyncImage(url: URL(string: item.thumbnail)) { image in
+                AsyncImage(url: video.thumbnailURL) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)

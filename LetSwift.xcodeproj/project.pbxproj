@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21C0FFEE2EB8A02100A1B2C3 /* videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A02000A1B2C3 /* videos.json */; };
 		21C0FFEE2EB8A00100A1B2C3 /* WebsiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */; };
 		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		214AA45A2C42298500C1C747 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4592C42298500C1C747 /* MoreView.swift */; };
@@ -55,33 +56,9 @@
 		21FF02362E9A219E00E44F61 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02352E9A219E00E44F61 /* ListItem.swift */; };
 		21FF02532E9B9F8600E44F61 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF02522E9B9F8600E44F61 /* AppIconView.swift */; };
 		21FF027E2E9C7D2D00E44F61 /* LetSwift-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B846C24D2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
-		B846C24E2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
-		B846C24F2E9F84DF002B4B3F /* playlist-2024.json in Resources */ = {isa = PBXBuildFile; fileRef = B846C24C2E9F84D7002B4B3F /* playlist-2024.json */; };
 		C1C3693F2CE3161A0027BDC2 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3693E2CE3161A0027BDC2 /* TabItem.swift */; };
 		C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */; };
 		D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F97F82CA47F27007BF1C9 /* PreviousView.swift */; };
-		D22F98042CA48039007BF1C9 /* playlist-2023.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98032CA48039007BF1C9 /* playlist-2023.json */; };
-		D22F98052CA48039007BF1C9 /* playlist-2016.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FD2CA48039007BF1C9 /* playlist-2016.json */; };
-		D22F98062CA48039007BF1C9 /* playlist-2019.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98002CA48039007BF1C9 /* playlist-2019.json */; };
-		D22F98072CA48039007BF1C9 /* playlist-2020.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98012CA48039007BF1C9 /* playlist-2020.json */; };
-		D22F98082CA48039007BF1C9 /* playlist-2022.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98022CA48039007BF1C9 /* playlist-2022.json */; };
-		D22F98092CA48039007BF1C9 /* playlist-2018.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FF2CA48039007BF1C9 /* playlist-2018.json */; };
-		D22F980A2CA48039007BF1C9 /* playlist-2017.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FE2CA48039007BF1C9 /* playlist-2017.json */; };
-		D22F980B2CA48039007BF1C9 /* playlist-2023.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98032CA48039007BF1C9 /* playlist-2023.json */; };
-		D22F980C2CA48039007BF1C9 /* playlist-2016.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FD2CA48039007BF1C9 /* playlist-2016.json */; };
-		D22F980D2CA48039007BF1C9 /* playlist-2019.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98002CA48039007BF1C9 /* playlist-2019.json */; };
-		D22F980E2CA48039007BF1C9 /* playlist-2020.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98012CA48039007BF1C9 /* playlist-2020.json */; };
-		D22F980F2CA48039007BF1C9 /* playlist-2022.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98022CA48039007BF1C9 /* playlist-2022.json */; };
-		D22F98102CA48039007BF1C9 /* playlist-2018.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FF2CA48039007BF1C9 /* playlist-2018.json */; };
-		D22F98112CA48039007BF1C9 /* playlist-2017.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FE2CA48039007BF1C9 /* playlist-2017.json */; };
-		D22F98122CA48039007BF1C9 /* playlist-2023.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98032CA48039007BF1C9 /* playlist-2023.json */; };
-		D22F98132CA48039007BF1C9 /* playlist-2016.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FD2CA48039007BF1C9 /* playlist-2016.json */; };
-		D22F98142CA48039007BF1C9 /* playlist-2019.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98002CA48039007BF1C9 /* playlist-2019.json */; };
-		D22F98152CA48039007BF1C9 /* playlist-2020.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98012CA48039007BF1C9 /* playlist-2020.json */; };
-		D22F98162CA48039007BF1C9 /* playlist-2022.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F98022CA48039007BF1C9 /* playlist-2022.json */; };
-		D22F98172CA48039007BF1C9 /* playlist-2018.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FF2CA48039007BF1C9 /* playlist-2018.json */; };
-		D22F98182CA48039007BF1C9 /* playlist-2017.json in Resources */ = {isa = PBXBuildFile; fileRef = D22F97FE2CA48039007BF1C9 /* playlist-2017.json */; };
 		D22F981A2CA48912007BF1C9 /* PreviousViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F98192CA48903007BF1C9 /* PreviousViewModel.swift */; };
 		D22F98202CA48A6E007BF1C9 /* VideoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F981F2CA48A6A007BF1C9 /* VideoListView.swift */; };
 		21C0FFEE2EB8A01100A1B2C3 /* VideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A01000A1B2C3 /* VideoDetailView.swift */; };
@@ -118,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		21C0FFEE2EB8A02000A1B2C3 /* videos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = videos.json; sourceTree = "<group>"; };
 		21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteView.swift; sourceTree = "<group>"; };
 		214AA4592C42298500C1C747 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		214AA45B2C4229F900C1C747 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -170,18 +148,10 @@
 		21FF02522E9B9F8600E44F61 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		21FF02742E9C7D2B00E44F61 /* LetSwift-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetSwift-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B898852C98276100A7073D /* LetSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetSwift.entitlements; sourceTree = "<group>"; };
-		B846C24C2E9F84D7002B4B3F /* playlist-2024.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2024.json"; sourceTree = "<group>"; };
 		C16B9E632C74CEAE009CCC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C1C3693E2CE3161A0027BDC2 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		C1C3694F2CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D22F97F82CA47F27007BF1C9 /* PreviousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousView.swift; sourceTree = "<group>"; };
-		D22F97FD2CA48039007BF1C9 /* playlist-2016.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2016.json"; sourceTree = "<group>"; };
-		D22F97FE2CA48039007BF1C9 /* playlist-2017.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2017.json"; sourceTree = "<group>"; };
-		D22F97FF2CA48039007BF1C9 /* playlist-2018.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2018.json"; sourceTree = "<group>"; };
-		D22F98002CA48039007BF1C9 /* playlist-2019.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2019.json"; sourceTree = "<group>"; };
-		D22F98012CA48039007BF1C9 /* playlist-2020.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2020.json"; sourceTree = "<group>"; };
-		D22F98022CA48039007BF1C9 /* playlist-2022.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2022.json"; sourceTree = "<group>"; };
-		D22F98032CA48039007BF1C9 /* playlist-2023.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "playlist-2023.json"; sourceTree = "<group>"; };
 		D22F98192CA48903007BF1C9 /* PreviousViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousViewModel.swift; sourceTree = "<group>"; };
 		21C0FFEE2EB8A01000A1B2C3 /* VideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailView.swift; sourceTree = "<group>"; };
 		D22F981F2CA48A6A007BF1C9 /* VideoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListView.swift; sourceTree = "<group>"; };
@@ -471,14 +441,7 @@
 		D22F97FC2CA47FF0007BF1C9 /* Previous */ = {
 			isa = PBXGroup;
 			children = (
-				B846C24C2E9F84D7002B4B3F /* playlist-2024.json */,
-				D22F97FD2CA48039007BF1C9 /* playlist-2016.json */,
-				D22F97FE2CA48039007BF1C9 /* playlist-2017.json */,
-				D22F97FF2CA48039007BF1C9 /* playlist-2018.json */,
-				D22F98002CA48039007BF1C9 /* playlist-2019.json */,
-				D22F98012CA48039007BF1C9 /* playlist-2020.json */,
-				D22F98022CA48039007BF1C9 /* playlist-2022.json */,
-				D22F98032CA48039007BF1C9 /* playlist-2023.json */,
+				21C0FFEE2EB8A02000A1B2C3 /* videos.json */,
 			);
 			path = Previous;
 			sourceTree = "<group>";
@@ -642,10 +605,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21C0FFEE2EB8A02100A1B2C3 /* videos.json in Resources */,
 				2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */,
-				D22F98042CA48039007BF1C9 /* playlist-2023.json in Resources */,
-				D22F98052CA48039007BF1C9 /* playlist-2016.json in Resources */,
-				D22F98062CA48039007BF1C9 /* playlist-2019.json in Resources */,
 				21DC4AA62D5AE26300880CD4 /* hyuna.jpg in Resources */,
 				21DC4AA72D5AE26300880CD4 /* oliveyoung_white.png in Resources */,
 				21DC4AAA2D5AE26300880CD4 /* arty.jpg in Resources */,
@@ -670,14 +631,9 @@
 				21DC4ACA2D5AE26300880CD4 /* my4cut_black.png in Resources */,
 				21DC4ACB2D5AE26300880CD4 /* sky.png in Resources */,
 				21DC4ACE2D5AE26300880CD4 /* jjy.png in Resources */,
-				B846C24E2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 				21DC4AD02D5AE26300880CD4 /* j.jpg in Resources */,
 				21DC4AD12D5AE26300880CD4 /* bummo.jpg in Resources */,
 				21DC4AD22D5AE26300880CD4 /* jinhee.jpg in Resources */,
-				D22F98072CA48039007BF1C9 /* playlist-2020.json in Resources */,
-				D22F98082CA48039007BF1C9 /* playlist-2022.json in Resources */,
-				D22F98092CA48039007BF1C9 /* playlist-2018.json in Resources */,
-				D22F980A2CA48039007BF1C9 /* playlist-2017.json in Resources */,
 				C1C369502CE8E1E60027BDC2 /* PrivacyInfo.xcprivacy in Resources */,
 				2199735A2C3F5F5D0015D1AF /* Assets.xcassets in Resources */,
 				214AA45E2C422A0400C1C747 /* InfoPlist.xcstrings in Resources */,
@@ -691,14 +647,6 @@
 			files = (
 				219973722C3F60EF0015D1AF /* Preview Assets.xcassets in Resources */,
 				2199736F2C3F60EF0015D1AF /* Assets.xcassets in Resources */,
-				D22F980B2CA48039007BF1C9 /* playlist-2023.json in Resources */,
-				D22F980C2CA48039007BF1C9 /* playlist-2016.json in Resources */,
-				D22F980D2CA48039007BF1C9 /* playlist-2019.json in Resources */,
-				D22F980E2CA48039007BF1C9 /* playlist-2020.json in Resources */,
-				D22F980F2CA48039007BF1C9 /* playlist-2022.json in Resources */,
-				D22F98102CA48039007BF1C9 /* playlist-2018.json in Resources */,
-				D22F98112CA48039007BF1C9 /* playlist-2017.json in Resources */,
-				B846C24D2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,14 +656,6 @@
 			files = (
 				219973892C3F61020015D1AF /* Preview Assets.xcassets in Resources */,
 				219973862C3F61020015D1AF /* Assets.xcassets in Resources */,
-				D22F98122CA48039007BF1C9 /* playlist-2023.json in Resources */,
-				D22F98132CA48039007BF1C9 /* playlist-2016.json in Resources */,
-				D22F98142CA48039007BF1C9 /* playlist-2019.json in Resources */,
-				D22F98152CA48039007BF1C9 /* playlist-2020.json in Resources */,
-				D22F98162CA48039007BF1C9 /* playlist-2022.json in Resources */,
-				D22F98172CA48039007BF1C9 /* playlist-2018.json in Resources */,
-				D22F98182CA48039007BF1C9 /* playlist-2017.json in Resources */,
-				B846C24F2E9F84DF002B4B3F /* playlist-2024.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

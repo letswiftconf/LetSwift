@@ -10,41 +10,26 @@ import SwiftUI
 @MainActor
 @Observable
 final class PreviousViewModel {
-    var searchText: String = ""
-    var conferences: [Conference] = []
-    var selectedYear: String
+    var searchText = ""
+    /// `nil` shows every year.
+    var selectedYear: Int?
 
-    private let sessionProvider = PreviousSessionProvider()
+    let conferences = VideoCatalog.conferences
 
-    var years: [String] {
-        sessionProvider.years
+    var years: [Int] {
+        conferences.map(\.year)
     }
 
-    init() {
-        self.selectedYear = sessionProvider.latestSession
-    }
-
-    /// Conferences to show, one section per year, filtered by the search text.
+    /// Conferences to show, one section per year, filtered by year and search text.
     var sections: [Conference] {
-        guard !searchText.isEmpty else { return conferences }
-        return conferences.compactMap { conference in
-            let items = conference.items.filter {
+        let byYear = selectedYear.map { year in conferences.filter { $0.year == year } } ?? conferences
+        guard !searchText.isEmpty else { return byYear }
+        return byYear.compactMap { conference in
+            let videos = conference.videos.filter {
                 $0.title.localizedCaseInsensitiveContains(searchText)
-                || $0.speaker.localizedCaseInsensitiveContains(searchText)
+                || ($0.speaker?.localizedCaseInsensitiveContains(searchText) ?? false)
             }
-            return items.isEmpty ? nil : Conference(year: conference.year, items: items)
+            return videos.isEmpty ? nil : Conference(year: conference.year, videos: videos)
         }
-    }
-
-    func loadVideoData(for year: String) async {
-        let years = year == PreviousSessionProvider.allYearsKey
-            ? Array(self.years.dropFirst())
-            : [year]
-        var result: [Conference] = []
-        for year in years {
-            result.append(await sessionProvider.getConference(for: year))
-        }
-        guard year == selectedYear else { return }
-        conferences = result
     }
 }
