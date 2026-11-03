@@ -862,22 +862,6 @@
         }
       }
     },
-    "website.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Website"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "웹사이트"
-          }
-        }
-      }
-    },
     "video.title" : {
       "localizations" : {
         "en" : {

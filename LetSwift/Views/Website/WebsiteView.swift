@@ -14,7 +14,7 @@ struct WebsiteView: View {
     var body: some View {
         NavigationStack {
             WebView(page)
-                .navigationTitle(page.title.isEmpty ? String(localized: "website.title") : page.title)
+                .navigationTitle(page.title.isEmpty ? String(localized: "home.title") : page.title)
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
