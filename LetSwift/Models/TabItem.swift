@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum TabItem: CaseIterable {
+    case website
     case home
     case session
     case previous
@@ -17,6 +18,8 @@ enum TabItem: CaseIterable {
     
     var icon: String {
         switch self {
+        case .website:
+            "globe"
         case .home:
             "house"
         case .session:
@@ -32,6 +35,8 @@ enum TabItem: CaseIterable {
     
     var title: LocalizedStringKey {
         switch self {
+        case .website:
+            "website.title"
         case .home:
             "home.title"
         case .session:
@@ -46,6 +51,6 @@ enum TabItem: CaseIterable {
     }
     
     static var tabCases: [TabItem] {
-        [.home, .session, .previous, .more]
+        [.website, .home, .session, .previous, .more]
     }
 }

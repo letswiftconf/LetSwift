@@ -26,6 +26,8 @@ struct MainView: View {
             ForEach(TabItem.tabCases, id: \.self) { item in
                 Tab(item.title, systemImage: item.icon, value: item) {
                     switch item {
+                    case .website:
+                        WebsiteView()
                     case .home:
                         HomeView()
                     case .session:

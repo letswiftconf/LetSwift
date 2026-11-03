@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21C0FFEE2EB8A00100A1B2C3 /* WebsiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */; };
 		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */; };
 		1CD16E6A2C861323006E4B53 /* SessionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD16E692C861323006E4B53 /* SessionTab.swift */; };
@@ -157,6 +158,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteView.swift; sourceTree = "<group>"; };
 		1CD16E672C8609E5006E4B53 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		1CD16E692C861323006E4B53 /* SessionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTab.swift; sourceTree = "<group>"; };
 		214AA4552C42296200C1C747 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -331,6 +333,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21C0FFEE2EB8A00200A1B2C3 /* Website */ = {
+			isa = PBXGroup;
+			children = (
+				21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */,
+			);
+			path = Website;
+			sourceTree = "<group>";
+		};
 		19F667202EA607FE00401846 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				C1C369232CE30E1B0027BDC2 /* Main */,
+				21C0FFEE2EB8A00200A1B2C3 /* Website */,
 				214AA4572C42296500C1C747 /* Home */,
 				D19F73E72C80CB2B009D0D9F /* Session */,
 				D22F97F72CA47EEE007BF1C9 /* Previous */,
@@ -924,6 +935,7 @@
 				D22F98222CA48B09007BF1C9 /* YearKeywordsView.swift in Sources */,
 				1CD16E682C8609E5006E4B53 /* SessionViewModel.swift in Sources */,
 				214AA4562C42296200C1C747 /* HomeView.swift in Sources */,
+				21C0FFEE2EB8A00100A1B2C3 /* WebsiteView.swift in Sources */,
 				C1C3693F2CE3161A0027BDC2 /* TabItem.swift in Sources */,
 				8C8A8CD72EABFBDC00E59A33 /* CachedImage.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
