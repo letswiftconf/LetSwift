@@ -11,7 +11,6 @@ import SwiftUI
 enum TabItem: CaseIterable {
     case website
     case home
-    case session
     case previous
     case more
     case search
@@ -22,8 +21,6 @@ enum TabItem: CaseIterable {
             "globe"
         case .home:
             "house"
-        case .session:
-            "music.microphone"
         case .previous:
             "tray.full"
         case .more:
@@ -39,8 +36,6 @@ enum TabItem: CaseIterable {
             "website.title"
         case .home:
             "home.title"
-        case .session:
-            "timetable.title"
         case .previous:
             "previous.title"
         case .more:
@@ -51,6 +46,6 @@ enum TabItem: CaseIterable {
     }
     
     static var tabCases: [TabItem] {
-        [.website, .home, .session, .previous, .more]
+        [.website, .home, .previous, .more]
     }
 }

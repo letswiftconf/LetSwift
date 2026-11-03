@@ -13,8 +13,6 @@ struct LetSwiftApp: App {
     
     init() {
         setTabBarAppearance()
-        // WatchConnectivity 초기화
-        _ = WatchConnectivityManager.shared
     }
     
     var body: some Scene {

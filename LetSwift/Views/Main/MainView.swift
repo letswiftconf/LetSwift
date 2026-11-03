@@ -13,8 +13,6 @@ struct MainView: View {
     
     @State var selectedTab: TabItem = .home
 
-    @State private var sessionViewModel: SessionViewModel = SessionViewModel()
-
     var body: some View {
         mainContent
             .tabBarMinimizeBehavior(.onScrollDown)
@@ -30,9 +28,6 @@ struct MainView: View {
                         WebsiteView()
                     case .home:
                         HomeView()
-                    case .session:
-                        SessionView()
-                            .environment(sessionViewModel)
                     case .previous:
                         PreviousView()
                     case .more:
