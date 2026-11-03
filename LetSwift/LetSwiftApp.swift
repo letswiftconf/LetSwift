@@ -34,5 +34,7 @@ struct LetSwiftApp: App {
         let appearance = UITabBarAppearance()
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        // Keep navigation bar buttons (incl. back button) untinted.
+        UINavigationBar.appearance().tintColor = .label
     }
 }

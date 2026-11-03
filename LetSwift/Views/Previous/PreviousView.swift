@@ -42,6 +42,7 @@ struct PreviousView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 yearFilterMenu
+                    .tint(.primary)
             }
         }
     }

@@ -24,6 +24,7 @@ struct WebsiteView: View {
                             }
                         }
                         .disabled(page.backForwardList.backList.isEmpty)
+                        .tint(.primary)
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         if page.isLoading {
@@ -32,6 +33,7 @@ struct WebsiteView: View {
                             Button("website.reload", systemImage: "arrow.clockwise") {
                                 page.reload()
                             }
+                            .tint(.primary)
                         }
                     }
                 }
