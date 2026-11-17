@@ -12,20 +12,27 @@ import EventKitUI
 
 struct WebsiteView: View {
     @State private var navigationDecider: LinkNavigationDecider
+    @State private var pageColors: PageColorsMonitor
     @State private var page: WebPage
 
     init() {
         let decider = LinkNavigationDecider()
-        let page = WebPage(navigationDecider: decider)
+        let pageColors = PageColorsMonitor()
+        let configuration = WebPage.Configuration()
+        pageColors.install(in: configuration.userContentController)
+        let page = WebPage(configuration: configuration, navigationDecider: decider)
         decider.page = page
         _navigationDecider = State(initialValue: decider)
+        _pageColors = State(initialValue: pageColors)
         _page = State(initialValue: page)
     }
 
     var body: some View {
         NavigationStack {
             WebView(page)
-                .accessibilityIgnoresInvertColors(InvertLab.mode == "web-ignore") // TEMP (Invert lab)
+                // Smart Invert reverses a light page, as it does in Safari. A page that is already dark,
+                // such as letswift.kr, keeps its own colors instead of turning into a bright negative.
+                .accessibilityIgnoresInvertColors(pageColors.pageIsDark)
                 .navigationTitle(page.title.isEmpty ? String(localized: "home.title") : page.title)
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
@@ -207,6 +214,124 @@ private struct CalendarEventEditor: UIViewControllerRepresentable {
             MainActor.assumeIsolated { dismiss() }
         }
     }
+}
+
+/// Smart Invert support for the web view. The app shows a dark page un-inverted and lets a light page invert,
+/// so a script in the page reports which of the two it is. The same script stops WebKit from re-inverting
+/// images and video on a page that is shown un-inverted: WebKit does that whenever Smart Invert is on,
+/// because it expects the whole web view to be inverted.
+@MainActor
+@Observable
+private final class PageColorsMonitor: NSObject, WKScriptMessageHandler {
+    private(set) var pageIsDark = false
+
+    func install(in controller: WKUserContentController) {
+        controller.addUserScript(WKUserScript(source: Self.script, injectionTime: .atDocumentStart, forMainFrameOnly: false))
+        controller.add(self, name: "letswiftPageColors")
+    }
+
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard message.frameInfo.isMainFrame, let isDark = message.body as? Bool else { return }
+        pageIsDark = isDark
+    }
+
+    private static let script = """
+        (() => {
+            // WebKit re-inverts images and video so that Smart Invert leaves them alone. On a page the app
+            // shows un-inverted that would turn them into negatives, so this sheet switches the re-inversion off.
+            const sheet = new CSSStyleSheet();
+            sheet.replaceSync("@media (inverted-colors: inverted) { :where(img:not(picture > img), picture, video) { filter: none; } }");
+            sheet.disabled = true;
+            document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+
+            // Whether the app shows this page un-inverted. Frames inside the page follow their parent.
+            let kept = false;
+            const keep = value => {
+                kept = value;
+                sheet.disabled = !value;
+                for (let index = 0; index < frames.length; index++) {
+                    frames[index].postMessage({ letswiftKeepsColors: value }, "*");
+                }
+            };
+            addEventListener("message", event => {
+                const data = event.data;
+                if (!data || typeof data !== "object") return;
+                if (data.letswiftAsksColors === true && event.source) {
+                    // From a frame that loaded after the last change.
+                    event.source.postMessage({ letswiftKeepsColors: kept }, "*");
+                } else if (typeof data.letswiftKeepsColors === "boolean" && self !== top && event.source === parent) {
+                    keep(data.letswiftKeepsColors);
+                }
+            });
+            if (self !== top) {
+                parent.postMessage({ letswiftAsksColors: true }, "*");
+                return;
+            }
+
+            // Main frame only from here: work out whether the page is dark, and tell the app.
+
+            // Relative luminance of a CSS color, or null if it is transparent. Painting one pixel reads any color syntax.
+            const canvas = document.createElement("canvas");
+            canvas.width = canvas.height = 1;
+            const pixel = canvas.getContext("2d", { willReadFrequently: true });
+            const luminance = color => {
+                pixel.clearRect(0, 0, 1, 1);
+                pixel.fillStyle = "transparent";
+                pixel.fillStyle = color;
+                pixel.fillRect(0, 0, 1, 1);
+                const [red, green, blue, alpha] = pixel.getImageData(0, 0, 1, 1).data;
+                if (alpha < 128) return null;
+                const linear = value => {
+                    const channel = value / 255;
+                    return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+                };
+                return 0.2126 * linear(red) + 0.7152 * linear(green) + 0.0722 * linear(blue);
+            };
+
+            // The page background is the color html paints, or else body. Dark means white text reads better on it
+            // than black text does. null: neither paints a color (yet).
+            const paintsDarkBackground = () => {
+                for (const element of [document.documentElement, document.body]) {
+                    const value = element ? luminance(getComputedStyle(element).backgroundColor) : null;
+                    if (value !== null) return value < 0.18;
+                }
+                return null;
+            };
+
+            let reported = null;
+            const report = isDark => {
+                if (isDark !== kept) keep(isDark);
+                if (isDark !== reported) {
+                    reported = isDark;
+                    webkit.messageHandlers.letswiftPageColors.postMessage(isDark);
+                }
+            };
+
+            // While the page loads, report its background as soon as it is known, so that a dark page does not
+            // flash inverted. Until then the app keeps showing the web view the way it did for the last page.
+            const watch = () => {
+                const isDark = paintsDarkBackground();
+                if (isDark !== null) report(isDark);
+                if (document.readyState !== "complete") requestAnimationFrame(watch);
+            };
+            watch();
+
+            // A page that paints no background is a light one: the default is white. That is only certain
+            // once its style sheets have loaded.
+            const settle = () => report(paintsDarkBackground() ?? false);
+            addEventListener("DOMContentLoaded", () => {
+                const sheetsLoaded = [...document.querySelectorAll("link[rel~=stylesheet i]")].every(link => link.sheet);
+                if (sheetsLoaded) settle();
+            });
+            addEventListener("load", settle);
+            // Shown again from the back-forward cache: by now the app may have another page's answer.
+            addEventListener("pageshow", event => {
+                if (!event.persisted) return;
+                reported = null;
+                settle();
+            });
+        })();
+        """
 }
 
 #Preview {
