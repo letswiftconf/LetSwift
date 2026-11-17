@@ -19,16 +19,20 @@ struct ListItem: View {
         HStack {
             Text(title)
             Spacer()
-            switch style {
-            case .none:
-                EmptyView()
-            case .disclosureIndicator:
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.secondary)
-            case .externalLink:
-                Image(systemName: "arrow.up.right")
-                    .foregroundStyle(.tertiary)
+            Group {
+                switch style {
+                case .none:
+                    EmptyView()
+                case .disclosureIndicator:
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.secondary)
+                case .externalLink:
+                    Image(systemName: "arrow.up.right")
+                        .foregroundStyle(.tertiary)
+                }
             }
+            // Like the system's disclosure indicator, the accessory leaves the room to the title at accessibility sizes.
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         }
         .contentShape(.rect)
     }

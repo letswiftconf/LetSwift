@@ -156,12 +156,7 @@ struct MoreView: View {
                 ListItem(title: "settings.requestReview", style: .externalLink)
             }
             .buttonStyle(.plain)
-            HStack {
-                Text("settings.appVersion")
-                Spacer()
-                Text(Bundle.appVersion)
-                    .foregroundStyle(.secondary)
-            }
+            LabeledContent("settings.appVersion", value: Bundle.appVersion)
         } header: {
             Text("settings.section.app")
         }

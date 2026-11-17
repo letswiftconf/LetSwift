@@ -13,6 +13,9 @@ struct VideoDetailView: View {
     @Environment(\.openURL) private var openURL
     @State private var slidesURL: URL?
 
+    /// The play button grows with its symbol.
+    @ScaledMetric(relativeTo: .title) private var playButtonSize: CGFloat = 64
+
     var body: some View {
         List {
             Section {
@@ -24,7 +27,7 @@ struct VideoDetailView: View {
                             Image(systemName: "play.fill")
                                 .font(.title)
                                 .foregroundStyle(.white)
-                                .frame(width: 64, height: 64)
+                                .frame(width: playButtonSize, height: playButtonSize)
                                 .glassEffect(.regular.interactive(), in: Circle())
                         }
                 }
