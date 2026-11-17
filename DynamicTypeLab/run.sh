@@ -148,7 +148,7 @@ build_scheme() {
     xcodebuild -project "$(tree_of "$label")/LetSwift.xcodeproj" -scheme "$scheme" -configuration Debug \
         -destination "$destination" -derivedDataPath "$LAB/.dd-$label" \
         -clonedSourcePackagesDirPath "$LAB/.dd-packages" \
-        -skipPackagePluginValidation -skipMacroValidation build >"$log" 2>&1
+        -skipPackagePluginValidation -skipMacroValidation COMPILER_INDEX_STORE_ENABLE=NO build >"$log" 2>&1
     local status=$?
     grep -E "error:|warning: .*(DynamicType|Website|Video|ListItem|AppIcon|Session|Timetable|EventView|MoreView)|BUILD (SUCCEEDED|FAILED)" "$log" | sort -u | tail -40
     return $status
