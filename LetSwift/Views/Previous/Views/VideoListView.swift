@@ -83,34 +83,35 @@ struct VideoThumbnail: View {
     var showsPlayBadge = false
 
     var body: some View {
-        Color(.systemGray5)
-            .aspectRatio(16 / 9, contentMode: .fit)
-            .overlay {
-                AsyncImage(url: video.thumbnailURL) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        // A video still is a photo: keep its real colors under Smart Invert.
-                        .accessibilityIgnoresInvertColors()
-                } placeholder: {
-                    Image(systemName: "play.rectangle")
-                        .font(.title2)
-                        .foregroundStyle(.tertiary)
+        AsyncImage(url: video.thumbnailURL) { phase in
+            Color(.systemGray5)
+                .aspectRatio(16 / 9, contentMode: .fit)
+                .overlay {
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } else {
+                        Image(systemName: "play.rectangle")
+                            .font(.title2)
+                            .foregroundStyle(.tertiary)
+                    }
                 }
-            }
-            .overlay(alignment: .bottomTrailing) {
-                if showsPlayBadge {
-                    Image(systemName: "play.fill")
-                        .font(.caption2)
-                        .foregroundStyle(.white)
-                        .padding(6)
-                        .background(.black.opacity(0.6), in: Circle())
-                        .padding(6)
-                        // Drawn on top of the still, so it stays as designed too.
-                        .accessibilityIgnoresInvertColors()
+                .overlay(alignment: .bottomTrailing) {
+                    if showsPlayBadge {
+                        Image(systemName: "play.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.white)
+                            .padding(6)
+                            .background(.black.opacity(0.6), in: Circle())
+                            .padding(6)
+                    }
                 }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                // Smart Invert: a loaded still is a photo, so it keeps its real colors, together with
+                // the badge drawn on it. Until it loads, the gray placeholder inverts like the rest of the UI.
+                .accessibilityIgnoresInvertColors(phase.image != nil)
+        }
     }
 }
 
