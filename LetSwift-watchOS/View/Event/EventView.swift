@@ -57,6 +57,7 @@ private struct EventCard: View {
     let event: CalendarEvent
 
     @Environment(\.openURL) private var openURL
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -81,7 +82,8 @@ private struct EventCard: View {
                 }
                 if let location = event.location {
                     Label(location, systemImage: "mappin.and.ellipse")
-                        .lineLimit(3)
+                        // Larger text shows the whole address instead of cutting it off.
+                        .lineLimit(dynamicTypeSize > .large ? nil : 3)
                 }
             }
             .font(.footnote)

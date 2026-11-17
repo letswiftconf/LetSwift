@@ -65,7 +65,7 @@ struct TimetableView: View {
                         .glassEffect(.clear, in: Circle())
                     
                     Image(systemName: viewModel.currentTrack.buttonText.lowercased() + ".circle")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.body.weight(.semibold))
                         .foregroundColor(.white)
                 }
             }
@@ -78,7 +78,7 @@ struct TimetableView: View {
                 
                 // Track name
                 Text(viewModel.currentTrack.displayName)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.body.weight(.medium))
                     .foregroundColor(Color(hex: "F14D35"))
             }
         }
@@ -102,11 +102,12 @@ struct TimetableView: View {
                 VStack {
                     Spacer()
                     Text("세션이 없습니다")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.caption2.weight(.medium))
                         .foregroundColor(.white.opacity(0.6))
+                        .multilineTextAlignment(.center)
                     Spacer()
                 }
-                .frame(height: 100)
+                .frame(maxWidth: .infinity, minHeight: 100)
             } else {
                 VStack(spacing: 8) {
                     ForEach(Array(viewModel.filteredSessions.enumerated()), id: \.element.id) { index, session in

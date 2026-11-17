@@ -32,13 +32,13 @@ struct SessionDetailView: View {
                         HStack {
                             Spacer()
                             Text(session.durationString)
-                                .font(.system(size: 12, weight: .regular))
+                                .font(.footnote)
                                 .foregroundColor(Color.white.opacity(0.7))
                         }
                         
                         // Session title
                         Text(session.name)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.headline)
                             .foregroundColor(.white)
                             .lineLimit(nil)
                             .multilineTextAlignment(.leading)
@@ -47,13 +47,13 @@ struct SessionDetailView: View {
                         // Speaker name
                         if !session.speakers.isEmpty {
                             Text(session.speakers.first ?? "")
-                                .font(.system(size: 12, weight: .light))
+                                .font(.footnote.weight(.light))
                                 .foregroundColor(Color.white)
                         }
                         
                         // Time range
                         Text(session.timeRange)
-                            .font(.system(size: 16, weight: .regular))
+                            .font(.body)
                             .foregroundColor(Color.white)
                     }
                     .padding(.horizontal, 8)

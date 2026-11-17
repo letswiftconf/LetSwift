@@ -177,6 +177,7 @@ struct EventCountdownView: View {
         }
     }
 
+    /// Fixed font sizes: the circular slot keeps its size whatever the text size, so the text is fitted to it.
     private var circular: some View {
         ZStack {
             AccessoryWidgetBackground()
@@ -194,32 +195,56 @@ struct EventCountdownView: View {
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])
     }
 
+    /// Text styles follow the text size. When the three lines no longer fit the slot,
+    /// the title goes first and then the date, so the countdown is never clipped.
     private var rectangular: some View {
-        VStack(alignment: .leading, spacing: 1) {
-            HStack(spacing: 4) {
-                Image(systemName: "swift")
-                Text(verbatim: "Let'Swift")
-                Spacer(minLength: 0)
-                statusText
-            }
-            .font(.headline)
-            .widgetAccentable()
-            Text(entry.event.title)
-                .font(.caption)
-                .lineLimit(1)
-            Text(entry.event.startDate, format: .dateTime.month().day().weekday().hour().minute())
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
+        ViewThatFits(in: .vertical) {
+            rectangularLines(showsTitle: true, showsDate: true)
+            rectangularLines(showsTitle: false, showsDate: true)
+            rectangularLines(showsTitle: false, showsDate: false)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])
+    }
+
+    private func rectangularLines(showsTitle: Bool, showsDate: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            // The name makes room for the countdown when both don't fit on the line.
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 4) {
+                    Image(systemName: "swift")
+                    Text(verbatim: "Let'Swift")
+                    Spacer(minLength: 0)
+                    statusText
+                }
+                HStack(spacing: 4) {
+                    Image(systemName: "swift")
+                    Spacer(minLength: 0)
+                    statusText
+                }
+            }
+            .font(.headline)
+            .lineLimit(1)
+            .widgetAccentable()
+            if showsTitle {
+                Text(entry.event.title)
+                    .font(.caption)
+                    .lineLimit(1)
+            }
+            if showsDate {
+                Text(entry.event.startDate, format: .dateTime.month().day().weekday().hour().minute())
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+        }
     }
 
     private var inline: some View {
         Text("widget.inline \(statusText)")
     }
 
+    /// Fixed font size, like the circular slot.
     private var corner: some View {
         statusText
             .font(.system(size: 16, weight: .bold, design: .rounded))
