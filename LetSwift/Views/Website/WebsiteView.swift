@@ -19,9 +19,8 @@ struct WebsiteView: View {
 
     init() {
         let decider = LinkNavigationDecider()
-        let textSize = WebTextSize()
-        var configuration = WebPage.Configuration()
-        configuration.userContentController = textSize.userContentController
+        let configuration = WebPage.Configuration()
+        let textSize = WebTextSize(userContentController: configuration.userContentController)
         let page = WebPage(configuration: configuration, navigationDecider: decider)
         decider.page = page
         _navigationDecider = State(initialValue: decider)

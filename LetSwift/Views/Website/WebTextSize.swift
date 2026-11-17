@@ -18,6 +18,8 @@ final class WebTextSize {
     private static let hosts = #"["letswift.kr"]"#
     /// The size of body text at the default text size, in points.
     private static let defaultBodySize: CGFloat = 17
+    /// How the user script starts, which tells it from the page's other user scripts.
+    private static let marker = "/* LetSwift text size */\n"
 
     /// The function in `WebTextSize.js`.
     private static let function: String? = {
@@ -29,13 +31,16 @@ final class WebTextSize {
         return source.trimmingCharacters(in: .whitespacesAndNewlines)
     }()
 
-    /// Goes into the configuration of the page to resize.
-    let userContentController = WKUserContentController()
-
+    private let userContentController: WKUserContentController
     /// How much larger body text is than at the default text size, in points.
     private var extra = 0
     /// Whether a page may hold text that was resized.
     private var hasResized = false
+
+    /// - Parameter userContentController: The one in the configuration of the page to resize.
+    init(userContentController: WKUserContentController) {
+        self.userContentController = userContentController
+    }
 
     /// Resizes the text of the page that `page` shows, and of every page it loads from now on.
     /// - Parameter bodySize: The size of body text at the current text size:
@@ -46,10 +51,17 @@ final class WebTextSize {
         guard extra != self.extra else { return }
         self.extra = extra
 
-        userContentController.removeAllUserScripts()
+        // A user script can't be removed by itself, so the page's other user scripts are put back.
+        let scripts = userContentController.userScripts
+        if scripts.contains(where: { $0.source.hasPrefix(Self.marker) }) {
+            userContentController.removeAllUserScripts()
+            for script in scripts where !script.source.hasPrefix(Self.marker) {
+                userContentController.addUserScript(script)
+            }
+        }
         if extra != 0, let script = Self.script(extra: extra) {
             userContentController.addUserScript(
-                WKUserScript(source: script, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+                WKUserScript(source: Self.marker + script, injectionTime: .atDocumentStart, forMainFrameOnly: true)
             )
             hasResized = true
         }
