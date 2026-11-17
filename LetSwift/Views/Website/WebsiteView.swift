@@ -56,9 +56,16 @@ struct WebsiteView: View {
         }
         .onAppear {
             if page.url == nil {
+#if DEBUG
+                page.load(URLRequest(url: DynamicTypeLab.webURL ?? .letswiftHome)) // TEMP (Dynamic Type lab)
+#else
                 page.load(URLRequest(url: .letswiftHome))
+#endif
             }
         }
+#if DEBUG
+        .task { await DynamicTypeLab.runWebScript(on: page) } // TEMP (Dynamic Type lab)
+#endif
     }
 }
 

@@ -17,17 +17,30 @@ struct LetSwiftApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .task {
-                    await NotificationManager.shared.requestAuthorization()
-                    if Date.now < NotificationRequest.conferenceClosingNotification.sendDate {
-                        try? await NotificationManager.shared.registerNotification(NotificationRequest.conferenceClosingNotification)
-                    }
-                }
-                .task {
-                    _ = FeatureFlagController.shared
-                }
+#if DEBUG
+            // TEMP (Dynamic Type lab)
+            if DynamicTypeLab.isActive {
+                DynamicTypeLab.rootView
+            } else {
+                appView
+            }
+#else
+            appView
+#endif
         }
+    }
+
+    private var appView: some View {
+        MainView()
+            .task {
+                await NotificationManager.shared.requestAuthorization()
+                if Date.now < NotificationRequest.conferenceClosingNotification.sendDate {
+                    try? await NotificationManager.shared.registerNotification(NotificationRequest.conferenceClosingNotification)
+                }
+            }
+            .task {
+                _ = FeatureFlagController.shared
+            }
     }
     
     func setTabBarAppearance() {

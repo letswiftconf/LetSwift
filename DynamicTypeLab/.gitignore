@@ -1,0 +1,5 @@
+.before/
+.dd-*/
+.bin/
+out/
+*.log
