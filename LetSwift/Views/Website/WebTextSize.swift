@@ -20,6 +20,8 @@ final class WebTextSize {
     private static let defaultBodySize: CGFloat = 17
     /// How the user script starts, which tells it from the page's other user scripts.
     private static let marker = "/* LetSwift text size */\n"
+    /// Where the script runs, at the start of a document and later: it keeps its state there.
+    private static var world: WKContentWorld { .page }
 
     /// The function in `WebTextSize.js`.
     private static let function: String? = {
@@ -61,7 +63,12 @@ final class WebTextSize {
         }
         if extra != 0, let script = Self.script(extra: extra) {
             userContentController.addUserScript(
-                WKUserScript(source: Self.marker + script, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+                WKUserScript(
+                    source: Self.marker + script,
+                    injectionTime: .atDocumentStart,
+                    forMainFrameOnly: true,
+                    in: Self.world
+                )
             )
             hasResized = true
         }
@@ -76,7 +83,7 @@ final class WebTextSize {
         // A page that was never resized has nothing to change, or to undo.
         guard hasResized, page.url != nil, let script = Self.script(extra: extra) else { return }
         Task {
-            _ = try? await page.callJavaScript(script)
+            _ = try? await page.callJavaScript(script, contentWorld: Self.world)
         }
     }
 
