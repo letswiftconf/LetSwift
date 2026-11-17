@@ -26,7 +26,7 @@ enum InvertLab {
 }
 
 struct InvertLabView: View {
-    /// "lab" (list thumbnails), "lab2" (glass play button), "lab3" (bundled images).
+    /// "lab" (list thumbnails), "lab2" (glass play button), "lab3" (bundled images), "lab4" (glass on swatches).
     let page: String
 
     @Environment(\.accessibilityInvertColors) private var invertColors
@@ -34,6 +34,7 @@ struct InvertLabView: View {
 
     private let still = URL(string: "https://i.ytimg.com/vi/UHh7NzGuaRM/mqdefault.jpg")
     private let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
+    private let threeColumns = [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)]
 
     var body: some View {
         ScrollView {
@@ -44,6 +45,7 @@ struct InvertLabView: View {
                 switch page {
                 case "lab2": glassPage
                 case "lab3": assetPage
+                case "lab4": glassSwatchPage
                 default: thumbnailPage
                 }
 
@@ -60,7 +62,7 @@ struct InvertLabView: View {
     // MARK: - Pages
 
     private var thumbnailPage: some View {
-        LazyVGrid(columns: columns, spacing: 10) {
+        LazyVGrid(columns: threeColumns, spacing: 10) {
             specimen("A1 nothing flagged") {
                 LabThumb(url: still, badge: false)
             }
@@ -83,14 +85,20 @@ struct InvertLabView: View {
                     showsPlayBadge: true
                 )
             }
+            specimen("V1 final thumb, loaded") {
+                LabFinalThumb(url: still, badge: true)
+            }
+            specimen("V2 final thumb, placeholder") {
+                LabFinalThumb(url: nil, badge: true)
+            }
             specimen("B1 placeholder, nothing") {
                 LabThumb(url: nil, badge: false)
             }
-            specimen("B2 placeholder, badge flagged") {
-                LabThumb(url: nil, imageFlagged: true, badge: true)
-            }
             specimen("B3 placeholder, whole") {
                 LabThumb(url: nil, badge: false, wholeFlagged: true)
+            }
+            specimen("X1 whole true, image false") {
+                LabThumb(url: still, badge: false, wholeFlagged: true, imageExplicitlyFalse: true)
             }
             specimen("S3 swatches, flagged twice") {
                 LabSwatches()
@@ -114,15 +122,23 @@ struct InvertLabView: View {
             specimen("C4 whole (image + glass)") {
                 LabThumb(url: still, glass: false, wholeFlagged: true)
             }
-            specimen("C5 placeholder, nothing") {
-                LabThumb(url: nil, glass: false)
+            specimen("V3 final detail, loaded") {
+                LabFinalThumb(url: still, glass: true, outerFlagged: true)
             }
-            specimen("C6 placeholder, glass flagged") {
-                LabThumb(url: nil, glass: true)
+            specimen("V4 final detail, placeholder") {
+                LabFinalThumb(url: nil, glass: true, outerFlagged: true)
+            }
+            specimen("V5 final thumb + glass, no outer") {
+                LabFinalThumb(url: still, glass: true)
             }
             specimen("C7 placeholder, whole") {
                 LabThumb(url: nil, glass: false, wholeFlagged: true)
             }
+        }
+    }
+
+    private var glassSwatchPage: some View {
+        LazyVGrid(columns: columns, spacing: 10) {
             specimen("C8 swatches + glass, each") {
                 LabSwatches(height: 100)
                     .accessibilityIgnoresInvertColors()
@@ -135,6 +151,11 @@ struct InvertLabView: View {
             }
             specimen("C10 swatches + glass, none") {
                 LabSwatches(height: 100)
+                    .overlay { LabGlassButton() }
+            }
+            specimen("C11 swatches only flagged + glass") {
+                LabSwatches(height: 100)
+                    .accessibilityIgnoresInvertColors()
                     .overlay { LabGlassButton() }
             }
         }
@@ -196,7 +217,20 @@ struct InvertLabView: View {
     }
 }
 
-/// Copy of `VideoThumbnail`'s layers with every Smart Invert choice switchable.
+private extension View {
+    /// Applies the Smart Invert opt-out only when asked. Passing `false` to the modifier is not neutral:
+    /// it means "follow the system setting" and overrides a flagged ancestor.
+    @ViewBuilder
+    func labFlag(_ on: Bool) -> some View {
+        if on {
+            accessibilityIgnoresInvertColors()
+        } else {
+            self
+        }
+    }
+}
+
+/// The first structure of `VideoThumbnail` with every Smart Invert choice switchable.
 private struct LabThumb: View {
     var url: URL?
     var imageFlagged = false
@@ -205,16 +239,25 @@ private struct LabThumb: View {
     /// `nil`: no glass play button. Otherwise whether the button itself is flagged.
     var glass: Bool?
     var wholeFlagged = false
+    /// Puts an explicit `accessibilityIgnoresInvertColors(false)` on the image.
+    var imageExplicitlyFalse = false
 
     var body: some View {
         Color(.systemGray5)
             .aspectRatio(16 / 9, contentMode: .fit)
             .overlay {
                 AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .accessibilityIgnoresInvertColors(imageFlagged)
+                    if imageExplicitlyFalse {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .accessibilityIgnoresInvertColors(false)
+                    } else {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .labFlag(imageFlagged)
+                    }
                 } placeholder: {
                     Image(systemName: "play.rectangle")
                         .font(.title2)
@@ -223,23 +266,67 @@ private struct LabThumb: View {
             }
             .overlay(alignment: .bottomTrailing) {
                 if let badge {
-                    Image(systemName: "play.fill")
-                        .font(.caption2)
-                        .foregroundStyle(.white)
-                        .padding(6)
-                        .background(.black.opacity(0.6), in: Circle())
-                        .padding(6)
-                        .accessibilityIgnoresInvertColors(badge)
+                    LabBadge().labFlag(badge)
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay {
                 if let glass {
-                    LabGlassButton()
-                        .accessibilityIgnoresInvertColors(glass)
+                    LabGlassButton().labFlag(glass)
                 }
             }
-            .accessibilityIgnoresInvertColors(wholeFlagged)
+            .labFlag(wholeFlagged)
+    }
+}
+
+/// The structure the app ships: the loaded still and its badge are one flagged group, the placeholder
+/// is not, and the detail screen flags the still and the glass button together from outside.
+private struct LabFinalThumb: View {
+    var url: URL?
+    var badge = false
+    var glass = false
+    var outerFlagged = false
+
+    var body: some View {
+        AsyncImage(url: url) { phase in
+            Color(.systemGray5)
+                .aspectRatio(16 / 9, contentMode: .fit)
+                .overlay {
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } else {
+                        Image(systemName: "play.rectangle")
+                            .font(.title2)
+                            .foregroundStyle(.tertiary)
+                    }
+                }
+                .overlay(alignment: .bottomTrailing) {
+                    if badge {
+                        LabBadge()
+                    }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .accessibilityIgnoresInvertColors(phase.image != nil)
+        }
+        .overlay {
+            if glass {
+                LabGlassButton()
+            }
+        }
+        .labFlag(outerFlagged)
+    }
+}
+
+private struct LabBadge: View {
+    var body: some View {
+        Image(systemName: "play.fill")
+            .font(.caption2)
+            .foregroundStyle(.white)
+            .padding(6)
+            .background(.black.opacity(0.6), in: Circle())
+            .padding(6)
     }
 }
 
@@ -258,11 +345,12 @@ private struct LabGlassButton: View {
 private struct LabSwatches: View {
     var height: CGFloat = 24
 
+    // red, orange, dark green, navy, white, black. Inverted: cyan, azure, pink, pale yellow, black, white.
     private let colors: [Color] = [
         Color(red: 1, green: 0, blue: 0),
-        Color(red: 0, green: 1, blue: 0),
-        Color(red: 0, green: 0, blue: 1),
-        Color(red: 1, green: 1, blue: 0),
+        Color(red: 1, green: 0.5, blue: 0),
+        Color(red: 0, green: 0.4, blue: 0),
+        Color(red: 0, green: 0, blue: 0.5),
         Color(red: 1, green: 1, blue: 1),
         Color(red: 0, green: 0, blue: 0),
     ]

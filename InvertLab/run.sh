@@ -7,7 +7,8 @@
 #   InvertLab/run.sh shots [modes...]   # install, capture every mode x appearance x invert, build side-by-side sheets
 #   InvertLab/run.sh cleanup            # delete the private simulator
 #
-# Environment: LAB_DEVICE_TYPE, LAB_RUNTIME (simulator choice), LAB_WAIT, LAB_WEB_WAIT (seconds before a screenshot).
+# Environment: LAB_DEVICE_TYPE, LAB_RUNTIME (simulator choice), LAB_WAIT, LAB_WEB_WAIT (seconds before a screenshot),
+# LAB_SETTLE (seconds after switching appearance or invert), LAB_APPEARANCES ("light", "dark" or "light dark").
 set -uo pipefail
 cd "$(dirname "$0")/.."
 ROOT="$PWD"
@@ -16,7 +17,7 @@ DD="$LAB/.dd"
 OUT="$LAB/out"
 SIM_NAME="LetSwift-InvertLab"
 BUNDLE="kr.codesquad.jk.letswift"
-ALL_MODES=(lab lab2 lab3 home web-ignore videos detail more appicon)
+ALL_MODES=(lab lab2 lab3 lab4 home web-ignore videos detail more appicon)
 
 udid() {
   xcrun simctl list devices | grep -F "$SIM_NAME (" | head -1 | sed -E 's/^[^(]*\(([0-9A-Fa-f-]{36})\).*$/\1/'
@@ -31,7 +32,7 @@ cmd_sim() {
   UDID="$(udid)"
   if [ -z "$UDID" ]; then
     local devtype runtime
-    devtype="${LAB_DEVICE_TYPE:-$(xcrun simctl list devicetypes | grep -E '^iPhone [0-9]+ Pro \(' | tail -1 | sed -E 's/^.*\((com\.apple[^)]*)\).*$/\1/')}"
+    devtype="${LAB_DEVICE_TYPE:-$(xcrun simctl list devicetypes | grep -E '^iPhone [0-9]+ Pro \(' | sort -t' ' -k2,2n | tail -1 | sed -E 's/^.*\((com\.apple[^)]*)\).*$/\1/')}"
     runtime="${LAB_RUNTIME:-$(xcrun simctl list runtimes | grep -E '^iOS ' | grep -v -i unavailable | tail -1 | sed -E 's/^.* (com\.apple\.CoreSimulator\.SimRuntime\.[^ ]*).*$/\1/')}"
     echo "Creating $SIM_NAME: $devtype on $runtime" >&2
     UDID="$(xcrun simctl create "$SIM_NAME" "$devtype" "$runtime")" || exit 1
@@ -71,11 +72,15 @@ cmd_shots() {
   [ ${#modes[@]} -gt 0 ] || modes=("${ALL_MODES[@]}")
   mkdir -p "$OUT/raw" "$OUT/sheets"
 
-  local appearance invert mode
-  for appearance in light dark; do
+  local appearance invert mode shot failed=0
+  local appearances=(${LAB_APPEARANCES:-light dark})
+  for appearance in "${appearances[@]}"; do
+    xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1
     xcrun simctl ui "$UDID" appearance "$appearance"
     for invert in off on; do
+      xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1
       set_invert "$invert"
+      sleep "${LAB_SETTLE:-4}"
       for mode in "${modes[@]}"; do
         xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1
         SIMCTL_CHILD_INVERT_LAB="$mode" xcrun simctl launch "$UDID" "$BUNDLE" >/dev/null
@@ -83,8 +88,15 @@ cmd_shots() {
           home|web-ignore) sleep "${LAB_WEB_WAIT:-12}" ;;
           *) sleep "${LAB_WAIT:-6}" ;;
         esac
-        xcrun simctl io "$UDID" screenshot "$OUT/raw/${mode}__${appearance}__invert-${invert}.png" >/dev/null 2>&1
-        echo "captured ${mode} ${appearance} invert-${invert}"
+        shot="$OUT/raw/${mode}__${appearance}__invert-${invert}.png"
+        rm -f "$shot"
+        xcrun simctl io "$UDID" screenshot "$shot" >/dev/null 2>&1
+        if [ -s "$shot" ]; then
+          echo "captured ${mode} ${appearance} invert-${invert}"
+        else
+          echo "FAILED ${mode} ${appearance} invert-${invert} (free: $(df -h "$OUT" | awk 'NR==2 {print $4}'))" >&2
+          failed=$((failed + 1))
+        fi
       done
     done
   done
@@ -95,13 +107,14 @@ cmd_shots() {
   # Side-by-side sheets: left = Smart Invert off, right = on.
   [ -x "$LAB/.montage" ] || swiftc -O "$LAB/montage.swift" -o "$LAB/.montage" || exit 1
   for mode in "${modes[@]}"; do
-    for appearance in light dark; do
+    for appearance in "${appearances[@]}"; do
       "$LAB/.montage" "$OUT/sheets/${mode}__${appearance}.jpg" 700 \
         "$OUT/raw/${mode}__${appearance}__invert-off.png" \
         "$OUT/raw/${mode}__${appearance}__invert-on.png"
     done
   done
   ls -l "$OUT/sheets"
+  [ "$failed" -eq 0 ] || { echo "$failed screenshots failed" >&2; return 1; }
 }
 
 cmd_cleanup() {
