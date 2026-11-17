@@ -27,6 +27,9 @@ struct VideoDetailView: View {
                                 .frame(width: 64, height: 64)
                                 .glassEffect(.regular.interactive(), in: Circle())
                         }
+                        // Smart Invert: the glass samples the still behind it, so the button and the
+                        // still have to stay un-inverted as one group. (A placeholder still inverts.)
+                        .accessibilityIgnoresInvertColors()
                 }
                 .buttonStyle(.plain)
                 .listRowInsets(EdgeInsets())
