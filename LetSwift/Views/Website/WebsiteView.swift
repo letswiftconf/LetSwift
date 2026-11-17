@@ -25,6 +25,7 @@ struct WebsiteView: View {
     var body: some View {
         NavigationStack {
             WebView(page)
+                .accessibilityIgnoresInvertColors(InvertLab.mode == "web-ignore") // TEMP (Invert lab)
                 .navigationTitle(page.title.isEmpty ? String(localized: "home.title") : page.title)
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {

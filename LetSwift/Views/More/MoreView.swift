@@ -24,6 +24,9 @@ struct MoreView: View {
 
     var body: some View {
         NavigationStack {
+            if InvertLab.mode == "appicon" { // TEMP (Invert lab)
+                AppIconView()
+            } else {
             List {
                 letswiftSection
                 passSection
@@ -35,6 +38,7 @@ struct MoreView: View {
             }
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
+            }
         }
         .safariView(item: $presentURL) { item in
             SafariView(url: item, configuration: .init(entersReaderIfAvailable: false, barCollapsingEnabled: true))

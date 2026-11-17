@@ -11,7 +11,7 @@ import StoreKit
 struct MainView: View {
     @Environment(\.requestReview) private var requestReview
     
-    @State var selectedTab: TabItem = .home
+    @State var selectedTab: TabItem = InvertLab.initialTab // TEMP (Invert lab)
 
     var body: some View {
         mainContent

@@ -12,6 +12,11 @@ struct PreviousView: View {
 
     var body: some View {
         NavigationStack {
+            if InvertLab.mode == "detail", // TEMP (Invert lab)
+               let conference = previousViewModel.conferences.first,
+               let video = conference.videos.first {
+                VideoDetailView(video: video, year: conference.year)
+            } else {
             VideoListView(sections: previousViewModel.sections)
                 .searchable(text: $previousViewModel.searchText,
                             placement: .automatic,
@@ -25,6 +30,7 @@ struct PreviousView: View {
                             .tint(.primary)
                     }
                 }
+            }
         }
     }
 

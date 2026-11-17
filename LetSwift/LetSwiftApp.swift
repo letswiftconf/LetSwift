@@ -17,8 +17,12 @@ struct LetSwiftApp: App {
     
     var body: some Scene {
         WindowGroup {
+            if InvertLab.isLabScreen { // TEMP (Invert lab)
+                InvertLabView(page: InvertLab.mode ?? "lab")
+            } else {
             MainView()
                 .task {
+                    guard InvertLab.mode == nil else { return } // TEMP (Invert lab): no permission alert in screenshots
                     await NotificationManager.shared.requestAuthorization()
                     if Date.now < NotificationRequest.conferenceClosingNotification.sendDate {
                         try? await NotificationManager.shared.registerNotification(NotificationRequest.conferenceClosingNotification)
@@ -27,6 +31,7 @@ struct LetSwiftApp: App {
                 .task {
                     _ = FeatureFlagController.shared
                 }
+            }
         }
     }
     
