@@ -90,6 +90,8 @@ struct VideoThumbnail: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        // A video still is a photo: keep its real colors under Smart Invert.
+                        .accessibilityIgnoresInvertColors()
                 } placeholder: {
                     Image(systemName: "play.rectangle")
                         .font(.title2)
@@ -104,6 +106,8 @@ struct VideoThumbnail: View {
                         .padding(6)
                         .background(.black.opacity(0.6), in: Circle())
                         .padding(6)
+                        // Drawn on top of the still, so it stays as designed too.
+                        .accessibilityIgnoresInvertColors()
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))

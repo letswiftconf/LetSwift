@@ -65,6 +65,8 @@ struct AppIconPreview: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 64, height: 64)
+                // Show the icon's real colors under Smart Invert.
+                .accessibilityIgnoresInvertColors()
                 .shadow(color: .black.opacity(0.15), radius: 3)
             Text(iconName)
                 .fontWeight(.semibold)

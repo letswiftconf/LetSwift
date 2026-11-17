@@ -26,6 +26,8 @@ struct VideoDetailView: View {
                                 .foregroundStyle(.white)
                                 .frame(width: 64, height: 64)
                                 .glassEffect(.regular.interactive(), in: Circle())
+                                // Drawn on top of the still, so it stays as designed under Smart Invert.
+                                .accessibilityIgnoresInvertColors()
                         }
                 }
                 .buttonStyle(.plain)
