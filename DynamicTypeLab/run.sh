@@ -199,16 +199,33 @@ native() {
     snap "$udid" "$dir/$name@$size.png"
 }
 
-# web <udid> <dir> <name> <size> <url> <script>
+# What the page looks like to WebKit, as JSON: whether the text size script runs, the size of body text,
+# the page's width and how wide its content is (wider means it scrolls sideways), and how many boxes limit their text.
+FACTS="const root = document.documentElement;
+return JSON.stringify({
+    script: !!window.__letswiftTextSize,
+    body: getComputedStyle(document.body).fontSize,
+    width: root.clientWidth,
+    content: root.scrollWidth,
+    limited: document.querySelectorAll('[data-letswift-app-text-limited]').length,
+    sheets: document.adoptedStyleSheets.length
+});"
+
+# web <udid> <dir> <name> <size> <url> <script>   (the script scrolls; the facts are added to <dir>/web-facts.txt)
 web() {
     local udid="$1" dir="$2" name="$3" size="$4" url="$5" script="$6"
     local result; result="$(xcrun simctl get_app_container "$udid" "$IOS_BUNDLE" data)/Documents/dtlab-web.txt"
     rm -f "$result"
-    launch "$udid" "$IOS_BUNDLE" "DT_LAB_SCREEN=home" "DT_LAB_WEB_URL=$url" "DT_LAB_WEB_JS=$script"
+    launch "$udid" "$IOS_BUNDLE" "DT_LAB_SCREEN=home" "DT_LAB_WEB_URL=$url" "DT_LAB_WEB_JS=$script
+$FACTS"
     local waited=0
     while [ ! -f "$result" ] && [ "$waited" -lt 60 ]; do sleep 1; waited=$((waited + 1)); done
-    [ -f "$result" ] && [ "$(cat "$result")" != "ok" ] && echo "  $name@$size: $(cat "$result")"
-    [ -f "$result" ] || echo "  $name@$size: the page did not settle"
+    local facts=""; [ -f "$result" ] && facts="$(cat "$result")"
+    case "$facts" in
+        "{"*) echo "$name@$size $facts" >> "$dir/web-facts.txt" ;;
+        "") echo "  $name@$size: the page did not settle" ;;
+        *) echo "  $name@$size: $facts" ;;
+    esac
     sleep 2
     snap "$udid" "$dir/$name@$size.png"
 }
@@ -216,12 +233,33 @@ web() {
 scroll_to() { # <css selector>
     echo "const el = document.querySelector('$1'); if (!el) { return 'missing $1'; }
 el.scrollIntoView({ block: 'start', behavior: 'instant' });
-await new Promise(resolve => setTimeout(resolve, 800)); return 'ok';"
+await new Promise(resolve => setTimeout(resolve, 800));"
 }
 
-SCROLL_TOP="return 'ok';"
+SCROLL_TOP=""
 SCROLL_END="window.scrollTo(0, document.documentElement.scrollHeight);
-await new Promise(resolve => setTimeout(resolve, 800)); return 'ok';"
+await new Promise(resolve => setTimeout(resolve, 800));"
+
+# web_report <dir>   (prints the pages that scroll sideways, and where the text size script did not run)
+web_report() {
+    [ -f "$1/web-facts.txt" ] || return 0
+    python3 - "$1/web-facts.txt" <<'PY'
+import json, sys
+problems = 0
+for line in open(sys.argv[1]):
+    name, _, facts = line.strip().partition(" ")
+    facts = json.loads(facts)
+    notes = []
+    if facts["content"] > facts["width"]:
+        notes.append("scrolls sideways (%s wide in %s)" % (facts["content"], facts["width"]))
+    if not name.endswith("@large") and not facts["script"]:
+        notes.append("text size script not running")
+    if notes:
+        problems += 1
+        print("  %s: %s  %s" % (name, ", ".join(notes), json.dumps(facts)))
+print("  web pages: %s" % ("%d with problems" % problems if problems else "no sideways scrolling"), "(facts: %s)" % sys.argv[1])
+PY
+}
 
 # install <udid> <bundle id> <app>
 install() {
@@ -276,8 +314,9 @@ ios_shots() {
         web "$udid" "$dir" web-conduct "$size" "$SITE/2026/CodeOfConduct/" "$SCROLL_TOP"
         web "$udid" "$dir" web-2025 "$size" "$SITE/2025/" "$SCROLL_TOP"
         web "$udid" "$dir" web-2025-mid "$size" "$SITE/2025/" "window.scrollTo(0, window.innerHeight * 2);
-await new Promise(resolve => setTimeout(resolve, 800)); return 'ok';"
+await new Promise(resolve => setTimeout(resolve, 800));"
     done
+    web_report "$dir"
     xcrun simctl ui "$udid" content_size large
     xcrun simctl shutdown "$udid" >/dev/null 2>&1
 }
