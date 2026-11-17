@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21C0FFEE2EB8A02100A1B2C3 /* videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A02000A1B2C3 /* videos.json */; };
 		21C0FFEE2EB8A00100A1B2C3 /* WebsiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */; };
+		21C0FFEE2EB8A03100A1B2C3 /* WebTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A03000A1B2C3 /* WebTextSize.swift */; };
+		21C0FFEE2EB8A03300A1B2C3 /* WebTextSize.js in Resources */ = {isa = PBXBuildFile; fileRef = 21C0FFEE2EB8A03200A1B2C3 /* WebTextSize.js */; };
 		19863D542EAFC29800C62C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219973592C3F5F5D0015D1AF /* Assets.xcassets */; };
 		214AA45A2C42298500C1C747 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AA4592C42298500C1C747 /* MoreView.swift */; };
 		214AA45C2C4229F900C1C747 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 214AA45B2C4229F900C1C747 /* Localizable.xcstrings */; };
@@ -116,6 +118,8 @@
 /* Begin PBXFileReference section */
 		21C0FFEE2EB8A02000A1B2C3 /* videos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = videos.json; sourceTree = "<group>"; };
 		21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteView.swift; sourceTree = "<group>"; };
+		21C0FFEE2EB8A03000A1B2C3 /* WebTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTextSize.swift; sourceTree = "<group>"; };
+		21C0FFEE2EB8A03200A1B2C3 /* WebTextSize.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = WebTextSize.js; sourceTree = "<group>"; };
 		214AA4592C42298500C1C747 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		214AA45B2C4229F900C1C747 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		214AA45D2C422A0400C1C747 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				21C0FFEE2EB8A00000A1B2C3 /* WebsiteView.swift */,
+				21C0FFEE2EB8A03000A1B2C3 /* WebTextSize.swift */,
+				21C0FFEE2EB8A03200A1B2C3 /* WebTextSize.js */,
 			);
 			path = Website;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21C0FFEE2EB8A02100A1B2C3 /* videos.json in Resources */,
+				21C0FFEE2EB8A03300A1B2C3 /* WebTextSize.js in Resources */,
 				2199735D2C3F5F5D0015D1AF /* Preview Assets.xcassets in Resources */,
 				21DC4AA62D5AE26300880CD4 /* hyuna.jpg in Resources */,
 				21DC4AA72D5AE26300880CD4 /* oliveyoung_white.png in Resources */,
@@ -756,6 +763,7 @@
 				D22F98202CA48A6E007BF1C9 /* VideoListView.swift in Sources */,
 				21C0FFEE2EB8A01100A1B2C3 /* VideoDetailView.swift in Sources */,
 				21C0FFEE2EB8A00100A1B2C3 /* WebsiteView.swift in Sources */,
+				21C0FFEE2EB8A03100A1B2C3 /* WebTextSize.swift in Sources */,
 				C1C3693F2CE3161A0027BDC2 /* TabItem.swift in Sources */,
 				D22F97F92CA47F29007BF1C9 /* PreviousView.swift in Sources */,
 				D978C27D2C9042510097500D /* NotificationManager.swift in Sources */,

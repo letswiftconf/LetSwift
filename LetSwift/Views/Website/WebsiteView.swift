@@ -13,13 +13,20 @@ import EventKitUI
 struct WebsiteView: View {
     @State private var navigationDecider: LinkNavigationDecider
     @State private var page: WebPage
+    @State private var textSize: WebTextSize
+    /// The size of body text, which the text of the web page follows: 17 points at the default text size.
+    @ScaledMetric(relativeTo: .body) private var bodyTextSize: CGFloat = 17
 
     init() {
         let decider = LinkNavigationDecider()
-        let page = WebPage(navigationDecider: decider)
+        let textSize = WebTextSize()
+        var configuration = WebPage.Configuration()
+        configuration.userContentController = textSize.userContentController
+        let page = WebPage(configuration: configuration, navigationDecider: decider)
         decider.page = page
         _navigationDecider = State(initialValue: decider)
         _page = State(initialValue: page)
+        _textSize = State(initialValue: textSize)
     }
 
     var body: some View {
@@ -55,12 +62,21 @@ struct WebsiteView: View {
                 .ignoresSafeArea()
         }
         .onAppear {
+            textSize.apply(bodySize: bodyTextSize, to: page)
             if page.url == nil {
 #if DEBUG
                 page.load(URLRequest(url: DynamicTypeLab.webURL ?? .letswiftHome)) // TEMP (Dynamic Type lab)
 #else
                 page.load(URLRequest(url: .letswiftHome))
 #endif
+            }
+        }
+        .onChange(of: bodyTextSize) {
+            textSize.apply(bodySize: bodyTextSize, to: page)
+        }
+        .onChange(of: page.isLoading) {
+            if !page.isLoading {
+                textSize.update(page)
             }
         }
 #if DEBUG
