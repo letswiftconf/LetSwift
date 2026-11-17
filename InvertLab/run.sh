@@ -17,7 +17,7 @@ DD="$LAB/.dd"
 OUT="$LAB/out"
 SIM_NAME="LetSwift-InvertLab"
 BUNDLE="kr.codesquad.jk.letswift"
-ALL_MODES=(lab lab2 lab3 lab4 home web-ignore videos detail more appicon)
+ALL_MODES=(lab lab2 lab3 lab4 home web-off web-tour videos detail more appicon)
 
 udid() {
   xcrun simctl list devices | grep -F "$SIM_NAME (" | head -1 | sed -E 's/^[^(]*\(([0-9A-Fa-f-]{36})\).*$/\1/'
@@ -46,6 +46,7 @@ cmd_build() {
   need_udid
   xcodebuild -project "$ROOT/LetSwift.xcodeproj" -scheme LetSwift -configuration Debug \
     -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath "$DD" \
+    COMPILER_INDEX_STORE_ENABLE=NO \
     build 2>&1 | grep -E 'error:|BUILD (SUCCEEDED|FAILED)' | tail -60
 }
 
@@ -63,6 +64,18 @@ cmd_invert() {
   set_invert "${1:-off}"
 }
 
+capture() { # name appearance invert; counts failures in the caller's $failed
+  local shot="$OUT/raw/${1}__${2}__invert-${3}.png"
+  rm -f "$shot"
+  xcrun simctl io "$UDID" screenshot "$shot" >/dev/null 2>&1
+  if [ -s "$shot" ]; then
+    echo "captured $1 $2 invert-$3"
+  else
+    echo "FAILED $1 $2 invert-$3 (free: $(df -h "$OUT" | awk 'NR==2 {print $4}'))" >&2
+    failed=$((failed + 1))
+  fi
+}
+
 cmd_shots() {
   need_udid
   local app="$DD/Build/Products/Debug-iphonesimulator/LetSwift.app"
@@ -72,7 +85,7 @@ cmd_shots() {
   [ ${#modes[@]} -gt 0 ] || modes=("${ALL_MODES[@]}")
   mkdir -p "$OUT/raw" "$OUT/sheets"
 
-  local appearance invert mode shot failed=0
+  local appearance invert mode failed=0
   local appearances=(${LAB_APPEARANCES:-light dark})
   for appearance in "${appearances[@]}"; do
     xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1
@@ -85,17 +98,17 @@ cmd_shots() {
         xcrun simctl terminate "$UDID" "$BUNDLE" >/dev/null 2>&1
         SIMCTL_CHILD_INVERT_LAB="$mode" xcrun simctl launch "$UDID" "$BUNDLE" >/dev/null
         case "$mode" in
-          home|web-ignore) sleep "${LAB_WEB_WAIT:-12}" ;;
+          home|web-off) sleep "${LAB_WEB_WAIT:-12}" ;;
+          web-tour) sleep 12 ;;
           *) sleep "${LAB_WAIT:-6}" ;;
         esac
-        shot="$OUT/raw/${mode}__${appearance}__invert-${invert}.png"
-        rm -f "$shot"
-        xcrun simctl io "$UDID" screenshot "$shot" >/dev/null 2>&1
-        if [ -s "$shot" ]; then
-          echo "captured ${mode} ${appearance} invert-${invert}"
-        else
-          echo "FAILED ${mode} ${appearance} invert-${invert} (free: $(df -h "$OUT" | awk 'NR==2 {print $4}'))" >&2
-          failed=$((failed + 1))
+        capture "$mode" "$appearance" "$invert"
+        if [ "$mode" = web-tour ]; then
+          # The app loads a light page 16 s after launch and goes back 12 s after that.
+          sleep 12
+          capture web-tour-2 "$appearance" "$invert"
+          sleep 12
+          capture web-tour-3 "$appearance" "$invert"
         fi
       done
     done
@@ -104,13 +117,19 @@ cmd_shots() {
   set_invert off
   xcrun simctl ui "$UDID" appearance light
 
-  # Side-by-side sheets: left = Smart Invert off, right = on.
+  # Side-by-side sheets: left = Smart Invert off, right = on. The raw screenshots are deleted to save disk space.
   [ -x "$LAB/.montage" ] || swiftc -O "$LAB/montage.swift" -o "$LAB/.montage" || exit 1
+  local names=()
   for mode in "${modes[@]}"; do
+    names+=("$mode")
+    [ "$mode" = web-tour ] && names+=(web-tour-2 web-tour-3)
+  done
+  for mode in "${names[@]}"; do
     for appearance in "${appearances[@]}"; do
       "$LAB/.montage" "$OUT/sheets/${mode}__${appearance}.jpg" 700 \
         "$OUT/raw/${mode}__${appearance}__invert-off.png" \
-        "$OUT/raw/${mode}__${appearance}__invert-on.png"
+        "$OUT/raw/${mode}__${appearance}__invert-on.png" \
+        && rm -f "$OUT/raw/${mode}__${appearance}__invert-off.png" "$OUT/raw/${mode}__${appearance}__invert-on.png"
     done
   done
   ls -l "$OUT/sheets"

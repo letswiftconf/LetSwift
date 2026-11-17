@@ -19,7 +19,9 @@ struct WebsiteView: View {
         let decider = LinkNavigationDecider()
         let pageColors = PageColorsMonitor()
         let configuration = WebPage.Configuration()
-        pageColors.install(in: configuration.userContentController)
+        if InvertLab.mode != "web-off" { // TEMP (Invert lab): "web-off" is the page without Smart Invert handling
+            pageColors.install(in: configuration.userContentController)
+        }
         let page = WebPage(configuration: configuration, navigationDecider: decider)
         decider.page = page
         _navigationDecider = State(initialValue: decider)
@@ -33,6 +35,15 @@ struct WebsiteView: View {
                 // Smart Invert reverses a light page, as it does in Safari. A page that is already dark,
                 // such as letswift.kr, keeps its own colors instead of turning into a bright negative.
                 .accessibilityIgnoresInvertColors(pageColors.pageIsDark)
+                .overlay(alignment: .bottomLeading) { // TEMP (Invert lab): shows the reported state on screenshots
+                    if let mode = InvertLab.mode {
+                        Text(verbatim: "\(mode) | pageIsDark=\(pageColors.pageIsDark)")
+                            .font(.caption2.monospaced())
+                            .padding(4)
+                            .background(.yellow)
+                            .foregroundStyle(.black)
+                    }
+                }
                 .navigationTitle(page.title.isEmpty ? String(localized: "home.title") : page.title)
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
@@ -65,6 +76,15 @@ struct WebsiteView: View {
         .onAppear {
             if page.url == nil {
                 page.load(URLRequest(url: .letswiftHome))
+            }
+        }
+        .task { // TEMP (Invert lab): "web-tour" goes from the dark Home page to a light page and back
+            guard InvertLab.mode == "web-tour" else { return }
+            try? await Task.sleep(for: .seconds(16))
+            page.load(URLRequest(url: URL(string: "https://en.wikipedia.org/wiki/Swift_(programming_language)")!))
+            try? await Task.sleep(for: .seconds(12))
+            if let item = page.backForwardList.backList.last {
+                page.load(item)
             }
         }
     }
