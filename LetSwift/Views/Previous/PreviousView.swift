@@ -15,6 +15,12 @@ struct PreviousView: View {
     var body: some View {
         NavigationStack {
             VideoListView(sections: previousViewModel.sections)
+                .overlay {
+                    // A search that matches nothing left a blank list, with nothing to see or for VoiceOver to read.
+                    if previousViewModel.sections.isEmpty, !previousViewModel.searchText.isEmpty {
+                        ContentUnavailableView.search(text: previousViewModel.searchText)
+                    }
+                }
                 .searchable(text: $previousViewModel.searchText,
                             placement: .automatic,
                             prompt: "세션 이름을 검색해보세요")
