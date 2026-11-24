@@ -27,7 +27,8 @@ MIN_FREE_GB=8
 IOS_SIZES="large extra-extra-extra-large accessibility-large accessibility-extra-extra-extra-large"
 IPAD_SIZES="large extra-extra-extra-large accessibility-extra-extra-extra-large"
 SMALL_SIZES="extra-extra-extra-large accessibility-extra-extra-extra-large"
-WATCH_SIZES="large extra-extra-extra-large accessibility-medium accessibility-extra-large"
+# Extra large is the text size that 44 mm and larger watches start with.
+WATCH_SIZES="large extra-large extra-extra-extra-large accessibility-medium accessibility-extra-large"
 
 die() { echo "error: $*" >&2; exit 1; }
 
@@ -51,7 +52,7 @@ size_index() {
 # simctl size name -> short label
 size_label() {
     case "$1" in
-        large) echo "L" ;; extra-extra-extra-large) echo "xxxL" ;;
+        large) echo "L" ;; extra-large) echo "xL" ;; extra-extra-extra-large) echo "xxxL" ;;
         accessibility-medium) echo "AX1" ;; accessibility-large) echo "AX2" ;;
         accessibility-extra-large) echo "AX3" ;; accessibility-extra-extra-extra-large) echo "AX5" ;;
         *) echo "$1" ;;
