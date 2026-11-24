@@ -177,6 +177,42 @@ struct EventCountdownView: View {
         }
     }
 
+    // MARK: VoiceOver
+
+    /// The countdown in words: "D-12" becomes "12 days left".
+    /// A placeholder entry has no real event, so it never speaks the made-up countdown.
+    private var spokenStatus: String {
+        if entry.isPlaceholder {
+            return String(localized: "widget.accessibility.noInfo")
+        }
+        switch status {
+        case .upcoming(let days):
+            return String(localized: "widget.accessibility.daysLeft \(days)")
+        case .today:
+            return String(localized: "widget.status.today")
+        case .live:
+            return String(localized: "widget.accessibility.live")
+        case .ended:
+            return String(localized: "widget.accessibility.past")
+        }
+    }
+
+    /// Circular and inline, as one phrase: "Let'Swift, 12 days left".
+    private var spokenSummary: String {
+        "Let'Swift, \(spokenStatus)"
+    }
+
+    /// Rectangular and the Smart Stack: event name, countdown, and the start with month and weekday in full.
+    private var spokenDetail: String {
+        if entry.isPlaceholder { return spokenSummary }
+        let event = entry.event
+        let start = event.isAllDay
+            ? event.startDate.formatted(.dateTime.month(.wide).day().weekday(.wide))
+            : event.startDate.formatted(.dateTime.month(.wide).day().weekday(.wide).hour().minute())
+        return [event.title.isEmpty ? "Let'Swift" : event.title, spokenStatus, start]
+            .joined(separator: ", ")
+    }
+
     private var circular: some View {
         ZStack {
             AccessoryWidgetBackground()
@@ -192,6 +228,9 @@ struct EventCountdownView: View {
             .padding(2)
         }
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])
+        // VoiceOver: one phrase instead of the symbol's name and "D-12".
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(spokenSummary)
     }
 
     private var rectangular: some View {
@@ -214,14 +253,20 @@ struct EventCountdownView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(spokenDetail)
     }
 
     private var inline: some View {
+        // The label is set on the Text itself: the watch face draws an inline complication's text on its own.
         Text("widget.inline \(statusText)")
+            .accessibilityLabel(spokenSummary)
     }
 
     private var corner: some View {
         statusText
+            // Only the countdown: the curved "Let'Swift" label below is real text and is spoken as it is.
+            .accessibilityLabel(spokenStatus)
             .font(.system(size: 16, weight: .bold, design: .rounded))
             .widgetAccentable()
             .widgetLabel {

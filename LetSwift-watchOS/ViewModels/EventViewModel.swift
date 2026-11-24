@@ -21,6 +21,9 @@ final class EventViewModel {
         if let data = UserDefaults.standard.data(forKey: cacheKey) {
             event = try? JSONDecoder().decode(CalendarEvent.self, from: data)
         }
+        // Nothing cached: start with the spinner, so the "no event" message
+        // isn't shown (and read by VoiceOver) before the first load.
+        isLoading = event == nil
     }
 
     func load() async {

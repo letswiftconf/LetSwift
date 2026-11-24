@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WatchKit
+import Accessibility
 
 struct TimetableView: View {
     @Bindable var viewModel: WatchSessionViewModel
@@ -19,10 +20,13 @@ struct TimetableView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             viewModel.toggleTrack()
+                            announceCurrentTrack()
                         } label: {
                             Label("track", systemImage: viewModel.currentTrack.buttonText.lowercased() + ".circle")
                                 .labelStyle(.iconOnly)
                         }
+                        // The icon is the letter of the other track.
+                        .accessibilityLabel(viewModel.currentTrack == .trackA ? Text("track.switch.b") : Text("track.switch.a"))
                     }
                 }
         .sheet(item: $selectedSession) { session in
@@ -53,6 +57,16 @@ struct TimetableView: View {
 //        .background(Color(hex: "242424"))
     }
     
+    /// VoiceOver: the track changes without a new screen, so say which one is showing now
+    /// ("Track B", or "Track B, No sessions available").
+    private func announceCurrentTrack() {
+        var announcement = viewModel.currentTrack.displayName
+        if !viewModel.isLoading, viewModel.filteredSessions.isEmpty {
+            announcement += ", " + String(localized: "세션이 없습니다")
+        }
+        AccessibilityNotification.Announcement(announcement).post()
+    }
+
     private var navigationBar: some View {
         HStack {
             // Track switch button (왼쪽)
@@ -95,6 +109,7 @@ struct TimetableView: View {
                     ProgressView()
                         .tint(Color(hex: "F14D35"))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .accessibilityLabel("timetable.loading")
                     Spacer()
                 }
                 .frame(height: 100)

@@ -295,6 +295,27 @@ struct SessionItem: Identifiable, Codable {
     }
 }
 
+// MARK: - VoiceOver
+
+extension SessionItem {
+    /// "10:00 AM", following the wearer's 12 or 24-hour setting.
+    var spokenStartTime: String {
+        startTime.formatted(date: .omitted, time: .shortened)
+    }
+
+    /// "10:00 AM to 10:40 AM". The visible "10:00 ~ 10:40" is spoken with a "tilde".
+    var spokenTimeRange: String {
+        let start = startTime.formatted(date: .omitted, time: .shortened)
+        let end = endTime.formatted(date: .omitted, time: .shortened)
+        return String(localized: "time.range \(start) \(end)")
+    }
+
+    /// "40 minutes" rather than the visible "40 min".
+    var spokenDuration: String {
+        Duration.seconds(duration).formatted(.units(allowed: [.minutes], width: .wide))
+    }
+}
+
 enum SessionType: String, Codable {
     case presentation
     case recess

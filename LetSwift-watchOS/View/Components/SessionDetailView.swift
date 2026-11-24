@@ -60,6 +60,9 @@ struct SessionDetailView: View {
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .glassContainer(radius: 18)
+                    // VoiceOver: read the card in one go, title first (the length is drawn first).
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(spokenDetails)
                     
                     // Close button - separate rounded square
 //                    Button(action: {
@@ -82,7 +85,16 @@ struct SessionDetailView: View {
             }
         }
     }
-    
+
+    /// "<title>, <speaker>, 10:00 AM to 10:40 AM, 40 minutes"
+    private var spokenDetails: String {
+        var details = [session.name]
+        // The card shows the first speaker only, so that is what is spoken.
+        if let speaker = session.speakers.first { details.append(speaker) }
+        details.append(session.spokenTimeRange)
+        details.append(session.spokenDuration)
+        return details.joined(separator: ", ")
+    }
 }
 
 // MARK: - Glass Style Extensions

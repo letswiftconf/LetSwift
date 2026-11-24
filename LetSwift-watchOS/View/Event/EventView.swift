@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import Accessibility
 
 /// Main screen: the current Let'Swift event, plus the timetable when the event has one.
 struct EventView: View {
@@ -19,6 +20,7 @@ struct EventView: View {
                     } else if eventViewModel.isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
+                            .accessibilityLabel("event.loading")
                     } else {
                         noEventView
                     }
@@ -36,9 +38,14 @@ struct EventView: View {
             .navigationTitle("Let'Swift")
         }
         .task {
+            let startedEmpty = eventViewModel.event == nil
             async let event: Void = eventViewModel.load()
             async let sessions: Void = sessionViewModel.loadSessionsOnce()
             _ = await (event, sessions)
+            // VoiceOver: the spinner gave way to the "no event" message; say so once, without moving focus.
+            if startedEmpty, eventViewModel.event == nil {
+                AccessibilityNotification.Announcement(String(localized: "event.none.title")).post()
+            }
         }
     }
 
@@ -50,6 +57,7 @@ struct EventView: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
+        .accessibilityElement(children: .combine)
     }
 }
 
@@ -60,24 +68,34 @@ private struct EventCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            statusBadge
+            // VoiceOver: one heading, name first. "Let'Swift 2026, 12 days left" rather than "D-12".
+            VStack(alignment: .leading, spacing: 8) {
+                statusBadge
 
-            Text(event.title)
-                .font(.headline)
-                .fixedSize(horizontal: false, vertical: true)
+                Text(event.title)
+                    .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(event.title.isEmpty ? "Let'Swift" : event.title))
+            .accessibilityValue(spokenStatus)
+            .accessibilityAddTraits(.isHeader)
 
+            // VoiceOver: date, time and place in one swipe, with full weekday and month names.
             VStack(alignment: .leading, spacing: 4) {
                 Label {
                     Text(event.startDate, format: .dateTime.month().day().weekday())
                 } icon: {
                     Image(systemName: "calendar")
                 }
+                .accessibilityLabel(Text(event.startDate, format: .dateTime.month(.wide).day().weekday(.wide)))
                 if !event.isAllDay {
                     Label {
                         Text(event.startDate..<event.endDate, format: .interval.hour().minute())
                     } icon: {
                         Image(systemName: "clock")
                     }
+                    .accessibilityLabel(spokenTimeRange)
                 }
                 if let location = event.location {
                     Label(location, systemImage: "mappin.and.ellipse")
@@ -86,6 +104,7 @@ private struct EventCard: View {
             }
             .font(.footnote)
             .foregroundStyle(.secondary)
+            .accessibilityElement(children: .combine)
 
             if let location = event.location, let mapsURL = Self.mapsURL(for: location) {
                 Button("event.openMaps", systemImage: "map") {
@@ -111,6 +130,27 @@ private struct EventCard: View {
         }
         .font(.caption.weight(.semibold))
         .foregroundStyle(Color(hex: "F14D35"))
+    }
+
+    /// The status badge in words: "D-12" becomes "12 days left".
+    private var spokenStatus: Text {
+        switch event.status() {
+        case .upcoming(let days): Text("event.status.daysLeft \(days)")
+        case .today: Text("event.status.today")
+        case .live: Text("event.status.live")
+        case .ended: Text("event.status.ended")
+        }
+    }
+
+    /// "10:00 AM to 4:00 PM": the dash in the visible interval is not reliably spoken as "to".
+    /// An event that spans days keeps the system's interval text, which names both dates.
+    private var spokenTimeRange: Text {
+        guard Calendar.current.isDate(event.startDate, inSameDayAs: event.endDate) else {
+            return Text(event.startDate..<event.endDate, format: .interval.hour().minute())
+        }
+        let start = event.startDate.formatted(date: .omitted, time: .shortened)
+        let end = event.endDate.formatted(date: .omitted, time: .shortened)
+        return Text("time.range \(start) \(end)")
     }
 
     private static func mapsURL(for location: String) -> URL? {
