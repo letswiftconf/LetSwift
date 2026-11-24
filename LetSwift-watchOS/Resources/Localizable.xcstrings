@@ -306,13 +306,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Favorite"
+            "value" : "Favorited"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "즐겨찾기"
+            "value" : "즐겨찾기됨"
           }
         }
       }

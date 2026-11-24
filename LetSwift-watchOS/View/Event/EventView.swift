@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import Accessibility
 
 /// Main screen: the current Let'Swift event, plus the timetable when the event has one.
 struct EventView: View {
@@ -43,8 +42,8 @@ struct EventView: View {
             async let sessions: Void = sessionViewModel.loadSessionsOnce()
             _ = await (event, sessions)
             // VoiceOver: the spinner gave way to the "no event" message; say so once, without moving focus.
-            if startedEmpty, eventViewModel.event == nil {
-                AccessibilityNotification.Announcement(String(localized: "event.none.title")).post()
+            if startedEmpty, eventViewModel.event == nil, !Task.isCancelled {
+                VoiceOver.announce(String(localized: "event.none.title"))
             }
         }
     }

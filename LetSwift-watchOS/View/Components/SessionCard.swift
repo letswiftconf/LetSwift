@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Accessibility
 
 struct SessionCard: View {
     let session: SessionItem
@@ -29,8 +28,9 @@ struct SessionCard: View {
         HapticFeedback.click()
         viewModel.toggleFavorite(session.id)
         // Confirms the change for VoiceOver, where the heart is not an element of its own.
-        let message: LocalizedStringResource = isFavorite ? "session.favorite.added" : "session.favorite.removed"
-        AccessibilityNotification.Announcement(String(localized: message)).post()
+        VoiceOver.announce(
+            isFavorite ? String(localized: "session.favorite.added") : String(localized: "session.favorite.removed")
+        )
     }
     
     var body: some View {

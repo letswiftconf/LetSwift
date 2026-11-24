@@ -24,6 +24,9 @@ struct PreviousView: View {
                 .searchable(text: $previousViewModel.searchText,
                             placement: .automatic,
                             prompt: "세션 이름을 검색해보세요")
+                .onSubmit(of: .search) { announceResultCount(after: .zero) }
+                // Don't speak a count on the detail screen or another tab.
+                .onDisappear { resultAnnouncement?.cancel() }
                 .navigationTitle("video.title")
                 .navigationSubtitle(subtitle)
                 .toolbarTitleDisplayMode(.inline)
@@ -34,16 +37,17 @@ struct PreviousView: View {
                     }
                 }
         }
-        .onChange(of: previousViewModel.searchText) { announceResultCount() }
-        .onChange(of: previousViewModel.selectedYear) { announceResultCount() }
+        // Typing with VoiceOver is slow: wait for a real pause, not for every letter.
+        .onChange(of: previousViewModel.searchText) { announceResultCount(after: .seconds(2)) }
+        .onChange(of: previousViewModel.selectedYear) { announceResultCount(after: .seconds(1)) }
     }
 
     /// The list changes silently while searching or filtering, so tell VoiceOver how many videos are listed.
-    /// Waits for a pause in typing, and is spoken after other speech so it doesn't cut off the keyboard echo.
-    private func announceResultCount() {
+    /// Spoken after other speech, so it doesn't cut off the keyboard echo or the Filter button.
+    private func announceResultCount(after delay: Duration) {
         resultAnnouncement?.cancel()
         resultAnnouncement = Task {
-            do { try await Task.sleep(for: .seconds(1)) } catch { return }  // Cancelled by the next change.
+            do { try await Task.sleep(for: delay) } catch { return }  // Cancelled by the next change.
 
             let count = previousViewModel.sections.reduce(0) { $0 + $1.videos.count }
             var announcement = AttributedString(

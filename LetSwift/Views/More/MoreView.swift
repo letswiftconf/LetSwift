@@ -205,13 +205,14 @@ struct MoreView: View {
             return
         }
 
+        // Set before the task starts, so a second activation right behind the first is caught above.
+        isLoadingPass = true
         Task {
             await downloadAndPresentPass()
         }
     }
 
     private func downloadAndPresentPass() async {
-        isLoadingPass = true
         announce("settings.pass.loading")
 
         do {

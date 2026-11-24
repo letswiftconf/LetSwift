@@ -7,7 +7,6 @@
 
 import SwiftUI
 import WatchKit
-import Accessibility
 
 struct TimetableView: View {
     @Bindable var viewModel: WatchSessionViewModel
@@ -64,7 +63,7 @@ struct TimetableView: View {
         if !viewModel.isLoading, viewModel.filteredSessions.isEmpty {
             announcement += ", " + String(localized: "세션이 없습니다")
         }
-        AccessibilityNotification.Announcement(announcement).post()
+        VoiceOver.announce(announcement)
     }
 
     private var navigationBar: some View {

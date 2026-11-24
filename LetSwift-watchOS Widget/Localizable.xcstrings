@@ -189,13 +189,13 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "정보 없음"
+            "value": "행사 정보 없음"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "No information"
+            "value": "No event information"
           }
         }
       }
