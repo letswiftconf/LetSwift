@@ -56,13 +56,16 @@ struct VideoListItemView: View {
     }
 
     private var sideBySide: some View {
-        HStack(alignment: .top, spacing: 12) {
+        // With larger text, the text has this width when `ViewThatFits` measures it, whatever it says,
+        // so every row of the list makes the same choice. It still takes all the room there is.
+        let measuredTextWidth: CGFloat? = isLargerText ? minimumTextWidth : nil
+
+        return HStack(alignment: .top, spacing: 12) {
             VideoThumbnail(video: video, cornerRadius: 8, showsPlayBadge: true)
                 .frame(width: 128)
 
-            // The ideal width is what `ViewThatFits` measures; the text still takes all the room there is.
             details
-                .frame(idealWidth: minimumTextWidth, alignment: .leading)
+                .frame(minWidth: measuredTextWidth, idealWidth: measuredTextWidth, alignment: .leading)
         }
     }
 
@@ -91,20 +94,30 @@ struct VideoListItemView: View {
                     .multilineTextAlignment(.leading)
             }
 
-            // Duration and slides share a line, or sit one below the other when they don't fit.
-            ViewThatFits(in: .horizontal) {
-                HStack(spacing: 10) {
-                    captionItems
-                }
-                .lineLimit(1)
+            Group {
+                if isLargerText {
+                    // Duration and slides share a line, or sit one below the other when they don't fit.
+                    ViewThatFits(in: .horizontal) {
+                        captionLine
 
-                VStack(alignment: .leading, spacing: 2) {
-                    captionItems
+                        VStack(alignment: .leading, spacing: 2) {
+                            captionItems
+                        }
+                    }
+                } else {
+                    captionLine
                 }
             }
             .font(.caption2)
             .foregroundStyle(.tertiary)
         }
+    }
+
+    private var captionLine: some View {
+        HStack(spacing: 10) {
+            captionItems
+        }
+        .lineLimit(1)
     }
 
     @ViewBuilder
