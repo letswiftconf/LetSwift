@@ -246,7 +246,7 @@ struct EventCountdownView: View {
             Text(entry.event.title)
                 .font(.caption)
                 .lineLimit(1)
-            Text(entry.event.startDate, format: .dateTime.month().day().weekday().hour().minute())
+            Text(entry.event.startDate, format: startFormat)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
@@ -257,14 +257,23 @@ struct EventCountdownView: View {
         .accessibilityLabel(spokenDetail)
     }
 
+    /// An all-day event has no start time to show.
+    private var startFormat: Date.FormatStyle {
+        entry.event.isAllDay
+            ? .dateTime.month().day().weekday()
+            : .dateTime.month().day().weekday().hour().minute()
+    }
+
     private var inline: some View {
+        // A placeholder has no event: show the name without the made-up countdown.
         // The label is set on the Text itself: the watch face draws an inline complication's text on its own.
-        Text("widget.inline \(statusText)")
+        (entry.isPlaceholder ? Text(verbatim: "Let'Swift") : Text("widget.inline \(statusText)"))
             .accessibilityLabel(spokenSummary)
     }
 
     private var corner: some View {
-        statusText
+        // A placeholder has no event: "--" (no value) instead of the made-up countdown.
+        (entry.isPlaceholder ? Text(verbatim: "--") : statusText)
             // Only the countdown: the curved "Let'Swift" label below is real text and is spoken as it is.
             .accessibilityLabel(spokenStatus)
             .font(.system(size: 16, weight: .bold, design: .rounded))
