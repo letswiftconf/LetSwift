@@ -149,6 +149,7 @@ extension CalendarEvent {
 struct EventCountdownView: View {
     let entry: EventEntry
     @Environment(\.widgetFamily) private var family
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var status: CalendarEvent.Status { entry.event.status(at: entry.date) }
 
@@ -195,13 +196,20 @@ struct EventCountdownView: View {
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])
     }
 
-    /// Text styles follow the text size. When the three lines no longer fit the slot,
+    /// Text styles follow the text size. With larger text, when the three lines no longer fit the slot,
     /// the title goes first and then the date, so the countdown is never clipped.
     private var rectangular: some View {
-        ViewThatFits(in: .vertical) {
-            rectangularLines(showsTitle: true, showsDate: true)
-            rectangularLines(showsTitle: false, showsDate: true)
-            rectangularLines(showsTitle: false, showsDate: false)
+        Group {
+            // Extra large is the text size that larger watches start with: up to there, the slot shows all three lines.
+            if dynamicTypeSize > .xLarge {
+                ViewThatFits(in: .vertical) {
+                    rectangularLines(showsTitle: true, showsDate: true)
+                    rectangularLines(showsTitle: false, showsDate: true)
+                    rectangularLines(showsTitle: false, showsDate: false)
+                }
+            } else {
+                rectangularLines(showsTitle: true, showsDate: true)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .redacted(reason: entry.isPlaceholder ? .placeholder : [])

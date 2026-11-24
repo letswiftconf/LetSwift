@@ -13,8 +13,6 @@ struct SessionCard: View {
     let viewModel: WatchSessionViewModel
     let isLast: Bool
     
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-
     /// The favorite button grows with its symbol.
     @ScaledMetric(relativeTo: .body) private var favoriteSize: CGFloat = 20
 
@@ -27,34 +25,11 @@ struct SessionCard: View {
         Button(action: {
             onTap()
         }) {
-            Group {
-                if dynamicTypeSize > .large {
-                    // Larger text gets the full width of the card: the favorite button moves down beside the duration.
-                    VStack(alignment: .leading, spacing: 4) {
-                        timeRange
-                        title
-                        HStack(spacing: 8) {
-                            duration
-                            Spacer(minLength: 0)
-                            favoriteButton
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                } else {
-                    HStack(spacing: 8) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            timeRange
-                                .fixedSize()
-                            title
-                            duration
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Spacer()
-                        
-                        favoriteButton
-                    }
-                }
+            // The favorite button stays beside the text while the time fits on one line there.
+            // Once it doesn't (larger text, smaller watches), the text gets the full width of the card.
+            ViewThatFits(in: .horizontal) {
+                sideBySide
+                stacked
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
@@ -64,9 +39,43 @@ struct SessionCard: View {
         .buttonStyle(.plain)
     }
     
+    private var sideBySide: some View {
+        HStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 4) {
+                timeRange
+                    .fixedSize()
+                title
+                duration
+            }
+            // With an ideal width of zero, the time is the widest thing `ViewThatFits` measures here.
+            .frame(idealWidth: 0, maxWidth: .infinity, alignment: .leading)
+
+            // No minimum length, so the button stays here for as long as the time fits beside it.
+            Spacer(minLength: 0)
+
+            favoriteButton
+        }
+    }
+    
+    /// The favorite button moves down beside the duration.
+    private var stacked: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            timeRange
+            title
+            HStack(spacing: 8) {
+                duration
+                Spacer(minLength: 0)
+                favoriteButton
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
     private var timeRange: some View {
         Text(session.timeRange)
             .font(.body.weight(.bold))
+            // Every time is as wide as the next, so every card of the timetable gets the same layout.
+            .monospacedDigit()
             .foregroundColor(.white)
     }
     

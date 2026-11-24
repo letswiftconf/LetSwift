@@ -83,7 +83,8 @@ private struct EventCard: View {
                 if let location = event.location {
                     Label(location, systemImage: "mappin.and.ellipse")
                         // Larger text shows the whole address instead of cutting it off.
-                        .lineLimit(dynamicTypeSize > .large ? nil : 3)
+                        // (Extra large is the text size that larger watches start with.)
+                        .lineLimit(dynamicTypeSize > .xLarge ? nil : 3)
                 }
             }
             .font(.footnote)
