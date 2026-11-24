@@ -25,11 +25,21 @@ struct ListItem: View {
             case .disclosureIndicator:
                 Image(systemName: "chevron.right")
                     .foregroundStyle(.secondary)
+                    .accessibilityHidden(true)
             case .externalLink:
                 Image(systemName: "arrow.up.right")
                     .foregroundStyle(.tertiary)
+                    .accessibilityHidden(true)
             }
         }
         .contentShape(.rect)
+    }
+}
+
+extension View {
+    /// Makes VoiceOver announce a row that opens a web page as a link, which is what the ↗ icon tells sighted users.
+    func accessibilityExternalLink() -> some View {
+        accessibilityRemoveTraits(.isButton)
+            .accessibilityAddTraits(.isLink)
     }
 }

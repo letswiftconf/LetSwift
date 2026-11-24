@@ -41,6 +41,7 @@ struct WebsiteView: View {
                         if page.isLoading {
                             ProgressView()
                                 .tint(.primary)
+                                .accessibilityLabel("website.loading")
                         } else {
                             Button("website.reload", systemImage: "arrow.clockwise") {
                                 page.reload()

@@ -10,6 +10,8 @@ import SwiftUI
 struct VideoListView: View {
     let sections: [Conference]
 
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
         List {
             ForEach(sections) { conference in
@@ -19,6 +21,10 @@ struct VideoListView: View {
                             VideoDetailView(video: video, year: conference.year)
                         } label: {
                             VideoListItemView(video: video)
+                        }
+                        // VoiceOver: watch straight from the list (swipe up or down on a row).
+                        .accessibilityAction(named: Text("video.detail.watch")) {
+                            openURL(video.watchURL)
                         }
                     }
                 }
@@ -52,10 +58,17 @@ struct VideoListItemView: View {
 
                 HStack(spacing: 10) {
                     if let duration = video.duration {
-                        captionItem(Text(duration), systemImage: "clock")
+                        // "20:31" is spoken as a time of day; say "20 minutes, 31 seconds".
+                        captionItem(
+                            Text(duration).accessibilityLabel(video.spokenDuration ?? duration),
+                            systemImage: "clock"
+                        )
                     }
                     if video.slides != nil {
-                        captionItem(Text("video.slides"), systemImage: "doc.text")
+                        captionItem(
+                            Text("video.slides").accessibilityLabel(Text("video.slides.available")),
+                            systemImage: "doc.text"
+                        )
                     }
                 }
                 .font(.caption2)
@@ -71,6 +84,7 @@ struct VideoListItemView: View {
         HStack(spacing: 3) {
             Image(systemName: systemImage)
                 .imageScale(.small)
+                .accessibilityHidden(true)
             text
         }
     }
@@ -107,6 +121,8 @@ struct VideoThumbnail: View {
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            // Decorative: the title is always shown with it.
+            .accessibilityHidden(true)
     }
 }
 

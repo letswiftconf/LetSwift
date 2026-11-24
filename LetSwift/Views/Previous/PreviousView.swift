@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Accessibility
 
 struct PreviousView: View {
     @State private var previousViewModel = PreviousViewModel()
+    @State private var resultAnnouncement: Task<Void, Never>?
 
     var body: some View {
         NavigationStack {
@@ -25,6 +27,26 @@ struct PreviousView: View {
                             .tint(.primary)
                     }
                 }
+        }
+        .onChange(of: previousViewModel.searchText) { announceResultCount() }
+        .onChange(of: previousViewModel.selectedYear) { announceResultCount() }
+    }
+
+    /// The list changes silently while searching or filtering, so tell VoiceOver how many videos are listed.
+    /// Waits for a pause in typing, and is spoken after other speech so it doesn't cut off the keyboard echo.
+    private func announceResultCount() {
+        resultAnnouncement?.cancel()
+        resultAnnouncement = Task {
+            do { try await Task.sleep(for: .seconds(1)) } catch { return }  // Cancelled by the next change.
+
+            let count = previousViewModel.sections.reduce(0) { $0 + $1.videos.count }
+            var announcement = AttributedString(
+                count == 0
+                ? String(localized: "video.results.none")
+                : String(localized: "video.results.count \(count)")
+            )
+            announcement.accessibilitySpeechAnnouncementPriority = .low
+            AccessibilityNotification.Announcement(announcement).post()
         }
     }
 
@@ -47,6 +69,8 @@ struct PreviousView: View {
         } label: {
             Label("video.filter", systemImage: "line.3.horizontal.decrease")
         }
+        // VoiceOver: "Filter, 2024". The selection is otherwise only in the navigation subtitle.
+        .accessibilityValue(subtitle)
     }
 }
 

@@ -61,7 +61,8 @@ struct AppIconPreview: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            Image(imageName)
+            // Decorative: the name next to it is the label (otherwise VoiceOver reads the asset name).
+            Image(decorative: imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 64, height: 64)

@@ -31,16 +31,24 @@ struct VideoDetailView: View {
                 .buttonStyle(.plain)
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.clear)
+                // The thumbnail and play glyph are pictures; name the button after what it does,
+                // like the row below that does the same.
+                .accessibilityLabel("video.detail.watch")
             }
 
             Section {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(video.title)
                         .font(.title3.weight(.bold))
+                        .accessibilityAddTraits(.isHeader)
                     if let speaker = video.speaker {
                         Label(speaker, systemImage: "person")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            // The person icon says "speaker" to sighted users; say it in words too.
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel("video.detail.speaker")
+                            .accessibilityValue(speaker)
                     }
                 }
                 .padding(.vertical, 4)
@@ -48,6 +56,10 @@ struct VideoDetailView: View {
                 LabeledContent("video.detail.event", value: "Let'Swift \(String(year))")
                 if let duration = video.duration {
                     LabeledContent("video.detail.time", value: duration)
+                        // "20:31" is spoken as a time of day; say "20 minutes, 31 seconds".
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel("video.detail.time")
+                        .accessibilityValue(video.spokenDuration ?? duration)
                 }
             }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Accessibility
 import PassKit
 import BetterSafariView
 import OSLog
@@ -56,6 +57,7 @@ struct MoreView: View {
                         .ignoresSafeArea()
                     ProgressView()
                         .tint(.white)
+                        .accessibilityLabel("settings.pass.loading")
                 }
             }
         }
@@ -71,12 +73,14 @@ struct MoreView: View {
                 ListItem(title: "settings.linkHome", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
             Button {
                 present(url: URL.letswiftNewsletter)
             } label: {
                 ListItem(title: "settings.linkNewsletter", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
             if featureFlagController.enableSurvey2025 {
                 Button {
                     presentSurveyIfAvailable()
@@ -84,6 +88,7 @@ struct MoreView: View {
                     ListItem(title: "settings.conferenceReview", style: .externalLink)
                 }
                 .buttonStyle(.plain)
+                .accessibilityExternalLink()
             }
         } header: {
             Text("settings.section.letswift")
@@ -129,18 +134,21 @@ struct MoreView: View {
                 ListItem(title: "settings.linkAppRepository", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
             Button {
                 present(url: URL.githubWebRepository)
             } label: {
                 ListItem(title: "settings.linkWebRepository", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
             Button {
                 present(url: URL.githubNewsletterRepository)
             } label: {
                 ListItem(title: "settings.linkNewsletterRepository", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
         } header: {
             Text("settings.section.openSource")
         }
@@ -156,12 +164,15 @@ struct MoreView: View {
                 ListItem(title: "settings.requestReview", style: .externalLink)
             }
             .buttonStyle(.plain)
+            .accessibilityExternalLink()
             HStack {
                 Text("settings.appVersion")
                 Spacer()
                 Text(Bundle.appVersion)
                     .foregroundStyle(.secondary)
             }
+            // One swipe: "Version, 10.0 (Build 2)".
+            .accessibilityElement(children: .combine)
         } header: {
             Text("settings.section.app")
         }
@@ -188,6 +199,11 @@ struct MoreView: View {
         guard featureFlagController.enableCommemorativePass2025 else {
             return
         }
+        guard !isLoadingPass else {
+            // The dimmed screen stops touches, but not VoiceOver, Switch Control or a keyboard.
+            announce("settings.pass.loading")
+            return
+        }
 
         Task {
             await downloadAndPresentPass()
@@ -196,6 +212,7 @@ struct MoreView: View {
 
     private func downloadAndPresentPass() async {
         isLoadingPass = true
+        announce("settings.pass.loading")
 
         do {
             logger.debug("Downloading commemorative pass...")
@@ -204,6 +221,7 @@ struct MoreView: View {
             guard let pass = try? PKPass(data: data) else {
                 logger.error("Invalid pass data")
                 isLoadingPass = false
+                announce("settings.pass.loadFailed", interrupting: true)
                 return
             }
 
@@ -214,7 +232,18 @@ struct MoreView: View {
         } catch {
             logger.error("Failed to download pass: \(error)")
             isLoadingPass = false
+            announce("settings.pass.loadFailed", interrupting: true)
         }
+    }
+
+    /// Tells VoiceOver what the pass download is doing; the spinner and its disappearance are only visible.
+    private func announce(_ message: LocalizedStringResource, interrupting: Bool = false) {
+        var announcement = AttributedString(String(localized: message))
+        if interrupting {
+            // A failure must not get lost behind other speech.
+            announcement.accessibilitySpeechAnnouncementPriority = .high
+        }
+        AccessibilityNotification.Announcement(announcement).post()
     }
 }
 
